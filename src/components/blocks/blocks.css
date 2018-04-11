@@ -20,7 +20,6 @@
     border-right: 1px solid $ui-black-transparent;
     border-bottom: 1px solid $ui-black-transparent;
     box-sizing: content-box;
-    height: calc(100% - 3.25rem) !important;
 }
 
 .blocks :global(.blocklyFlyout) {
