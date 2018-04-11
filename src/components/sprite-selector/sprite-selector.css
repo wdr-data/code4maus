@@ -46,7 +46,7 @@
               also introduces a new bug in Chrome when vertically resizing window down,
               then back up, introduces white space in the outside the page container.
     */
-    height: calc(100% - $sprite-info-height);
+    height: 100%;
     overflow-y: scroll;
 }
 

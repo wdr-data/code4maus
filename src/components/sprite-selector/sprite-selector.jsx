@@ -75,21 +75,7 @@ const SpriteSelectorComponent = function (props) {
             {...componentProps}
         >
 
-            <SpriteInfo
-                direction={selectedSprite.direction}
-                disabled={spriteInfoDisabled}
-                name={selectedSprite.name}
-                size={selectedSprite.size}
-                visible={selectedSprite.visible}
-                x={selectedSprite.x}
-                y={selectedSprite.y}
-                onChangeDirection={onChangeSpriteDirection}
-                onChangeName={onChangeSpriteName}
-                onChangeSize={onChangeSpriteSize}
-                onChangeVisibility={onChangeSpriteVisibility}
-                onChangeX={onChangeSpriteX}
-                onChangeY={onChangeSpriteY}
-            />
+            
 
             <Box className={styles.scrollWrapper}>
                 <Box className={styles.itemsWrapper}>
