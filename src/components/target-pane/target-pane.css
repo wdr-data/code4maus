@@ -3,13 +3,11 @@
 .target-pane {
     /* Makes columns for the sprite library selector + and the stage selector */
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-grow: 1;
 }
 
 .stage-selector-wrapper {
     display: flex;
-    flex-basis: 72px;
-    flex-shrink: 0;
-    margin-left: calc($space / 2);
+    height: 70px;
 }

@@ -5,11 +5,8 @@
     flex-grow: 1;
     position: relative;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin-right: calc($space / 2);
-    background-color: $ui-secondary;
-    border-top-right-radius: $space;
-    border-top-left-radius: $space;
-    border-color: $ui-black-transparent;
+    background-color: #f9f9f9;
+    border-color: #dbdbdb;
     border-width: 1px;
     border-style: solid;
     border-bottom: 0;
@@ -52,7 +49,6 @@
 
 .items-wrapper {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
 
     padding-top: calc($space / 2);

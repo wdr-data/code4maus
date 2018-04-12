@@ -5,16 +5,15 @@ $header-height: calc($stage-menu-height - 2px);
 
 .stage-selector {
     display: flex;
-    flex-direction: column;
+    width: 270px;
+    flex-direction: row-reverse;
     align-items: center;
     position: relative; /* For the add backdrop button */
     flex-grow: 1;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: $ui-white;
     color: $text-primary;
-    border-top-left-radius: $space;
-    border-top-right-radius: $space;
-    border-color: $ui-black-transparent;
+    border-color: #dbdbdb;
     border-width: 1px;
     border-style: solid;
     border-bottom: 0;
@@ -39,10 +38,8 @@ $header-height: calc($stage-menu-height - 2px);
     height: $header-height;
     background-color: white;
     color: $text-primary;
-    border-top-left-radius: $space;
-    border-top-right-radius: $space;
-    border-bottom: 1px solid $ui-black-transparent;
     width: 100%;
+    margin-right: 4rem;
 }
 
 .header-title {
@@ -72,13 +69,15 @@ $header-height: calc($stage-menu-height - 2px);
     display: block;
     width: 100%;
     user-select: none;
-    border-bottom: 1px solid $ui-black-transparent;
-    box-shadow: inset 0 0 4px $ui-black-transparent;
+    border: 1px solid rgba(0,0,0,.1);
+    margin-left: .5rem;
 }
 
 .add-button {
     position: absolute;
+    right: 1rem;
     bottom: 0.75rem;
+    z-index: 1;
 }
 
 .raised, .raised .header {

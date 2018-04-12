@@ -29,17 +29,19 @@
         Stop scrollbar popping in and out from scratch-blocks border issue
         https://github.com/LLK/scratch-gui/issues/318
     */
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .editor-wrapper {
-    flex-basis: 600px;
-    flex-grow: 1;
-    flex-shrink: 0;
+    flex: 2;
     position: relative;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+[layoutmode=BUILD] .editor-wrapper {
+    min-width: 100%;
 }
 
 .tab-list {
@@ -151,6 +153,34 @@
     position: relative;
 }
 
+.layout-switcher {
+    position: absolute;
+    padding: 0;
+    right: 0;
+    top: 50%;
+    z-index: 50;
+    border-radius: 0;
+}
+
+.layout-switcher svg {
+    background-color: white;
+    padding: .5rem;
+    border-radius: .25rem;
+    width: 3rem;
+    height: 3rem;
+    margin-left: 50%;
+    margin-top: -50%;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+
+[layoutmode=PLAY] .layout-switcher svg {
+    transform: rotate(180deg);
+}
+
+[layoutmode=BUILD] .layout-switcher svg {
+    margin-left: 30%;
+}
+
 .stage-and-target-wrapper {
     /*
         Makes rows for children:
@@ -162,15 +192,20 @@
     */
     display: flex;
     flex-direction: column;
+    flex: 1;
+}
 
-    /* Fix the max width to max stage size (defined in layout_constants.js) + gutter size */
-    max-width: calc(480px + calc($space * 2));
+[layoutmode=BUILD] .stage-and-target-wrapper {
+    transform: translateX(100%);
 }
 
 .target-wrapper {
-    display: flex;
-    flex-grow: 1;
-    flex-basis: 0;
+    position: absolute;
+    z-index: 50;
+    left: 45px;
+    bottom: 0;
+    width: 267px;
+    height: 165px;
 
     padding-top: $space;
     padding-left: $space;

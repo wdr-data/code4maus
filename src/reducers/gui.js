@@ -16,6 +16,7 @@ import targetReducer, {targetsInitialState} from './targets';
 import toolboxReducer, {toolboxInitialState} from './toolbox';
 import vmReducer, {vmInitialState} from './vm';
 import throttle from 'redux-throttle';
+import layoutModeReducer, {layoutModeInitialState} from './layout-mode';
 
 const guiMiddleware = compose(applyMiddleware(throttle(300, {leading: true, trailing: true})));
 
@@ -28,6 +29,7 @@ const guiInitialState = {
     editorTab: editorTabInitialState,
     mode: modeInitialState,
     hoveredTarget: hoveredTargetInitialState,
+    layoutMode: layoutModeInitialState,
     stageSize: stageSizeInitialState,
     menus: menuInitialState,
     modals: modalsInitialState,
@@ -67,6 +69,7 @@ const guiReducer = combineReducers({
     editorTab: editorTabReducer,
     mode: modeReducer,
     hoveredTarget: hoveredTargetReducer,
+    layoutMode: layoutModeReducer,
     stageSize: stageSizeReducer,
     menus: menuReducer,
     modals: modalReducer,

@@ -89,6 +89,14 @@ class Blocks extends React.Component {
 
         analytics.pageview('/editors/blocks');
     }
+    componentWillReceiveProps (nextProps) {
+        if (this.props.layoutMode !== nextProps.layoutMode) {
+            setTimeout(() => {
+                this.props.vm.refreshWorkspace();
+                window.dispatchEvent(new Event('resize'));
+            }, 0);
+        }
+    }
     shouldComponentUpdate (nextProps, nextState) {
         return (
             this.state.prompt !== nextState.prompt ||
@@ -336,6 +344,7 @@ class Blocks extends React.Component {
             onActivateCustomProcedures,
             onRequestCloseExtensionLibrary,
             onRequestCloseCustomProcedures,
+            layoutMode,
             toolboxXML,
             ...props
         } = this.props;
@@ -381,6 +390,7 @@ Blocks.propTypes = {
     customProceduresVisible: PropTypes.bool,
     extensionLibraryVisible: PropTypes.bool,
     isVisible: PropTypes.bool,
+    layoutMode: PropTypes.string,
     locale: PropTypes.string,
     messages: PropTypes.objectOf(PropTypes.string),
     onActivateColorPicker: PropTypes.func,
@@ -456,7 +466,8 @@ const mapStateToProps = state => ({
     locale: state.intl.locale,
     messages: state.intl.messages,
     toolboxXML: state.scratchGui.toolbox.toolboxXML,
-    customProceduresVisible: state.scratchGui.customProcedures.active
+    customProceduresVisible: state.scratchGui.customProcedures.active,
+    layoutMode: state.layoutMode
 });
 
 const mapDispatchToProps = dispatch => ({

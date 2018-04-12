@@ -18,6 +18,7 @@ import ProjectLoaderHOC from '../lib/project-loader-hoc.jsx';
 import vmListenerHOC from '../lib/vm-listener-hoc.jsx';
 
 import GUIComponent from '../components/gui/gui.jsx';
+import {toggleLayoutMode} from '../reducers/layout-mode';
 
 class GUI extends React.Component {
     constructor (props) {
@@ -115,14 +116,16 @@ const mapStateToProps = state => ({
         state.scratchGui.targets.stage.id === state.scratchGui.targets.editingTarget
     ),
     soundsTabVisible: state.scratchGui.editorTab.activeTabIndex === SOUNDS_TAB_INDEX,
-    tipsLibraryVisible: state.scratchGui.modals.tipsLibrary
+    tipsLibraryVisible: state.scratchGui.modals.tipsLibrary,
+    layoutmode: state.layoutMode
 });
 
 const mapDispatchToProps = dispatch => ({
     onExtensionButtonClick: () => dispatch(openExtensionLibrary()),
     onActivateTab: tab => dispatch(activateTab(tab)),
     onActivateCostumesTab: () => dispatch(activateTab(COSTUMES_TAB_INDEX)),
-    onActivateSoundsTab: () => dispatch(activateTab(SOUNDS_TAB_INDEX))
+    onActivateSoundsTab: () => dispatch(activateTab(SOUNDS_TAB_INDEX)),
+    onLayoutModeClick: () => dispatch(toggleLayoutMode()),
 });
 
 const ConnectedGUI = connect(
