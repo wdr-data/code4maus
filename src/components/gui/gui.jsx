@@ -72,7 +72,7 @@ const GUIComponent = props => {
     }
 
     const calcHeight = () =>
-      window.innerHeight*0.8
+      window.innerHeight- layout.targetPaneHeight - layout.topBarHeight - layout.stageHeaderHeight;
 
 
     const tabClassNames = {
