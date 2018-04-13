@@ -23,7 +23,7 @@ const toggleLayoutMode = function () {
 const LAYOUT_BUILD = 'BUILD';
 const LAYOUT_PLAY = 'PLAY';
 
-const layoutModeReducer = (state = LAYOUT_BUILD, action) => {
+const layoutModeReducer = (state = LAYOUT_PLAY, action) => {
     switch (action.type) {
     case SET_BUILD_LAYOUT:
         return LAYOUT_BUILD;
