@@ -131,7 +131,6 @@ const StageHeaderComponent = function (props) {
                 <Box className={styles.stageMenuWrapper}>
                     <Controls vm={vm} />
                     <div className={styles.stageSizeRow}>
-                        {stageControls}
                         <div>
                             <Button
                                 className={styles.stageButton}
