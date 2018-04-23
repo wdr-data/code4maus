@@ -21,6 +21,15 @@ const MenuBar = props => (
                 </div>
             </div>
         </div>
+        <div className={classNames(styles.menuItem)}>
+            <button
+                className={styles.viewProjectButton}
+                title="viewproject"
+                onClick={props.onImportProject}
+            >
+                Import
+            </button>
+        </div>
     </Box>
 );
 
