@@ -166,3 +166,16 @@
     width: 0.5rem;
     height: 0.5rem;
 }
+
+.save-button {
+    border: 1px solid $control-primary;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    margin: 0 1rem;
+    background: white;
+    font-weight: bold;
+    font-size: .875rem;
+    cursor: pointer;
+    background: $control-primary;
+    color: white;
+}

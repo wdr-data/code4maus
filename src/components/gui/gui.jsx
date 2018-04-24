@@ -20,9 +20,10 @@ import Backpack from '../../containers/backpack.jsx';
 import PreviewModal from '../../containers/preview-modal.jsx';
 import ImportModal from '../../containers/import-modal.jsx';
 import WebGlModal from '../../containers/webgl-modal.jsx';
-import TipsLibrary from '../../containers/tips-library.jsx';
 import Cards from '../../containers/cards.jsx';
 import DragLayer from '../../containers/drag-layer.jsx';
+import ModalComponent from '../modal/modal.jsx';
+import Input from '../forms/input.jsx'
 
 import styles from './gui.css';
 import addExtensionIcon from './icon--extensions.svg';
@@ -54,6 +55,7 @@ const GUIComponent = props => {
         costumesTabVisible,
         enableCommunity,
         importInfoVisible,
+        saveProjectVisible,
         intl,
         isPlayerOnly,
         loading,
@@ -66,8 +68,12 @@ const GUIComponent = props => {
         targetIsStage,
         saveProject,
         soundsTabVisible,
-        tipsLibraryVisible,
         vm,
+        onNameInputChange,
+        onSaveModalClose,
+        onSaveModalError,
+        saveModalError,
+        projectName,
         ...componentProps
     } = props;
     if (children) {
@@ -77,6 +83,10 @@ const GUIComponent = props => {
     const calcHeight = () => window.innerHeight - layout.topBarHeight - layout.stageHeaderHeight - 8;
     const calcWidth = () => window.innerWidth / 3 - (8 * 2);
 
+    const saveAction = () => {
+        onSaveModalError("");
+        saveProject().then(() => onSaveModalClose()).catch(e => onSaveModalError(e.message));
+    };
 
     const tabClassNames = {
         tabs: styles.tabs,
@@ -104,13 +114,25 @@ const GUIComponent = props => {
             {loading ? (
                 <Loader />
             ) : null}
-            {importInfoVisible ? (
-                <ImportModal />
+            {saveProjectVisible ? (
+                <ModalComponent
+                    className={styles.saveModal}
+                    contentLabel="Lege einen Namen fest"
+                    onRequestClose={onSaveModalClose}
+                >
+                    <Box className={styles.saveModalBox}>
+                        <Input placeholder="Name deines Projektes" onChange={onNameInputChange} value={projectName} />
+                        <Box className={styles.saveModalActions}>
+                            <p>{saveModalError}</p>
+                            <Button className={styles.saveModalButton} onClick={saveAction}>Speichern</Button>
+                        </Box>
+                    </Box>
+                </ModalComponent>
             ) : null}
             {isRendererSupported ? null : (
                 <WebGlModal />
             )}
-            <MenuBar saveProject={saveProject} />
+            <MenuBar />
             <Box className={styles.bodyWrapper}>
                 <Box className={styles.flexWrapper}>
                     <Box className={styles.editorWrapper}>
@@ -233,6 +255,7 @@ GUIComponent.propTypes = {
     costumesTabVisible: PropTypes.bool,
     enableCommunity: PropTypes.bool,
     importInfoVisible: PropTypes.bool,
+    saveProjectVisible: PropTypes.bool,
     intl: intlShape.isRequired,
     isPlayerOnly: PropTypes.bool,
     loading: PropTypes.bool,
@@ -246,8 +269,10 @@ GUIComponent.propTypes = {
     saveProject: PropTypes.func,
     soundsTabVisible: PropTypes.bool,
     targetIsStage: PropTypes.bool,
-    tipsLibraryVisible: PropTypes.bool,
-    vm: PropTypes.instanceOf(VM).isRequired
+    vm: PropTypes.instanceOf(VM).isRequired,
+    onSaveModalClose: PropTypes.func,
+    onNameInputChange: PropTypes.func,
+    projectName: PropTypes.string
 };
 GUIComponent.defaultProps = {
     backpackOptions: {

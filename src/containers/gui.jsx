@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import ReactModal from 'react-modal';
 
 import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
-import {openExtensionLibrary} from '../reducers/modals';
+import {openExtensionLibrary, closeSaveProject} from '../reducers/modals';
 import {
     activateTab,
     BLOCKS_TAB_INDEX,
@@ -28,6 +28,7 @@ class GUI extends React.Component {
             loadingError: false,
             errorMessage: ''
         };
+        this.onSaveModalError = (msg) => this.setState({saveModalError: msg});
     }
     componentDidMount () {
         if (this.props.vm.initialized) return;
@@ -81,7 +82,9 @@ class GUI extends React.Component {
         return (
             <GUIComponent
                 loading={fetchingProject || this.state.loading || loadingStateVisible}
-                vm={vm}
+                vm={vm} 
+                onSaveModalError={this.onSaveModalError}
+                saveModalError={this.state.saveModalError}
                 {...componentProps}
             >
                 {children}
@@ -117,7 +120,8 @@ const mapStateToProps = state => ({
     ),
     soundsTabVisible: state.scratchGui.editorTab.activeTabIndex === SOUNDS_TAB_INDEX,
     tipsLibraryVisible: state.scratchGui.modals.tipsLibrary,
-    layoutmode: state.layoutMode
+    layoutmode: state.layoutMode,
+    projectName: state.project.name
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -126,6 +130,7 @@ const mapDispatchToProps = dispatch => ({
     onActivateCostumesTab: () => dispatch(activateTab(COSTUMES_TAB_INDEX)),
     onActivateSoundsTab: () => dispatch(activateTab(SOUNDS_TAB_INDEX)),
     onLayoutModeClick: () => dispatch(toggleLayoutMode()),
+    onSaveModalClose: () => dispatch(closeSaveProject()),
 });
 
 const ConnectedGUI = connect(

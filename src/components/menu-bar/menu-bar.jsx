@@ -1,7 +1,10 @@
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
+import {connect} from 'react-redux';
 
 import Box from '../box/box.jsx';
+import {openSaveProject} from '../../reducers/modals';
 
 import styles from './menu-bar.css';
 
@@ -21,11 +24,12 @@ const MenuBar = props => (
                 </div>
             </div>
         </div>
+        <p>{props.projectName}</p>
         <div className={classNames(styles.menuItem)}>
             <button
                 className={styles.saveProjectButton}
                 title="saveProject"
-                onClick={props.saveProject}
+                onClick={props.onSaveProject}
             >
                 Save
             </button>
@@ -34,7 +38,20 @@ const MenuBar = props => (
 );
 
 MenuBar.propTypes = {
-    saveProject: PropTypes.func
+    onSaveProject: PropTypes.func,
 };
 
-export default MenuBar;
+const mapStateToProps = state => ({
+    projectName: state.project.name
+});
+
+const mapDispatchToProps = dispatch => ({
+    onSaveProject: () => {
+        dispatch(openSaveProject());
+    }
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(MenuBar);

@@ -13,6 +13,7 @@ const MODAL_PREVIEW_INFO = 'previewInfo';
 const MODAL_SOUND_LIBRARY = 'soundLibrary';
 const MODAL_SPRITE_LIBRARY = 'spriteLibrary';
 const MODAL_SOUND_RECORDER = 'soundRecorder';
+const MODAL_SAVE_PROJECT = 'saveProject';
 
 const MODAL_TIPS_LIBRARY = 'tipsLibrary';
 
@@ -28,7 +29,7 @@ const initialState = {
     [MODAL_SOUND_LIBRARY]: false,
     [MODAL_SPRITE_LIBRARY]: false,
     [MODAL_SOUND_RECORDER]: false,
-    [MODAL_TIPS_LIBRARY]: false
+    [MODAL_SAVE_PROJECT]: false,
 };
 
 const reducer = function (state, action) {
@@ -98,9 +99,8 @@ const openSoundRecorder = function () {
     analytics.pageview('/modals/microphone');
     return openModal(MODAL_SOUND_RECORDER);
 };
-const openTipsLibrary = function () {
-    analytics.pageview('/modals/tips');
-    return openModal(MODAL_TIPS_LIBRARY);
+const openSaveProject = function () {
+    return openModal(MODAL_SAVE_PROJECT);
 };
 const closeBackdropLibrary = function () {
     return closeModal(MODAL_BACKDROP_LIBRARY);
@@ -132,8 +132,8 @@ const closeSoundLibrary = function () {
 const closeSoundRecorder = function () {
     return closeModal(MODAL_SOUND_RECORDER);
 };
-const closeTipsLibrary = function () {
-    return closeModal(MODAL_TIPS_LIBRARY);
+const closeSaveProject = function () {
+    return closeModal(MODAL_SAVE_PROJECT);
 };
 export {
     reducer as default,
@@ -148,7 +148,7 @@ export {
     openSoundLibrary,
     openSpriteLibrary,
     openSoundRecorder,
-    openTipsLibrary,
+    openSaveProject,
     closeBackdropLibrary,
     closeCameraCapture,
     closeCostumeLibrary,
@@ -159,5 +159,5 @@ export {
     closeSpriteLibrary,
     closeSoundLibrary,
     closeSoundRecorder,
-    closeTipsLibrary
+    closeSaveProject,
 };

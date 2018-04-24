@@ -262,3 +262,36 @@ $fade-out-distance: 15px;
 .extension-button > div {
     margin-top: 0;
 }
+
+.save-modal {
+    max-width: 500px;
+}
+
+.save-modal-box {
+    padding: 2rem;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.save-modal-box input {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.save-modal-button {
+    background: $control-primary;
+    color: white;
+    padding: 0.5rem 1rem;
+    align-self: start;
+}
+
+.save-modal-actions {
+    display: flex;
+}
+
+.save-modal-actions p {
+    color: red;
+    flex-grow: 1;
+    margin: 0 1rem 0 0;
+}

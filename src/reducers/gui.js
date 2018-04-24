@@ -17,6 +17,7 @@ import toolboxReducer, {toolboxInitialState} from './toolbox';
 import vmReducer, {vmInitialState} from './vm';
 import throttle from 'redux-throttle';
 import layoutModeReducer, {layoutModeInitialState} from './layout-mode';
+import projectReducer, {projectInitialState} from './project';
 
 const guiMiddleware = compose(applyMiddleware(throttle(300, {leading: true, trailing: true})));
 
@@ -37,7 +38,8 @@ const guiInitialState = {
     monitorLayout: monitorLayoutInitialState,
     targets: targetsInitialState,
     toolbox: toolboxInitialState,
-    vm: vmInitialState
+    vm: vmInitialState,
+    project: projectInitialState,
 };
 
 const initPlayer = function (currentState) {
@@ -77,7 +79,8 @@ const guiReducer = combineReducers({
     monitorLayout: monitorLayoutReducer,
     targets: targetReducer,
     toolbox: toolboxReducer,
-    vm: vmReducer
+    vm: vmReducer,
+    project: projectReducer,
 });
 
 export {
