@@ -17,3 +17,9 @@ npm-*
 # generated translation files
 /translations
 /locale
+
+# Netlify Functions
+/lambda/
+
+# Local config
+.env

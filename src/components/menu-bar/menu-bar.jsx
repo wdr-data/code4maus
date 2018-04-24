@@ -23,14 +23,18 @@ const MenuBar = props => (
         </div>
         <div className={classNames(styles.menuItem)}>
             <button
-                className={styles.viewProjectButton}
-                title="viewproject"
-                onClick={props.onImportProject}
+                className={styles.saveProjectButton}
+                title="saveProject"
+                onClick={props.saveProject}
             >
-                Import
+                Save
             </button>
         </div>
     </Box>
 );
+
+MenuBar.propTypes = {
+    saveProject: PropTypes.func
+};
 
 export default MenuBar;

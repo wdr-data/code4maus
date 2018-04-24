@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import analytics from './analytics';
 import log from './log';
 import storage from './storage';
+import {connect} from 'react-redux';
+import {serializeSounds, serializeCostumes} from 'scratch-vm/src/serialization/serialize-assets'
 
 /* Higher Order Component to provide behavior for loading projects by id. If
  * there's no id, the default project is loaded.
@@ -15,9 +17,11 @@ const ProjectLoaderHOC = function (WrappedComponent) {
         constructor (props) {
             super(props);
             this.updateProject = this.updateProject.bind(this);
+            this.saveProject = this.saveProject.bind(this);
             this.state = {
                 projectData: null,
-                fetchingProject: false
+                fetchingProject: false,
+                idCreatedFlag: false
             };
         }
         componentDidMount () {
@@ -25,8 +29,16 @@ const ProjectLoaderHOC = function (WrappedComponent) {
                 this.updateProject(this.props.projectId);
             }
         }
-        componentWillUpdate (nextProps) {
+        componentWillUpdate (nextProps, nextState) {
             if (this.props.projectId !== nextProps.projectId) {
+                if (nextProps.projectId && this.fetchProjectId() !== nextProps.projectId) {
+                    window.location.hash = `#${nextProps.projectId}`;
+                }
+                if (this.state.idCreatedFlag || nextState.idCreatedFlag) {
+                    this.setState({idCreatedFlag: false});
+                    return;
+                }
+
                 this.setState({fetchingProject: true}, () => {
                     this.updateProject(nextProps.projectId);
                 });
@@ -51,6 +63,55 @@ const ProjectLoaderHOC = function (WrappedComponent) {
                 })
                 .catch(err => log.error(err));
         }
+        saveProject () {
+            // save assets
+            const costumeAssets = serializeCostumes(this.props.vm.runtime);
+            const soundAssets = serializeSounds(this.props.vm.runtime);
+            const assetPromises = [].concat(costumeAssets).concat(soundAssets).map(asset =>
+                fetch('/api/prepareAssetUpload', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        filename: asset.fileName
+                    })
+                })
+                    .then(res => res.json())
+                    .then(({uploadUrl}) => fetch(uploadUrl, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(asset.fileContent)
+                    }))
+            );
+
+            // save project
+            const data = this.props.vm.toJSON();
+            const payload = {
+                data,
+                name: 'My fabulous project ✨'
+            };
+            if (this.props.projectId) {
+                payload.id = this.props.projectId;
+            }
+
+            Promise.all(assetPromises)
+                .then(() => fetch('/api/saveProject', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                }))
+                .then(res => res.json())
+                .then(res => this.setState({
+                    projectId: res.id,
+                    idCreatedFlag: true
+                }));
+        }
         render () {
             const {
                 projectId, // eslint-disable-line no-unused-vars
@@ -61,6 +122,7 @@ const ProjectLoaderHOC = function (WrappedComponent) {
                 <WrappedComponent
                     fetchingProject={this.state.fetchingProject}
                     projectData={this.state.projectData}
+                    saveProject={this.saveProject}
                     {...componentProps}
                 />
             );
@@ -73,7 +135,11 @@ const ProjectLoaderHOC = function (WrappedComponent) {
         projectId: 0
     };
 
-    return ProjectLoaderComponent;
+    return connect(
+        state => ({
+            vm: state.vm
+        }), {}
+    )(ProjectLoaderComponent);
 };
 
 export {

@@ -1,0 +1,4 @@
+[build]
+  Command = "yarn build && yarn build:backend"
+  Functions = "lambda"
+  Publish = "build"

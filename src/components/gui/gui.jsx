@@ -64,6 +64,7 @@ const GUIComponent = props => {
         onLayoutModeClick,
         previewInfoVisible,
         targetIsStage,
+        saveProject,
         soundsTabVisible,
         tipsLibraryVisible,
         vm,
@@ -109,13 +110,7 @@ const GUIComponent = props => {
             {isRendererSupported ? null : (
                 <WebGlModal />
             )}
-            {tipsLibraryVisible ? (
-                <TipsLibrary />
-            ) : null}
-            {cardsVisible ? (
-                <Cards />
-            ) : null}
-            <MenuBar enableCommunity={enableCommunity} />
+            <MenuBar saveProject={saveProject} />
             <Box className={styles.bodyWrapper}>
                 <Box className={styles.flexWrapper}>
                     <Box className={styles.editorWrapper}>
@@ -248,6 +243,7 @@ GUIComponent.propTypes = {
     onLayoutModeClick: PropTypes.func,
     onTabSelect: PropTypes.func,
     previewInfoVisible: PropTypes.bool,
+    saveProject: PropTypes.func,
     soundsTabVisible: PropTypes.bool,
     targetIsStage: PropTypes.bool,
     tipsLibraryVisible: PropTypes.bool,
