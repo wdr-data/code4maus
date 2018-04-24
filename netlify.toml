@@ -1,4 +1,4 @@
 [build]
-  Command = "yarn build && yarn build:backend"
+  Command = "npm run build && npm run build:backend"
   Functions = "lambda"
   Publish = "build"
