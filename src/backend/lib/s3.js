@@ -6,6 +6,7 @@ const hasCustomAccessKeys = 'FUNCTIONS_AWS_ACCESS_KEY_ID' in process.env &&
 export default function () {
     return new AWS.S3(hasCustomAccessKeys ? {
         accessKeyId: process.env.FUNCTIONS_AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.FUNCTIONS_AWS_SECRET_ACCESS_KEY
+        secretAccessKey: process.env.FUNCTIONS_AWS_SECRET_ACCESS_KEY,
+        ...('FUNCTIONS_AWS_REGION' in process.env ? {region: process.env.FUNCTIONS_AWS_REGION} : {})
     } : {});
 }
