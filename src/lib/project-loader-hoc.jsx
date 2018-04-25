@@ -26,6 +26,7 @@ const ProjectLoaderHOC = function (WrappedComponent) {
                 fetchingProject: false,
                 idCreatedFlag: false
             };
+            storage.userId = this.state.userId;
         }
         componentDidMount () {
             if (this.props.projectId || this.props.projectId === 0) {
@@ -33,6 +34,10 @@ const ProjectLoaderHOC = function (WrappedComponent) {
             }
         }
         componentWillUpdate (nextProps, nextState) {
+            if (this.state.userId !== nextState.userId) {
+                storage.userId = nextState.userId;
+            }
+
             if (this.props.projectId !== nextProps.projectId) {
                 if (nextProps.projectId && this.fetchProjectId() !== nextProps.projectId) {
                     window.location.hash = `#${nextProps.projectId}`;
