@@ -181,6 +181,9 @@ module.exports = [
             new CopyWebpackPlugin([{
                 from: 'extension-worker.{js,js.map}',
                 context: 'node_modules/scratch-vm/dist/web'
+            }]),
+            new CopyWebpackPlugin([{
+                from: '_redirects'
             }])
         ])
     })
