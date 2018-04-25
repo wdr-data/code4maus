@@ -1,4 +1,8 @@
+const webpack = require('webpack');
 require('dotenv').config({silent: true});
+
+const bucketSuffix = process.env.BRANCH === 'production' ? 'prod' : 'staging';
+const bucket = `${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}`;
 
 module.exports = {
     module: {
@@ -17,5 +21,10 @@ module.exports = {
             }
         }]
     },
+    plugins: [
+        new webpack.DefinePlugin({
+            ['process.env.S3_BUCKET_PROJECTS']: JSON.stringify(bucket)
+        })
+    ],
     externals: 'aws-sdk'
 };
