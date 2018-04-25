@@ -1,7 +1,6 @@
-import AWS from 'aws-sdk';
-import nanoid from 'nanoid';
-const s3 = new AWS.S3();
+import initS3 from './lib/s3';
 
+const s3 = initS3();
 const Bucket = `${process.env.S3_BUCKET_PREFIX}-staging`;
 
 export const handler = async (event, context, callback) => {
