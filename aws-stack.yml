@@ -1,0 +1,83 @@
+---
+Description: 'Cloudformation stack to create S3 buckets with public read access'
+
+Resources:
+  S3BucketProd:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: code4maus-projects-prod
+      CorsConfiguration:
+        CorsRules:
+        - AllowedHeaders: ['*']
+          AllowedMethods: [GET]
+          AllowedOrigins: ['*']
+          Id: myCORSRuleId1
+          MaxAge: '3600'
+        - AllowedHeaders: [Content-Type]
+          AllowedMethods: [PUT]
+          AllowedOrigins: ['*']
+          Id: myCORSRuleId2
+          MaxAge: '1800'
+  S3BucketStaging:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: code4maus-projects-staging
+      CorsConfiguration:
+        CorsRules:
+        - AllowedHeaders: ['*']
+          AllowedMethods: [GET]
+          AllowedOrigins: ['*']
+          Id: myCORSRuleId1
+          MaxAge: '3600'
+        - AllowedHeaders: [Content-Type]
+          AllowedMethods: [PUT]
+          AllowedOrigins: ['*']
+          Id: myCORSRuleId2
+          MaxAge: '1800'
+  S3BucketProdPolicy:
+    Type: "AWS::S3::BucketPolicy"
+    Properties:
+      Bucket:
+        Ref: "S3BucketProd"
+      PolicyDocument:
+        Statement:
+          - Effect: "Allow"
+            Action:
+            - "s3:GetObject"
+            Principal: "*"
+            Resource:
+              Fn::Join:
+                - ""
+                -
+                  - "arn:aws:s3:::"
+                  -
+                    Ref: "S3BucketProd"
+                  - "/*"
+  S3BucketStagingPolicy:
+    Type: "AWS::S3::BucketPolicy"
+    Properties:
+      Bucket:
+        Ref: "S3BucketStaging"
+      PolicyDocument:
+        Statement:
+          - Effect: "Allow"
+            Action:
+            - "s3:GetObject"
+            Principal: "*"
+            Resource:
+              Fn::Join:
+                - ""
+                -
+                  - "arn:aws:s3:::"
+                  -
+                    Ref: "S3BucketStaging"
+                  - "/*"
+Outputs:
+  WebsiteURLProd:
+    Value: !GetAtt [S3BucketProd, WebsiteURL]
+    Description: URL for website hosted on S3
+  WebsiteURLProd:
+    Value: !GetAtt [S3BucketStaging, WebsiteURL]
+    Description: URL for website hosted on S3
