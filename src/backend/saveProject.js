@@ -4,7 +4,6 @@ import nanoid from 'nanoid';
 const s3 = initS3();
 const Bucket = process.env.S3_BUCKET_PROJECTS;
 
-const user = 'testuser';
 const getKey = (user, path = 'index.json') => `projects/${user}/${path}`;
 
 const injectReplyJson = handler => (event, context, callback) => handler(event, context, (code, body) => callback(null, {
@@ -16,10 +15,10 @@ const injectReplyJson = handler => (event, context, callback) => handler(event, 
 }));
 
 export const handler = injectReplyJson(async (event, context, reply) => {
-    const {data, id, name} = JSON.parse(event.body);
-    if (!data) {
+    const {data, id, name, userId} = JSON.parse(event.body);
+    if (!data || !name || !userId) {
         return reply(400, {
-            error: 'Data missing in request.'
+            error: 'Parameters missing in request.'
         });
     }
 
@@ -33,7 +32,7 @@ export const handler = injectReplyJson(async (event, context, reply) => {
     try {
         await s3.putObject({
             Bucket,
-            Key: getKey(user, `${projectId}.json`),
+            Key: getKey(userId, `${projectId}.json`),
             Body: JSON.stringify(cleanedData)
         }).promise();
     } catch (e) {
@@ -62,7 +61,7 @@ export const handler = injectReplyJson(async (event, context, reply) => {
             try {
                 await s3.putObject({
                     Bucket,
-                    Key: getKey(user),
+                    Key: getKey(userId),
                     Body: JSON.stringify(base)
                 }).promise();
             } catch (e) {
@@ -73,7 +72,7 @@ export const handler = injectReplyJson(async (event, context, reply) => {
         try {
             const indexFile = await s3.getObject({
                 Bucket,
-                Key: getKey(user)
+                Key: getKey(userId)
             }).promise();
             const index = JSON.parse(indexFile.Body.toString());
             await putIndex(index);
