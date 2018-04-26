@@ -7,6 +7,8 @@ import storage from './storage';
 import {connect} from 'react-redux';
 import {serializeSounds, serializeCostumes} from 'scratch-vm/src/serialization/serialize-assets';
 import {setProjectName} from '../reducers/project';
+import {initSlides} from '../reducers/edu-layer';
+import gameOne from './edu-games/game-one.json';
 
 /* Higher Order Component to provide behavior for loading projects by id. If
  * there's no id, the default project is loaded.
@@ -29,9 +31,11 @@ const ProjectLoaderHOC = function (WrappedComponent) {
             storage.userId = this.state.userId;
         }
         componentDidMount () {
+            window.addEventListener('hashchange', this.updateProject);
             if (this.props.projectId || this.props.projectId === 0) {
                 this.updateProject(this.props.projectId);
             }
+            this.props.dispatch(initSlides(gameOne.length));
         }
         componentWillUpdate (nextProps, nextState) {
             if (this.state.userId !== nextState.userId) {

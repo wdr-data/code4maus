@@ -189,7 +189,11 @@ module.exports = [
             }]),
             new CopyWebpackPlugin([{
                 from: '_redirects'
-            }])
+            }]),
+            new CopyWebpackPlugin([{
+                from: 'edu-assets/**/*',
+                context: 'src/lib/'
+            }]),
         ])
     })
 ].concat(

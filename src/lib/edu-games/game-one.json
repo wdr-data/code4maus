@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Spiel01_bewegung",
+        "asset": "spiel01_bewegung.png"
+    },
+    {
+        "name": "green_flag_move_ten_steps",
+        "asset": "green_flag_move_ten_steps.gif"
+    },
+    {
+        "name": "green_flag",
+        "asset": "green_flag.gif"
+    },
+    {
+        "name": "cat_moves_ten_steps",
+        "asset": "cat_moves_ten_steps.gif"
+    },
+    {
+        "name": "question",
+        "asset": "question.png"
+    },
+    {
+        "name": "cat_moves_minus_ten_steps",
+        "asset": "cat_moves_minus_ten_steps.gif"
+    },
+    {
+        "name": "solution",
+        "asset": "solution.png"
+    },
+    {
+        "name": "move_minus_ten_steps",
+        "asset": "move_minus_ten_steps.gif"
+    },
+    {
+        "name": "green_flag",
+        "asset": "green_flag.gif"
+    },
+    {
+        "name": "glides_one_sec_to_random",
+        "asset": "glides_one_sec_to_random.gif"
+    },
+    {
+        "name": "green_flag",
+        "asset": "green_flag.gif"
+    },
+    {
+        "name": "forever_point_to_mousepointer",
+        "asset": "forever_point_to_mousepointer.gif"
+    },
+    {
+        "name": "green_flag",
+        "asset": "green_flag.gif"
+    },
+    {
+        "name": "question",
+        "asset": "question.png"
+    },
+    {
+        "name": "cat_forever_move_ten_steps_bounce",
+        "asset": "cat_forever_move_ten_steps_bounce.gif"
+    },
+    {
+        "name": "solution",
+        "asset": "solution.png"
+    },
+    {
+        "name": "forever_move_ten_steps_bounce_rotate_left_right",
+        "asset": "forever_move_ten_steps_bounce_rotate_left_right.gif"
+    },
+    {
+        "name": "twinkle",
+        "asset": "twinkle.gif"
+    }
+]
