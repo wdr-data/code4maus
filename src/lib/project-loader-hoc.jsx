@@ -55,18 +55,18 @@ const ProjectLoaderHOC = function (WrappedComponent) {
         updateProject (projectId) {
             storage
                 .load(storage.AssetType.Project, projectId, storage.DataFormat.JSON)
-                .then(projectAsset => projectAsset && this.setState({
-                    projectData: projectAsset.data,
-                    fetchingProject: false
-                }))
-                .then(() => {
-                    if (projectId !== 0) {
-                        analytics.event({
-                            category: 'project',
-                            action: 'Load Project',
-                            label: projectId,
-                            nonInteraction: true
-                        });
+                .then(projectAsset => {
+                    if (!projectAsset) {
+                        return;
+                    }
+
+                    this.setState({
+                        projectData: projectAsset.data,
+                        fetchingProject: false
+                    });
+                    const data = JSON.parse(projectAsset.data.toString());
+                    if (data.custom) {
+                        this.props.dispatch(setProjectName(data.custom.name));
                     }
                 })
                 .catch(err => log.error(err));
