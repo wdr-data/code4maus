@@ -9,6 +9,7 @@ import {openSaveProject} from '../../reducers/modals';
 import styles from './menu-bar.css';
 
 import scratchLogo from './scratch-logo.svg';
+import Button from '../button/button.jsx';
 
 const MenuBar = props => (
     <Box className={styles.menuBar}>
@@ -28,13 +29,13 @@ const MenuBar = props => (
             <h3>{props.projectName}</h3>
         </div>
         <div className={classNames(styles.menuItem)}>
-            <button
-                className={styles.saveProjectButton}
+            <Button
+                className={styles.saveButton}
                 title="saveProject"
                 onClick={props.onSaveProject}
             >
                 Save
-            </button>
+            </Button>
         </div>
     </Box>
 );
