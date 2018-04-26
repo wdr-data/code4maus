@@ -16,6 +16,7 @@ import {
 
 import ProjectLoaderHOC from '../lib/project-loader-hoc.jsx';
 import vmListenerHOC from '../lib/vm-listener-hoc.jsx';
+import AppStateHOC from '../lib/app-state-hoc.jsx';
 
 import GUIComponent from '../components/gui/gui.jsx';
 import {toggleLayoutMode} from '../reducers/layout-mode';
@@ -139,7 +140,7 @@ const ConnectedGUI = connect(
 )(GUI);
 
 const WrappedGui = ErrorBoundaryHOC('Top Level App')(
-    ProjectLoaderHOC(vmListenerHOC(ConnectedGUI))
+    AppStateHOC(ProjectLoaderHOC(vmListenerHOC(ConnectedGUI)))
 );
 
 WrappedGui.setAppElement = ReactModal.setAppElement;
