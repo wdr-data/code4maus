@@ -283,7 +283,15 @@ $fade-out-distance: 15px;
     background: $control-primary;
     color: white;
     padding: 0.5rem 1rem;
-    align-self: start;
+    align-self: flex-start;
+}
+
+.save-modal-download {
+    border: 1px solid $control-primary;
+    color: $control-primary;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    align-self: flex-end;
 }
 
 .save-modal-actions {

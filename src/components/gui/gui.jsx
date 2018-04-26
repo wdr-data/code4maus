@@ -23,7 +23,8 @@ import WebGlModal from '../../containers/webgl-modal.jsx';
 import Cards from '../../containers/cards.jsx';
 import DragLayer from '../../containers/drag-layer.jsx';
 import ModalComponent from '../modal/modal.jsx';
-import Input from '../forms/input.jsx'
+import Input from '../forms/input.jsx';
+import ProjectSaver from '../../containers/project-saver.jsx';
 
 import styles from './gui.css';
 import addExtensionIcon from './icon--extensions.svg';
@@ -126,6 +127,11 @@ const GUIComponent = props => {
                             <p>{saveModalError}</p>
                             <Button className={styles.saveModalButton} onClick={saveAction}>Speichern</Button>
                         </Box>
+                        <ProjectSaver>{downloadProject => (
+                            <Button className={styles.saveModalDownload} onClick={downloadProject}>
+                                Projekt herunterladen
+                            </Button>
+                        )}</ProjectSaver>
                     </Box>
                 </ModalComponent>
             ) : null}
