@@ -24,7 +24,9 @@ const MenuBar = props => (
                 </div>
             </div>
         </div>
-        <p>{props.projectName}</p>
+        <div className={classNames(styles.menuItem)}>
+            <h3>{props.projectName}</h3>
+        </div>
         <div className={classNames(styles.menuItem)}>
             <button
                 className={styles.saveProjectButton}
