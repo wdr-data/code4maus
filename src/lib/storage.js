@@ -1,4 +1,4 @@
-import ScratchStorage from 'scratch-storage';
+import ScratchStorage from '@wdr-data/scratch-storage';
 
 import defaultProjectAssets from './default-project';
 
@@ -35,6 +35,10 @@ class Storage extends ScratchStorage {
                 }
                 return `${bucketUrl}/projects/${this.userId}/${project.assetId}.${project.dataFormat}`;
             }
+        );
+        this.addWebSource(
+            [this.AssetType.ImageVector, this.AssetType.ImageBitmap, this.AssetType.Sound],
+            asset => `${bucketUrl}/assets/${asset.assetId}.${asset.dataFormat}`
         );
     }
 
