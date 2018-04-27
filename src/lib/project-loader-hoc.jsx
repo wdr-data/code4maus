@@ -7,11 +7,15 @@ import storage from './storage';
 import {connect} from 'react-redux';
 import {serializeSounds, serializeCostumes} from 'scratch-vm/src/serialization/serialize-assets';
 import {setProjectName} from '../reducers/project';
-import {initSlides} from '../reducers/edu-layer';
-import gameOne from './edu-games/game-one.json';
+import {loadGame} from '../reducers/edu-layer';
 
-/* Higher Order Component to provide behavior for loading projects by id. If
- * there's no id, the default project is loaded.
+const registeredUrlViews = [
+    'lernspiel',
+];
+
+/* Higher Order Component to provide behavior for loading projects by id from
+ * the window's hash (#this part in the url) or by projectId prop passed in from
+ * the parent (i.e. scratch-www)
  * @param {React.Component} WrappedComponent component to receive projectData prop
  * @returns {React.Component} component with project loading behavior
  */
@@ -19,32 +23,42 @@ const ProjectLoaderHOC = function (WrappedComponent) {
     class ProjectLoaderComponent extends React.Component {
         constructor (props) {
             super(props);
+            this.fetchProjectId = this.fetchProjectId.bind(this);
             this.updateProject = this.updateProject.bind(this);
             this.saveProject = this.saveProject.bind(this);
             this.onNameInputChange = e => this.props.dispatch(setProjectName(e.target.value));
             this.state = {
+                projectId: null,
                 userId: 'testuser',
                 projectData: null,
                 fetchingProject: false,
-                idCreatedFlag: false
+                idCreatedFlag: false,
+                view: '_project',
+                subId: null,
             };
             storage.userId = this.state.userId;
         }
         componentDidMount () {
+            window.addEventListener('popstate', this.updateProject);
             window.addEventListener('hashchange', this.updateProject);
-            if (this.props.projectId || this.props.projectId === 0) {
-                this.updateProject(this.props.projectId);
-            }
-            this.props.dispatch(initSlides(gameOne.length));
+            this.updateProject();
         }
         componentWillUpdate (nextProps, nextState) {
             if (this.state.userId !== nextState.userId) {
                 storage.userId = nextState.userId;
             }
 
-            if (this.props.projectId !== nextProps.projectId) {
-                if (nextProps.projectId && this.fetchProjectId() !== nextProps.projectId) {
-                    window.location.hash = `#${nextProps.projectId}`;
+            if (this.state.subId !== nextState.subId && nextState.view === 'lernspiel') {
+                this.setState({fetchingProject: true}, () =>
+                    this.loadGame(nextState.subId)
+                        .then(project => this.setState({fetchingProject: false, projectData: project.data.toString()}))
+                );
+            }
+
+            if (nextState.view === '_project' &&
+                (this.state.projectId !== nextState.projectId || this.state.view !== nextState.view)) {
+                if (nextState.projectId && this.fetchProjectId() !== nextState.projectId) {
+                    window.location.hash = `#${nextState.projectId}`;
                 }
                 if (this.state.idCreatedFlag || nextState.idCreatedFlag) {
                     this.setState({idCreatedFlag: false});
@@ -52,28 +66,64 @@ const ProjectLoaderHOC = function (WrappedComponent) {
                 }
 
                 this.setState({fetchingProject: true}, () => {
-                    this.updateProject(nextProps.projectId);
+                    storage
+                        .load(storage.AssetType.Project, this.state.projectId, storage.DataFormat.JSON)
+                        .then(projectAsset => {
+                            if (!projectAsset) {
+                                return;
+                            }
+
+                            this.setState({
+                                projectData: projectAsset.data.toString(),
+                                fetchingProject: false
+                            });
+                            const data = JSON.parse(projectAsset.data.toString());
+                            if (data.custom) {
+                                this.props.dispatch(setProjectName(data.custom.name));
+                            }
+                        })
+                        .catch(err => log.error(err));
                 });
             }
         }
-        updateProject (projectId) {
-            storage
-                .load(storage.AssetType.Project, projectId, storage.DataFormat.JSON)
-                .then(projectAsset => {
-                    if (!projectAsset) {
-                        return;
-                    }
+        componentDidUpdate () {
+            if (this.state.view === 'lernspiel' && this.state.subId === null) {
+                history.replaceState({}, null, '/');
+                this.updateProject();
+            }
+        }
+        componentWillUnmount () {
+            window.removeEventListener('hashchange', this.updateProject);
+        }
+        fetchProjectId () {
+            return window.location.hash.substring(1);
+        }
+        updateProject () {
+            const [urlView, subId] = window.location.pathname.split('/').slice(1);
+            const view = registeredUrlViews.includes(urlView) ? urlView : '_project';
+            const updatedState = {};
+            if (view !== this.state.view) {
+                updatedState.view = view;
+            }
+            if (subId !== this.state.subId) {
+                updatedState.subId = subId || null;
+            }
 
-                    this.setState({
-                        projectData: projectAsset.data,
-                        fetchingProject: false
+            let projectId = this.props.projectId || this.fetchProjectId();
+            if (projectId !== this.state.projectId) {
+                if (projectId.length < 1) projectId = 0;
+                updatedState.projectId = projectId;
+
+                if (projectId !== 0) {
+                    analytics.event({
+                        category: 'project',
+                        action: 'Load Project',
+                        value: projectId,
+                        nonInteraction: true
                     });
-                    const data = JSON.parse(projectAsset.data.toString());
-                    if (data.custom) {
-                        this.props.dispatch(setProjectName(data.custom.name));
-                    }
-                })
-                .catch(err => log.error(err));
+                }
+            }
+            this.setState(updatedState);
         }
         saveProject () {
             const name = this.props.projectName;
@@ -116,8 +166,8 @@ const ProjectLoaderHOC = function (WrappedComponent) {
                 name,
                 userId: this.state.userId,
             };
-            if (this.props.projectId) {
-                payload.id = this.props.projectId;
+            if (this.state.projectId) {
+                payload.id = this.state.projectId;
             }
 
             return Promise.all(assetPromises)
@@ -138,10 +188,22 @@ const ProjectLoaderHOC = function (WrappedComponent) {
                     throw new Error('Das hat leider nicht geklappt');
                 });
         }
+        loadGame (id) {
+            const url = `/lernspiel/${id}`;
+            if (location.pathname !== url) {
+                history.pushState({}, null, url);
+            }
+
+            return fetch(`/edu-games/game-${id}.json`)
+                .then(res => res.json())
+                .then(game => this.props.dispatch(loadGame(id, game)))
+                .then(() => storage.load(storage.AssetType.Project, 0, storage.DataFormat.JSON));
+        }
         render () {
             const {
                 dispatch, // eslint-disable-line no-unused-vars
                 projectId, // eslint-disable-line no-unused-vars
+                gameEnabled, // eslint-disable-line no-unused-vars
                 ...componentProps
             } = this.props;
             if (!this.state.projectData) return null;
@@ -157,15 +219,14 @@ const ProjectLoaderHOC = function (WrappedComponent) {
         }
     }
     ProjectLoaderComponent.propTypes = {
-        projectId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-    };
-    ProjectLoaderComponent.defaultProps = {
-        projectId: 0
+        gameEnabled: PropTypes.bool,
+        projectId: PropTypes.string,
     };
 
     return connect(state => ({
         vm: state.vm,
-        projectName: state.project.name
+        projectName: state.project.name,
+        gameEnabled: state.eduLayer.enabled,
     }))(ProjectLoaderComponent);
 };
 

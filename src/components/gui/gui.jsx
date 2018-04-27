@@ -291,6 +291,6 @@ GUIComponent.defaultProps = {
         host: null,
         visible: false
     },
-    basePath: './'
+    basePath: '/'
 };
 export default injectIntl(GUIComponent);

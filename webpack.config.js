@@ -31,7 +31,8 @@ const base = {
                     '^/api': ''
                 }
             }
-        }
+        },
+        historyApiFallback: true
     },
     output: {
         library: 'GUI',
@@ -114,7 +115,8 @@ module.exports = [
         },
         output: {
             path: path.resolve(__dirname, 'build'),
-            filename: '[name].js'
+            filename: '[name].js',
+            publicPath: '/'
         },
         externals: {
             React: 'react',
@@ -191,7 +193,7 @@ module.exports = [
                 from: '_redirects'
             }]),
             new CopyWebpackPlugin([{
-                from: 'edu-assets/**/*',
+                from: '{edu-assets,edu-games}/**/*',
                 context: 'src/lib/'
             }]),
         ])

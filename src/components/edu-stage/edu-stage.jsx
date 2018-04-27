@@ -7,12 +7,10 @@ import Button from '../button/button.jsx';
 import styles from './edu-stage.css';
 import arrowIcon from '../gui/arrow.svg'
 import fullScreenIcon from '../stage-header/icon--fullscreen.svg';
-import gameOne from '../../lib/edu-games/game-one.json';
 import {connect} from 'react-redux';
 import {nextSlide, previousSlide, toggleFullscreen} from '../../reducers/edu-layer.js';
 
-const EduStageComponent = props => (
-
+const EduStageComponent = props => !props.isEnabled ? null : (
     <Box className={classNames(styles.eduWrapper, {[styles.fullscreen]: props.isFullscreen})}>
         <Box className={styles.eduHeader}>
             <p>{props.slideIndex + 1}/{props.slideCount}</p>
@@ -25,7 +23,7 @@ const EduStageComponent = props => (
                 />
             </Button>
         </Box>
-        <Box className={styles.eduSlides} style={{backgroundImage: `url(/edu-assets/${gameOne[props.slideIndex].asset})`}} />
+        <Box className={styles.eduSlides} style={{backgroundImage: `url(/edu-assets/${props.imageSrc})`}} />
         <Box className={styles.eduFooter}>
             <Button className={styles.backButton} onClick={props.previousSlide}>
                 <img
@@ -47,10 +45,20 @@ const EduStageComponent = props => (
     </Box>
 );
 
+EduStageComponent.propTypes = {
+    imageSrc: PropTypes.string,
+    isEnabled: PropTypes.bool,
+    isFullscreen: PropTypes.bool,
+    slideCount: PropTypes.number,
+    slideIndex: PropTypes.number,
+};
+
 const mapStateToProps = (state) => ({
     slideIndex: state.eduLayer.index,
     slideCount: state.eduLayer.size,
     isFullscreen: state.eduLayer.isFullscreen,
+    isEnabled: state.eduLayer.enabled,
+    imageSrc: state.eduLayer.enabled ? state.eduLayer.gameSpec[state.eduLayer.index].asset : '',
 });
 
 const mapDispatchToProps = {
