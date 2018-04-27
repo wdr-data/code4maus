@@ -196,8 +196,10 @@ const ProjectLoaderHOC = function (WrappedComponent) {
 
             return fetch(`/edu-games/game-${id}.json`)
                 .then(res => res.json())
-                .then(game => this.props.dispatch(loadGame(id, game)))
-                .then(() => storage.load(storage.AssetType.Project, 0, storage.DataFormat.JSON));
+                .then(game => {
+                    this.props.dispatch(loadGame(id, game));
+                    return storage.load(storage.AssetType.Project, game.projectId, storage.DataFormat.JSON);
+                });
         }
         render () {
             const {

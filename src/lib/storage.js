@@ -14,6 +14,7 @@ class Storage extends ScratchStorage {
         super();
         this.userId = null;
 
+        this.setupEduSource();
         this.setupS3Source();
         this.setupScratchLegacySources();
 
@@ -23,6 +24,19 @@ class Storage extends ScratchStorage {
             asset.data,
             asset.id
         ));
+    }
+
+    setupEduSource () {
+        this.addWebSource(
+            [this.AssetType.Project],
+            project => {
+                const [cat, projectName] = String(project.assetId).split("/")
+                if (cat !== 'edu' ) {
+                    throw new Error('Not edu project');
+                }
+                return `/edu-games/projects/${projectName}.${project.dataFormat}`;
+            }
+        )
     }
 
     setupS3Source () {

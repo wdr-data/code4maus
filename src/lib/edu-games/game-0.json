@@ -1,74 +1,59 @@
-[
-    {
-        "name": "Spiel01_bewegung",
-        "asset": "spiel01_bewegung.png"
-    },
-    {
-        "name": "green_flag_move_ten_steps",
-        "asset": "green_flag_move_ten_steps.gif"
-    },
-    {
-        "name": "green_flag",
-        "asset": "green_flag.gif"
-    },
-    {
-        "name": "cat_moves_ten_steps",
-        "asset": "cat_moves_ten_steps.gif"
-    },
-    {
-        "name": "question",
-        "asset": "maus_question.svg"
-    },
-    {
-        "name": "cat_moves_minus_ten_steps",
-        "asset": "cat_moves_minus_ten_steps.gif"
-    },
-    {
-        "name": "solution",
-        "asset": "maus_solution.svg"
-    },
-    {
-        "name": "move_minus_ten_steps",
-        "asset": "move_minus_ten_steps.gif"
-    },
-    {
-        "name": "green_flag",
-        "asset": "green_flag.gif"
-    },
-    {
-        "name": "glides_one_sec_to_random",
-        "asset": "glides_one_sec_to_random.gif"
-    },
-    {
-        "name": "green_flag",
-        "asset": "green_flag.gif"
-    },
-    {
-        "name": "forever_point_to_mousepointer",
-        "asset": "forever_point_to_mousepointer.gif"
-    },
-    {
-        "name": "green_flag",
-        "asset": "green_flag.gif"
-    },
-    {
-        "name": "question",
-        "asset": "maus_question.svg"
-    },
-    {
-        "name": "cat_forever_move_ten_steps_bounce",
-        "asset": "cat_forever_move_ten_steps_bounce.gif"
-    },
-    {
-        "name": "solution",
-        "asset": "maus_solution.svg"
-    },
-    {
-        "name": "forever_move_ten_steps_bounce_rotate_left_right",
-        "asset": "forever_move_ten_steps_bounce_rotate_left_right.gif"
-    },
-    {
-        "name": "twinkle",
-        "asset": "twinkle.gif"
-    }
-]
+{   
+    "projectId": "edu/project-1",
+    "slides": [
+        {
+            "asset": "spiel01_bewegung.png"
+        },
+        {
+            "asset": "green_flag_move_ten_steps.gif"
+        },
+        {
+            "asset": "green_flag.gif"
+        },
+        {
+            "asset": "cat_moves_ten_steps.gif"
+        },
+        {
+            "asset": "maus_question.svg"
+        },
+        {
+            "asset": "cat_moves_minus_ten_steps.gif"
+        },
+        {
+            "asset": "maus_solution.svg"
+        },
+        {
+            "asset": "move_minus_ten_steps.gif"
+        },
+        {
+            "asset": "green_flag.gif"
+        },
+        {
+            "asset": "glides_one_sec_to_random.gif"
+        },
+        {
+            "asset": "green_flag.gif"
+        },
+        {
+            "asset": "forever_point_to_mousepointer.gif"
+        },
+        {
+            "asset": "green_flag.gif"
+        },
+        {
+            "asset": "maus_question.svg"
+        },
+        {
+            "asset": "cat_forever_move_ten_steps_bounce.gif"
+        },
+        {
+            "asset": "maus_solution.svg"
+        },
+        {
+            "asset": "forever_move_ten_steps_bounce_rotate_left_right.gif"
+        },
+        {
+            "asset": "twinkle.gif"
+        }
+    ]
+}

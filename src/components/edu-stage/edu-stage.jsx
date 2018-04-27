@@ -58,7 +58,7 @@ const mapStateToProps = (state) => ({
     slideCount: state.eduLayer.size,
     isFullscreen: state.eduLayer.isFullscreen,
     isEnabled: state.eduLayer.enabled,
-    imageSrc: state.eduLayer.enabled ? state.eduLayer.gameSpec[state.eduLayer.index].asset : '',
+    imageSrc: state.eduLayer.enabled ? state.eduLayer.gameSpec.slides[state.eduLayer.index].asset : '',
 });
 
 const mapDispatchToProps = {
