@@ -1,4 +1,4 @@
-import ScratchBlocks from 'scratch-blocks';
+import ScratchBlocks from '@wdr-data/scratch-blocks';
 
 /**
  * Connect scratch blocks with the vm
