@@ -6,6 +6,7 @@ var webpack = require('webpack');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+var Visualizer = require('webpack-visualizer-plugin');
 
 // PostCss
 var autoprefixer = require('autoprefixer');
@@ -196,6 +197,9 @@ module.exports = [
                 from: '{edu-assets,edu-games}/**/*',
                 context: 'src/lib/'
             }]),
+            new Visualizer({
+                filename: 'statistics.html'
+            })
         ])
     })
 ].concat(
