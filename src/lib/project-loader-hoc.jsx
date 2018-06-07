@@ -5,7 +5,7 @@ import analytics from './analytics';
 import log from './log';
 import storage from './storage';
 import {connect} from 'react-redux';
-import {serializeSounds, serializeCostumes} from 'scratch-vm/src/serialization/serialize-assets';
+import {serializeSounds, serializeCostumes} from '@wdr-data/scratch-vm/src/serialization/serialize-assets';
 import {setProjectName} from '../reducers/project';
 import {loadGame} from '../reducers/edu-layer';
 

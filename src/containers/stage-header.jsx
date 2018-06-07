@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import bindAll from 'lodash.bindall';
-import VM from 'scratch-vm';
+import VM from '@wdr-data/scratch-vm';
 import {setStageSize, STAGE_SIZES} from '../reducers/stage-size';
 import {setFullScreen} from '../reducers/mode';
 

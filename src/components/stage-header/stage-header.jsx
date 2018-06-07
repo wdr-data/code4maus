@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import {defineMessages, injectIntl, intlShape} from 'react-intl';
 import PropTypes from 'prop-types';
 import React from 'react';
-import VM from 'scratch-vm';
+import VM from '@wdr-data/scratch-vm';
 
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';

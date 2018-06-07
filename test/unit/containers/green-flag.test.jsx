@@ -2,7 +2,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import GreenFlag from '../../../src/containers/green-flag';
 import renderer from 'react-test-renderer';
-import VM from 'scratch-vm';
+import VM from '@wdr-data/scratch-vm';
 
 describe('GreenFlag Container', () => {
     let vm;

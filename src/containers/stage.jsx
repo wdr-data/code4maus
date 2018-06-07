@@ -2,7 +2,7 @@ import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Renderer from 'scratch-render';
-import VM from 'scratch-vm';
+import VM from '@wdr-data/scratch-vm';
 import {connect} from 'react-redux';
 
 import {getEventXY} from '../lib/touch-utils';

@@ -5,7 +5,7 @@ import makeToolboxXML from '../lib/make-toolbox-xml';
 import PropTypes from 'prop-types';
 import React from 'react';
 import VMScratchBlocks from '../lib/blocks';
-import VM from 'scratch-vm';
+import VM from '@wdr-data/scratch-vm';
 
 import analytics from '../lib/analytics';
 import Prompt from './prompt.jsx';

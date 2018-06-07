@@ -1,7 +1,7 @@
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
-import VM from 'scratch-vm';
+import VM from '@wdr-data/scratch-vm';
 
 import StopAllComponent from '../components/stop-all/stop-all.jsx';
 
