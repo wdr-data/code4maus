@@ -32,7 +32,8 @@ class Storage extends ScratchStorage {
             project => {
                 const [cat, projectName] = String(project.assetId).split("/")
                 if (cat !== 'edu' ) {
-                    throw new Error('Not edu project');
+                    console.log('Not edu project');
+                    return false;
                 }
                 return `/edu-games/projects/${projectName}.${project.dataFormat}`;
             }
