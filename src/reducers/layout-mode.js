@@ -36,7 +36,7 @@ const layoutModeReducer = (state = LAYOUT_PLAY, action) => {
     }
 };
 
-const layoutModeInitialState = LAYOUT_BUILD;
+const layoutModeInitialState = LAYOUT_PLAY;
 
 export {
     layoutModeReducer as default,

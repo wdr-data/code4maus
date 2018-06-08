@@ -16,7 +16,6 @@ import Loader from '../loader/loader.jsx';
 import Box from '../box/box.jsx';
 import MenuBar from '../menu-bar/menu-bar.jsx';
 
-import Backpack from '../../containers/backpack.jsx';
 import PreviewModal from '../../containers/preview-modal.jsx';
 import ImportModal from '../../containers/import-modal.jsx';
 import WebGlModal from '../../containers/webgl-modal.jsx';
@@ -52,7 +51,6 @@ const GUIComponent = props => {
     const {
         activeTabIndex,
         basePath,
-        backpackOptions,
         blocksTabVisible,
         cardsVisible,
         children,
@@ -83,11 +81,6 @@ const GUIComponent = props => {
     if (children) {
         return <Box {...componentProps}>{children}</Box>;
     }
-
-    const calcHeight = () =>
-        (window.innerHeight - layout.topBarHeight - layout.stageHeaderHeight - 8) / 2;
-    const calcWidth = () =>
-        window.innerWidth / 3 - (8 * 2);
 
     const saveAction = () => {
         onSaveModalError("");
@@ -228,9 +221,6 @@ const GUIComponent = props => {
                                 {soundsTabVisible ? <SoundTab vm={vm} /> : null}
                             </TabPanel>
                         </Tabs>
-                        {backpackOptions.visible ? (
-                            <Backpack host={backpackOptions.host} />
-                        ) : null}
                         <Button onClick={onLayoutModeClick} className={styles.layoutSwitcher}>
                             <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 438.533 438.533" xmlSpace="preserve">
                                 <g><path d="M409.133,109.203c-19.608-33.592-46.205-60.189-79.798-79.796C295.736,9.801,259.058,0,219.273,0   c-39.781,0-76.47,9.801-110.063,29.407c-33.595,19.604-60.192,46.201-79.8,79.796C9.801,142.8,0,179.489,0,219.267   c0,39.78,9.804,76.463,29.407,110.062c19.607,33.592,46.204,60.189,79.799,79.798c33.597,19.605,70.283,29.407,110.063,29.407   s76.47-9.802,110.065-29.407c33.593-19.602,60.189-46.206,79.795-79.798c19.603-33.596,29.403-70.284,29.403-110.062   C438.533,179.485,428.732,142.795,409.133,109.203z M288.646,306.913c3.621,3.614,5.435,7.901,5.435,12.847   c0,4.948-1.813,9.236-5.435,12.847l-29.126,29.13c-3.61,3.617-7.891,5.428-12.84,5.421c-4.951,0-9.232-1.811-12.854-5.421   L104.21,232.111c-3.617-3.62-5.424-7.898-5.424-12.848c0-4.949,1.807-9.233,5.424-12.847L233.826,76.795   c3.621-3.615,7.902-5.424,12.854-5.424c4.949,0,9.229,1.809,12.84,5.424l29.126,29.13c3.621,3.615,5.435,7.898,5.435,12.847   c0,4.946-1.813,9.233-5.435,12.845l-87.646,87.65L288.646,306.913z" fill="#c7821a"/></g>
@@ -243,9 +233,6 @@ const GUIComponent = props => {
                             isRendererSupported={isRendererSupported}
                             vm={vm}
                         />
-                        <Box className={styles.targetWrapper}>
-                            <TargetPane vm={vm} />
-                        </Box>
                         <EduStage />
                     </Box>
                 </Box>
@@ -256,10 +243,6 @@ const GUIComponent = props => {
 };
 GUIComponent.propTypes = {
     activeTabIndex: PropTypes.number,
-    backpackOptions: PropTypes.shape({
-        host: PropTypes.string,
-        visible: PropTypes.bool
-    }),
     basePath: PropTypes.string,
     blocksTabVisible: PropTypes.bool,
     cardsVisible: PropTypes.bool,
@@ -287,10 +270,6 @@ GUIComponent.propTypes = {
     projectName: PropTypes.string
 };
 GUIComponent.defaultProps = {
-    backpackOptions: {
-        host: null,
-        visible: false
-    },
     basePath: '/'
 };
 export default injectIntl(GUIComponent);

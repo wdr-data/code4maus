@@ -227,8 +227,8 @@ const ProjectLoaderHOC = function (WrappedComponent) {
 
     return connect(state => ({
         vm: state.vm,
-        projectName: state.project.name,
-        gameEnabled: state.eduLayer.enabled,
+        projectName: state.scratchGui.project.name,
+        gameEnabled: state.scratchGui.eduLayer.enabled,
     }))(ProjectLoaderComponent);
 };
 

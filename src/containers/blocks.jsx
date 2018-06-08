@@ -467,7 +467,7 @@ const mapStateToProps = state => ({
     messages: state.intl.messages,
     toolboxXML: state.scratchGui.toolbox.toolboxXML,
     customProceduresVisible: state.scratchGui.customProcedures.active,
-    layoutMode: state.layoutMode
+    layoutMode: state.scratchGui.layoutMode
 });
 
 const mapDispatchToProps = dispatch => ({

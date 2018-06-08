@@ -45,7 +45,7 @@ MenuBar.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    projectName: state.project.name
+    projectName: state.scratchGui.project.name
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -54,11 +54,11 @@ EduStageComponent.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-    slideIndex: state.eduLayer.index,
-    slideCount: state.eduLayer.size,
-    isFullscreen: state.eduLayer.isFullscreen,
-    isEnabled: state.eduLayer.enabled,
-    imageSrc: state.eduLayer.enabled ? state.eduLayer.gameSpec.slides[state.eduLayer.index].asset : '',
+    slideIndex: state.scratchGui.eduLayer.index,
+    slideCount: state.scratchGui.eduLayer.size,
+    isFullscreen: state.scratchGui.eduLayer.isFullscreen,
+    isEnabled: state.scratchGui.eduLayer.enabled,
+    imageSrc: state.scratchGui.eduLayer.enabled ? state.scratchGui.eduLayer.gameSpec.slides[state.scratchGui.eduLayer.index].asset : '',
 });
 
 const mapDispatchToProps = {

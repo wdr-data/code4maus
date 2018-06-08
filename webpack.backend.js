@@ -23,7 +23,7 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            ['process.env.S3_BUCKET_PROJECTS']: JSON.stringify(bucket)
+            'process.env.S3_BUCKET_PROJECTS': JSON.stringify(bucket)
         })
     ],
     externals: 'aws-sdk'

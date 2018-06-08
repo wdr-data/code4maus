@@ -120,9 +120,8 @@ const mapStateToProps = state => ({
         state.scratchGui.targets.stage.id === state.scratchGui.targets.editingTarget
     ),
     soundsTabVisible: state.scratchGui.editorTab.activeTabIndex === SOUNDS_TAB_INDEX,
-    tipsLibraryVisible: state.scratchGui.modals.tipsLibrary,
-    layoutmode: state.layoutMode,
-    projectName: state.project.name
+    layoutmode: state.scratchGui.layoutMode,
+    projectName: state.scratchGui.project.name
 });
 
 const mapDispatchToProps = dispatch => ({

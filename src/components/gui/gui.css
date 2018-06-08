@@ -192,7 +192,6 @@
     */
     display: flex;
     flex-direction: column;
-    flex: 1;
 }
 
 [layoutmode=BUILD] .stage-and-target-wrapper {

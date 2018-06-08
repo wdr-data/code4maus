@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import MediaQuery from 'react-responsive';
-import VM from 'scratch-vm';
+import VM from '@wdr-data/scratch-vm';
 
 import Box from '../box/box.jsx';
 import layout from '../../lib/layout-constants.js';
@@ -16,24 +16,22 @@ const StageWrapperComponent = function (props) {
         vm
     } = props;
 
+    const height = (window.innerHeight - layout.topBarHeight - layout.stageHeaderHeight - 8) / 2;
+
+    const width = height * 4 / 3;
+
     return (
         <Box className={styles.stageWrapper}>
             <Box className={styles.stageMenuWrapper}>
                 <StageHeader vm={vm} />
             </Box>
             <Box className={styles.stageCanvasWrapper}>
-                {/* eslint-disable arrow-body-style */}
-                <MediaQuery minWidth={layout.fullSizeMinWidth}>{isFullSize => {
-                    return isRendererSupported ? (
-                        <Stage
-                            height={isFullSize ? layout.fullStageHeight : layout.smallerStageHeight}
-                            shrink={0}
-                            vm={vm}
-                            width={isFullSize ? layout.fullStageWidth : layout.smallerStageWidth}
-                        />
-                    ) : null;
-                }}</MediaQuery>
-                {/* eslint-enable arrow-body-style */}
+                <Stage
+                    height={height}
+                    width={width}
+                    shrink={0}
+                    vm={vm}
+                />
             </Box>
         </Box>
     );
