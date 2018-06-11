@@ -54,7 +54,14 @@ const ProjectSaveHOC = WrappedComponent => {
                         filename: asset.fileName
                     })
                 });
+                if (!res.ok && res.status !== 409) {
+                    throw new Error(`uploading an asset failed: ${asset.filename}`)
+                }
+
                 const body = await res.json();
+                if (!!body.exists) {
+                    return;
+                }
 
                 const saveRes = await fetch(body.uploadUrl, {
                     method: 'PUT',
