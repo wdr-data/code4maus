@@ -29,16 +29,23 @@ const ProjectSaveHOC = WrappedComponent => {
         handleProjectNameChange (nameInput) {
             this.setState({ nameInput });
         }
-        saveProject () {
-            const name = this.state.nameInput;
-            if (!name) {
+        async saveProject () {
+            if (!this.state.nameInput) {
                 return this.setError("Du hast vergessen, dem Spiel einen Namen zu geben.");
             }
-            // save assets
+
+            try {
+                await this.saveAssets().then(this.saveMeta.bind(this));
+            } catch(e) {
+                console.error(e);
+                return this.setError("Das hat leider nicht geklappt");
+            }
+        }
+        async saveAssets () {
             const costumeAssets = serializeCostumes(this.props.vm.runtime);
             const soundAssets = serializeSounds(this.props.vm.runtime);
-            const assetPromises = [].concat(costumeAssets).concat(soundAssets).map(asset =>
-                fetch('/api/prepareAssetUpload', {
+            return Promise.all([].concat(costumeAssets).concat(soundAssets).map(async (asset) => {
+                const res = await fetch('/api/prepareAssetUpload', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -46,52 +53,43 @@ const ProjectSaveHOC = WrappedComponent => {
                     body: JSON.stringify({
                         filename: asset.fileName
                     })
-                })
-                    .then(res => res.json())
-                    .then(({uploadUrl}) => fetch(uploadUrl, {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: asset.fileContent
-                    }))
-                    .then(res => {
-                        if (!res.ok) {
-                            throw new Error('HTTP Request failed');
-                        }
-                        return res;
-                    })
-            );
+                });
+                const body = await res.json();
 
-            // save project
-            const data = this.props.vm.toJSON();
+                const saveRes = await fetch(body.uploadUrl, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: asset.fileContent
+                });
+                if (!saveRes.ok) {
+                    throw new Error('HTTP Request failed');
+                }
+            }));
+        }
+        async saveMeta () {
             const payload = {
-                data,
-                name,
+                data: this.props.vm.toJSON(),
+                name: this.state.nameInput,
                 userId: this.state.userId,
             };
             if (this.props.projectId) {
                 payload.id = this.props.projectId;
             }
 
-            return Promise.all(assetPromises)
-                .then(() => fetch('/api/saveProject', {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json, text/plain, */*',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                }))
-                .then(res => res.json())
-                .then(res => {
-                    this.props.dispatch(setProjectName(name));
-                    this.props.dispatch(setProjectId(res.id));
-                    this.props.dispatch(push(projectUrl(res.id)));
-                })
-                .catch(() => {
-                    return this.setError("Das hat leider nicht geklappt");
-                });
+            const res = await (await fetch('/api/saveProject', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })).json();
+
+            this.props.dispatch(setProjectName(this.state.nameInput));
+            this.props.dispatch(setProjectId(res.id));
+            this.props.dispatch(push(projectUrl(res.id)));
         }
         setError (text) {
             this.setState({ error: text });
