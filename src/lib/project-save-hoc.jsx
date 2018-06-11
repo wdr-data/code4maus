@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {push} from 'redux-little-router';
-import {setProjectName} from '../reducers/project';
+import {setProjectName, setProjectId} from '../reducers/project';
 import React from 'react';
 import {projectUrl} from './routing';
 import {serializeSounds, serializeCostumes} from '@wdr-data/scratch-vm/src/serialization/serialize-assets';
@@ -86,6 +86,7 @@ const ProjectSaveHOC = WrappedComponent => {
                 .then(res => res.json())
                 .then(res => {
                     this.props.dispatch(setProjectName(name));
+                    this.props.dispatch(setProjectId(res.id));
                     this.props.dispatch(push(projectUrl(res.id)));
                 })
                 .catch(() => {
