@@ -14,7 +14,9 @@ import {
     SOUNDS_TAB_INDEX
 } from '../reducers/editor-tab';
 
+import EduLoaderHOC from '../lib/edu-loader-hoc.jsx';
 import ProjectLoaderHOC from '../lib/project-loader-hoc.jsx';
+import ProjectSaveHOC from '../lib/project-save-hoc.jsx';
 import vmListenerHOC from '../lib/vm-listener-hoc.jsx';
 import AppStateHOC from '../lib/app-state-hoc.jsx';
 
@@ -29,7 +31,6 @@ class GUI extends React.Component {
             loadingError: false,
             errorMessage: ''
         };
-        this.onSaveModalError = (msg) => this.setState({saveModalError: msg});
     }
     componentDidMount () {
         if (this.props.vm.initialized) return;
@@ -49,20 +50,22 @@ class GUI extends React.Component {
             });
         this.props.vm.initialized = true;
     }
-    componentWillReceiveProps (nextProps) {
-        if (this.props.projectData !== nextProps.projectData) {
-            this.setState({loading: true}, () => {
-                this.props.vm.loadProject(nextProps.projectData)
-                    .then(() => {
-                        this.setState({loading: false});
-                    })
-                    .catch(e => {
-                        // Need to catch this error and update component state so that
-                        // error page gets rendered if project failed to load
-                        this.setState({loadingError: true, errorMessage: e});
-                    });
-            });
+    componentDidUpdate (prevProps) {
+        if (prevProps.projectData === this.props.projectData) {
+            return;
         }
+
+        this.setState({loading: true}, () => {
+            this.props.vm.loadProject(this.props.projectData)
+                .then(() => {
+                    this.setState({loading: false});
+                })
+                .catch(e => {
+                    // Need to catch this error and update component state so that
+                    // error page gets rendered if project failed to load
+                    this.setState({loadingError: true, errorMessage: e});
+                });
+        });
     }
     componentWillUnmount () {
         this.props.vm.stopAll();
@@ -70,7 +73,7 @@ class GUI extends React.Component {
     render () {
         if (this.state.loadingError) {
             throw new Error(
-                `Failed to load project from server [id=${window.location.hash}]: ${this.state.errorMessage}`);
+                `Failed to load project from server: ${this.state.errorMessage}`);
         }
         const {
             children,
@@ -84,8 +87,6 @@ class GUI extends React.Component {
             <GUIComponent
                 loading={fetchingProject || this.state.loading || loadingStateVisible}
                 vm={vm}
-                onSaveModalError={this.onSaveModalError}
-                saveModalError={this.state.saveModalError}
                 {...componentProps}
             >
                 {children}
@@ -121,7 +122,6 @@ const mapStateToProps = state => ({
     ),
     soundsTabVisible: state.scratchGui.editorTab.activeTabIndex === SOUNDS_TAB_INDEX,
     layoutmode: state.scratchGui.layoutMode,
-    projectName: state.scratchGui.project.name,
     saveProjectVisible: state.scratchGui.modals.saveProject,
 });
 
@@ -140,7 +140,7 @@ const ConnectedGUI = connect(
 )(GUI);
 
 const WrappedGui = ErrorBoundaryHOC('Top Level App')(
-    AppStateHOC(ProjectLoaderHOC(vmListenerHOC(ConnectedGUI)))
+    AppStateHOC(ProjectSaveHOC(ProjectLoaderHOC(EduLoaderHOC(vmListenerHOC(ConnectedGUI)))))
 );
 
 WrappedGui.setAppElement = ReactModal.setAppElement;

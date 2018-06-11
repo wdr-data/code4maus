@@ -68,24 +68,18 @@ const GUIComponent = props => {
         onLayoutModeClick,
         previewInfoVisible,
         targetIsStage,
-        saveProject,
+        onSaveProject,
         soundsTabVisible,
         vm,
-        onNameInputChange,
+        onProjectNameChange,
         onSaveModalClose,
-        onSaveModalError,
-        saveModalError,
+        saveProjectError,
         projectName,
         ...componentProps
     } = props;
     if (children) {
         return <Box {...componentProps}>{children}</Box>;
     }
-
-    const saveAction = () => {
-        onSaveModalError("");
-        saveProject().then(() => onSaveModalClose()).catch(e => onSaveModalError(e.message));
-    };
 
     const tabClassNames = {
         tabs: styles.tabs,
@@ -120,10 +114,10 @@ const GUIComponent = props => {
                     onRequestClose={onSaveModalClose}
                 >
                     <Box className={styles.saveModalBox}>
-                        <Input placeholder="Name deines Projektes" onChange={onNameInputChange} value={projectName} />
+                        <Input placeholder="Name deines Projektes" onChange={e => onProjectNameChange(e.target.value)} value={projectName} />
                         <Box className={styles.saveModalActions}>
-                            <p>{saveModalError}</p>
-                            <Button className={styles.saveModalButton} onClick={saveAction}>Speichern</Button>
+                            <p>{saveProjectError}</p>
+                            <Button className={styles.saveModalButton} onClick={() => onSaveProject().then(() => onSaveModalClose())}>Speichern</Button>
                         </Box>
                         <ProjectSaver>{downloadProject => (
                             <Button className={styles.saveModalDownload} onClick={downloadProject}>
