@@ -180,8 +180,7 @@ module.exports = [
             new CopyWebpackPlugin([{
                 from: 'node_modules/@wdr-data/scratch-blocks/media',
                 to: 'static/blocks-media'
-            }]),
-            new CopyWebpackPlugin([{
+            }, {
                 from: 'assets/blocks-media',
                 to: 'static/blocks-media'
             }]),
@@ -233,6 +232,9 @@ module.exports = [
             plugins: base.plugins.concat([
                 new CopyWebpackPlugin([{
                     from: 'node_modules/scratch-blocks/media',
+                    to: 'static/blocks-media'
+                }, {
+                    from: 'assets/blocks-media',
                     to: 'static/blocks-media'
                 }])
             ])
