@@ -9,11 +9,10 @@ import Button from '../button/button.jsx';
 import {ComingSoonTooltip} from '../coming-soon/coming-soon.jsx';
 import Controls from '../../containers/controls.jsx';
 import {getStageSize} from '../../lib/screen-utils.js';
-
-import fullScreenIcon from './icon--fullscreen.svg';
-import largeStageIcon from './icon--large-stage.svg';
-import smallStageIcon from './icon--small-stage.svg';
-import unFullScreenIcon from './icon--unfullscreen.svg';
+import layout from '../../lib/layout-constants.js';
+import Fullscreen from '../../containers/fullscreen.jsx';
+import ButtonWithIcon from '../../components/button-with-icon/button-with-icon.jsx';
+import saveButton from './download@2x.png';
 
 import styles from './stage-header.css';
 
@@ -50,14 +49,19 @@ const StageHeaderComponent = function (props) {
         isFullScreen,
         isPlayerOnly,
         onKeyPress,
+        onSaveProject,
         onSetStageLarge,
         onSetStageFull,
         onSetStageUnFull,
         vm
     } = props;
 
+    const height = (window.innerHeight - layout.topBarHeight - layout.stageHeaderHeight - 8) / 2;
+
+    const width = height * 4 / 3;
+
     let header = null;
-    const stageSize = getStageSize(isFullScreen);
+    const stageSize = getStageSize(isFullScreen, height, width);
 
     if (isFullScreen) {
         header = (
@@ -66,86 +70,28 @@ const StageHeaderComponent = function (props) {
                     className={styles.stageMenuWrapper}
                     style={{width: stageSize.width}}
                 >
-                    <Controls vm={vm} />
-                    <Button
-                        className={styles.stageButton}
-                        onClick={onSetStageUnFull}
-                        onKeyPress={onKeyPress}
-                    >
-                        <img
-                            alt={props.intl.formatMessage(messages.unFullStageSizeMessage)}
-                            className={styles.stageButtonIcon}
-                            draggable={false}
-                            src={unFullScreenIcon}
-                            title={props.intl.formatMessage(messages.fullscreenControl)}
-                        />
-                    </Button>
+                    <Controls 
+                        vm={vm} 
+                        className={styles.controlsFullscreen}
+                    />
+                    <Fullscreen />
                 </Box>
             </Box>
         );
     } else {
-        const stageControls =
-            isPlayerOnly ? (
-                []
-            ) : (
-                <div className={styles.stageSizeToggleGroup}>
-                    <ComingSoonTooltip
-                        place="left"
-                        tooltipId="small-stage-button"
-                    >
-                        <div
-                            disabled
-                            className={classNames(
-                                styles.stageButton,
-                                styles.stageButtonLeft,
-                                styles.stageButtonDisabled
-                            )}
-                            role="button"
-                        >
-                            <img
-                                disabled
-                                alt={props.intl.formatMessage(messages.smallStageSizeMessage)}
-                                className={styles.stageButtonIcon}
-                                draggable={false}
-                                src={smallStageIcon}
-                            />
-                        </div>
-                    </ComingSoonTooltip>
-                    <div>
-                        <Button
-                            className={classNames(styles.stageButton, styles.stageButtonRight)}
-                            onClick={onSetStageLarge}
-                        >
-                            <img
-                                alt={props.intl.formatMessage(messages.largeStageSizeMessage)}
-                                className={styles.stageButtonIcon}
-                                draggable={false}
-                                src={largeStageIcon}
-                            />
-                        </Button>
-                    </div>
-                </div>
-            );
-        header = (
+            header = (
             <Box className={styles.stageHeaderWrapper}>
-                <Box className={styles.stageMenuWrapper}>
+                <Box
+                    className={styles.stageMenuWrapper}
+                    style={{width: stageSize.width}}
+                >
                     <Controls vm={vm} />
-                    <div className={styles.stageSizeRow}>
-                        <div>
-                            <Button
-                                className={styles.stageButton}
-                                onClick={onSetStageFull}
-                            >
-                                <img
-                                    alt={props.intl.formatMessage(messages.fullStageSizeMessage)}
-                                    className={styles.stageButtonIcon}
-                                    draggable={false}
-                                    src={fullScreenIcon}
-                                    title={props.intl.formatMessage(messages.fullscreenControl)}
-                                />
-                            </Button>
-                        </div>
-                    </div>
+                    <ButtonWithIcon
+                        className={styles.saveButton}
+                        iconSrc={saveButton}
+                        children={'Speichern'}
+                        onClick={onSaveProject}
+                    />
                 </Box>
             </Box>
         );

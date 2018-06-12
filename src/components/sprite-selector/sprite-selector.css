@@ -5,7 +5,7 @@
     flex-grow: 1;
     position: relative;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #f0f5fa;
     border-color: #dbdbdb;
     border-width: 1px;
     border-style: solid;
@@ -65,12 +65,12 @@
 }
 
 .raised {
-    background-color: #8cbcff;
+    background-color: #1d83a8;
     transition: all 0.25s ease;
 }
 
 .raised:hover {
-    background-color: #8cbcff;
+    background-color: #1d83a8;
     transform: scale(1.05);
 }
 
@@ -79,7 +79,7 @@
     animation-duration: 500ms;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
-    background-color: #8cbcff;
+    background-color: #1d83a8;
 }
 
 @keyframes wiggle {

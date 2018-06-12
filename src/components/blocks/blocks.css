@@ -7,13 +7,11 @@
     right: 0;
     bottom: 0;
     left: 0;
-    border: 1px solid $ui-black-transparent;
-    border-top-right-radius: $space;
-    border-bottom-right-radius: $space;
 }
 
 .blocks :global(.blocklyMainBackground) {
     stroke: none;
+    fill: #e1ebf6;
 }
 
 .blocks :global(.blocklyToolboxDiv) {

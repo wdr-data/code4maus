@@ -66,3 +66,11 @@
     cursor: auto;
     background: transparent;
 }
+
+.save-button{
+    padding-right: 0;
+}
+
+.controls-fullscreen {
+    margin-top: .6rem;
+}

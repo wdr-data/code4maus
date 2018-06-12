@@ -3,50 +3,85 @@
 
 .page-wrapper {
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .body-wrapper {
-    height: calc(100% - $menu-bar-height);
-    background-color: $ui-primary;
+    background-image: url('./bg_orange@1x.png');
+    background-repeat: stretch;
+    flex-grow: 1;
+    display: flex;
+    overflow: hidden;
+    padding: .5rem;
 }
 
 .body-wrapper * {
     box-sizing: border-box;
 }
 
-.flex-wrapper {
+.header {
     display: flex;
+    justify-content: space-between;
+    background-image: url('./bg_header@1x.png');
+}
 
-    /*
-        Make 2 columns:
-        a) for the blocks + workspace panes, and
-        b) for combined stage menu + stage + sprite/stage selectors
-    */
-    flex-direction: row;
-    height: 100%;
 
-    /*
-        Stop scrollbar popping in and out from scratch-blocks border issue
-        https://github.com/LLK/scratch-gui/issues/318
-    */
-    overflow: hidden;
+.header > *{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.first-column {
+    padding: .5rem 0 .04rem .75rem;
+}
+
+.second-column {
+    padding: .5rem 0 .04rem 0;
+}
+
+.third-column {
+    padding: .5rem 0 .04rem .75rem;
+}
+
+.menu-button {
+   margin-top: .25rem; 
 }
 
 .editor-wrapper {
     flex: 2;
     position: relative;
-
     display: flex;
     flex-direction: row;
+    padding-right: .5rem;
 }
 
 [layoutmode=BUILD] .editor-wrapper {
     min-width: 100%;
 }
 
+.logo {
+    height:  1.6rem;
+    display: block;
+}
+
+.logo-center {
+    height: 5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo-menu {
+    height: 1.4rem;
+    display: block;
+    margin-left: .5rem;
+}
+
 .tab-list {
     height: $stage-menu-height;
-    width: 250px; /* Match width of the toolbox */
     display: flex;
     align-items: flex-end;
     flex-shrink: 0;
@@ -64,16 +99,14 @@
     flex-grow: 1;
     height: 80%;
     margin-bottom: 0;
-    margin-left: -0.5rem;
+    margin-right: .5rem;
 
-    border-radius: 1rem 1rem 0 0;
-    border: 1px solid $ui-black-transparent;
+    padding: 0 1.25rem;
+    font-size: 1rem;
+    color: white;
 
-    padding: 0.125rem 1.25rem 0;
-    font-size: 0.75rem;
-
-    background-color: $ui-tertiary;
-    color: $text-primary-transparent;
+    background-image: url('./bg_header@1x.png');
+    background-repeat: no-repeat;
 
     display: flex;
     justify-content: center;
@@ -94,14 +127,16 @@
     z-index: 1;
 }
 
-.tab:hover {
-  background-color: $ui-primary;
+.tab:hover:not(.is-selected) {
+    color: grey;
+    opacity: .8;
 }
 
 .tab.is-selected {
-    height: 90%;
-    color: $motion-primary;
-    background-color: $ui-white;
+    height: 95%;
+    background-image: url('./bg_orange@1x.png');
+    border-radius: 0 !important;
+    border-style: none !important;
     z-index: 4; /* Make sure selected is always above */
 }
 
@@ -123,7 +158,6 @@
 .tab.is-selected:focus {
     outline: none;
     box-shadow: none;
-    border-color: $ui-black-transparent;
 }
 
 .tab.is-selected:focus:after {
@@ -156,28 +190,23 @@
 .layout-switcher {
     position: absolute;
     padding: 0;
+    margin-right: 1rem;
     right: 0;
-    top: 50%;
     z-index: 50;
     border-radius: 0;
 }
 
-.layout-switcher svg {
-    background-color: white;
+.layout-switcher-icon {
     padding: .5rem;
-    border-radius: .25rem;
     width: 3rem;
     height: 3rem;
-    margin-left: 50%;
-    margin-top: -50%;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
 }
 
-[layoutmode=PLAY] .layout-switcher svg {
+[layoutmode=PLAY] .layout-switcher-icon {
     transform: rotate(180deg);
 }
 
-[layoutmode=BUILD] .layout-switcher svg {
+[layoutmode=BUILD] .layout-switcher-icon {
     margin-left: 30%;
 }
 
@@ -201,14 +230,10 @@
 .target-wrapper {
     position: absolute;
     z-index: 50;
-    left: 45px;
+    left: 52px;
     bottom: 0;
-    width: 267px;
-    height: 165px;
-
-    padding-top: $space;
-    padding-left: $space;
-    padding-right: $space;
+    width: 251px;
+    height: 155px;
 
     /*
         For making the sprite-selector a scrollable pane

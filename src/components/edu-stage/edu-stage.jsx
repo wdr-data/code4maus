@@ -6,14 +6,13 @@ import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
 import styles from './edu-stage.css';
 import arrowIcon from '../gui/arrow.svg'
-import fullScreenIcon from '../stage-header/icon--fullscreen.svg';
+import fullScreenIcon from '../fullscreen/icon--fullscreen.svg';
 import {connect} from 'react-redux';
 import {nextSlide, previousSlide, toggleFullscreen} from '../../reducers/edu-layer.js';
 
 const EduStageComponent = props => !props.isEnabled ? null : (
     <Box className={classNames(styles.eduWrapper, {[styles.fullscreen]: props.isFullscreen})}>
         <Box className={styles.eduHeader}>
-            <p>{props.slideIndex + 1}/{props.slideCount}</p>
             <Button className={styles.fullscreenButton} onClick={props.toggleFullscreen}>
                 <img
                     className={styles.fullscreenButtonIcon}
@@ -33,6 +32,7 @@ const EduStageComponent = props => !props.isEnabled ? null : (
                     title="Back Arrow"
                 />
             </Button>
+            <p>{props.slideIndex + 1}/{props.slideCount}</p>
             <Button className={styles.forwardButton} onClick={props.nextSlide}>
                 <img
                     className={styles.forwardButtonIcon}

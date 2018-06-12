@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import greenFlagIcon from './icon--green-flag.svg';
+import greenFlagIcon from './play@2x.png';
 import styles from './green-flag.css';
 
 const GreenFlagComponent = function (props) {

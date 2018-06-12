@@ -375,6 +375,7 @@ class Stage extends React.Component {
                 question={this.state.question}
                 onDoubleClick={this.handleDoubleClick}
                 onQuestionAnswered={this.handleQuestionAnswered}
+                onKeyPress={this.handleKeyPress}
                 {...props}
             />
         );
@@ -389,7 +390,7 @@ Stage.propTypes = {
     onDeactivateColorPicker: PropTypes.func,
     useEditorDragStyle: PropTypes.bool,
     vm: PropTypes.instanceOf(VM).isRequired,
-    width: PropTypes.number
+    width: PropTypes.number,
 };
 
 Stage.defaultProps = {

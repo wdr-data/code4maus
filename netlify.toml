@@ -1,4 +1,4 @@
 [build]
-  Command = "npm run build && npm run build:backend"
+  Command = "npm run assets:netlify && npm run build && npm run build:backend"
   Functions = "lambda"
   Publish = "build"

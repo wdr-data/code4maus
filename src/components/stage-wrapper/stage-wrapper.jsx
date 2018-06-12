@@ -22,9 +22,6 @@ const StageWrapperComponent = function (props) {
 
     return (
         <Box className={styles.stageWrapper}>
-            <Box className={styles.stageMenuWrapper}>
-                <StageHeader vm={vm} />
-            </Box>
             <Box className={styles.stageCanvasWrapper}>
                 <Stage
                     height={height}

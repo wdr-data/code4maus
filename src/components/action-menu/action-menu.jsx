@@ -118,7 +118,7 @@ class ActionMenu extends React.Component {
             >
                 <button
                     aria-label={mainTitle}
-                    className={classNames(styles.button, styles.mainButton)}
+                    className={classNames(styles.button, styles.mainButton, styles.mausButton)}
                     data-for={mainTooltipId}
                     data-tip={mainTitle}
                     ref={this.setButtonRef}

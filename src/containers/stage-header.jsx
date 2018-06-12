@@ -4,6 +4,7 @@ import bindAll from 'lodash.bindall';
 import VM from '@wdr-data/scratch-vm';
 import {setStageSize, STAGE_SIZES} from '../reducers/stage-size';
 import {setFullScreen} from '../reducers/mode';
+import {openSaveProject} from '../reducers/modals';
 
 import {connect} from 'react-redux';
 
@@ -56,6 +57,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    onSaveProject: () => dispatch(openSaveProject()),
     onSetStageLarge: () => dispatch(setStageSize(STAGE_SIZES.large)),
     onSetStageSmall: () => dispatch(setStageSize(STAGE_SIZES.small)),
     onSetStageFull: () => dispatch(setFullScreen(true)),

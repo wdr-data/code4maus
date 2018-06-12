@@ -6,8 +6,7 @@
 }
 
 .stage-canvas-wrapper {
-    padding-left: $space;
-    padding-right: $space;
+    padding-bottom: .5rem;
 
     /* Hides negative space between edge of rounded corners + container, when selected */
     user-select: none;

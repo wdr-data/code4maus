@@ -9,8 +9,6 @@
     display: block;
 
     /* Attach border radius directly to canvas to prevent needing overflow:hidden; */
-    border-radius: $space;
-    border: 1px solid $ui-black-transparent;
 
     /* @todo: This is for overriding the value being set somewhere. Where is it being set? */
     background-color: transparent;
@@ -56,7 +54,6 @@
     padding: 0;
     margin-top: 3px;
     margin-bottom: 3px;
-    border-radius: $space;
 
     overflow: hidden;
     display: flex;
@@ -88,4 +85,4 @@
     left: 0;
     z-index: 1000; /* Above everything so it is draggable into other panes */
     filter: drop-shadow(5px 5px 5px $ui-black-transparent);
- }
+}

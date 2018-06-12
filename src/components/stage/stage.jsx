@@ -8,6 +8,7 @@ import MonitorList from '../../containers/monitor-list.jsx';
 import Question from '../../containers/question.jsx';
 import {getStageSize} from '../../lib/screen-utils.js';
 import styles from './stage.css';
+import Fullscreen from '../../containers/fullscreen.jsx';
 
 const StageComponent = props => {
     const {
@@ -47,6 +48,9 @@ const StageComponent = props => {
                     width={stageSize.width}
                     {...boxProps}
                 />
+                {isFullScreen ? null : (
+                  <Fullscreen />
+                )}
                 <Box className={styles.monitorWrapper}>
                     <MonitorList
                         draggable={useEditorDragStyle}

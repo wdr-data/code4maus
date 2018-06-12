@@ -27,16 +27,12 @@ button::-moz-focus-inner {
     border: 0;
 }
 
-.button:hover {
-    background: $pen-primary;
-}
-
 .button:active {
     padding: inherit;
 }
 
 .button.coming-soon:hover {
-    background: $data-primary;
+    background: #e85e38;
 }
 
 .main-button {
@@ -44,8 +40,8 @@ button::-moz-focus-inner {
     width: $main-button-size;
     height: $main-button-size;
     box-shadow: 0 0 0 4px $motion-transparent;
+    padding-right: 1.5rem;
     z-index: 20; /* TODO reorder layout to prevent z-index need */
-    transition: transform, box-shadow 0.5s;
 }
 
 .main-button:hover {
@@ -54,8 +50,16 @@ button::-moz-focus-inner {
 }
 
 .main-icon {
-    width: calc($main-button-size - 1rem);
-    height: calc($main-button-size - 1rem);
+    width: 3.8rem !important;
+    height: 3.8rem !important;
+}
+
+.maus-button {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: 4rem !important;
+    width: 4rem !important;
 }
 
 .more-buttons-outer {
@@ -66,7 +70,7 @@ button::-moz-focus-inner {
     */
     overflow-y: hidden;
 
-    background: $motion-tertiary;
+    background: #5185ba;
     border-top-left-radius: $more-button-size;
     border-top-right-radius: $more-button-size;
     width: $more-button-size;
@@ -75,7 +79,7 @@ button::-moz-focus-inner {
     position: absolute;
     bottom: calc($main-button-size);
 
-    margin-bottom: calc($main-button-size / -2);
+    margin-bottom: calc($main-button-size / -1.7);
     padding-bottom: calc($main-button-size / 2);
 }
 
@@ -94,6 +98,7 @@ button::-moz-focus-inner {
 
 .expanded .more-buttons {
     max-height: 1000px; /* Arbitrary, needs to be a value in order for animation to run */
+    padding-bottom: 1.3rem;
 }
 
 .force-hidden .more-buttons {
@@ -108,12 +113,12 @@ button::-moz-focus-inner {
 .more-button {
     width: $more-button-size;
     height: $more-button-size;
-    background: $motion-tertiary;
+    background: #5185ba;
 }
 
 .more-icon {
-    width: calc($more-button-size - 1rem);
-    height: calc($more-button-size - 1rem);
+    width: $more-button-size;
+    height: $more-button-size;
 }
 
 .coming-soon .more-icon {
@@ -126,29 +131,24 @@ button::-moz-focus-inner {
     is not very easy to style.
 */
 .tooltip {
-    background-color: $pen-primary !important;
+    background-color: #e85e38 !important;
     opacity: 1 !important;
-    border: 1px solid hsla(0, 0%, 0%, .1) !important;
-    box-shadow: 0 0 .5rem hsla(0, 0%, 0%, .25) !important;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 .tooltip:after {
-    background-color: $pen-primary;
+    background-color: #e85e38;
 }
 
 .coming-soon-tooltip {
-    background-color: $data-primary !important;
+    background-color: #e85e38 !important;
 }
 
 .coming-soon-tooltip:after {
-    background-color: $data-primary !important;
+    background-color: #e85e38 !important;
 }
 
 .tooltip {
-    border: 1px solid hsla(0, 0%, 0%, .1) !important;
-    border-radius: .25rem !important;
-    box-shadow: 0 0 .5rem hsla(0, 0%, 0%, .25) !important;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     z-index: 100 !important;
 }

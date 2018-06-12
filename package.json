@@ -9,6 +9,9 @@
     "clean": "rimraf ./build && mkdirp build && rimraf ./dist && mkdirp dist",
     "deploy": "touch build/.nojekyll && gh-pages -t -d build -m \"Build for $(git log --pretty=format:%H -n1)\"",
     "i18n:src": "babel src > tmp.js && rimraf tmp.js && build-i18n-src ./translations/messages/ ./translations/",
+    "assets:download": "aws s3 sync s3://code4maus-assets assets",
+    "assets:netlify": "pip install awscli && AWS_ACCESS_KEY_ID=$DEPLOY_AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$DEPLOY_AWS_SECRET_ACCESS_KEY npm run assets:download",
+    "assets:upload": "aws s3 sync --exclude .gitkeep assets s3://code4maus-assets",
     "start": "webpack-dev-server",
     "start:backend": "netlify-lambda serve src/backend -c webpack.backend.js",
     "test": "npm run test:lint && npm run test:unit && npm run build && npm run test:integration",
@@ -30,7 +33,7 @@
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
-    "@wdr-data/scratch-blocks": "0.1.0-de",
+    "@wdr-data/scratch-blocks": "^0.1.0-de-2",
     "@wdr-data/scratch-storage": "0.5.0-fix-2",
     "@wdr-data/scratch-vm": "0.1.0-minimal-1",
     "arraybuffer-loader": "^1.0.3",

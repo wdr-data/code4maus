@@ -182,6 +182,10 @@ module.exports = [
                 to: 'static/blocks-media'
             }]),
             new CopyWebpackPlugin([{
+                from: 'assets/blocks-media',
+                to: 'static/blocks-media'
+            }]),
+            new CopyWebpackPlugin([{
                 from: 'extensions/**',
                 to: 'static',
                 context: 'src/examples'
