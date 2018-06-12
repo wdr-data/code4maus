@@ -174,8 +174,8 @@ module.exports = [
                 title: 'Scratch 3.0 GUI: Player Example'
             }),
             new CopyWebpackPlugin([{
-                from: 'static',
-                to: 'static'
+                from: 'assets/img/favicon.png',
+                to: ''
             }]),
             new CopyWebpackPlugin([{
                 from: 'node_modules/@wdr-data/scratch-blocks/media',
