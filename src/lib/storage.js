@@ -1,4 +1,4 @@
-import ScratchStorage from '@wdr-data/scratch-storage';
+import ScratchStorage from 'scratch-storage';
 
 import defaultProjectAssets from './default-project';
 

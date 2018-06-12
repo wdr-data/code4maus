@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "@wdr-data/scratch-blocks": "^0.1.0-de-2",
-    "@wdr-data/scratch-storage": "0.5.0-fix-2",
     "@wdr-data/scratch-vm": "0.1.0-minimal-1",
     "arraybuffer-loader": "^1.0.3",
     "autoprefixer": "^8.1.0",
@@ -111,6 +110,7 @@
     "scratch-l10n": "3.0.20180604162003",
     "scratch-paint": "0.2.0-prerelease.20180605153807",
     "scratch-render": "0.1.0-prerelease.20180605145739",
+    "scratch-storage": "^0.5.1",
     "scratch-svg-renderer": "0.2.0-prerelease.20180605154326",
     "selenium-webdriver": "3.6.0",
     "startaudiocontext": "1.2.1",
