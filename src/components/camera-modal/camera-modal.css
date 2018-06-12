@@ -39,7 +39,7 @@ $main-button-size: 2.75rem;
 
 .loading-text {
     position: absolute;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Titillium Web';
     color: $text-primary-transparent;
     font-size: 0.95rem;
     font-weight: 500;
@@ -48,7 +48,7 @@ $main-button-size: 2.75rem;
 
 .help-text {
     margin: 10px auto 0;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Titillium Web';
     color: $text-primary-transparent;
     font-size: 0.95rem;
     font-weight: 500;
@@ -80,7 +80,7 @@ $main-button-size: 2.75rem;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Titillium Web';
     background: $motion-primary;
     outline: none;
     border: none;

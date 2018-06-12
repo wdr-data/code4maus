@@ -23,7 +23,7 @@
     border-radius: $space;
     user-select: none;
 
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Titillium Web';
     color: $text-primary;
     overflow: hidden;
 }
@@ -68,7 +68,7 @@ $sides: 20rem;
     width: 100%;
     background-color: $motion-primary;
 
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Titillium Web';
     font-size: 1rem;
     font-weight: normal;
 }

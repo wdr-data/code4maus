@@ -24,7 +24,7 @@
     outline: none;
     background: rgba(255, 255, 255, 0.5);
     color: $motion-tertiary;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Titillium Web';
 }
 
 .language-select:focus {

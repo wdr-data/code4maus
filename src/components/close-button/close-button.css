@@ -9,7 +9,7 @@
     overflow: hidden;  /* Mask the icon animation */
     background-color: $ui-black-transparent;
     border-radius: 50%;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Titillium Web';
     user-select: none;
     cursor: pointer;
     transition: all 0.15s ease-out;

@@ -7,7 +7,7 @@
     cursor: pointer;
     transition: 0.2s;
     font-size: 0.75rem;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Titillium Web';
     color: $motion-primary;
 }
 

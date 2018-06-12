@@ -196,6 +196,10 @@ module.exports = [
                 from: '{edu-assets,edu-games}/**/*',
                 context: 'src/lib/'
             }]),
+            new CopyWebpackPlugin([{
+                from: 'static',
+                to: 'static'
+            }]),
             new Visualizer({
                 filename: 'statistics.html'
             })

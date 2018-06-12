@@ -14,7 +14,7 @@
 .turbo-label {
     font-size: 0.625rem;
     font-weight: bold;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Titillium Web';
     color: $control-primary;
     white-space: nowrap;
 }

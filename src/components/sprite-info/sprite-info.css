@@ -4,7 +4,7 @@
 .sprite-info {
     height: $sprite-info-height;
     padding: 0.75rem;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Titillium Web';
     background-color: white;
     color: $text-primary;
     border-top-left-radius: $space;

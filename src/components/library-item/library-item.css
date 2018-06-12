@@ -11,7 +11,7 @@
     height: 160px;
     margin: $space;
     padding: 1rem 1rem 0 1rem;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Titillium Web';
     color: $text-primary;
     background: white;
     border-width: 2px;

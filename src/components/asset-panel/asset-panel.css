@@ -7,7 +7,7 @@
     border: 1px solid $ui-black-transparent;
     border-top-right-radius: $space;
     background: white;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Titillium Web';
     font-size: 0.85rem;
 }
 

@@ -179,7 +179,7 @@ const GUIComponent = props => {
                                         />
                                     ) : (
                                             <FormattedMessage
-                                                defaultMessage="Costumes"
+                                                defaultMessage="Kostüme"
                                                 description="Button to get to the costumes panel"
                                                 id="gui.gui.costumesTab"
                                             />
@@ -194,7 +194,7 @@ const GUIComponent = props => {
                                         src={soundsIcon}
                                     />
                                     <FormattedMessage
-                                        defaultMessage="Sounds"
+                                        defaultMessage="Töne"
                                         description="Button to get to the sounds panel"
                                         id="gui.gui.soundsTab"
                                     />

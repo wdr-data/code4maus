@@ -16,7 +16,7 @@ $more-button-size: 2.25rem;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Titillium Web';
     background: $motion-primary;
     outline: none;
     border: none;
@@ -133,7 +133,7 @@ button::-moz-focus-inner {
 .tooltip {
     background-color: #e85e38 !important;
     opacity: 1 !important;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-family: 'Titillium Web' !important;
 }
 
 .tooltip:after {
@@ -149,7 +149,7 @@ button::-moz-focus-inner {
 }
 
 .tooltip {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-family: 'Titillium Web' !important;
     z-index: 100 !important;
 }
 

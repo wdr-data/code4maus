@@ -4,7 +4,7 @@
 .sprite-selector {
     flex-grow: 1;
     position: relative;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Titillium Web';
     background-color: #f0f5fa;
     border-color: #dbdbdb;
     border-width: 1px;
