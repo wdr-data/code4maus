@@ -57,5 +57,431 @@
             "visible": true,
             "spriteInfo": {}
         }
+    },
+    {
+        "name": "Maus verwirrt",
+        "baseLayerID": -1,
+        "md5": "028dd6f30c1e05df36863f446aaa469a.svg",
+        "type": "sprite",
+        "tags": [],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Maus verwirrt",
+            "sounds": [],
+            "costumes": [
+                {
+                    "costumeName": "maus-verwirrt",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "028dd6f30c1e05df36863f446aaa469a.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 32.86786387491725,
+                    "rotationCenterY": 54.66154954640413
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": -5,
+            "scratchY": -20,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Maus hebt Arm",
+        "baseLayerID": -1,
+        "md5": "ad00118a8db97095275251472feaa79d.svg",
+        "type": "sprite",
+        "tags": [],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Maus hebt Arm",
+            "sounds": [],
+            "costumes": [
+                {
+                    "costumeName": "maus-hebt-arm-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "ad00118a8db97095275251472feaa79d.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 33.54997000000043,
+                    "rotationCenterY": 98.26699991140438
+                },
+                {
+                    "costumeName": "maus-hebt-arm-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "62801ab3a29609c3795a37ec192f03e4.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 48.317865592935476,
+                    "rotationCenterY": 98.41623779993463
+                },
+                {
+                    "costumeName": "maus-hebt-arm-3",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "ed9a1c8e8674a591ed2a719f6c47281f.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 49.67244563548064,
+                    "rotationCenterY": 98.80131860272255
+                }
+            ],
+            "currentCostumeIndex": 2,
+            "scratchX": 5,
+            "scratchY": -63,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Maus geht",
+        "baseLayerID": -1,
+        "md5": "16c59955907b02afd456b5f72ad7ca0b.svg",
+        "type": "sprite",
+        "tags": [],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Maus geht",
+            "sounds": [],
+            "costumes": [
+                {
+                    "costumeName": "maus-geht-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "16c59955907b02afd456b5f72ad7ca0b.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 82.19214325196805,
+                    "rotationCenterY": 32.32721804906802
+                },
+                {
+                    "costumeName": "maus-geht-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "4223e0e265fa6d6e60ee38d31f5aa23f.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 75.27506522629974,
+                    "rotationCenterY": 28.099959642378053
+                },
+                {
+                    "costumeName": "maus-geht-3",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "c9b60401cf1893aaa1ac22a2220ba8e7.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 87.53369913674055,
+                    "rotationCenterY": 28.2015226866275
+                },
+                {
+                    "costumeName": "maus-geht-4",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "d3616616fbd9ef401a61e814bc073b08.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 79.99392851506855,
+                    "rotationCenterY": 28.719053457693207
+                },
+                {
+                    "costumeName": "maus-geht-5",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "be0110d71e6af586bad259e8300c57a7.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 90.4287580333301,
+                    "rotationCenterY": 31.04329232368258
+                }
+            ],
+            "currentCostumeIndex": 4,
+            "scratchX": 29,
+            "scratchY": 9,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Maus Freudensprung",
+        "baseLayerID": -1,
+        "md5": "860708a165da8976052352adc0058022.svg",
+        "type": "sprite",
+        "tags": [],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Maus Freudensprung",
+            "sounds": [],
+            "costumes": [
+                {
+                    "costumeName": "freudensprung-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "860708a165da8976052352adc0058022.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 45.19500427246089,
+                    "rotationCenterY": 32.55595657717495
+                },
+                {
+                    "costumeName": "freudensprung-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "3b2d772c8be67ffcbebee0f884239217.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 65.55304460770924,
+                    "rotationCenterY": 35.87021316333781
+                },
+                {
+                    "costumeName": "freudensprung-3",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "f49fddba15dfb8c7562571128a5f8f67.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 49.71963032728041,
+                    "rotationCenterY": 50.34078593454498
+                }
+            ],
+            "currentCostumeIndex": 2,
+            "scratchX": 10,
+            "scratchY": 2,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Maus dreht sich",
+        "baseLayerID": -1,
+        "md5": "d0e8aa056b6512ba2ef7a9c67b94fe18.svg",
+        "type": "sprite",
+        "tags": [],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Maus dreht sich",
+            "sounds": [],
+            "costumes": [
+                {
+                    "costumeName": "maus_drehung1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "d0e8aa056b6512ba2ef7a9c67b94fe18.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 33.875011220703215,
+                    "rotationCenterY": 100.70696230454203
+                },
+                {
+                    "costumeName": "maus_drehung2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "813bc3fae4709a96131f677c1f397085.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 54.83500122070302,
+                    "rotationCenterY": 98.30609526284239
+                },
+                {
+                    "costumeName": "maus_drehung3",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "b870bfb7becbacbafa9c2b892a42d060.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 36.62445362693592,
+                    "rotationCenterY": 99.04796871347338
+                },
+                {
+                    "costumeName": "maus_drehung4",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "2419bd7878be324e98b337365c34a12e.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 45.5849912207033,
+                    "rotationCenterY": 99.39807572893487
+                }
+            ],
+            "currentCostumeIndex": 3,
+            "scratchX": -5,
+            "scratchY": -61,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Maus",
+        "baseLayerID": -1,
+        "md5": "64e55dfc4352476866a00fd9adf46981.svg",
+        "type": "sprite",
+        "tags": [],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Maus",
+            "sounds": [],
+            "costumes": [
+                {
+                    "costumeName": "maus",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "64e55dfc4352476866a00fd9adf46981.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 18.515001220703198,
+                    "rotationCenterY": 51.99099902499279
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": -15,
+            "scratchY": -16,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Maus zwinkert",
+        "baseLayerID": -1,
+        "md5": "3872d07b448df1feed155510f1eb8298.svg",
+        "type": "sprite",
+        "tags": [],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Maus zwinkert",
+            "sounds": [],
+            "costumes": [
+                {
+                    "costumeName": "maus_zwinkert1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "3872d07b448df1feed155510f1eb8298.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 33.51499122070399,
+                    "rotationCenterY": 99.75255492020676
+                },
+                {
+                    "costumeName": "maus_zwinkert2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "b8f14e4f2c3af62ea73c8a56108773f3.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 33.785011220703126,
+                    "rotationCenterY": 99.23025134567
+                }
+            ],
+            "currentCostumeIndex": 1,
+            "scratchX": -10,
+            "scratchY": -64,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Maus taucht",
+        "baseLayerID": -1,
+        "md5": "4abeb8a3350e60ab74894b1bb82f6029.svg",
+        "type": "sprite",
+        "tags": [],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Maus taucht",
+            "sounds": [],
+            "costumes": [
+                {
+                    "costumeName": "maus_taucht1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "4abeb8a3350e60ab74894b1bb82f6029.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 52.97848037213694,
+                    "rotationCenterY": 12.899541349923254
+                },
+                {
+                    "costumeName": "maus_taucht2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "c6fb043a37ffac09574ee6496cf39060.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 54.09020276449144,
+                    "rotationCenterY": 12.25511417397692
+                },
+                {
+                    "costumeName": "maus_taucht3",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "3154f67225662723af3d361d9e1d73fd.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 51.28271334483486,
+                    "rotationCenterY": 12.068687763246174
+                }
+            ],
+            "currentCostumeIndex": 2,
+            "scratchX": -21,
+            "scratchY": 14,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Maus fährt Skateboard",
+        "baseLayerID": -1,
+        "md5": "72fd48e288013c7cac14e1e1b0e25459.svg",
+        "type": "sprite",
+        "tags": [],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Maus fährt Skateboard",
+            "sounds": [],
+            "costumes": [
+                {
+                    "costumeName": "maus-faehrt-skateboard-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "72fd48e288013c7cac14e1e1b0e25459.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 73.59501976562518,
+                    "rotationCenterY": 107.1369143230102
+                },
+                {
+                    "costumeName": "maus-faehrt-skateboard-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "b1da4706c76304131c47f2910dc937cd.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 72.00702958754044,
+                    "rotationCenterY": 100.92373993959649
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": 7,
+            "scratchY": -63,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
     }
 ]

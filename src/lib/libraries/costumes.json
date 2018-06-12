@@ -31,5 +31,269 @@
             61.11990614672723,
             1
         ]
+    },
+    {
+        "name": "Maus verwirrt-a",
+        "md5": "028dd6f30c1e05df36863f446aaa469a.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            32.86786387491725,
+            54.66154954640413,
+            1
+        ]
+    },
+    {
+        "name": "Maus hebt Arm-a",
+        "md5": "ad00118a8db97095275251472feaa79d.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            33.54997000000043,
+            98.26699991140438,
+            1
+        ]
+    },
+    {
+        "name": "Maus hebt Arm-b",
+        "md5": "62801ab3a29609c3795a37ec192f03e4.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            48.317865592935476,
+            98.41623779993463,
+            1
+        ]
+    },
+    {
+        "name": "Maus hebt Arm-c",
+        "md5": "ed9a1c8e8674a591ed2a719f6c47281f.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            49.67244563548064,
+            98.80131860272255,
+            1
+        ]
+    },
+    {
+        "name": "Maus geht-a",
+        "md5": "16c59955907b02afd456b5f72ad7ca0b.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            82.19214325196805,
+            32.32721804906802,
+            1
+        ]
+    },
+    {
+        "name": "Maus geht-b",
+        "md5": "4223e0e265fa6d6e60ee38d31f5aa23f.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            75.27506522629974,
+            28.099959642378053,
+            1
+        ]
+    },
+    {
+        "name": "Maus geht-c",
+        "md5": "c9b60401cf1893aaa1ac22a2220ba8e7.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            87.53369913674055,
+            28.2015226866275,
+            1
+        ]
+    },
+    {
+        "name": "Maus geht-d",
+        "md5": "d3616616fbd9ef401a61e814bc073b08.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            79.99392851506855,
+            28.719053457693207,
+            1
+        ]
+    },
+    {
+        "name": "Maus geht-e",
+        "md5": "be0110d71e6af586bad259e8300c57a7.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            90.4287580333301,
+            31.04329232368258,
+            1
+        ]
+    },
+    {
+        "name": "Maus Freudensprung-a",
+        "md5": "860708a165da8976052352adc0058022.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            45.19500427246089,
+            32.55595657717495,
+            1
+        ]
+    },
+    {
+        "name": "Maus Freudensprung-b",
+        "md5": "3b2d772c8be67ffcbebee0f884239217.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            65.55304460770924,
+            35.87021316333781,
+            1
+        ]
+    },
+    {
+        "name": "Maus Freudensprung-c",
+        "md5": "f49fddba15dfb8c7562571128a5f8f67.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            49.71963032728041,
+            50.34078593454498,
+            1
+        ]
+    },
+    {
+        "name": "Maus dreht sich-a",
+        "md5": "d0e8aa056b6512ba2ef7a9c67b94fe18.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            33.875011220703215,
+            100.70696230454203,
+            1
+        ]
+    },
+    {
+        "name": "Maus dreht sich-b",
+        "md5": "813bc3fae4709a96131f677c1f397085.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            54.83500122070302,
+            98.30609526284239,
+            1
+        ]
+    },
+    {
+        "name": "Maus dreht sich-c",
+        "md5": "b870bfb7becbacbafa9c2b892a42d060.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            36.62445362693592,
+            99.04796871347338,
+            1
+        ]
+    },
+    {
+        "name": "Maus dreht sich-d",
+        "md5": "2419bd7878be324e98b337365c34a12e.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            45.5849912207033,
+            99.39807572893487,
+            1
+        ]
+    },
+    {
+        "name": "Maus-a",
+        "md5": "64e55dfc4352476866a00fd9adf46981.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            18.515001220703198,
+            51.99099902499279,
+            1
+        ]
+    },
+    {
+        "name": "Maus zwinkert-a",
+        "md5": "3872d07b448df1feed155510f1eb8298.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            33.51499122070399,
+            99.75255492020676,
+            1
+        ]
+    },
+    {
+        "name": "Maus zwinkert-b",
+        "md5": "b8f14e4f2c3af62ea73c8a56108773f3.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            33.785011220703126,
+            99.23025134567,
+            1
+        ]
+    },
+    {
+        "name": "Maus taucht-a",
+        "md5": "4abeb8a3350e60ab74894b1bb82f6029.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            52.97848037213694,
+            12.899541349923254,
+            1
+        ]
+    },
+    {
+        "name": "Maus taucht-b",
+        "md5": "c6fb043a37ffac09574ee6496cf39060.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            54.09020276449144,
+            12.25511417397692,
+            1
+        ]
+    },
+    {
+        "name": "Maus taucht-c",
+        "md5": "3154f67225662723af3d361d9e1d73fd.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            51.28271334483486,
+            12.068687763246174,
+            1
+        ]
+    },
+    {
+        "name": "Maus fährt Skateboard-a",
+        "md5": "72fd48e288013c7cac14e1e1b0e25459.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            73.59501976562518,
+            107.1369143230102,
+            1
+        ]
+    },
+    {
+        "name": "Maus fährt Skateboard-b",
+        "md5": "b1da4706c76304131c47f2910dc937cd.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            72.00702958754044,
+            100.92373993959649,
+            1
+        ]
     }
 ]
