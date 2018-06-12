@@ -483,5 +483,223 @@
             "visible": true,
             "spriteInfo": {}
         }
+    },
+    {
+        "name": "Elefant",
+        "baseLayerID": -1,
+        "md5": "6489c9e58589267b2153dc8810f6025f.svg",
+        "type": "sprite",
+        "tags": [],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Elefant",
+            "sounds": [],
+            "costumes": [
+                {
+                    "costumeName": "elefant",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "6489c9e58589267b2153dc8810f6025f.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 35.52152695948365,
+                    "rotationCenterY": 35.18413657291663
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": 0,
+            "scratchY": -1,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Elefant trötet",
+        "baseLayerID": -1,
+        "md5": "6424ecfbf2de4afda3cb7e2cc8a039f1.svg",
+        "type": "sprite",
+        "tags": [],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Elefant trötet",
+            "sounds": [],
+            "costumes": [
+                {
+                    "costumeName": "elefant_troetet1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "6424ecfbf2de4afda3cb7e2cc8a039f1.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": -0.32447229384621323,
+                    "rotationCenterY": 49.43592976382996
+                },
+                {
+                    "costumeName": "elefant_troetet2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "2ea5bd9bd96c26615d8ec03efd15f4cf.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 1.7692923322475167,
+                    "rotationCenterY": 49.30496745383218
+                },
+                {
+                    "costumeName": "elefant_troetet3",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "fd943e07457521d23b6d1a24634fa2b9.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 8.800404455007452,
+                    "rotationCenterY": 48.936159572809004
+                },
+                {
+                    "costumeName": "elefant_troetet4",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "d0d95023c5826b1285ad610582d978f6.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 8.690972224352691,
+                    "rotationCenterY": 49.53039374705736
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": -44,
+            "scratchY": -14,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Maus im Weltall",
+        "baseLayerID": -1,
+        "md5": "1edcf76190067b896f043cead99caf31.svg",
+        "type": "sprite",
+        "tags": [],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Maus im Weltall",
+            "sounds": [],
+            "costumes": [
+                {
+                    "costumeName": "weltall_maus-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "1edcf76190067b896f043cead99caf31.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 59.869966572265554,
+                    "rotationCenterY": 66.47552655130977
+                },
+                {
+                    "costumeName": "weltall_maus-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "8fe3872613778d1445d181930f07e7b4.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 47.601434999999896,
+                    "rotationCenterY": 67.35373681151323
+                }
+            ],
+            "currentCostumeIndex": 1,
+            "scratchX": -6,
+            "scratchY": -20,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Ente im Weltall",
+        "baseLayerID": -1,
+        "md5": "17ab7ab73411e63dc8495e7e8eba92cc.svg",
+        "type": "sprite",
+        "tags": [],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Ente im Weltall",
+            "sounds": [],
+            "costumes": [
+                {
+                    "costumeName": "weltall-ente-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "17ab7ab73411e63dc8495e7e8eba92cc.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 39.18462974473715,
+                    "rotationCenterY": 60.098168571252984
+                },
+                {
+                    "costumeName": "weltall-ente-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "eef7323c8c3dd46848c60b31b3bee756.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 35.212777918688175,
+                    "rotationCenterY": 42.222559029909974
+                }
+            ],
+            "currentCostumeIndex": 1,
+            "scratchX": -8,
+            "scratchY": -17,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Elefant im Weltall",
+        "baseLayerID": -1,
+        "md5": "e0c4eed1f63d452188f57af55699edc4.svg",
+        "type": "sprite",
+        "tags": [],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Elefant im Weltall",
+            "sounds": [],
+            "costumes": [
+                {
+                    "costumeName": "weltall-elefant-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "e0c4eed1f63d452188f57af55699edc4.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 48.851262206342255,
+                    "rotationCenterY": 65.34792409970876
+                },
+                {
+                    "costumeName": "weltall-elefant-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "18045d742e91b7898cbf9e25335722c1.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 56.016625434391585,
+                    "rotationCenterY": 62.937030894286565
+                }
+            ],
+            "currentCostumeIndex": 1,
+            "scratchX": -19,
+            "scratchY": -11,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
     }
 ]
