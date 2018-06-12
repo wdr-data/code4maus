@@ -6,6 +6,23 @@ import {projectUrl} from './routing';
 import {serializeSounds, serializeCostumes} from '@wdr-data/scratch-vm/src/serialization/serialize-assets';
 import storage from './storage';
 
+const contentTypes = {
+    'jpg': 'image/jpeg',
+    'json': 'application/json',
+    'mp3': 'audio/mp3',
+    'png': 'image/png',
+    'svg': 'image/svg+xml',
+    'wav': 'audio/wav'
+}
+const getContentType = filename => {
+    const parts = filename.split('.');
+    const ext = parts[parts.length-1];
+    if (ext in contentTypes) {
+        return contentTypes[ext];
+    }
+    return 'text/plain';
+}
+
 const ProjectSaveHOC = WrappedComponent => {
     class ProjectSaveComponent extends React.Component {
         constructor (props) {
@@ -66,7 +83,7 @@ const ProjectSaveHOC = WrappedComponent => {
                 const saveRes = await fetch(body.uploadUrl, {
                     method: 'PUT',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': getContentType(asset.fileName)
                     },
                     body: asset.fileContent
                 });
