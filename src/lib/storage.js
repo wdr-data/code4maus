@@ -5,6 +5,11 @@ import defaultProjectAssets from './default-project';
 const PROJECT_SERVER = 'https://projects.scratch.mit.edu';
 const ASSET_SERVER = 'https://cdn.assets.scratch.mit.edu';
 
+
+const bucketUrl = process.env.S3_BUCKET_URL_PROJECT;
+export const s3assets = filename => `${bucketUrl}/assets/${filename}`;
+
+
 /**
  * Wrapper for ScratchStorage which adds default web sources.
  * @todo make this more configurable
@@ -41,7 +46,6 @@ class Storage extends ScratchStorage {
     }
 
     setupS3Source () {
-        const bucketUrl = process.env.S3_BUCKET_URL_PROJECT;
         this.addWebSource(
             [this.AssetType.Project],
             project => {
@@ -53,7 +57,7 @@ class Storage extends ScratchStorage {
         );
         this.addWebSource(
             [this.AssetType.ImageVector, this.AssetType.ImageBitmap, this.AssetType.Sound],
-            asset => `${bucketUrl}/assets/${asset.assetId}.${asset.dataFormat}`
+            asset => s3assets(`${asset.assetId}.${asset.dataFormat}`)
         );
     }
 

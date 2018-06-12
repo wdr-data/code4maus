@@ -9,6 +9,7 @@ import Modal from '../../containers/modal.jsx';
 import Divider from '../divider/divider.jsx';
 import Filter from '../filter/filter.jsx';
 import TagButton from '../../containers/tag-button.jsx';
+import {s3assets} from '../../lib/storage';
 
 import styles from './library.css';
 
@@ -158,7 +159,7 @@ class LibraryComponent extends React.Component {
                 >
                     {this.getFilteredData().map((dataItem, index) => {
                         const scratchURL = dataItem.md5 ?
-                            `https://cdn.assets.scratch.mit.edu/internalapi/asset/${dataItem.md5}/get/` :
+                            s3assets(dataItem.md5) :
                             dataItem.rawURL;
                         return (
                             <LibraryItem
