@@ -10,13 +10,14 @@ $header-height: calc($stage-menu-height - 2px);
     align-items: center;
     position: relative; /* For the add backdrop button */
     flex-grow: 1;
+    padding-top: .8rem;
+
     font-family: 'Titillium Web';
     background-color: #f0f5fa;
     color: $text-primary;
-    border-color: #dbdbdb;
-    border-width: 1px;
+    border-color: #97bade;
+    border-width: 1px 0 0 0;
     border-style: solid;
-    border-bottom: 0;
     cursor: pointer;
     transition: border-color 0.25s ease-out, box-shadow 0.25s ease-out;
 }
@@ -41,7 +42,7 @@ $header-height: calc($stage-menu-height - 2px);
 }
 
 .header-title {
-    font-size: 0.625rem;
+    font-size: 0.8rem;
     font-weight: bold;
     color: $text-primary;
 
@@ -74,7 +75,7 @@ $header-height: calc($stage-menu-height - 2px);
 .add-button {
     position: absolute;
     right: 1rem;
-    bottom: 0.75rem;
+    top: 0.2rem;
     z-index: 1;
 }
 

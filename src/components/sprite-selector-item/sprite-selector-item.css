@@ -9,6 +9,7 @@
     position: relative;
 
     font-family: 'Titillium Web';
+    font-weight: 600;
     font-size: 0.8rem;
     color: $text-primary;
     border-width: 2px;

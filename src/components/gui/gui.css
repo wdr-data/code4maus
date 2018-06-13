@@ -87,7 +87,7 @@
     flex-shrink: 0;
 
     font-family: 'Titillium Web';
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.80rem;
 
     /* Overrides for react-tabs styling */
@@ -105,7 +105,7 @@
     font-size: 1rem;
     color: white;
 
-    background-image: url('./bg_header@1x.png');
+    background-color: #5185ba;
     background-repeat: no-repeat;
 
     display: flex;
@@ -113,6 +113,8 @@
     align-items: center;
 
     user-select: none;
+    cursor: pointer;
+    transition: 0.2s ease-out;
 }
 
 /* Use z-indices to force left-on-top for tabs */
@@ -128,8 +130,7 @@
 }
 
 .tab:hover:not(.is-selected) {
-    color: grey;
-    opacity: .8;
+    height: 95%;
 }
 
 .tab.is-selected {
@@ -194,6 +195,12 @@
     right: 0;
     z-index: 50;
     border-radius: 0;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+}
+
+.layout-switcher:hover {
+    transform: scale(1.2);
 }
 
 .layout-switcher-icon {
@@ -201,6 +208,8 @@
     width: 3rem;
     height: 3rem;
 }
+
+
 
 [layoutmode=PLAY] .layout-switcher-icon {
     transform: rotate(180deg);
@@ -230,10 +239,10 @@
 .target-wrapper {
     position: absolute;
     z-index: 50;
-    left: 52px;
+    left: 4rem;
     bottom: 0;
     width: 251px;
-    height: 155px;
+    height: 160px;
 
     /*
         For making the sprite-selector a scrollable pane

@@ -328,7 +328,6 @@ class Blocks extends React.Component {
         this.props.onRequestCloseCustomProcedures(data);
         const ws = this.workspace;
         ws.refreshToolboxSelection_();
-        ws.toolbox_.scrollToCategoryById('myBlocks');
     }
     render () {
         /* eslint-disable no-unused-vars */

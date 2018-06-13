@@ -4,7 +4,7 @@ const blockSeparator = '<sep gap="36"/>'; // At default scale, about 28px
 
 const motion = function (isStage, targetId) {
     return `
-    <category name="Motion" id="motion" colour="#4C97FF" secondaryColour="#3373CC">
+    <category name="Bewegung" id="motion" iconURI="/static/icons/icon_bewegung.svg">
         ${isStage ? `
         <label text="Stage selected: no motion blocks"></label>
         ` : `
@@ -134,7 +134,7 @@ const motion = function (isStage, targetId) {
 
 const looks = function (isStage, targetId) {
     return `
-    <category name="Looks" id="looks" colour="#9966FF" secondaryColour="#774DCB">
+    <category name="Aussehen" id="looks" iconURI="/static/icons/icon_aussehen.svg">
         ${isStage ? '' : `
         <block type="looks_sayforsecs">
             <value name="MESSAGE">
@@ -261,7 +261,7 @@ const looks = function (isStage, targetId) {
 
 const sound = function (isStage, targetId) {
     return `
-    <category name="Sound" id="sound" colour="#D65CD6" secondaryColour="#BD42BD">
+    <category name="Klang" id="sound" iconURI="/static/icons/icon_klang.svg">
         <block id="${targetId}_sound_play" type="sound_play">
             <value name="SOUND_MENU">
                 <shadow type="sound_sounds_menu"/>
@@ -312,7 +312,7 @@ const sound = function (isStage, targetId) {
 
 const events = function (isStage) {
     return `
-    <category name="Events" id="events" colour="#FFD500" secondaryColour="#CC9900">
+    <category name="Ereignisse" id="events" iconURI="/static/icons/icon_ereignisse.svg">
         <block type="event_whenflagclicked"/>
         <block type="event_whenkeypressed">
         </block>
@@ -320,13 +320,6 @@ const events = function (isStage) {
             <block type="event_whenstageclicked"/>
         ` : `
             <block type="event_whenthisspriteclicked"/>
-        `}
-        ${isStage ? '' : `
-            <block type="event_whentouchingobject">
-                <value name="TOUCHINGOBJECTMENU">
-                    <shadow type="event_touchingobjectmenu"/>
-                </value>
-            </block>
         `}
         <block type="event_whenbackdropswitchesto">
         </block>
@@ -358,7 +351,7 @@ const events = function (isStage) {
 
 const control = function (isStage) {
     return `
-    <category name="Control" id="control" colour="#FFAB19" secondaryColour="#CF8B17">
+    <category name="Steuerung" id="control" iconURI="/static/icons/icon_steuerung.svg">
         <block type="control_wait">
             <value name="DURATION">
                 <shadow type="math_positive_number">
@@ -405,7 +398,7 @@ const control = function (isStage) {
 
 const sensing = function (isStage) {
     return `
-    <category name="Sensing" id="sensing" colour="#4CBFE6" secondaryColour="#2E8EB8">
+    <category name="Fühlen" id="sensing" iconURI="/static/icons/icon_fuehlen.svg">
         ${isStage ? '' : `
             <block type="sensing_touchingobject">
                 <value name="TOUCHINGOBJECTMENU">
@@ -477,7 +470,7 @@ const sensing = function (isStage) {
 
 const operators = function () {
     return `
-    <category name="Operators" id="operators" colour="#40BF4A" secondaryColour="#389438">
+    <category name="Operatoren" id="operators" iconURI="/static/icons/icon_operatoren.svg">
         <block type="operator_add">
             <value name="NUM1">
                 <shadow type="math_number">
@@ -659,14 +652,7 @@ const operators = function () {
 
 const variables = function () {
     return `
-    <category name="Variables" id="variables" colour="#FF8C1A" secondaryColour="#DB6E00" custom="VARIABLE">
-    </category>
-    `;
-};
-
-const myBlocks = function () {
-    return `
-    <category name="My Blocks" id="myBlocks" colour="#FF6680" secondaryColour="#FF4D6A" custom="PROCEDURE">
+    <category name="Variablen" id="variables" iconURI="/static/icons/icon_variablen.svg" custom="VARIABLE">
     </category>
     `;
 };
@@ -693,7 +679,6 @@ const makeToolboxXML = function (isStage, targetId, categoriesXML) {
         sensing(isStage, targetId), gap,
         operators(isStage, targetId), gap,
         variables(isStage, targetId), gap,
-        myBlocks(isStage, targetId)
     ];
 
     if (categoriesXML) {

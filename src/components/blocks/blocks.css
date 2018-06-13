@@ -15,14 +15,29 @@
 }
 
 .blocks :global(.blocklyToolboxDiv) {
-    border-right: 1px solid $ui-black-transparent;
-    border-bottom: 1px solid $ui-black-transparent;
     box-sizing: content-box;
+    background-color: #deebf5;
+
+    font-family: 'Titillium Web';
 }
 
 .blocks :global(.blocklyFlyout) {
-    border-right: 1px solid $ui-black-transparent;
     box-sizing: content-box;
+    transform: translate(4rem, 0) !important;
+}
+
+.blocks :global(.blocklyWorkspace) {
+    transform: translate(0) !important;
+}
+
+.blocks :global(.blocklyFlyoutLabelText) {
+    font-family: 'Titillium Web';
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+.blocks :global(.blocklyScrollbarVertical.blocklyFlyoutScrollbar) {
+    transform: translate(18.5rem, .5rem) !important;
 }
 
 /*
@@ -34,7 +49,32 @@
     font-size: 0.65rem;
 }
 
+.blocks :global(.scratchCategoryMenu) {
+    width: 4.1rem;
+}
+
+.blocks :global(.scratchCategoryMenuRow) {
+    background-color: #deebf5;
+}
+
+.blocks :global(.scratchCategoryMenuItem) {
+    padding: .5rem;
+}
+
+.blocks :global(.scratchCategoryMenuItem.categorySelected) {
+    background-color: #f3f6f8;
+}
+
 .blocks :global(.blocklyMinimalBody) {
     min-width: auto;
     min-height: auto;
+}
+
+.blocks :global(.blocklyZoom) > * {
+    cursor: pointer;
+    transition: 0.2s ease-out;
+}
+
+.blocks :global(.blocklyZoom) > *:hover {
+    transform: scale(1.1);
 }

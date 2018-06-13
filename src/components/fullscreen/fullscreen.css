@@ -15,4 +15,10 @@
 
 .stage-button-icon {
   height: 1.5rem;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+}
+
+.stage-button-icon:hover {
+  transform: scale(1.2);
 }

@@ -1,7 +1,15 @@
 .icon {
   width: 1.4rem;
   display: block;
-  margin-left: .5rem;
+  margin-top: .2rem;
+  margin-left: 1rem;
+
+  cursor: pointer;
+  transition: 0.2s ease-out;
+}
+
+.icon:hover {
+  transform: scale(1.2);
 }
 
 .button {
@@ -10,6 +18,7 @@
   display: flex;
   align-self: flex-end;
   color: #1d83a8;
+  font-family: 'Titillium Web';
   font-weight: 600;
   font-size: 1rem;
   padding-right: .5rem;

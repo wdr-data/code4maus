@@ -199,6 +199,9 @@ module.exports = [
             new CopyWebpackPlugin([{
                 from: 'static',
                 to: 'static'
+            }, {
+                from: 'assets/icons',
+                to: 'static/icons'
             }]),
             new Visualizer({
                 filename: 'statistics.html'

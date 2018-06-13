@@ -6,10 +6,9 @@
     position: relative;
     font-family: 'Titillium Web';
     background-color: #f0f5fa;
-    border-color: #dbdbdb;
-    border-width: 1px;
+    border-color: #97bade;
+    border-width: 1px 0 0 0;
     border-style: solid;
-    border-bottom: 0;
 }
 
 /* In prep for renaming sprite-selector-item to sprite */
