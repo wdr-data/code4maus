@@ -35,12 +35,12 @@ class Storage extends ScratchStorage {
         this.addWebSource(
             [this.AssetType.Project],
             project => {
-                const [cat, projectName] = String(project.assetId).split("/")
+                const [cat, projectId] = String(project.assetId).split("/")
                 if (cat !== 'edu' ) {
                     console.log('Not edu project');
                     return false;
                 }
-                return `/edu-games/projects/${projectName}.${project.dataFormat}`;
+                return `/edu/${projectId}/project.${project.dataFormat}`;
             }
         )
     }

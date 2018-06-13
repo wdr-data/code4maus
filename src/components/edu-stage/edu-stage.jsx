@@ -22,7 +22,7 @@ const EduStageComponent = props => !props.isEnabled ? null : (
                 />
             </Button>
         </Box>
-        <Box className={styles.eduSlides} style={{backgroundImage: `url(/edu-assets/${props.imageSrc})`}} />
+        <Box className={styles.eduSlides} style={{backgroundImage: `url(/edu/${props.gameId}/assets/${props.imageSrc})`}} />
         <Box className={styles.eduFooter}>
             <Button className={styles.backButton} onClick={props.previousSlide}>
                 <img
@@ -59,6 +59,7 @@ const mapStateToProps = (state) => ({
     isFullscreen: state.scratchGui.eduLayer.isFullscreen,
     isEnabled: state.scratchGui.eduLayer.enabled,
     imageSrc: state.scratchGui.eduLayer.enabled ? state.scratchGui.eduLayer.gameSpec.slides[state.scratchGui.eduLayer.index].asset : '',
+    gameId: state.scratchGui.eduLayer.gameId,
 });
 
 const mapDispatchToProps = {

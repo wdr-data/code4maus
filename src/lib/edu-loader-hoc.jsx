@@ -20,9 +20,9 @@ const EduLoaderHOC = WrappedComponent => {
             }
         }
         async loadGame (id) {
-            const game = await (await fetch(`/edu-games/game-${id}.json`)).json();
+            const game = await (await fetch(`/edu/${id}/game.json`)).json();
             this.props.dispatch(loadGame(id, game));
-            this.props.dispatch(setProjectId(game.projectId));
+            this.props.dispatch(setProjectId(`edu/${id}`));
         }
         render () {
             const {

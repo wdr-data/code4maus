@@ -193,7 +193,7 @@ module.exports = [
                 from: '_redirects'
             }]),
             new CopyWebpackPlugin([{
-                from: '{edu-assets,edu-games}/**/*',
+                from: 'edu/**/*',
                 context: 'src/lib/'
             }]),
             new CopyWebpackPlugin([{
