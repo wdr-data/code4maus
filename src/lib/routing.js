@@ -4,6 +4,7 @@ export const Views = {
     start: 'VIEW_START',
     edu: 'VIEW_EDU',
     project: 'VIEW_PROJECT',
+    listing: 'VIEW_LISTING',
 };
 
 export const eduUrl = (eduId) => `/lernspiel/${eduId}`;
@@ -18,6 +19,9 @@ const routes = {
     },
     '/projekt/:projectId': {
         view: Views.project,
+    },
+    '/projekte': {
+        view: Views.listing,
     },
 };
 
