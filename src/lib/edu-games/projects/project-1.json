@@ -1,0 +1,86 @@
+{
+    "targets": [
+        {
+            "isStage": true,
+            "name": "Stage",
+            "variables": {
+                "`jEk@4|i[#Fk?(8x)AV.-my variable": [
+                    "my variable",
+                    0
+                ]
+            },
+            "lists": {},
+            "broadcasts": {},
+            "blocks": {},
+            "currentCostume": 0,
+            "costumes": [
+                {
+                    "assetId": "cd21514d0531fdffb22204e0ec5ed84a",
+                    "name": "backdrop1",
+                    "md5ext": "cd21514d0531fdffb22204e0ec5ed84a.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 1,
+                    "rotationCenterY": 1
+                }
+            ],
+            "sounds": [
+                {
+                    "assetId": "83a9787d4cb6f3b7632b4ddfebf74367",
+                    "name": "pop",
+                    "dataFormat": "wav",
+                    "format": "",
+                    "rate": 48000,
+                    "sampleCount": 1123,
+                    "md5ext": "83a9787d4cb6f3b7632b4ddfebf74367.wav"
+                }
+            ],
+            "volume": 100,
+            "tempo": 60,
+            "videoTransparency": 50,
+            "videoState": "off"
+        },
+        {
+            "isStage": false,
+            "name": "Maus zwinkert",
+            "variables": {},
+            "lists": {},
+            "broadcasts": {},
+            "blocks": {},
+            "currentCostume": 1,
+            "costumes": [
+                {
+                    "assetId": "2a36723a22b8eb078708dc931fae0511",
+                    "name": "maus_zwinkert1",
+                    "bitmapResolution": 1,
+                    "md5ext": "2a36723a22b8eb078708dc931fae0511.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 33.51499122070399,
+                    "rotationCenterY": 99.75255492020676
+                },
+                {
+                    "assetId": "c6ed78573a9eea24bdd1a55a917d5de3",
+                    "name": "maus_zwinkert2",
+                    "bitmapResolution": 1,
+                    "md5ext": "c6ed78573a9eea24bdd1a55a917d5de3.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 33.785011220703126,
+                    "rotationCenterY": 99.23025134567
+                }
+            ],
+            "sounds": [],
+            "volume": 100,
+            "visible": true,
+            "x": -10,
+            "y": -64,
+            "size": 100,
+            "direction": 90,
+            "draggable": false,
+            "rotationStyle": "all around"
+        }
+    ],
+    "meta": {
+        "semver": "3.0.0",
+        "vm": "0.1.0-minimal-1",
+        "agent": "Mozilla/5.0 (X11; CrOS aarch64 10452.99.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.203 Safari/537.36"
+    }
+}
