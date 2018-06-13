@@ -4,7 +4,7 @@
         "baseLayerID": -1,
         "md5": "fb7ea8b96a1fde2dfc7aba7bdb0df256.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": ["unterwasser"],
         "info": [
             0,
             2
@@ -63,7 +63,7 @@
         "baseLayerID": -1,
         "md5": "028dd6f30c1e05df36863f446aaa469a.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": ["maus"],
         "info": [
             0,
             2
@@ -97,7 +97,7 @@
         "baseLayerID": -1,
         "md5": "ad00118a8db97095275251472feaa79d.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": ["maus"],
         "info": [
             0,
             2
@@ -147,7 +147,7 @@
         "baseLayerID": -1,
         "md5": "16c59955907b02afd456b5f72ad7ca0b.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": ["maus"],
         "info": [
             0,
             2
@@ -213,7 +213,7 @@
         "baseLayerID": -1,
         "md5": "860708a165da8976052352adc0058022.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": ["maus"],
         "info": [
             0,
             2
@@ -263,7 +263,7 @@
         "baseLayerID": -1,
         "md5": "d0e8aa056b6512ba2ef7a9c67b94fe18.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": ["maus"],
         "info": [
             0,
             2
@@ -321,7 +321,7 @@
         "baseLayerID": -1,
         "md5": "64e55dfc4352476866a00fd9adf46981.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": ["maus"],
         "info": [
             0,
             2
@@ -355,7 +355,7 @@
         "baseLayerID": -1,
         "md5": "3872d07b448df1feed155510f1eb8298.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": ["maus"],
         "info": [
             0,
             2
@@ -397,7 +397,7 @@
         "baseLayerID": -1,
         "md5": "4abeb8a3350e60ab74894b1bb82f6029.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": ["maus", "unterwasser"],
         "info": [
             0,
             2
@@ -447,7 +447,7 @@
         "baseLayerID": -1,
         "md5": "72fd48e288013c7cac14e1e1b0e25459.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": ["maus"],
         "info": [
             0,
             2
@@ -489,7 +489,7 @@
         "baseLayerID": -1,
         "md5": "6489c9e58589267b2153dc8810f6025f.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": ["elefant"],
         "info": [
             0,
             2
@@ -523,7 +523,7 @@
         "baseLayerID": -1,
         "md5": "6424ecfbf2de4afda3cb7e2cc8a039f1.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": ["elefant"],
         "info": [
             0,
             2
@@ -581,7 +581,7 @@
         "baseLayerID": -1,
         "md5": "1edcf76190067b896f043cead99caf31.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": ["maus", "weltall"],
         "info": [
             0,
             2
@@ -623,7 +623,7 @@
         "baseLayerID": -1,
         "md5": "17ab7ab73411e63dc8495e7e8eba92cc.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": ["ente", "weltall"],
         "info": [
             0,
             2
@@ -665,7 +665,7 @@
         "baseLayerID": -1,
         "md5": "e0c4eed1f63d452188f57af55699edc4.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": ["elefant", "weltall"],
         "info": [
             0,
             2
