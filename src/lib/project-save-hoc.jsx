@@ -4,8 +4,6 @@ import { setProjectName, setProjectId } from '../reducers/project';
 import React from 'react';
 import { projectUrl } from './routing';
 import { serializeSounds, serializeCostumes } from '@wdr-data/scratch-vm/src/serialization/serialize-assets';
-import storage from './storage';
-import { UserIdContext } from './project-loader-hoc.jsx';
 
 const contentTypes = {
     jpg: 'image/jpeg',
@@ -143,22 +141,12 @@ const ProjectSaveHOC = (WrappedComponent) => {
         }
     }
 
-    const ProjectLoaderConnected = connect((state) => ({
+    return connect((state) => ({
         projectId: state.scratchGui.project.id,
         projectName: state.scratchGui.project.name,
+        userId: state.scratchGui.project.userId,
         vm: state.scratchGui.vm,
     }))(ProjectSaveComponent);
-
-    return (props) =>
-        <UserIdContext.Consumer>
-            {(userId) =>
-                <ProjectLoaderConnected
-                    {...props}
-                    userId={userId}
-                />
-            }
-        </UserIdContext.Consumer>
-    ;
 };
 
 export default ProjectSaveHOC;

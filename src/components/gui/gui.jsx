@@ -49,6 +49,7 @@ const GUIComponent = (props) => {
         importInfoVisible,
         saveProjectVisible,
         intl,
+        isListing,
         isPlayerOnly,
         loading,
         onExtensionButtonClick,
@@ -86,19 +87,25 @@ const GUIComponent = (props) => {
         isRendererSupported = Renderer.isSupported();
     }
 
-    return isPlayerOnly ?
-        <StageWrapper
+    if (isListing) {
+        return (
+            <ProjectListing />
+        );
+    }
+
+    if (isPlayerOnly) {
+        return <StageWrapper
             isRendererSupported={isRendererSupported}
             vm={vm}
-        />
-        :
+        />;
+    }
+
+    return (
         <Box
             className={styles.pageWrapper}
             {...componentProps}
         >
-            {loading ?
-                <Loader />
-                : null}
+            {loading ? <Loader /> : null}
             {saveProjectVisible ?
                 <ModalComponent
                     className={styles.saveModal}
@@ -109,25 +116,18 @@ const GUIComponent = (props) => {
                         <Input placeholder="Name deines Projektes" onChange={(e) => onProjectNameChange(e.target.value)} value={projectName} />
                         <Box className={styles.saveModalActions}>
                             <p>{saveProjectError}</p>
-                            <Button
-                                className={styles.saveModalButton}
-                                onClick={() => onSaveProject().then(() => onSaveModalClose())}
-                            >Speichern</Button>
+                            <Button className={styles.saveModalButton} onClick={() => onSaveProject().then(() => onSaveModalClose())}>Speichern</Button>
                         </Box>
                         <ProjectSaver>{(downloadProject) =>
-                            <Button
-                                className={styles.saveModalDownload}
-                                onClick={downloadProject}
-                            >
-                                    Projekt herunterladen
+                            <Button className={styles.saveModalDownload} onClick={downloadProject}>
+                                Projekt herunterladen
                             </Button>
                         }</ProjectSaver>
                     </Box>
                 </ModalComponent>
-                : null}
-            {isRendererSupported ? null :
-                <WebGlModal />
+                : null
             }
+            {isRendererSupported ? null : <WebGlModal />}
             <Box className={styles.header}>
                 <Box className={styles.column}>
                     <img
@@ -271,7 +271,7 @@ const GUIComponent = (props) => {
             </Box>
             <DragLayer />
         </Box>
-    ;
+    );
 };
 GUIComponent.propTypes = {
     activeTabIndex: PropTypes.number,

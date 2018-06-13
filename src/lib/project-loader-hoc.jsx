@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuid } from 'uuid';
 import debounce from 'lodash.debounce';
@@ -6,10 +6,8 @@ import debounce from 'lodash.debounce';
 import log from './log';
 import storage, { s3userFile } from './storage';
 import { connect } from 'react-redux';
-import { setProjectName, setProjectId } from '../reducers/project';
+import { setProjectName, setProjectId, setUserId } from '../reducers/project';
 import { Views } from './routing';
-
-export const UserIdContext = createContext(null);
 
 /* Higher Order Component to provide behavior for loading projects by id from
  * the window's hash (#this part in the url) or by projectId prop passed in from
@@ -39,7 +37,6 @@ const ProjectLoaderHOC = function(WrappedComponent) {
             this.state = {
                 projectData: null,
                 fetchingProject: false,
-                userId: null,
             };
 
             this.loadProject = debounce(this.loadProject.bind(this), 2000, { leading: true });
@@ -47,7 +44,7 @@ const ProjectLoaderHOC = function(WrappedComponent) {
         async componentDidMount() {
             await this.createUserId();
             if (this.props.router.view === Views.project && this.props.router.params.projectId) {
-                this.props.dispatch(setProjectId(this.props.router.params.projectId));
+                this.props.setProjectId(this.props.router.params.projectId);
                 return;
             }
             this.loadProject(this.props.projectId || 0);
@@ -62,7 +59,11 @@ const ProjectLoaderHOC = function(WrappedComponent) {
                 this.props.router.params.projectId &&
                 prevProps.router.params.projectId !== this.props.router.params.projectId;
             if (shouldGetProjectFromUrl) {
-                this.props.dispatch(setProjectId(this.props.router.params.projectId));
+                this.props.setProjectId(this.props.router.params.projectId);
+            }
+
+            if (prevProps.userId !== this.props.userId) {
+                storage.userId = this.props.userId;
             }
         }
         async createUserId() {
@@ -75,8 +76,7 @@ const ProjectLoaderHOC = function(WrappedComponent) {
                 localStorage.setItem('deviceId', userId);
             }
 
-            storage.userId = userId;
-            this.setState({ userId });
+            this.props.setUserId(userId);
         }
         loadProject(id) {
             this.setState({ fetchingProject: true }, () => (async () => {
@@ -92,16 +92,16 @@ const ProjectLoaderHOC = function(WrappedComponent) {
 
                 const data = JSON.parse(projectAsset.data.toString());
                 if (data.custom) {
-                    this.props.dispatch(setProjectName(data.custom.name));
+                    this.props.setProjectName(data.custom.name);
                 }
             })().catch(log.error));
         }
         render() {
             /* eslint-disable no-unused-vars */
             const {
-                dispatch,
                 projectId,
                 gameEnabled,
+                userId,
                 ...componentProps
             } = this.props;
             /* eslint-enable */
@@ -109,13 +109,11 @@ const ProjectLoaderHOC = function(WrappedComponent) {
                 return null;
             }
             return (
-                <UserIdContext.Provider value={this.state.userId}>
-                    <WrappedComponent
-                        fetchingProject={this.state.fetchingProject}
-                        projectData={this.state.projectData}
-                        {...componentProps}
-                    />
-                </UserIdContext.Provider>
+                <WrappedComponent
+                    fetchingProject={this.state.fetchingProject}
+                    projectData={this.state.projectData}
+                    {...componentProps}
+                />
             );
         }
     }
@@ -123,14 +121,22 @@ const ProjectLoaderHOC = function(WrappedComponent) {
         projectId: PropTypes.string,
     };
 
-    return connect((state) => ({
-        vm: state.scratchGui.vm,
-        projectId: state.scratchGui.project.id,
-        router: {
-            view: state.router.result ? state.router.result.view : '',
-            params: state.router.params || {},
-        },
-    }))(ProjectLoaderComponent);
+    return connect(
+        (state) => ({
+            vm: state.scratchGui.vm,
+            projectId: state.scratchGui.project.id,
+            router: {
+                view: state.router.result ? state.router.result.view : '',
+                params: state.router.params || {},
+            },
+            userId: state.scratchGui.project.userId,
+        }),
+        (dispatch) => ({
+            setProjectName: (name) => dispatch(setProjectName(name)),
+            setProjectId: (projectId) => dispatch(setProjectId(projectId)),
+            setUserId: (userId) => dispatch(setUserId(userId)),
+        }),
+    )(ProjectLoaderComponent);
 };
 
 export {

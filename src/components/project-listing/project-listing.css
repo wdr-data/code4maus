@@ -1,0 +1,42 @@
+.listing-wrapper {
+    min-height: 100vh;
+    padding: 3rem;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.section {
+    border: 1px solid grey;
+    border-bottom: none;
+}
+
+.section:last-of-type {
+    border-bottom: 1px solid grey;
+}
+
+.section-title {
+    border-bottom: 1px solid grey;
+    display: block;
+    padding: 1rem;
+    background: #ddd;
+}
+
+.section-body {
+    display: flex;
+    overflow-x: scroll;
+    padding: 1rem 2rem;
+}
+
+.project-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 6rem;
+    border: 1px solid #eee;
+    min-width: 12rem;
+    margin-left: 1rem;
+}
+
+.project-wrapper > * {
+    padding: .5rem 1rem;
+}

@@ -15,6 +15,7 @@ import {
     COSTUMES_TAB_INDEX,
     SOUNDS_TAB_INDEX,
 } from '../reducers/editor-tab';
+import {Views} from '../lib/routing';
 
 import EduLoaderHOC from '../lib/edu-loader-hoc.jsx';
 import ProjectLoaderHOC from '../lib/project-loader-hoc.jsx';
@@ -125,6 +126,7 @@ const mapStateToProps = (state) => ({
     cardsVisible: state.scratchGui.cards.visible,
     costumesTabVisible: state.scratchGui.editorTab.activeTabIndex === COSTUMES_TAB_INDEX,
     importInfoVisible: state.scratchGui.modals.importInfo,
+    isListing: state.router.result.view === Views.listing,
     isPlayerOnly: state.scratchGui.mode.isPlayerOnly,
     loadingStateVisible: state.scratchGui.modals.loadingProject,
     previewInfoVisible: state.scratchGui.modals.previewInfo,
