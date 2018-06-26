@@ -37,7 +37,6 @@ class Stage extends React.Component {
             'onWheel',
             'updateRect',
             'questionListener',
-            'setCanvas',
             'setDragCanvas',
             'clearDragCanvas',
             'drawDragCanvas',
@@ -68,13 +67,7 @@ class Stage extends React.Component {
         this.attachRectEvents();
         this.attachMouseEvents(this.canvas);
         this.updateRect();
-        const width = this.props.width;
-        const height = this.props.height;
-        this.renderer = new Renderer(this.canvas, width / 2 * -1, width / 2, height / 2 * -1, height / 2);
-        this.props.vm.attachRenderer(this.renderer);
-        this.props.vm.attachV2SVGAdapter(new V2SVGAdapter());
         this.props.vm.runtime.addListener('QUESTION', this.questionListener);
-        this.props.vm.setVideoProvider(new VideoProvider());
     }
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.width !== nextProps.width ||
@@ -379,9 +372,6 @@ class Stage extends React.Component {
             commonStopDragActions();
         }
     }
-    setCanvas(canvas) {
-        this.canvas = canvas;
-    }
     setDragCanvas(canvas) {
         this.dragCanvas = canvas;
     }
@@ -393,7 +383,7 @@ class Stage extends React.Component {
         } = this.props;
         return (
             <StageComponent
-                canvasRef={this.setCanvas}
+                canvas={this.canvas}
                 colorInfo={this.state.colorInfo}
                 dragRef={this.setDragCanvas}
                 onDoubleClick={this.handleDoubleClick}
