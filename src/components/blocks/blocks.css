@@ -61,6 +61,16 @@
     padding: .5rem;
 }
 
+.blocks :global(.scratchCategoryMenuItem):hover {
+    color: #4486b5 !important;
+}
+
+.blocks :global(.scratchCategoryItemIcon) {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
 .blocks :global(.scratchCategoryMenuItem.categorySelected) {
     background-color: #f3f6f8;
 }
@@ -70,11 +80,6 @@
     min-height: auto;
 }
 
-.blocks :global(.blocklyZoom) > * {
+.blocks :global(.blocklyZoom image) {
     cursor: pointer;
-    transition: 0.2s ease-out;
-}
-
-.blocks :global(.blocklyZoom) > *:hover {
-    transform: scale(1.1);
 }

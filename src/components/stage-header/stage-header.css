@@ -7,7 +7,7 @@
 
 .stage-header-wrapper-overlay {
     position: fixed;
-    background-color: rgb(232, 237, 241);
+    background-color: white;
     top: 0;
     left: 0;
     right: 0;
@@ -16,7 +16,7 @@
 
 .stage-menu-wrapper {
     display: flex;
-    margin: auto;
+    margin: auto .5em auto .5em;
     justify-content: space-between;
     flex-shrink: 0;
     align-items: center;

@@ -5,7 +5,6 @@
     display: flex;
     flex-grow: 1;
     border: 1px solid $ui-black-transparent;
-    border-top-right-radius: $space;
     background: white;
     font-family: 'Titillium Web';
     font-size: 0.85rem;
