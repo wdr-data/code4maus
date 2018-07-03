@@ -6,7 +6,7 @@ const motion = function (isStage, targetId) {
     return `
     <category name="Bewegung" id="motion" iconURI="/static/icons/icon_bewegung.svg">
         ${isStage ? `
-        <label text="Stage selected: no motion blocks"></label>
+        <label text="Die Bühne kann sich nicht bewegen."></label>
         ` : `
         <block type="motion_movesteps">
             <value name="STEPS">
@@ -139,7 +139,7 @@ const looks = function (isStage, targetId) {
         <block type="looks_sayforsecs">
             <value name="MESSAGE">
                 <shadow type="text">
-                    <field name="TEXT">Hello!</field>
+                    <field name="TEXT">Hallo!</field>
                 </shadow>
             </value>
             <value name="SECS">
@@ -151,7 +151,7 @@ const looks = function (isStage, targetId) {
         <block type="looks_say">
             <value name="MESSAGE">
                 <shadow type="text">
-                    <field name="TEXT">Hello!</field>
+                    <field name="TEXT">Hallo!</field>
                 </shadow>
             </value>
         </block>
@@ -374,7 +374,7 @@ const control = function (isStage) {
         <block id="wait_until" type="control_wait_until"/>
         <block id="repeat_until" type="control_repeat_until"/>
         ${blockSeparator}
-        <block type="control_stop"/>
+        <block id="stop" type="control_stop"/>
         ${blockSeparator}
         ${isStage ? `
             <block type="control_create_clone_of">
@@ -428,7 +428,7 @@ const sensing = function (isStage) {
         <block id="askandwait" type="sensing_askandwait">
             <value name="QUESTION">
                 <shadow type="text">
-                    <field name="TEXT">What's your name?</field>
+                    <field name="TEXT">Wie heißt du?</field>
                 </shadow>
             </value>
         </block>
@@ -577,12 +577,12 @@ const operators = function () {
         <block type="operator_join">
             <value name="STRING1">
                 <shadow type="text">
-                    <field name="TEXT">apple</field>
+                    <field name="TEXT">Apfel</field>
                 </shadow>
             </value>
             <value name="STRING2">
                 <shadow type="text">
-                    <field name="TEXT">banana</field>
+                    <field name="TEXT">Banane</field>
                 </shadow>
             </value>
         </block>
@@ -594,21 +594,21 @@ const operators = function () {
             </value>
             <value name="STRING">
                 <shadow type="text">
-                    <field name="TEXT">apple</field>
+                    <field name="TEXT">Apfel</field>
                 </shadow>
             </value>
         </block>
         <block type="operator_length">
             <value name="STRING">
                 <shadow type="text">
-                    <field name="TEXT">apple</field>
+                    <field name="TEXT">Apfel</field>
                 </shadow>
             </value>
         </block>
         <block type="operator_contains" id="operator_contains">
           <value name="STRING1">
             <shadow type="text">
-              <field name="TEXT">apple</field>
+              <field name="TEXT">Apfel</field>
             </shadow>
           </value>
           <value name="STRING2">

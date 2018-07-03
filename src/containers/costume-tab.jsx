@@ -34,37 +34,37 @@ import backdropLibraryContent from '../lib/libraries/backdrops.json';
 
 const messages = defineMessages({
     addLibraryBackdropMsg: {
-        defaultMessage: 'Choose a Backdrop',
+        defaultMessage: 'Wähle einen Hintergrund',
         description: 'Button to add a backdrop in the editor tab',
         id: 'gui.costumeTab.addBackdropFromLibrary'
     },
     addLibraryCostumeMsg: {
-        defaultMessage: 'Choose a Costume',
+        defaultMessage: 'Wähle ein Kostüm',
         description: 'Button to add a costume in the editor tab',
         id: 'gui.costumeTab.addCostumeFromLibrary'
     },
     addBlankCostumeMsg: {
-        defaultMessage: 'Paint',
+        defaultMessage: 'Malen',
         description: 'Button to add a blank costume in the editor tab',
         id: 'gui.costumeTab.addBlankCostume'
     },
     addSurpriseCostumeMsg: {
-        defaultMessage: 'Surprise',
+        defaultMessage: 'Überraschung',
         description: 'Button to add a surprise costume in the editor tab',
         id: 'gui.costumeTab.addSurpriseCostume'
     },
     addFileBackdropMsg: {
-        defaultMessage: 'Upload Backdrop',
+        defaultMessage: 'Hintergrund hochladen',
         description: 'Button to add a backdrop by uploading a file in the editor tab',
         id: 'gui.costumeTab.addFileBackdrop'
     },
     addFileCostumeMsg: {
-        defaultMessage: 'Upload Costume',
+        defaultMessage: 'Kostüm hochladen',
         description: 'Button to add a costume by uploading a file in the editor tab',
         id: 'gui.costumeTab.addFileCostume'
     },
     addCameraCostumeMsg: {
-        defaultMessage: 'Camera',
+        defaultMessage: 'Kamera',
         description: 'Button to use the camera to create a costume costume in the editor tab',
         id: 'gui.costumeTab.addCameraCostume'
     }

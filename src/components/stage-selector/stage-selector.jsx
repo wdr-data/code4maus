@@ -70,7 +70,7 @@ const StageSelector = props => {
             <div className={styles.header}>
                 <div className={styles.headerTitle}>
                     <FormattedMessage
-                        defaultMessage="Stage"
+                        defaultMessage="Bühne"
                         description="Label for the stage in the stage selector"
                         id="gui.stageSelector.stage"
                     />
