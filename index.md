@@ -20,13 +20,16 @@ Am 23. September findet im KiKa ein **Thementag Digitalisierung** statt. Die Sen
 - Zielgruppe sind Kinder ab der 2. bis zur 6. Klasse (7-12 Jahre, die Kinder sollten kurze Texte lesen können. Jüngere Kinder können die Anwendung mit ihren Eltern nutzen.)
 - Zielausspielung sind Tablets (ab iOS 11) und Desktop-Geräte, auf Smartphones wird die Anwendung nicht nutzbar sein. (Siehe unten).
 
+## Umsetzung
 
-# UMSETZUNG:
-- Vorbild und Grundlage ist die grafische Programmiersprache SCRATCH des MIT Lifelong Kindergarden (https://scratch.mit.edu - Flash basiert)
-- Derzeit baut das MIT mit Hilfe von Google eine neuere Version dieser grafischen Programmiersprache. Dieses Projekt ermöglicht es, Scratch auch auf Tablets zu benutzen. Die Ausspielung für Smartphones ist derzeit nicht Teil des Projektes. https://preview.scratch.mit.edu
-- Scratch ist Open Source Software. Deshalb ist es zulässig, eine eigene WDR-Version von Scratch3.0 zu bauen und sie in den Punkten Design, Figuren und Sounds der Sendung mit der Maus anzupassen.
+- Vorbild und Grundlage ist die grafische Programmiersprache [Scratch](https://scratch.mit.edu) des MIT Lifelong Kindergarden (Flash basiert)
+- Derzeit baut das MIT Version 3 dieser grafischen Programmiersprache. Die neue Anwendung ermöglicht es, Scratch auch auf Tablets zu benutzen. Die Ausspielung für Smartphones ist derzeit nicht Teil des Projektes. Eine Vorschau davon ist hier zu finden: [https://preview.scratch.mit.edu](https://preview.scratch.mit.edu)
+- Scratch ist **Open Source Software**. Deshalb erstellen wir eine WDR-Version von Scratch 3 und passen sie in den Punkten Design, Figuren und Sounds der Sendung mit der Maus an.
 
-# AUSBLICK
-Wir erhoffen uns durch 'Programmieren mit der Maus' mehr Kinder spielerisch für das Thema zu begeistern. Dabei ist vor allem wichtig, die selbstbestimmte Mediennutzung zu fördern: Selbermachen statt konsumieren.
-Auch 'Programmieren mit der Maus' wird Open Source sein. Das heißt, dass der Code von Personen, Firmen, Vereinen genutzt, angepasst und weiter entwickelt werden kann. https://github.com/wdr-data/code4maus
-Denkbar ist zum Beispiel Material für Lehrerinnen und Fachkräfte im offenen Ganztag zu entwickeln. Kurse, AGs, Schulclubs für Kinder zum Thema 'Programmieren mit der Maus' sind möglich. Scratch veranstaltet auch regelmäßig so genannte 'Scratch-Days', bei denen sich Kinder treffen und ihr Wissen und ihre Projekte austauschen.
+## Ausblick
+
+Wir erhoffen uns durch **Programmieren mit der Maus** mehr Kinder spielerisch für das Thema zu begeistern. Dabei ist vor allem wichtig, die selbstbestimmte Mediennutzung zu fördern: *Selbermachen statt konsumieren*.
+
+Auch *Programmieren mit der Maus* wird Open Source sein. Das heißt, dass der Code von Personen, Firmen, Vereinen genutzt, angepasst und weiter entwickelt werden kann. Verfügbar ist der Quelltext hier: [https://github.com/wdr-data/code4maus](https://github.com/wdr-data/code4maus)
+
+Denkbar ist zum Beispiel Material für Lehrerinnen und Fachkräfte im offenen Ganztag zu entwickeln. Kurse, AGs, Schulclubs für Kinder zum Thema *Programmieren mit der Maus* sind möglich. Scratch veranstaltet auch regelmäßig so genannte *Scratch-Days*, bei denen sich Kinder treffen und ihr Wissen und ihre Projekte austauschen.
