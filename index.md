@@ -1,14 +1,15 @@
-# PROGRAMMIEREN MIT DER MAUS
-Am 23. September findet im KiKa ein Thementag 'Digitalisierung' statt. Die Sendung mit der Maus nimmt den Tag zum Anlass, um eine Web-Anwendung zu veröffentlichen, die Kinder spielerisch an Grundkonzepte des Programmierens heranführt.
+# Programmieren mit der Maus
 
-# WARUM PROGRAMMIEREN FÜR KINDER?
+Am 23. September findet im KiKa ein **Thementag Digitalisierung** statt. Die Sendung mit der Maus nimmt den Tag zum Anlass, um eine Web-Anwendung zu veröffentlichen, die Kinder spielerisch an Grundkonzepte des Programmierens heranführt.
+
+## Warum programmieren für Kinder?
 - Technologiegetriebener Wandel bestimmt die gesellschaftliche Entwicklung in großem Maße. Große Teile der Gesellschaft haben aber kaum aktiven Anteil an der Gestaltung dieses Wandels.
-- Um selbst aktiv werden, mitgestalten und auch Kritik üben zu können, ist programmieren eine Basis-Fähigkeit, an die Kinder früh herangeführt werden sollten. In den USA spricht man von ‘Coding literacy’, also programmieren als Grundfertigkeit wie Lesen oder Rechnen.
+- Um selbst aktiv werden, mitgestalten und auch Kritik üben zu können, ist Programmieren eine Basis-Fähigkeit, an die Kinder früh herangeführt werden sollten. In den USA spricht man von *Coding Literacy*, also Programmieren als Grundfertigkeit wie Lesen oder Rechnen.
 - Besondere Bedeutung hat dabei auch die Mädchen-Förderung, sowie die Förderung anderer bislang in der IT unterrepräsentierter Gruppen.
-- Die BBC zum Beispiel hat 2016 publikumswirksam jedem 7-jährigen Kind den Minicomputer ‘Micro Bit’ geschenkt. Auch andere Fernsehsender haben international schon 'Programmieren für Kinder'-Serien gestartet.
+- Die BBC zum Beispiel hat 2016 publikumswirksam jedem 7-jährigen Kind den Minicomputer *Micro Bit* geschenkt. Auch andere Fernsehsender haben international schon *Programmieren für Kinder*-Serien gestartet.
 
-# DAS PROJEKT:
-- Auf der Website 'Programmieren mit der Maus' werden Kinder durch 3-5 Lernspiele geführt, bei denen sie grundlegende Programmierkonzepte wie Variablen, Schleifen und Verzweigungen kennen lernen.
+## Das Projekt
+- Auf der Website **Programmieren mit der Maus** werden Kinder durch 3-5 Lernspiele geführt, bei denen sie grundlegende Programmierkonzepte wie Variablen, Schleifen und Verzweigungen kennen lernen.
 - Die Kinder erstellen dabei kleine Animationen, Wimmelbilder und erste Spiele.
 - Die Kinder haben die Möglichkeit jedes Spiel zu ihrem eigenen zu machen, indem sie Figuren, Hintergründe und Sounds individuell anpassen.
 - Die selbst programmierten Spiele können abgespeichert und dann gemeinsam mit Freunden und Verwandten gespielt und wieder verändert werden.
