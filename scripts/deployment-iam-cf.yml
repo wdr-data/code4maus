@@ -1,0 +1,187 @@
+---
+
+Description: 'Cloudformation stack to setup user permissions for Code4Maus'
+
+Resources:
+  AdminGroup:
+    Type: 'AWS::IAM::Group'
+    Properties:
+      Path: '/hackingstudio/code4maus/'
+      Policies:
+        - PolicyName: hackingstudio-code4maus-adminpolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - 'cloudfront:*'
+                  - 'apigateway:*'
+                  - 'cloudwatch:*'
+                  - 's3:*'
+                  - 'logs:*'
+                  - 'lambda:*'
+                  - 'route53:*'
+                  - 'cloudformation:*'
+                  - 'events:*'
+                  - 'acm:*'
+                  - 'iam:PassRole'
+                Resource: '*'
+              - Effect: Allow
+                Action:
+                  - 'iam:CreateAccessKey'
+                  - 'iam:DeleteAccessKey'
+                  - 'iam:GetAccessKeyLastUsed'
+                  - 'iam:ListAccessKeys'
+                  - 'iam:UpdateAccessKey'
+                Resource:
+                  - !Sub 'arn:aws:iam::${AWS::AccountId}:user/hackingstudio/code4maus/*'
+              - Effect: Allow
+                Action:
+                  - 'iam:GetAccountPasswordPolicy'
+                Resource:
+                  - '*'
+              - Effect: Allow
+                Action:
+                  - 'iam:ListUsers'
+                Resource:
+                  - !Sub 'arn:aws:iam::${AWS::AccountId}:user/*'
+
+  AdminGroupUsers:
+    Type: AWS::IAM::UserToGroupAddition
+    Properties:
+      GroupName:
+        !Ref AdminGroup
+      Users:
+        - hackingstudio-code4maus-marcus
+
+  UserPolicyMarcus:
+    Type: 'AWS::IAM::Policy'
+    Properties:
+      Users:
+        - hackingstudio-code4maus-marcus
+      PolicyName: 'hackingstudio-code4maus-userinline'
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Action:
+              - 'iam:ChangePassword'
+            Resource:
+              - !Sub 'arn:aws:iam::${AWS::AccountId}:user/hackingstudio/code4maus/hackingstudio-code4maus-marcus'
+
+  DeployGroup:
+    Type: 'AWS::IAM::Group'
+    Properties:
+      Path: '/hackingstudio/code4maus/'
+      Policies:
+        - PolicyName: hackingstudio-code4maus-deploypolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - 'cloudformation:CreateStack'
+                  - 'cloudformation:DeleteStack'
+                  - 'cloudformation:DescribeStackEvents'
+                  - 'cloudformation:DescribeStackResource'
+                  - 'cloudformation:DescribeStackResources'
+                  - 'cloudformation:DescribeStacks'
+                  - 'cloudformation:UpdateStack'
+                Resource:
+                  - !Sub 'arn:aws:cloudformation:eu-central-1:${AWS::AccountId}:stack/hackingstudio-code4maus-*'
+              - Effect: Allow
+                Action:
+                  - 'cloudformation:ValidateTemplate'
+                Resource:
+                  - '*'
+              - Effect: Allow
+                Action:
+                  - 's3:CreateBucket'
+                  - 's3:DeleteBucket'
+                  - 's3:DeleteObject'
+                  - 's3:GetObject'
+                  - 's3:ListBucket'
+                  - 's3:ListBucketVersions'
+                  - 's3:PutObject'
+                  - 's3:PutAccelerateConfiguration'
+                Resource:
+                  - '*'
+              - Effect: Allow
+                Action:
+                  - 'lambda:GetFunction'
+                  - 'lambda:CreateFunction'
+                  - 'lambda:DeleteFunction'
+                  - 'lambda:UpdateFunctionConfiguration'
+                  - 'lambda:UpdateFunctionCode'
+                  - 'lambda:ListVersionsByFunction'
+                  - 'lambda:PublishVersion'
+                  - 'lambda:CreateAlias'
+                  - 'lambda:DeleteAlias'
+                  - 'lambda:UpdateAlias'
+                  - 'lambda:GetFunctionConfiguration'
+                Resource:
+                  - !Sub 'arn:aws:lambda:eu-central-1:${AWS::AccountId}:function:hackingstudio-code4maus-*'
+              - Effect: Allow
+                Action:
+                  - 'apigateway:GET'
+                  - 'apigateway:POST'
+                  - 'apigateway:PUT'
+                  - 'apigateway:DELETE'
+                Resource:
+                  - 'arn:aws:apigateway:eu-central-1::/restapis*'
+              - Effect: Allow
+                Action:
+                  - 'logs:CreateLogGroup'
+                  - 'logs:DeleteLogGroup'
+                  - 'logs:DescribeLogGroups'
+                Resource:
+                  - '*'
+              - Effect: Allow
+                Action:
+                  - 'iam:PassRole'
+                Resource:
+                  - !Sub 'arn:aws:iam::${AWS::AccountId}:role/hackingstudio/code4maus/hackingstudio-code4maus-functions'
+
+  DeployUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      Path: '/hackingstudio/code4maus/'
+      UserName: hackingstudio-code4maus-deploy
+      Groups:
+        - !Ref DeployGroup
+
+  FunctionsRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      Path: '/hackingstudio/code4maus/'
+      RoleName: hackingstudio-code4maus-functions
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action: 'sts:AssumeRole'
+            Principal:
+              Service: 'lambda.amazonaws.com'
+            Effect: Allow
+      Policies:
+        - PolicyName: hackingstudio-code4maus-functionsrole
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Action:
+                  - 'logs:CreateLogStream'
+                Resource:
+                  - !Sub 'arn:aws:logs::${AWS::AccountId}:log-group:/aws/lambda/hackingstudio-code4maus-*:*'
+                Effect: Allow
+              - Action:
+                  - 'logs:PutLogEvents'
+                Resource:
+                  - !Sub 'arn:aws:logs::${AWS::AccountId}:log-group:/aws/lambda/hackingstudio-code4maus-*:*:*'
+                Effect: Allow
+              - Action:
+                  - 's3:GetObject'
+                  - 's3:ListBucket'
+                  - 's3:PutObject'
+                  - 's3:PutObjectAcl'
+                Resource:
+                  - !Sub 'arn:aws:s3:::hackingstudio-code4maus-projects-*/*'
+                Effect: Allow
