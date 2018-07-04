@@ -57,10 +57,9 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    padding-right: .5rem;
 }
 
-[layoutmode=BUILD] .editor-wrapper {
+[layoutmode=BUILD] .blocks-wrapper {
     min-width: 100%;
     padding-right: 0;
 }
@@ -187,7 +186,9 @@
 }
 
 .blocks-wrapper {
+    padding-right: .5rem;
     flex-grow: 1;
+    display: flex;
     position: relative;
 }
 

@@ -349,7 +349,7 @@ class Blocks extends React.Component {
         } = this.props;
         /* eslint-enable no-unused-vars */
         return (
-            <div>
+            <React.Fragment>
                 <BlocksComponent
                     componentRef={this.setBlocks}
                     {...props}
@@ -379,7 +379,7 @@ class Blocks extends React.Component {
                         onRequestClose={this.handleCustomProceduresClose}
                     />
                 ) : null}
-            </div>
+            </React.Fragment>
         );
     }
 }

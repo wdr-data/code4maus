@@ -248,6 +248,21 @@ const GUIComponent = props => {
                                             vm={vm}
                                         />
                                     </Box>
+                                    <Button onClick={onLayoutModeClick} className={styles.layoutSwitcher}>
+                                        <img
+                                            alt="WDR"
+                                            className={styles.layoutSwitcherIcon}
+                                            draggable={false}
+                                            src={expandIcon}
+                                        />
+                                    </Button>
+                                </Box>
+                                <Box className={styles.stageAndTargetWrapper}>
+                                    <StageWrapper
+                                        isRendererSupported={isRendererSupported}
+                                        vm={vm}
+                                    />
+                                    <EduStage />
                                 </Box>
                             </TabPanel>
                             <TabPanel className={tabClassNames.tabPanel}>
@@ -257,22 +272,6 @@ const GUIComponent = props => {
                                 {soundsTabVisible ? <SoundTab vm={vm} /> : null}
                             </TabPanel>
                         </Tabs>
-                        <Button onClick={onLayoutModeClick} className={styles.layoutSwitcher}>
-                            <img
-                                alt="WDR"
-                                className={styles.layoutSwitcherIcon}
-                                draggable={false}
-                                src={expandIcon}
-                            />
-                        </Button>
-                    </Box>
-
-                    <Box className={styles.stageAndTargetWrapper}>
-                        <StageWrapper
-                            isRendererSupported={isRendererSupported}
-                            vm={vm}
-                        />
-                        <EduStage />
                     </Box>
                 </Box>
                 <DragLayer />

@@ -1,14 +1,6 @@
 @import "../../css/units.css";
 @import "../../css/colors.css";
 
-.blocks :global(.injectionDiv){
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
 .blocks :global(.blocklyMainBackground) {
     stroke: none;
     fill: #e1ebf6;
