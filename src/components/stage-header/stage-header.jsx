@@ -70,8 +70,8 @@ const StageHeaderComponent = function (props) {
                     className={styles.stageMenuWrapper}
                     style={{width: stageSize.width}}
                 >
-                    <Controls 
-                        vm={vm} 
+                    <Controls
+                        vm={vm}
                         className={styles.controlsFullscreen}
                     />
                     <Fullscreen />
@@ -80,11 +80,8 @@ const StageHeaderComponent = function (props) {
         );
     } else {
             header = (
-            <Box className={styles.stageHeaderWrapper}>
-                <Box
-                    className={styles.stageMenuWrapper}
-                    style={{width: stageSize.width}}
-                >
+            <Box className={styles.stageHeaderWrapper} style={{width: stageSize.width}}>
+                <Box className={styles.stageMenuWrapper}>
                     <Controls vm={vm} />
                     <ButtonWithIcon
                         className={styles.saveButton}
