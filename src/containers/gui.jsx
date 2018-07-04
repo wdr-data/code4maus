@@ -4,6 +4,8 @@ import React from 'react';
 import VM from '@wdr-data/scratch-vm';
 import {connect} from 'react-redux';
 import ReactModal from 'react-modal';
+import {addLocaleData, IntlProvider} from 'react-intl';
+import de from 'react-intl/locale-data/de';
 
 import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
 import {openExtensionLibrary, closeSaveProject} from '../reducers/modals';
@@ -22,6 +24,9 @@ import AppStateHOC from '../lib/app-state-hoc.jsx';
 
 import GUIComponent from '../components/gui/gui.jsx';
 import {toggleLayoutMode} from '../reducers/layout-mode';
+import localeDe from '../../translations/messages/de.json';
+
+addLocaleData(de);
 
 class GUI extends React.Component {
     constructor (props) {
@@ -84,13 +89,18 @@ class GUI extends React.Component {
             ...componentProps
         } = this.props;
         return (
-            <GUIComponent
-                loading={fetchingProject || this.state.loading || loadingStateVisible}
-                vm={vm}
-                {...componentProps}
+            <IntlProvider
+                locale="de"
+                messages={localeDe}
             >
-                {children}
-            </GUIComponent>
+                <GUIComponent
+                    loading={fetchingProject || this.state.loading || loadingStateVisible}
+                    vm={vm}
+                    {...componentProps}
+                >
+                    {children}
+                </GUIComponent>
+            </IntlProvider>
         );
     }
 }
