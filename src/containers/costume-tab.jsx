@@ -22,7 +22,7 @@ import {
     openBackdropLibrary
 } from '../reducers/modals';
 
-import addLibraryBackdropIcon from '../components/asset-panel/icon--add-backdrop-lib.svg';
+import addLibraryBackdropIcon from '../components/action-menu/icon--backdrop.svg';
 import addLibraryCostumeIcon from '../components/action-menu/icon--sprite.svg';
 import fileUploadIcon from '../components/action-menu/icon--file-upload.svg';
 import paintIcon from '../components/action-menu/icon--paint.svg';
