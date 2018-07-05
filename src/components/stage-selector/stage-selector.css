@@ -18,8 +18,12 @@ $header-height: calc($stage-menu-height - 2px);
     transition: border-color 0.25s ease-out, box-shadow 0.25s ease-out;
 }
 
-.stage-selector.is-selected {
-    border-color: #1d83a8;
+.stage-selector.is-selected .costume-canvas {
+    border: 3px solid #1d83a8;
+}
+
+.stage-selector.is-selected .header-title {
+    color: #1d83a8;
 }
 
 .stage-selector:hover {
