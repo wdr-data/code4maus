@@ -23,7 +23,7 @@ import {
 } from '../reducers/modals';
 
 import addLibraryBackdropIcon from '../components/asset-panel/icon--add-backdrop-lib.svg';
-import addLibraryCostumeIcon from '../components/asset-panel/icon--add-costume-lib.svg';
+import addLibraryCostumeIcon from '../components/action-menu/icon--sprite.svg';
 import fileUploadIcon from '../components/action-menu/icon--file-upload.svg';
 import paintIcon from '../components/action-menu/icon--paint.svg';
 import cameraIcon from '../components/action-menu/icon--camera.svg';

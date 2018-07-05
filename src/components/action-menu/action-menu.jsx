@@ -12,24 +12,9 @@ class ActionMenu extends React.Component {
     constructor (props) {
         super(props);
         bindAll(this, [
-            'clickDelayer',
-            'handleClosePopover',
-            'handleToggleOpenState',
-            'handleTouchStart',
-            'handleTouchOutside',
             'setButtonRef',
             'setContainerRef'
         ]);
-        this.state = {
-            isOpen: false,
-            forceHide: false
-        };
-    }
-    componentDidMount () {
-        // Touch start on the main button is caught to trigger open and not click
-        this.buttonRef.addEventListener('touchstart', this.handleTouchStart);
-        // Touch start on document is used to trigger close if it is outside
-        document.addEventListener('touchstart', this.handleTouchOutside);
     }
     shouldComponentUpdate (newProps, newState) {
         // This check prevents re-rendering while the project is updating.
@@ -37,57 +22,7 @@ class ActionMenu extends React.Component {
         //  if anything substantial has changed
         // This is needed because of the sloppy way the props are passed as a new object,
         //  which should be refactored.
-        return newState.isOpen !== this.state.isOpen ||
-            newState.forceHide !== this.state.forceHide ||
-            newProps.title !== this.props.title;
-    }
-    componentWillUnmount () {
-        this.buttonRef.removeEventListener('touchstart', this.handleTouchStart);
-        document.removeEventListener('touchstart', this.handleTouchOutside);
-    }
-    handleClosePopover () {
-        this.closeTimeoutId = setTimeout(() => {
-            this.setState({isOpen: false});
-            this.closeTimeoutId = null;
-        }, CLOSE_DELAY);
-    }
-    handleToggleOpenState () {
-        // Mouse enter back in after timeout was started prevents it from closing.
-        if (this.closeTimeoutId) {
-            clearTimeout(this.closeTimeoutId);
-            this.closeTimeoutId = null;
-        } else if (!this.state.isOpen) {
-            this.setState({
-                isOpen: true,
-                forceHide: false
-            });
-        }
-    }
-    handleTouchOutside (e) {
-        if (this.state.isOpen && !this.containerRef.contains(e.target)) {
-            this.setState({isOpen: false});
-            ReactTooltip.hide();
-        }
-    }
-    clickDelayer (fn) {
-        // Return a wrapped action that manages the menu closing.
-        // @todo we may be able to use react-transition for this in the future
-        // for now all this work is to ensure the menu closes BEFORE the
-        // (possibly slow) action is started.
-        return event => {
-            ReactTooltip.hide();
-            this.setState({forceHide: true, isOpen: false}, () => {
-                if (fn) fn(event);
-                setTimeout(() => this.setState({forceHide: false}));
-            });
-        };
-    }
-    handleTouchStart (e) {
-        // Prevent this touch from becoming a click if menu is closed
-        if (!this.state.isOpen) {
-            e.preventDefault();
-            this.handleToggleOpenState();
-        }
+        return newProps.title !== this.props.title;
     }
     setButtonRef (ref) {
         this.buttonRef = ref;
@@ -108,13 +43,8 @@ class ActionMenu extends React.Component {
 
         return (
             <div
-                className={classNames(styles.menuContainer, className, {
-                    [styles.expanded]: this.state.isOpen,
-                    [styles.forceHidden]: this.state.forceHide
-                })}
+                className={classNames(styles.menuContainer, className)}
                 ref={this.setContainerRef}
-                onMouseEnter={this.handleToggleOpenState}
-                onMouseLeave={this.handleClosePopover}
             >
                 <button
                     aria-label={mainTitle}
@@ -122,7 +52,7 @@ class ActionMenu extends React.Component {
                     data-for={mainTooltipId}
                     data-tip={mainTitle}
                     ref={this.setButtonRef}
-                    onClick={this.clickDelayer(onClick)}
+                    onClick={onClick}
                 >
                     <img
                         className={styles.mainIcon}
@@ -137,48 +67,46 @@ class ActionMenu extends React.Component {
                     place="left"
                 />
                 {!moreButtons ? null :
-                    <div className={styles.moreButtonsOuter}>
-                        <div className={styles.moreButtons}>
-                            {(moreButtons || []).map(({img, title, onClick: handleClick,
-                                fileAccept, fileChange, fileInput}, keyId) => {
-                                const isComingSoon = !handleClick;
-                                const hasFileInput = fileInput;
-                                const tooltipId = title;
-                                return (
-                                    <div key={`${tooltipId}-${keyId}`}>
-                                        <button
-                                            aria-label={title}
-                                            className={classNames(styles.button, styles.moreButton)}
-                                            data-for={tooltipId}
-                                            data-tip={title}
-                                            onClick={hasFileInput ? handleClick : this.clickDelayer(handleClick)}
-                                        >
-                                            <img
-                                                className={styles.moreIcon}
-                                                draggable={false}
-                                                src={img}
-                                            />
-                                            {hasFileInput ? (
-                                                <input
-                                                    accept={fileAccept}
-                                                    className={styles.fileInput}
-                                                    ref={fileInput}
-                                                    type="file"
-                                                    onChange={fileChange}
-                                                />) : null}
-                                        </button>
-                                        <ReactTooltip
-                                            className={classNames(styles.tooltip, {
-                                                [styles.comingSoonTooltip]: isComingSoon
-                                            })}
-                                            effect="solid"
-                                            id={tooltipId}
-                                            place="left"
+                    <div className={styles.moreButtons}>
+                        {(moreButtons || []).map(({img, title, onClick: handleClick,
+                            fileAccept, fileChange, fileInput}, keyId) => {
+                            const isComingSoon = !handleClick;
+                            const hasFileInput = fileInput;
+                            const tooltipId = title;
+                            return (
+                                <div key={`${tooltipId}-${keyId}`}>
+                                    <button
+                                        aria-label={title}
+                                        className={classNames(styles.button, styles.moreButton)}
+                                        data-for={tooltipId}
+                                        data-tip={title}
+                                        onClick={handleClick}
+                                    >
+                                        <img
+                                            className={styles.moreIcon}
+                                            draggable={false}
+                                            src={img}
                                         />
-                                    </div>
-                                );
-                            })}
-                        </div>
+                                        {hasFileInput ? (
+                                            <input
+                                                accept={fileAccept}
+                                                className={styles.fileInput}
+                                                ref={fileInput}
+                                                type="file"
+                                                onChange={fileChange}
+                                            />) : null}
+                                    </button>
+                                    <ReactTooltip
+                                        className={classNames(styles.tooltip, {
+                                            [styles.comingSoonTooltip]: isComingSoon
+                                        })}
+                                        effect="solid"
+                                        id={tooltipId}
+                                        place="left"
+                                    />
+                                </div>
+                            );
+                        })}
                     </div>
                 }
             </div>

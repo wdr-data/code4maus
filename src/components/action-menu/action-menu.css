@@ -1,79 +1,41 @@
 @import "../../css/colors.css";
 
-$main-button-size: 5rem;
-$more-button-size: 2.25rem;
+$button-size: 4rem;
 
 .menu-container {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     transition: 0.2s;
     position: relative;
 }
 
 .button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
     font-family: 'Titillium Web';
-    background: $motion-primary;
     outline: none;
     border: none;
-    transition: background-color 0.2s;
+    width: $button-size;
+    height: $button-size;
+    background: transparent;
 }
 
 button::-moz-focus-inner {
     border: 0;
 }
 
-.button.coming-soon:hover {
-    background: #e85e38;
-}
-
-.main-button {
-    width: $main-button-size;
-    height: $main-button-size;
-    box-shadow: none;
-    padding-right: 1.5rem;
-    z-index: 20; /* TODO reorder layout to prevent z-index need */
-    background: none;
-}
-
-.main-button:hover {
+.button:hover {
   transform: scale(1.1);
 }
 
-.main-button img {
+.button img {
     width: 100%;
-    height: 100%;
 }
 
-.more-buttons-outer {
-    /*
-        Need to use two divs to set different overflow x/y
-        which is needed to get animation to look right while
-        allowing the tooltips to be visible.
-    */
-    overflow-y: hidden;
-
-    background: #5185ba;
-    border-top-left-radius: $more-button-size;
-    border-top-right-radius: $more-button-size;
-    width: $more-button-size;
-    margin-left: calc(($main-button-size - $more-button-size) / 2);
-
-    position: absolute;
-    bottom: calc($main-button-size);
-
-    margin-bottom: calc($main-button-size / -1.7);
-    padding-bottom: calc($main-button-size / 2);
+.main-button {
+    z-index: 20; /* TODO reorder layout to prevent z-index need */
 }
 
 .more-buttons {
-    max-height: 0;
-    transition: max-height 1s;
-    overflow-x: visible;
     display: flex;
     flex-direction: column;
     z-index: 10; /* @todo justify */
@@ -83,29 +45,22 @@ button::-moz-focus-inner {
     display: none;
 }
 
-.expanded .more-buttons {
-    max-height: 1000px; /* Arbitrary, needs to be a value in order for animation to run */
-    padding-bottom: 1.3rem;
-}
-
 .force-hidden .more-buttons {
     display: none; /* This property does not animate */
 }
 
 .more-buttons:first-child { /* Round off top button */
-    border-top-right-radius: $more-button-size;
-    border-top-left-radius: $more-button-size;
+    border-top-right-radius: $button-size;
+    border-top-left-radius: $button-size;
 }
 
 .more-button {
-    width: $more-button-size;
-    height: $more-button-size;
-    background: #5185ba;
+    width: $button-size;
+    height: $button-size;
 }
 
 .more-icon {
-    width: $more-button-size;
-    height: $more-button-size;
+    width: 100%;
 }
 
 .coming-soon .more-icon {
