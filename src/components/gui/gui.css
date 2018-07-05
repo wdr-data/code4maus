@@ -56,7 +56,6 @@
     flex: 2;
     position: relative;
     display: flex;
-    flex-direction: row;
 }
 
 [layoutmode=BUILD] .blocks-wrapper {
@@ -185,10 +184,21 @@
     display: flex;
 }
 
+.code-panel-wrapper.is-selected {
+    display: flex;
+    flex-direction: column;
+}
+
+.code-top-row {
+    display: flex;
+    flex-grow: 1;
+}
+
 .blocks-wrapper {
     padding-right: .5rem;
     flex-grow: 1;
     display: flex;
+    flex-direction: column;
     position: relative;
 }
 
@@ -212,8 +222,6 @@
     width: 3rem;
     height: 3rem;
 }
-
-
 
 [layoutmode=PLAY] .layout-switcher-icon {
     transform: rotate(180deg);
@@ -241,19 +249,7 @@
 }
 
 .target-wrapper {
-    position: absolute;
-    z-index: 50;
-    left: 4rem;
-    bottom: 0;
-    width: 251px;
-    height: 160px;
-
-    /*
-        For making the sprite-selector a scrollable pane
-        @todo: Not working in Safari
-    */
-    /* TODO this also breaks the thermometer menu */
-    /* overflow: hidden; */
+    display: flex;
 }
 
 .extension-button-container {

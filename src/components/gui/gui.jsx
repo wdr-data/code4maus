@@ -232,38 +232,37 @@ const GUIComponent = props => {
                             selectedTabPanelClassName={tabClassNames.tabPanelSelected}
                             onSelect={onActivateTab}
                         >
-                            <TabPanel className={tabClassNames.tabPanel}>
-                                <Box className={styles.blocksWrapper}>
-                                    <Blocks
-                                        grow={1}
-                                        isVisible={blocksTabVisible}
-                                        options={{
-                                            media: `${basePath}static/blocks-media/`,
-                                            gridOptions: false,
-                                        }}
-                                        vm={vm}
-                                    />
-                                    <Box className={styles.targetWrapper}>
-                                        <TargetPane
+                            <TabPanel className={[tabClassNames.tabPanel, styles.codePanelWrapper]}>
+                                <Box className={styles.codeTopRow}>
+                                    <Box className={styles.blocksWrapper}>
+                                        <Blocks
+                                            grow={1}
+                                            isVisible={blocksTabVisible}
+                                            options={{
+                                                media: `${basePath}static/blocks-media/`,
+                                                gridOptions: false,
+                                            }}
                                             vm={vm}
                                         />
+                                        {!props.eduLayerActive ? null : <TargetPane vm={vm} />}
+                                        <Button onClick={onLayoutModeClick} className={styles.layoutSwitcher}>
+                                            <img
+                                                alt="WDR"
+                                                className={styles.layoutSwitcherIcon}
+                                                draggable={false}
+                                                src={expandIcon}
+                                            />
+                                        </Button>
                                     </Box>
-                                    <Button onClick={onLayoutModeClick} className={styles.layoutSwitcher}>
-                                        <img
-                                            alt="WDR"
-                                            className={styles.layoutSwitcherIcon}
-                                            draggable={false}
-                                            src={expandIcon}
+                                    <Box className={styles.stageAndTargetWrapper}>
+                                        <StageWrapper
+                                            isRendererSupported={isRendererSupported}
+                                            vm={vm}
                                         />
-                                    </Button>
+                                        <EduStage />
+                                    </Box>
                                 </Box>
-                                <Box className={styles.stageAndTargetWrapper}>
-                                    <StageWrapper
-                                        isRendererSupported={isRendererSupported}
-                                        vm={vm}
-                                    />
-                                    <EduStage />
-                                </Box>
+                                {props.eduLayerActive ? null : <TargetPane vm={vm} />}
                             </TabPanel>
                             <TabPanel className={tabClassNames.tabPanel}>
                                 {costumesTabVisible ? <CostumeTab vm={vm} /> : null}
@@ -304,7 +303,8 @@ GUIComponent.propTypes = {
     vm: PropTypes.instanceOf(VM).isRequired,
     onSaveModalClose: PropTypes.func,
     onNameInputChange: PropTypes.func,
-    projectName: PropTypes.string
+    projectName: PropTypes.string,
+    eduLayerActive: PropTypes.bool.isRequired,
 };
 GUIComponent.defaultProps = {
     basePath: '/'

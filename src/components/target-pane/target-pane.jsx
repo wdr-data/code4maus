@@ -46,6 +46,18 @@ const TargetPane = ({
         {...componentProps}
     >
 
+        <div className={styles.stageSelectorWrapper}>
+            {stage.id && <StageSelector
+                assetId={
+                    stage.costume &&
+                    stage.costume.assetId
+                }
+                backdropCount={stage.costumeCount}
+                id={stage.id}
+                selected={stage.id === editingTarget}
+                onSelect={onSelectSprite}
+            />}
+        </div>
         <SpriteSelectorComponent
             editingTarget={editingTarget}
             hoveredTarget={hoveredTarget}
@@ -68,26 +80,12 @@ const TargetPane = ({
             onSpriteUpload={onSpriteUpload}
             onSurpriseSpriteClick={onSurpriseSpriteClick}
         />
-        <div className={styles.stageSelectorWrapper}>
-            {stage.id && <StageSelector
-                assetId={
-                    stage.costume &&
-                    stage.costume.assetId
-                }
-                backdropCount={stage.costumeCount}
-                id={stage.id}
-                selected={stage.id === editingTarget}
-                onSelect={onSelectSprite}
-            />}
-            <div>
-                {spriteLibraryVisible ? (
+        {spriteLibraryVisible ? (
                     <SpriteLibrary
                         vm={vm}
                         onRequestClose={onRequestCloseSpriteLibrary}
                     />
                 ) : null}
-            </div>
-        </div>
     </div>
 );
 

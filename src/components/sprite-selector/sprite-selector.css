@@ -6,9 +6,6 @@
     position: relative;
     font-family: 'Titillium Web';
     background-color: #f0f5fa;
-    border-color: #97bade;
-    border-width: 1px 0 0 0;
-    border-style: solid;
 }
 
 /* In prep for renaming sprite-selector-item to sprite */
@@ -26,8 +23,7 @@
         @todo: make room for the scrollbar
     */
     box-sizing: border-box;
-    width: calc((100% / $sprites-per-row ) - $space);
-    min-width: 4rem;
+    width: 5rem;
     min-height: 4rem; /* @todo: calc height same as width */
     margin: calc($space / 2);
 }

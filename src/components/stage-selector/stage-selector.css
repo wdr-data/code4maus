@@ -16,9 +16,6 @@ $header-height: calc($stage-menu-height - 2px);
     font-family: 'Titillium Web';
     background-color: #f0f5fa;
     color: $text-primary;
-    border-color: #97bade;
-    border-width: 1px 0 0 0;
-    border-style: solid;
     cursor: pointer;
     transition: border-color 0.25s ease-out, box-shadow 0.25s ease-out;
 }
