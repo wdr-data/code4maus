@@ -109,6 +109,7 @@ $tab-skew: 1deg;
     transition: 0.2s ease-out;
     position: relative;
     z-index: 5;
+    border-radius: 0;
 
     transform: skewY(-$tab-skew);
     margin-bottom: -1rem;
