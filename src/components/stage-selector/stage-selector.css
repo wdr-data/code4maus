@@ -6,12 +6,10 @@ $header-height: calc($stage-menu-height - 2px);
 .stage-selector {
     display: flex;
     width: 270px;
-    flex-direction: row-reverse;
     align-items: center;
     position: relative; /* For the add backdrop button */
     flex-grow: 1;
-    padding-top: .6rem;
-    padding-bottom: .6rem;
+    padding: .5rem;
 
     font-family: 'Titillium Web';
     background-color: #f0f5fa;
@@ -36,7 +34,6 @@ $header-height: calc($stage-menu-height - 2px);
     height: $header-height;
     color: $text-primary;
     width: 100%;
-    margin-right: 5rem;
 }
 
 .header-title {
@@ -68,13 +65,6 @@ $header-height: calc($stage-menu-height - 2px);
     user-select: none;
     border: 1px solid rgba(0,0,0,.1);
     margin-left: .5rem;
-}
-
-.add-button {
-    position: absolute;
-    right: 1rem;
-    top: 0.2rem;
-    z-index: 1;
 }
 
 .raised, .raised .header {

@@ -9,9 +9,6 @@ import CostumeCanvas from '../costume-canvas/costume-canvas.jsx';
 import styles from './stage-selector.css';
 
 import backdropIcon from '../action-menu/icon--backdrop.svg';
-import fileUploadIcon from '../action-menu/icon--file-upload.svg';
-import paintIcon from '../action-menu/icon--paint.svg';
-import surpriseIcon from '../action-menu/icon--surprise.svg';
 
 const messages = defineMessages({
     addBackdropFromLibrary: {
@@ -67,6 +64,14 @@ const StageSelector = props => {
             onMouseLeave={onMouseLeave}
             {...componentProps}
         >
+            {url ? (
+                <CostumeCanvas
+                    className={styles.costumeCanvas}
+                    height={54}
+                    url={url}
+                    width={72}
+                />
+            ) : null}
             <div className={styles.header}>
                 <div className={styles.headerTitle}>
                     <FormattedMessage
@@ -76,36 +81,8 @@ const StageSelector = props => {
                     />
                 </div>
             </div>
-            {url ? (
-                <CostumeCanvas
-                    className={styles.costumeCanvas}
-                    height={54}
-                    url={url}
-                    width={72}
-                />
-            ) : null}
             <ActionMenu
-                className={styles.addButton}
                 img={backdropIcon}
-                moreButtons={[
-                    {
-                        title: intl.formatMessage(messages.addBackdropFromFile),
-                        img: fileUploadIcon,
-                        onClick: onBackdropFileUploadClick,
-                        fileAccept: '.svg, .png, .jpg, .jpeg', // Bitmap coming soon
-                        fileChange: onBackdropFileUpload,
-                        fileInput: fileInputRef
-                    }, {
-                        title: intl.formatMessage(messages.addBackdropFromSurprise),
-                        img: surpriseIcon,
-                        onClick: onSurpriseBackdropClick
-
-                    }, {
-                        title: intl.formatMessage(messages.addBackdropFromPaint),
-                        img: paintIcon,
-                        onClick: onEmptyBackdropClick
-                    }
-                ]}
                 title={intl.formatMessage(messages.addBackdropFromLibrary)}
                 onClick={onNewBackdropClick}
             />
