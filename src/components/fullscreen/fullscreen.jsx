@@ -90,10 +90,8 @@ const FullscreenComponent = props => {
 
 FullscreenComponent.propTypes = {
   isFullScreen: PropTypes.bool.isRequired,
-  isPlayerOnly: PropTypes.bool.isRequired,
   onKeyPress: PropTypes.func.isRequired,
   onSetStageFull: PropTypes.func.isRequired,
-  onSetStageLarge: PropTypes.func.isRequired,
   onSetStageUnFull: PropTypes.func.isRequired,
   intl: intlShape
 };

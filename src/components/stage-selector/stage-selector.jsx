@@ -50,6 +50,7 @@ const StageSelector = props => {
         onNewBackdropClick,
         onSurpriseBackdropClick,
         onEmptyBackdropClick,
+        dispatchSetHoveredSprite,
         ...componentProps
     } = props;
     return (
@@ -102,6 +103,7 @@ StageSelector.propTypes = {
     onMouseLeave: PropTypes.func,
     onNewBackdropClick: PropTypes.func,
     onSurpriseBackdropClick: PropTypes.func,
+    dispatchSetHoveredSprite: PropTypes.func,
     raised: PropTypes.bool.isRequired,
     receivedBlocks: PropTypes.bool.isRequired,
     selected: PropTypes.bool.isRequired,

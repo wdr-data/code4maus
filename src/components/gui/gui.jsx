@@ -81,6 +81,7 @@ const GUIComponent = props => {
         onSaveModalClose,
         saveProjectError,
         projectName,
+        eduLayerActive,
         ...componentProps
     } = props;
     if (children) {
