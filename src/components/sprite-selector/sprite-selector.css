@@ -30,7 +30,7 @@
     font-family: 'Titillium Web';
     background-color: #f0f5fa;
 
-    overflow-x: scroll;
+    overflow-x: auto;
 
     padding-top: calc($space / 2);
     padding-left: calc($space / 2);

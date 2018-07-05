@@ -8,10 +8,11 @@
     flex-direction: column;
     justify-content: space-between;
     background: $ui-tertiary;
+    display: flex;
+    flex-direction: column;
 }
 
 .new-buttons {
-    position: absolute;
     bottom: 0;
     width: 100%;
 
@@ -46,7 +47,7 @@ $fade-out-distance: 100px;
     /* Must have some height (recalculated by flex-grow) in order to scroll */
     height: 0;
     flex-grow: 1;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .list-item {
