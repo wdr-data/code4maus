@@ -16,34 +16,6 @@ import saveButton from './download@2x.png';
 
 import styles from './stage-header.css';
 
-const messages = defineMessages({
-    largeStageSizeMessage: {
-        defaultMessage: 'Switch to large stage',
-        description: 'Button to change stage size to large',
-        id: 'gui.stageHeader.stageSizeLarge'
-    },
-    smallStageSizeMessage: {
-        defaultMessage: 'Switch to small stage',
-        description: 'Button to change stage size to small',
-        id: 'gui.stageHeader.stageSizeSmall'
-    },
-    fullStageSizeMessage: {
-        defaultMessage: 'Enter full screen mode',
-        description: 'Button to change stage size to full screen',
-        id: 'gui.stageHeader.stageSizeFull'
-    },
-    unFullStageSizeMessage: {
-        defaultMessage: 'Exit full screen mode',
-        description: 'Button to get out of full screen mode',
-        id: 'gui.stageHeader.stageSizeUnFull'
-    },
-    fullscreenControl: {
-        defaultMessage: 'Full Screen Control',
-        description: 'Button to enter/exit full screen mode',
-        id: 'gui.stageHeader.fullscreenControl'
-    }
-});
-
 const StageHeaderComponent = function (props) {
     const {
         isFullScreen,

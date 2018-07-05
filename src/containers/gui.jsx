@@ -24,7 +24,7 @@ import AppStateHOC from '../lib/app-state-hoc.jsx';
 
 import GUIComponent from '../components/gui/gui.jsx';
 import {toggleLayoutMode} from '../reducers/layout-mode';
-import localeDe from '../../translations/messages/de.json';
+import localeDe from '../../translations/de.json';
 
 addLocaleData(de);
 
