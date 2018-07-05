@@ -34,16 +34,8 @@
     justify-content: space-between;
 }
 
-.first-column {
-    padding: .5rem 0 .04rem .75rem;
-}
-
-.second-column {
-    padding: .5rem 0 .04rem 0;
-}
-
-.third-column {
-    padding: .5rem 0 .04rem .75rem;
+.column {
+    padding: .5rem 0 0 .75rem;
 }
 
 .menu-button {
@@ -94,52 +86,58 @@
     /* Overrides for react-tabs styling */
     margin: 0 !important;
     border-bottom: 0 !important;
+
+    overflow-y: hidden;
 }
+
+$tab-skew: 1deg;
 
 .tab {
     flex-grow: 1;
-    height: 80%;
     margin-bottom: 0;
     margin-right: .5rem;
 
-    padding: 0 1.25rem;
+    padding: 0 1.25rem 1rem 1.25rem;
     font-size: 1rem;
     color: white;
 
     background-color: #5185ba;
     background-repeat: no-repeat;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     user-select: none;
     cursor: pointer;
     transition: 0.2s ease-out;
+    position: relative;
+    z-index: 5;
+
+    transform: skewY(-$tab-skew);
+    margin-bottom: -1rem;
 }
+
+.tab-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    transform: skewY($tab-skew);
+}
+
 
 /* Use z-indices to force left-on-top for tabs */
-.tab:nth-of-type(1) {
-    margin-left: 0;
-    z-index: 3;
+.tab:nth-of-type(2n+0) {
+    transform: skewY($tab-skew);
 }
-.tab:nth-of-type(2) {
-    z-index: 2;
-}
-.tab:nth-of-type(3) {
-    z-index: 1;
+.tab:nth-of-type(2n+0) .tab-content {
+    transform: skewY(-$tab-skew);
 }
 
-.tab:hover:not(.is-selected) {
-    height: 95%;
+.tab:hover:not(.is-selected), .tab.is-selected {
+    padding: .25rem 1.25rem 1.25rem;
 }
 
 .tab.is-selected {
-    height: 95%;
     background-image: url('./bg_orange@1x.png');
-    border-radius: 0 !important;
-    border-style: none !important;
-    z-index: 4; /* Make sure selected is always above */
+    z-index: 10; /* Make sure selected is always above */
 }
 
 .tab img {
@@ -153,9 +151,6 @@
 }
 
 /* Tab style overrides from react-tabs */
-.tab.is-selected:after {
-    display: none;
-}
 
 .tab.is-selected:focus {
     outline: none;

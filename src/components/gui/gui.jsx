@@ -137,7 +137,7 @@ const GUIComponent = props => {
                     <WebGlModal />
                 )}
                 <Box className={styles.header}>
-                    <Box className={styles.firstColumn}>
+                    <Box className={styles.column}>
                         <img
                             alt="WDR"
                             className={styles.logo}
@@ -153,56 +153,62 @@ const GUIComponent = props => {
                         >
                             <TabList className={tabClassNames.tabList}>
                                 <Tab className={tabClassNames.tab}>
-                                    <img
-                                        draggable={false}
-                                        src={codeIcon}
-                                    />
-                                    <FormattedMessage
-                                        defaultMessage="Code"
-                                        description="Button to get to the code panel"
-                                        id="gui.gui.codeTab"
-                                    />
+                                    <Box className={styles.tabContent}>
+                                        <img
+                                            draggable={false}
+                                            src={codeIcon}
+                                        />
+                                        <FormattedMessage
+                                            defaultMessage="Code"
+                                            description="Button to get to the code panel"
+                                            id="gui.gui.codeTab"
+                                        />
+                                    </Box>
                                 </Tab>
                                 <Tab
                                     className={tabClassNames.tab}
                                     onClick={onActivateCostumesTab}
                                 >
-                                    <img
-                                        draggable={false}
-                                        src={costumesIcon}
-                                    />
-                                    {targetIsStage ? (
-                                        <FormattedMessage
-                                            defaultMessage="Backdrops"
-                                            description="Button to get to the backdrops panel"
-                                            id="gui.gui.backdropsTab"
+                                    <Box className={styles.tabContent}>
+                                        <img
+                                            draggable={false}
+                                            src={costumesIcon}
                                         />
-                                    ) : (
+                                        {targetIsStage ? (
                                             <FormattedMessage
-                                                defaultMessage="Kostüme"
-                                                description="Button to get to the costumes panel"
-                                                id="gui.gui.costumesTab"
+                                                defaultMessage="Backdrops"
+                                                description="Button to get to the backdrops panel"
+                                                id="gui.gui.backdropsTab"
                                             />
-                                        )}
+                                        ) : (
+                                                <FormattedMessage
+                                                    defaultMessage="Kostüme"
+                                                    description="Button to get to the costumes panel"
+                                                    id="gui.gui.costumesTab"
+                                                />
+                                            )}
+                                    </Box>
                                 </Tab>
                                 <Tab
                                     className={tabClassNames.tab}
                                     onClick={onActivateSoundsTab}
                                 >
-                                    <img
-                                        draggable={false}
-                                        src={soundsIcon}
-                                    />
-                                    <FormattedMessage
-                                        defaultMessage="Töne"
-                                        description="Button to get to the sounds panel"
-                                        id="gui.gui.soundsTab"
-                                    />
+                                    <Box className={styles.tabContent}>
+                                        <img
+                                            draggable={false}
+                                            src={soundsIcon}
+                                        />
+                                        <FormattedMessage
+                                            defaultMessage="Töne"
+                                            description="Button to get to the sounds panel"
+                                            id="gui.gui.soundsTab"
+                                        />
+                                    </Box>
                                 </Tab>
                             </TabList>
                         </Tabs>
                     </Box>
-                    <Box className={styles.secondColumn}>
+                    <Box className={styles.column}>
                         <img
                             alt="head"
                             className={styles.logoCenter}
@@ -210,7 +216,7 @@ const GUIComponent = props => {
                             src={headLogo}
                         />
                     </Box>
-                    <Box className={styles.thirdColumn}>
+                    <Box className={styles.column}>
                         <ButtonWithIcon
                             className={styles.menuButton}
                             iconSrc={menuIcon}
