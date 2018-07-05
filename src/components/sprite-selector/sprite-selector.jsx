@@ -6,14 +6,11 @@ import {defineMessages, injectIntl, intlShape} from 'react-intl';
 import Box from '../box/box.jsx';
 import SpriteInfo from '../../containers/sprite-info.jsx';
 import SpriteSelectorItem from '../../containers/sprite-selector-item.jsx';
-import ActionMenu from '../action-menu/action-menu.jsx';
 
 import styles from './sprite-selector.css';
+import itemStyles from '../sprite-selector-item/sprite-selector-item.css';
 
-import fileUploadIcon from '../action-menu/icon--file-upload.svg';
-import paintIcon from '../action-menu/icon--paint.svg';
 import spriteIcon from '../action-menu/icon--sprite.svg';
-import surpriseIcon from '../action-menu/icon--surprise.svg';
 
 const messages = defineMessages({
     addSpriteFromLibrary: {
@@ -70,64 +67,37 @@ const SpriteSelectorComponent = function (props) {
         spriteInfoDisabled = true;
     }
     return (
-        <Box
-            className={styles.spriteSelector}
-            {...componentProps}
-        >
-
-            
-
-            <Box className={styles.scrollWrapper}>
-                <Box className={styles.itemsWrapper}>
-                    {Object.keys(sprites)
-                        // Re-order by list order
-                        .sort((id1, id2) => sprites[id1].order - sprites[id2].order)
-                        .map(id => sprites[id])
-                        .map(sprite => (
-                            <SpriteSelectorItem
-                                assetId={sprite.costume && sprite.costume.assetId}
-                                className={hoveredTarget.sprite === sprite.id &&
-                                    sprite.id !== editingTarget &&
-                                    hoveredTarget.receivedBlocks ?
-                                    classNames(styles.sprite, styles.receivedBlocks) :
-                                    raised && sprite.id !== editingTarget ?
-                                        classNames(styles.sprite, styles.raised) : styles.sprite}
-                                id={sprite.id}
-                                key={sprite.id}
-                                name={sprite.name}
-                                selected={sprite.id === selectedId}
-                                onClick={onSelectSprite}
-                                onDeleteButtonClick={onDeleteSprite}
-                                onDuplicateButtonClick={onDuplicateSprite}
-                            />
-                        ))
-                    }
-                </Box>
-            </Box>
-            <ActionMenu
-                className={styles.addButton}
-                img={spriteIcon}
-                moreButtons={[
-                    {
-                        title: intl.formatMessage(messages.addSpriteFromFile),
-                        img: fileUploadIcon,
-                        onClick: onFileUploadClick,
-                        fileAccept: '.svg, .png, .jpg, .jpeg, .sprite2', // TODO add sprite 3
-                        fileChange: onSpriteUpload,
-                        fileInput: spriteFileInput
-                    }, {
-                        title: intl.formatMessage(messages.addSpriteFromSurprise),
-                        img: surpriseIcon,
-                        onClick: onSurpriseSpriteClick // TODO need real function for this
-                    }, {
-                        title: intl.formatMessage(messages.addSpriteFromPaint),
-                        img: paintIcon,
-                        onClick: onPaintSpriteClick // TODO need real function for this
-                    }
-                ]}
-                title={intl.formatMessage(messages.addSpriteFromLibrary)}
+        <Box className={styles.itemsWrapper}>
+            {Object.keys(sprites)
+                // Re-order by list order
+                .sort((id1, id2) => sprites[id1].order - sprites[id2].order)
+                .map(id => sprites[id])
+                .map(sprite => (
+                    <SpriteSelectorItem
+                        assetId={sprite.costume && sprite.costume.assetId}
+                        className={hoveredTarget.sprite === sprite.id &&
+                            sprite.id !== editingTarget &&
+                            hoveredTarget.receivedBlocks ?
+                            classNames(styles.sprite, styles.receivedBlocks) :
+                            raised && sprite.id !== editingTarget ?
+                                classNames(styles.sprite, styles.raised) : styles.sprite}
+                        id={sprite.id}
+                        key={sprite.id}
+                        name={sprite.name}
+                        selected={sprite.id === selectedId}
+                        onClick={onSelectSprite}
+                        onDeleteButtonClick={onDeleteSprite}
+                        onDuplicateButtonClick={onDuplicateSprite}
+                    />
+                ))
+            }
+            <button
+                aria-label={intl.formatMessage(messages.addSpriteFromLibrary)}
+                className={classNames(styles.sprite, itemStyles.spriteSelectorItem, styles.addBox)}
                 onClick={onNewSpriteClick}
-            />
+            >
+                <span>+</span>
+            </button>
         </Box>
     );
 };

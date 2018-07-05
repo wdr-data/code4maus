@@ -6,10 +6,11 @@
     flex-direction: row;
     min-height: 85px;
     margin-top: .5rem;
+    max-width: calc(100vw - 1rem);
 }
 
 .stage-selector-wrapper {
     display: flex;
-    width: 315px;
+    flex: 0 0 315px;
     border-right: 1px solid #97bade;
 }
