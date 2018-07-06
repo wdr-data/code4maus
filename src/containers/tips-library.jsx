@@ -4,7 +4,6 @@ import React from 'react';
 
 import decksLibraryContent from '../lib/libraries/decks/index.jsx';
 
-import analytics from '../lib/analytics';
 import LibraryComponent from '../components/library/library.jsx';
 
 import {connect} from 'react-redux';
@@ -26,11 +25,6 @@ class TipsLibrary extends React.PureComponent {
     }
     handleItemSelect (item) {
         this.props.onActivateDeck(item.id);
-        analytics.event({
-            category: 'library',
-            action: 'Select How-to',
-            label: item.id
-        });
     }
     render () {
         const decksLibraryThumbnailData = Object.keys(decksLibraryContent).map(id => ({

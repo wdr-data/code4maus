@@ -4,7 +4,6 @@ import React from 'react';
 import {injectIntl, intlShape, defineMessages} from 'react-intl';
 import VM from '@wdr-data/scratch-vm';
 
-import analytics from '../lib/analytics';
 import spriteLibraryContent from '../lib/libraries/sprites.json';
 import spriteTags from '../lib/libraries/sprite-tags';
 
@@ -40,11 +39,6 @@ class SpriteLibrary extends React.PureComponent {
     }
     handleItemSelect (item) {
         this.props.vm.addSprite(JSON.stringify(item.json));
-        analytics.event({
-            category: 'library',
-            action: 'Select Sprite',
-            label: item.name
-        });
     }
     handleMouseEnter (item) {
         this.stopRotatingCostumes();

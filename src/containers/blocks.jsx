@@ -7,7 +7,6 @@ import React from 'react';
 import VMScratchBlocks from '../lib/blocks';
 import VM from '@wdr-data/scratch-vm';
 
-import analytics from '../lib/analytics';
 import Prompt from './prompt.jsx';
 import BlocksComponent from '../components/blocks/blocks.jsx';
 import ExtensionLibrary from './extension-library.jsx';
@@ -86,8 +85,6 @@ class Blocks extends React.Component {
 
         this.attachVM();
         this.props.vm.setLocale(this.props.locale, this.props.messages);
-
-        analytics.pageview('/editors/blocks');
     }
     componentWillReceiveProps (nextProps) {
         if (this.props.layoutMode !== nextProps.layoutMode) {
