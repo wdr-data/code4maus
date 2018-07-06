@@ -1,6 +1,13 @@
 @import "../../css/units.css";
 @import "../../css/colors.css";
 
+@define-mixin categoryBackground $color {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="97.544" width="105.234"><path fill="#fff" d="M22.033 10.836H83.28V80.68H22.033z"/><path d="M39.259 96.973c-11.39-1.564-24.446-3.06-32.27-12.511C-.047 75.038.04 62.627 0 51.393c.468-14.137 2.444-28.814 9.677-41.217C15.517 2.026 26.366.623 35.66.525 51.783-.227 68.38-.962 83.888 4.348c6.415 2.307 13.853 4.834 16.873 11.545 5.046 11.024 4.743 23.572 4.162 35.429-.459 7.773 1.399 21.247-5.894 32.327-3.786 7.754-13.027 9.774-20.743 11.255-12.822 2.535-26.01 3.288-39.027 2.069z" fill="$color"/></svg>');
+    background-size: 90% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .blocks {
     position: relative;
 }
@@ -51,6 +58,7 @@
 */
 .blocks :global(.scratchCategoryMenuItemLabel) {
     font-size: 0.65rem;
+    color: white;
 }
 
 .blocks :global(.scratchCategoryMenu) {
@@ -62,7 +70,39 @@
 }
 
 .blocks :global(.scratchCategoryMenuItem) {
-    padding: .5rem;
+    padding: 1rem .5rem;
+}
+
+.blocks :global(.scratchCategoryId-motion) {
+    @mixin categoryBackground #3099f8;
+}
+
+.blocks :global(.scratchCategoryId-looks) {
+    @mixin categoryBackground #9b6af7;
+}
+
+.blocks :global(.scratchCategoryId-sound) {
+    @mixin categoryBackground #d863c8;
+}
+
+.blocks :global(.scratchCategoryId-events) {
+    @mixin categoryBackground #ffbb3f;
+}
+
+.blocks :global(.scratchCategoryId-control) {
+    @mixin categoryBackground #ffa640;
+}
+
+.blocks :global(.scratchCategoryId-sensing) {
+    @mixin categoryBackground #43b1d2;
+}
+
+.blocks :global(.scratchCategoryId-operators) {
+    @mixin categoryBackground #3cbf65;
+}
+
+.blocks :global(.scratchCategoryId-variables) {
+    @mixin categoryBackground #ff8639;
 }
 
 .blocks :global(.scratchCategoryMenuItem):hover {
