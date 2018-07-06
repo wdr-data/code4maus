@@ -105,7 +105,8 @@ Resources:
                   - 's3:PutObject'
                   - 's3:PutAccelerateConfiguration'
                 Resource:
-                  - '*'
+                  - !Sub 'arn:aws:s3:::hackingstudio-code4maus-*'
+                  - !Sub 'arn:aws:s3:::hackingstudio-code4maus-*/*'
               - Effect: Allow
                 Action:
                   - 'lambda:GetFunction'
@@ -135,7 +136,7 @@ Resources:
                   - 'logs:DeleteLogGroup'
                   - 'logs:DescribeLogGroups'
                 Resource:
-                  - '*'
+                  - !Sub 'arn:aws:logs:eu-central-1:${AWS::AccountId}:log-group:/aws/lambda/hackingstudio-code4maus-*:*'
               - Effect: Allow
                 Action:
                   - 'iam:PassRole'
