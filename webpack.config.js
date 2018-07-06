@@ -12,6 +12,7 @@ var Visualizer = require('webpack-visualizer-plugin');
 var autoprefixer = require('autoprefixer');
 var postcssVars = require('postcss-simple-vars');
 var postcssImport = require('postcss-import');
+var postcssMixins = require('postcss-mixins');
 
 require('dotenv').config();
 const bucketSuffix = process.env.BRANCH === 'production' ? 'prod' : 'staging';
@@ -83,6 +84,7 @@ const base = {
                     ident: 'postcss',
                     plugins: function () {
                         return [
+                            postcssMixins,
                             postcssImport,
                             postcssVars,
                             autoprefixer({
