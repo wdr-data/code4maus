@@ -5,6 +5,7 @@ import React from 'react';
 import {projectUrl} from './routing';
 import {serializeSounds, serializeCostumes} from '@wdr-data/scratch-vm/src/serialization/serialize-assets';
 import storage from './storage';
+import { v4 as uuid } from 'uuid';
 
 const contentTypes = {
     'jpg': 'image/jpeg',
@@ -28,10 +29,16 @@ const ProjectSaveHOC = WrappedComponent => {
         constructor (props) {
             super(props);
 
+            const localStorage = window.localStorage;
+            let userId = localStorage.getItem('deviceId');
+            if (!userId) {
+                userId = uuid();
+                localStorage.setItem('deviceId', userId);
+            }
             this.state = {
                 nameInput: "",
                 error: "",
-                userId: "testuser",
+                userId,
             };
             storage.userId = this.state.userId;
 
