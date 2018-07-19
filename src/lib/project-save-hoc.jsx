@@ -6,6 +6,7 @@ import {projectUrl} from './routing';
 import {serializeSounds, serializeCostumes} from '@wdr-data/scratch-vm/src/serialization/serialize-assets';
 import storage from './storage';
 import { v4 as uuid } from 'uuid';
+import { UserIdContext } from './project-loader-hoc.jsx';
 
 const contentTypes = {
     'jpg': 'image/jpeg',
@@ -29,18 +30,10 @@ const ProjectSaveHOC = WrappedComponent => {
         constructor (props) {
             super(props);
 
-            const localStorage = window.localStorage;
-            let userId = localStorage.getItem('deviceId');
-            if (!userId) {
-                userId = uuid();
-                localStorage.setItem('deviceId', userId);
-            }
             this.state = {
                 nameInput: "",
                 error: "",
-                userId,
             };
-            storage.userId = this.state.userId;
 
             this.saveProject = this.saveProject.bind(this);
             this.handleProjectNameChange = this.handleProjectNameChange.bind(this);
@@ -103,7 +96,7 @@ const ProjectSaveHOC = WrappedComponent => {
             const payload = {
                 data: this.props.vm.toJSON(),
                 name: this.state.nameInput,
-                userId: this.state.userId,
+                userId: this.props.userId,
             };
             if (this.props.projectId) {
                 payload.id = this.props.projectId;
@@ -132,6 +125,7 @@ const ProjectSaveHOC = WrappedComponent => {
                 projectName,
                 dispatch,
                 vm,
+                userId,
                 ...componentProps
             } = this.props;
 
@@ -147,11 +141,19 @@ const ProjectSaveHOC = WrappedComponent => {
         }
     }
 
-    return connect(state => ({
+    const ProjectLoaderConnected = connect(state => ({
         projectId: state.scratchGui.project.id,
         projectName: state.scratchGui.project.name,
         vm: state.scratchGui.vm,
     }))(ProjectSaveComponent);
+
+    return props => (
+        <UserIdContext.Consumer>
+            {userId => (
+                <ProjectLoaderConnected {...props} userId={userId} />
+            )}
+        </UserIdContext.Consumer>
+    );
 }
 
 export default ProjectSaveHOC;

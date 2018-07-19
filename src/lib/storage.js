@@ -6,9 +6,9 @@ const PROJECT_SERVER = 'https://projects.scratch.mit.edu';
 const ASSET_SERVER = 'https://cdn.assets.scratch.mit.edu';
 
 
-const bucketUrl = process.env.S3_BUCKET_URL_PROJECT;
+export const bucketUrl = process.env.S3_BUCKET_URL_PROJECT;
 export const s3assets = filename => `${bucketUrl}/assets/${filename}`;
-
+export const s3userFile = (userId, path) => `${bucketUrl}/projects/${userId}/${path}`;
 
 /**
  * Wrapper for ScratchStorage which adds default web sources.
@@ -52,7 +52,7 @@ class Storage extends ScratchStorage {
                 if (!this.userId) {
                     throw new Error('No user id set');
                 }
-                return `${bucketUrl}/projects/${this.userId}/${project.assetId}.${project.dataFormat}`;
+                return s3userFile(this.userId, `${project.assetId}.${project.dataFormat}`);
             }
         );
         this.addWebSource(

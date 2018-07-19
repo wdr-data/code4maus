@@ -10,7 +10,7 @@ Resources:
       CorsConfiguration:
         CorsRules:
         - AllowedHeaders: ['*']
-          AllowedMethods: [GET]
+          AllowedMethods: [GET, HEAD]
           AllowedOrigins: ['*']
           Id: myCORSRuleId1
           MaxAge: '3600'
@@ -27,7 +27,7 @@ Resources:
       CorsConfiguration:
         CorsRules:
         - AllowedHeaders: ['*']
-          AllowedMethods: [GET]
+          AllowedMethods: [GET, HEAD]
           AllowedOrigins: ['*']
           Id: myCORSRuleId1
           MaxAge: '3600'
