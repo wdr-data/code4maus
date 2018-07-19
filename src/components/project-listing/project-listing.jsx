@@ -3,6 +3,7 @@ import styles from './project-listing.css';
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
 import classNames from 'classnames';
+import {Link} from 'redux-little-router';
 
 export const ProjectListingComponent = props => (
     <Box className={styles.listingWrapper}>
@@ -15,7 +16,7 @@ export const ProjectListingComponent = props => (
                 <Button>+ Neu</Button>
                 {Object.keys(props.projects).map(key => (
                     <Box key={key} className={styles.projectWrapper}>
-                        <a href={`/projekt/${key}`} className={styles.projectName}>{props.projects[key].name}</a>
+                        <Link href={`/projekt/${key}`} className={styles.projectName}>{props.projects[key].name}</Link>
                         <span className={styles.projectChanged}>{new Date(props.projects[key].updated_at).toLocaleDateString()}</span>
                     </Box>
                 ))}
