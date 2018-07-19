@@ -151,7 +151,7 @@ const ConnectedGUI = connect(
 )(GUI);
 
 const WrappedGui = ErrorBoundaryHOC('Top Level App')(
-    AppStateHOC(ProjectSaveHOC(ProjectLoaderHOC(EduLoaderHOC(vmListenerHOC(ConnectedGUI)))))
+    AppStateHOC(ProjectLoaderHOC(ProjectSaveHOC(EduLoaderHOC(vmListenerHOC(ConnectedGUI)))))
 );
 
 WrappedGui.setAppElement = ReactModal.setAppElement;
