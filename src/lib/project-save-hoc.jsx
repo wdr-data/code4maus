@@ -120,6 +120,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
             return Promise.reject(new Error(text));
         }
         render() {
+            /* eslint-disable no-unused-vars */
             const {
                 projectId,
                 projectName,
@@ -128,6 +129,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
                 userId,
                 ...componentProps
             } = this.props;
+            /* eslint-enable */
 
             return (
                 <WrappedComponent

@@ -94,12 +94,14 @@ const ProjectLoaderHOC = function(WrappedComponent) {
             })().catch(log.error));
         }
         render() {
+            /* eslint-disable no-unused-vars */
             const {
-                dispatch, // eslint-disable-line no-unused-vars
-                projectId, // eslint-disable-line no-unused-vars
-                gameEnabled, // eslint-disable-line no-unused-vars
+                dispatch,
+                projectId,
+                gameEnabled,
                 ...componentProps
             } = this.props;
+            /* eslint-enable */
             if (!this.state.projectData) {
                 return null;
             }

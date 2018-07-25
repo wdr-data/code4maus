@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { defineMessages, FormattedMessage, injectIntl, intlShape } from 'react-intl';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import tabStyles from 'react-tabs/style/react-tabs.css';
 import VM from '@wdr-data/scratch-vm';
@@ -14,12 +14,8 @@ import SoundTab from '../../containers/sound-tab.jsx';
 import StageWrapper from '../../containers/stage-wrapper.jsx';
 import Loader from '../loader/loader.jsx';
 import Box from '../box/box.jsx';
-import MenuBar from '../menu-bar/menu-bar.jsx';
 
-import PreviewModal from '../../containers/preview-modal.jsx';
-import ImportModal from '../../containers/import-modal.jsx';
 import WebGlModal from '../../containers/webgl-modal.jsx';
-import Cards from '../../containers/cards.jsx';
 import DragLayer from '../../containers/drag-layer.jsx';
 import ModalComponent from '../modal/modal.jsx';
 import Input from '../forms/input.jsx';
@@ -29,31 +25,21 @@ import StageHeader from '../../containers/stage-header.jsx';
 import ButtonWithIcon from '../../components/button-with-icon/button-with-icon.jsx';
 
 import styles from './gui.css';
-import addExtensionIcon from './icon--extensions.svg';
 import codeIcon from './icon--code.svg';
 import costumesIcon from './icon--costumes.svg';
 import soundsIcon from './icon--sounds.svg';
 import Button from '../button/button.jsx';
-import fullScreenIcon from '../stage-header/icon--fullscreen.svg';
-import arrowIcon from './arrow.svg';
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/head_logo.png';
 import menuIcon from './menue.svg';
 import expandIcon from './expand_right@2x.svg';
-
-const messages = defineMessages({
-    addExtension: {
-        id: 'gui.gui.addExtension',
-        description: 'Button to add an extension in the target pane',
-        defaultMessage: 'Add Extension',
-    },
-});
 
 // Cache this value to only retreive it once the first time.
 // Assume that it doesn't change for a session.
 let isRendererSupported = null;
 
 const GUIComponent = (props) => {
+    /* eslint-disable no-unused-vars */
     const {
         activeTabIndex,
         basePath,
@@ -84,6 +70,7 @@ const GUIComponent = (props) => {
         eduLayerActive,
         ...componentProps
     } = props;
+    /* eslint-enable */
     if (children) {
         return <Box {...componentProps}>{children}</Box>;
     }
@@ -121,11 +108,7 @@ const GUIComponent = (props) => {
                     onRequestClose={onSaveModalClose}
                 >
                     <Box className={styles.saveModalBox}>
-                        <Input
-                            placeholder="Name deines Projektes"
-                            onChange={(e) => onProjectNameChange(e.target.value)}
-                            value={projectName}
-                        />
+                        <Input placeholder="Name deines Projektes" onChange={(e) => onProjectNameChange(e.target.value)} value={projectName} />
                         <Box className={styles.saveModalActions}>
                             <p>{saveProjectError}</p>
                             <Button
@@ -229,10 +212,11 @@ const GUIComponent = (props) => {
                 </Box>
                 <Box className={styles.column}>
                     <ButtonWithIcon
-                        children={'Übersicht'}
                         className={styles.menuButton}
                         iconSrc={menuIcon}
-                    />
+                    >
+                        Übersicht
+                    </ButtonWithIcon>
                     <Box className={styles.stageMenuWrapper}>
                         <StageHeader vm={vm} />
                     </Box>
