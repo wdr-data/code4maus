@@ -3,11 +3,11 @@ import React from 'react';
 import VM from '@wdr-data/scratch-vm';
 import StageWrapperComponent from '../components/stage-wrapper/stage-wrapper.jsx';
 
-const StageWrapper = props => <StageWrapperComponent {...props} />;
+const StageWrapper = (props) => <StageWrapperComponent {...props} />;
 
 StageWrapper.propTypes = {
     isRendererSupported: PropTypes.bool.isRequired,
-    vm: PropTypes.instanceOf(VM).isRequired
+    vm: PropTypes.instanceOf(VM).isRequired,
 };
 
 export default StageWrapper;

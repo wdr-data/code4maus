@@ -13,10 +13,10 @@ const LanguageSelector = ({
     onChange,
     open,
     ...props
-}) => (
+}) =>
     <Box {...props}>
         <div className={styles.group}>
-            {open ? (
+            {open ?
                 <select
                     disabled
                     aria-label="language selector"
@@ -24,16 +24,16 @@ const LanguageSelector = ({
                     value={currentLocale}
                     onChange={onChange}
                 >
-                    {Object.keys(locales).map(locale => (
+                    {Object.keys(locales).map((locale) =>
                         <option
                             key={locale}
                             value={locale}
                         >
                             {locales[locale].name}
                         </option>
-                    ))}
+                    )}
                 </select>
-            ) : (
+                :
                 <React.Fragment>
                     <img
                         className={classNames(styles.languageIcon, styles.disabled)}
@@ -44,16 +44,16 @@ const LanguageSelector = ({
                         src={dropdownCaret}
                     />
                 </React.Fragment>
-            )}
+            }
         </div>
     </Box>
-);
+;
 
 
 LanguageSelector.propTypes = {
     currentLocale: PropTypes.string,
     onChange: PropTypes.func,
-    open: PropTypes.bool
+    open: PropTypes.bool,
 };
 
 export default LanguageSelector;

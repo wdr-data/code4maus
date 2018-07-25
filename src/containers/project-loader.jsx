@@ -1,11 +1,11 @@
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import {
     openLoadingProject,
-    closeLoadingProject
+    closeLoadingProject,
 } from '../reducers/modals';
 
 /**
@@ -25,20 +25,20 @@ import {
  * )}</ProjectLoader>
  */
 class ProjectLoader extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'renderFileInput',
             'setFileInput',
             'handleChange',
-            'handleClick'
+            'handleClick',
         ]);
         this.state = {
             loadingError: false,
-            errorMessage: ''
+            errorMessage: '',
         };
     }
-    handleChange (e) {
+    handleChange(e) {
         // Remove the hash if any (without triggering a hash change event or a reload)
         history.replaceState({}, document.title, '.');
         const reader = new FileReader();
@@ -50,32 +50,32 @@ class ProjectLoader extends React.Component {
                 // This is necessary in case the user wants to reload a project
                 thisFileInput.value = null;
             })
-            .catch(error => {
-                this.setState({loadingError: true, errorMessage: error});
+            .catch((error) => {
+                this.setState({ loadingError: true, errorMessage: error });
             });
         if (thisFileInput.files) { // Don't attempt to load if no file was selected
             this.props.openLoadingState();
             reader.readAsArrayBuffer(thisFileInput.files[0]);
         }
     }
-    handleClick () {
+    handleClick() {
         this.fileInput.click();
     }
-    setFileInput (input) {
+    setFileInput(input) {
         this.fileInput = input;
     }
-    renderFileInput () {
+    renderFileInput() {
         return (
             <input
                 accept=".sb2,.sb3"
                 ref={this.setFileInput}
-                style={{display: 'none'}}
+                style={{ display: 'none' }}
                 type="file"
                 onChange={this.handleChange}
             />
         );
     }
-    render () {
+    render() {
         if (this.state.loadingError) {
             throw new Error(
                 `Failed to load project from file: ${this.state.errorMessage}`);
@@ -98,17 +98,17 @@ ProjectLoader.propTypes = {
     closeLoadingState: PropTypes.func,
     openLoadingState: PropTypes.func,
     vm: PropTypes.shape({
-        loadProject: PropTypes.func
-    })
+        loadProject: PropTypes.func,
+    }),
 };
 
-const mapStateToProps = state => ({
-    vm: state.scratchGui.vm
+const mapStateToProps = (state) => ({
+    vm: state.scratchGui.vm,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     closeLoadingState: () => dispatch(closeLoadingProject()),
-    openLoadingState: () => dispatch(openLoadingProject())
+    openLoadingState: () => dispatch(openLoadingProject()),
 });
 
 export default connect(

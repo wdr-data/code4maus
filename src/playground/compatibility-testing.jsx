@@ -10,29 +10,29 @@ const WrappedGui = HashParserHOC(AppStateHOC(GUI));
 const DEFAULT_PROJECT_ID = '10015059';
 
 class Player extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.updateProject = this.updateProject.bind(this);
 
         this.state = {
-            projectId: window.location.hash.substring(1) || DEFAULT_PROJECT_ID
+            projectId: window.location.hash.substring(1) || DEFAULT_PROJECT_ID,
         };
     }
-    componentDidMount () {
+    componentDidMount() {
         window.addEventListener('hashchange', this.updateProject);
         if (!window.location.hash.substring(1)) {
             window.location.hash = DEFAULT_PROJECT_ID;
         }
     }
-    componentWillUnmount () {
+    componentWillUnmount() {
         window.addEventListener('hashchange', this.updateProject);
     }
-    updateProject () {
-        this.setState({projectId: window.location.hash.substring(1)});
+    updateProject() {
+        this.setState({ projectId: window.location.hash.substring(1) });
     }
-    render () {
+    render() {
         return (
-            <div style={{display: 'flex'}}>
+            <div style={{ display: 'flex' }}>
                 <WrappedGui
                     isPlayerOnly
                     isFullScreen={false}

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import {defineMessages, FormattedMessage, injectIntl, intlShape} from 'react-intl';
+import { defineMessages, FormattedMessage, injectIntl, intlShape } from 'react-intl';
 
 import Waveform from '../waveform/waveform.jsx';
 import Label from '../forms/label.jsx';
@@ -33,76 +33,76 @@ const messages = defineMessages({
     sound: {
         id: 'gui.soundEditor.sound',
         description: 'Label for the name of the sound',
-        defaultMessage: 'Sound'
+        defaultMessage: 'Sound',
     },
     play: {
         id: 'gui.soundEditor.play',
         description: 'Title of the button to start playing the sound',
-        defaultMessage: 'Play'
+        defaultMessage: 'Play',
     },
     stop: {
         id: 'gui.soundEditor.stop',
         description: 'Title of the button to stop the sound',
-        defaultMessage: 'Stop'
+        defaultMessage: 'Stop',
     },
     trim: {
         id: 'gui.soundEditor.trim',
         description: 'Title of the button to start trimminging the sound',
-        defaultMessage: 'Trim'
+        defaultMessage: 'Trim',
     },
     save: {
         id: 'gui.soundEditor.save',
         description: 'Title of the button to save trimmed sound',
-        defaultMessage: 'Save'
+        defaultMessage: 'Save',
     },
     undo: {
         id: 'gui.soundEditor.undo',
         description: 'Title of the button to undo',
-        defaultMessage: 'Undo'
+        defaultMessage: 'Undo',
     },
     redo: {
         id: 'gui.soundEditor.redo',
         description: 'Title of the button to redo',
-        defaultMessage: 'Redo'
+        defaultMessage: 'Redo',
     },
     faster: {
         id: 'gui.soundEditor.faster',
         description: 'Title of the button to apply the faster effect',
-        defaultMessage: 'Faster'
+        defaultMessage: 'Faster',
     },
     slower: {
         id: 'gui.soundEditor.slower',
         description: 'Title of the button to apply the slower effect',
-        defaultMessage: 'Slower'
+        defaultMessage: 'Slower',
     },
     echo: {
         id: 'gui.soundEditor.echo',
         description: 'Title of the button to apply the echo effect',
-        defaultMessage: 'Echo'
+        defaultMessage: 'Echo',
     },
     robot: {
         id: 'gui.soundEditor.robot',
         description: 'Title of the button to apply the robot effect',
-        defaultMessage: 'Robot'
+        defaultMessage: 'Robot',
     },
     louder: {
         id: 'gui.soundEditor.louder',
         description: 'Title of the button to apply the louder effect',
-        defaultMessage: 'Louder'
+        defaultMessage: 'Louder',
     },
     softer: {
         id: 'gui.soundEditor.softer',
         description: 'Title of the button to apply thr.softer effect',
-        defaultMessage: 'Softer'
+        defaultMessage: 'Softer',
     },
     reverse: {
         id: 'gui.soundEditor.reverse',
         description: 'Title of the button to apply the reverse effect',
-        defaultMessage: 'Reverse'
-    }
+        defaultMessage: 'Reverse',
+    },
 });
 
-const SoundEditor = props => (
+const SoundEditor = (props) =>
     <div className={styles.editorContainer}>
         <div className={styles.row}>
             <div className={styles.inputGroup}>
@@ -141,14 +141,14 @@ const SoundEditor = props => (
             </div>
             <IconButton
                 className={classNames(styles.trimButton, {
-                    [styles.trimButtonActive]: props.trimStart !== null
+                    [styles.trimButtonActive]: props.trimStart !== null,
                 })}
                 img={props.trimStart === null ? trimIcon : trimConfirmIcon}
-                title={props.trimStart === null ? (
+                title={props.trimStart === null ?
                     <FormattedMessage {...messages.trim} />
-                ) : (
+                    :
                     <FormattedMessage {...messages.save} />
-                )}
+                }
                 onClick={props.onActivateTrim}
             />
         </div>
@@ -170,7 +170,7 @@ const SoundEditor = props => (
         </div>
         <div className={styles.row}>
             <div className={styles.inputGroup}>
-                {props.playhead ? (
+                {props.playhead ?
                     <button
                         className={classNames(styles.roundButton, styles.stopButtonn)}
                         title={props.intl.formatMessage(messages.stop)}
@@ -181,7 +181,7 @@ const SoundEditor = props => (
                             src={stopIcon}
                         />
                     </button>
-                ) : (
+                    :
                     <button
                         className={classNames(styles.roundButton, styles.playButton)}
                         title={props.intl.formatMessage(messages.play)}
@@ -192,7 +192,7 @@ const SoundEditor = props => (
                             src={playIcon}
                         />
                     </button>
-                )}
+                }
             </div>
             <IconButton
                 className={styles.effectButton}
@@ -238,7 +238,7 @@ const SoundEditor = props => (
             />
         </div>
     </div>
-);
+;
 
 SoundEditor.propTypes = {
     canRedo: PropTypes.bool.isRequired,
@@ -263,7 +263,7 @@ SoundEditor.propTypes = {
     onUndo: PropTypes.func.isRequired,
     playhead: PropTypes.number,
     trimEnd: PropTypes.number,
-    trimStart: PropTypes.number
+    trimStart: PropTypes.number,
 };
 
 export default injectIntl(SoundEditor);

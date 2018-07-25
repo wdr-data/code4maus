@@ -14,28 +14,28 @@ export default [
         extensionId: 'music',
         iconURL: musicImage,
         description: 'Play instruments and drums.',
-        featured: true
+        featured: true,
     },
     {
         name: 'Pen',
         extensionId: 'pen',
         iconURL: penImage,
         description: 'Draw with your sprites.',
-        featured: true
+        featured: true,
     },
     {
         name: 'Google Translate',
         extensionId: 'translate',
         iconURL: translateImage,
         description: 'Translate text into many languages.',
-        featured: true
+        featured: true,
     },
     {
         name: 'Video Motion',
         extensionId: 'videoSensing',
         iconURL: videoImage,
         description: 'Detect motion with the camera.',
-        featured: true
+        featured: true,
     },
     {
         name: 'Speech Recognition',
@@ -43,7 +43,7 @@ export default [
         iconURL: speechImage,
         description: 'Talk to your projects.',
         featured: true,
-        disabled: true
+        disabled: true,
     },
     {
         name: 'Micro:bit',
@@ -51,7 +51,7 @@ export default [
         iconURL: microbitImage,
         description: 'Connect your projects with the physical world.',
         featured: true,
-        disabled: true
+        disabled: true,
     },
     {
         name: 'LEGO WeDo 2.0',
@@ -59,7 +59,7 @@ export default [
         iconURL: wedoImage,
         description: 'Build with motors and sensors.',
         featured: true,
-        disabled: true
+        disabled: true,
     },
     {
         name: 'LEGO MINDSTORMS EV3',
@@ -67,7 +67,7 @@ export default [
         iconURL: ev3Image,
         description: 'Build interactive robots and more.',
         featured: true,
-        disabled: true
+        disabled: true,
     },
     {
         name: 'LEGO Boost',
@@ -75,6 +75,6 @@ export default [
         iconURL: boostImage,
         description: 'Build with motors and sensors.',
         featured: true,
-        disabled: true
-    }
+        disabled: true,
+    },
 ];

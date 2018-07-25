@@ -13,14 +13,14 @@ if (process.env.NODE_ENV === 'production' && typeof window === 'object') {
 }
 
 import styles from './player.css';
-const Player = () => (
+const Player = () =>
     <Box className={styles.stageOnly}>
         <WrappedGui
             isPlayerOnly
             isFullScreen={false}
         />
     </Box>
-);
+;
 
 const appTarget = document.createElement('div');
 document.body.appendChild(appTarget);

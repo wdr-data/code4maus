@@ -1,5 +1,5 @@
 class EchoEffect {
-    constructor (audioContext, delayTime) {
+    constructor(audioContext, delayTime) {
         this.audioContext = audioContext;
         this.delayTime = delayTime;
         this.input = this.audioContext.createGain();

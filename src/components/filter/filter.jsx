@@ -6,19 +6,19 @@ import filterIcon from './icon--filter.svg';
 import xIcon from './icon--x.svg';
 import styles from './filter.css';
 
-const FilterComponent = props => {
+const FilterComponent = (props) => {
     const {
         className,
         onChange,
         onClear,
         placeholderText,
         filterQuery,
-        inputClassName
+        inputClassName,
     } = props;
     return (
         <div
             className={classNames(className, styles.filter, {
-                [styles.isActive]: filterQuery.length > 0
+                [styles.isActive]: filterQuery.length > 0,
             })}
         >
             <img
@@ -51,9 +51,9 @@ FilterComponent.propTypes = {
     inputClassName: PropTypes.string,
     onChange: PropTypes.func,
     onClear: PropTypes.func,
-    placeholderText: PropTypes.string
+    placeholderText: PropTypes.string,
 };
 FilterComponent.defaultProps = {
-    placeholderText: 'Search'
+    placeholderText: 'Search',
 };
 export default FilterComponent;

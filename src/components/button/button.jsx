@@ -13,18 +13,17 @@ const ButtonComponent = ({
     children,
     ...props
 }) => {
-
     if (disabled) {
-        onClick = function () {};
+        onClick = function() {};
     }
 
-    const icon = iconSrc && (
+    const icon = iconSrc &&
         <img
             className={classNames(iconClassName, styles.icon)}
             draggable={false}
             src={iconSrc}
         />
-    );
+    ;
 
     return (
         <span
@@ -48,7 +47,7 @@ ButtonComponent.propTypes = {
     disabled: PropTypes.bool,
     iconClassName: PropTypes.string,
     iconSrc: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
 };
 
 export default ButtonComponent;

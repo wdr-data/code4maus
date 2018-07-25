@@ -1,7 +1,7 @@
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {defineMessages, injectIntl, intlShape} from 'react-intl';
+import { defineMessages, injectIntl, intlShape } from 'react-intl';
 import VM from '@wdr-data/scratch-vm';
 
 import backdropLibraryContent from '../lib/libraries/backdrops.json';
@@ -12,29 +12,27 @@ const messages = defineMessages({
     libraryTitle: {
         defaultMessage: 'Choose a Backdrop',
         description: 'Heading for the backdrop library',
-        id: 'gui.costumeLibrary.chooseABackdrop'
-    }
+        id: 'gui.costumeLibrary.chooseABackdrop',
+    },
 });
 
 
 class BackdropLibrary extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
-        bindAll(this, [
-            'handleItemSelect'
-        ]);
+        bindAll(this, [ 'handleItemSelect' ]);
     }
-    handleItemSelect (item) {
+    handleItemSelect(item) {
         const vmBackdrop = {
             name: item.name,
             rotationCenterX: item.info[0] && item.info[0] / 2,
             rotationCenterY: item.info[1] && item.info[1] / 2,
             bitmapResolution: item.info.length > 2 ? item.info[2] : 1,
-            skinId: null
+            skinId: null,
         };
         this.props.vm.addBackdrop(item.md5, vmBackdrop);
     }
-    render () {
+    render() {
         return (
             <LibraryComponent
                 data={backdropLibraryContent}
@@ -51,7 +49,7 @@ class BackdropLibrary extends React.Component {
 BackdropLibrary.propTypes = {
     intl: intlShape.isRequired,
     onRequestClose: PropTypes.func,
-    vm: PropTypes.instanceOf(VM).isRequired
+    vm: PropTypes.instanceOf(VM).isRequired,
 };
 
 export default injectIntl(BackdropLibrary);

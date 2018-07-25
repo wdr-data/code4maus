@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import styles from './loader.css';
 
 import topBlock from './top-block.svg';
@@ -7,105 +7,96 @@ import middleBlock from './middle-block.svg';
 import bottomBlock from './bottom-block.svg';
 const messages = [
     {
-        message: (
+        message:
             <FormattedMessage
                 defaultMessage="Creating blocks …"
                 description="One of the loading messages"
                 id="gui.loader.message1"
-            />
-        ),
-        weight: 50
+            />,
+        weight: 50,
     },
     {
-        message: (
+        message:
             <FormattedMessage
                 defaultMessage="Loading sprites …"
                 description="One of the loading messages"
                 id="gui.loader.message2"
-            />
-        ),
-        weight: 50
+            />,
+        weight: 50,
     },
     {
-        message: (
+        message:
             <FormattedMessage
                 defaultMessage="Loading sounds …"
                 description="One of the loading messages"
                 id="gui.loader.message3"
-            />
-        ),
-        weight: 50
+            />,
+        weight: 50,
     },
     {
-        message: (
+        message:
             <FormattedMessage
                 defaultMessage="Loading extensions …"
                 description="One of the loading messages"
                 id="gui.loader.message4"
-            />
-        ),
-        weight: 50
+            />,
+        weight: 50,
     },
     {
-        message: (
+        message:
             <FormattedMessage
                 defaultMessage="Creating blocks …"
                 description="One of the loading messages"
                 id="gui.loader.message1"
-            />
-        ),
-        weight: 20
+            />,
+        weight: 20,
     },
     {
-        message: (
+        message:
             <FormattedMessage
                 defaultMessage="Herding cats …"
                 description="One of the loading messages"
                 id="gui.loader.message5"
-            />
-        ),
-        weight: 1
+            />,
+        weight: 1,
     },
     {
-        message: (
+        message:
             <FormattedMessage
                 defaultMessage="Transmitting nanos …"
                 description="One of the loading messages"
                 id="gui.loader.message6"
-            />
-        ),
-        weight: 1
+            />,
+        weight: 1,
     },
     {
-        message: (
+        message:
             <FormattedMessage
                 defaultMessage="Inflating gobos …"
                 description="One of the loading messages"
                 id="gui.loader.message7"
-            />
-        ),
-        weight: 1
+            />,
+        weight: 1,
     },
     {
-        message: (
+        message:
             <FormattedMessage
                 defaultMessage="Preparing emojis …"
                 description="One of the loading messages"
                 id="gui.loader.message8"
-            />
-        ),
-        weight: 1
-    }
+            />,
+        weight: 1,
+    },
 ];
 
 class LoaderComponent extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
-            messageNumber: 0
+            messageNumber: 0,
         };
     }
-    componentDidMount () {
+    componentDidMount() {
         this.chooseRandomMessage();
 
         // Start an interval to choose a new message every 5 seconds
@@ -113,10 +104,10 @@ class LoaderComponent extends React.Component {
             this.chooseRandomMessage();
         }, 5000);
     }
-    componentWillUnmount () {
+    componentWillUnmount() {
         clearInterval(this.intervalId);
     }
-    chooseRandomMessage () {
+    chooseRandomMessage() {
         let messageNumber;
         const sum = messages.reduce((acc, m) => acc + m.weight, 0);
         let rand = sum * Math.random();
@@ -127,9 +118,9 @@ class LoaderComponent extends React.Component {
                 break;
             }
         }
-        this.setState({messageNumber});
+        this.setState({ messageNumber });
     }
-    render () {
+    render() {
         return (
             <div className={styles.background}>
                 <div className={styles.container}>
@@ -157,16 +148,16 @@ class LoaderComponent extends React.Component {
                     <div className={styles.messageContainerOuter}>
                         <div
                             className={styles.messageContainerInner}
-                            style={{transform: `translate(0, -${this.state.messageNumber * 25}px)`}}
+                            style={{ transform: `translate(0, -${this.state.messageNumber * 25}px)` }}
                         >
-                            {messages.map((m, i) => (
+                            {messages.map((m, i) =>
                                 <div
                                     className={styles.message}
                                     key={i}
                                 >
                                     {m.message}
                                 </div>
-                            ))}
+                            )}
                         </div>
                     </div>
                 </div>

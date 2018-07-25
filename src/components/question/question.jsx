@@ -3,20 +3,20 @@ import React from 'react';
 import styles from './question.css';
 import Input from '../forms/input.jsx';
 
-const QuestionComponent = props => {
+const QuestionComponent = (props) => {
     const {
         answer,
         question,
         onChange,
         onClick,
-        onKeyPress
+        onKeyPress,
     } = props;
     return (
         <div className={styles.questionWrapper}>
             <div className={styles.questionContainer}>
-                {question ? (
+                {question ?
                     <div className={styles.questionLabel}>{question}</div>
-                ) : null}
+                    : null}
                 <div className={styles.questionInput}>
                     <Input
                         autoFocus
@@ -41,7 +41,7 @@ QuestionComponent.propTypes = {
     onChange: PropTypes.func.isRequired,
     onClick: PropTypes.func.isRequired,
     onKeyPress: PropTypes.func.isRequired,
-    question: PropTypes.string
+    question: PropTypes.string,
 };
 
 export default QuestionComponent;

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {defineMessages, injectIntl, intlShape} from 'react-intl';
+import { defineMessages, injectIntl, intlShape } from 'react-intl';
 
 import GreenFlag from '../green-flag/green-flag.jsx';
 import StopAll from '../stop-all/stop-all.jsx';
@@ -13,16 +13,16 @@ const messages = defineMessages({
     goTitle: {
         id: 'gui.controls.go',
         defaultMessage: 'Go',
-        description: 'Green flag button title'
+        description: 'Green flag button title',
     },
     stopTitle: {
         id: 'gui.controls.stop',
         defaultMessage: 'Stop',
-        description: 'Stop button title'
-    }
+        description: 'Stop button title',
+    },
 });
 
-const Controls = function (props) {
+const Controls = function(props) {
     const {
         active,
         className,
@@ -47,9 +47,9 @@ const Controls = function (props) {
                 title={intl.formatMessage(messages.stopTitle)}
                 onClick={onStopAllClick}
             />
-            {turbo ? (
+            {turbo ?
                 <TurboMode />
-            ) : null}
+                : null}
         </div>
     );
 };
@@ -60,12 +60,12 @@ Controls.propTypes = {
     intl: intlShape.isRequired,
     onGreenFlagClick: PropTypes.func.isRequired,
     onStopAllClick: PropTypes.func.isRequired,
-    turbo: PropTypes.bool
+    turbo: PropTypes.bool,
 };
 
 Controls.defaultProps = {
     active: false,
-    turbo: false
+    turbo: false,
 };
 
 export default injectIntl(Controls);

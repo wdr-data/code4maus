@@ -1,7 +1,7 @@
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 /**
  * Project saver component passes a saveProject function to its child.
@@ -18,17 +18,15 @@ import {connect} from 'react-redux';
  * )}</ProjectSaver>
  */
 class ProjectSaver extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
-        bindAll(this, [
-            'saveProject'
-        ]);
+        bindAll(this, [ 'saveProject' ]);
     }
-    saveProject () {
+    saveProject() {
         const saveLink = document.createElement('a');
         document.body.appendChild(saveLink);
 
-        this.props.vm.saveProjectSb3().then(content => {
+        this.props.vm.saveProjectSb3().then((content) => {
             // TODO user-friendly project name
             // File name: project-DATE-TIME
             const date = new Date();
@@ -49,7 +47,7 @@ class ProjectSaver extends React.Component {
             document.body.removeChild(saveLink);
         });
     }
-    render () {
+    render() {
         const {
             /* eslint-disable no-unused-vars */
             children,
@@ -64,12 +62,12 @@ class ProjectSaver extends React.Component {
 ProjectSaver.propTypes = {
     children: PropTypes.func,
     vm: PropTypes.shape({
-        saveProjectSb3: PropTypes.func
-    })
+        saveProjectSb3: PropTypes.func,
+    }),
 };
 
-const mapStateToProps = state => ({
-    vm: state.scratchGui.vm
+const mapStateToProps = (state) => ({
+    vm: state.scratchGui.vm,
 });
 
 export default connect(

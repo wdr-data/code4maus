@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import IconButton from '../../../src/components/icon-button/icon-button';
 import renderer from 'react-test-renderer';
 

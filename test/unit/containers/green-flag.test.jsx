@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import GreenFlag from '../../../src/containers/green-flag';
 import renderer from 'react-test-renderer';
 import VM from '@wdr-data/scratch-vm';

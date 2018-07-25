@@ -1,17 +1,17 @@
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import CameraModalComponent from '../components/camera-modal/camera-modal.jsx';
 import ModalVideoManager from '../lib/video/modal-video-manager.js';
 
 import {
-    closeCameraCapture
+    closeCameraCapture,
 } from '../reducers/modals';
 
 class CameraModal extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleAccess',
@@ -20,7 +20,7 @@ class CameraModal extends React.Component {
             'handleCapture',
             'handleLoaded',
             'handleSubmit',
-            'setCanvas'
+            'setCanvas',
         ]);
 
         this.video = null;
@@ -29,46 +29,48 @@ class CameraModal extends React.Component {
         this.state = {
             capture: null,
             access: false,
-            loaded: false
+            loaded: false,
         };
     }
-    componentWillUnmount () {
+    componentWillUnmount() {
         if (this.videoDevice) {
             this.videoDevice.disableVideo();
         }
     }
-    handleAccess () {
-        this.setState({access: true});
+    handleAccess() {
+        this.setState({ access: true });
     }
-    handleLoaded () {
-        this.setState({loaded: true});
+    handleLoaded() {
+        this.setState({ loaded: true });
     }
-    handleBack () {
-        this.setState({capture: null});
+    handleBack() {
+        this.setState({ capture: null });
         this.videoDevice.clearSnapshot();
     }
-    handleCapture () {
+    handleCapture() {
         if (this.state.loaded) {
             const capture = this.videoDevice.takeSnapshot();
-            this.setState({capture: capture});
+            this.setState({ capture: capture });
         }
     }
-    setCanvas (canvas) {
+    setCanvas(canvas) {
         this.canvas = canvas;
         if (this.canvas) {
             this.videoDevice = new ModalVideoManager(this.canvas);
             this.videoDevice.enableVideo(this.handleAccess, this.handleLoaded);
         }
     }
-    handleSubmit () {
-        if (!this.state.capture) return;
+    handleSubmit() {
+        if (!this.state.capture) {
+            return;
+        }
         this.props.onNewCostume(this.state.capture);
         this.props.onClose();
     }
-    handleCancel () {
+    handleCancel() {
         this.props.onClose();
     }
-    render () {
+    render() {
         return (
             <CameraModalComponent
                 access={this.state.access}
@@ -86,15 +88,15 @@ class CameraModal extends React.Component {
 
 CameraModal.propTypes = {
     onClose: PropTypes.func,
-    onNewCostume: PropTypes.func
+    onNewCostume: PropTypes.func,
 };
 
 const mapStateToProps = () => ({});
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     onClose: () => {
         dispatch(closeCameraCapture());
-    }
+    },
 });
 
 export default connect(

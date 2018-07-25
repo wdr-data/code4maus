@@ -1,11 +1,11 @@
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import turboIcon from './icon--turbo.svg';
 
 import styles from './turbo-mode.css';
 
-const TurboMode = () => (
+const TurboMode = () =>
     <div className={styles.turboContainer}>
         <img
             className={styles.turboIcon}
@@ -19,6 +19,6 @@ const TurboMode = () => (
             />
         </div>
     </div>
-);
+;
 
 export default TurboMode;

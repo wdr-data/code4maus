@@ -1,36 +1,38 @@
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import ImportModalComponent from '../components/import-modal/import-modal.jsx';
 
 import {
     closeImportInfo,
-    openPreviewInfo
+    openPreviewInfo,
 } from '../reducers/modals';
 
 class ImportModal extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleViewProject',
             'handleCancel',
             'handleChange',
             'handleGoBack',
-            'handleKeyPress'
+            'handleKeyPress',
         ]);
 
         this.state = {
             inputValue: '',
             hasValidationError: false,
-            errorMessage: ''
+            errorMessage: '',
         };
     }
-    handleKeyPress (event) {
-        if (event.key === 'Enter') this.handleViewProject();
+    handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            this.handleViewProject();
+        }
     }
-    handleViewProject () {
+    handleViewProject() {
         const inputValue = this.state.inputValue;
         const projectId = this.validate(inputValue);
 
@@ -44,13 +46,13 @@ class ImportModal extends React.Component {
         } else {
             this.setState({
                 hasValidationError: true,
-                errorMessage: `invalidFormatError`});
+                errorMessage: `invalidFormatError` });
         }
     }
-    handleChange (e) {
-        this.setState({inputValue: e.target.value, hasValidationError: false});
+    handleChange(e) {
+        this.setState({ inputValue: e.target.value, hasValidationError: false });
     }
-    validate (input) {
+    validate(input) {
         const urlMatches = input.match(/^(?:https?:\/\/)?scratch\.mit\.edu\/projects\/(\d+)/);
         if (urlMatches && urlMatches.length > 0) {
             return urlMatches[1];
@@ -61,13 +63,13 @@ class ImportModal extends React.Component {
         }
         return null;
     }
-    handleCancel () {
+    handleCancel() {
         this.props.onCancel();
     }
-    handleGoBack () {
+    handleGoBack() {
         this.props.onBack();
     }
-    render () {
+    render() {
         return (
             <ImportModalComponent
                 errorMessage={this.state.errorMessage}
@@ -87,12 +89,12 @@ class ImportModal extends React.Component {
 ImportModal.propTypes = {
     onBack: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired,
-    onViewProject: PropTypes.func
+    onViewProject: PropTypes.func,
 };
 
 const mapStateToProps = () => ({});
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     onBack: () => {
         dispatch(closeImportInfo());
         dispatch(openPreviewInfo());
@@ -102,7 +104,7 @@ const mapDispatchToProps = dispatch => ({
     },
     onViewProject: () => {
         dispatch(closeImportInfo());
-    }
+    },
 });
 
 export default connect(

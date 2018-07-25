@@ -1,6 +1,6 @@
 import bindAll from 'lodash.bindall';
 import classNames from 'classnames';
-import {defineMessages, injectIntl, intlShape, FormattedMessage} from 'react-intl';
+import { defineMessages, injectIntl, intlShape, FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
@@ -11,44 +11,44 @@ import awwCatIcon from './aww-cat.png';
 import coolCatIcon from './cool-cat.png';
 
 class ComingSoonContent extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'setHide',
             'setShow',
-            'getRandomMessage'
+            'getRandomMessage',
         ]);
         this.state = {
-            isShowing: false
+            isShowing: false,
         };
     }
-    setShow () {
+    setShow() {
         // needed to set the opacity to 1, since the default is .9 on show
-        this.setState({isShowing: true});
+        this.setState({ isShowing: true });
     }
-    setHide () {
-        this.setState({isShowing: false});
+    setHide() {
+        this.setState({ isShowing: false });
     }
-    getRandomMessage () {
+    getRandomMessage() {
         // randomly chooses a messages from `messages` to display in the tooltip.
-        const images = [awwCatIcon, coolCatIcon];
+        const images = [ awwCatIcon, coolCatIcon ];
         const messageNumber = Math.floor(Math.random() * Object.keys(messages).length) + 1;
         const imageNumber = Math.floor(Math.random() * Object.keys(images).length);
         return (
             <FormattedMessage
                 {...messages[`message${messageNumber}`]}
                 values={{
-                    emoji: (
+                    emoji:
                         <img
                             className={styles.comingSoonImage}
                             src={images[imageNumber]}
-                        />
-                    )
+                        />,
+
                 }}
             />
         );
     }
-    render () {
+    render() {
         return (
             <ReactTooltip
                 afterHide={this.setHide}
@@ -57,11 +57,11 @@ class ComingSoonContent extends React.Component {
                     styles.comingSoon,
                     this.props.className,
                     {
-                        [styles.show]: (this.state.isShowing),
-                        [styles.left]: (this.props.place === 'left'),
-                        [styles.right]: (this.props.place === 'right'),
-                        [styles.top]: (this.props.place === 'top'),
-                        [styles.bottom]: (this.props.place === 'bottom')
+                        [styles.show]: this.state.isShowing,
+                        [styles.left]: this.props.place === 'left',
+                        [styles.right]: this.props.place === 'right',
+                        [styles.top]: this.props.place === 'top',
+                        [styles.bottom]: this.props.place === 'bottom',
                     }
                 )}
                 getContent={this.getRandomMessage}
@@ -74,17 +74,17 @@ class ComingSoonContent extends React.Component {
 ComingSoonContent.propTypes = {
     className: PropTypes.string,
     intl: intlShape,
-    place: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
-    tooltipId: PropTypes.string.isRequired
+    place: PropTypes.oneOf([ 'top', 'right', 'bottom', 'left' ]),
+    tooltipId: PropTypes.string.isRequired,
 };
 
 ComingSoonContent.defaultProps = {
-    place: 'bottom'
+    place: 'bottom',
 };
 
 const ComingSoon = injectIntl(ComingSoonContent);
 
-const ComingSoonTooltip = props => (
+const ComingSoonTooltip = (props) =>
     <div className={props.className}>
         <div
             data-delay-hide={props.delayHide}
@@ -102,24 +102,24 @@ const ComingSoonTooltip = props => (
             tooltipId={props.tooltipId}
         />
     </div>
-);
+;
 
 ComingSoonTooltip.propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     delayHide: PropTypes.number,
     delayShow: PropTypes.number,
-    place: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+    place: PropTypes.oneOf([ 'top', 'right', 'bottom', 'left' ]),
     tooltipClassName: PropTypes.string,
-    tooltipId: PropTypes.string.isRequired
+    tooltipId: PropTypes.string.isRequired,
 };
 
 ComingSoonTooltip.defaultProps = {
     delayHide: 0,
-    delayShow: 0
+    delayShow: 0,
 };
 
 export {
     ComingSoon as ComingSoonComponent,
-    ComingSoonTooltip
+    ComingSoonTooltip,
 };

@@ -4,20 +4,18 @@ import bindAll from 'lodash.bindall';
 import BackpackComponent from '../components/backpack/backpack.jsx';
 
 class Backpack extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
-        bindAll(this, [
-            'handleToggle'
-        ]);
+        bindAll(this, [ 'handleToggle' ]);
         this.state = {
             expanded: false,
-            contents: []
+            contents: [],
         };
     }
-    handleToggle () {
-        this.setState({expanded: !this.state.expanded});
+    handleToggle() {
+        this.setState({ expanded: !this.state.expanded });
     }
-    render () {
+    render() {
         return (
             <BackpackComponent
                 contents={this.state.contents}
@@ -29,7 +27,7 @@ class Backpack extends React.Component {
 }
 
 Backpack.propTypes = {
-    host: PropTypes.string
+    host: PropTypes.string,
 };
 
 export default Backpack;

@@ -4,20 +4,20 @@ import bindAll from 'lodash.bindall';
 import VM from '@wdr-data/scratch-vm';
 import PaintEditor from 'scratch-paint';
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 class PaintEditorWrapper extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleUpdateImage',
-            'handleUpdateName'
+            'handleUpdateName',
         ]);
     }
-    handleUpdateName (name) {
+    handleUpdateName(name) {
         this.props.vm.renameCostume(this.props.selectedCostumeIndex, name);
     }
-    handleUpdateImage (isVector, image, rotationCenterX, rotationCenterY) {
+    handleUpdateImage(isVector, image, rotationCenterX, rotationCenterY) {
         if (isVector) {
             this.props.vm.updateSvg(
                 this.props.selectedCostumeIndex,
@@ -33,8 +33,10 @@ class PaintEditorWrapper extends React.Component {
                 2 /* bitmapResolution */);
         }
     }
-    render () {
-        if (!this.props.imageId) return null;
+    render() {
+        if (!this.props.imageId) {
+            return null;
+        }
         return (
             <PaintEditor
                 {...this.props}
@@ -53,14 +55,14 @@ PaintEditorWrapper.propTypes = {
     rotationCenterX: PropTypes.number,
     rotationCenterY: PropTypes.number,
     selectedCostumeIndex: PropTypes.number.isRequired,
-    vm: PropTypes.instanceOf(VM)
+    vm: PropTypes.instanceOf(VM),
 };
 
-const mapStateToProps = (state, {selectedCostumeIndex}) => {
+const mapStateToProps = (state, { selectedCostumeIndex }) => {
     const {
         editingTarget,
         sprites,
-        stage
+        stage,
     } = state.scratchGui.targets;
     const target = editingTarget && sprites[editingTarget] ? sprites[editingTarget] : stage;
     const costume = target && target.costumes[selectedCostumeIndex];
@@ -70,7 +72,7 @@ const mapStateToProps = (state, {selectedCostumeIndex}) => {
         rotationCenterY: costume && costume.rotationCenterY,
         imageFormat: costume && costume.dataFormat,
         imageId: editingTarget && `${editingTarget}${costume.skinId}`,
-        vm: state.scratchGui.vm
+        vm: state.scratchGui.vm,
     };
 };
 

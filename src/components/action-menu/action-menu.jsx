@@ -9,14 +9,14 @@ import styles from './action-menu.css';
 const CLOSE_DELAY = 300; // ms
 
 class ActionMenu extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'setButtonRef',
-            'setContainerRef'
+            'setContainerRef',
         ]);
     }
-    shouldComponentUpdate (newProps, newState) {
+    shouldComponentUpdate(newProps, newState) {
         // This check prevents re-rendering while the project is updating.
         // @todo check only the state and the title because it is enough to know
         //  if anything substantial has changed
@@ -24,19 +24,19 @@ class ActionMenu extends React.Component {
         //  which should be refactored.
         return newProps.title !== this.props.title;
     }
-    setButtonRef (ref) {
+    setButtonRef(ref) {
         this.buttonRef = ref;
     }
-    setContainerRef (ref) {
+    setContainerRef(ref) {
         this.containerRef = ref;
     }
-    render () {
+    render() {
         const {
             className,
             img: mainImg,
             title: mainTitle,
             moreButtons,
-            onClick
+            onClick,
         } = this.props;
 
         const mainTooltipId = `tooltip-${Math.random()}`;
@@ -68,8 +68,8 @@ class ActionMenu extends React.Component {
                 />
                 {!moreButtons ? null :
                     <div className={styles.moreButtons}>
-                        {(moreButtons || []).map(({img, title, onClick: handleClick,
-                            fileAccept, fileChange, fileInput}, keyId) => {
+                        {(moreButtons || []).map(({ img, title, onClick: handleClick,
+                            fileAccept, fileChange, fileInput }, keyId) => {
                             const isComingSoon = !handleClick;
                             const hasFileInput = fileInput;
                             const tooltipId = title;
@@ -87,18 +87,18 @@ class ActionMenu extends React.Component {
                                             draggable={false}
                                             src={img}
                                         />
-                                        {hasFileInput ? (
+                                        {hasFileInput ?
                                             <input
                                                 accept={fileAccept}
                                                 className={styles.fileInput}
                                                 ref={fileInput}
                                                 type="file"
                                                 onChange={fileChange}
-                                            />) : null}
+                                            /> : null}
                                     </button>
                                     <ReactTooltip
                                         className={classNames(styles.tooltip, {
-                                            [styles.comingSoonTooltip]: isComingSoon
+                                            [styles.comingSoonTooltip]: isComingSoon,
                                         })}
                                         effect="solid"
                                         id={tooltipId}
@@ -123,10 +123,10 @@ ActionMenu.propTypes = {
         onClick: PropTypes.func, // Optional, "coming soon" if no callback provided
         fileAccept: PropTypes.string, // Optional, only for file upload
         fileChange: PropTypes.func, // Optional, only for file upload
-        fileInput: PropTypes.func // Optional, only for file upload
+        fileInput: PropTypes.func, // Optional, only for file upload
     })),
     onClick: PropTypes.func.isRequired,
-    title: PropTypes.node.isRequired
+    title: PropTypes.node.isRequired,
 };
 
 export default ActionMenu;

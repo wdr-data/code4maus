@@ -1,14 +1,14 @@
-import {intlReducer} from 'react-intl-redux';
+import { intlReducer } from 'react-intl-redux';
 
 const intlInitialState = {
     intl: {
         defaultLocale: 'en',
         locale: 'en',
-        messages: {}
-    }
+        messages: {},
+    },
 };
 
 export {
     intlReducer as default,
-    intlInitialState
+    intlInitialState,
 };

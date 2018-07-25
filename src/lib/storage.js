@@ -7,7 +7,7 @@ const ASSET_SERVER = 'https://cdn.assets.scratch.mit.edu';
 
 
 export const bucketUrl = process.env.S3_BUCKET_URL_PROJECT;
-export const s3assets = filename => `${bucketUrl}/assets/${filename}`;
+export const s3assets = (filename) => `${bucketUrl}/assets/${filename}`;
 export const s3userFile = (userId, path) => `${bucketUrl}/projects/${userId}/${path}`;
 
 /**
@@ -15,7 +15,7 @@ export const s3userFile = (userId, path) => `${bucketUrl}/projects/${userId}/${p
  * @todo make this more configurable
  */
 class Storage extends ScratchStorage {
-    constructor () {
+    constructor() {
         super();
         this.userId = null;
 
@@ -23,7 +23,7 @@ class Storage extends ScratchStorage {
         this.setupS3Source();
         this.setupScratchLegacySources();
 
-        defaultProjectAssets.forEach(asset => this.cache(
+        defaultProjectAssets.forEach((asset) => this.cache(
             this.AssetType[asset.assetType],
             this.DataFormat[asset.dataFormat],
             asset.data,
@@ -31,24 +31,24 @@ class Storage extends ScratchStorage {
         ));
     }
 
-    setupEduSource () {
+    setupEduSource() {
         this.addWebSource(
-            [this.AssetType.Project],
-            project => {
-                const [cat, projectId] = String(project.assetId).split("/")
-                if (cat !== 'edu' ) {
+            [ this.AssetType.Project ],
+            (project) => {
+                const [ cat, projectId ] = String(project.assetId).split('/');
+                if (cat !== 'edu') {
                     console.log('Not edu project');
                     return false;
                 }
                 return `/edu/${projectId}/project.${project.dataFormat}`;
             }
-        )
+        );
     }
 
-    setupS3Source () {
+    setupS3Source() {
         this.addWebSource(
-            [this.AssetType.Project],
-            project => {
+            [ this.AssetType.Project ],
+            (project) => {
                 if (!this.userId) {
                     throw new Error('No user id set');
                 }
@@ -56,28 +56,28 @@ class Storage extends ScratchStorage {
             }
         );
         this.addWebSource(
-            [this.AssetType.ImageVector, this.AssetType.ImageBitmap, this.AssetType.Sound],
-            asset => s3assets(`${asset.assetId}.${asset.dataFormat}`)
+            [ this.AssetType.ImageVector, this.AssetType.ImageBitmap, this.AssetType.Sound ],
+            (asset) => s3assets(`${asset.assetId}.${asset.dataFormat}`)
         );
     }
 
-    setupScratchLegacySources () {
+    setupScratchLegacySources() {
         this.addWebSource(
-            [this.AssetType.Project],
-            projectAsset => {
-                const [projectId, revision] = projectAsset.assetId.split('.');
+            [ this.AssetType.Project ],
+            (projectAsset) => {
+                const [ projectId, revision ] = projectAsset.assetId.split('.');
                 return revision ?
                     `${PROJECT_SERVER}/internalapi/project/${projectId}/get/${revision}` :
                     `${PROJECT_SERVER}/internalapi/project/${projectId}/get/`;
             }
         );
         this.addWebSource(
-            [this.AssetType.ImageVector, this.AssetType.ImageBitmap, this.AssetType.Sound],
-            asset => `${ASSET_SERVER}/internalapi/asset/${asset.assetId}.${asset.dataFormat}/get/`
+            [ this.AssetType.ImageVector, this.AssetType.ImageBitmap, this.AssetType.Sound ],
+            (asset) => `${ASSET_SERVER}/internalapi/asset/${asset.assetId}.${asset.dataFormat}/get/`
         );
         this.addWebSource(
-            [this.AssetType.Sound],
-            asset => `static/extension-assets/scratch3_music/${asset.assetId}.${asset.dataFormat}`
+            [ this.AssetType.Sound ],
+            (asset) => `static/extension-assets/scratch3_music/${asset.assetId}.${asset.dataFormat}`
         );
     }
 }

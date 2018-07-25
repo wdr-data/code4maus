@@ -7,7 +7,7 @@ import Box from '../box/box.jsx';
 import Label from '../forms/label.jsx';
 import Input from '../forms/input.jsx';
 import BufferedInputHOC from '../forms/buffered-input-hoc.jsx';
-import {injectIntl, intlShape, defineMessages, FormattedMessage} from 'react-intl';
+import { injectIntl, intlShape, defineMessages, FormattedMessage } from 'react-intl';
 
 import layout from '../../lib/layout-constants.js';
 import styles from './sprite-info.css';
@@ -23,12 +23,12 @@ const messages = defineMessages({
     spritePlaceholder: {
         id: 'gui.SpriteInfo.spritePlaceholder',
         defaultMessage: 'Name',
-        description: 'Placeholder text for sprite name'
-    }
+        description: 'Placeholder text for sprite name',
+    },
 });
 
 class SpriteInfo extends React.Component {
-    shouldComponentUpdate (nextProps) {
+    shouldComponentUpdate(nextProps) {
         return (
             this.props.direction !== nextProps.direction ||
             this.props.disabled !== nextProps.disabled ||
@@ -39,35 +39,35 @@ class SpriteInfo extends React.Component {
             this.props.y !== nextProps.y
         );
     }
-    render () {
-        const sprite = (
+    render() {
+        const sprite =
             <FormattedMessage
                 defaultMessage="Sprite"
                 description="Sprite info label"
                 id="gui.SpriteInfo.sprite"
             />
-        );
-        const showLabel = (
+        ;
+        const showLabel =
             <FormattedMessage
                 defaultMessage="Show"
                 description="Sprite info show label"
                 id="gui.SpriteInfo.show"
             />
-        );
-        const sizeLabel = (
+        ;
+        const sizeLabel =
             <FormattedMessage
                 defaultMessage="Size"
                 description="Sprite info size label"
                 id="gui.SpriteInfo.size"
             />
-        );
-        const directionLabel = (
+        ;
+        const directionLabel =
             <FormattedMessage
                 defaultMessage="Direction"
                 description="Sprite info direction label"
                 id="gui.SpriteInfo.direction"
             />
-        );
+        ;
         return (
             <Box
                 className={styles.spriteInfo}
@@ -150,7 +150,7 @@ class SpriteInfo extends React.Component {
                                     styles.iconWrapper,
                                     {
                                         [styles.isActive]: this.props.visible && !this.props.disabled,
-                                        [styles.isDisabled]: this.props.disabled
+                                        [styles.isDisabled]: this.props.disabled,
                                     }
                                 )}
                                 tabIndex="0"
@@ -169,7 +169,7 @@ class SpriteInfo extends React.Component {
                                     styles.iconWrapper,
                                     {
                                         [styles.isActive]: !this.props.visible && !this.props.disabled,
-                                        [styles.isDisabled]: this.props.disabled
+                                        [styles.isDisabled]: this.props.disabled,
                                     }
                                 )}
                                 tabIndex="0"
@@ -224,7 +224,7 @@ class SpriteInfo extends React.Component {
 SpriteInfo.propTypes = {
     direction: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.number
+        PropTypes.number,
     ]),
     disabled: PropTypes.bool,
     intl: intlShape,
@@ -240,17 +240,17 @@ SpriteInfo.propTypes = {
     onPressVisible: PropTypes.func,
     size: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.number
+        PropTypes.number,
     ]),
     visible: PropTypes.bool,
     x: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.number
+        PropTypes.number,
     ]),
     y: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.number
-    ])
+        PropTypes.number,
+    ]),
 };
 
 export default injectIntl(SpriteInfo);

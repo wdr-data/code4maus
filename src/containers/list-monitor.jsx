@@ -2,13 +2,13 @@ import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
 import VM from '@wdr-data/scratch-vm';
-import {connect} from 'react-redux';
-import {getEventXY} from '../lib/touch-utils';
-import {getVariableValue, setVariableValue} from '../lib/variable-utils';
+import { connect } from 'react-redux';
+import { getEventXY } from '../lib/touch-utils';
+import { getVariableValue, setVariableValue } from '../lib/variable-utils';
 import ListMonitorComponent from '../components/monitor/list-monitor.jsx';
 
 class ListMonitor extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleActivate',
@@ -18,7 +18,7 @@ class ListMonitor extends React.Component {
             'handleKeyPress',
             'handleFocus',
             'handleAdd',
-            'handleResizeMouseDown'
+            'handleResizeMouseDown',
         ]);
 
         this.state = {
@@ -26,11 +26,11 @@ class ListMonitor extends React.Component {
             activeValue: null,
             // TODO These will need to be sent back to the VM for saving
             width: props.width || 100,
-            height: props.height || 200
+            height: props.height || 200,
         };
     }
 
-    handleActivate (index) {
+    handleActivate(index) {
         // Do nothing if activating the currently active item
         if (this.state.activeIndex === index) {
             return;
@@ -38,44 +38,48 @@ class ListMonitor extends React.Component {
 
         this.setState({
             activeIndex: index,
-            activeValue: this.props.value[index]
+            activeValue: this.props.value[index],
         });
     }
 
-    handleDeactivate () {
+    handleDeactivate() {
         // Submit any in-progress value edits on blur
         if (this.state.activeIndex !== null) {
-            const {vm, targetId, id: variableId} = this.props;
+            const { vm, targetId, id: variableId } = this.props;
             const newListValue = getVariableValue(vm, targetId, variableId);
             newListValue[this.state.activeIndex] = this.state.activeValue;
             setVariableValue(vm, targetId, variableId, newListValue);
-            this.setState({activeIndex: null, activeValue: null});
+            this.setState({ activeIndex: null, activeValue: null });
         }
     }
 
-    handleFocus (e) {
+    handleFocus(e) {
         // Select all the text in the input when it is focused.
         e.target.select();
     }
 
-    handleKeyPress (e) {
+    handleKeyPress(e) {
         // Special case for tab, arrow keys and enter.
         // Tab / shift+tab navigate down / up the list.
         // Arrow down / arrow up navigate down / up the list.
         // Enter / shift+enter insert new blank item below / above.
         const previouslyActiveIndex = this.state.activeIndex;
-        const {vm, targetId, id: variableId} = this.props;
+        const { vm, targetId, id: variableId } = this.props;
 
         let navigateDirection = 0;
-        if (e.key === 'Tab') navigateDirection = e.shiftKey ? -1 : 1;
-        else if (e.key === 'ArrowUp') navigateDirection = -1;
-        else if (e.key === 'ArrowDown') navigateDirection = 1;
+        if (e.key === 'Tab') {
+            navigateDirection = e.shiftKey ? -1 : 1;
+        } else if (e.key === 'ArrowUp') {
+            navigateDirection = -1;
+        } else if (e.key === 'ArrowDown') {
+            navigateDirection = 1;
+        }
         if (navigateDirection) {
             this.handleDeactivate(); // Submit in-progress edits
             const newIndex = this.wrapListIndex(previouslyActiveIndex + navigateDirection, this.props.value.length);
             this.setState({
                 activeIndex: newIndex,
-                activeValue: this.props.value[newIndex]
+                activeValue: this.props.value[newIndex],
             });
             e.preventDefault(); // Stop default tab behavior, handled by this state change
         } else if (e.key === 'Enter') {
@@ -84,25 +88,25 @@ class ListMonitor extends React.Component {
             const newValueOffset = e.shiftKey ? 0 : 1; // Shift-enter inserts above
             const listValue = getVariableValue(vm, targetId, variableId);
             const newListValue = listValue.slice(0, previouslyActiveIndex + newValueOffset)
-                .concat([newListItemValue])
+                .concat([ newListItemValue ])
                 .concat(listValue.slice(previouslyActiveIndex + newValueOffset));
             setVariableValue(vm, targetId, variableId, newListValue);
             const newIndex = this.wrapListIndex(previouslyActiveIndex + newValueOffset, newListValue.length);
             this.setState({
                 activeIndex: newIndex,
-                activeValue: newListItemValue
+                activeValue: newListItemValue,
             });
         }
     }
 
-    handleInput (e) {
-        this.setState({activeValue: e.target.value});
+    handleInput(e) {
+        this.setState({ activeValue: e.target.value });
     }
 
-    handleRemove (e) {
+    handleRemove(e) {
         e.preventDefault(); // Default would blur input, prevent that.
         e.stopPropagation(); // Bubbling would activate, which will be handled here
-        const {vm, targetId, id: variableId} = this.props;
+        const { vm, targetId, id: variableId } = this.props;
         const listValue = getVariableValue(vm, targetId, variableId);
         const newListValue = listValue.slice(0, this.state.activeIndex)
             .concat(listValue.slice(this.state.activeIndex + 1));
@@ -110,30 +114,30 @@ class ListMonitor extends React.Component {
         this.handleActivate(Math.min(newListValue.length - 1, this.state.activeIndex));
     }
 
-    handleAdd () {
+    handleAdd() {
         // Add button appends a blank value and switches to it
-        const {vm, targetId, id: variableId} = this.props;
-        const newListValue = getVariableValue(vm, targetId, variableId).concat(['']);
+        const { vm, targetId, id: variableId } = this.props;
+        const newListValue = getVariableValue(vm, targetId, variableId).concat([ '' ]);
         setVariableValue(vm, targetId, variableId, newListValue);
-        this.setState({activeIndex: newListValue.length - 1, activeValue: ''});
+        this.setState({ activeIndex: newListValue.length - 1, activeValue: '' });
     }
 
-    handleResizeMouseDown (e) {
+    handleResizeMouseDown(e) {
         this.initialPosition = getEventXY(e);
         this.initialWidth = this.state.width;
         this.initialHeight = this.state.height;
 
-        const onMouseMove = ev => {
+        const onMouseMove = (ev) => {
             const newPosition = getEventXY(ev);
             const dx = newPosition.x - this.initialPosition.x;
             const dy = newPosition.y - this.initialPosition.y;
             this.setState({
                 width: Math.max(Math.min(this.initialWidth + dx, 480), 100),
-                height: Math.max(Math.min(this.initialHeight + dy, 360), 60)
+                height: Math.max(Math.min(this.initialHeight + dy, 360), 60),
             });
         };
 
-        const onMouseUp = ev => {
+        const onMouseUp = (ev) => {
             onMouseMove(ev); // Make sure width/height are up-to-date
             // TODO send these new sizes to the VM for saving
             window.removeEventListener('mousemove', onMouseMove);
@@ -142,14 +146,13 @@ class ListMonitor extends React.Component {
 
         window.addEventListener('mousemove', onMouseMove);
         window.addEventListener('mouseup', onMouseUp);
-
     }
 
-    wrapListIndex (index, length) {
+    wrapListIndex(index, length) {
         return (index + length) % length;
     }
 
-    render () {
+    render() {
         const {
             vm, // eslint-disable-line no-unused-vars
             ...props
@@ -180,14 +183,14 @@ ListMonitor.propTypes = {
     targetId: PropTypes.string,
     value: PropTypes.oneOfType([
         PropTypes.number,
-        PropTypes.string
+        PropTypes.string,
     ]),
     vm: PropTypes.instanceOf(VM),
     width: PropTypes.number,
     x: PropTypes.number,
-    y: PropTypes.number
+    y: PropTypes.number,
 };
 
-const mapStateToProps = state => ({vm: state.scratchGui.vm});
+const mapStateToProps = (state) => ({ vm: state.scratchGui.vm });
 
 export default connect(mapStateToProps)(ListMonitor);

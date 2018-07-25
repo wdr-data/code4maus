@@ -10,7 +10,7 @@ const {
     findByXpath,
     getDriver,
     getLogs,
-    loadUri
+    loadUri,
 } = new SeleniumHelper();
 
 let driver;

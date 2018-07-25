@@ -7,11 +7,11 @@ const REMOVE_MONITOR_RECT = 'scratch-gui/monitors/REMOVE_MONITOR_RECT';
 
 const initialState = {
     monitors: {},
-    savedMonitorPositions: {}
+    savedMonitorPositions: {},
 };
 
 // Verify that the rectangle formed by the 2 points is well-formed
-const _verifyRect = function (upperStart, lowerEnd) {
+const _verifyRect = function(upperStart, lowerEnd) {
     if (isNaN(upperStart.x) || isNaN(upperStart.y) || isNaN(lowerEnd.x) || isNaN(lowerEnd.y)) {
         return false;
     }
@@ -24,7 +24,7 @@ const _verifyRect = function (upperStart, lowerEnd) {
     return true;
 };
 
-const _addMonitorRect = function (state, action) {
+const _addMonitorRect = function(state, action) {
     if (state.monitors.hasOwnProperty(action.monitorId)) {
         log.error(`Can't add monitor, monitor with id ${action.monitorId} already exists.`);
         return state;
@@ -37,18 +37,18 @@ const _addMonitorRect = function (state, action) {
         monitors: Object.assign({}, state.monitors, {
             [action.monitorId]: {
                 upperStart: action.upperStart,
-                lowerEnd: action.lowerEnd
-            }
+                lowerEnd: action.lowerEnd,
+            },
         }),
         savedMonitorPositions: action.savePosition ?
             Object.assign({}, state.savedMonitorPositions, {
-                [action.monitorId]: {x: action.upperStart.x, y: action.upperStart.y}
+                [action.monitorId]: { x: action.upperStart.x, y: action.upperStart.y },
             }) :
-            state.savedMonitorPositions
+            state.savedMonitorPositions,
     };
 };
 
-const _moveMonitorRect = function (state, action) {
+const _moveMonitorRect = function(state, action) {
     if (!state.monitors.hasOwnProperty(action.monitorId)) {
         log.error(`Can't move monitor, monitor with id ${action.monitorId} does not exist.`);
         return state;
@@ -57,7 +57,7 @@ const _moveMonitorRect = function (state, action) {
         log.error(`Monitor rectangle not formatted correctly`);
         return state;
     }
-    
+
     const oldMonitor = state.monitors[action.monitorId];
     if (oldMonitor.upperStart.x === action.newX &&
             oldMonitor.upperStart.y === action.newY) {
@@ -69,18 +69,18 @@ const _moveMonitorRect = function (state, action) {
     return {
         monitors: Object.assign({}, state.monitors, {
             [action.monitorId]: {
-                upperStart: {x: action.newX, y: action.newY},
-                lowerEnd: {x: action.newX + monitorWidth, y: action.newY + monitorHeight}
-            }
+                upperStart: { x: action.newX, y: action.newY },
+                lowerEnd: { x: action.newX + monitorWidth, y: action.newY + monitorHeight },
+            },
         }),
         // User generated position is saved
         savedMonitorPositions: Object.assign({}, state.savedMonitorPositions, {
-            [action.monitorId]: {x: action.newX, y: action.newY}
-        })
+            [action.monitorId]: { x: action.newX, y: action.newY },
+        }),
     };
 };
 
-const _resizeMonitorRect = function (state, action) {
+const _resizeMonitorRect = function(state, action) {
     if (!state.monitors.hasOwnProperty(action.monitorId)) {
         log.error(`Can't resize monitor, monitor with id ${action.monitorId} does not exist.`);
         return state;
@@ -96,8 +96,8 @@ const _resizeMonitorRect = function (state, action) {
         upperStart: oldMonitor.upperStart,
         lowerEnd: {
             x: oldMonitor.upperStart.x + action.newWidth,
-            y: oldMonitor.upperStart.y + action.newHeight
-        }
+            y: oldMonitor.upperStart.y + action.newHeight,
+        },
     };
     if (newMonitor.lowerEnd.x === oldMonitor.lowerEnd.x &&
             newMonitor.lowerEnd.y === oldMonitor.lowerEnd.y) {
@@ -106,13 +106,12 @@ const _resizeMonitorRect = function (state, action) {
     }
 
     return {
-        monitors: Object.assign({}, state.monitors, {[action.monitorId]: newMonitor}),
-        savedMonitorPositions: state.savedMonitorPositions
+        monitors: Object.assign({}, state.monitors, { [action.monitorId]: newMonitor }),
+        savedMonitorPositions: state.savedMonitorPositions,
     };
-
 };
 
-const _removeMonitorRect = function (state, action) {
+const _removeMonitorRect = function(state, action) {
     if (!state.monitors.hasOwnProperty(action.monitorId)) {
         log.error(`Can't remove monitor, monitor with id ${action.monitorId} does not exist.`);
         return state;
@@ -122,12 +121,14 @@ const _removeMonitorRect = function (state, action) {
     delete newMonitors[action.monitorId];
     return {
         monitors: newMonitors,
-        savedMonitorPositions: state.savedMonitorPositions
+        savedMonitorPositions: state.savedMonitorPositions,
     };
 };
 
-const reducer = function (state, action) {
-    if (typeof state === 'undefined') state = initialState;
+const reducer = function(state, action) {
+    if (typeof state === 'undefined') {
+        state = initialState;
+    }
     switch (action.type) {
     case ADD_MONITOR_RECT:
         return _addMonitorRect(state, action);
@@ -149,28 +150,32 @@ const SCREEN_WIDTH = 400;
 const SCREEN_HEIGHT = 300;
 const SCREEN_EDGE_BUFFER = 40;
 
-const _rectsIntersect = function (rect1, rect2) {
+const _rectsIntersect = function(rect1, rect2) {
     // If one rectangle is on left side of other
-    if (rect1.upperStart.x >= rect2.lowerEnd.x || rect2.upperStart.x >= rect1.lowerEnd.x) return false;
+    if (rect1.upperStart.x >= rect2.lowerEnd.x || rect2.upperStart.x >= rect1.lowerEnd.x) {
+        return false;
+    }
     // If one rectangle is above other
-    if (rect1.upperStart.y >= rect2.lowerEnd.y || rect2.upperStart.y >= rect1.lowerEnd.y) return false;
+    if (rect1.upperStart.y >= rect2.lowerEnd.y || rect2.upperStart.y >= rect1.lowerEnd.y) {
+        return false;
+    }
     return true;
 };
 
 // We need to place a monitor with the given width and height. Return a rect defining where it should be placed.
-const getInitialPosition = function (state, monitorId, eltWidth, eltHeight) {
+const getInitialPosition = function(state, monitorId, eltWidth, eltHeight) {
     // If this monitor was purposefully moved to a certain position before, put it back in that position
     if (state.savedMonitorPositions.hasOwnProperty(monitorId)) {
         const saved = state.savedMonitorPositions[monitorId];
         return {
             upperStart: saved,
-            lowerEnd: {x: saved.x + eltWidth, y: saved.y + eltHeight}
+            lowerEnd: { x: saved.x + eltWidth, y: saved.y + eltHeight },
         };
     }
 
     // Try all starting positions for the new monitor to find one that doesn't intersect others
-    const endXs = [0];
-    const endYs = [0];
+    const endXs = [ 0 ];
+    const endYs = [ 0 ];
     let lastX = null;
     let lastY = null;
     for (const monitor in state.monitors) {
@@ -195,13 +200,13 @@ const getInitialPosition = function (state, monitorId, eltWidth, eltHeight) {
             }
             lastY = y;
             const monitorRect = {
-                upperStart: {x: x + PADDING, y: y + PADDING},
-                lowerEnd: {x: x + PADDING + eltWidth, y: y + PADDING + eltHeight}
+                upperStart: { x: x + PADDING, y: y + PADDING },
+                lowerEnd: { x: x + PADDING + eltWidth, y: y + PADDING + eltHeight },
             };
             // Intersection testing rect that includes padding
             const rect = {
-                upperStart: {x, y},
-                lowerEnd: {x: x + eltWidth + (2 * PADDING), y: y + eltHeight + (2 * PADDING)}
+                upperStart: { x, y },
+                lowerEnd: { x: x + eltWidth + 2 * PADDING, y: y + eltHeight + 2 * PADDING },
             };
             for (const monitor in state.monitors) {
                 if (_rectsIntersect(state.monitors[monitor], rect)) {
@@ -233,12 +238,12 @@ const getInitialPosition = function (state, monitorId, eltWidth, eltHeight) {
     return {
         upperStart: {
             x: randX,
-            y: randY
+            y: randY,
         },
         lowerEnd: {
             x: randX + eltWidth,
-            y: randY + eltHeight
-        }
+            y: randY + eltHeight,
+        },
     };
 };
 
@@ -254,13 +259,13 @@ const getInitialPosition = function (state, monitorId, eltWidth, eltHeight) {
  * @param {?boolean} savePosition True if the placement should be saved when adding the monitor
  * @returns {object} action to add a new monitor at the location
  */
-const addMonitorRect = function (monitorId, upperStart, lowerEnd, savePosition) {
+const addMonitorRect = function(monitorId, upperStart, lowerEnd, savePosition) {
     return {
         type: ADD_MONITOR_RECT,
         monitorId: monitorId,
         upperStart: upperStart,
         lowerEnd: lowerEnd,
-        savePosition: savePosition
+        savePosition: savePosition,
     };
 };
 
@@ -270,12 +275,12 @@ const addMonitorRect = function (monitorId, upperStart, lowerEnd, savePosition) 
  * @param {!number} newY Y of top point that defines the monitor location
  * @returns {object} action to move an existing monitor to the location
  */
-const moveMonitorRect = function (monitorId, newX, newY) {
+const moveMonitorRect = function(monitorId, newX, newY) {
     return {
         type: MOVE_MONITOR_RECT,
         monitorId: monitorId,
         newX: newX,
-        newY: newY
+        newY: newY,
     };
 };
 
@@ -285,12 +290,12 @@ const moveMonitorRect = function (monitorId, newX, newY) {
  * @param {!number} newHeight Height to set monitor to
  * @returns {object} action to resize an existing monitor to the given dimensions
  */
-const resizeMonitorRect = function (monitorId, newWidth, newHeight) {
+const resizeMonitorRect = function(monitorId, newWidth, newHeight) {
     return {
         type: RESIZE_MONITOR_RECT,
         monitorId: monitorId,
         newWidth: newWidth,
-        newHeight: newHeight
+        newHeight: newHeight,
     };
 };
 
@@ -298,10 +303,10 @@ const resizeMonitorRect = function (monitorId, newWidth, newHeight) {
  * @param {!string} monitorId Id for monitor to remove
  * @returns {object} action to remove an existing monitor
  */
-const removeMonitorRect = function (monitorId) {
+const removeMonitorRect = function(monitorId) {
     return {
         type: REMOVE_MONITOR_RECT,
-        monitorId: monitorId
+        monitorId: monitorId,
     };
 };
 
@@ -315,5 +320,5 @@ export {
     removeMonitorRect,
     PADDING,
     SCREEN_HEIGHT,
-    SCREEN_WIDTH
+    SCREEN_WIDTH,
 };

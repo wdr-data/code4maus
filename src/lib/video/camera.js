@@ -8,12 +8,12 @@ import getUserMedia from 'get-user-media-promise';
 // does not affect the video on the stage, and a program running and disabling
 // video on the stage will not affect the camera modal's video.
 const requestStack = [];
-const requestVideoStream = videoDesc => {
+const requestVideoStream = (videoDesc) => {
     let streamPromise;
     if (requestStack.length === 0) {
         streamPromise = getUserMedia({
             audio: false,
-            video: videoDesc
+            video: videoDesc,
         });
         requestStack.push(streamPromise);
     } else if (requestStack.length > 0) {
@@ -25,11 +25,13 @@ const requestVideoStream = videoDesc => {
 
 const requestDisableVideo = () => {
     requestStack.pop();
-    if (requestStack.length > 0) return false;
+    if (requestStack.length > 0) {
+        return false;
+    }
     return true;
 };
 
 export {
     requestVideoStream,
-    requestDisableVideo
+    requestDisableVideo,
 };

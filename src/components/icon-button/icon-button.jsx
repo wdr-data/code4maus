@@ -7,8 +7,8 @@ const IconButton = ({
     img,
     className,
     title,
-    onClick
-}) => (
+    onClick,
+}) =>
     <div
         className={classNames(styles.container, className)}
         role="button"
@@ -23,13 +23,13 @@ const IconButton = ({
             {title}
         </div>
     </div>
-);
+;
 
 IconButton.propTypes = {
     className: PropTypes.string,
     img: PropTypes.string,
     onClick: PropTypes.func.isRequired,
-    title: PropTypes.node.isRequired
+    title: PropTypes.node.isRequired,
 };
 
 export default IconButton;

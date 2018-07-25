@@ -2,21 +2,21 @@ const SET_BUILD_LAYOUT = 'scratch-gui/layout-mode/SET_BUILD_LAYOUT';
 const SET_PLAY_LAYOUT = 'scratch-gui/layout-mode/SET_PLAY_LAYOUT';
 const TOGGLE_LAYOUTMODE = 'scratch-gui/layout-mode/TOGGLE_LAYOUTMODE';
 
-const setBuildLayout = function () {
+const setBuildLayout = function() {
     return {
-        type: SET_BUILD_LAYOUT
+        type: SET_BUILD_LAYOUT,
     };
 };
 
-const setPlayLayout = function () {
+const setPlayLayout = function() {
     return {
-        type: SET_PLAY_LAYOUT
+        type: SET_PLAY_LAYOUT,
     };
 };
 
-const toggleLayoutMode = function () {
+const toggleLayoutMode = function() {
     return {
-        type: TOGGLE_LAYOUTMODE
+        type: TOGGLE_LAYOUTMODE,
     };
 };
 
@@ -43,5 +43,5 @@ export {
     setBuildLayout,
     setPlayLayout,
     toggleLayoutMode,
-    layoutModeInitialState
+    layoutModeInitialState,
 };

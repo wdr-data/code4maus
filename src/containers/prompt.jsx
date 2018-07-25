@@ -4,31 +4,33 @@ import bindAll from 'lodash.bindall';
 import PromptComponent from '../components/prompt/prompt.jsx';
 
 class Prompt extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleOk',
             'handleCancel',
             'handleChange',
-            'handleKeyPress'
+            'handleKeyPress',
         ]);
         this.state = {
-            inputValue: ''
+            inputValue: '',
         };
     }
-    handleKeyPress (event) {
-        if (event.key === 'Enter') this.handleOk();
+    handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            this.handleOk();
+        }
     }
-    handleOk () {
+    handleOk() {
         this.props.onOk(this.state.inputValue);
     }
-    handleCancel () {
+    handleCancel() {
         this.props.onCancel();
     }
-    handleChange (e) {
-        this.setState({inputValue: e.target.value});
+    handleChange(e) {
+        this.setState({ inputValue: e.target.value });
     }
-    render () {
+    render() {
         return (
             <PromptComponent
                 label={this.props.label}
@@ -50,7 +52,7 @@ Prompt.propTypes = {
     onOk: PropTypes.func.isRequired,
     placeholder: PropTypes.string,
     showMoreOptions: PropTypes.bool.isRequired,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
 };
 
 export default Prompt;

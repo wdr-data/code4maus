@@ -1,8 +1,8 @@
 import SeleniumHelper from '../helpers/selenium-helper';
-const {SAUCE_USERNAME, SAUCE_ACCESS_KEY, SMOKE_URL} = process.env;
+const { SAUCE_USERNAME, SAUCE_ACCESS_KEY, SMOKE_URL } = process.env;
 const {
     getSauceDriver,
-    findByText
+    findByText,
 } = new SeleniumHelper();
 
 // Make the default timeout longer, Sauce tests take ~30s
@@ -26,7 +26,7 @@ describe('Smoke tests on older browsers', () => {
         const driverConfig = {
             browserName: 'internet explorer',
             platform: 'Windows 10',
-            version: '11.103'
+            version: '11.103',
         };
         driver = await getSauceDriver(
             process.env.SAUCE_USERNAME,
@@ -43,7 +43,7 @@ describe('Smoke tests on older browsers', () => {
         const driverConfig = {
             browserName: 'safari',
             platform: 'OS X 10.11',
-            version: '9.0'
+            version: '9.0',
         };
         driver = await getSauceDriver(
             process.env.SAUCE_USERNAME,
@@ -59,7 +59,7 @@ describe('Smoke tests on older browsers', () => {
         const driverConfig = {
             browserName: 'safari',
             platform: 'OS X 10.11',
-            version: '10.0'
+            version: '10.0',
         };
         driver = await getSauceDriver(
             process.env.SAUCE_USERNAME,

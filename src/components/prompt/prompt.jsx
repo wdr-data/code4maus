@@ -1,9 +1,9 @@
-import {defineMessages, FormattedMessage} from 'react-intl';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import Box from '../box/box.jsx';
-import {ComingSoonTooltip} from '../coming-soon/coming-soon.jsx';
+import { ComingSoonTooltip } from '../coming-soon/coming-soon.jsx';
 import Modal from '../modal/modal.jsx';
 
 import styles from './prompt.css';
@@ -14,11 +14,11 @@ const messages = defineMessages({
     moreOptionsMessage: {
         defaultMessage: 'More Options',
         description: 'Dropdown message for variable/list options',
-        id: 'gui.gui.variablePrompt'
-    }
+        id: 'gui.gui.variablePrompt',
+    },
 });
 
-const PromptComponent = props => (
+const PromptComponent = (props) =>
     <Modal
         className={styles.modalContent}
         contentLabel={props.title}
@@ -78,7 +78,7 @@ const PromptComponent = props => (
             </Box>
         </Box>
     </Modal>
-);
+;
 
 PromptComponent.propTypes = {
     label: PropTypes.string.isRequired,
@@ -88,7 +88,7 @@ PromptComponent.propTypes = {
     onOk: PropTypes.func.isRequired,
     placeholder: PropTypes.string,
     showMoreOptions: PropTypes.bool.isRequired,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
 };
 
 export default PromptComponent;

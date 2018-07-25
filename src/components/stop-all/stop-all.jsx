@@ -5,7 +5,7 @@ import React from 'react';
 import stopAllIcon from './stop@2x.png';
 import styles from './stop-all.css';
 
-const StopAllComponent = function (props) {
+const StopAllComponent = function(props) {
     const {
         active,
         className,
@@ -19,7 +19,7 @@ const StopAllComponent = function (props) {
                 className,
                 styles.stopAll,
                 {
-                    [styles.isActive]: active
+                    [styles.isActive]: active,
                 }
             )}
             draggable={false}
@@ -35,12 +35,12 @@ StopAllComponent.propTypes = {
     active: PropTypes.bool,
     className: PropTypes.string,
     onClick: PropTypes.func.isRequired,
-    title: PropTypes.string
+    title: PropTypes.string,
 };
 
 StopAllComponent.defaultProps = {
     active: false,
-    title: 'Stop'
+    title: 'Stop',
 };
 
 export default StopAllComponent;

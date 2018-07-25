@@ -4,12 +4,12 @@ import React from 'react';
 
 import styles from './divider.css';
 
-const Divider = ({className}) => (
+const Divider = ({ className }) =>
     <div className={classNames(styles.divider, className)} />
-);
+;
 
 Divider.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string,
 };
 
 export default Divider;

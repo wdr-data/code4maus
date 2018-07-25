@@ -2,18 +2,18 @@ import AudioEngine from 'scratch-audio';
 import PropTypes from 'prop-types';
 import React from 'react';
 import VM from '@wdr-data/scratch-vm';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import ReactModal from 'react-modal';
-import {addLocaleData, IntlProvider} from 'react-intl';
+import { addLocaleData, IntlProvider } from 'react-intl';
 import de from 'react-intl/locale-data/de';
 
 import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
-import {openExtensionLibrary, closeSaveProject} from '../reducers/modals';
+import { openExtensionLibrary, closeSaveProject } from '../reducers/modals';
 import {
     activateTab,
     BLOCKS_TAB_INDEX,
     COSTUMES_TAB_INDEX,
-    SOUNDS_TAB_INDEX
+    SOUNDS_TAB_INDEX,
 } from '../reducers/editor-tab';
 
 import EduLoaderHOC from '../lib/edu-loader-hoc.jsx';
@@ -23,59 +23,61 @@ import vmListenerHOC from '../lib/vm-listener-hoc.jsx';
 import AppStateHOC from '../lib/app-state-hoc.jsx';
 
 import GUIComponent from '../components/gui/gui.jsx';
-import {toggleLayoutMode} from '../reducers/layout-mode';
+import { toggleLayoutMode } from '../reducers/layout-mode';
 import localeDe from '../../translations/de.json';
 
 addLocaleData(de);
 
 class GUI extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
             loading: !props.vm.initialized,
             loadingError: false,
-            errorMessage: ''
+            errorMessage: '',
         };
     }
-    componentDidMount () {
-        if (this.props.vm.initialized) return;
+    componentDidMount() {
+        if (this.props.vm.initialized) {
+            return;
+        }
         this.audioEngine = new AudioEngine();
         this.props.vm.attachAudioEngine(this.audioEngine);
         this.props.vm.loadProject(this.props.projectData)
             .then(() => {
-                this.setState({loading: false}, () => {
+                this.setState({ loading: false }, () => {
                     this.props.vm.setCompatibilityMode(true);
                     this.props.vm.start();
                 });
             })
-            .catch(e => {
+            .catch((e) => {
                 // Need to catch this error and update component state so that
                 // error page gets rendered if project failed to load
-                this.setState({loadingError: true, errorMessage: e});
+                this.setState({ loadingError: true, errorMessage: e });
             });
         this.props.vm.initialized = true;
     }
-    componentDidUpdate (prevProps) {
+    componentDidUpdate(prevProps) {
         if (prevProps.projectData === this.props.projectData) {
             return;
         }
 
-        this.setState({loading: true}, () => {
+        this.setState({ loading: true }, () => {
             this.props.vm.loadProject(this.props.projectData)
                 .then(() => {
-                    this.setState({loading: false});
+                    this.setState({ loading: false });
                 })
-                .catch(e => {
+                .catch((e) => {
                     // Need to catch this error and update component state so that
                     // error page gets rendered if project failed to load
-                    this.setState({loadingError: true, errorMessage: e});
+                    this.setState({ loadingError: true, errorMessage: e });
                 });
         });
     }
-    componentWillUnmount () {
+    componentWillUnmount() {
         this.props.vm.stopAll();
     }
-    render () {
+    render() {
         if (this.state.loadingError) {
             throw new Error(
                 `Failed to load project from server: ${this.state.errorMessage}`);
@@ -111,13 +113,13 @@ GUI.propTypes = {
     importInfoVisible: PropTypes.bool,
     loadingStateVisible: PropTypes.bool,
     previewInfoVisible: PropTypes.bool,
-    projectData: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    vm: PropTypes.instanceOf(VM)
+    projectData: PropTypes.oneOfType([ PropTypes.object, PropTypes.string ]),
+    vm: PropTypes.instanceOf(VM),
 };
 
 GUI.defaultProps = GUIComponent.defaultProps;
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     activeTabIndex: state.scratchGui.editorTab.activeTabIndex,
     blocksTabVisible: state.scratchGui.editorTab.activeTabIndex === BLOCKS_TAB_INDEX,
     cardsVisible: state.scratchGui.cards.visible,
@@ -126,19 +128,18 @@ const mapStateToProps = state => ({
     isPlayerOnly: state.scratchGui.mode.isPlayerOnly,
     loadingStateVisible: state.scratchGui.modals.loadingProject,
     previewInfoVisible: state.scratchGui.modals.previewInfo,
-    targetIsStage: (
+    targetIsStage:
         state.scratchGui.targets.stage &&
-        state.scratchGui.targets.stage.id === state.scratchGui.targets.editingTarget
-    ),
+        state.scratchGui.targets.stage.id === state.scratchGui.targets.editingTarget,
     soundsTabVisible: state.scratchGui.editorTab.activeTabIndex === SOUNDS_TAB_INDEX,
     layoutmode: state.scratchGui.layoutMode,
     saveProjectVisible: state.scratchGui.modals.saveProject,
     eduLayerActive: state.scratchGui.eduLayer.enabled,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     onExtensionButtonClick: () => dispatch(openExtensionLibrary()),
-    onActivateTab: tab => dispatch(activateTab(tab)),
+    onActivateTab: (tab) => dispatch(activateTab(tab)),
     onActivateCostumesTab: () => dispatch(activateTab(COSTUMES_TAB_INDEX)),
     onActivateSoundsTab: () => dispatch(activateTab(SOUNDS_TAB_INDEX)),
     onLayoutModeClick: () => dispatch(toggleLayoutMode()),

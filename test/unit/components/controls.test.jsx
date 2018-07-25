@@ -1,5 +1,5 @@
 import React from 'react';
-import {mountWithIntl} from '../../helpers/intl-helpers.jsx';
+import { mountWithIntl } from '../../helpers/intl-helpers.jsx';
 import Controls from '../../../src/components/controls/controls';
 import TurboMode from '../../../src/components/turbo-mode/turbo-mode';
 import GreenFlag from '../../../src/components/green-flag/green-flag';
@@ -10,7 +10,7 @@ describe('Controls component', () => {
         active: false,
         onGreenFlagClick: jest.fn(),
         onStopAllClick: jest.fn(),
-        turbo: false
+        turbo: false,
     });
 
     test('shows turbo mode when in turbo mode', () => {
@@ -20,7 +20,7 @@ describe('Controls component', () => {
             />
         );
         expect(component.find(TurboMode).exists()).toEqual(false);
-        component.setProps({turbo: true});
+        component.setProps({ turbo: true });
         expect(component.find(TurboMode).exists()).toEqual(true);
     });
 

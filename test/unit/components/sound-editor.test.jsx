@@ -1,5 +1,5 @@
 import React from 'react';
-import {mountWithIntl, componentWithIntl} from '../../helpers/intl-helpers.jsx';
+import { mountWithIntl, componentWithIntl } from '../../helpers/intl-helpers.jsx';
 import SoundEditor from '../../../src/components/sound-editor/sound-editor';
 
 describe('Sound Editor Component', () => {
@@ -8,7 +8,7 @@ describe('Sound Editor Component', () => {
         props = {
             canUndo: true,
             canRedo: false,
-            chunkLevels: [1, 2, 3],
+            chunkLevels: [ 1, 2, 3 ],
             name: 'sound name',
             playhead: 0.5,
             trimStart: 0.2,
@@ -27,7 +27,7 @@ describe('Sound Editor Component', () => {
             onSetTrimEnd: jest.fn(),
             onSetTrimStart: jest.fn(),
             onStop: jest.fn(),
-            onUndo: jest.fn()
+            onUndo: jest.fn(),
         };
     });
 
@@ -87,7 +87,7 @@ describe('Sound Editor Component', () => {
             <SoundEditor {...props} />
         );
         wrapper.find('input')
-            .simulate('change', {target: {value: 'hello'}})
+            .simulate('change', { target: { value: 'hello' } })
             .simulate('blur');
         expect(props.onChangeName).toHaveBeenCalled();
     });

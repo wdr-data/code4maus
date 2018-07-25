@@ -2,19 +2,18 @@ const STAGE_SIZE_DEFAULTS = {
     heightSmall: 360,
     widthSmall: 480,
     spacingBorderAdjustment: 9,
-    menuHeightAdjustment: 40
+    menuHeightAdjustment: 40,
 };
 
 const getStageSize = (
     isFullScreen = false,
     height = STAGE_SIZE_DEFAULTS.heightSmall,
     width = STAGE_SIZE_DEFAULTS.widthSmall) => {
-
     const stageSize = {
         heightDefault: height,
         widthDefault: width,
         height: height,
-        width: width
+        width: width,
     };
 
     if (isFullScreen) {
@@ -22,7 +21,7 @@ const getStageSize = (
                            STAGE_SIZE_DEFAULTS.menuHeightAdjustment -
                            STAGE_SIZE_DEFAULTS.spacingBorderAdjustment;
 
-        stageSize.width = stageSize.height + (stageSize.height / 3);
+        stageSize.width = stageSize.height + stageSize.height / 3;
 
         if (stageSize.width > window.innerWidth) {
             stageSize.width = window.innerWidth;
@@ -35,5 +34,5 @@ const getStageSize = (
 
 export {
     getStageSize,
-    STAGE_SIZE_DEFAULTS
+    STAGE_SIZE_DEFAULTS,
 };

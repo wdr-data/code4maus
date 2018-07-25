@@ -1,14 +1,13 @@
 import React from 'react';
 import ProjectLoaderHOC from '../../../src/lib/project-loader-hoc.jsx';
 import storage from '../../../src/lib/storage';
-import {mount} from 'enzyme';
+import { mount } from 'enzyme';
 
 jest.mock('react-ga');
 
 describe('ProjectLoaderHOC', () => {
-
     test('when there is no id, it loads (default) project id 0', () => {
-        const Component = ({projectData}) => <div>{projectData}</div>;
+        const Component = ({ projectData }) => <div>{projectData}</div>;
         const WrappedComponent = ProjectLoaderHOC(Component);
         const originalLoad = storage.load;
         storage.load = jest.fn((type, id) => Promise.resolve(id));
@@ -21,10 +20,10 @@ describe('ProjectLoaderHOC', () => {
     });
 
     test('when there is an id, it tries to load that project', () => {
-        const Component = ({projectData}) => <div>{projectData}</div>;
+        const Component = ({ projectData }) => <div>{projectData}</div>;
         const WrappedComponent = ProjectLoaderHOC(Component);
         const originalLoad = storage.load;
-        storage.load = jest.fn((type, id) => Promise.resolve({data: id}));
+        storage.load = jest.fn((type, id) => Promise.resolve({ data: id }));
         const mounted = mount(<WrappedComponent projectId="100" />);
         expect(mounted.props().projectId).toEqual('100');
         expect(storage.load).toHaveBeenLastCalledWith(
@@ -34,7 +33,7 @@ describe('ProjectLoaderHOC', () => {
     });
 
     test('when there is no project data, it renders null', () => {
-        const Component = ({projectData}) => <div>{projectData}</div>;
+        const Component = ({ projectData }) => <div>{projectData}</div>;
         const WrappedComponent = ProjectLoaderHOC(Component);
         const originalLoad = storage.load;
         storage.load = jest.fn(() => Promise.resolve(null));
@@ -43,5 +42,4 @@ describe('ProjectLoaderHOC', () => {
         const mountedDiv = mounted.find('div');
         expect(mountedDiv.exists()).toEqual(false);
     });
-
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import {mountWithIntl, shallowWithIntl, componentWithIntl} from '../../helpers/intl-helpers.jsx';
+import { mountWithIntl, shallowWithIntl, componentWithIntl } from '../../helpers/intl-helpers.jsx';
 import SpriteSelectorItemComponent from '../../../src/components/sprite-selector-item/sprite-selector-item';
 import CostumeCanvas from '../../../src/components/costume-canvas/costume-canvas';
 import CloseButton from '../../../src/components/close-button/close-button';
@@ -15,7 +15,7 @@ describe('SpriteSelectorItemComponent', () => {
     let details;
 
     // Wrap this in a function so it gets test specific states and can be reused.
-    const getComponent = function () {
+    const getComponent = function() {
         return (
             <SpriteSelectorItemComponent
                 className={className}

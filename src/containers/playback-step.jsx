@@ -5,20 +5,20 @@ import PlaybackStepComponent from '../components/record-modal/playback-step.jsx'
 import AudioBufferPlayer from '../lib/audio/audio-buffer-player.js';
 
 class PlaybackStep extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handlePlay',
-            'handleStopPlaying'
+            'handleStopPlaying',
         ]);
     }
-    componentDidMount () {
+    componentDidMount() {
         this.audioBufferPlayer = new AudioBufferPlayer(this.props.samples, this.props.sampleRate);
     }
-    componentWillUnmount () {
+    componentWillUnmount() {
         this.audioBufferPlayer.stop();
     }
-    handlePlay () {
+    handlePlay() {
         this.audioBufferPlayer.play(
             this.props.trimStart,
             this.props.trimEnd,
@@ -27,11 +27,11 @@ class PlaybackStep extends React.Component {
         );
         this.props.onPlay();
     }
-    handleStopPlaying () {
+    handleStopPlaying() {
         this.audioBufferPlayer.stop();
         this.props.onStopPlaying();
     }
-    render () {
+    render() {
         const {
             sampleRate, // eslint-disable-line no-unused-vars
             onPlay, // eslint-disable-line no-unused-vars
@@ -52,7 +52,7 @@ class PlaybackStep extends React.Component {
 PlaybackStep.propTypes = {
     sampleRate: PropTypes.number.isRequired,
     samples: PropTypes.instanceOf(Float32Array).isRequired,
-    ...PlaybackStepComponent.propTypes
+    ...PlaybackStepComponent.propTypes,
 };
 
 export default PlaybackStep;

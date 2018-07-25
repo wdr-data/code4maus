@@ -10,7 +10,7 @@ const {
     getLogs,
     loadUri,
     rightClickText,
-    scope
+    scope,
 } = new SeleniumHelper();
 
 const uri = path.resolve(__dirname, '../../build/index.html');

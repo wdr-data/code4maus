@@ -1,15 +1,15 @@
 /* eslint-env jest */
 import monitorLayoutReducer from '../../../src/reducers/monitor-layout';
-import {addMonitorRect, moveMonitorRect} from '../../../src/reducers/monitor-layout';
-import {resizeMonitorRect, removeMonitorRect} from '../../../src/reducers/monitor-layout';
-import {getInitialPosition, PADDING, SCREEN_WIDTH, SCREEN_HEIGHT} from '../../../src/reducers/monitor-layout';
+import { addMonitorRect, moveMonitorRect } from '../../../src/reducers/monitor-layout';
+import { resizeMonitorRect, removeMonitorRect } from '../../../src/reducers/monitor-layout';
+import { getInitialPosition, PADDING, SCREEN_WIDTH, SCREEN_HEIGHT } from '../../../src/reducers/monitor-layout';
 
 test('initialState', () => {
     let defaultState;
 
-    expect(monitorLayoutReducer(defaultState /* state */, {type: 'anything'} /* action */)).toBeDefined();
-    expect(monitorLayoutReducer(defaultState /* state */, {type: 'anything'} /* action */).monitors).toBeDefined();
-    expect(monitorLayoutReducer(defaultState /* state */, {type: 'anything'} /* action */).savedMonitorPositions)
+    expect(monitorLayoutReducer(defaultState /* state */, { type: 'anything' } /* action */)).toBeDefined();
+    expect(monitorLayoutReducer(defaultState /* state */, { type: 'anything' } /* action */).monitors).toBeDefined();
+    expect(monitorLayoutReducer(defaultState /* state */, { type: 'anything' } /* action */).savedMonitorPositions)
         .toBeDefined();
 });
 
@@ -17,8 +17,8 @@ test('addMonitorRect', () => {
     let defaultState;
     const monitorId = 1;
     const monitorId2 = 2;
-    const upperStart = {x: 100, y: 100};
-    const lowerEnd = {x: 200, y: 200};
+    const upperStart = { x: 100, y: 100 };
+    const lowerEnd = { x: 200, y: 200 };
 
     // Add a monitor rect
     const reduxState = monitorLayoutReducer(defaultState, addMonitorRect(monitorId, upperStart, lowerEnd));
@@ -42,8 +42,8 @@ test('addMonitorRect', () => {
 test('addMonitorRectWithSavedPosition', () => {
     let defaultState;
     const monitorId = 1;
-    const upperStart = {x: 100, y: 100};
-    const lowerEnd = {x: 200, y: 200};
+    const upperStart = { x: 100, y: 100 };
+    const lowerEnd = { x: 200, y: 200 };
 
     // Add a monitor rect
     const reduxState = monitorLayoutReducer(defaultState,
@@ -58,26 +58,26 @@ test('addMonitorRectWithSavedPosition', () => {
 
 test('invalidRect', () => {
     let defaultState;
-    const reduxState = monitorLayoutReducer(defaultState /* state */, {type: 'initialize'} /* action */);
+    const reduxState = monitorLayoutReducer(defaultState /* state */, { type: 'initialize' } /* action */);
 
     // Problem: x end is before x start
     expect(
         monitorLayoutReducer(reduxState,
-            addMonitorRect(1, {x: 100, y: 100}, {x: 10, y: 200})))
+            addMonitorRect(1, { x: 100, y: 100 }, { x: 10, y: 200 })))
         .toEqual(reduxState);
 
     // Problem: y end is before y start
     expect(
         monitorLayoutReducer(reduxState,
-            addMonitorRect(1, {x: 100, y: 100}, {x: 200, y: 10})))
+            addMonitorRect(1, { x: 100, y: 100 }, { x: 200, y: 10 })))
         .toEqual(reduxState);
 });
 
 test('invalidAddMonitorRect', () => {
     let defaultState;
     const monitorId = 1;
-    const upperStart = {x: 100, y: 100};
-    const lowerEnd = {x: 200, y: 200};
+    const upperStart = { x: 100, y: 100 };
+    const lowerEnd = { x: 200, y: 200 };
 
     // Add a monitor rect
     const reduxState = monitorLayoutReducer(defaultState, addMonitorRect(monitorId, upperStart, lowerEnd));
@@ -92,10 +92,10 @@ test('moveMonitorRect', () => {
     const monitorId2 = 2;
     const width = 102;
     const height = 101;
-    const upperStart = {x: 100, y: 100};
-    const lowerEnd = {x: upperStart.x + width, y: upperStart.y + height};
-    const movedToPosition = {x: 0, y: 0};
-    const movedToPosition2 = {x: 543, y: 2};
+    const upperStart = { x: 100, y: 100 };
+    const lowerEnd = { x: upperStart.x + width, y: upperStart.y + height };
+    const movedToPosition = { x: 0, y: 0 };
+    const movedToPosition2 = { x: 543, y: 2 };
 
     // Add a monitor rect and move it. Expect it to be in monitors state and saved positions.
     const reduxState = monitorLayoutReducer(defaultState, addMonitorRect(monitorId, upperStart, lowerEnd));
@@ -120,7 +120,7 @@ test('moveMonitorRect', () => {
 
 test('invalidMoveMonitorRect', () => {
     let defaultState;
-    let reduxState = monitorLayoutReducer(defaultState, {type: 'initialize'} /* action */);
+    let reduxState = monitorLayoutReducer(defaultState, { type: 'initialize' } /* action */);
     const monitorId = 1;
 
     // Try to move a monitor rect that doesn't exist
@@ -128,7 +128,7 @@ test('invalidMoveMonitorRect', () => {
         .toEqual(reduxState);
 
     // Add the monitor to move
-    reduxState = monitorLayoutReducer(reduxState, addMonitorRect(monitorId, {x: 100, y: 100}, {x: 200, y: 200}));
+    reduxState = monitorLayoutReducer(reduxState, addMonitorRect(monitorId, { x: 100, y: 100 }, { x: 200, y: 200 }));
 
     // Invalid newX
     expect(monitorLayoutReducer(reduxState, moveMonitorRect(monitorId, 'Oregon' /* newX */, 1 /* newY */)))
@@ -142,12 +142,12 @@ test('invalidMoveMonitorRect', () => {
 test('resizeMonitorRect', () => {
     let defaultState;
     const monitorId = 1;
-    const upperStart = {x: 100, y: 100};
+    const upperStart = { x: 100, y: 100 };
     const newWidth = 10;
     const newHeight = 20;
 
     // Add a monitor rect and resize it
-    const reduxState = monitorLayoutReducer(defaultState, addMonitorRect(monitorId, upperStart, {x: 200, y: 200}));
+    const reduxState = monitorLayoutReducer(defaultState, addMonitorRect(monitorId, upperStart, { x: 200, y: 200 }));
     const reduxState2 = monitorLayoutReducer(reduxState,
         resizeMonitorRect(monitorId, newWidth, newHeight));
     expect(reduxState2.monitors[monitorId]).toBeDefined();
@@ -160,7 +160,7 @@ test('resizeMonitorRect', () => {
 
 test('invalidResizeMonitorRect', () => {
     let defaultState;
-    let reduxState = monitorLayoutReducer(defaultState, {type: 'initialize'} /* action */);
+    let reduxState = monitorLayoutReducer(defaultState, { type: 'initialize' } /* action */);
     const monitorId = 1;
 
     // Try to resize a monitor rect that doesn't exist
@@ -168,7 +168,7 @@ test('invalidResizeMonitorRect', () => {
         .toEqual(reduxState);
 
     // Add the monitor to resize
-    reduxState = monitorLayoutReducer(reduxState, addMonitorRect(monitorId, {x: 100, y: 100}, {x: 200, y: 200}));
+    reduxState = monitorLayoutReducer(reduxState, addMonitorRect(monitorId, { x: 100, y: 100 }, { x: 200, y: 200 }));
 
     // Invalid newWidth
     expect(monitorLayoutReducer(reduxState, resizeMonitorRect(monitorId, 'Oregon' /* newWidth */, 1 /* newHeight */)))
@@ -193,8 +193,8 @@ test('removeMonitorRect', () => {
 
     // Add a monitor rect, move it, and remove it
     const reduxState = monitorLayoutReducer(defaultState, addMonitorRect(monitorId,
-        {x: 100, y: 100},
-        {x: 200, y: 200}
+        { x: 100, y: 100 },
+        { x: 200, y: 200 }
     ));
     const reduxState2 = monitorLayoutReducer(reduxState, moveMonitorRect(monitorId, 0, 0));
     const reduxState3 = monitorLayoutReducer(reduxState2, removeMonitorRect(monitorId));
@@ -205,7 +205,7 @@ test('removeMonitorRect', () => {
 
 test('invalidRemoveMonitorRect', () => {
     let defaultState;
-    const reduxState = monitorLayoutReducer(defaultState, {type: 'initialize'} /* action */);
+    const reduxState = monitorLayoutReducer(defaultState, { type: 'initialize' } /* action */);
 
     // Try to remove a monitor rect that doesn't exist
     expect(monitorLayoutReducer(reduxState, resizeMonitorRect(1)))
@@ -218,12 +218,12 @@ test('getInitialPosition_lineUpTopLeft', () => {
     const height = 200;
     // Add monitors to right and bottom, but there is a space in the top left
     let reduxState = monitorLayoutReducer(defaultState, addMonitorRect(1,
-        {x: width + PADDING, y: 0},
-        {x: 100, y: height}
+        { x: width + PADDING, y: 0 },
+        { x: 100, y: height }
     ));
     reduxState = monitorLayoutReducer(defaultState, addMonitorRect(2,
-        {x: 0, y: height + PADDING},
-        {x: width, y: 100}
+        { x: 0, y: height + PADDING },
+        { x: width, y: 100 }
     ));
 
     // Check that the added monitor appears in the space
@@ -244,7 +244,7 @@ test('getInitialPosition_savedPosition', () => {
     const height = 8;
     const reduxState = {
         monitors: {},
-        savedMonitorPositions: {[monitorId]: {x: savedX, y: savedY}}
+        savedMonitorPositions: { [monitorId]: { x: savedX, y: savedY } },
     };
 
     // Check that initial position uses saved state
@@ -261,7 +261,7 @@ test('getInitialPosition_lineUpLeft', () => {
     let defaultState;
     const monitor1EndY = 60;
     // Add a monitor that takes up the upper left corner
-    const reduxState = monitorLayoutReducer(defaultState, addMonitorRect(1, {x: 0, y: 0}, {x: 100, y: monitor1EndY}));
+    const reduxState = monitorLayoutReducer(defaultState, addMonitorRect(1, { x: 0, y: 0 }, { x: 100, y: monitor1EndY }));
 
     // Check that added monitor is under it and lines up left
     const rect = getInitialPosition(reduxState, 2, 20 /* width */, 20 /* height */);
@@ -273,8 +273,8 @@ test('getInitialPosition_lineUpTop', () => {
     const monitor1EndX = 100;
     // Add a monitor that takes up the whole left side
     const reduxState = monitorLayoutReducer(defaultState, addMonitorRect(1,
-        {x: 0, y: 0},
-        {x: monitor1EndX, y: SCREEN_HEIGHT}
+        { x: 0, y: 0 },
+        { x: monitor1EndX, y: SCREEN_HEIGHT }
     ));
 
     // Check that added monitor is to the right of it and lines up top
@@ -289,8 +289,8 @@ test('getInitialPosition_noRoom', () => {
     const height = 8;
     // Add a monitor that takes up the whole screen
     const reduxState = monitorLayoutReducer(defaultState, addMonitorRect(1,
-        {x: 0, y: 0},
-        {x: SCREEN_WIDTH, y: SCREEN_HEIGHT}
+        { x: 0, y: 0 },
+        { x: SCREEN_WIDTH, y: SCREEN_HEIGHT }
     ));
 
     // Check that added monitor exists somewhere (we don't care where)

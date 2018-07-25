@@ -1,7 +1,7 @@
 import React from 'react';
-import {mountWithIntl} from '../../helpers/intl-helpers.jsx';
+import { mountWithIntl } from '../../helpers/intl-helpers.jsx';
 import configureStore from 'redux-mock-store';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 
 import SpriteSelectorItem from '../../../src/containers/sprite-selector-item';
 import CloseButton from '../../../src/components/close-button/close-button';
@@ -18,7 +18,7 @@ describe('SpriteSelectorItem Container', () => {
     let id;
     let store;
     // Wrap this in a function so it gets test specific states and can be reused.
-    const getContainer = function () {
+    const getContainer = function() {
         return (
             <Provider store={store}>
                 <SpriteSelectorItem
@@ -36,10 +36,10 @@ describe('SpriteSelectorItem Container', () => {
     };
 
     beforeEach(() => {
-        store = mockStore({scratchGui: {
-            hoveredTarget: {receivedBlocks: false, sprite: null},
-            assetDrag: {dragging: false}
-        }});
+        store = mockStore({ scratchGui: {
+            hoveredTarget: { receivedBlocks: false, sprite: null },
+            assetDrag: { dragging: false },
+        } });
         className = 'ponies';
         costumeURL = 'https://scratch.mit.edu/foo/bar/pony';
         id = 1337;

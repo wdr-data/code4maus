@@ -1,10 +1,10 @@
 import 'get-float-time-domain-data';
 import getUserMedia from 'get-user-media-promise';
 import SharedAudioContext from './shared-audio-context.js';
-import {computeRMS} from './audio-util.js';
+import { computeRMS } from './audio-util.js';
 
 class AudioRecorder {
-    constructor () {
+    constructor() {
         this.audioContext = new SharedAudioContext();
         this.bufferLength = 1024;
 
@@ -21,17 +21,17 @@ class AudioRecorder {
         this.disposed = false;
     }
 
-    startListening (onStarted, onUpdate, onError) {
+    startListening(onStarted, onUpdate, onError) {
         try {
-            getUserMedia({audio: true})
-                .then(userMediaStream => {
+            getUserMedia({ audio: true })
+                .then((userMediaStream) => {
                     if (!this.disposed) {
                         this.started = true;
                         onStarted();
                         this.attachUserMediaStream(userMediaStream, onUpdate);
                     }
                 })
-                .catch(e => {
+                .catch((e) => {
                     if (!this.disposed) {
                         onError(e);
                     }
@@ -43,17 +43,17 @@ class AudioRecorder {
         }
     }
 
-    startRecording () {
+    startRecording() {
         this.recording = true;
     }
 
-    attachUserMediaStream (userMediaStream, onUpdate) {
+    attachUserMediaStream(userMediaStream, onUpdate) {
         this.userMediaStream = userMediaStream;
         this.mediaStreamSource = this.audioContext.createMediaStreamSource(userMediaStream);
         this.sourceNode = this.audioContext.createGain();
         this.scriptProcessorNode = this.audioContext.createScriptProcessor(this.bufferLength, 2, 2);
 
-        this.scriptProcessorNode.onaudioprocess = processEvent => {
+        this.scriptProcessorNode.onaudioprocess = (processEvent) => {
             if (this.recording && !this.disposed) {
                 this.buffers.push(new Float32Array(processEvent.inputBuffer.getChannelData(0)));
             }
@@ -67,7 +67,9 @@ class AudioRecorder {
         const dataArray = new Float32Array(bufferLength);
 
         const update = () => {
-            if (this.disposed) return;
+            if (this.disposed) {
+                return;
+            }
             requestAnimationFrame(update);
             this.analyserNode.getFloatTimeDomainData(dataArray);
             onUpdate(computeRMS(dataArray));
@@ -82,8 +84,8 @@ class AudioRecorder {
         this.scriptProcessorNode.connect(this.audioContext.destination);
     }
 
-    stop () {
-        const chunkLevels = this.buffers.map(buffer => computeRMS(buffer));
+    stop() {
+        const chunkLevels = this.buffers.map((buffer) => computeRMS(buffer));
         const maxRMS = Math.max.apply(null, chunkLevels);
         const threshold = maxRMS / 8;
 
@@ -91,7 +93,9 @@ class AudioRecorder {
         let lastChunkAboveThreshold = null;
         for (let i = 0; i < chunkLevels.length; i++) {
             if (chunkLevels[i] > threshold) {
-                if (firstChunkAboveThreshold === null) firstChunkAboveThreshold = i + 1;
+                if (firstChunkAboveThreshold === null) {
+                    firstChunkAboveThreshold = i + 1;
+                }
                 lastChunkAboveThreshold = i + 1;
             }
         }
@@ -113,11 +117,11 @@ class AudioRecorder {
             samples: buffer,
             sampleRate: this.audioContext.sampleRate,
             trimStart: trimStart,
-            trimEnd: trimEnd
+            trimEnd: trimEnd,
         };
     }
 
-    dispose () {
+    dispose() {
         if (this.started) {
             this.scriptProcessorNode.onaudioprocess = null;
             this.scriptProcessorNode.disconnect();

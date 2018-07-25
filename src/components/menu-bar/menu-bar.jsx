@@ -1,17 +1,17 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import Box from '../box/box.jsx';
-import {openSaveProject} from '../../reducers/modals';
+import { openSaveProject } from '../../reducers/modals';
 
 import styles from './menu-bar.css';
 
 import scratchLogo from './scratch-logo.svg';
 import Button from '../button/button.jsx';
 
-const MenuBar = props => (
+const MenuBar = (props) =>
     <Box className={styles.menuBar}>
         <div className={styles.mainMenu}>
             <div className={styles.fileGroup}>
@@ -38,20 +38,20 @@ const MenuBar = props => (
             </Button>
         </div>
     </Box>
-);
+;
 
 MenuBar.propTypes = {
     onSaveProject: PropTypes.func,
 };
 
-const mapStateToProps = state => ({
-    projectName: state.scratchGui.project.name
+const mapStateToProps = (state) => ({
+    projectName: state.scratchGui.project.name,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     onSaveProject: () => {
         dispatch(openSaveProject());
-    }
+    },
 });
 
 export default connect(

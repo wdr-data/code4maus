@@ -5,16 +5,16 @@ import Box from '../box/box.jsx';
 import styles from './audio-trimmer.css';
 import handleIcon from './icon--handle.svg';
 
-const AudioTrimmer = props => (
+const AudioTrimmer = (props) =>
     <div
         className={styles.absolute}
         ref={props.containerRef}
     >
-        {props.trimStart === null ? null : (
+        {props.trimStart === null ? null :
             <Box
                 className={classNames(styles.absolute, styles.trimBackground, styles.startTrimBackground)}
                 style={{
-                    width: `${100 * props.trimStart}%`
+                    width: `${100 * props.trimStart}%`,
                 }}
                 onMouseDown={props.onTrimStartMouseDown}
                 onTouchStart={props.onTrimStartMouseDown}
@@ -29,23 +29,23 @@ const AudioTrimmer = props => (
                     </Box>
                 </Box>
             </Box>
-        )}
+        }
 
-        {props.playhead ? (
+        {props.playhead ?
             <Box
                 className={classNames(styles.trimLine, styles.playhead)}
                 style={{
-                    left: `${100 * props.playhead}%`
+                    left: `${100 * props.playhead}%`,
                 }}
             />
-        ) : null}
+            : null}
 
-        {props.trimEnd === null ? null : (
+        {props.trimEnd === null ? null :
             <Box
                 className={classNames(styles.absolute, styles.trimBackground, styles.endTrimBackground)}
                 style={{
                     left: `${100 * props.trimEnd}%`,
-                    width: `${100 - (100 * props.trimEnd)}%`
+                    width: `${100 - 100 * props.trimEnd}%`,
                 }}
                 onMouseDown={props.onTrimEndMouseDown}
                 onTouchStart={props.onTrimEndMouseDown}
@@ -60,9 +60,9 @@ const AudioTrimmer = props => (
                     </Box>
                 </Box>
             </Box>
-        )}
+        }
     </div>
-);
+;
 
 AudioTrimmer.propTypes = {
     containerRef: PropTypes.func,
@@ -70,7 +70,7 @@ AudioTrimmer.propTypes = {
     onTrimStartMouseDown: PropTypes.func.isRequired,
     playhead: PropTypes.number,
     trimEnd: PropTypes.number,
-    trimStart: PropTypes.number
+    trimStart: PropTypes.number,
 };
 
 export default AudioTrimmer;

@@ -18,4 +18,4 @@ document.body.appendChild(appTarget);
 
 GUI.setAppElement(appTarget);
 
-ReactDOM.render(<GUI/>, appTarget);
+ReactDOM.render(<GUI />, appTarget);

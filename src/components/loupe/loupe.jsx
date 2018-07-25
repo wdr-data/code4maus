@@ -8,22 +8,20 @@ import styles from './loupe.css';
 const zoomScale = 3;
 
 class LoupeComponent extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
-        bindAll(this, [
-            'setCanvas'
-        ]);
+        bindAll(this, [ 'setCanvas' ]);
     }
-    componentDidUpdate () {
+    componentDidUpdate() {
         this.draw();
     }
-    draw () {
+    draw() {
         const boxSize = 6 / zoomScale;
         const boxLineWidth = 1 / zoomScale;
         const colorRingWidth = 15 / zoomScale;
 
         const ctx = this.canvas.getContext('2d');
-        const {color, data, width, height} = this.props.colorInfo;
+        const { color, data, width, height } = this.props.colorInfo;
         this.canvas.width = zoomScale * width;
         this.canvas.height = zoomScale * height;
 
@@ -46,7 +44,7 @@ class LoupeComponent extends React.Component {
         ctx.strokeStyle = 'black';
         ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`;
         ctx.beginPath();
-        ctx.rect((width / 2) - (boxSize / 2), (height / 2) - (boxSize / 2), boxSize, boxSize);
+        ctx.rect(width / 2 - boxSize / 2, height / 2 - boxSize / 2, boxSize, boxSize);
         ctx.fill();
         ctx.stroke();
 
@@ -59,10 +57,10 @@ class LoupeComponent extends React.Component {
         ctx.stroke();
         ctx.restore();
     }
-    setCanvas (element) {
+    setCanvas(element) {
         this.canvas = element;
     }
-    render () {
+    render() {
         const {
             colorInfo,
             ...boxProps
@@ -75,10 +73,10 @@ class LoupeComponent extends React.Component {
                 element="canvas"
                 height={colorInfo.height}
                 style={{
-                    top: colorInfo.y - ((zoomScale * colorInfo.height) / 2),
-                    left: colorInfo.x - ((zoomScale * colorInfo.width) / 2),
+                    top: colorInfo.y - zoomScale * colorInfo.height / 2,
+                    left: colorInfo.x - zoomScale * colorInfo.width / 2,
                     width: colorInfo.width * zoomScale,
-                    height: colorInfo.height * zoomScale
+                    height: colorInfo.height * zoomScale,
                 }}
                 width={colorInfo.width}
             />
@@ -91,14 +89,14 @@ LoupeComponent.propTypes = {
         color: PropTypes.shape({
             r: PropTypes.number,
             g: PropTypes.number,
-            b: PropTypes.number
+            b: PropTypes.number,
         }),
         data: PropTypes.instanceOf(Uint8Array),
         width: PropTypes.number,
         height: PropTypes.number,
         x: PropTypes.number,
-        y: PropTypes.number
-    })
+        y: PropTypes.number,
+    }),
 };
 
 export default LoupeComponent;

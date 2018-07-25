@@ -8,7 +8,7 @@ const {
     getDriver,
     getLogs,
     loadUri,
-    scope
+    scope,
 } = new SeleniumHelper();
 
 const uri = path.resolve(__dirname, '../../build/index.html');

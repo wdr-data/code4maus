@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import VM from '@wdr-data/scratch-vm';
 import WavEncoder from 'wav-encoder';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import RecordModalComponent from '../components/record-modal/record-modal.jsx';
 
 import {
-    closeSoundRecorder
+    closeSoundRecorder,
 } from '../reducers/modals';
 
 class RecordModal extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleRecord',
@@ -24,7 +24,7 @@ class RecordModal extends React.Component {
             'handleCancel',
             'handleSetPlayhead',
             'handleSetTrimStart',
-            'handleSetTrimEnd'
+            'handleSetTrimEnd',
         ]);
 
         this.state = {
@@ -36,48 +36,48 @@ class RecordModal extends React.Component {
             recording: false,
             sampleRate: null,
             trimStart: 0,
-            trimEnd: 1
+            trimEnd: 1,
         };
     }
-    handleRecord () {
-        this.setState({recording: true});
+    handleRecord() {
+        this.setState({ recording: true });
     }
-    handleStopRecording (samples, sampleRate, levels, trimStart, trimEnd) {
-        this.setState({samples, sampleRate, levels, trimStart, trimEnd, recording: false});
+    handleStopRecording(samples, sampleRate, levels, trimStart, trimEnd) {
+        this.setState({ samples, sampleRate, levels, trimStart, trimEnd, recording: false });
     }
-    handlePlay () {
-        this.setState({playing: true});
+    handlePlay() {
+        this.setState({ playing: true });
     }
-    handleStopPlaying () {
-        this.setState({playing: false, playhead: null});
+    handleStopPlaying() {
+        this.setState({ playing: false, playhead: null });
     }
-    handleBack () {
-        this.setState({playing: false, samples: null});
+    handleBack() {
+        this.setState({ playing: false, samples: null });
     }
-    handleSetTrimEnd (trimEnd) {
-        this.setState({trimEnd});
+    handleSetTrimEnd(trimEnd) {
+        this.setState({ trimEnd });
     }
-    handleSetTrimStart (trimStart) {
-        this.setState({trimStart});
+    handleSetTrimStart(trimStart) {
+        this.setState({ trimStart });
     }
-    handleSetPlayhead (playhead) {
-        this.setState({playhead});
+    handleSetPlayhead(playhead) {
+        this.setState({ playhead });
     }
-    handleSubmit () {
-        this.setState({encoding: true}, () => {
+    handleSubmit() {
+        this.setState({ encoding: true }, () => {
             const sampleCount = this.state.samples.length;
             const startIndex = Math.floor(this.state.trimStart * sampleCount);
             const endIndex = Math.floor(this.state.trimEnd * sampleCount);
             const clippedSamples = this.state.samples.slice(startIndex, endIndex);
             WavEncoder.encode({
                 sampleRate: this.state.sampleRate,
-                channelData: [clippedSamples]
-            }).then(wavBuffer => {
+                channelData: [ clippedSamples ],
+            }).then((wavBuffer) => {
                 const vmSound = {
                     format: '',
                     dataFormat: 'wav',
                     rate: this.state.sampleRate,
-                    sampleCount: clippedSamples.length
+                    sampleCount: clippedSamples.length,
                 };
 
                 // Load the encoded .wav into the storage cache and get resulting
@@ -102,10 +102,10 @@ class RecordModal extends React.Component {
             });
         });
     }
-    handleCancel () {
+    handleCancel() {
         this.props.onClose();
     }
-    render () {
+    render() {
         return (
             <RecordModalComponent
                 encoding={this.state.encoding}
@@ -135,17 +135,17 @@ class RecordModal extends React.Component {
 RecordModal.propTypes = {
     onClose: PropTypes.func,
     onNewSound: PropTypes.func,
-    vm: PropTypes.instanceOf(VM)
+    vm: PropTypes.instanceOf(VM),
 };
 
-const mapStateToProps = state => ({
-    vm: state.scratchGui.vm
+const mapStateToProps = (state) => ({
+    vm: state.scratchGui.vm,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     onClose: () => {
         dispatch(closeSoundRecorder());
-    }
+    },
 });
 
 export default connect(

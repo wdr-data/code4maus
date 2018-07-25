@@ -45,15 +45,15 @@ const messages = defineMessages({
     addExtension: {
         id: 'gui.gui.addExtension',
         description: 'Button to add an extension in the target pane',
-        defaultMessage: 'Add Extension'
-    }
+        defaultMessage: 'Add Extension',
+    },
 });
 
 // Cache this value to only retreive it once the first time.
 // Assume that it doesn't change for a session.
 let isRendererSupported = null;
 
-const GUIComponent = props => {
+const GUIComponent = (props) => {
     const {
         activeTabIndex,
         basePath,
@@ -94,195 +94,208 @@ const GUIComponent = props => {
         tabList: classNames(tabStyles.reactTabsTabList, styles.tabList),
         tabPanel: classNames(tabStyles.reactTabsTabPanel, styles.tabPanel),
         tabPanelSelected: classNames(tabStyles.reactTabsTabPanelSelected, styles.isSelected),
-        tabSelected: classNames(tabStyles.reactTabsTabSelected, styles.isSelected)
+        tabSelected: classNames(tabStyles.reactTabsTabSelected, styles.isSelected),
     };
 
     if (isRendererSupported === null) {
         isRendererSupported = Renderer.isSupported();
     }
 
-    return isPlayerOnly ? (
+    return isPlayerOnly ?
         <StageWrapper
             isRendererSupported={isRendererSupported}
             vm={vm}
         />
-    ) : (
-            <Box
-                className={styles.pageWrapper}
-                {...componentProps}
-            >
-                {loading ? (
-                    <Loader />
-                ) : null}
-                {saveProjectVisible ? (
-                    <ModalComponent
-                        className={styles.saveModal}
-                        contentLabel="Lege einen Namen fest"
-                        onRequestClose={onSaveModalClose}
-                    >
-                        <Box className={styles.saveModalBox}>
-                            <Input placeholder="Name deines Projektes" onChange={e => onProjectNameChange(e.target.value)} value={projectName} />
-                            <Box className={styles.saveModalActions}>
-                                <p>{saveProjectError}</p>
-                                <Button className={styles.saveModalButton} onClick={() => onSaveProject().then(() => onSaveModalClose())}>Speichern</Button>
-                            </Box>
-                            <ProjectSaver>{downloadProject => (
-                                <Button className={styles.saveModalDownload} onClick={downloadProject}>
+        :
+        <Box
+            className={styles.pageWrapper}
+            {...componentProps}
+        >
+            {loading ?
+                <Loader />
+                : null}
+            {saveProjectVisible ?
+                <ModalComponent
+                    className={styles.saveModal}
+                    contentLabel="Lege einen Namen fest"
+                    onRequestClose={onSaveModalClose}
+                >
+                    <Box className={styles.saveModalBox}>
+                        <Input
+                            placeholder="Name deines Projektes"
+                            onChange={(e) => onProjectNameChange(e.target.value)}
+                            value={projectName}
+                        />
+                        <Box className={styles.saveModalActions}>
+                            <p>{saveProjectError}</p>
+                            <Button
+                                className={styles.saveModalButton}
+                                onClick={() => onSaveProject().then(() => onSaveModalClose())}
+                            >Speichern</Button>
+                        </Box>
+                        <ProjectSaver>{(downloadProject) =>
+                            <Button
+                                className={styles.saveModalDownload}
+                                onClick={downloadProject}
+                            >
                                     Projekt herunterladen
                             </Button>
-                            )}</ProjectSaver>
-                        </Box>
-                    </ModalComponent>
-                ) : null}
-                {isRendererSupported ? null : (
-                    <WebGlModal />
-                )}
-                <Box className={styles.header}>
-                    <Box className={styles.column}>
-                        <img
-                            alt="WDR"
-                            className={styles.logo}
-                            draggable={false}
-                            src={wdrLogo}
-                        />
-                        <Tabs
-                            forceRenderTabPanel={true} // eslint-disable-line react/jsx-boolean-value
-                            selectedIndex={activeTabIndex}
-                            selectedTabClassName={tabClassNames.tabSelected}
-                            selectedTabPanelClassName={tabClassNames.tabPanelSelected}
-                            onSelect={onActivateTab}
-                        >
-                            <TabList className={tabClassNames.tabList}>
-                                <Tab className={tabClassNames.tab}>
-                                    <Box className={styles.tabContent}>
-                                        <img
-                                            draggable={false}
-                                            src={codeIcon}
-                                        />
-                                        <FormattedMessage
-                                            defaultMessage="Code"
-                                            description="Button to get to the code panel"
-                                            id="gui.gui.codeTab"
-                                        />
-                                    </Box>
-                                </Tab>
-                                <Tab
-                                    className={tabClassNames.tab}
-                                    onClick={onActivateCostumesTab}
-                                >
-                                    <Box className={styles.tabContent}>
-                                        <img
-                                            draggable={false}
-                                            src={costumesIcon}
-                                        />
-                                        {targetIsStage ? (
-                                            <FormattedMessage
-                                                defaultMessage="Backdrops"
-                                                description="Button to get to the backdrops panel"
-                                                id="gui.gui.backdropsTab"
-                                            />
-                                        ) : (
-                                                <FormattedMessage
-                                                    defaultMessage="Kostüme"
-                                                    description="Button to get to the costumes panel"
-                                                    id="gui.gui.costumesTab"
-                                                />
-                                            )}
-                                    </Box>
-                                </Tab>
-                                <Tab
-                                    className={tabClassNames.tab}
-                                    onClick={onActivateSoundsTab}
-                                >
-                                    <Box className={styles.tabContent}>
-                                        <img
-                                            draggable={false}
-                                            src={soundsIcon}
-                                        />
-                                        <FormattedMessage
-                                            defaultMessage="Töne"
-                                            description="Button to get to the sounds panel"
-                                            id="gui.gui.soundsTab"
-                                        />
-                                    </Box>
-                                </Tab>
-                            </TabList>
-                        </Tabs>
+                        }</ProjectSaver>
                     </Box>
-                    <Box className={styles.column}>
-                        <img
-                            alt="head"
-                            className={styles.logoCenter}
-                            draggable={false}
-                            src={headLogo}
-                        />
-                    </Box>
-                    <Box className={styles.column}>
-                        <ButtonWithIcon
-                            className={styles.menuButton}
-                            iconSrc={menuIcon}
-                            children={'Übersicht'}
-                        />
-                        <Box className={styles.stageMenuWrapper}>
-                            <StageHeader vm={vm} />
-                        </Box>
-                    </Box>
-                </Box>
-
-                <Box className={styles.bodyWrapper}>
-                    <Box className={styles.editorWrapper}>
-                        <Tabs
-                            className={tabClassNames.tabs}
-                            forceRenderTabPanel={true} // eslint-disable-line react/jsx-boolean-value
-                            selectedIndex={activeTabIndex}
-                            selectedTabClassName={tabClassNames.tabSelected}
-                            selectedTabPanelClassName={tabClassNames.tabPanelSelected}
-                            onSelect={onActivateTab}
-                        >
-                            <TabPanel className={[tabClassNames.tabPanel, styles.codePanelWrapper]}>
-                                <Box className={styles.codeTopRow}>
-                                    <Box className={styles.blocksWrapper}>
-                                        <Blocks
-                                            grow={1}
-                                            isVisible={blocksTabVisible}
-                                            options={{
-                                                media: `${basePath}static/blocks-media/`,
-                                                gridOptions: false,
-                                            }}
-                                            vm={vm}
-                                        />
-                                        {!props.eduLayerActive ? null : <TargetPane vm={vm} />}
-                                        <Button onClick={onLayoutModeClick} className={styles.layoutSwitcher}>
-                                            <img
-                                                alt="WDR"
-                                                className={styles.layoutSwitcherIcon}
-                                                draggable={false}
-                                                src={expandIcon}
-                                            />
-                                        </Button>
-                                    </Box>
-                                    <Box className={styles.stageAndTargetWrapper}>
-                                        <StageWrapper
-                                            isRendererSupported={isRendererSupported}
-                                            vm={vm}
-                                        />
-                                        <EduStage />
-                                    </Box>
+                </ModalComponent>
+                : null}
+            {isRendererSupported ? null :
+                <WebGlModal />
+            }
+            <Box className={styles.header}>
+                <Box className={styles.column}>
+                    <img
+                        alt="WDR"
+                        className={styles.logo}
+                        draggable={false}
+                        src={wdrLogo}
+                    />
+                    <Tabs
+                        forceRenderTabPanel={true} // eslint-disable-line react/jsx-boolean-value
+                        selectedIndex={activeTabIndex}
+                        selectedTabClassName={tabClassNames.tabSelected}
+                        selectedTabPanelClassName={tabClassNames.tabPanelSelected}
+                        onSelect={onActivateTab}
+                    >
+                        <TabList className={tabClassNames.tabList}>
+                            <Tab className={tabClassNames.tab}>
+                                <Box className={styles.tabContent}>
+                                    <img
+                                        draggable={false}
+                                        src={codeIcon}
+                                    />
+                                    <FormattedMessage
+                                        defaultMessage="Code"
+                                        description="Button to get to the code panel"
+                                        id="gui.gui.codeTab"
+                                    />
                                 </Box>
-                                {props.eduLayerActive ? null : <TargetPane vm={vm} />}
-                            </TabPanel>
-                            <TabPanel className={tabClassNames.tabPanel}>
-                                {costumesTabVisible ? <CostumeTab vm={vm} /> : null}
-                            </TabPanel>
-                            <TabPanel className={tabClassNames.tabPanel}>
-                                {soundsTabVisible ? <SoundTab vm={vm} /> : null}
-                            </TabPanel>
-                        </Tabs>
+                            </Tab>
+                            <Tab
+                                className={tabClassNames.tab}
+                                onClick={onActivateCostumesTab}
+                            >
+                                <Box className={styles.tabContent}>
+                                    <img
+                                        draggable={false}
+                                        src={costumesIcon}
+                                    />
+                                    {targetIsStage ?
+                                        <FormattedMessage
+                                            defaultMessage="Backdrops"
+                                            description="Button to get to the backdrops panel"
+                                            id="gui.gui.backdropsTab"
+                                        />
+                                        :
+                                        <FormattedMessage
+                                            defaultMessage="Kostüme"
+                                            description="Button to get to the costumes panel"
+                                            id="gui.gui.costumesTab"
+                                        />
+                                    }
+                                </Box>
+                            </Tab>
+                            <Tab
+                                className={tabClassNames.tab}
+                                onClick={onActivateSoundsTab}
+                            >
+                                <Box className={styles.tabContent}>
+                                    <img
+                                        draggable={false}
+                                        src={soundsIcon}
+                                    />
+                                    <FormattedMessage
+                                        defaultMessage="Töne"
+                                        description="Button to get to the sounds panel"
+                                        id="gui.gui.soundsTab"
+                                    />
+                                </Box>
+                            </Tab>
+                        </TabList>
+                    </Tabs>
+                </Box>
+                <Box className={styles.column}>
+                    <img
+                        alt="head"
+                        className={styles.logoCenter}
+                        draggable={false}
+                        src={headLogo}
+                    />
+                </Box>
+                <Box className={styles.column}>
+                    <ButtonWithIcon
+                        children={'Übersicht'}
+                        className={styles.menuButton}
+                        iconSrc={menuIcon}
+                    />
+                    <Box className={styles.stageMenuWrapper}>
+                        <StageHeader vm={vm} />
                     </Box>
                 </Box>
-                <DragLayer />
             </Box>
-        );
+
+            <Box className={styles.bodyWrapper}>
+                <Box className={styles.editorWrapper}>
+                    <Tabs
+                        className={tabClassNames.tabs}
+                        forceRenderTabPanel={true} // eslint-disable-line react/jsx-boolean-value
+                        selectedIndex={activeTabIndex}
+                        selectedTabClassName={tabClassNames.tabSelected}
+                        selectedTabPanelClassName={tabClassNames.tabPanelSelected}
+                        onSelect={onActivateTab}
+                    >
+                        <TabPanel className={[ tabClassNames.tabPanel, styles.codePanelWrapper ]}>
+                            <Box className={styles.codeTopRow}>
+                                <Box className={styles.blocksWrapper}>
+                                    <Blocks
+                                        grow={1}
+                                        isVisible={blocksTabVisible}
+                                        options={{
+                                            media: `${basePath}static/blocks-media/`,
+                                            gridOptions: false,
+                                        }}
+                                        vm={vm}
+                                    />
+                                    {!props.eduLayerActive ? null : <TargetPane vm={vm} />}
+                                    <Button
+                                        onClick={onLayoutModeClick}
+                                        className={styles.layoutSwitcher}
+                                    >
+                                        <img
+                                            alt="WDR"
+                                            className={styles.layoutSwitcherIcon}
+                                            draggable={false}
+                                            src={expandIcon}
+                                        />
+                                    </Button>
+                                </Box>
+                                <Box className={styles.stageAndTargetWrapper}>
+                                    <StageWrapper
+                                        isRendererSupported={isRendererSupported}
+                                        vm={vm}
+                                    />
+                                    <EduStage />
+                                </Box>
+                            </Box>
+                            {props.eduLayerActive ? null : <TargetPane vm={vm} />}
+                        </TabPanel>
+                        <TabPanel className={tabClassNames.tabPanel}>
+                            {costumesTabVisible ? <CostumeTab vm={vm} /> : null}
+                        </TabPanel>
+                        <TabPanel className={tabClassNames.tabPanel}>
+                            {soundsTabVisible ? <SoundTab vm={vm} /> : null}
+                        </TabPanel>
+                    </Tabs>
+                </Box>
+            </Box>
+            <DragLayer />
+        </Box>
+    ;
 };
 GUIComponent.propTypes = {
     activeTabIndex: PropTypes.number,
@@ -314,6 +327,6 @@ GUIComponent.propTypes = {
     eduLayerActive: PropTypes.bool.isRequired,
 };
 GUIComponent.defaultProps = {
-    basePath: '/'
+    basePath: '/',
 };
 export default injectIntl(GUIComponent);

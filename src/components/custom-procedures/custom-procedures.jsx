@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Modal from '../modal/modal.jsx';
 import Box from '../box/box.jsx';
-import {FormattedMessage} from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import booleanInputIcon from './icon--boolean-input.svg';
 import textInputIcon from './icon--text-input.svg';
@@ -10,7 +10,7 @@ import labelIcon from './icon--label.svg';
 
 import styles from './custom-procedures.css';
 
-const CustomProcedures = props => (
+const CustomProcedures = (props) =>
     <Modal
         className={styles.modalContent}
         contentLabel="Make a Block"
@@ -129,7 +129,7 @@ const CustomProcedures = props => (
             </Box>
         </Box>
     </Modal>
-);
+;
 
 CustomProcedures.propTypes = {
     componentRef: PropTypes.func.isRequired,
@@ -139,7 +139,7 @@ CustomProcedures.propTypes = {
     onCancel: PropTypes.func.isRequired,
     onOk: PropTypes.func.isRequired,
     onToggleWarp: PropTypes.func.isRequired,
-    warp: PropTypes.bool.isRequired
+    warp: PropTypes.bool.isRequired,
 };
 
 export default CustomProcedures;

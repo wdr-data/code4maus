@@ -7,18 +7,18 @@ import ErrorBoundary from '../containers/error-boundary.jsx';
  * @param {string} action - Label for GA tracking of errors.
  * @returns {function} a function that accepts a component to wrap.
  */
-const ErrorBoundaryHOC = function (action){
+const ErrorBoundaryHOC = function(action) {
     /**
      * The function to be called with a React component to wrap it.
      * @param {React.Component} WrappedComponent - Component to wrap with an error boundary.
      * @returns {React.Component} the component wrapped with an error boundary.
      */
-    return function (WrappedComponent) {
-        const ErrorBoundaryWrapper = props => (
+    return function(WrappedComponent) {
+        const ErrorBoundaryWrapper = (props) =>
             <ErrorBoundary action={action}>
                 <WrappedComponent {...props} />
             </ErrorBoundary>
-        );
+        ;
         return ErrorBoundaryWrapper;
     };
 };

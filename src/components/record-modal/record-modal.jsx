@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Box from '../box/box.jsx';
-import {defineMessages, injectIntl, intlShape} from 'react-intl';
+import { defineMessages, injectIntl, intlShape } from 'react-intl';
 import RecordingStep from '../../containers/recording-step.jsx';
 import PlaybackStep from '../../containers/playback-step.jsx';
 import Modal from '../modal/modal.jsx';
@@ -11,18 +11,18 @@ const messages = defineMessages({
     title: {
         defaultMessage: 'Record Sound',
         description: 'Recording modal title',
-        id: 'gui.recordModal.title'
-    }
+        id: 'gui.recordModal.title',
+    },
 });
 
-const RecordModal = props => (
+const RecordModal = (props) =>
     <Modal
         className={styles.modalContent}
         contentLabel={props.intl.formatMessage(messages.title)}
         onRequestClose={props.onCancel}
     >
         <Box className={styles.body}>
-            {props.samples ? (
+            {props.samples ?
                 <PlaybackStep
                     encoding={props.encoding}
                     levels={props.levels}
@@ -40,16 +40,16 @@ const RecordModal = props => (
                     onStopPlaying={props.onStopPlaying}
                     onSubmit={props.onSubmit}
                 />
-            ) : (
+                :
                 <RecordingStep
                     recording={props.recording}
                     onRecord={props.onRecord}
                     onStopRecording={props.onStopRecording}
                 />
-            )}
+            }
         </Box>
     </Modal>
-);
+;
 
 RecordModal.propTypes = {
     encoding: PropTypes.bool.isRequired,
@@ -71,7 +71,7 @@ RecordModal.propTypes = {
     sampleRate: PropTypes.number,
     samples: PropTypes.instanceOf(Float32Array),
     trimEnd: PropTypes.number.isRequired,
-    trimStart: PropTypes.number.isRequired
+    trimStart: PropTypes.number.isRequired,
 };
 
 export default injectIntl(RecordModal);

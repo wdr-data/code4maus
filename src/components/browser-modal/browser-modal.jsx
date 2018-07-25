@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactModal from 'react-modal';
 import Box from '../box/box.jsx';
-import {defineMessages, injectIntl, intlShape, FormattedMessage} from 'react-intl';
+import { defineMessages, injectIntl, intlShape, FormattedMessage } from 'react-intl';
 
 import styles from './browser-modal.css';
 
@@ -10,15 +10,15 @@ const messages = defineMessages({
     label: {
         id: 'gui.unsupportedBrowser.label',
         defaultMessage: 'Browser is not supported',
-        description: ''
-    }
+        description: '',
+    },
 });
 
-const BrowserModal = ({intl, ...props}) => (
+const BrowserModal = ({ intl, ...props }) =>
     <ReactModal
         isOpen
         className={styles.modalContent}
-        contentLabel={intl.formatMessage({...messages.label})}
+        contentLabel={intl.formatMessage({ ...messages.label })}
         overlayClassName={styles.modalOverlay}
         onRequestClose={props.onBack}
     >
@@ -57,7 +57,7 @@ const BrowserModal = ({intl, ...props}) => (
                     description="Invitation to try 3.0 preview"
                     id="gui.unsupportedBrowser.previewfaq"
                     values={{
-                        previewFaqLink: (
+                        previewFaqLink:
                             <a
                                 className={styles.faqLink}
                                 href="//scratch.mit.edu/preview-faq"
@@ -67,18 +67,18 @@ const BrowserModal = ({intl, ...props}) => (
                                     description="link to Scratch 3.0 preview FAQ page"
                                     id="gui.unsupportedBrowser.previewfaqlink"
                                 />
-                            </a>
-                        )
+                            </a>,
+
                     }}
                 />
             </div>
         </Box>
     </ReactModal>
-);
+;
 
 BrowserModal.propTypes = {
     intl: intlShape.isRequired,
-    onBack: PropTypes.func.isRequired
+    onBack: PropTypes.func.isRequired,
 };
 
 export default injectIntl(BrowserModal);

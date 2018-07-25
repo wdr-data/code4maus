@@ -1,4 +1,3 @@
-
 const OPEN_MODAL = 'scratch-gui/modals/OPEN_MODAL';
 const CLOSE_MODAL = 'scratch-gui/modals/CLOSE_MODAL';
 
@@ -31,97 +30,99 @@ const initialState = {
     [MODAL_SAVE_PROJECT]: false,
 };
 
-const reducer = function (state, action) {
-    if (typeof state === 'undefined') state = initialState;
+const reducer = function(state, action) {
+    if (typeof state === 'undefined') {
+        state = initialState;
+    }
     switch (action.type) {
     case OPEN_MODAL:
         return Object.assign({}, state, {
-            [action.modal]: true
+            [action.modal]: true,
         });
     case CLOSE_MODAL:
         return Object.assign({}, state, {
-            [action.modal]: false
+            [action.modal]: false,
         });
     default:
         return state;
     }
 };
-const openModal = function (modal) {
+const openModal = function(modal) {
     return {
         type: OPEN_MODAL,
-        modal: modal
+        modal: modal,
     };
 };
-const closeModal = function (modal) {
+const closeModal = function(modal) {
     return {
         type: CLOSE_MODAL,
-        modal: modal
+        modal: modal,
     };
 };
-const openBackdropLibrary = function () {
+const openBackdropLibrary = function() {
     return openModal(MODAL_BACKDROP_LIBRARY);
 };
-const openCameraCapture = function () {
+const openCameraCapture = function() {
     return openModal(MODAL_CAMERA_CAPTURE);
 };
-const openCostumeLibrary = function () {
+const openCostumeLibrary = function() {
     return openModal(MODAL_COSTUME_LIBRARY);
 };
-const openExtensionLibrary = function () {
+const openExtensionLibrary = function() {
     return openModal(MODAL_EXTENSION_LIBRARY);
 };
-const openImportInfo = function () {
+const openImportInfo = function() {
     return openModal(MODAL_IMPORT_INFO);
 };
-const openLoadingProject = function () {
+const openLoadingProject = function() {
     return openModal(MODAL_LOADING_PROJECT);
 };
-const openPreviewInfo = function () {
+const openPreviewInfo = function() {
     return openModal(MODAL_PREVIEW_INFO);
 };
-const openSoundLibrary = function () {
+const openSoundLibrary = function() {
     return openModal(MODAL_SOUND_LIBRARY);
 };
-const openSpriteLibrary = function () {
+const openSpriteLibrary = function() {
     return openModal(MODAL_SPRITE_LIBRARY);
 };
-const openSoundRecorder = function () {
+const openSoundRecorder = function() {
     return openModal(MODAL_SOUND_RECORDER);
 };
-const openSaveProject = function () {
+const openSaveProject = function() {
     return openModal(MODAL_SAVE_PROJECT);
 };
-const closeBackdropLibrary = function () {
+const closeBackdropLibrary = function() {
     return closeModal(MODAL_BACKDROP_LIBRARY);
 };
-const closeCameraCapture = function () {
+const closeCameraCapture = function() {
     return closeModal(MODAL_CAMERA_CAPTURE);
 };
-const closeCostumeLibrary = function () {
+const closeCostumeLibrary = function() {
     return closeModal(MODAL_COSTUME_LIBRARY);
 };
-const closeExtensionLibrary = function () {
+const closeExtensionLibrary = function() {
     return closeModal(MODAL_EXTENSION_LIBRARY);
 };
-const closeImportInfo = function () {
+const closeImportInfo = function() {
     return closeModal(MODAL_IMPORT_INFO);
 };
-const closeLoadingProject = function () {
+const closeLoadingProject = function() {
     return closeModal(MODAL_LOADING_PROJECT);
 };
-const closePreviewInfo = function () {
+const closePreviewInfo = function() {
     return closeModal(MODAL_PREVIEW_INFO);
 };
-const closeSpriteLibrary = function () {
+const closeSpriteLibrary = function() {
     return closeModal(MODAL_SPRITE_LIBRARY);
 };
-const closeSoundLibrary = function () {
+const closeSoundLibrary = function() {
     return closeModal(MODAL_SOUND_LIBRARY);
 };
-const closeSoundRecorder = function () {
+const closeSoundRecorder = function() {
     return closeModal(MODAL_SOUND_RECORDER);
 };
-const closeSaveProject = function () {
+const closeSaveProject = function() {
     return closeModal(MODAL_SAVE_PROJECT);
 };
 export {

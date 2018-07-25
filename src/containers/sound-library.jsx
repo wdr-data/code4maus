@@ -1,7 +1,7 @@
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {defineMessages, injectIntl, intlShape} from 'react-intl';
+import { defineMessages, injectIntl, intlShape } from 'react-intl';
 import VM from '@wdr-data/scratch-vm';
 import AudioEngine from 'scratch-audio';
 
@@ -16,63 +16,63 @@ const messages = defineMessages({
     libraryTitle: {
         defaultMessage: 'Choose a Sound',
         description: 'Heading for the sound library',
-        id: 'gui.soundLibrary.chooseASound'
-    }
+        id: 'gui.soundLibrary.chooseASound',
+    },
 });
 
 class SoundLibrary extends React.PureComponent {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleItemSelected',
             'handleItemMouseEnter',
-            'handleItemMouseLeave'
+            'handleItemMouseLeave',
         ]);
     }
-    componentDidMount () {
+    componentDidMount() {
         this.audioEngine = new AudioEngine();
         this.player = this.audioEngine.createPlayer();
     }
-    componentWillUnmount () {
+    componentWillUnmount() {
         this.player.stopAllSounds();
     }
-    handleItemMouseEnter (soundItem) {
+    handleItemMouseEnter(soundItem) {
         const md5ext = soundItem._md5;
         const idParts = md5ext.split('.');
         const md5 = idParts[0];
         const vm = this.props.vm;
         vm.runtime.storage.load(vm.runtime.storage.AssetType.Sound, md5)
-            .then(soundAsset => {
+            .then((soundAsset) => {
                 const sound = {
                     md5: md5ext,
                     name: soundItem.name,
                     format: soundItem.format,
-                    data: soundAsset.data
+                    data: soundAsset.data,
                 };
                 return this.audioEngine.decodeSound(sound);
             })
-            .then(soundId => {
+            .then((soundId) => {
                 this.player.playSound(soundId);
             });
     }
-    handleItemMouseLeave () {
+    handleItemMouseLeave() {
         this.player.stopAllSounds();
     }
-    handleItemSelected (soundItem) {
+    handleItemSelected(soundItem) {
         const vmSound = {
             format: soundItem.format,
             md5: soundItem._md5,
             rate: soundItem.rate,
             sampleCount: soundItem.sampleCount,
-            name: soundItem.name
+            name: soundItem.name,
         };
         this.props.vm.addSound(vmSound).then(() => {
             this.props.onNewSound();
         });
     }
-    render () {
+    render() {
         // @todo need to use this hack to avoid library using md5 for image
-        const soundLibraryThumbnailData = soundLibraryContent.map(sound => {
+        const soundLibraryThumbnailData = soundLibraryContent.map((sound) => {
             const {
                 md5,
                 ...otherData
@@ -80,7 +80,7 @@ class SoundLibrary extends React.PureComponent {
             return {
                 _md5: md5,
                 rawURL: soundIcon,
-                ...otherData
+                ...otherData,
             };
         });
 
@@ -103,7 +103,7 @@ SoundLibrary.propTypes = {
     intl: intlShape.isRequired,
     onNewSound: PropTypes.func.isRequired,
     onRequestClose: PropTypes.func,
-    vm: PropTypes.instanceOf(VM).isRequired
+    vm: PropTypes.instanceOf(VM).isRequired,
 };
 
 export default injectIntl(SoundLibrary);

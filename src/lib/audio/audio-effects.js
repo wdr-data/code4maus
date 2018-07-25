@@ -9,14 +9,14 @@ const effectTypes = {
     SOFTER: 'lower',
     FASTER: 'faster',
     SLOWER: 'slower',
-    ECHO: 'echo'
+    ECHO: 'echo',
 };
 
 class AudioEffects {
-    static get effectTypes () {
+    static get effectTypes() {
         return effectTypes;
     }
-    constructor (buffer, name) {
+    constructor(buffer, name) {
         // Some effects will modify the playback rate and/or number of samples.
         // Need to precompute those values to create the offline audio context.
         const pitchRatio = Math.pow(2, 4 / 12); // A major third
@@ -24,7 +24,7 @@ class AudioEffects {
         let playbackRate = 1;
         switch (name) {
         case effectTypes.ECHO:
-            sampleCount = buffer.length + (0.25 * 3 * buffer.sampleRate);
+            sampleCount = buffer.length + 0.25 * 3 * buffer.sampleRate;
             break;
         case effectTypes.FASTER:
             playbackRate = pitchRatio;
@@ -52,22 +52,22 @@ class AudioEffects {
         this.source.playbackRate.value = playbackRate;
         this.name = name;
     }
-    process (done) {
+    process(done) {
         // Some effects need to use more nodes and must expose an input and output
         let input;
         let output;
         switch (this.name) {
         case effectTypes.LOUDER:
-            ({input, output} = new VolumeEffect(this.audioContext, 1.25));
+            ({ input, output } = new VolumeEffect(this.audioContext, 1.25));
             break;
         case effectTypes.SOFTER:
-            ({input, output} = new VolumeEffect(this.audioContext, 0.75));
+            ({ input, output } = new VolumeEffect(this.audioContext, 0.75));
             break;
         case effectTypes.ECHO:
-            ({input, output} = new EchoEffect(this.audioContext, 0.25));
+            ({ input, output } = new EchoEffect(this.audioContext, 0.25));
             break;
         case effectTypes.ROBOT:
-            ({input, output} = new RobotEffect(this.audioContext, 0.25));
+            ({ input, output } = new RobotEffect(this.audioContext, 0.25));
             break;
         }
 

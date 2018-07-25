@@ -5,7 +5,7 @@ import React from 'react';
 import greenFlagIcon from './play@2x.png';
 import styles from './green-flag.css';
 
-const GreenFlagComponent = function (props) {
+const GreenFlagComponent = function(props) {
     const {
         active,
         className,
@@ -19,7 +19,7 @@ const GreenFlagComponent = function (props) {
                 className,
                 styles.greenFlag,
                 {
-                    [styles.isActive]: active
+                    [styles.isActive]: active,
                 }
             )}
             draggable={false}
@@ -34,10 +34,10 @@ GreenFlagComponent.propTypes = {
     active: PropTypes.bool,
     className: PropTypes.string,
     onClick: PropTypes.func.isRequired,
-    title: PropTypes.string
+    title: PropTypes.string,
 };
 GreenFlagComponent.defaultProps = {
     active: false,
-    title: 'Go'
+    title: 'Go',
 };
 export default GreenFlagComponent;

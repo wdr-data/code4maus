@@ -10,7 +10,9 @@ const getVariable = (vm, targetId, variableId) => {
 const getVariableValue = (vm, targetId, variableId) => {
     const variable = getVariable(vm, targetId, variableId);
     // If array, return a new copy for mutating, ensuring that updates stay immutable.
-    if (variable.value instanceof Array) return variable.value.slice();
+    if (variable.value instanceof Array) {
+        return variable.value.slice();
+    }
     return variable.value;
 };
 
@@ -20,5 +22,5 @@ const setVariableValue = (vm, targetId, variableId, value) => {
 
 export {
     getVariableValue,
-    setVariableValue
+    setVariableValue,
 };

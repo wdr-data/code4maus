@@ -6,34 +6,34 @@ import VM from '@wdr-data/scratch-vm';
 import StopAllComponent from '../components/stop-all/stop-all.jsx';
 
 class StopAll extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleClick',
             'onProjectRunStart',
-            'onProjectRunStop'
+            'onProjectRunStop',
         ]);
-        this.state = {projectRunning: false};
+        this.state = { projectRunning: false };
     }
-    componentDidMount () {
+    componentDidMount() {
         this.props.vm.addListener('PROJECT_RUN_START', this.onProjectRunStart);
         this.props.vm.addListener('PROJECT_RUN_STOP', this.onProjectRunStop);
     }
-    componentWillUnmount () {
+    componentWillUnmount() {
         this.props.vm.removeListener('PROJECT_RUN_START', this.onProjectRunStart);
         this.props.vm.removeListener('PROJECT_RUN_STOP', this.onProjectRunStop);
     }
-    onProjectRunStart () {
-        this.setState({projectRunning: true});
+    onProjectRunStart() {
+        this.setState({ projectRunning: true });
     }
-    onProjectRunStop () {
-        this.setState({projectRunning: false});
+    onProjectRunStop() {
+        this.setState({ projectRunning: false });
     }
-    handleClick (e) {
+    handleClick(e) {
         e.preventDefault();
         this.props.vm.stopAll();
     }
-    render () {
+    render() {
         const {
             vm, // eslint-disable-line no-unused-vars
             ...props
@@ -49,7 +49,7 @@ class StopAll extends React.Component {
 }
 
 StopAll.propTypes = {
-    vm: PropTypes.instanceOf(VM)
+    vm: PropTypes.instanceOf(VM),
 };
 
 export default StopAll;

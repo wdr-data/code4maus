@@ -1,5 +1,5 @@
 class VolumeEffect {
-    constructor (audioContext, volume) {
+    constructor(audioContext, volume) {
         this.audioContext = audioContext;
 
         this.input = this.audioContext.createGain();

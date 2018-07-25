@@ -7,7 +7,7 @@ const {
     findByXpath,
     getDriver,
     getLogs,
-    loadUri
+    loadUri,
 } = new SeleniumHelper();
 
 const uri = path.resolve(__dirname, '../../build/index.html');
@@ -31,7 +31,6 @@ describe('Loading scratch gui', () => {
     });
 
     describe('Loading projects by ID', () => {
-
         test('Load 2.0 project using import modal', async () => {
             await loadUri(uri);
             await clickText('View 2.0 Project');

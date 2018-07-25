@@ -3,11 +3,11 @@ import classNames from 'classnames';
 import Box from '../box/box.jsx';
 import Monitor from '../../containers/monitor.jsx';
 import PropTypes from 'prop-types';
-import {OrderedMap} from 'immutable';
+import { OrderedMap } from 'immutable';
 
 import styles from './monitor-list.css';
 
-const stageSizeToTransform = ({width, height, widthDefault, heightDefault}) => {
+const stageSizeToTransform = ({ width, height, widthDefault, heightDefault }) => {
     const scaleX = width / widthDefault;
     const scaleY = height / heightDefault;
     if (scaleX === 1 && scaleY === 1) {
@@ -15,24 +15,24 @@ const stageSizeToTransform = ({width, height, widthDefault, heightDefault}) => {
         // it messes up `position: fixed` elements like the context menu.
         return;
     }
-    return {transform: `scale(${scaleX},${scaleY})`};
+    return { transform: `scale(${scaleX},${scaleY})` };
 };
 
-const MonitorList = props => (
+const MonitorList = (props) =>
     <Box
         // Use static `monitor-overlay` class for bounds of draggables
         className={classNames(styles.monitorList, 'monitor-overlay')}
         style={{
             width: props.stageSize.width,
-            height: props.stageSize.height
+            height: props.stageSize.height,
         }}
     >
         <Box
             className={styles.monitorListScaler}
             style={stageSizeToTransform(props.stageSize)}
         >
-            {props.monitors.valueSeq().filter(m => m.visible)
-                .map(monitorData => (
+            {props.monitors.valueSeq().filter((m) => m.visible)
+                .map((monitorData) =>
                     <Monitor
                         draggable={props.draggable}
                         height={monitorData.height}
@@ -51,10 +51,10 @@ const MonitorList = props => (
                         y={monitorData.y}
                         onDragEnd={props.onMonitorChange}
                     />
-                ))}
+                )}
         </Box>
     </Box>
-);
+;
 
 MonitorList.propTypes = {
     draggable: PropTypes.bool.isRequired,
@@ -64,8 +64,8 @@ MonitorList.propTypes = {
         width: PropTypes.number,
         height: PropTypes.number,
         widthDefault: PropTypes.number,
-        heightDefault: PropTypes.number
-    }).isRequired
+        heightDefault: PropTypes.number,
+    }).isRequired,
 };
 
 export default MonitorList;

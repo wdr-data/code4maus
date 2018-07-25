@@ -6,7 +6,7 @@ const {
     clickXpath,
     getDriver,
     getLogs,
-    loadUri
+    loadUri,
 } = new SeleniumHelper();
 
 const uri = path.resolve(__dirname, '../../build/index.html');

@@ -5,41 +5,49 @@ import React from 'react';
 import MenuComponent from '../components/menu/menu.jsx';
 
 class Menu extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'addListeners',
             'removeListeners',
             'handleClick',
-            'ref'
+            'ref',
         ]);
-        if (props.open) this.addListeners();
+        if (props.open) {
+            this.addListeners();
+        }
     }
-    componentDidUpdate (prevProps) {
-        if (this.props.open && !prevProps.open) this.addListeners();
-        if (!this.props.open && prevProps.open) this.removeListeners();
+    componentDidUpdate(prevProps) {
+        if (this.props.open && !prevProps.open) {
+            this.addListeners();
+        }
+        if (!this.props.open && prevProps.open) {
+            this.removeListeners();
+        }
     }
-    addListeners () {
+    addListeners() {
         document.addEventListener('mouseup', this.handleClick);
     }
-    removeListeners () {
+    removeListeners() {
         document.removeEventListener('mouseup', this.handleClick);
     }
-    handleClick (e) {
+    handleClick(e) {
         if (this.props.open && !this.menu.contains(e.target)) {
             this.props.onRequestClose();
         }
     }
-    ref (c) {
+    ref(c) {
         this.menu = c;
     }
-    render () {
+    render() {
         const {
             open,
             children,
             ...props
         } = this.props;
-        if (!open) return null;
+        if (!open) {
+            return null;
+        }
         return (
             <MenuComponent
                 componentRef={this.ref}
@@ -54,7 +62,7 @@ class Menu extends React.Component {
 Menu.propTypes = {
     children: PropTypes.node,
     onRequestClose: PropTypes.func.isRequired,
-    open: PropTypes.bool.isRequired
+    open: PropTypes.bool.isRequired,
 };
 
 export default Menu;

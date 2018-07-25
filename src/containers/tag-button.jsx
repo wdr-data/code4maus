@@ -5,16 +5,14 @@ import React from 'react';
 import TagButtonComponent from '../components/tag-button/tag-button.jsx';
 
 class TagButton extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
-        bindAll(this, [
-            'handleClick'
-        ]);
+        bindAll(this, [ 'handleClick' ]);
     }
-    handleClick () {
+    handleClick() {
         this.props.onClick(this.props.title);
     }
-    render () {
+    render() {
         return (
             <TagButtonComponent
                 {...this.props}
@@ -29,8 +27,8 @@ TagButton.propTypes = {
     onClick: PropTypes.func,
     title: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.object
-    ]).isRequired
+        PropTypes.object,
+    ]).isRequired,
 };
 
 export default TagButton;

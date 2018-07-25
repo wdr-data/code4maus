@@ -4,7 +4,7 @@ import Box from '../box/box.jsx';
 import Waveform from '../waveform/waveform.jsx';
 import Meter from '../meter/meter.jsx';
 import AudioTrimmer from '../../containers/audio-trimmer.jsx';
-import {defineMessages, injectIntl, intlShape} from 'react-intl';
+import { defineMessages, injectIntl, intlShape } from 'react-intl';
 
 import styles from './record-modal.css';
 import backIcon from './icon--back.svg';
@@ -15,31 +15,31 @@ const messages = defineMessages({
     stopMsg: {
         defaultMessage: 'Stop',
         description: 'Stop/Play button in recording playback',
-        id: 'gui.playbackStep.stopMsg'
+        id: 'gui.playbackStep.stopMsg',
     },
     playMsg: {
         defaultMessage: 'Play',
         description: 'Stop/Play button in recording playback',
-        id: 'gui.playbackStep.playMsg'
+        id: 'gui.playbackStep.playMsg',
     },
     loadingMsg: {
         defaultMessage: 'Loading...',
         description: 'Loading/Save button in recording playback',
-        id: 'gui.playbackStep.loadingMsg'
+        id: 'gui.playbackStep.loadingMsg',
     },
     saveMsg: {
         defaultMessage: 'Save',
         description: 'Loading/Save button in recording playback',
-        id: 'gui.playbackStep.saveMsg'
+        id: 'gui.playbackStep.saveMsg',
     },
     reRecordMsg: {
         defaultMessage: 'Re-record',
         description: 'Button to re-record sound in recording playback',
-        id: 'gui.playbackStep.reRecordMsg'
-    }
+        id: 'gui.playbackStep.reRecordMsg',
+    },
 });
 
-const PlaybackStep = props => (
+const PlaybackStep = (props) =>
     <Box>
         <Box className={styles.visualizationContainer}>
 
@@ -108,7 +108,7 @@ const PlaybackStep = props => (
             </button>
         </Box>
     </Box>
-);
+;
 
 PlaybackStep.propTypes = {
     encoding: PropTypes.bool.isRequired,
@@ -123,7 +123,7 @@ PlaybackStep.propTypes = {
     playhead: PropTypes.number,
     playing: PropTypes.bool.isRequired,
     trimEnd: PropTypes.number.isRequired,
-    trimStart: PropTypes.number.isRequired
+    trimStart: PropTypes.number.isRequired,
 };
 
 export default injectIntl(PlaybackStep);

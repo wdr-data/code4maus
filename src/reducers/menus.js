@@ -7,38 +7,40 @@ const MENU_EDIT = 'editMenu';
 
 const initialState = {
     [MENU_FILE]: false,
-    [MENU_EDIT]: false
+    [MENU_EDIT]: false,
 };
 
-const reducer = function (state, action) {
-    if (typeof state === 'undefined') state = initialState;
+const reducer = function(state, action) {
+    if (typeof state === 'undefined') {
+        state = initialState;
+    }
     switch (action.type) {
     case OPEN_MENU:
         return Object.assign({}, state, {
-            [action.menu]: true
+            [action.menu]: true,
         });
     case CLOSE_MENU:
         return Object.assign({}, state, {
-            [action.menu]: false
+            [action.menu]: false,
         });
     default:
         return state;
     }
 };
-const openMenu = menu => ({
+const openMenu = (menu) => ({
     type: OPEN_MENU,
-    menu: menu
+    menu: menu,
 });
-const closeMenu = menu => ({
+const closeMenu = (menu) => ({
     type: CLOSE_MENU,
-    menu: menu
+    menu: menu,
 });
 const openFileMenu = () => openMenu(MENU_FILE);
 const closeFileMenu = () => closeMenu(MENU_FILE);
-const fileMenuOpen = state => state.scratchGui.menus[MENU_FILE];
+const fileMenuOpen = (state) => state.scratchGui.menus[MENU_FILE];
 const openEditMenu = () => openMenu(MENU_EDIT);
 const closeEditMenu = () => closeMenu(MENU_EDIT);
-const editMenuOpen = state => state.scratchGui.menus[MENU_EDIT];
+const editMenuOpen = (state) => state.scratchGui.menus[MENU_EDIT];
 
 export {
     reducer as default,
@@ -48,5 +50,5 @@ export {
     openEditMenu,
     closeEditMenu,
     fileMenuOpen,
-    editMenuOpen
+    editMenuOpen,
 };

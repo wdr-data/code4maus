@@ -16,30 +16,32 @@ const initialState = {
     step: 0,
     x: 292,
     y: 365,
-    dragging: false
+    dragging: false,
 };
 
-const reducer = function (state, action) {
-    if (typeof state === 'undefined') state = initialState;
+const reducer = function(state, action) {
+    if (typeof state === 'undefined') {
+        state = initialState;
+    }
     switch (action.type) {
     case CLOSE_CARDS:
         return Object.assign({}, state, {
-            visible: false
+            visible: false,
         });
     case VIEW_CARDS:
         return Object.assign({}, state, {
-            visible: true
+            visible: true,
         });
     case ACTIVATE_DECK:
         return Object.assign({}, state, {
             activeDeckId: action.activeDeckId,
             step: 0,
-            visible: true
+            visible: true,
         });
     case NEXT_STEP:
         if (state.activeDeckId !== null) {
             return Object.assign({}, state, {
-                step: state.step + 1
+                step: state.step + 1,
             });
         }
         return state;
@@ -47,7 +49,7 @@ const reducer = function (state, action) {
         if (state.activeDeckId !== null) {
             if (state.step > 0) {
                 return Object.assign({}, state, {
-                    step: state.step - 1
+                    step: state.step - 1,
                 });
             }
         }
@@ -55,54 +57,54 @@ const reducer = function (state, action) {
     case DRAG_CARD:
         return Object.assign({}, state, {
             x: action.x,
-            y: action.y
+            y: action.y,
         });
     case START_DRAG:
         return Object.assign({}, state, {
-            dragging: true
+            dragging: true,
         });
     case END_DRAG:
         return Object.assign({}, state, {
-            dragging: false
+            dragging: false,
         });
     default:
         return state;
     }
 };
 
-const activateDeck = function (activeDeckId) {
+const activateDeck = function(activeDeckId) {
     return {
         type: ACTIVATE_DECK,
-        activeDeckId
+        activeDeckId,
     };
 };
 
-const viewCards = function () {
-    return {type: VIEW_CARDS};
+const viewCards = function() {
+    return { type: VIEW_CARDS };
 };
 
-const closeCards = function () {
-    return {type: CLOSE_CARDS};
+const closeCards = function() {
+    return { type: CLOSE_CARDS };
 };
 
-const nextStep = function () {
-    return {type: NEXT_STEP};
+const nextStep = function() {
+    return { type: NEXT_STEP };
 };
 
-const prevStep = function () {
-    return {type: PREV_STEP};
+const prevStep = function() {
+    return { type: PREV_STEP };
 };
 
-const dragCard = function (x, y) {
-    return {type: DRAG_CARD, x, y};
+const dragCard = function(x, y) {
+    return { type: DRAG_CARD, x, y };
 };
 
-const startDrag = function () {
-    return {type: START_DRAG};
+const startDrag = function() {
+    return { type: START_DRAG };
 };
 
-const endDrag = function () {
-    return {type: END_DRAG};
+const endDrag = function() {
+    return { type: END_DRAG };
 };
 
 export {
@@ -115,5 +117,5 @@ export {
     prevStep,
     dragCard,
     startDrag,
-    endDrag
+    endDrag,
 };

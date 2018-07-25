@@ -10,10 +10,10 @@ import Stage from '../../containers/stage.jsx';
 
 import styles from './stage-wrapper.css';
 
-const StageWrapperComponent = function (props) {
+const StageWrapperComponent = function(props) {
     const {
         isRendererSupported,
-        vm
+        vm,
     } = props;
 
     const height = (window.innerHeight - layout.topBarHeight - layout.stageHeaderHeight - 8) / 2;
@@ -25,9 +25,9 @@ const StageWrapperComponent = function (props) {
             <Box className={styles.stageCanvasWrapper}>
                 <Stage
                     height={height}
-                    width={width}
                     shrink={0}
                     vm={vm}
+                    width={width}
                 />
             </Box>
         </Box>
@@ -36,7 +36,7 @@ const StageWrapperComponent = function (props) {
 
 StageWrapperComponent.propTypes = {
     isRendererSupported: PropTypes.bool.isRequired,
-    vm: PropTypes.instanceOf(VM).isRequired
+    vm: PropTypes.instanceOf(VM).isRequired,
 };
 
 export default StageWrapperComponent;

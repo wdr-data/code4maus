@@ -1,18 +1,18 @@
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
-import {setHoveredSprite} from '../reducers/hovered-target';
-import {updateAssetDrag} from '../reducers/asset-drag';
-import {getEventXY} from '../lib/touch-utils';
+import { setHoveredSprite } from '../reducers/hovered-target';
+import { updateAssetDrag } from '../reducers/asset-drag';
+import { getEventXY } from '../lib/touch-utils';
 
 import SpriteSelectorItemComponent from '../components/sprite-selector-item/sprite-selector-item.jsx';
 
 const dragThreshold = 3; // Same as the block drag threshold
 
 class SpriteSelectorItem extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleClick',
@@ -22,10 +22,10 @@ class SpriteSelectorItem extends React.Component {
             'handleMouseLeave',
             'handleMouseDown',
             'handleMouseMove',
-            'handleMouseUp'
+            'handleMouseUp',
         ]);
     }
-    handleMouseUp () {
+    handleMouseUp() {
         this.initialOffset = null;
         window.removeEventListener('mouseup', this.handleMouseUp);
         window.removeEventListener('mousemove', this.handleMouseMove);
@@ -34,34 +34,34 @@ class SpriteSelectorItem extends React.Component {
         this.props.onDrag({
             img: null,
             currentOffset: null,
-            dragging: false
+            dragging: false,
         });
     }
-    handleMouseMove (e) {
+    handleMouseMove(e) {
         const currentOffset = getEventXY(e);
         const dx = currentOffset.x - this.initialOffset.x;
         const dy = currentOffset.y - this.initialOffset.y;
-        if (Math.sqrt((dx * dx) + (dy * dy)) > dragThreshold) {
+        if (Math.sqrt(dx * dx + dy * dy) > dragThreshold) {
             this.props.onDrag({
                 img: this.props.costumeURL,
                 currentOffset: currentOffset,
-                dragging: true
+                dragging: true,
             });
         }
         e.preventDefault();
     }
-    handleMouseDown (e) {
+    handleMouseDown(e) {
         this.initialOffset = getEventXY(e);
         window.addEventListener('mouseup', this.handleMouseUp);
         window.addEventListener('mousemove', this.handleMouseMove);
         window.addEventListener('touchend', this.handleMouseUp);
         window.addEventListener('touchmove', this.handleMouseMove);
     }
-    handleClick (e) {
+    handleClick(e) {
         e.preventDefault();
         this.props.onClick(this.props.id);
     }
-    handleDelete (e) {
+    handleDelete(e) {
         e.stopPropagation(); // To prevent from bubbling back to handleClick
         // @todo add i18n here
         // eslint-disable-next-line no-alert
@@ -69,17 +69,17 @@ class SpriteSelectorItem extends React.Component {
             this.props.onDeleteButtonClick(this.props.id);
         }
     }
-    handleDuplicate (e) {
+    handleDuplicate(e) {
         e.stopPropagation(); // To prevent from bubbling back to handleClick
         this.props.onDuplicateButtonClick(this.props.id);
     }
-    handleMouseLeave () {
+    handleMouseLeave() {
         this.props.dispatchSetHoveredSprite(null);
     }
-    handleMouseEnter () {
+    handleMouseEnter() {
         this.props.dispatchSetHoveredSprite(this.props.id);
     }
-    render () {
+    render() {
         const {
             /* eslint-disable no-unused-vars */
             assetId,
@@ -109,27 +109,27 @@ SpriteSelectorItem.propTypes = {
     assetId: PropTypes.string,
     costumeURL: PropTypes.string,
     dispatchSetHoveredSprite: PropTypes.func.isRequired,
-    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    id: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
     name: PropTypes.string,
     onClick: PropTypes.func,
     onDeleteButtonClick: PropTypes.func,
     onDrag: PropTypes.func.isRequired,
     onDuplicateButtonClick: PropTypes.func,
     receivedBlocks: PropTypes.bool.isRequired,
-    selected: PropTypes.bool
+    selected: PropTypes.bool,
 };
 
-const mapStateToProps = (state, {assetId, costumeURL, id}) => ({
-    costumeURL: costumeURL || (assetId && state.scratchGui.vm.runtime.storage.get(assetId).encodeDataURI()),
+const mapStateToProps = (state, { assetId, costumeURL, id }) => ({
+    costumeURL: costumeURL || assetId && state.scratchGui.vm.runtime.storage.get(assetId).encodeDataURI(),
     dragging: state.scratchGui.assetDrag.dragging,
     receivedBlocks: state.scratchGui.hoveredTarget.receivedBlocks &&
-            state.scratchGui.hoveredTarget.sprite === id
+            state.scratchGui.hoveredTarget.sprite === id,
 });
-const mapDispatchToProps = dispatch => ({
-    dispatchSetHoveredSprite: spriteId => {
+const mapDispatchToProps = (dispatch) => ({
+    dispatchSetHoveredSprite: (spriteId) => {
         dispatch(setHoveredSprite(spriteId));
     },
-    onDrag: data => dispatch(updateAssetDrag(data))
+    onDrag: (data) => dispatch(updateAssetDrag(data)),
 });
 
 export default connect(

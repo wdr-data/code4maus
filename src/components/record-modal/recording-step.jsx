@@ -7,7 +7,7 @@ import Waveform from '../waveform/waveform.jsx';
 import styles from './record-modal.css';
 import stopIcon from './icon--stop-recording.svg';
 
-const RecordingStep = props => (
+const RecordingStep = (props) =>
     <Box>
         <Box className={styles.visualizationContainer}>
             <Box className={styles.meterContainer}>
@@ -18,19 +18,19 @@ const RecordingStep = props => (
                 />
             </Box>
             <Box className={styles.waveformContainer}>
-                {props.levels ? (
+                {props.levels ?
                     <Waveform
                         data={props.levels}
                         height={150}
                         level={0}
                         width={440}
                     />
-                ) : (
+                    :
                     <span className={styles.helpText}>
                         {props.listening ? 'Begin recording by clicking the button below' :
                             '↖️ \u00A0We need your permission to use your microphone'}
                     </span>
-                )}
+                }
             </Box>
         </Box>
         <Box className={styles.mainButtonRow}>
@@ -39,12 +39,12 @@ const RecordingStep = props => (
                 disabled={!props.listening}
                 onClick={props.recording ? props.onStopRecording : props.onRecord}
             >
-                {props.recording ? (
+                {props.recording ?
                     <img
                         draggable={false}
                         src={stopIcon}
                     />
-                ) : (
+                    :
                     <svg
                         className={styles.recordButton}
                         height="52"
@@ -60,10 +60,10 @@ const RecordingStep = props => (
                             className={styles.recordButtonCircleOutline}
                             cx="26"
                             cy="26"
-                            r={27 + (props.level * 5)}
+                            r={27 + props.level * 5}
                         />
                     </svg>
-                )}
+                }
                 <div className={styles.helpText}>
                     <span className={styles.recordingText}>
                         {props.recording ? 'Stop recording' : 'Record'}
@@ -72,7 +72,7 @@ const RecordingStep = props => (
             </button>
         </Box>
     </Box>
-);
+;
 
 RecordingStep.propTypes = {
     level: PropTypes.number,
@@ -80,7 +80,7 @@ RecordingStep.propTypes = {
     listening: PropTypes.bool,
     onRecord: PropTypes.func.isRequired,
     onStopRecording: PropTypes.func.isRequired,
-    recording: PropTypes.bool
+    recording: PropTypes.bool,
 };
 
 export default RecordingStep;

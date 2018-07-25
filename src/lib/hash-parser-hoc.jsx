@@ -5,32 +5,32 @@ import bindAll from 'lodash.bindall';
  * @param {React.Component} WrappedComponent component to receive projectData prop
  * @returns {React.Component} component with project loading behavior
  */
-const HashParserHOC = function (WrappedComponent) {
+const HashParserHOC = function(WrappedComponent) {
     class HashParserComponent extends React.Component {
-        constructor (props) {
+        constructor(props) {
             super(props);
-            bindAll(this, [
-                'handleHashChange'
-            ]);
+            bindAll(this, [ 'handleHashChange' ]);
             this.state = {
-                projectId: null
+                projectId: null,
             };
         }
-        componentDidMount () {
+        componentDidMount() {
             window.addEventListener('hashchange', this.handleHashChange);
             this.handleHashChange();
         }
-        componentWillUnmount () {
+        componentWillUnmount() {
             window.removeEventListener('hashchange', this.handleHashChange);
         }
-        handleHashChange () {
+        handleHashChange() {
             let projectId = window.location.hash.substring(1);
             if (projectId !== this.state.projectId) {
-                if (projectId.length < 1) projectId = 0;
-                this.setState({projectId: projectId});
+                if (projectId.length < 1) {
+                    projectId = 0;
+                }
+                this.setState({ projectId: projectId });
             }
         }
-        render () {
+        render() {
             return (
                 <WrappedComponent
                     projectId={this.state.projectId}
@@ -44,5 +44,5 @@ const HashParserHOC = function (WrappedComponent) {
 };
 
 export {
-    HashParserHOC as default
+    HashParserHOC as default,
 };

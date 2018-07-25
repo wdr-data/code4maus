@@ -4,28 +4,28 @@ import classNames from 'classnames';
 import bindAll from 'lodash.bindall';
 
 import styles from './monitor.css';
-import {List} from 'react-virtualized';
+import { List } from 'react-virtualized';
 
 class ListMonitorScroller extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'rowRenderer',
             'noRowsRenderer',
-            'handleEventFactory'
+            'handleEventFactory',
         ]);
     }
-    handleEventFactory (index) {
+    handleEventFactory(index) {
         return () => this.props.onActivate(index);
     }
-    noRowsRenderer () {
+    noRowsRenderer() {
         return (
             <div className={classNames(styles.listRow, styles.listEmpty)}>
                 {'(empty)' /* TODO waiting for design before translation */}
             </div>
         );
     }
-    rowRenderer ({index, key, style}) {
+    rowRenderer({ index, key, style }) {
         return (
             <div
                 className={styles.listRow}
@@ -36,10 +36,10 @@ class ListMonitorScroller extends React.Component {
                 <div
                     className={styles.listValue}
                     dataIndex={index}
-                    style={{background: this.props.categoryColor}}
+                    style={{ background: this.props.categoryColor }}
                     onClick={this.props.draggable ? this.handleEventFactory(index) : null}
                 >
-                    {this.props.draggable && this.props.activeIndex === index ? (
+                    {this.props.draggable && this.props.activeIndex === index ?
                         <div className={styles.inputWrapper}>
                             <input
                                 autoFocus
@@ -61,22 +61,22 @@ class ListMonitorScroller extends React.Component {
                             </div>
                         </div>
 
-                    ) : (
+                        :
                         <div className={styles.valueInner}>{this.props.values[index]}</div>
-                    )}
+                    }
                 </div>
             </div>
         );
     }
-    render () {
-        const {height, values, width, activeIndex, activeValue} = this.props;
+    render() {
+        const { height, values, width, activeIndex, activeValue } = this.props;
         // Keep the active index in view if defined, else must be undefined for List component
         const scrollToIndex = activeIndex === null ? undefined : activeIndex; /* eslint-disable-line no-undefined */
         return (
             <List
                 activeIndex={activeIndex}
                 activeValue={activeValue}
-                height={(height) - 44 /* Header/footer size, approx */}
+                height={height - 44 /* Header/footer size, approx */}
                 noRowsRenderer={this.noRowsRenderer}
                 rowCount={values.length}
                 rowHeight={24 /* Row size is same for all rows */}
@@ -103,8 +103,8 @@ ListMonitorScroller.propTypes = {
     onRemove: PropTypes.func,
     values: PropTypes.arrayOf(PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.number
+        PropTypes.number,
     ])),
-    width: PropTypes.number
+    width: PropTypes.number,
 };
 export default ListMonitorScroller;

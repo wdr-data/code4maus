@@ -1,5 +1,5 @@
 import bindAll from 'lodash.bindall';
-import {FormattedMessage} from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -8,7 +8,7 @@ import styles from './library-item.css';
 import classNames from 'classnames';
 
 class LibraryItem extends React.PureComponent {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleBlur',
@@ -16,47 +16,47 @@ class LibraryItem extends React.PureComponent {
             'handleFocus',
             'handleKeyPress',
             'handleMouseEnter',
-            'handleMouseLeave'
+            'handleMouseLeave',
         ]);
     }
-    handleBlur () {
+    handleBlur() {
         this.props.onBlur(this.props.id);
     }
-    handleFocus () {
+    handleFocus() {
         this.props.onFocus(this.props.id);
     }
-    handleClick (e) {
+    handleClick(e) {
         if (!this.props.disabled) {
             this.props.onSelect(this.props.id);
         }
         e.preventDefault();
     }
-    handleKeyPress (e) {
+    handleKeyPress(e) {
         if (e.key === ' ' || e.key === 'Enter') {
             e.preventDefault();
             this.props.onSelect(this.props.id);
         }
     }
-    handleMouseEnter () {
+    handleMouseEnter() {
         this.props.onMouseEnter(this.props.id);
     }
-    handleMouseLeave () {
+    handleMouseLeave() {
         this.props.onMouseLeave(this.props.id);
     }
-    render () {
-        return this.props.featured ? (
+    render() {
+        return this.props.featured ?
             <div
                 className={classNames(
                     styles.libraryItem,
                     styles.featuredItem,
                     {
-                        [styles.disabled]: this.props.disabled
+                        [styles.disabled]: this.props.disabled,
                     }
                 )}
                 onClick={this.handleClick}
             >
                 <div className={styles.featuredImageContainer}>
-                    {this.props.disabled ? (
+                    {this.props.disabled ?
                         <div className={styles.comingSoonText}>
                             <FormattedMessage
                                 defaultMessage="Coming Soon"
@@ -64,7 +64,7 @@ class LibraryItem extends React.PureComponent {
                                 id="gui.extensionLibrary.comingSoon"
                             />
                         </div>
-                    ) : null}
+                        : null}
                     <img
                         className={styles.featuredImage}
                         src={this.props.iconURL}
@@ -78,7 +78,7 @@ class LibraryItem extends React.PureComponent {
                     <span className={styles.featuredDescription}>{this.props.description}</span>
                 </div>
             </div>
-        ) : (
+            :
             <Box
                 className={styles.libraryItem}
                 role="button"
@@ -101,7 +101,7 @@ class LibraryItem extends React.PureComponent {
                 </Box>
                 <span className={styles.libraryItemName}>{this.props.name}</span>
             </Box>
-        );
+        ;
     }
 }
 
@@ -113,17 +113,17 @@ LibraryItem.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.node
+        PropTypes.node,
     ]).isRequired,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
     onMouseEnter: PropTypes.func.isRequired,
     onMouseLeave: PropTypes.func.isRequired,
-    onSelect: PropTypes.func.isRequired
+    onSelect: PropTypes.func.isRequired,
 };
 
 LibraryItem.defaultProps = {
-    disabled: false
+    disabled: false,
 };
 
 export default LibraryItem;

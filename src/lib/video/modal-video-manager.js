@@ -3,7 +3,7 @@ import VideoProvider from './video-provider.js';
  * Video Manager for Camera Modal
  */
 class ModalVideoManager {
-    constructor (canvas) {
+    constructor(canvas) {
         this._videoProvider = new VideoProvider();
 
         this._frameTimeout = 16;
@@ -13,13 +13,14 @@ class ModalVideoManager {
         // image does not have to get sized down to accomodate double resolution
         this._canvasWidth = 960; // Double Stage Width
         this._canvasHeight = 720; // Double Stage Height
-
     }
 
-    enableVideo (onPermissionSuccess, onVideoLoaded) {
+    enableVideo(onPermissionSuccess, onVideoLoaded) {
         const thisContext = this;
         this._videoProvider.enableVideo(onVideoLoaded).then(() => {
-            if (onPermissionSuccess) onPermissionSuccess();
+            if (onPermissionSuccess) {
+                onPermissionSuccess();
+            }
             const ctx = thisContext._canvas.getContext('2d');
             ctx.scale(-1, 1);
             ctx.translate(thisContext._canvasWidth * -1, 0);
@@ -34,7 +35,7 @@ class ModalVideoManager {
         });
     }
 
-    _drawFrames () {
+    _drawFrames() {
         const video = this._videoProvider.video;
         this._videoFeedInterval = setInterval(() =>
             this._canvas.getContext('2d').drawImage(video,
@@ -45,16 +46,16 @@ class ModalVideoManager {
             ), this._frameTimeout);
     }
 
-    takeSnapshot () {
+    takeSnapshot() {
         clearInterval(this._videoFeedInterval);
         return this._canvas.toDataURL('image/png');
     }
 
-    clearSnapshot () {
+    clearSnapshot() {
         this._drawFrames();
     }
 
-    disableVideo () {
+    disableVideo() {
         this._videoProvider.disableVideo();
     }
 }

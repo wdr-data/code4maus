@@ -12,12 +12,12 @@ const TagButtonComponent = ({
     className,
     title,
     ...props
-}) => (
+}) =>
     <Button
         className={classNames(
             styles.tagButton,
             className, {
-                [styles.active]: active
+                [styles.active]: active,
             }
         )}
         iconClassName={classNames(
@@ -28,19 +28,19 @@ const TagButtonComponent = ({
     >
         {title}
     </Button>
-);
+;
 
 TagButtonComponent.propTypes = {
     ...Button.propTypes,
     active: PropTypes.bool,
     title: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.object // FormattedMessage
-    ]).isRequired
+        PropTypes.object, // FormattedMessage
+    ]).isRequired,
 };
 
 TagButtonComponent.defaultProps = {
-    active: false
+    active: false,
 };
 
 export default TagButtonComponent;

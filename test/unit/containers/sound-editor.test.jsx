@@ -1,5 +1,5 @@
 import React from 'react';
-import {mountWithIntl} from '../../helpers/intl-helpers.jsx';
+import { mountWithIntl } from '../../helpers/intl-helpers.jsx';
 import configureStore from 'redux-mock-store';
 import mockAudioBufferPlayer from '../../__mocks__/audio-buffer-player.js';
 import mockAudioEffects from '../../__mocks__/audio-effects.js';
@@ -16,14 +16,14 @@ describe('Sound Editor Container', () => {
     let store;
     let soundIndex;
     let soundBuffer;
-    const samples = new Float32Array([0, 0, 0]); // eslint-disable-line no-undef
+    const samples = new Float32Array([ 0, 0, 0 ]); // eslint-disable-line no-undef
     let vm;
 
     beforeEach(() => {
         soundIndex = 0;
         soundBuffer = {
             sampleRate: 0,
-            getChannelData: jest.fn(() => samples)
+            getChannelData: jest.fn(() => samples),
         };
         vm = {
             getSoundBuffer: jest.fn(() => soundBuffer),
@@ -31,11 +31,11 @@ describe('Sound Editor Container', () => {
             updateSoundBuffer: jest.fn(),
             editingTarget: {
                 sprite: {
-                    sounds: [{name: 'first name', id: 'first id'}]
-                }
-            }
+                    sounds: [ { name: 'first name', id: 'first id' } ],
+                },
+            },
         };
-        store = mockStore({scratchGui: {vm: vm}});
+        store = mockStore({ scratchGui: { vm: vm } });
     });
 
     test('should pass the correct data to the component from the store', () => {
@@ -48,13 +48,12 @@ describe('Sound Editor Container', () => {
         const componentProps = wrapper.find(SoundEditorComponent).props();
         // Data retreived and processed by the `connect` with the store
         expect(componentProps.name).toEqual('first name');
-        expect(componentProps.chunkLevels).toEqual([0]);
+        expect(componentProps.chunkLevels).toEqual([ 0 ]);
         expect(mockAudioBufferPlayer.instance.samples).toEqual(samples);
         // Initial data
         expect(componentProps.playhead).toEqual(null);
         expect(componentProps.trimStart).toEqual(null);
         expect(componentProps.trimEnd).toEqual(null);
-
     });
 
     test('it plays when clicked and stops when clicked again', () => {

@@ -7,30 +7,30 @@ import VM from '@wdr-data/scratch-vm';
 import GreenFlagComponent from '../components/green-flag/green-flag.jsx';
 
 class GreenFlag extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleClick',
             'onProjectRunStart',
-            'onProjectRunStop'
+            'onProjectRunStop',
         ]);
-        this.state = {projectRunning: false};
+        this.state = { projectRunning: false };
     }
-    componentDidMount () {
+    componentDidMount() {
         this.props.vm.addListener('PROJECT_RUN_START', this.onProjectRunStart);
         this.props.vm.addListener('PROJECT_RUN_STOP', this.onProjectRunStop);
     }
-    componentWillUnmount () {
+    componentWillUnmount() {
         this.props.vm.removeListener('PROJECT_RUN_START', this.onProjectRunStart);
         this.props.vm.removeListener('PROJECT_RUN_STOP', this.onProjectRunStop);
     }
-    onProjectRunStart () {
-        this.setState({projectRunning: true});
+    onProjectRunStart() {
+        this.setState({ projectRunning: true });
     }
-    onProjectRunStop () {
-        this.setState({projectRunning: false});
+    onProjectRunStop() {
+        this.setState({ projectRunning: false });
     }
-    handleClick (e) {
+    handleClick(e) {
         e.preventDefault();
         if (e.shiftKey) {
             this.props.vm.setTurboMode(!this.props.vm.runtime.turboMode);
@@ -38,7 +38,7 @@ class GreenFlag extends React.Component {
             this.props.vm.greenFlag();
         }
     }
-    render () {
+    render() {
         const {
             vm, // eslint-disable-line no-unused-vars
             ...props
@@ -54,7 +54,7 @@ class GreenFlag extends React.Component {
 }
 
 GreenFlag.propTypes = {
-    vm: PropTypes.instanceOf(VM)
+    vm: PropTypes.instanceOf(VM),
 };
 
 export default GreenFlag;

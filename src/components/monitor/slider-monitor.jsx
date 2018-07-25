@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import styles from './monitor.css';
 
-const SliderMonitor = ({categoryColor, label, min, max, value, onSliderUpdate}) => (
+const SliderMonitor = ({ categoryColor, label, min, max, value, onSliderUpdate }) =>
     <div className={styles.defaultMonitor}>
         <div className={styles.row}>
             <div className={styles.label}>
@@ -12,7 +12,7 @@ const SliderMonitor = ({categoryColor, label, min, max, value, onSliderUpdate}) 
             </div>
             <div
                 className={styles.value}
-                style={{background: categoryColor}}
+                style={{ background: categoryColor }}
             >
                 {value}
             </div>
@@ -29,7 +29,7 @@ const SliderMonitor = ({categoryColor, label, min, max, value, onSliderUpdate}) 
         </div>
 
     </div>
-);
+;
 
 SliderMonitor.propTypes = {
     categoryColor: PropTypes.string.isRequired,
@@ -39,13 +39,13 @@ SliderMonitor.propTypes = {
     onSliderUpdate: PropTypes.func.isRequired,
     value: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.number
-    ])
+        PropTypes.number,
+    ]),
 };
 
 SliderMonitor.defaultProps = {
     min: 0,
-    max: 100
+    max: 100,
 };
 
 export default SliderMonitor;

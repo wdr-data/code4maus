@@ -1,23 +1,23 @@
 import React from 'react';
-import {ContextMenu, MenuItem} from 'react-contextmenu';
+import { ContextMenu, MenuItem } from 'react-contextmenu';
 
 import styles from './context-menu.css';
 
-const StyledContextMenu = props => (
+const StyledContextMenu = (props) =>
     <ContextMenu
         {...props}
         className={styles.contextMenu}
     />
-);
+;
 
-const StyledMenuItem = props => (
+const StyledMenuItem = (props) =>
     <MenuItem
         {...props}
-        attributes={{className: styles.menuItem}}
+        attributes={{ className: styles.menuItem }}
     />
-);
+;
 
 export {
     StyledContextMenu as ContextMenu,
-    StyledMenuItem as MenuItem
+    StyledMenuItem as MenuItem,
 };

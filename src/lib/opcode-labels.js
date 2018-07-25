@@ -2,82 +2,82 @@ const opcodeMap = {
     // Motion
     motion_direction: {
         category: 'motion',
-        label: 'direction'
+        label: 'direction',
     },
     motion_xposition: {
         category: 'motion',
-        label: 'x position'
+        label: 'x position',
     },
     motion_yposition: {
         category: 'motion',
-        label: 'y position'
+        label: 'y position',
     },
 
     // Looks
     looks_size: {
         category: 'looks',
-        label: 'size'
+        label: 'size',
     },
     looks_costumenumbername: {
         category: 'looks',
-        labelFn: params => `costume ${params.NUMBER_NAME}`
+        labelFn: (params) => `costume ${params.NUMBER_NAME}`,
     },
     looks_backdropnumbername: {
         category: 'looks',
-        labelFn: params => `backdrop ${params.NUMBER_NAME}`
+        labelFn: (params) => `backdrop ${params.NUMBER_NAME}`,
     },
     looks_backdropname: {
         category: 'looks',
-        label: 'backdrop name'
+        label: 'backdrop name',
     },
 
     // Data
     data_variable: {
         category: 'data',
-        labelFn: params => params.VARIABLE
+        labelFn: (params) => params.VARIABLE,
     },
     data_listcontents: {
         category: 'list',
-        labelFn: params => params.LIST
+        labelFn: (params) => params.LIST,
     },
 
     // Sound
     sound_volume: {
         category: 'sound',
-        label: 'volume'
+        label: 'volume',
     },
     sound_tempo: {
         category: 'sound',
-        label: 'tempo'
+        label: 'tempo',
     },
 
     // Sensing
     sensing_answer: {
         category: 'sensing',
-        label: 'answer'
+        label: 'answer',
     },
     sensing_loudness: {
         category: 'sensing',
-        label: 'loudness'
+        label: 'loudness',
     },
     sensing_username: {
         category: 'sensing',
-        label: 'username'
+        label: 'username',
     },
     sensing_current: {
         category: 'sensing',
-        labelFn: params => {
+        labelFn: (params) => {
             let currentMenu = params.CURRENTMENU.toLowerCase();
             if (currentMenu === 'dayofweek') {
                 currentMenu = 'day of week';
             }
             return currentMenu;
-        }
+        },
     },
     sensing_timer: {
         category: 'sensing',
-        label: 'timer'
-    }
+        label: 'timer',
+    },
 };
 
 /**
@@ -85,10 +85,12 @@ const opcodeMap = {
  * @param {string} opcode the opcode you want a label for
  * @return {object} object with label and category
  */
-export default function (opcode) {
-    if (opcode in opcodeMap) return opcodeMap[opcode];
+export default function(opcode) {
+    if (opcode in opcodeMap) {
+        return opcodeMap[opcode];
+    }
     return {
         category: 'data',
-        label: opcode
+        label: opcode,
     };
 }

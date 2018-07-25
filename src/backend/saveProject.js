@@ -6,19 +6,19 @@ const Bucket = process.env.S3_BUCKET_PROJECTS;
 
 const getKey = (user, path = 'index.json') => `projects/${user}/${path}`;
 
-const injectReplyJson = handler => (event, context, callback) => handler(event, context, (code, body) => callback(null, {
+const injectReplyJson = (handler) => (event, context, callback) => handler(event, context, (code, body) => callback(null, {
     statusCode: code,
     headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
     },
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
 }));
 
 export const handler = injectReplyJson(async (event, context, reply) => {
-    const {data, id, name, userId} = JSON.parse(event.body);
+    const { data, id, name, userId } = JSON.parse(event.body);
     if (!data || !name || !userId) {
         return reply(400, {
-            error: 'Parameters missing in request.'
+            error: 'Parameters missing in request.',
         });
     }
 
@@ -27,18 +27,18 @@ export const handler = injectReplyJson(async (event, context, reply) => {
     // remove user agent from project
     const cleanedData = JSON.parse(data);
     cleanedData.meta.agent = '';
-    cleanedData.custom = {name};
+    cleanedData.custom = { name };
 
     try {
         await s3.putObject({
             Bucket,
             Key: getKey(userId, `${projectId}.json`),
-            Body: JSON.stringify(cleanedData)
+            Body: JSON.stringify(cleanedData),
         }).promise();
     } catch (e) {
         console.error(e); // eslint-disable-line no-console
         return reply(500, {
-            error: 'Saving failed.'
+            error: 'Saving failed.',
         });
     }
 
@@ -46,7 +46,7 @@ export const handler = injectReplyJson(async (event, context, reply) => {
         const putIndex = async (base = {}) => {
             const indexData = {
                 name,
-                updated_at: Date.now()
+                updated_at: Date.now(),
             };
             if (!id) {
                 indexData.created_at = Date.now();
@@ -55,14 +55,14 @@ export const handler = injectReplyJson(async (event, context, reply) => {
             base[projectId] = projectId in base ?
                 {
                     ...base[projectId],
-                    ...indexData
+                    ...indexData,
                 } : indexData;
 
             try {
                 await s3.putObject({
                     Bucket,
                     Key: getKey(userId),
-                    Body: JSON.stringify(base)
+                    Body: JSON.stringify(base),
                 }).promise();
             } catch (e) {
                 console.error(e);
@@ -72,7 +72,7 @@ export const handler = injectReplyJson(async (event, context, reply) => {
         try {
             const indexFile = await s3.getObject({
                 Bucket,
-                Key: getKey(userId)
+                Key: getKey(userId),
             }).promise();
             const index = JSON.parse(indexFile.Body.toString());
             await putIndex(index);
@@ -86,6 +86,6 @@ export const handler = injectReplyJson(async (event, context, reply) => {
     }
 
     reply(200, {
-        id: projectId
+        id: projectId,
     });
 });

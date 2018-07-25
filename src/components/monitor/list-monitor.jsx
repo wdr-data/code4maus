@@ -4,12 +4,12 @@ import classNames from 'classnames';
 import styles from './monitor.css';
 import ListMonitorScroller from './list-monitor-scroller.jsx';
 
-const ListMonitor = ({draggable, label, width, height, value, onResizeMouseDown, onAdd, ...rowProps}) => (
+const ListMonitor = ({ draggable, label, width, height, value, onResizeMouseDown, onAdd, ...rowProps }) =>
     <div
         className={styles.listMonitor}
         style={{
             width: `${width}px`,
-            height: `${height}px`
+            height: `${height}px`,
         }}
     >
         <div className={styles.listHeader}>
@@ -42,7 +42,7 @@ const ListMonitor = ({draggable, label, width, height, value, onResizeMouseDown,
             </div>
         </div>
     </div>
-);
+;
 
 ListMonitor.propTypes = {
     activeIndex: PropTypes.number,
@@ -58,15 +58,15 @@ ListMonitor.propTypes = {
         PropTypes.number,
         PropTypes.arrayOf(PropTypes.oneOfType([
             PropTypes.string,
-            PropTypes.number
-        ]))
+            PropTypes.number,
+        ])),
     ]),
-    width: PropTypes.number
+    width: PropTypes.number,
 };
 
 ListMonitor.defaultProps = {
     width: 110,
-    height: 200
+    height: 200,
 };
 
 export default ListMonitor;

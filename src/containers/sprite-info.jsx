@@ -5,36 +5,36 @@ import React from 'react';
 import SpriteInfoComponent from '../components/sprite-info/sprite-info.jsx';
 
 class SpriteInfo extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleClickVisible',
             'handleClickNotVisible',
             'handlePressVisible',
-            'handlePressNotVisible'
+            'handlePressNotVisible',
         ]);
     }
-    handleClickVisible (e) {
+    handleClickVisible(e) {
         e.preventDefault();
         this.props.onChangeVisibility(true);
     }
-    handleClickNotVisible (e) {
+    handleClickNotVisible(e) {
         e.preventDefault();
         this.props.onChangeVisibility(false);
     }
-    handlePressVisible (e) {
+    handlePressVisible(e) {
         if (e.key === ' ' || e.key === 'Enter') {
             e.preventDefault();
             this.props.onChangeVisibility(true);
         }
     }
-    handlePressNotVisible (e) {
+    handlePressNotVisible(e) {
         if (e.key === ' ' || e.key === 'Enter') {
             e.preventDefault();
             this.props.onChangeVisibility(false);
         }
     }
-    render () {
+    render() {
         return (
             <SpriteInfoComponent
                 {...this.props}
@@ -56,7 +56,7 @@ SpriteInfo.propTypes = {
     onChangeX: PropTypes.func,
     onChangeY: PropTypes.func,
     x: PropTypes.number,
-    y: PropTypes.number
+    y: PropTypes.number,
 };
 
 export default SpriteInfo;

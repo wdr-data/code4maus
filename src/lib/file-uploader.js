@@ -1,4 +1,4 @@
-import {importBitmap} from 'scratch-svg-renderer';
+import { importBitmap } from 'scratch-svg-renderer';
 import log from './log.js';
 
 /**
@@ -7,7 +7,7 @@ import log from './log.js';
  * @return {string} The name without the extension, or the full name if
  * there was no '.' in the string (e.g. 'my_image')
  */
-const extractFileName = function (nameExt) {
+const extractFileName = function(nameExt) {
     // There could be multiple dots, but get the stuff before the first .
     const nameParts = nameExt.split('.', 1); // we only care about the first .
     return nameParts[0];
@@ -19,7 +19,7 @@ const extractFileName = function (nameExt) {
  * @param {Input} fileInput The <input/> element that contains the file being loaded
  * @param {Function} onload The function that handles loading the file
  */
-const handleFileUpload = function (fileInput, onload) {
+const handleFileUpload = function(fileInput, onload) {
     let thisFile = null;
     const reader = new FileReader();
     reader.onload = () => {
@@ -62,7 +62,7 @@ const handleFileUpload = function (fileInput, onload) {
  * @return {VMAsset} An object representing this asset and relevant information
  * which can be used to look up the data in storage
  */
-const cacheAsset = function (storage, fileName, assetType, dataFormat, data) {
+const cacheAsset = function(storage, fileName, assetType, dataFormat, data) {
     const md5 = storage.builtinHelper.cache(
         assetType,
         dataFormat,
@@ -73,7 +73,7 @@ const cacheAsset = function (storage, fileName, assetType, dataFormat, data) {
         name: fileName,
         dataFormat: dataFormat,
         md5: `${md5}.${dataFormat}`,
-        assetId: md5
+        assetId: md5,
     };
 };
 
@@ -88,7 +88,7 @@ const cacheAsset = function (storage, fileName, assetType, dataFormat, data) {
  * caching this costume in storage - This function should be responsible for
  * adding the costume to the VM and handling other UI flow that should come after adding the costume
  */
-const costumeUpload = function (fileData, fileType, costumeName, storage, handleCostume) {
+const costumeUpload = function(fileData, fileType, costumeName, storage, handleCostume) {
     let costumeFormat = null;
     let assetType = null;
     switch (fileType) {
@@ -112,7 +112,7 @@ const costumeUpload = function (fileData, fileType, costumeName, storage, handle
         return;
     }
 
-    const addCostumeFromBuffer = function (error, costumeBuffer) {
+    const addCostumeFromBuffer = function(error, costumeBuffer) {
         if (error) {
             log.warn(`An error occurred while trying to extract image data: ${error}`);
             return;
@@ -145,7 +145,7 @@ const costumeUpload = function (fileData, fileType, costumeName, storage, handle
  * This function should be responsible for adding the sound to the VM
  * as well as handling other UI flow that should come after adding the sound
  */
-const soundUpload = function (fileData, fileType, soundName, storage, handleSound) {
+const soundUpload = function(fileData, fileType, soundName, storage, handleSound) {
     let soundFormat;
     switch (fileType) {
     case 'audio/mp3':
@@ -175,7 +175,7 @@ const soundUpload = function (fileData, fileType, soundName, storage, handleSoun
     handleSound(vmSound);
 };
 
-const spriteUpload = function (fileData, fileType, spriteName, storage, handleSprite) {
+const spriteUpload = function(fileData, fileType, spriteName, storage, handleSprite) {
     switch (fileType) {
     case '':
     case 'application/zip': { // We think this is a .sprite2 or .sprite3 file
@@ -186,7 +186,7 @@ const spriteUpload = function (fileData, fileType, spriteName, storage, handleSp
     case 'image/png':
     case 'image/jpeg': {
         // Make a sprite from an image by making it a costume first
-        costumeUpload(fileData, fileType, `${spriteName}-costume1`, storage, (vmCostume => {
+        costumeUpload(fileData, fileType, `${spriteName}-costume1`, storage, (vmCostume) => {
             const newSprite = {
                 name: spriteName,
                 isStage: false,
@@ -200,12 +200,12 @@ const spriteUpload = function (fileData, fileType, spriteName, storage, handleSp
                 currentCostume: 0,
                 blocks: {},
                 variables: {},
-                costumes: [vmCostume],
-                sounds: [] // TODO are all of these necessary?
+                costumes: [ vmCostume ],
+                sounds: [], // TODO are all of these necessary?
             };
             // TODO probably just want sprite upload to handle this object directly
             handleSprite(JSON.stringify(newSprite));
-        }));
+        });
         return;
     }
     default: {
@@ -219,5 +219,5 @@ export {
     handleFileUpload,
     costumeUpload,
     soundUpload,
-    spriteUpload
+    spriteUpload,
 };

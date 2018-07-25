@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {FormattedMessage} from 'react-intl';
-import {ComingSoonTooltip} from '../coming-soon/coming-soon.jsx';
+import { FormattedMessage } from 'react-intl';
+import { ComingSoonTooltip } from '../coming-soon/coming-soon.jsx';
 
 import styles from './backpack.css';
 
-const Backpack = ({expanded, onToggle}) => (
+const Backpack = ({ expanded, onToggle }) =>
     <div className={styles.backpackContainer}>
         <div
             className={styles.backpackHeader}
             onClick={onToggle}
         >
-            {onToggle ? (
+            {onToggle ?
                 <FormattedMessage
                     defaultMessage="Backpack"
                     description="Button to open the backpack"
                     id="gui.backpack.header"
                 />
-            ) : (
+                :
                 <ComingSoonTooltip
                     place="top"
                     tooltipId="backpack-tooltip"
@@ -28,9 +28,9 @@ const Backpack = ({expanded, onToggle}) => (
                         id="gui.backpack.header"
                     />
                 </ComingSoonTooltip>
-            )}
+            }
         </div>
-        {expanded ? (
+        {expanded ?
             <div className={styles.backpackList}>
                 <div className={styles.emptyMessage}>
                     <FormattedMessage
@@ -40,18 +40,18 @@ const Backpack = ({expanded, onToggle}) => (
                     />
                 </div>
             </div>
-        ) : null}
+            : null}
     </div>
-);
+;
 
 Backpack.propTypes = {
     expanded: PropTypes.bool,
-    onToggle: PropTypes.func
+    onToggle: PropTypes.func,
 };
 
 Backpack.defaultProps = {
     expanded: false,
-    onToggle: null
+    onToggle: null,
 };
 
 export default Backpack;

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import React, {Fragment} from 'react';
-import {FormattedMessage} from 'react-intl';
+import React, { Fragment } from 'react';
+import { FormattedMessage } from 'react-intl';
 import Draggable from 'react-draggable';
 
 import styles from './card.css';
@@ -11,7 +11,7 @@ import prevIcon from './icon--prev.svg';
 import helpIcon from './icon--help.svg';
 import closeIcon from '../close-button/icon--close.svg';
 
-const CardHeader = ({onCloseCards, onShowAll, totalSteps, step}) => (
+const CardHeader = ({ onCloseCards, onShowAll, totalSteps, step }) =>
     <div className={styles.headerButtons}>
         <div
             className={styles.allButton}
@@ -27,17 +27,17 @@ const CardHeader = ({onCloseCards, onShowAll, totalSteps, step}) => (
                 id="gui.cards.all-how-tos"
             />
         </div>
-        {totalSteps > 1 ? (
+        {totalSteps > 1 ?
             <div className={styles.stepsList}>
                 {Array(totalSteps).fill(0)
-                    .map((_, i) => (
+                    .map((_, i) =>
                         <div
                             className={i === step ? styles.activeStepPip : styles.inactiveStepPip}
                             key={`pip-step-${i}`}
                         />
-                    ))}
+                    )}
             </div>
-        ) : null}
+            : null}
         <div
             className={styles.removeButton}
             onClick={onCloseCards}
@@ -53,15 +53,15 @@ const CardHeader = ({onCloseCards, onShowAll, totalSteps, step}) => (
             />
         </div>
     </div>
-);
+;
 
 // Video step needs to know if the card is being dragged to cover the video
 // so that the mouseup is not swallowed by the iframe.
-const VideoStep = ({video, dragging}) => (
+const VideoStep = ({ video, dragging }) =>
     <div className={styles.stepVideo}>
-        {dragging ? (
+        {dragging ?
             <div className={styles.videoCover} />
-        ) : null}
+            : null}
         <iframe
             allowFullScreen
             allow="autoplay; encrypted-media"
@@ -71,14 +71,14 @@ const VideoStep = ({video, dragging}) => (
             width="600"
         />
     </div>
-);
+;
 
 VideoStep.propTypes = {
     dragging: PropTypes.bool.isRequired,
-    video: PropTypes.string.isRequired
+    video: PropTypes.string.isRequired,
 };
 
-const ImageStep = ({title, image}) => (
+const ImageStep = ({ title, image }) =>
     <Fragment>
         <div className={styles.stepTitle}>
             {title}
@@ -91,16 +91,16 @@ const ImageStep = ({title, image}) => (
             />
         </div>
     </Fragment>
-);
+;
 
 ImageStep.propTypes = {
     image: PropTypes.string.isRequired,
-    title: PropTypes.node.isRequired
+    title: PropTypes.node.isRequired,
 };
 
-const NextPrevButtons = ({onNextStep, onPrevStep}) => (
+const NextPrevButtons = ({ onNextStep, onPrevStep }) =>
     <Fragment>
-        {onNextStep ? (
+        {onNextStep ?
             <div>
                 <div className={styles.rightCard} />
                 <div
@@ -113,8 +113,8 @@ const NextPrevButtons = ({onNextStep, onPrevStep}) => (
                     />
                 </div>
             </div>
-        ) : null}
-        {onPrevStep ? (
+            : null}
+        {onPrevStep ?
             <div>
                 <div className={styles.leftCard} />
                 <div
@@ -127,22 +127,22 @@ const NextPrevButtons = ({onNextStep, onPrevStep}) => (
                     />
                 </div>
             </div>
-        ) : null}
+            : null}
     </Fragment>
-);
+;
 
 NextPrevButtons.propTypes = {
     onNextStep: PropTypes.func,
-    onPrevStep: PropTypes.func
+    onPrevStep: PropTypes.func,
 };
 CardHeader.propTypes = {
     onCloseCards: PropTypes.func.isRequired,
     onShowAll: PropTypes.func.isRequired,
     step: PropTypes.number,
-    totalSteps: PropTypes.number
+    totalSteps: PropTypes.number,
 };
 
-const PreviewsStep = ({deckIds, content, onActivateDeckFactory, onShowAll}) => (
+const PreviewsStep = ({ deckIds, content, onActivateDeckFactory, onShowAll }) =>
     <Fragment>
         <div className={styles.stepTitle}>
             <FormattedMessage
@@ -152,7 +152,7 @@ const PreviewsStep = ({deckIds, content, onActivateDeckFactory, onShowAll}) => (
             />
         </div>
         <div className={styles.decks}>
-            {deckIds.map(id => (
+            {deckIds.map((id) =>
                 <div
                     className={styles.deck}
                     key={`deck-preview-${id}`}
@@ -165,7 +165,7 @@ const PreviewsStep = ({deckIds, content, onActivateDeckFactory, onShowAll}) => (
                     />
                     <div className={styles.deckName}>{content[id].name}</div>
                 </div>
-            ))}
+            )}
         </div>
         <div className={styles.seeAll}>
             <div
@@ -180,7 +180,7 @@ const PreviewsStep = ({deckIds, content, onActivateDeckFactory, onShowAll}) => (
             </div>
         </div>
     </Fragment>
-);
+;
 
 PreviewsStep.propTypes = {
     content: PropTypes.shape({
@@ -191,24 +191,26 @@ PreviewsStep.propTypes = {
                 title: PropTypes.node,
                 image: PropTypes.string,
                 video: PropTypes.string,
-                deckIds: PropTypes.arrayOf(PropTypes.string)
-            }))
-        })
+                deckIds: PropTypes.arrayOf(PropTypes.string),
+            })),
+        }),
     }).isRequired,
     deckIds: PropTypes.arrayOf(PropTypes.string).isRequired,
     onActivateDeckFactory: PropTypes.func.isRequired,
-    onShowAll: PropTypes.func.isRequired
+    onShowAll: PropTypes.func.isRequired,
 };
 
-const Cards = props => {
-    if (props.activeDeckId === null) return;
+const Cards = (props) => {
+    if (props.activeDeckId === null) {
+        return;
+    }
 
     const steps = props.content[props.activeDeckId].steps;
 
     return (
         <Draggable
             bounds="parent"
-            position={{x: props.x, y: props.y}}
+            position={{ x: props.x, y: props.y }}
             onDrag={props.onDrag}
             onStart={props.onStartDrag}
             onStop={props.onEndDrag}
@@ -222,26 +224,26 @@ const Cards = props => {
                         onShowAll={props.onShowAll}
                     />
                     <div className={styles.stepBody}>
-                        {steps[props.step].deckIds ? (
+                        {steps[props.step].deckIds ?
                             <PreviewsStep
                                 content={props.content}
                                 deckIds={steps[props.step].deckIds}
                                 onActivateDeckFactory={props.onActivateDeckFactory}
                                 onShowAll={props.onShowAll}
                             />
-                        ) : (
-                            steps[props.step].video ? (
+                            :
+                            steps[props.step].video ?
                                 <VideoStep
                                     dragging={props.dragging}
                                     video={steps[props.step].video}
                                 />
-                            ) : (
+                                :
                                 <ImageStep
                                     image={steps[props.step].image}
                                     title={steps[props.step].title}
                                 />
-                            )
-                        )}
+
+                        }
                     </div>
                     <NextPrevButtons
                         onNextStep={props.step < steps.length - 1 ? props.onNextStep : null}
@@ -263,9 +265,9 @@ Cards.propTypes = {
                 title: PropTypes.node,
                 image: PropTypes.string,
                 video: PropTypes.string,
-                deckIds: PropTypes.arrayOf(PropTypes.string)
-            }))
-        })
+                deckIds: PropTypes.arrayOf(PropTypes.string),
+            })),
+        }),
     }),
     dragging: PropTypes.bool.isRequired,
     onActivateDeckFactory: PropTypes.func.isRequired,
@@ -278,7 +280,7 @@ Cards.propTypes = {
     onStartDrag: PropTypes.func,
     step: PropTypes.number.isRequired,
     x: PropTypes.number,
-    y: PropTypes.number
+    y: PropTypes.number,
 };
 
 export default Cards;

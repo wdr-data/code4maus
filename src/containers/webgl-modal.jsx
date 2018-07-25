@@ -3,10 +3,10 @@ import React from 'react';
 import WebGlModalComponent from '../components/webgl-modal/webgl-modal.jsx';
 
 class WebGlModal extends React.Component {
-    handleCancel () {
+    handleCancel() {
         window.history.back();
     }
-    render () {
+    render() {
         return (
             <WebGlModalComponent
                 onBack={this.handleCancel}

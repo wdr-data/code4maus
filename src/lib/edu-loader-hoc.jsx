@@ -1,30 +1,30 @@
-import {Views} from './routing';
-import {connect} from 'react-redux';
+import { Views } from './routing';
+import { connect } from 'react-redux';
 import React from 'react';
-import {loadGame} from '../reducers/edu-layer';
-import {setProjectId} from '../reducers/project';
+import { loadGame } from '../reducers/edu-layer';
+import { setProjectId } from '../reducers/project';
 
-const EduLoaderHOC = WrappedComponent => {
+const EduLoaderHOC = (WrappedComponent) => {
     class EduLoaderComponent extends React.Component {
-        componentDidMount () {
+        componentDidMount() {
             if (this.props.router.view === Views.edu &&
                 this.props.router.params.eduId) {
                 this.loadGame(this.props.router.params.eduId);
             }
         }
-        componentDidUpdate (prevProps) {
+        componentDidUpdate(prevProps) {
             if (this.props.router.view === Views.edu &&
                 this.props.router.params.eduId &&
                 prevProps.router.params.eduId !== this.props.router.params.eduId) {
                 this.loadGame(this.props.router.params.eduId);
             }
         }
-        async loadGame (id) {
+        async loadGame(id) {
             const game = await (await fetch(`/edu/${id}/game.json`)).json();
             this.props.dispatch(loadGame(id, game));
             this.props.dispatch(setProjectId(`edu/${id}`));
         }
-        render () {
+        render() {
             const {
                 projectId,
                 enabled,
@@ -41,13 +41,13 @@ const EduLoaderHOC = WrappedComponent => {
         }
     }
 
-    return connect(state => ({
+    return connect((state) => ({
         projectId: state.scratchGui.project.id,
         enabled: state.scratchGui.eduLayer.enabled,
         router: {
-            view: state.router.result ? state.router.result.view : "",
+            view: state.router.result ? state.router.result.view : '',
             params: state.router.params || {},
-        }
+        },
     }))(EduLoaderComponent);
 };
 

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactModal from 'react-modal';
 import Box from '../box/box.jsx';
-import {defineMessages, injectIntl, intlShape, FormattedMessage} from 'react-intl';
+import { defineMessages, injectIntl, intlShape, FormattedMessage } from 'react-intl';
 
 import styles from './webgl-modal.css';
 
@@ -10,15 +10,15 @@ const messages = defineMessages({
     label: {
         id: 'gui.webglModal.label',
         defaultMessage: 'Your Browser Does Not Support WebGL',
-        description: 'WebGL missing title'
-    }
+        description: 'WebGL missing title',
+    },
 });
 
-const WebGlModal = ({intl, ...props}) => (
+const WebGlModal = ({ intl, ...props }) =>
     <ReactModal
         isOpen
         className={styles.modalContent}
-        contentLabel={intl.formatMessage({...messages.label})}
+        contentLabel={intl.formatMessage({ ...messages.label })}
         overlayClassName={styles.modalOverlay}
         onRequestClose={props.onBack}
     >
@@ -35,7 +35,7 @@ const WebGlModal = ({intl, ...props}) => (
                     description="WebGL missing message"
                     id="gui.webglModal.description"
                     values={{
-                        webGlLink: (
+                        webGlLink:
                             <a
                                 className={styles.faqLink}
                                 href="https://en.wikipedia.org/wiki/WebGL#Support"
@@ -45,8 +45,8 @@ const WebGlModal = ({intl, ...props}) => (
                                     description="link part of your browser does not support WebGL message"
                                     id="gui.webglModal.webgllink"
                                 />
-                            </a>
-                        )
+                            </a>,
+
                     }}
                 />
                 { /* eslint-enable max-len */ }
@@ -71,7 +71,7 @@ const WebGlModal = ({intl, ...props}) => (
                     description="Scratch 3.0 FAQ description"
                     id="gui.webglModal.previewfaq"
                     values={{
-                        previewFaqLink: (
+                        previewFaqLink:
                             <a
                                 className={styles.faqLink}
                                 href="//scratch.mit.edu/preview-faq"
@@ -81,18 +81,18 @@ const WebGlModal = ({intl, ...props}) => (
                                     description="link to Scratch 3.0 FAQ page"
                                     id="gui.webglModal.previewfaqlink"
                                 />
-                            </a>
-                        )
+                            </a>,
+
                     }}
                 />
             </div>
         </Box>
     </ReactModal>
-);
+;
 
 WebGlModal.propTypes = {
     intl: intlShape.isRequired,
-    onBack: PropTypes.func.isRequired
+    onBack: PropTypes.func.isRequired,
 };
 
 export default injectIntl(WebGlModal);

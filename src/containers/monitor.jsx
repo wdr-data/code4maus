@@ -3,13 +3,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import monitorAdapter from '../lib/monitor-adapter.js';
-import MonitorComponent, {monitorModes} from '../components/monitor/monitor.jsx';
-import {addMonitorRect, getInitialPosition, resizeMonitorRect, removeMonitorRect} from '../reducers/monitor-layout';
+import MonitorComponent, { monitorModes } from '../components/monitor/monitor.jsx';
+import { addMonitorRect, getInitialPosition, resizeMonitorRect, removeMonitorRect } from '../reducers/monitor-layout';
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
-const availableModes = opcode => (
-    monitorModes.filter(t => {
+const availableModes = (opcode) =>
+    monitorModes.filter((t) => {
         if (opcode === 'data_variable') {
             return t !== 'list';
         } else if (opcode === 'data_listcontents') {
@@ -17,10 +17,10 @@ const availableModes = opcode => (
         }
         return t !== 'slider' && t !== 'list';
     })
-);
+;
 
 class Monitor extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleDragEnd',
@@ -28,21 +28,21 @@ class Monitor extends React.Component {
             'handleSetModeToDefault',
             'handleSetModeToLarge',
             'handleSetModeToSlider',
-            'setElement'
+            'setElement',
         ]);
 
         // @todo consume from VM, but need to store until there are APIs to update vm
         this.state = {
-            mode: props.mode || 'default'
+            mode: props.mode || 'default',
         };
     }
-    componentDidMount () {
+    componentDidMount() {
         let rect;
         // Load the VM provided position if not loaded already
         if (this.props.x && this.props.y && !this.props.monitorLayout.savedMonitorPositions[this.props.id]) {
             rect = {
-                upperStart: {x: this.props.x, y: this.props.y},
-                lowerEnd: {x: this.props.x + this.element.offsetWidth, y: this.props.y + this.element.offsetHeight}
+                upperStart: { x: this.props.x, y: this.props.y },
+                lowerEnd: { x: this.props.x + this.element.offsetWidth, y: this.props.y + this.element.offsetHeight },
             };
             this.props.addMonitorRect(this.props.id, rect, true /* savePosition */);
         } else { // Newly created user monitor
@@ -53,7 +53,7 @@ class Monitor extends React.Component {
         this.element.style.top = `${rect.upperStart.y}px`;
         this.element.style.left = `${rect.upperStart.x}px`;
     }
-    shouldComponentUpdate (nextProps, nextState) {
+    shouldComponentUpdate(nextProps, nextState) {
         if (nextState !== this.state) {
             return true;
         }
@@ -66,37 +66,37 @@ class Monitor extends React.Component {
         }
         return false;
     }
-    componentDidUpdate () {
+    componentDidUpdate() {
         this.props.resizeMonitorRect(this.props.id, this.element.offsetWidth, this.element.offsetHeight);
     }
-    componentWillUnmount () {
+    componentWillUnmount() {
         this.props.removeMonitorRect(this.props.id);
     }
-    handleDragEnd (e, {x, y}) {
+    handleDragEnd(e, { x, y }) {
         this.props.onDragEnd(
             this.props.id,
             parseInt(this.element.style.left, 10) + x,
             parseInt(this.element.style.top, 10) + y
         );
     }
-    handleNextMode () {
+    handleNextMode() {
         const modes = availableModes(this.props.opcode);
         const modeIndex = modes.indexOf(this.state.mode);
-        this.setState({mode: modes[(modeIndex + 1) % modes.length]});
+        this.setState({ mode: modes[(modeIndex + 1) % modes.length] });
     }
-    handleSetModeToDefault () {
-        this.setState({mode: 'default'});
+    handleSetModeToDefault() {
+        this.setState({ mode: 'default' });
     }
-    handleSetModeToLarge () {
-        this.setState({mode: 'large'});
+    handleSetModeToLarge() {
+        this.setState({ mode: 'large' });
     }
-    handleSetModeToSlider () {
-        this.setState({mode: 'slider'});
+    handleSetModeToSlider() {
+        this.setState({ mode: 'slider' });
     }
-    setElement (monitorElt) {
+    setElement(monitorElt) {
         this.element = monitorElt;
     }
-    render () {
+    render() {
         const monitorProps = monitorAdapter(this.props);
         const showSliderOption = availableModes(this.props.opcode).indexOf('slider') !== -1;
         return (
@@ -127,10 +127,10 @@ Monitor.propTypes = {
     id: PropTypes.string.isRequired,
     max: PropTypes.number,
     min: PropTypes.number,
-    mode: PropTypes.oneOf(['default', 'slider', 'large', 'list']),
+    mode: PropTypes.oneOf([ 'default', 'slider', 'large', 'list' ]),
     monitorLayout: PropTypes.shape({
         monitors: PropTypes.object,
-        savedMonitorPositions: PropTypes.object
+        savedMonitorPositions: PropTypes.object,
     }).isRequired,
     onDragEnd: PropTypes.func.isRequired,
     opcode: PropTypes.string.isRequired, // eslint-disable-line react/no-unused-prop-types
@@ -144,21 +144,21 @@ Monitor.propTypes = {
         PropTypes.number,
         PropTypes.arrayOf(PropTypes.oneOfType([
             PropTypes.string,
-            PropTypes.number
-        ]))
+            PropTypes.number,
+        ])),
     ]), // eslint-disable-line react/no-unused-prop-types
     width: PropTypes.number,
     x: PropTypes.number,
-    y: PropTypes.number
+    y: PropTypes.number,
 };
-const mapStateToProps = state => ({
-    monitorLayout: state.scratchGui.monitorLayout
+const mapStateToProps = (state) => ({
+    monitorLayout: state.scratchGui.monitorLayout,
 });
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     addMonitorRect: (id, rect, savePosition) =>
         dispatch(addMonitorRect(id, rect.upperStart, rect.lowerEnd, savePosition)),
     resizeMonitorRect: (id, newWidth, newHeight) => dispatch(resizeMonitorRect(id, newWidth, newHeight)),
-    removeMonitorRect: id => dispatch(removeMonitorRect(id))
+    removeMonitorRect: (id) => dispatch(removeMonitorRect(id)),
 });
 export default connect(
     mapStateToProps,

@@ -4,27 +4,29 @@ import bindAll from 'lodash.bindall';
 import QuestionComponent from '../components/question/question.jsx';
 
 class Question extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleChange',
             'handleKeyPress',
-            'handleSubmit'
+            'handleSubmit',
         ]);
         this.state = {
-            answer: ''
+            answer: '',
         };
     }
-    handleChange (e) {
-        this.setState({answer: e.target.value});
+    handleChange(e) {
+        this.setState({ answer: e.target.value });
     }
-    handleKeyPress (event) {
-        if (event.key === 'Enter') this.handleSubmit();
+    handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            this.handleSubmit();
+        }
     }
-    handleSubmit () {
+    handleSubmit() {
         this.props.onQuestionAnswered(this.state.answer);
     }
-    render () {
+    render() {
         return (
             <QuestionComponent
                 answer={this.state.answer}
@@ -39,7 +41,7 @@ class Question extends React.Component {
 
 Question.propTypes = {
     onQuestionAnswered: PropTypes.func.isRequired,
-    question: PropTypes.string
+    question: PropTypes.string,
 };
 
 export default Question;

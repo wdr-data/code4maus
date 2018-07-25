@@ -11,7 +11,7 @@ import Box from '../box/box.jsx';
 import styles from './crash-message.css';
 import reloadIcon from './reload.svg';
 
-const CrashMessage = props => (
+const CrashMessage = (props) =>
     <div className={styles.crashWrapper}>
         <Box className={styles.body}>
             <img
@@ -35,10 +35,10 @@ const CrashMessage = props => (
             </button>
         </Box>
     </div>
-);
+;
 
 CrashMessage.propTypes = {
-    onReload: PropTypes.func.isRequired
+    onReload: PropTypes.func.isRequired,
 };
 
 export default CrashMessage;

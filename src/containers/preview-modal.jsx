@@ -1,7 +1,7 @@
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import PreviewModalComponent from '../components/preview-modal/preview-modal.jsx';
 import BrowserModalComponent from '../components/browser-modal/browser-modal.jsx';
@@ -9,34 +9,34 @@ import supportedBrowser from '../lib/supported-browser';
 
 import {
     closePreviewInfo,
-    openImportInfo
+    openImportInfo,
 } from '../reducers/modals';
 
 class PreviewModal extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleTryIt',
             'handleCancel',
-            'handleViewProject'
+            'handleViewProject',
         ]);
 
         this.state = {
-            previewing: false
+            previewing: false,
         };
     }
-    handleTryIt () {
-        this.setState({previewing: true});
+    handleTryIt() {
+        this.setState({ previewing: true });
         this.props.onTryIt();
     }
-    handleCancel () {
+    handleCancel() {
         window.location.replace('https://scratch.mit.edu');
     }
-    handleViewProject () {
+    handleViewProject() {
         this.props.onViewProject();
     }
-    render () {
-        return (supportedBrowser() ?
+    render() {
+        return supportedBrowser() ?
             <PreviewModalComponent
                 previewing={this.state.previewing}
                 onCancel={this.handleCancel}
@@ -46,25 +46,25 @@ class PreviewModal extends React.Component {
             <BrowserModalComponent
                 onBack={this.handleCancel}
             />
-        );
+        ;
     }
 }
 
 PreviewModal.propTypes = {
     onTryIt: PropTypes.func,
-    onViewProject: PropTypes.func
+    onViewProject: PropTypes.func,
 };
 
 const mapStateToProps = () => ({});
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     onTryIt: () => {
         dispatch(closePreviewInfo());
     },
     onViewProject: () => {
         dispatch(closePreviewInfo());
         dispatch(openImportInfo());
-    }
+    },
 });
 
 export default connect(

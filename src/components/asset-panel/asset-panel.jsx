@@ -4,7 +4,7 @@ import Box from '../box/box.jsx';
 import Selector from './selector.jsx';
 import styles from './asset-panel.css';
 
-const AssetPanel = props => (
+const AssetPanel = (props) =>
     <Box className={styles.wrapper}>
         <Selector
             className={styles.selector}
@@ -14,10 +14,10 @@ const AssetPanel = props => (
             {props.children}
         </Box>
     </Box>
-);
+;
 
 AssetPanel.propTypes = {
-    ...Selector.propTypes
+    ...Selector.propTypes,
 };
 
 export default AssetPanel;

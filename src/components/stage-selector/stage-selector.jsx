@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {defineMessages, intlShape, injectIntl, FormattedMessage} from 'react-intl';
+import { defineMessages, intlShape, injectIntl, FormattedMessage } from 'react-intl';
 
 import Box from '../box/box.jsx';
 import ActionMenu from '../action-menu/action-menu.jsx';
@@ -14,26 +14,26 @@ const messages = defineMessages({
     addBackdropFromLibrary: {
         id: 'gui.spriteSelector.addBackdropFromLibrary',
         description: 'Button to add a stage in the target pane from library',
-        defaultMessage: 'Choose a Backdrop'
+        defaultMessage: 'Choose a Backdrop',
     },
     addBackdropFromPaint: {
         id: 'gui.stageSelector.addBackdropFromPaint',
         description: 'Button to add a stage in the target pane from paint',
-        defaultMessage: 'Paint'
+        defaultMessage: 'Paint',
     },
     addBackdropFromSurprise: {
         id: 'gui.stageSelector.addBackdropFromSurprise',
         description: 'Button to add a random stage in the target pane',
-        defaultMessage: 'Surprise'
+        defaultMessage: 'Surprise',
     },
     addBackdropFromFile: {
         id: 'gui.stageSelector.addBackdropFromFile',
         description: 'Button to add a stage in the target pane from file',
-        defaultMessage: 'Upload Backdrop'
-    }
+        defaultMessage: 'Upload Backdrop',
+    },
 });
 
-const StageSelector = props => {
+const StageSelector = (props) => {
     const {
         backdropCount,
         fileInputRef,
@@ -58,21 +58,21 @@ const StageSelector = props => {
             className={classNames(styles.stageSelector, {
                 [styles.isSelected]: selected,
                 [styles.raised]: raised,
-                [styles.receivedBlocks]: receivedBlocks
+                [styles.receivedBlocks]: receivedBlocks,
             })}
             onClick={onClick}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             {...componentProps}
         >
-            {url ? (
+            {url ?
                 <CostumeCanvas
                     className={styles.costumeCanvas}
                     height={54}
                     url={url}
                     width={72}
                 />
-            ) : null}
+                : null}
             <div className={styles.header}>
                 <div className={styles.headerTitle}>
                     <FormattedMessage
@@ -107,7 +107,7 @@ StageSelector.propTypes = {
     raised: PropTypes.bool.isRequired,
     receivedBlocks: PropTypes.bool.isRequired,
     selected: PropTypes.bool.isRequired,
-    url: PropTypes.string
+    url: PropTypes.string,
 };
 
 export default injectIntl(StageSelector);

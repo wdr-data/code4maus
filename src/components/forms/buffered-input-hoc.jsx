@@ -7,37 +7,37 @@ import React from 'react';
  * @param {React.Component} Input text input that consumes onChange, onBlur, onKeyPress
  * @returns {React.Component} Buffered input that calls onSubmit on blur and <enter>
  */
-export default function (Input) {
+export default function(Input) {
     class BufferedInput extends React.Component {
-        constructor (props) {
+        constructor(props) {
             super(props);
             bindAll(this, [
                 'handleChange',
                 'handleKeyPress',
-                'handleFlush'
+                'handleFlush',
             ]);
             this.state = {
-                value: null
+                value: null,
             };
         }
-        handleKeyPress (e) {
+        handleKeyPress(e) {
             if (e.key === 'Enter') {
                 this.handleFlush();
                 e.target.blur();
             }
         }
-        handleFlush () {
+        handleFlush() {
             const isNumeric = typeof this.props.value === 'number';
             const validatesNumeric = isNumeric ? !isNaN(this.state.value) : true;
             if (this.state.value !== null && validatesNumeric) {
                 this.props.onSubmit(isNumeric ? Number(this.state.value) : this.state.value);
             }
-            this.setState({value: null});
+            this.setState({ value: null });
         }
-        handleChange (e) {
-            this.setState({value: e.target.value});
+        handleChange(e) {
+            this.setState({ value: e.target.value });
         }
-        render () {
+        render() {
             const bufferedValue = this.state.value === null ? this.props.value : this.state.value;
             return (
                 <Input
@@ -53,7 +53,7 @@ export default function (Input) {
 
     BufferedInput.propTypes = {
         onSubmit: PropTypes.func.isRequired,
-        value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
     };
 
     return BufferedInput;

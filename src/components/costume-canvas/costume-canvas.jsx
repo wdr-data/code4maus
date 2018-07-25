@@ -11,10 +11,10 @@ import xhr from 'xhr';
  */
 
 class CostumeCanvas extends React.Component {
-    componentDidMount () {
+    componentDidMount() {
         this.load();
     }
-    componentDidUpdate (prevProps) {
+    componentDidUpdate(prevProps) {
         if (prevProps.url !== this.props.url) {
             this.load();
         } else if (
@@ -25,7 +25,7 @@ class CostumeCanvas extends React.Component {
             this.draw();
         }
     }
-    draw () {
+    draw() {
         if (!this.canvas) {
             return;
         }
@@ -69,7 +69,7 @@ class CostumeCanvas extends React.Component {
         context.rotate(-angle);
         context.translate(-contextTranslateX, -contextTranslateY);
     }
-    load () {
+    load() {
         // Draw the icon on our canvas.
         const url = this.props.url;
         if (url.indexOf('.svg') > -1) {
@@ -78,7 +78,7 @@ class CostumeCanvas extends React.Component {
             setTimeout(() => {
                 xhr.get({
                     useXDR: true,
-                    url: url
+                    url: url,
                 }, (err, response, body) => {
                     if (!err) {
                         svgToImage(body, (svgErr, img) => {
@@ -90,7 +90,6 @@ class CostumeCanvas extends React.Component {
                     }
                 });
             }, 0);
-
         } else {
             // Raster graphics: create Image and draw it.
             const img = new Image();
@@ -101,17 +100,17 @@ class CostumeCanvas extends React.Component {
             };
         }
     }
-    render () {
+    render() {
         return (
             <canvas
                 className={this.props.className}
                 height={this.props.height * (window.devicePixelRatio || 1)}
                 style={{
                     height: `${this.props.height}px`,
-                    width: `${this.props.width}px`
+                    width: `${this.props.width}px`,
                 }}
                 width={this.props.width * (window.devicePixelRatio || 1)}
-                ref={c => (this.canvas = c)} // eslint-disable-line react/jsx-sort-props
+                ref={(c) => this.canvas = c} // eslint-disable-line react/jsx-sort-props
             />
         );
     }
@@ -120,7 +119,7 @@ class CostumeCanvas extends React.Component {
 CostumeCanvas.defaultProps = {
     width: 100,
     height: 100,
-    direction: 90
+    direction: 90,
 };
 
 CostumeCanvas.propTypes = {
@@ -128,7 +127,7 @@ CostumeCanvas.propTypes = {
     direction: PropTypes.number,
     height: PropTypes.number,
     url: PropTypes.string.isRequired,
-    width: PropTypes.number
+    width: PropTypes.number,
 };
 
 export default CostumeCanvas;

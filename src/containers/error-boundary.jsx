@@ -7,36 +7,36 @@ import log from '../lib/log.js';
 import supportedBrowser from '../lib/supported-browser';
 
 class ErrorBoundary extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
-            hasError: false
+            hasError: false,
         };
     }
 
-    componentDidCatch (error, info) {
+    componentDidCatch(error, info) {
         // Error object may be undefined (IE?)
         error = error || {
             stack: 'Unknown stack',
-            message: 'Unknown error'
+            message: 'Unknown error',
         };
 
         // Display fallback UI
-        this.setState({hasError: true});
+        this.setState({ hasError: true });
 
         // Log error locally for debugging as well.
         log.error(`Unhandled Error: ${error.stack}\nComponent stack: ${info.componentStack}`);
     }
 
-    handleBack () {
+    handleBack() {
         window.history.back();
     }
 
-    handleReload () {
+    handleReload() {
         window.location.replace(window.location.origin + window.location.pathname);
     }
 
-    render () {
+    render() {
         if (this.state.hasError) {
             if (supportedBrowser()) {
                 return <CrashMessageComponent onReload={this.handleReload} />;
@@ -49,7 +49,7 @@ class ErrorBoundary extends React.Component {
 
 ErrorBoundary.propTypes = {
     action: PropTypes.string.isRequired, // Used for defining tracking action
-    children: PropTypes.node
+    children: PropTypes.node,
 };
 
 export default ErrorBoundary;

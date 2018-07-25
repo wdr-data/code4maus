@@ -1,7 +1,7 @@
 /* global WebAudioTestAPI */
 import 'web-audio-test-api';
 WebAudioTestAPI.setState({
-    'OfflineAudioContext#startRendering': 'promise'
+    'OfflineAudioContext#startRendering': 'promise',
 });
 
 import AudioEffects from '../../../src/lib/audio/audio-effects';

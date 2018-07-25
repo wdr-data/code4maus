@@ -1,7 +1,7 @@
-const NEXT_SLIDE = 'scratch-gui/edu-layer/NEXT_SLIDE'
-const PREVIOUS_SLIDE = 'scratch-gui/edu-layer/PREVIOUS_SLIDE'
-const TOGGLE_FULLSCREEN = 'scratch-gui/edu-layer/TOGGLE_FULLSCREEN'
-const LOAD_GAME = 'scratch-gui/edu-layer/LOAD_GAME'
+const NEXT_SLIDE = 'scratch-gui/edu-layer/NEXT_SLIDE';
+const PREVIOUS_SLIDE = 'scratch-gui/edu-layer/PREVIOUS_SLIDE';
+const TOGGLE_FULLSCREEN = 'scratch-gui/edu-layer/TOGGLE_FULLSCREEN';
+const LOAD_GAME = 'scratch-gui/edu-layer/LOAD_GAME';
 
 const initialState = {
     size: 0,
@@ -12,8 +12,8 @@ const initialState = {
     gameSpec: null,
 };
 
-export default function (state = initialState, action) {
-    switch(action.type) {
+export default function(state = initialState, action) {
+    switch (action.type) {
     case NEXT_SLIDE:
         if (state.index >= state.size - 1) {
             return state;
@@ -34,7 +34,7 @@ export default function (state = initialState, action) {
         return {
             ...state,
             isFullscreen: !state.isFullscreen,
-        }
+        };
     case LOAD_GAME:
         return {
             ...state,
@@ -42,36 +42,36 @@ export default function (state = initialState, action) {
             enabled: action.gameId !== null,
             gameId: action.gameId,
             gameSpec: action.gameSpec,
-        }
+        };
     default:
-        return state
+        return state;
     }
-};
+}
 
-export function nextSlide () {
+export function nextSlide() {
     return {
         type: NEXT_SLIDE,
-    }
+    };
 }
 
-export function previousSlide () {
+export function previousSlide() {
     return {
         type: PREVIOUS_SLIDE,
-    }
+    };
 }
 
-export function toggleFullscreen () {
+export function toggleFullscreen() {
     return {
         type: TOGGLE_FULLSCREEN,
-    }
+    };
 }
 
 export const eduLayerInitialState = initialState;
 
-export function loadGame (gameId, gameSpec) {
+export function loadGame(gameId, gameSpec) {
     return {
         type: LOAD_GAME,
         gameId,
-        gameSpec
-    }
+        gameSpec,
+    };
 }

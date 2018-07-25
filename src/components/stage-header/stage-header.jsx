@@ -1,14 +1,14 @@
 import classNames from 'classnames';
-import {defineMessages, injectIntl, intlShape} from 'react-intl';
+import { defineMessages, injectIntl, intlShape } from 'react-intl';
 import PropTypes from 'prop-types';
 import React from 'react';
 import VM from '@wdr-data/scratch-vm';
 
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
-import {ComingSoonTooltip} from '../coming-soon/coming-soon.jsx';
+import { ComingSoonTooltip } from '../coming-soon/coming-soon.jsx';
 import Controls from '../../containers/controls.jsx';
-import {getStageSize} from '../../lib/screen-utils.js';
+import { getStageSize } from '../../lib/screen-utils.js';
 import layout from '../../lib/layout-constants.js';
 import Fullscreen from '../../containers/fullscreen.jsx';
 import ButtonWithIcon from '../../components/button-with-icon/button-with-icon.jsx';
@@ -16,7 +16,7 @@ import saveButton from './download@2x.png';
 
 import styles from './stage-header.css';
 
-const StageHeaderComponent = function (props) {
+const StageHeaderComponent = function(props) {
     const {
         isFullScreen,
         isPlayerOnly,
@@ -25,7 +25,7 @@ const StageHeaderComponent = function (props) {
         onSetStageLarge,
         onSetStageFull,
         onSetStageUnFull,
-        vm
+        vm,
     } = props;
 
     const height = (window.innerHeight - layout.topBarHeight - layout.stageHeaderHeight - 8) / 2;
@@ -36,34 +36,37 @@ const StageHeaderComponent = function (props) {
     const stageSize = getStageSize(isFullScreen, height, width);
 
     if (isFullScreen) {
-        header = (
+        header =
             <Box className={styles.stageHeaderWrapperOverlay}>
                 <Box
                     className={styles.stageMenuWrapper}
-                    style={{width: stageSize.width}}
+                    style={{ width: stageSize.width }}
                 >
                     <Controls
-                        vm={vm}
                         className={styles.controlsFullscreen}
+                        vm={vm}
                     />
                     <Fullscreen />
                 </Box>
             </Box>
-        );
+        ;
     } else {
-            header = (
-            <Box className={styles.stageHeaderWrapper} style={{width: stageSize.width}}>
+        header =
+            <Box
+                className={styles.stageHeaderWrapper}
+                style={{ width: stageSize.width }}
+            >
                 <Box className={styles.stageMenuWrapper}>
                     <Controls vm={vm} />
                     <ButtonWithIcon
+                        children={'Speichern'}
                         className={styles.saveButton}
                         iconSrc={saveButton}
-                        children={'Speichern'}
                         onClick={onSaveProject}
                     />
                 </Box>
             </Box>
-        );
+        ;
     }
 
     return header;
@@ -77,7 +80,7 @@ StageHeaderComponent.propTypes = {
     onSetStageFull: PropTypes.func.isRequired,
     onSetStageLarge: PropTypes.func.isRequired,
     onSetStageUnFull: PropTypes.func.isRequired,
-    vm: PropTypes.instanceOf(VM).isRequired
+    vm: PropTypes.instanceOf(VM).isRequired,
 };
 
 export default injectIntl(StageHeaderComponent);

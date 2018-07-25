@@ -4,9 +4,9 @@ import { v4 as uuid } from 'uuid';
 
 import log from './log';
 import storage, { s3userFile } from './storage';
-import {connect} from 'react-redux';
-import {setProjectName, setProjectId} from '../reducers/project';
-import {Views} from './routing';
+import { connect } from 'react-redux';
+import { setProjectName, setProjectId } from '../reducers/project';
+import { Views } from './routing';
 
 export const UserIdContext = createContext(null);
 
@@ -16,7 +16,7 @@ export const UserIdContext = createContext(null);
  * @param {React.Component} WrappedComponent component to receive projectData prop
  * @returns {React.Component} component with project loading behavior
  */
-const ProjectLoaderHOC = function (WrappedComponent) {
+const ProjectLoaderHOC = function(WrappedComponent) {
     class ProjectLoaderComponent extends React.Component {
         static async userIdExists(userId) {
             try {
@@ -27,12 +27,12 @@ const ProjectLoaderHOC = function (WrappedComponent) {
                     return false;
                 }
                 return true;
-            } catch(e) {
+            } catch (e) {
                 return false;
             }
         }
 
-        constructor (props) {
+        constructor(props) {
             super(props);
 
             this.state = {
@@ -41,7 +41,7 @@ const ProjectLoaderHOC = function (WrappedComponent) {
                 userId: null,
             };
         }
-        async componentDidMount () {
+        async componentDidMount() {
             await this.createUserId();
             if (this.props.router.view === Views.project && this.props.router.params.projectId) {
                 this.props.dispatch(setProjectId(this.props.router.params.projectId));
@@ -49,7 +49,7 @@ const ProjectLoaderHOC = function (WrappedComponent) {
             }
             this.loadProject(this.props.projectId || 0);
         }
-        componentDidUpdate (prevProps) {
+        componentDidUpdate(prevProps) {
             if (prevProps.projectId !== this.props.projectId) {
                 this.loadProject(this.props.projectId || 0);
             }
@@ -66,7 +66,7 @@ const ProjectLoaderHOC = function (WrappedComponent) {
             const localStorage = window.localStorage;
             let userId = localStorage.getItem('deviceId');
             if (!userId) {
-                while (!userId || (await ProjectLoaderComponent.userIdExists(userId))) {
+                while (!userId || await ProjectLoaderComponent.userIdExists(userId)) {
                     userId = uuid();
                 }
                 localStorage.setItem('deviceId', userId);
@@ -75,8 +75,8 @@ const ProjectLoaderHOC = function (WrappedComponent) {
             storage.userId = userId;
             this.setState({ userId });
         }
-        loadProject (id) {
-            this.setState({fetchingProject: true}, () => (async () => {
+        loadProject(id) {
+            this.setState({ fetchingProject: true }, () => (async () => {
                 const projectAsset = await storage.load(storage.AssetType.Project, id, storage.DataFormat.JSON);
                 if (!projectAsset) {
                     return;
@@ -93,14 +93,16 @@ const ProjectLoaderHOC = function (WrappedComponent) {
                 }
             })().catch(log.error));
         }
-        render () {
+        render() {
             const {
                 dispatch, // eslint-disable-line no-unused-vars
                 projectId, // eslint-disable-line no-unused-vars
                 gameEnabled, // eslint-disable-line no-unused-vars
                 ...componentProps
             } = this.props;
-            if (!this.state.projectData) return null;
+            if (!this.state.projectData) {
+                return null;
+            }
             return (
                 <UserIdContext.Provider value={this.state.userId}>
                     <WrappedComponent
@@ -116,16 +118,16 @@ const ProjectLoaderHOC = function (WrappedComponent) {
         projectId: PropTypes.string,
     };
 
-    return connect(state => ({
+    return connect((state) => ({
         vm: state.scratchGui.vm,
         projectId: state.scratchGui.project.id,
         router: {
-            view: state.router.result ? state.router.result.view : "",
+            view: state.router.result ? state.router.result.view : '',
             params: state.router.params || {},
-        }
+        },
     }))(ProjectLoaderComponent);
 };
 
 export {
-    ProjectLoaderHOC as default
+    ProjectLoaderHOC as default,
 };

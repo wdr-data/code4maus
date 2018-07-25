@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import CustomProceduresComponent from '../components/custom-procedures/custom-procedures.jsx';
 import ScratchBlocks from '@wdr-data/scratch-blocks';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 class CustomProcedures extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleAddLabel',
@@ -16,19 +16,21 @@ class CustomProcedures extends React.Component {
             'handleToggleWarp',
             'handleCancel',
             'handleOk',
-            'setBlocks'
+            'setBlocks',
         ]);
         this.state = {
-            warp: false
+            warp: false,
         };
     }
-    componentWillUnmount () {
+    componentWillUnmount() {
         if (this.workspace) {
             this.workspace.dispose();
         }
     }
-    setBlocks (blocksRef) {
-        if (!blocksRef) return;
+    setBlocks(blocksRef) {
+        if (!blocksRef) {
+            return;
+        }
         this.blocks = blocksRef;
         const workspaceConfig = defaultsDeep({},
             CustomProcedures.defaultOptions,
@@ -52,9 +54,9 @@ class CustomProcedures extends React.Component {
             this.mutationRoot.onChangeFn();
             // Keep the block centered on the workspace
             const metrics = this.workspace.getMetrics();
-            const {x, y} = this.mutationRoot.getRelativeToSurfaceXY();
-            const dy = (metrics.viewHeight / 2) - (this.mutationRoot.height / 2) - y;
-            let dx = (metrics.viewWidth / 2) - (this.mutationRoot.width / 2) - x;
+            const { x, y } = this.mutationRoot.getRelativeToSurfaceXY();
+            const dy = metrics.viewHeight / 2 - this.mutationRoot.height / 2 - y;
+            let dx = metrics.viewWidth / 2 - this.mutationRoot.width / 2 - x;
             // If the procedure declaration is wider than the view width,
             // keep the right-hand side of the procedure in view.
             if (this.mutationRoot.width > metrics.viewWidth) {
@@ -65,42 +67,42 @@ class CustomProcedures extends React.Component {
         this.mutationRoot.domToMutation(this.props.mutator);
         this.mutationRoot.initSvg();
         this.mutationRoot.render();
-        this.setState({warp: this.mutationRoot.getWarp()});
+        this.setState({ warp: this.mutationRoot.getWarp() });
         // Allow the initial events to run to position this block, then focus.
         setTimeout(() => {
             this.mutationRoot.focusLastEditor_();
         });
     }
-    handleCancel () {
+    handleCancel() {
         this.props.onRequestClose();
     }
-    handleOk () {
+    handleOk() {
         const newMutation = this.mutationRoot ? this.mutationRoot.mutationToDom(true) : null;
         this.props.onRequestClose(newMutation);
     }
-    handleAddLabel () {
+    handleAddLabel() {
         if (this.mutationRoot) {
             this.mutationRoot.addLabelExternal();
         }
     }
-    handleAddBoolean () {
+    handleAddBoolean() {
         if (this.mutationRoot) {
             this.mutationRoot.addBooleanExternal();
         }
     }
-    handleAddTextNumber () {
+    handleAddTextNumber() {
         if (this.mutationRoot) {
             this.mutationRoot.addStringNumberExternal();
         }
     }
-    handleToggleWarp () {
+    handleToggleWarp() {
         if (this.mutationRoot) {
             const newWarp = !this.mutationRoot.getWarp();
             this.mutationRoot.setWarp(newWarp);
-            this.setState({warp: newWarp});
+            this.setState({ warp: newWarp });
         }
     }
-    render () {
+    render() {
         return (
             <CustomProceduresComponent
                 componentRef={this.setBlocks}
@@ -124,30 +126,30 @@ CustomProcedures.propTypes = {
         zoom: PropTypes.shape({
             controls: PropTypes.bool,
             wheel: PropTypes.bool,
-            startScale: PropTypes.number
+            startScale: PropTypes.number,
         }),
         comments: PropTypes.bool,
-        collapse: PropTypes.bool
-    })
+        collapse: PropTypes.bool,
+    }),
 };
 
 CustomProcedures.defaultOptions = {
     zoom: {
         controls: false,
         wheel: false,
-        startScale: 0.9
+        startScale: 0.9,
     },
     comments: false,
     collapse: false,
-    scrollbars: true
+    scrollbars: true,
 };
 
 CustomProcedures.defaultProps = {
-    options: CustomProcedures.defaultOptions
+    options: CustomProcedures.defaultOptions,
 };
 
-const mapStateToProps = state => ({
-    mutator: state.scratchGui.customProcedures.mutator
+const mapStateToProps = (state) => ({
+    mutator: state.scratchGui.customProcedures.mutator,
 });
 
 export default connect(

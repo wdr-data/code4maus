@@ -2,8 +2,10 @@ const BLOCK_DRAG_UPDATE = 'scratch-gui/block-drag/BLOCK_DRAG_UPDATE';
 
 const initialState = false;
 
-const reducer = function (state, action) {
-    if (typeof state === 'undefined') state = initialState;
+const reducer = function(state, action) {
+    if (typeof state === 'undefined') {
+        state = initialState;
+    }
     switch (action.type) {
     case BLOCK_DRAG_UPDATE:
         return action.areBlocksOverGui;
@@ -12,18 +14,18 @@ const reducer = function (state, action) {
     }
 };
 
-const updateBlockDrag = function (areBlocksOverGui) {
+const updateBlockDrag = function(areBlocksOverGui) {
     return {
         type: BLOCK_DRAG_UPDATE,
         areBlocksOverGui: areBlocksOverGui,
         meta: {
-            throttle: 30
-        }
+            throttle: 30,
+        },
     };
 };
 
 export {
     reducer as default,
     initialState as blockDragInitialState,
-    updateBlockDrag
+    updateBlockDrag,
 };

@@ -2,7 +2,7 @@ const categorySeparator = '<sep gap="36"/>';
 
 const blockSeparator = '<sep gap="36"/>'; // At default scale, about 28px
 
-const motion = function (isStage, targetId) {
+const motion = function(isStage, targetId) {
     return `
     <category name="Bewegung" id="motion" iconURI="/static/icons/icon_bewegung.svg">
         ${isStage ? `
@@ -132,7 +132,7 @@ const motion = function (isStage, targetId) {
     `;
 };
 
-const looks = function (isStage, targetId) {
+const looks = function(isStage, targetId) {
     return `
     <category name="Aussehen" id="looks" iconURI="/static/icons/icon_aussehen.svg">
         ${isStage ? '' : `
@@ -259,7 +259,7 @@ const looks = function (isStage, targetId) {
     `;
 };
 
-const sound = function (isStage, targetId) {
+const sound = function(isStage, targetId) {
     return `
     <category name="Klang" id="sound" iconURI="/static/icons/icon_klang.svg">
         <block id="${targetId}_sound_play" type="sound_play">
@@ -310,7 +310,7 @@ const sound = function (isStage, targetId) {
     `;
 };
 
-const events = function (isStage) {
+const events = function(isStage) {
     return `
     <category name="Ereignisse" id="events" iconURI="/static/icons/icon_ereignisse.svg">
         <block type="event_whenflagclicked"/>
@@ -349,7 +349,7 @@ const events = function (isStage) {
     `;
 };
 
-const control = function (isStage) {
+const control = function(isStage) {
     return `
     <category name="Steuerung" id="control" iconURI="/static/icons/icon_steuerung.svg">
         <block type="control_wait">
@@ -396,7 +396,7 @@ const control = function (isStage) {
     `;
 };
 
-const sensing = function (isStage) {
+const sensing = function(isStage) {
     return `
     <category name="Fühlen" id="sensing" iconURI="/static/icons/icon_fuehlen.svg">
         ${isStage ? '' : `
@@ -468,7 +468,7 @@ const sensing = function (isStage) {
     `;
 };
 
-const operators = function () {
+const operators = function() {
     return `
     <category name="Operatoren" id="operators" iconURI="/static/icons/icon_operatoren.svg">
         <block type="operator_add">
@@ -650,7 +650,7 @@ const operators = function () {
     `;
 };
 
-const variables = function () {
+const variables = function() {
     return `
     <category name="Variablen" id="variables" iconURI="/static/icons/icon_variablen.svg" custom="VARIABLE">
     </category>
@@ -666,8 +666,8 @@ const xmlClose = '</xml>';
  * @param {string?} categoriesXML - null for default toolbox, or an XML string with <category> elements.
  * @returns {string} - a ScratchBlocks-style XML document for the contents of the toolbox.
  */
-const makeToolboxXML = function (isStage, targetId, categoriesXML) {
-    const gap = [categorySeparator];
+const makeToolboxXML = function(isStage, targetId, categoriesXML) {
+    const gap = [ categorySeparator ];
 
     const everything = [
         xmlOpen,
