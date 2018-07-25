@@ -4,7 +4,9 @@
         "baseLayerID": -1,
         "md5": "fb7ea8b96a1fde2dfc7aba7bdb0df256.svg",
         "type": "sprite",
-        "tags": ["unterwasser"],
+        "tags": [
+            "unterwasser"
+        ],
         "info": [
             0,
             2
@@ -61,24 +63,34 @@
     {
         "name": "Maus verwirrt",
         "baseLayerID": -1,
-        "md5": "028dd6f30c1e05df36863f446aaa469a.svg",
+        "md5": "d85795400f7bcb097635936facd6b8b1.svg",
         "type": "sprite",
-        "tags": ["maus"],
+        "tags": [
+            "maus"
+        ],
         "info": [
             0,
             2
         ],
         "json": {
             "objName": "Maus verwirrt",
-            "sounds": [],
+            "sounds": [
+                {
+                    "soundName": "Maus-Klack-Klack",
+                    "soundID": -1,
+                    "md5": "282fb24fedf9ed8f6b7dd08366a0f83c.mp3",
+                    "sampleCount": 19719,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
             "costumes": [
                 {
-                    "costumeName": "maus-verwirrt",
+                    "costumeName": "Maus-verwirrt",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "028dd6f30c1e05df36863f446aaa469a.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 32.86786387491725,
-                    "rotationCenterY": 54.66154954640413
+                    "baseLayerMD5": "d85795400f7bcb097635936facd6b8b1.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
                 }
             ],
             "currentCostumeIndex": 0,
@@ -95,43 +107,44 @@
     {
         "name": "Maus hebt Arm",
         "baseLayerID": -1,
-        "md5": "ad00118a8db97095275251472feaa79d.svg",
+        "md5": "68329ba9ddae54dd22c244a8d9e4a98d.svg",
         "type": "sprite",
-        "tags": ["maus"],
+        "tags": [
+            "maus"
+        ],
         "info": [
             0,
             2
         ],
         "json": {
             "objName": "Maus hebt Arm",
-            "sounds": [],
-            "costumes": [
+            "sounds": [
                 {
-                    "costumeName": "maus-hebt-arm-1",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "ad00118a8db97095275251472feaa79d.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 33.54997000000043,
-                    "rotationCenterY": 98.26699991140438
-                },
-                {
-                    "costumeName": "maus-hebt-arm-2",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "62801ab3a29609c3795a37ec192f03e4.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 48.317865592935476,
-                    "rotationCenterY": 98.41623779993463
-                },
-                {
-                    "costumeName": "maus-hebt-arm-3",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "ed9a1c8e8674a591ed2a719f6c47281f.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 49.67244563548064,
-                    "rotationCenterY": 98.80131860272255
+                    "soundName": "Maus-geht",
+                    "soundID": -1,
+                    "md5": "7cd45cc0231181016ed3d6e5d7f1076e.mp3",
+                    "sampleCount": 2419,
+                    "rate": 44100,
+                    "format": ""
                 }
             ],
-            "currentCostumeIndex": 2,
+            "costumes": [
+                {
+                    "costumeName": "Maus-tanzt-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "68329ba9ddae54dd22c244a8d9e4a98d.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "costumeName": "Maus-tanzt-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "7cf4dd106d7d56a785ae6b025142ed1b.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                }
+            ],
+            "currentCostumeIndex": 1,
             "scratchX": 5,
             "scratchY": -63,
             "scale": 1,
@@ -145,59 +158,65 @@
     {
         "name": "Maus geht",
         "baseLayerID": -1,
-        "md5": "16c59955907b02afd456b5f72ad7ca0b.svg",
+        "md5": "0e4534fde97f8fb27b5a0e5e8c6bf06b.svg",
         "type": "sprite",
-        "tags": ["maus"],
+        "tags": [
+            "maus"
+        ],
         "info": [
             0,
             2
         ],
         "json": {
             "objName": "Maus geht",
-            "sounds": [],
-            "costumes": [
+            "sounds": [
                 {
-                    "costumeName": "maus-geht-1",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "16c59955907b02afd456b5f72ad7ca0b.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 82.19214325196805,
-                    "rotationCenterY": 32.32721804906802
-                },
-                {
-                    "costumeName": "maus-geht-2",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "4223e0e265fa6d6e60ee38d31f5aa23f.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 75.27506522629974,
-                    "rotationCenterY": 28.099959642378053
-                },
-                {
-                    "costumeName": "maus-geht-3",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "c9b60401cf1893aaa1ac22a2220ba8e7.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 87.53369913674055,
-                    "rotationCenterY": 28.2015226866275
-                },
-                {
-                    "costumeName": "maus-geht-4",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "d3616616fbd9ef401a61e814bc073b08.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 79.99392851506855,
-                    "rotationCenterY": 28.719053457693207
-                },
-                {
-                    "costumeName": "maus-geht-5",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "be0110d71e6af586bad259e8300c57a7.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 90.4287580333301,
-                    "rotationCenterY": 31.04329232368258
+                    "soundName": "Maus-geht",
+                    "soundID": -1,
+                    "md5": "7cd45cc0231181016ed3d6e5d7f1076e.mp3",
+                    "sampleCount": 2419,
+                    "rate": 44100,
+                    "format": ""
                 }
             ],
-            "currentCostumeIndex": 4,
+            "costumes": [
+                {
+                    "costumeName": "MAUS-Posen-SVGs-150px_geht-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "0e4534fde97f8fb27b5a0e5e8c6bf06b.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "costumeName": "MAUS-Posen-SVGs-150px_geht-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "ed65543655b11059c5ca832b1188ded9.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "costumeName": "MAUS-Posen-SVGs-150px_geht-3",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "4e3213eeeab11d365f2f3dbc930ef936.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "costumeName": "MAUS-Posen-SVGs-150px_geht-4",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "06478307fdc7930c317a6eff84576d6d.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "costumeName": "MAUS-Posen-SVGs-150px_geht-5",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "b5644475e0d8e33918be3bb3fe3b36a7.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                }
+            ],
+            "currentCostumeIndex": 0,
             "scratchX": 29,
             "scratchY": 9,
             "scale": 1,
@@ -211,40 +230,48 @@
     {
         "name": "Maus Freudensprung",
         "baseLayerID": -1,
-        "md5": "860708a165da8976052352adc0058022.svg",
+        "md5": "357c26c6ce4a27ad8334fb42b66dd008.svg",
         "type": "sprite",
-        "tags": ["maus"],
+        "tags": [
+            "maus"
+        ],
         "info": [
             0,
             2
         ],
         "json": {
             "objName": "Maus Freudensprung",
-            "sounds": [],
+            "sounds": [
+                {
+                    "soundName": "maus-geht",
+                    "soundID": -1,
+                    "md5": "7cd45cc0231181016ed3d6e5d7f1076e.mp3",
+                    "sampleCount": 2419,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
             "costumes": [
                 {
-                    "costumeName": "freudensprung-1",
+                    "costumeName": "Maus-Freudensprung-1",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "860708a165da8976052352adc0058022.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 45.19500427246089,
-                    "rotationCenterY": 32.55595657717495
+                    "baseLayerMD5": "357c26c6ce4a27ad8334fb42b66dd008.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
                 },
                 {
-                    "costumeName": "freudensprung-2",
+                    "costumeName": "Maus-Freudensprung-2",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "3b2d772c8be67ffcbebee0f884239217.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 65.55304460770924,
-                    "rotationCenterY": 35.87021316333781
+                    "baseLayerMD5": "d5f634108c0230e1e1fac2bef64e58cd.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
                 },
                 {
-                    "costumeName": "freudensprung-3",
+                    "costumeName": "Maus-Freudensprung-3",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "f49fddba15dfb8c7562571128a5f8f67.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 49.71963032728041,
-                    "rotationCenterY": 50.34078593454498
+                    "baseLayerMD5": "eeff387681f7fa7c9293870469e51799.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
                 }
             ],
             "currentCostumeIndex": 2,
@@ -261,48 +288,55 @@
     {
         "name": "Maus dreht sich",
         "baseLayerID": -1,
-        "md5": "d0e8aa056b6512ba2ef7a9c67b94fe18.svg",
+        "md5": "b2f27cbc0e875a5c7c6c51f5c2d1e06e.svg",
         "type": "sprite",
-        "tags": ["maus"],
+        "tags": [
+            "maus"
+        ],
         "info": [
             0,
             2
         ],
         "json": {
             "objName": "Maus dreht sich",
-            "sounds": [],
+            "sounds": [
+                {
+                    "soundName": "Maus-Klack-Klack",
+                    "soundID": -1,
+                    "md5": "282fb24fedf9ed8f6b7dd08366a0f83c.mp3",
+                    "sampleCount": 19719,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
             "costumes": [
                 {
-                    "costumeName": "maus_drehung1",
+                    "costumeName": "Maus-Drehung-1",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "d0e8aa056b6512ba2ef7a9c67b94fe18.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 33.875011220703215,
-                    "rotationCenterY": 100.70696230454203
+                    "baseLayerMD5": "b2f27cbc0e875a5c7c6c51f5c2d1e06e.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
                 },
                 {
-                    "costumeName": "maus_drehung2",
+                    "costumeName": "Maus-Drehung-2",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "813bc3fae4709a96131f677c1f397085.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 54.83500122070302,
-                    "rotationCenterY": 98.30609526284239
+                    "baseLayerMD5": "3a5e78753c367e9d6ab75e23a16e1ed8.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
                 },
                 {
-                    "costumeName": "maus_drehung3",
+                    "costumeName": "Maus-Drehung-3",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "b870bfb7becbacbafa9c2b892a42d060.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 36.62445362693592,
-                    "rotationCenterY": 99.04796871347338
+                    "baseLayerMD5": "efa7c415c1a9bfcfc7c20768c000708a.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
                 },
                 {
-                    "costumeName": "maus_drehung4",
+                    "costumeName": "Maus-Drehung-4",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "2419bd7878be324e98b337365c34a12e.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 45.5849912207033,
-                    "rotationCenterY": 99.39807572893487
+                    "baseLayerMD5": "7af297af3089a74594cf20052e82a4f1.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
                 }
             ],
             "currentCostumeIndex": 3,
@@ -319,71 +353,45 @@
     {
         "name": "Maus",
         "baseLayerID": -1,
-        "md5": "64e55dfc4352476866a00fd9adf46981.svg",
+        "md5": "246402de8b10b57114e8ece4d53ba335.svg",
         "type": "sprite",
-        "tags": ["maus"],
+        "tags": [
+            "maus"],
         "info": [
             0,
             2
         ],
         "json": {
             "objName": "Maus",
-            "sounds": [],
+            "sounds": [
+                {
+                    "soundName": "Maus-Klack-Klack2",
+                    "soundID": -1,
+                    "md5": "282fb24fedf9ed8f6b7dd08366a0f83c.mp3",
+                    "sampleCount": 19719,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
             "costumes": [
                 {
-                    "costumeName": "maus",
+                    "costumeName": "Maus-zwinkert-1",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "64e55dfc4352476866a00fd9adf46981.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 18.515001220703198,
-                    "rotationCenterY": 51.99099902499279
+                    "baseLayerMD5": "246402de8b10b57114e8ece4d53ba335.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "costumeName": "Maus-zwinkert-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "b08e33bc14f904fdf18014fa7aa9d55e.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
                 }
             ],
             "currentCostumeIndex": 0,
-            "scratchX": -15,
-            "scratchY": -16,
-            "scale": 1,
-            "direction": 90,
-            "rotationStyle": "normal",
-            "isDraggable": false,
-            "visible": true,
-            "spriteInfo": {}
-        }
-    },
-    {
-        "name": "Maus zwinkert",
-        "baseLayerID": -1,
-        "md5": "3872d07b448df1feed155510f1eb8298.svg",
-        "type": "sprite",
-        "tags": ["maus"],
-        "info": [
-            0,
-            2
-        ],
-        "json": {
-            "objName": "Maus zwinkert",
-            "sounds": [],
-            "costumes": [
-                {
-                    "costumeName": "maus_zwinkert1",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "3872d07b448df1feed155510f1eb8298.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 33.51499122070399,
-                    "rotationCenterY": 99.75255492020676
-                },
-                {
-                    "costumeName": "maus_zwinkert2",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "b8f14e4f2c3af62ea73c8a56108773f3.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 33.785011220703126,
-                    "rotationCenterY": 99.23025134567
-                }
-            ],
-            "currentCostumeIndex": 1,
-            "scratchX": -10,
-            "scratchY": -64,
+            "scratchX": -6,
+            "scratchY": 2,
             "scale": 1,
             "direction": 90,
             "rotationStyle": "normal",
@@ -395,40 +403,49 @@
     {
         "name": "Maus taucht",
         "baseLayerID": -1,
-        "md5": "4abeb8a3350e60ab74894b1bb82f6029.svg",
+        "md5": "51854898e2a5a2e4b4c63cf835af1592.svg",
         "type": "sprite",
-        "tags": ["maus", "unterwasser"],
+        "tags": [
+            "maus",
+            "unterwasser"
+        ],
         "info": [
             0,
             2
         ],
         "json": {
             "objName": "Maus taucht",
-            "sounds": [],
+            "sounds": [
+                {
+                    "soundName": "AT Loop - unter Wasser",
+                    "soundID": -1,
+                    "md5": "d1f5095e898937bce0db339de5637142.mp3",
+                    "sampleCount": 441441,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
             "costumes": [
                 {
-                    "costumeName": "maus_taucht1",
+                    "costumeName": "Maus-taucht-1",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "4abeb8a3350e60ab74894b1bb82f6029.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 52.97848037213694,
-                    "rotationCenterY": 12.899541349923254
+                    "baseLayerMD5": "51854898e2a5a2e4b4c63cf835af1592.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
                 },
                 {
-                    "costumeName": "maus_taucht2",
+                    "costumeName": "Maus-taucht-2",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "c6fb043a37ffac09574ee6496cf39060.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 54.09020276449144,
-                    "rotationCenterY": 12.25511417397692
+                    "baseLayerMD5": "6b1c01cfb600a0244ec30f4f54f86fd6.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
                 },
                 {
-                    "costumeName": "maus_taucht3",
+                    "costumeName": "Maus-taucht-3",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "3154f67225662723af3d361d9e1d73fd.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 51.28271334483486,
-                    "rotationCenterY": 12.068687763246174
+                    "baseLayerMD5": "4ec4ed6d0ec1a712420da3ce2233c798.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
                 }
             ],
             "currentCostumeIndex": 2,
@@ -445,35 +462,44 @@
     {
         "name": "Maus fährt Skateboard",
         "baseLayerID": -1,
-        "md5": "72fd48e288013c7cac14e1e1b0e25459.svg",
+        "md5": "a7dc11868d3c4ef6747e80786ff7dd16.svg",
         "type": "sprite",
-        "tags": ["maus"],
+        "tags": [
+            "maus"
+        ],
         "info": [
             0,
             2
         ],
         "json": {
             "objName": "Maus fährt Skateboard",
-            "sounds": [],
-            "costumes": [
+            "sounds": [
                 {
-                    "costumeName": "maus-faehrt-skateboard-1",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "72fd48e288013c7cac14e1e1b0e25459.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 73.59501976562518,
-                    "rotationCenterY": 107.1369143230102
-                },
-                {
-                    "costumeName": "maus-faehrt-skateboard-2",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "b1da4706c76304131c47f2910dc937cd.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 72.00702958754044,
-                    "rotationCenterY": 100.92373993959649
+                    "soundName": "skate",
+                    "soundID": -1,
+                    "md5": "f95bd4271b188c75a43fbd4104482253.mp3",
+                    "sampleCount": 270978,
+                    "rate": 44100,
+                    "format": ""
                 }
             ],
-            "currentCostumeIndex": 0,
+            "costumes": [
+                {
+                    "costumeName": "Maus-Skateboard-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "a7dc11868d3c4ef6747e80786ff7dd16.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "costumeName": "Maus-Skateboard-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "8bd3ecf34a6935d2d1228f2ac69c6746.svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                }
+            ],
+            "currentCostumeIndex": 1,
             "scratchX": 7,
             "scratchY": -63,
             "scale": 1,
@@ -487,87 +513,68 @@
     {
         "name": "Elefant",
         "baseLayerID": -1,
-        "md5": "6489c9e58589267b2153dc8810f6025f.svg",
+        "md5": "dd66da89f9fa4c19674a88b7174839cd.svg",
         "type": "sprite",
-        "tags": ["elefant"],
+        "tags": [
+            "elefant"
+        ],
         "info": [
             0,
             2
         ],
         "json": {
             "objName": "Elefant",
-            "sounds": [],
-            "costumes": [
+            "sounds": [
                 {
-                    "costumeName": "elefant",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "6489c9e58589267b2153dc8810f6025f.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 35.52152695948365,
-                    "rotationCenterY": 35.18413657291663
+                    "soundName": "Elefant-trötet-1",
+                    "soundID": -1,
+                    "md5": "8b03556e678ab60e05c819be050d3dbe.mp3",
+                    "sampleCount": 83649,
+                    "rate": 44100,
+                    "format": ""
+                },
+                {
+                    "soundName": "Elefant-trötet-2",
+                    "soundID": -1,
+                    "md5": "b7723edb708a0fa407a4d44f1f7ce2d1.wav",
+                    "sampleCount": 41231,
+                    "rate": 44100,
+                    "format": ""
                 }
             ],
-            "currentCostumeIndex": 0,
-            "scratchX": 0,
-            "scratchY": -1,
-            "scale": 1,
-            "direction": 90,
-            "rotationStyle": "normal",
-            "isDraggable": false,
-            "visible": true,
-            "spriteInfo": {}
-        }
-    },
-    {
-        "name": "Elefant trötet",
-        "baseLayerID": -1,
-        "md5": "6424ecfbf2de4afda3cb7e2cc8a039f1.svg",
-        "type": "sprite",
-        "tags": ["elefant"],
-        "info": [
-            0,
-            2
-        ],
-        "json": {
-            "objName": "Elefant trötet",
-            "sounds": [],
             "costumes": [
                 {
-                    "costumeName": "elefant_troetet1",
+                    "costumeName": "Elefant-trötet-1",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "6424ecfbf2de4afda3cb7e2cc8a039f1.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": -0.32447229384621323,
-                    "rotationCenterY": 49.43592976382996
+                    "baseLayerMD5": "dd66da89f9fa4c19674a88b7174839cd.svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
                 },
                 {
-                    "costumeName": "elefant_troetet2",
+                    "costumeName": "Elefant-trötet-2",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "2ea5bd9bd96c26615d8ec03efd15f4cf.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 1.7692923322475167,
-                    "rotationCenterY": 49.30496745383218
+                    "baseLayerMD5": "0c7e30718bb78de6dc7e149da287fcfd.svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
                 },
                 {
-                    "costumeName": "elefant_troetet3",
+                    "costumeName": "Elefant-trötet-3",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "fd943e07457521d23b6d1a24634fa2b9.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 8.800404455007452,
-                    "rotationCenterY": 48.936159572809004
+                    "baseLayerMD5": "0c7e30718bb78de6dc7e149da287fcfd.svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
                 },
                 {
-                    "costumeName": "elefant_troetet4",
+                    "costumeName": "Elefant-trötet-4",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "d0d95023c5826b1285ad610582d978f6.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 8.690972224352691,
-                    "rotationCenterY": 49.53039374705736
+                    "baseLayerMD5": "3e94926b7fd2151d50148a4a8fd2707b.svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
                 }
             ],
-            "currentCostumeIndex": 0,
-            "scratchX": -44,
-            "scratchY": -14,
+            "currentCostumeIndex": 3,
+            "scratchX": -5,
+            "scratchY": -20,
             "scale": 1,
             "direction": 90,
             "rotationStyle": "normal",
@@ -579,35 +586,47 @@
     {
         "name": "Maus im Weltall",
         "baseLayerID": -1,
-        "md5": "1edcf76190067b896f043cead99caf31.svg",
+        "md5": "6711e1d39c95107d3cfbc075d12b2670.svg",
         "type": "sprite",
-        "tags": ["maus", "weltall"],
+        "tags": [
+            "maus",
+            "weltall"
+        ],
         "info": [
             0,
             2
         ],
         "json": {
             "objName": "Maus im Weltall",
-            "sounds": [],
+            "sounds": [
+                {
+                    "soundName": "space",
+                    "soundID": -1,
+                    "md5": "19ee12af2e5fc48d689cadb3b45fde7a.mp3",
+                    "sampleCount": 159396,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
             "costumes": [
                 {
-                    "costumeName": "weltall_maus-1",
+                    "costumeName": "Maus-Weltall-1",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "1edcf76190067b896f043cead99caf31.svg",
+                    "baseLayerMD5": "6711e1d39c95107d3cfbc075d12b2670.svg",
                     "bitmapResolution": 1,
                     "rotationCenterX": 59.869966572265554,
                     "rotationCenterY": 66.47552655130977
                 },
                 {
-                    "costumeName": "weltall_maus-2",
+                    "costumeName": "Maus-Weltall-2",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "8fe3872613778d1445d181930f07e7b4.svg",
+                    "baseLayerMD5": "48e35d74b868b89d47b19020658cc1aa.svg",
                     "bitmapResolution": 1,
                     "rotationCenterX": 47.601434999999896,
                     "rotationCenterY": 67.35373681151323
                 }
             ],
-            "currentCostumeIndex": 1,
+            "currentCostumeIndex": 0,
             "scratchX": -6,
             "scratchY": -20,
             "scale": 1,
@@ -621,32 +640,42 @@
     {
         "name": "Ente im Weltall",
         "baseLayerID": -1,
-        "md5": "17ab7ab73411e63dc8495e7e8eba92cc.svg",
+        "md5": "d5062930de7fab0d5e22419fec86a2ea.svg",
         "type": "sprite",
-        "tags": ["ente", "weltall"],
+        "tags": [
+            "ente",
+            "weltall"
+        ],
         "info": [
             0,
             2
         ],
         "json": {
             "objName": "Ente im Weltall",
-            "sounds": [],
+            "sounds": [
+                {
+                    "soundName": "Ente - Flattern",
+                    "soundID": -1,
+                    "md5": "39950d0bfa3798730ab8dbfcfae21f2e.wav",
+                    "sampleCount": 38808,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
             "costumes": [
                 {
-                    "costumeName": "weltall-ente-1",
+                    "costumeName": "Ente-Weltall-1",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "17ab7ab73411e63dc8495e7e8eba92cc.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 39.18462974473715,
-                    "rotationCenterY": 60.098168571252984
+                    "baseLayerMD5": "d5062930de7fab0d5e22419fec86a2ea.svg",
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
                 },
                 {
-                    "costumeName": "weltall-ente-2",
+                    "costumeName": "Ente-Weltall-2",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "eef7323c8c3dd46848c60b31b3bee756.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 35.212777918688175,
-                    "rotationCenterY": 42.222559029909974
+                    "baseLayerMD5": "c71b18d9cd9fea450acebee9466ba8ec.svg",
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
                 }
             ],
             "currentCostumeIndex": 1,
@@ -663,37 +692,555 @@
     {
         "name": "Elefant im Weltall",
         "baseLayerID": -1,
-        "md5": "e0c4eed1f63d452188f57af55699edc4.svg",
+        "md5": "d8653237be4021ea5337b32f46c6036d.svg",
         "type": "sprite",
-        "tags": ["elefant", "weltall"],
+        "tags": [
+            "elefant",
+            "weltall"
+        ],
         "info": [
             0,
             2
         ],
         "json": {
             "objName": "Elefant im Weltall",
-            "sounds": [],
-            "costumes": [
+            "sounds": [
                 {
-                    "costumeName": "weltall-elefant-1",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "e0c4eed1f63d452188f57af55699edc4.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 48.851262206342255,
-                    "rotationCenterY": 65.34792409970876
+                    "soundName": "Elefant-trötet-1",
+                    "soundID": -1,
+                    "md5": "8b03556e678ab60e05c819be050d3dbe.mp3",
+                    "sampleCount": 83649,
+                    "rate": 44100,
+                    "format": ""
                 },
                 {
-                    "costumeName": "weltall-elefant-2",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "18045d742e91b7898cbf9e25335722c1.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 56.016625434391585,
-                    "rotationCenterY": 62.937030894286565
+                    "soundName": "Elefant-trötet-2",
+                    "soundID": -1,
+                    "md5": "b7723edb708a0fa407a4d44f1f7ce2d1.wav",
+                    "sampleCount": 41231,
+                    "rate": 44100,
+                    "format": ""
                 }
             ],
-            "currentCostumeIndex": 1,
+            "costumes": [
+                {
+                    "costumeName": "Elefant-Weltall-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "d8653237be4021ea5337b32f46c6036d.svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "costumeName": "Elefant-Weltall-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "40638253888cf3906ac687e4023eb3e2.svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "costumeName": "Elefant-Weltall-3",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "86f1d023d46d0938bd470248d3139885.svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
+                }
+            ],
+            "currentCostumeIndex": 2,
+            "scratchX": -6,
+            "scratchY": -20,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Weintrauben",
+        "baseLayerID": -1,
+        "md5": "e408e9cfc0590a8434dadb418d7ace32.svg",
+        "type": "sprite",
+        "tags": [
+            "essen",
+            "dinge"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Weintrauben",
+            "sounds": [
+                {
+                    "soundName": "Boing",
+                    "soundID": -1,
+                    "md5": "79d542fb379010cacff0e11f63a2bf27.wav",
+                    "sampleCount": 99328,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Weintrauben",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "e408e9cfc0590a8434dadb418d7ace32.svg",
+                    "rotationCenterX": 110.6050033569336,
+                    "rotationCenterY": 68.25
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": -102.58612144,
+            "scratchY": -5.51620106,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Luftballon",
+        "baseLayerID": -1,
+        "md5": "f31404dce2bf16e416ec350db125b614.svg",
+        "type": "sprite",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Luftballon",
+            "sounds": [
+                {
+                    "soundName": "Boing",
+                    "soundID": -1,
+                    "md5": "79d542fb379010cacff0e11f63a2bf27.wav",
+                    "sampleCount": 99328,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Luftballon",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "f31404dce2bf16e416ec350db125b614.svg",
+                    "rotationCenterX": 28.125,
+                    "rotationCenterY": 42.915000915527344
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": -53.33953025,
+            "scratchY": 71.24786294,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Wurst",
+        "baseLayerID": -1,
+        "md5": "bc97e946f9f9721ef8c6fa3f5b60762f.svg",
+        "type": "sprite",
+        "tags": [
+            "essen",
+            "dinge"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Wurst",
+            "sounds": [
+                {
+                    "soundName": "Boing",
+                    "soundID": -1,
+                    "md5": "9b11ba1281e09ed0e847a40aee81ab58.wav",
+                    "sampleCount": 99328,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "wurst",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "bc97e946f9f9721ef8c6fa3f5b60762f.svg",
+                    "rotationCenterX": 30.65999984741211,
+                    "rotationCenterY": 73.82499694824219
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": 11.30529143,
+            "scratchY": 25,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Apfel",
+        "baseLayerID": -1,
+        "md5": "efc24cd4a6f97498509905bd47e9f3bc.svg",
+        "type": "sprite",
+        "tags": [
+            "essen",
+            "dinge"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Apfel",
+            "sounds": [
+                {
+                    "soundName": "Boing",
+                    "soundID": -1,
+                    "md5": "f443c0285140da22e4625e0d00f86a88.wav",
+                    "sampleCount": 99328,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Apfel",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "efc24cd4a6f97498509905bd47e9f3bc.svg",
+                    "rotationCenterX": 37.56999969482422,
+                    "rotationCenterY": 41.20000076293945
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": 63.51405712,
+            "scratchY": -56.71406553,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Birne",
+        "baseLayerID": -1,
+        "md5": "f8a892eb6f7d076fcc9570a1526c6576.svg",
+        "type": "sprite",
+        "tags": [
+            "essen",
+            "dinge"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Birne",
+            "sounds": [
+                {
+                    "soundName": "Boing",
+                    "soundID": -1,
+                    "md5": "f443c0285140da22e4625e0d00f86a88.wav",
+                    "sampleCount": 99328,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Birne",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "f8a892eb6f7d076fcc9570a1526c6576.svg",
+                    "rotationCenterX": 30.885000228881836,
+                    "rotationCenterY": 59.369998931884766
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": -5,
+            "scratchY": -20,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Blume",
+        "baseLayerID": -1,
+        "md5": "00e1a242a7be6f72918ec7f608cb6abe.svg",
+        "type": "sprite",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Blume",
+            "sounds": [
+                {
+                    "soundName": "Boing",
+                    "soundID": -1,
+                    "md5": "f443c0285140da22e4625e0d00f86a88.wav",
+                    "sampleCount": 99328,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Blume-rot",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "00e1a242a7be6f72918ec7f608cb6abe.svg",
+                    "rotationCenterX": 43.10499954223633,
+                    "rotationCenterY": 37.41999816894531
+                },
+                {
+                    "costumeName": "Blume-lila",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "c76a7e7dc0ca28f67a00418d72f1c501.svg",
+                    "rotationCenterX": 43.10499954223633,
+                    "rotationCenterY": 39.310001373291016
+                },
+                {
+                    "costumeName": "Blume-gelb",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "da5eb2d7909bf51f2b015c5790930ef4.svg",
+                    "rotationCenterX": 39.58000183105469,
+                    "rotationCenterY": 37.435001373291016
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": 5,
+            "scratchY": -63,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Ball",
+        "baseLayerID": -1,
+        "md5": "f18df2020b0deb09eb81e401a4c1bfc1.svg",
+        "type": "sprite",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Ball",
+            "sounds": [
+                {
+                    "soundName": "Boing",
+                    "soundID": -1,
+                    "md5": "f443c0285140da22e4625e0d00f86a88.wav",
+                    "sampleCount": 99328,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Ball",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "f18df2020b0deb09eb81e401a4c1bfc1.svg",
+                    "rotationCenterX": 23.065000534057617,
+                    "rotationCenterY": 23.565000534057617
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": 29,
+            "scratchY": 9,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Ente flattert",
+        "baseLayerID": -1,
+        "md5": "4adcea0c58ff376692d12a0416864c88.svg",
+        "type": "sprite",
+        "tags": [
+            "ente"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Ente flattert",
+            "sounds": [
+                {
+                    "soundName": "Ente - Flattern",
+                    "soundID": -1,
+                    "md5": "39950d0bfa3798730ab8dbfcfae21f2e.wav",
+                    "sampleCount": 38808,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Ente-flattert-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "4adcea0c58ff376692d12a0416864c88.svg",
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                },
+                {
+                    "costumeName": "Ente-flattert-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "89e44ed08aac95141fb0922dae370c94.svg",
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                },
+                {
+                    "costumeName": "Ente-flattert-3",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "0c0fe780b64e1fe0246f2c0bf9e58895.svg",
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                },
+                {
+                    "costumeName": "Ente-flattert-4",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "07f99cb2ac1896e4c4f11e3990e00af2.svg",
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                }
+            ],
+            "currentCostumeIndex": 3,
+            "scratchX": -6,
+            "scratchY": -20,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Ente",
+        "baseLayerID": -1,
+        "md5": "110ee0ba259055ec9c3dfc882665397e.svg",
+        "type": "sprite",
+        "tags": [
+            "ente"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Ente",
+            "sounds": [
+                {
+                    "soundName": "Ente - Flattern",
+                    "soundID": -1,
+                    "md5": "39950d0bfa3798730ab8dbfcfae21f2e.wav",
+                    "sampleCount": 38808,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Ente",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "110ee0ba259055ec9c3dfc882665397e.svg",
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                }
+            ],
+            "currentCostumeIndex": 0,
             "scratchX": -19,
             "scratchY": -11,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Fledermaus",
+        "baseLayerID": -1,
+        "md5": "962af4eb9da031ba2562dce63383e7bf.svg",
+        "type": "sprite",
+        "tags": [
+            "tiere"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Fledermaus",
+            "sounds": [
+                {
+                    "soundName": "Ente - Flattern",
+                    "soundID": -1,
+                    "md5": "39950d0bfa3798730ab8dbfcfae21f2e.wav",
+                    "sampleCount": 38808,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Fledermaus-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "962af4eb9da031ba2562dce63383e7bf.svg",
+                    "rotationCenterX": 44,
+                    "rotationCenterY": 25.625
+                },
+                {
+                    "costumeName": "Fledermaus-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "cd7cf0cc42c31e602998d75fc71b1a83.svg",
+                    "rotationCenterX": 44,
+                    "rotationCenterY": 25.625
+                },
+                {
+                    "costumeName": "Fledermaus-3",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "312505ca9a6ac82c511f2ad1d95e74e2.svg",
+                    "rotationCenterX": 44,
+                    "rotationCenterY": 25.625
+                }
+            ],
+            "currentCostumeIndex": 2,
+            "scratchX": -6,
+            "scratchY": 2,
             "scale": 1,
             "direction": 90,
             "rotationStyle": "normal",
