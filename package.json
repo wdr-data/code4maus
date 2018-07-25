@@ -9,7 +9,7 @@
     "clean": "rimraf ./build && mkdirp build && rimraf ./dist && mkdirp dist",
     "deploy": "touch build/.nojekyll && gh-pages -t -d build -m \"Build for $(git log --pretty=format:%H -n1)\"",
     "i18n:src": "babel src > tmp.js && rimraf tmp.js && build-i18n-src ./translations/messages/ ./translations/",
-    "import-sprites": "./scripts/import-sprites.js",
+    "import-sprites": "node scripts/import-sprites.js",
     "assets:download": "aws s3 sync s3://code4maus-assets assets",
     "assets:netlify": "pip install awscli && AWS_ACCESS_KEY_ID=$DEPLOY_AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$DEPLOY_AWS_SECRET_ACCESS_KEY npm run assets:download",
     "assets:upload": "aws s3 sync --exclude .gitkeep assets s3://code4maus-assets",
