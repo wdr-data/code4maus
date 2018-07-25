@@ -43,7 +43,7 @@ const ProjectLoaderHOC = function (WrappedComponent) {
         }
         async componentDidMount () {
             await this.createUserId();
-            if (this.props.router.params.projectId) {
+            if (this.props.router.view === Views.project && this.props.router.params.projectId) {
                 this.props.dispatch(setProjectId(this.props.router.params.projectId));
                 return;
             }
@@ -121,7 +121,7 @@ const ProjectLoaderHOC = function (WrappedComponent) {
         projectId: state.scratchGui.project.id,
         router: {
             view: state.router.result ? state.router.result.view : "",
-            params: state.router.params,
+            params: state.router.params || {},
         }
     }))(ProjectLoaderComponent);
 };
