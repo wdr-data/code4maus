@@ -115,7 +115,7 @@
   "gui.soundEditor.echo": "Echo",
   "gui.soundEditor.robot": "Roboter",
   "gui.soundEditor.louder": "Lauter",
-  "gui.soundEditor.softer": "Lauter",
+  "gui.soundEditor.softer": "Leiser",
   "gui.soundEditor.reverse": "Rückwärts",
   "gui.SpriteInfo.spritePlaceholder": "Name",
   "gui.SpriteInfo.sprite": "Figur",
