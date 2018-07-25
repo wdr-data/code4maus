@@ -90,8 +90,6 @@
     overflow-y: hidden;
 }
 
-$tab-skew: 1deg;
-
 .tab {
     flex-grow: 1;
     margin-bottom: 0;

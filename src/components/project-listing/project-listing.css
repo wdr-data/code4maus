@@ -1,22 +1,185 @@
+@import "../../css/units.css";
+
+.body-wrapper {
+    min-height:100vh;
+    background-image: url('./bg_blue@1x.png');
+    background-repeat: stretch;
+}
+
 .listing-wrapper {
-    min-height: 100vh;
     padding: 3rem;
-    box-sizing: content-box;
+    min-height: 70vh;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
-.section {
-    border: 1px solid grey;
-    border-bottom: none;
+.header {
+    display: flex;
+    justify-content: space-between;
 }
 
-.section:last-of-type {
-    border-bottom: 1px solid grey;
+.header > *{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.first-column {
+    padding: 1rem 0 .04rem 1.2rem;
+}
+
+.second-column {
+    padding: .5rem 0 .04rem 0;
+}
+
+.third-column {
+    padding: .5rem 0 .04rem .75rem;
+}
+
+.logo {
+    height:  1.6rem;
+    display: block;
+}
+
+.logo-center {
+    height: 5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tab-list {
+    height: $stage-menu-height;
+    display: flex;
+    align-items: flex-end;
+
+    font-family: 'Titillium Web';
+    font-weight: 600;
+    font-size: 0.80rem;
+
+    /* Overrides for react-tabs styling */
+    margin: 0 !important;
+    border-bottom: 0 !important;
+}
+
+.tab {
+    flex-grow: 1;
+    height: 3.5rem;
+    margin-bottom: 0;
+    margin-right: .5rem;
+
+    padding: .5rem 1.25rem 1rem 0;
+    font-size: 1.5rem;
+    color: white;
+
+    background-image: url(../gui/bg_darkblue@1x.png) !important;
+    background-repeat: contain;
+    box-shadow: 5px 0 5px -5px rgb(85, 81, 81);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    user-select: none;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+
+    transform: skewY(-$tab-skew);
+    margin-bottom: -.5rem;
+}
+
+.tab-content {
+    transform: skewY($tab-skew);
+}
+
+.tab:nth-of-type(2n+0) {
+    transform: skewY($tab-skew);
+}
+.tab:nth-of-type(2n+0) .tab-content {
+    transform: skewY(-$tab-skew);
+}
+
+/* Use z-indices to force left-on-top for tabs */
+.tab:nth-of-type(1) {
+    margin-left: 0;
+    z-index: 3;
+}
+.tab:nth-of-type(2) {
+    z-index: 2;
+}
+.tab:nth-of-type(3) {
+    z-index: 1;
+    margin-right: 1em;
+}
+
+.tab:hover:not(.is-selected) {
+    height: 3.8rem;
+}
+
+.tab.is-selected {
+    height: 3.8rem;
+    background-image: url('../gui/bg_orange@1x.png') !important;
+    border-radius: 0 !important;
+    border-style: none !important;
+    z-index: 4; /* Make sure selected is always above */
+}
+
+.tab img {
+    margin-right: 0.125rem;
+    width: 1.375rem;
+    filter: grayscale(100%);
+}
+
+.tab.is-selected img {
+    filter: none;
+}
+
+/* Tab style overrides from react-tabs */
+.tab.is-selected:after {
+    display: none;
+}
+
+.tab.is-selected:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.tab.is-selected:focus:after {
+    display: none;
+}
+
+/* Body of the tabs */
+
+.tabs {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tab-panel {
+    position: relative;
+    z-index: 5;
+    flex-grow: 1;
+    height: 50vh;
+    display: none;
+    background-image: url(../gui/bg_darkblue@1x.png);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+    transform: skewY(-.5deg);
+}
+
+.tab-panel.is-selected {
+    background-image: url(../gui/bg_orange@1x.png);
+    display: flex;
 }
 
 .section-title {
-    border-bottom: 1px solid grey;
     display: block;
     padding: 1rem;
     background: #ddd;
@@ -25,16 +188,38 @@
 .section-body {
     display: flex;
     overflow-x: scroll;
-    padding: 1rem 2rem;
+    margin: 3rem 3rem;
+    background-color: white;
+    transform: skewY(.5deg);
+}
+
+.new-button {
+    padding: 1rem 4rem 0 4rem;
+    text-align: center;
+}
+
+.new-button-icon {
+    border-radius: 50%;
+    background-image: url('../gui/bg_orange@1x.png');
+    width: 6rem;
+    height: 6rem;
+    margin-bottom: .5rem;
+}
+
+.new-button-icon svg {
+    width: 100%;
+    height: 100%;
 }
 
 .project-wrapper {
     display: flex;
     flex-direction: column;
+    margin: 3rem 0 3rem 1rem;
     padding-top: 6rem;
     border: 1px solid #eee;
-    min-width: 12rem;
-    margin-left: 1rem;
+    border-radius: 1rem;
+    min-width: 14rem;
+    text-align: center;
 }
 
 .project-wrapper > * {
