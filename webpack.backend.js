@@ -1,11 +1,21 @@
 /* eslint-disable import/no-commonjs */
 const webpack = require('webpack');
+const fs = require('fs');
+const path = require('path');
 require('dotenv').config({ silent: true });
 
 const bucketSuffix = process.env.BRANCH === 'production' ? 'prod' : 'staging';
 const bucket = `${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}`;
 
 module.exports = {
+    entry: () =>
+        fs.readdirSync(path.join(__dirname, 'src/backend'))
+            .filter((file) => !file.match(/^\./) && file.match(/\.js$/))
+            .reduce((entries, file) => {
+                const name = file.replace(/\.js$/, '');
+                entries[name] = `./${name}`;
+                return entries;
+            }, {}),
     module: {
         rules: [
             {
