@@ -103,6 +103,7 @@ const importCostumes = async function(project) {
             return s;
         }
         const insert = insertedSprites[s.name];
+        insert.tags = s.tags;
         insertedSprites[s.name] = null;
         return insert;
     }).concat(Object.values(insertedSprites).filter((s) => !!s));
