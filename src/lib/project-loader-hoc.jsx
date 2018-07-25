@@ -1,5 +1,6 @@
 import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuid } from 'uuid';
 
 import log from './log';
 import storage, { s3userFile } from './storage';

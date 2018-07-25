@@ -5,7 +5,6 @@ import React from 'react';
 import {projectUrl} from './routing';
 import {serializeSounds, serializeCostumes} from '@wdr-data/scratch-vm/src/serialization/serialize-assets';
 import storage from './storage';
-import { v4 as uuid } from 'uuid';
 import { UserIdContext } from './project-loader-hoc.jsx';
 
 const contentTypes = {
