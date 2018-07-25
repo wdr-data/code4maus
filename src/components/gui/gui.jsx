@@ -20,6 +20,7 @@ import DragLayer from '../../containers/drag-layer.jsx';
 import ModalComponent from '../modal/modal.jsx';
 import Input from '../forms/input.jsx';
 import ProjectSaver from '../../containers/project-saver.jsx';
+import ProjectListing from '../../containers/project-listing.jsx';
 import EduStage from '../edu-stage/edu-stage.jsx';
 import StageHeader from '../../containers/stage-header.jsx';
 
