@@ -533,9 +533,7 @@
         "name": "Wurst-a",
         "md5": "cb1a9f2cba8bc6ebcd2f35247fe874d1.svg",
         "type": "costume",
-        "tags": [
-            "dinge"
-        ],
+        "tags": [],
         "info": [
             30.65999984741211,
             73.82499694824219,
@@ -611,7 +609,9 @@
         "name": "Ball-a",
         "md5": "d82fec1ddf3f7cef799cfc09d8de88bf.svg",
         "type": "costume",
-        "tags": ["dinge"],
+        "tags": [
+            "dinge"
+        ],
         "info": [
             23.065000534057617,
             23.565000534057617,
@@ -766,7 +766,9 @@
         "name": "Fledermaus-c",
         "md5": "3278d53db224e901431e682f26e7d376.svg",
         "type": "costume",
-        "tags": ["tiere"],
+        "tags": [
+            "tiere"
+        ],
         "info": [
             44,
             25.625,
@@ -783,6 +785,17 @@
         "info": [
             84.5,
             79.375,
+            1
+        ]
+    },
+    {
+        "name": "Wurst2-a",
+        "md5": "cb1a9f2cba8bc6ebcd2f35247fe874d1.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            30.65999984741211,
+            73.82499694824219,
             1
         ]
     }

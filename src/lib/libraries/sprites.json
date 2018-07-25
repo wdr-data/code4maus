@@ -923,9 +923,9 @@
             "objName": "Wurst",
             "sounds": [
                 {
-                    "soundName": "Boing2",
+                    "soundName": "Boing",
                     "soundID": -1,
-                    "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
+                    "md5": "520d8f1d3e6573438349ee4649aabfb0.mp3",
                     "sampleCount": 99328,
                     "rate": 44100,
                     "format": ""
@@ -970,7 +970,7 @@
                 {
                     "soundName": "Boing",
                     "soundID": -1,
-                    "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
+                    "md5": "520d8f1d3e6573438349ee4649aabfb0.mp3",
                     "sampleCount": 99328,
                     "rate": 44100,
                     "format": ""
@@ -1015,7 +1015,7 @@
                 {
                     "soundName": "Boing",
                     "soundID": -1,
-                    "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
+                    "md5": "520d8f1d3e6573438349ee4649aabfb0.mp3",
                     "sampleCount": 99328,
                     "rate": 44100,
                     "format": ""
@@ -1060,7 +1060,7 @@
                 {
                     "soundName": "Boing",
                     "soundID": -1,
-                    "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
+                    "md5": "520d8f1d3e6573438349ee4649aabfb0.mp3",
                     "sampleCount": 99328,
                     "rate": 44100,
                     "format": ""
@@ -1121,7 +1121,7 @@
                 {
                     "soundName": "Boing",
                     "soundID": -1,
-                    "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
+                    "md5": "520d8f1d3e6573438349ee4649aabfb0.mp3",
                     "sampleCount": 99328,
                     "rate": 44100,
                     "format": ""
