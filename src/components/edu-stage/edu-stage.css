@@ -1,4 +1,4 @@
-@import '../../css/colors.css'; 
+@import '../../css/colors.css';
 
 .edu-wrapper {
     margin-top: .5em;
@@ -52,12 +52,8 @@
     flex-shrink: 0;
 }
 
-.back-button {
-    flex-grow: 1;
-    justify-content: center;
-}
-
-.forward-button {
+.forward-button, .back-button {
+    display: flex;
     flex-grow: 1;
     justify-content: center;
 }

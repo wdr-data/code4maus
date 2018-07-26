@@ -18,6 +18,8 @@ import { updateToolbox } from '../reducers/toolbox';
 import { activateColorPicker } from '../reducers/color-picker';
 import { closeExtensionLibrary } from '../reducers/modals';
 import { activateCustomProcedures, deactivateCustomProcedures } from '../reducers/custom-procedures';
+import { OnboardingCapture } from './onboarding-refs-provider.jsx';
+import { TRIGGER_REFS } from '../lib/onboarding/config';
 
 const addFunctionListener = (object, property, callback) => {
     const oldFn = object[property];
@@ -85,6 +87,11 @@ class Blocks extends React.Component {
 
         this.attachVM();
         this.props.vm.setLocale(this.props.locale, this.props.messages);
+
+        const toolbox = this.workspace.getToolbox();
+        if (toolbox) {
+            this.props.captureFlyoutRef(toolbox.flyout_.svgGroup_);
+        }
     }
     shouldComponentUpdate(nextProps, nextState) {
         return (
@@ -384,6 +391,12 @@ class Blocks extends React.Component {
     }
 }
 
+const BlocksWithCapture = (props) => (
+    <OnboardingCapture componentId={TRIGGER_REFS.blocksToolbox}>
+        {(captureRef) => <Blocks captureFlyoutRef={captureRef} {...props} />}
+    </OnboardingCapture>
+);
+
 Blocks.propTypes = {
     anyModalVisible: PropTypes.bool,
     customProceduresVisible: PropTypes.bool,
@@ -425,6 +438,7 @@ Blocks.propTypes = {
         category: PropTypes.string.isRequired,
         blocks: PropTypes.arrayOf(PropTypes.string).isRequired,
     })),
+    captureFlyoutRef: PropTypes.func.isRequired,
 };
 
 Blocks.defaultOptions = {
@@ -491,5 +505,5 @@ export default errorBoundaryHOC('Blocks')(
     connect(
         mapStateToProps,
         mapDispatchToProps
-    )(Blocks)
+    )(BlocksWithCapture)
 );

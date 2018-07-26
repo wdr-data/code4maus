@@ -1,0 +1,38 @@
+@import "../../css/colors.css";
+
+.button {
+    background: url(../gui/bg_orange@1x.png) no-repeat;
+    color: white;
+    padding: .5rem 1.5rem;
+    position: relative;
+}
+
+.arrow-left {
+    padding-left: 2.5rem;
+}
+
+.arrow-right {
+    padding-right: 2.5rem;
+}
+
+.arrow-left:before, .arrow-right:after {
+	top: 50%;
+	height: 0;
+	width: 0;
+	position: absolute;
+	border: solid transparent;
+	border-width: .5rem;
+	margin-top: -.5rem;
+	content: " ";
+	pointer-events: none;
+}
+
+.arrow-left:before {
+    left: .75rem;
+	border-right-color: white;
+}
+
+.arrow-right:after {
+	right: .75rem;
+	border-left-color: white;
+}

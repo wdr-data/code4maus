@@ -1,0 +1,50 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  pointer-events: none;
+  display: none;
+}
+
+.overlay.dim {
+  background: rgba(0,0,0,.4);
+  pointer-events: initial;
+}
+
+.overlay.shown {
+  display: block;
+}
+
+.modal {
+  position: absolute;
+  padding: 2rem;
+  background-color: white;
+  box-shadow: 0 0 .8rem 1px rgba(0,0,0,.5);
+  font-size: 1.2rem;
+  pointer-events: initial;
+  max-width: 40rem;
+  z-index: 1;
+}
+
+.modal.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal span {
+  white-space: pre-wrap;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.arrow {
+  position: absolute;
+}
