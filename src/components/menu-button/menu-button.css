@@ -1,0 +1,29 @@
+.button {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  font-family: 'Titillium Web';
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.icon {
+  width: 4rem;
+  display: block;
+
+  cursor: pointer;
+  transition: 0.2s ease-out;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+.content {
+  color: black;
+  background-color: white;
+  padding: .5rem 1rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
