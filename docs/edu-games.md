@@ -31,7 +31,7 @@ To limit the kinds of blocks that are available in the game the settings `blocks
   - `sensing`
   - `operators`
   - `variables`
-- `blocks`: List of block identifiers which should be shown in this category. Together with the category identifier they determine the `type` property of the resulting block. Take a look at [this file](blob/6177e90b7866cf102693f039eecfea9fb05cc266/src/lib/make-toolbox-xml.js) to find possible values.
+- `blocks`: List of block identifiers which should be shown in this category. Together with the category identifier they determine the `type` property of the resulting block. Take a look at [this file](../src/lib/make-toolbox-xml.js) to find possible values.
 
 ### Example `game.yml`
 
