@@ -1,12 +1,38 @@
 ---
 slides:
-  - asset: 2.png
-  - asset: 3.png
-  - asset: 4.png
-  - asset: 5.png
-  - asset: 6.png
-  - asset: 7.png
-  - asset: 8.png
-  - asset: 9.png
+  - asset: 01.png
+  - asset: 02.png
+  - asset: 03.png
+  - asset: 04.png
+  - asset: 05.png
+  - asset: 06.png
+  - asset: 07.png
+  - asset: 08.png
+  - asset: 09.png
   - asset: 10.png
   - asset: 11.png
+  - asset: 12.png
+  - asset: 13.png
+  - asset: 14.png
+  - asset: 15.png
+
+blocks:
+  - category: motion
+    blocks:
+      - turnright
+      - turnleft
+      - --
+      - glideto
+  - category: looks
+    blocks:
+      - nextcostume
+  - category: sound
+    blocks:
+      - playuntildone
+  - category: events
+    blocks:
+      - whenflagclicked
+  - category: control
+    blocks:
+      - wait
+      - repeat
