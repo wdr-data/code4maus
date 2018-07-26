@@ -37,7 +37,7 @@
 }
 
 .third-column {
-    padding: .5rem 0 .04rem .75rem;
+    width: 6rem;
 }
 
 .logo {
@@ -46,7 +46,8 @@
 }
 
 .logo-center {
-    height: 5rem;
+    height: 8rem;
+    margin-top: 1rem;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -224,4 +225,10 @@
 
 .project-wrapper > * {
     padding: .5rem 1rem;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5rem;
 }

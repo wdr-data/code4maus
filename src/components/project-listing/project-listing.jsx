@@ -7,9 +7,11 @@ import { Link } from 'redux-little-router';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import tabStyles from 'react-tabs/style/react-tabs.css';
 import { FormattedMessage } from 'react-intl';
+import MenuButton from '../../components/menu-button/menu-button.jsx';
 
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/head_logo.png';
+import ausrufezeichenIcon from './ausrufezeichen.svg';
 
 export const ProjectListingComponent = props => {
 
@@ -117,6 +119,26 @@ export const ProjectListingComponent = props => {
                     <TabPanel className={tabClassNames.tabPanel}>
                     </TabPanel>
                 </Tabs>
+            </Box>
+            <Box className={styles.buttonRow}>
+                <MenuButton
+                    className={styles.menuButton}
+                    iconSrc={ausrufezeichenIcon}
+                >
+                Eltern-Info
+                </MenuButton>
+                <MenuButton
+                    className={styles.menuButton}
+                    iconSrc={ausrufezeichenIcon}
+                >
+                Hier geht's zur Maus Seite
+                </MenuButton>
+                <MenuButton
+                    className={styles.menuButton}
+                    iconSrc={ausrufezeichenIcon}
+                >
+                Impressum
+                </MenuButton>
             </Box>
         </Box>
     );
