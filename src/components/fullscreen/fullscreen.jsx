@@ -11,7 +11,7 @@ import styles from './fullscreen.css';
 import fullScreenIcon from './icon--fullscreen.svg';
 import largeStageIcon from './icon--large-stage.svg';
 import smallStageIcon from './icon--small-stage.svg';
-import unFullScreenIcon from './icon--fullscreen.svg';
+import unFullScreenIcon from './icon--unfullscreen.svg';
 
 const messages = defineMessages({
     largeStageSizeMessage: {

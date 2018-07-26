@@ -104,7 +104,7 @@ $tab-skew: 1deg;
     font-size: 1rem;
     color: white;
 
-    background-color: #5185ba;
+    background-image: url(./bg_darkblue@1x.png);
     background-repeat: no-repeat;
 
     user-select: none;
@@ -242,6 +242,11 @@ $tab-skew: 1deg;
     */
     display: flex;
     flex-direction: column;
+}
+
+.stage-menu-wrapper {
+    display: flex;
+    align-self: flex-end !important;
 }
 
 [layoutmode=BUILD] .stage-and-target-wrapper {

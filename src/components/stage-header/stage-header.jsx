@@ -13,6 +13,7 @@ import layout from '../../lib/layout-constants.js';
 import Fullscreen from '../../containers/fullscreen.jsx';
 import ButtonWithIcon from '../../components/button-with-icon/button-with-icon.jsx';
 import saveButton from './download@2x.png';
+import menuIcon from './menue.svg';
 
 import styles from './stage-header.css';
 
@@ -58,6 +59,12 @@ const StageHeaderComponent = function(props) {
             >
                 <Box className={styles.stageMenuWrapper}>
                     <Controls vm={vm} />
+                    <ButtonWithIcon
+                        className={styles.menuButton}
+                        iconSrc={menuIcon}
+                    >
+                        Übersicht
+                    </ButtonWithIcon>
                     <ButtonWithIcon
                         children={'Speichern'}
                         className={styles.saveButton}

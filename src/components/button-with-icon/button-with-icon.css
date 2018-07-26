@@ -1,8 +1,19 @@
+.button {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Titillium Web';
+  font-weight: 600;
+  font-size: 1rem;
+  padding-right: .5rem;
+}
+
 .icon {
   width: 1.4rem;
   display: block;
   margin-top: .2rem;
-  margin-left: 1rem;
+  align-self: center;
 
   cursor: pointer;
   transition: 0.2s ease-out;
@@ -12,14 +23,6 @@
   transform: scale(1.2);
 }
 
-.button {
-  background: none;
-  border: none;
-  display: flex;
-  align-self: flex-end;
-  color: #1d83a8;
-  font-family: 'Titillium Web';
-  font-weight: 600;
-  font-size: 1rem;
-  padding-right: .5rem;
+.content {
+  color: #3f84aa;
 }

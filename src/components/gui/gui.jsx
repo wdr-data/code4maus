@@ -22,7 +22,6 @@ import Input from '../forms/input.jsx';
 import ProjectSaver from '../../containers/project-saver.jsx';
 import EduStage from '../edu-stage/edu-stage.jsx';
 import StageHeader from '../../containers/stage-header.jsx';
-import ButtonWithIcon from '../../components/button-with-icon/button-with-icon.jsx';
 
 import styles from './gui.css';
 import codeIcon from './icon--code.svg';
@@ -31,7 +30,6 @@ import soundsIcon from './icon--sounds.svg';
 import Button from '../button/button.jsx';
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/head_logo.png';
-import menuIcon from './menue.svg';
 import expandIcon from './expand_right@2x.svg';
 
 // Cache this value to only retreive it once the first time.
@@ -211,12 +209,6 @@ const GUIComponent = (props) => {
                     />
                 </Box>
                 <Box className={styles.column}>
-                    <ButtonWithIcon
-                        className={styles.menuButton}
-                        iconSrc={menuIcon}
-                    >
-                        Übersicht
-                    </ButtonWithIcon>
                     <Box className={styles.stageMenuWrapper}>
                         <StageHeader vm={vm} />
                     </Box>

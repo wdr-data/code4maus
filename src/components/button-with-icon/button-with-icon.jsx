@@ -26,8 +26,8 @@ const ButtonWithIconComponent = ({
             onClick={onClick}
             {...props}
         >
-            <div className={styles.content}>{children}</div>
             {icon}
+            <div className={styles.content}>{children}</div>
         </button>
     );
 };
