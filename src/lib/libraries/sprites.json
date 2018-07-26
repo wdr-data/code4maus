@@ -1,78 +1,8 @@
 [
     {
-        "name": "Fisch",
+        "name": "Maus",
         "baseLayerID": -1,
-        "md5": "5766df8a9d4c1d5e66cd791987fa7eaf.svg",
-        "type": "sprite",
-        "tags": [
-            "tiere",
-            "unterwasser"
-        ],
-        "info": [
-            0,
-            2
-        ],
-        "json": {
-            "objName": "Fisch",
-            "sounds": [
-                {
-                    "soundName": "Fisch taucht",
-                    "soundID": -1,
-                    "md5": "6e53f4f35ccfc43adda4cf3c79591231.mp3",
-                    "sampleCount": 24423,
-                    "rate": 44100,
-                    "format": ""
-                },
-                {
-                    "soundName": "Fisch springt",
-                    "soundID": -1,
-                    "md5": "ef7c9ee99ccfb2362bf1486c95f36dd8.mp3",
-                    "sampleCount": 44100,
-                    "rate": 44100,
-                    "format": ""
-                }
-            ],
-            "costumes": [
-                {
-                    "costumeName": "fisch-pink-1",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "5766df8a9d4c1d5e66cd791987fa7eaf.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 66.10176615962936,
-                    "rotationCenterY": 48.67842252668092
-                },
-                {
-                    "costumeName": "fisch-pink-2",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "ee93da8beade2e21ba7be2e64081ed8b.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 68.1201874098017,
-                    "rotationCenterY": 55.22066077002381
-                },
-                {
-                    "costumeName": "fisch-pink-3",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "6b15273ab2d84acf09240eec9c3ea330.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 63.945126798452975,
-                    "rotationCenterY": 61.11990614672723
-                }
-            ],
-            "currentCostumeIndex": 0,
-            "scratchX": 63.51405712,
-            "scratchY": -56.71406553,
-            "scale": 1,
-            "direction": 90,
-            "rotationStyle": "normal",
-            "isDraggable": false,
-            "visible": true,
-            "spriteInfo": {}
-        }
-    },
-    {
-        "name": "Maus verwirrt",
-        "baseLayerID": -1,
-        "md5": "de194e80281ef9f19435418b1f50e873.svg",
+        "md5": "9d77f8022370d3a10e0ae7ed9585121a.svg",
         "type": "sprite",
         "tags": [
             "maus"
@@ -82,10 +12,10 @@
             2
         ],
         "json": {
-            "objName": "Maus verwirrt",
+            "objName": "Maus",
             "sounds": [
                 {
-                    "soundName": "Maus-Klack-Klack",
+                    "soundName": "Maus Klack Klack2",
                     "soundID": -1,
                     "md5": "282fb24fedf9ed8f6b7dd08366a0f83c.mp3",
                     "sampleCount": 19719,
@@ -95,17 +25,25 @@
             ],
             "costumes": [
                 {
-                    "costumeName": "Maus-verwirrt",
+                    "costumeName": "Maus-zwinkert-1",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "de194e80281ef9f19435418b1f50e873.svg",
+                    "baseLayerMD5": "9d77f8022370d3a10e0ae7ed9585121a.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "costumeName": "Maus-zwinkert-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "a32f484ffcd2e03faabe006ac5be98bb.svg",
                     "bitmapResolution": 1,
                     "rotationCenterX": 84.5,
                     "rotationCenterY": 79.375
                 }
             ],
             "currentCostumeIndex": 0,
-            "scratchX": -5,
-            "scratchY": -20,
+            "scratchX": -6,
+            "scratchY": 2,
             "scale": 1,
             "direction": 90,
             "rotationStyle": "normal",
@@ -115,7 +53,7 @@
         }
     },
     {
-        "name": "Maus hebt Arm",
+        "name": "Maus tanzt",
         "baseLayerID": -1,
         "md5": "0aa13e40ad79df5c4ef749ca812ed2e9.svg",
         "type": "sprite",
@@ -127,13 +65,13 @@
             2
         ],
         "json": {
-            "objName": "Maus hebt Arm",
+            "objName": "Maus tanzt",
             "sounds": [
                 {
-                    "soundName": "Maus geht2",
+                    "soundName": "beat",
                     "soundID": -1,
-                    "md5": "7cd45cc0231181016ed3d6e5d7f1076e.mp3",
-                    "sampleCount": 2419,
+                    "md5": "88bd474932b76c51058cb7e718f9a63a.mp3",
+                    "sampleCount": 316416,
                     "rate": 44100,
                     "format": ""
                 }
@@ -156,9 +94,9 @@
                     "rotationCenterY": 79.375
                 }
             ],
-            "currentCostumeIndex": 1,
-            "scratchX": 5,
-            "scratchY": -63,
+            "currentCostumeIndex": 0,
+            "scratchX": -9,
+            "scratchY": -45.35148515,
             "scale": 1,
             "direction": 90,
             "rotationStyle": "normal",
@@ -375,9 +313,9 @@
         }
     },
     {
-        "name": "Maus",
+        "name": "Maus verwirrt",
         "baseLayerID": -1,
-        "md5": "9d77f8022370d3a10e0ae7ed9585121a.svg",
+        "md5": "de194e80281ef9f19435418b1f50e873.svg",
         "type": "sprite",
         "tags": [
             "maus"
@@ -387,10 +325,10 @@
             2
         ],
         "json": {
-            "objName": "Maus",
+            "objName": "Maus verwirrt",
             "sounds": [
                 {
-                    "soundName": "Maus Klack Klack2",
+                    "soundName": "Maus-Klack-Klack",
                     "soundID": -1,
                     "md5": "282fb24fedf9ed8f6b7dd08366a0f83c.mp3",
                     "sampleCount": 19719,
@@ -400,25 +338,70 @@
             ],
             "costumes": [
                 {
-                    "costumeName": "Maus-zwinkert-1",
+                    "costumeName": "Maus-verwirrt",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "9d77f8022370d3a10e0ae7ed9585121a.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 84.5,
-                    "rotationCenterY": 79.375
-                },
-                {
-                    "costumeName": "Maus-zwinkert-2",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "a32f484ffcd2e03faabe006ac5be98bb.svg",
+                    "baseLayerMD5": "de194e80281ef9f19435418b1f50e873.svg",
                     "bitmapResolution": 1,
                     "rotationCenterX": 84.5,
                     "rotationCenterY": 79.375
                 }
             ],
             "currentCostumeIndex": 0,
-            "scratchX": -6,
-            "scratchY": 2,
+            "scratchX": -5,
+            "scratchY": -20,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Maus fährt Skateboard",
+        "baseLayerID": -1,
+        "md5": "971d4efd863c9b02e603704c2e47ab67.svg",
+        "type": "sprite",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Maus fährt Skateboard",
+            "sounds": [
+                {
+                    "soundName": "Skateboard",
+                    "soundID": -1,
+                    "md5": "f95bd4271b188c75a43fbd4104482253.mp3",
+                    "sampleCount": 270978,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Maus-Skateboard-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "971d4efd863c9b02e603704c2e47ab67.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "costumeName": "Maus-Skateboard-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "5fa6c2c9ae0b4c66ecb6f2b94692d91f.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                }
+            ],
+            "currentCostumeIndex": 1,
+            "scratchX": 7,
+            "scratchY": -63,
             "scale": 1,
             "direction": 90,
             "rotationStyle": "normal",
@@ -490,140 +473,6 @@
         }
     },
     {
-        "name": "Maus fährt Skateboard",
-        "baseLayerID": -1,
-        "md5": "971d4efd863c9b02e603704c2e47ab67.svg",
-        "type": "sprite",
-        "tags": [
-            "maus"
-        ],
-        "info": [
-            0,
-            2
-        ],
-        "json": {
-            "objName": "Maus fährt Skateboard",
-            "sounds": [
-                {
-                    "soundName": "Elefant trötet 1",
-                    "soundID": -1,
-                    "md5": "8b03556e678ab60e05c819be050d3dbe.mp3",
-                    "sampleCount": 83649,
-                    "rate": 44100,
-                    "format": ""
-                },
-                {
-                    "soundName": "Elefant trötet 2",
-                    "soundID": -1,
-                    "md5": "a17279ef62bbaead6b65dc5d54724793.mp3",
-                    "sampleCount": 41232,
-                    "rate": 44100,
-                    "format": ""
-                }
-            ],
-            "costumes": [
-                {
-                    "costumeName": "Maus-Skateboard-1",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "971d4efd863c9b02e603704c2e47ab67.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 84.5,
-                    "rotationCenterY": 79.375
-                },
-                {
-                    "costumeName": "Maus-Skateboard-2",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "5fa6c2c9ae0b4c66ecb6f2b94692d91f.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 84.5,
-                    "rotationCenterY": 79.375
-                }
-            ],
-            "currentCostumeIndex": 1,
-            "scratchX": 7,
-            "scratchY": -63,
-            "scale": 1,
-            "direction": 90,
-            "rotationStyle": "normal",
-            "isDraggable": false,
-            "visible": true,
-            "spriteInfo": {}
-        }
-    },
-    {
-        "name": "Elefant",
-        "baseLayerID": -1,
-        "md5": "dd66da89f9fa4c19674a88b7174839cd.svg",
-        "type": "sprite",
-        "tags": [
-            "elefant"
-        ],
-        "info": [
-            0,
-            2
-        ],
-        "json": {
-            "objName": "Elefant",
-            "sounds": [
-                {
-                    "soundName": "Elefant-trötet-1",
-                    "soundID": -1,
-                    "md5": "8b03556e678ab60e05c819be050d3dbe.mp3",
-                    "sampleCount": 83649,
-                    "rate": 44100,
-                    "format": ""
-                },
-                {
-                    "soundName": "Elefant-trötet-2",
-                    "soundID": -1,
-                    "md5": "b7723edb708a0fa407a4d44f1f7ce2d1.wav",
-                    "sampleCount": 41231,
-                    "rate": 44100,
-                    "format": ""
-                }
-            ],
-            "costumes": [
-                {
-                    "costumeName": "Elefant-trötet-1",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "dd66da89f9fa4c19674a88b7174839cd.svg",
-                    "rotationCenterX": 83.5,
-                    "rotationCenterY": 79.375
-                },
-                {
-                    "costumeName": "Elefant-trötet-2",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "0c7e30718bb78de6dc7e149da287fcfd.svg",
-                    "rotationCenterX": 83.5,
-                    "rotationCenterY": 79.375
-                },
-                {
-                    "costumeName": "Elefant-trötet-3",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "0c7e30718bb78de6dc7e149da287fcfd.svg",
-                    "rotationCenterX": 83.5,
-                    "rotationCenterY": 79.375
-                },
-                {
-                    "costumeName": "Elefant-trötet-4",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "3e94926b7fd2151d50148a4a8fd2707b.svg",
-                    "rotationCenterX": 83.5,
-                    "rotationCenterY": 79.375
-                }
-            ],
-            "currentCostumeIndex": 3,
-            "scratchX": -5,
-            "scratchY": -20,
-            "scale": 1,
-            "direction": 90,
-            "rotationStyle": "normal",
-            "isDraggable": false,
-            "visible": true,
-            "spriteInfo": {}
-        }
-    },
-    {
         "name": "Maus im Weltall",
         "baseLayerID": -1,
         "md5": "6711e1d39c95107d3cfbc075d12b2670.svg",
@@ -678,59 +527,120 @@
         }
     },
     {
-        "name": "Ente im Weltall",
+        "name": "Elefant",
         "baseLayerID": -1,
-        "md5": "882ec0e229f1f7cff53a5a8612660a8e.svg",
+        "md5": "dd66da89f9fa4c19674a88b7174839cd.svg",
         "type": "sprite",
         "tags": [
-            "ente",
-            "weltall"
+            "elefant"
         ],
         "info": [
             0,
             2
         ],
         "json": {
-            "objName": "Ente im Weltall",
+            "objName": "Elefant",
             "sounds": [
                 {
-                    "soundName": "Ente flattert",
+                    "soundName": "Elefant-trötet-1",
                     "soundID": -1,
-                    "md5": "ffc769dfe1bc0beacf6d59993c68a865.mp3",
-                    "sampleCount": 38808,
+                    "md5": "8b03556e678ab60e05c819be050d3dbe.mp3",
+                    "sampleCount": 83649,
                     "rate": 44100,
                     "format": ""
                 },
                 {
-                    "soundName": "Space",
+                    "soundName": "Elefant-trötet-2",
                     "soundID": -1,
-                    "md5": "19ee12af2e5fc48d689cadb3b45fde7a.mp3",
-                    "sampleCount": 159396,
+                    "md5": "b7723edb708a0fa407a4d44f1f7ce2d1.wav",
+                    "sampleCount": 41231,
                     "rate": 44100,
                     "format": ""
                 }
             ],
             "costumes": [
                 {
-                    "costumeName": "Ente-Weltall-1",
+                    "costumeName": "Elefant",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "882ec0e229f1f7cff53a5a8612660a8e.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 40,
-                    "rotationCenterY": 52.875
-                },
-                {
-                    "costumeName": "Ente-Weltall-2",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "92adb94d8d28486a6832dce9f5b7b8f1.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 40,
-                    "rotationCenterY": 52.875
+                    "baseLayerMD5": "dd66da89f9fa4c19674a88b7174839cd.svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
                 }
             ],
-            "currentCostumeIndex": 1,
-            "scratchX": -8,
-            "scratchY": -17,
+            "currentCostumeIndex": 0,
+            "scratchX": -5,
+            "scratchY": -20,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Elefant trötet",
+        "baseLayerID": -1,
+        "md5": "dd66da89f9fa4c19674a88b7174839cd.svg",
+        "type": "sprite",
+        "tags": [],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Elefant trötet",
+            "sounds": [
+                {
+                    "soundName": "Elefant trötet 1",
+                    "soundID": -1,
+                    "md5": "8b03556e678ab60e05c819be050d3dbe.mp3",
+                    "sampleCount": 83649,
+                    "rate": 44100,
+                    "format": ""
+                },
+                {
+                    "soundName": "Elefant trötet 2",
+                    "soundID": -1,
+                    "md5": "a17279ef62bbaead6b65dc5d54724793.mp3",
+                    "sampleCount": 41232,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Elefant-trötet-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "dd66da89f9fa4c19674a88b7174839cd.svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "costumeName": "Elefant-trötet-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "0c7e30718bb78de6dc7e149da287fcfd.svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "costumeName": "Elefant-trötet-3",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "3c087fdc97a1502fb7a951ca1cb20b6b.svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "costumeName": "Elefant-trötet-4",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "3e94926b7fd2151d50148a4a8fd2707b.svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
+                }
+            ],
+            "currentCostumeIndex": 3,
+            "scratchX": -100.69470882,
+            "scratchY": -17.3230198,
             "scale": 1,
             "direction": 90,
             "rotationStyle": "normal",
@@ -809,6 +719,182 @@
             "currentCostumeIndex": 2,
             "scratchX": -6,
             "scratchY": -20,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Ente",
+        "baseLayerID": -1,
+        "md5": "4fcc79bb996780c748cd608340934c06.svg",
+        "type": "sprite",
+        "tags": [
+            "ente"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Ente",
+            "sounds": [
+                {
+                    "soundName": "Ente flattert",
+                    "soundID": -1,
+                    "md5": "ffc769dfe1bc0beacf6d59993c68a865.mp3",
+                    "sampleCount": 38808,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Ente",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "4fcc79bb996780c748cd608340934c06.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": -19,
+            "scratchY": -11,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Ente flattert",
+        "baseLayerID": -1,
+        "md5": "370d505c3bfffcce42c82eae188e3dcc.svg",
+        "type": "sprite",
+        "tags": [
+            "ente"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Ente flattert",
+            "sounds": [
+                {
+                    "soundName": "Ente flattert",
+                    "soundID": -1,
+                    "md5": "ffc769dfe1bc0beacf6d59993c68a865.mp3",
+                    "sampleCount": 38808,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Ente-flattert-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "370d505c3bfffcce42c82eae188e3dcc.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                },
+                {
+                    "costumeName": "Ente-flattert-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "9351ff13d3471e030d67047d97b0ab36.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                },
+                {
+                    "costumeName": "Ente-flattert-3",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "364fd0dcbabf29e9ba3a103a7794da05.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                },
+                {
+                    "costumeName": "Ente-flattert-4",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "8185bf6167a7c5ffb89053390ad10d82.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                }
+            ],
+            "currentCostumeIndex": 3,
+            "scratchX": -6,
+            "scratchY": -20,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Ente im Weltall",
+        "baseLayerID": -1,
+        "md5": "882ec0e229f1f7cff53a5a8612660a8e.svg",
+        "type": "sprite",
+        "tags": [
+            "ente",
+            "weltall"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Ente im Weltall",
+            "sounds": [
+                {
+                    "soundName": "Ente flattert",
+                    "soundID": -1,
+                    "md5": "ffc769dfe1bc0beacf6d59993c68a865.mp3",
+                    "sampleCount": 38808,
+                    "rate": 44100,
+                    "format": ""
+                },
+                {
+                    "soundName": "Space",
+                    "soundID": -1,
+                    "md5": "19ee12af2e5fc48d689cadb3b45fde7a.mp3",
+                    "sampleCount": 159396,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Ente-Weltall-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "882ec0e229f1f7cff53a5a8612660a8e.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                },
+                {
+                    "costumeName": "Ente-Weltall-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "92adb94d8d28486a6832dce9f5b7b8f1.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                }
+            ],
+            "currentCostumeIndex": 1,
+            "scratchX": -8,
+            "scratchY": -17,
             "scale": 1,
             "direction": 90,
             "rotationStyle": "normal",
@@ -923,9 +1009,9 @@
             "objName": "Wurst",
             "sounds": [
                 {
-                    "soundName": "Boing",
+                    "soundName": "Boing2",
                     "soundID": -1,
-                    "md5": "520d8f1d3e6573438349ee4649aabfb0.mp3",
+                    "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
                     "sampleCount": 99328,
                     "rate": 44100,
                     "format": ""
@@ -970,7 +1056,7 @@
                 {
                     "soundName": "Boing",
                     "soundID": -1,
-                    "md5": "520d8f1d3e6573438349ee4649aabfb0.mp3",
+                    "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
                     "sampleCount": 99328,
                     "rate": 44100,
                     "format": ""
@@ -1015,7 +1101,7 @@
                 {
                     "soundName": "Boing",
                     "soundID": -1,
-                    "md5": "520d8f1d3e6573438349ee4649aabfb0.mp3",
+                    "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
                     "sampleCount": 99328,
                     "rate": 44100,
                     "format": ""
@@ -1060,7 +1146,7 @@
                 {
                     "soundName": "Boing",
                     "soundID": -1,
-                    "md5": "520d8f1d3e6573438349ee4649aabfb0.mp3",
+                    "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
                     "sampleCount": 99328,
                     "rate": 44100,
                     "format": ""
@@ -1121,7 +1207,7 @@
                 {
                     "soundName": "Boing",
                     "soundID": -1,
-                    "md5": "520d8f1d3e6573438349ee4649aabfb0.mp3",
+                    "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
                     "sampleCount": 99328,
                     "rate": 44100,
                     "format": ""
@@ -1140,120 +1226,6 @@
             "currentCostumeIndex": 0,
             "scratchX": 29,
             "scratchY": 9,
-            "scale": 1,
-            "direction": 90,
-            "rotationStyle": "normal",
-            "isDraggable": false,
-            "visible": true,
-            "spriteInfo": {}
-        }
-    },
-    {
-        "name": "Ente flattert",
-        "baseLayerID": -1,
-        "md5": "370d505c3bfffcce42c82eae188e3dcc.svg",
-        "type": "sprite",
-        "tags": [
-            "ente"
-        ],
-        "info": [
-            0,
-            2
-        ],
-        "json": {
-            "objName": "Ente flattert",
-            "sounds": [
-                {
-                    "soundName": "Ente flattert",
-                    "soundID": -1,
-                    "md5": "ffc769dfe1bc0beacf6d59993c68a865.mp3",
-                    "sampleCount": 38808,
-                    "rate": 44100,
-                    "format": ""
-                }
-            ],
-            "costumes": [
-                {
-                    "costumeName": "Ente-flattert-1",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "370d505c3bfffcce42c82eae188e3dcc.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 40,
-                    "rotationCenterY": 52.875
-                },
-                {
-                    "costumeName": "Ente-flattert-2",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "9351ff13d3471e030d67047d97b0ab36.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 40,
-                    "rotationCenterY": 52.875
-                },
-                {
-                    "costumeName": "Ente-flattert-3",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "364fd0dcbabf29e9ba3a103a7794da05.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 40,
-                    "rotationCenterY": 52.875
-                },
-                {
-                    "costumeName": "Ente-flattert-4",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "8185bf6167a7c5ffb89053390ad10d82.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 40,
-                    "rotationCenterY": 52.875
-                }
-            ],
-            "currentCostumeIndex": 3,
-            "scratchX": -6,
-            "scratchY": -20,
-            "scale": 1,
-            "direction": 90,
-            "rotationStyle": "normal",
-            "isDraggable": false,
-            "visible": true,
-            "spriteInfo": {}
-        }
-    },
-    {
-        "name": "Ente",
-        "baseLayerID": -1,
-        "md5": "4fcc79bb996780c748cd608340934c06.svg",
-        "type": "sprite",
-        "tags": [
-            "ente"
-        ],
-        "info": [
-            0,
-            2
-        ],
-        "json": {
-            "objName": "Ente",
-            "sounds": [
-                {
-                    "soundName": "Ente flattert",
-                    "soundID": -1,
-                    "md5": "ffc769dfe1bc0beacf6d59993c68a865.mp3",
-                    "sampleCount": 38808,
-                    "rate": 44100,
-                    "format": ""
-                }
-            ],
-            "costumes": [
-                {
-                    "costumeName": "Ente",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "4fcc79bb996780c748cd608340934c06.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 40,
-                    "rotationCenterY": 52.875
-                }
-            ],
-            "currentCostumeIndex": 0,
-            "scratchX": -19,
-            "scratchY": -11,
             "scale": 1,
             "direction": 90,
             "rotationStyle": "normal",
@@ -1315,6 +1287,76 @@
             "currentCostumeIndex": 2,
             "scratchX": -6,
             "scratchY": 2,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Fisch",
+        "baseLayerID": -1,
+        "md5": "5766df8a9d4c1d5e66cd791987fa7eaf.svg",
+        "type": "sprite",
+        "tags": [
+            "tiere",
+            "unterwasser"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Fisch",
+            "sounds": [
+                {
+                    "soundName": "Fisch taucht",
+                    "soundID": -1,
+                    "md5": "6e53f4f35ccfc43adda4cf3c79591231.mp3",
+                    "sampleCount": 24423,
+                    "rate": 44100,
+                    "format": ""
+                },
+                {
+                    "soundName": "Fisch springt",
+                    "soundID": -1,
+                    "md5": "ef7c9ee99ccfb2362bf1486c95f36dd8.mp3",
+                    "sampleCount": 44100,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "fisch-pink-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "5766df8a9d4c1d5e66cd791987fa7eaf.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 66.10176615962936,
+                    "rotationCenterY": 48.67842252668092
+                },
+                {
+                    "costumeName": "fisch-pink-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "ee93da8beade2e21ba7be2e64081ed8b.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 68.1201874098017,
+                    "rotationCenterY": 55.22066077002381
+                },
+                {
+                    "costumeName": "fisch-pink-3",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "6b15273ab2d84acf09240eec9c3ea330.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 63.945126798452975,
+                    "rotationCenterY": 61.11990614672723
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": 63.51405712,
+            "scratchY": -56.71406553,
             "scale": 1,
             "direction": 90,
             "rotationStyle": "normal",

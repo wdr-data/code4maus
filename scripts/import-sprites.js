@@ -42,7 +42,7 @@ const importCostumes = async function(project) {
             }
 
             costumes.map((c, key) => ({
-                name: `${sprite.name}-${String.fromCharCode(97+key)}`,
+                name: c.costumeName,
                 md5: c.baseLayerMD5,
                 type: 'costume',
                 tags: [],
@@ -120,6 +120,7 @@ const importCostumes = async function(project) {
         }
         const insert = costumeInserts[c.name];
         costumeInserts[c.name] = null;
+        console.log('overwriting costume', insert);
         return insert;
     }).concat(Object.values(costumeInserts).filter((c) => !!c));
 
