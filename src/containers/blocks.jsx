@@ -86,14 +86,6 @@ class Blocks extends React.Component {
         this.attachVM();
         this.props.vm.setLocale(this.props.locale, this.props.messages);
     }
-    componentWillReceiveProps(nextProps) {
-        if (this.props.layoutMode !== nextProps.layoutMode) {
-            setTimeout(() => {
-                this.props.vm.refreshWorkspace();
-                window.dispatchEvent(new Event('resize'));
-            }, 0);
-        }
-    }
     shouldComponentUpdate(nextProps, nextState) {
         return (
             this.state.prompt !== nextState.prompt ||
@@ -102,7 +94,8 @@ class Blocks extends React.Component {
             this.props.extensionLibraryVisible !== nextProps.extensionLibraryVisible ||
             this.props.customProceduresVisible !== nextProps.customProceduresVisible ||
             this.props.locale !== nextProps.locale ||
-            this.props.anyModalVisible !== nextProps.anyModalVisible
+            this.props.anyModalVisible !== nextProps.anyModalVisible ||
+            this.props.layoutMode !== nextProps.layoutMode
         );
     }
     componentDidUpdate(prevProps) {
@@ -113,6 +106,13 @@ class Blocks extends React.Component {
 
         if (prevProps.locale !== this.props.locale) {
             this.props.vm.setLocale(this.props.locale, this.props.messages);
+        }
+
+        if (prevProps.layoutMode !== this.props.layoutMode) {
+            setTimeout(() => {
+                this.props.vm.refreshWorkspace();
+                window.dispatchEvent(new Event('resize'));
+            });
         }
 
         if (prevProps.toolboxXML !== this.props.toolboxXML) {
