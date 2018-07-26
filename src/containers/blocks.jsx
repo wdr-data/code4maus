@@ -217,6 +217,12 @@ class Blocks extends React.Component {
         });
     }
 
+    updateToolboxXml(target) {
+        const dynamicBlocksXML = this.props.vm.runtime.getBlocksXML();
+        const toolboxXML = makeToolboxXML(target.isStage, target.id, dynamicBlocksXML, this.props.customBlocks);
+        this.props.updateToolboxState(toolboxXML);
+    }
+
     onTargetsUpdate() {
         if (this.props.vm.editingTarget) {
             [ 'glide', 'move', 'set' ].forEach((prefix) => {
@@ -257,9 +263,7 @@ class Blocks extends React.Component {
         // When we change sprites, update the toolbox to have the new sprite's blocks
         if (this.props.vm.editingTarget) {
             const target = this.props.vm.editingTarget;
-            const dynamicBlocksXML = this.props.vm.runtime.getBlocksXML();
-            const toolboxXML = makeToolboxXML(target.isStage, target.id, dynamicBlocksXML);
-            this.props.updateToolboxState(toolboxXML);
+            this.updateToolboxXml(target);
         }
 
         if (this.props.vm.editingTarget && !this.state.workspaceMetrics[this.props.vm.editingTarget.id]) {
@@ -289,9 +293,7 @@ class Blocks extends React.Component {
         const runtime = this.props.vm.runtime;
         const target = runtime.getEditingTarget() || runtime.getTargetForStage();
         if (target) {
-            const dynamicBlocksXML = runtime.getBlocksXML();
-            const toolboxXML = makeToolboxXML(target.isStage, target.id, dynamicBlocksXML);
-            this.props.updateToolboxState(toolboxXML);
+            this.updateToolboxXml(target);
         }
     }
     handleBlocksInfoUpdate(blocksInfo) {
@@ -418,6 +420,10 @@ Blocks.propTypes = {
     toolboxXML: PropTypes.string,
     updateToolboxState: PropTypes.func,
     vm: PropTypes.instanceOf(VM).isRequired,
+    customBlocks: PropTypes.arrayOf(PropTypes.shape({
+        category: PropTypes.string.isRequired,
+        blocks: PropTypes.arrayOf(PropTypes.string).isRequired,
+    })),
 };
 
 Blocks.defaultOptions = {
@@ -463,6 +469,7 @@ const mapStateToProps = (state) => ({
     toolboxXML: state.scratchGui.toolbox.toolboxXML,
     customProceduresVisible: state.scratchGui.customProcedures.active,
     layoutMode: state.scratchGui.layoutMode,
+    customBlocks: (state.scratchGui.eduLayer.gameSpec || {}).blocks || null,
 });
 
 const mapDispatchToProps = (dispatch) => ({

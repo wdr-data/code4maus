@@ -1064,11 +1064,17 @@ const xmlClose = '</xml>';
  * @param {string?} categoriesXML - null for default toolbox, or an XML string with <category> elements.
  * @returns {string} - a ScratchBlocks-style XML document for the contents of the toolbox.
  */
-const makeToolboxXML = function(isStage, targetId, categoriesXML) {
+const makeToolboxXML = function(isStage, targetId, categoriesXML, customBlocks = null) {
     const gap = [ categorySeparator ];
 
+    const categories = !Array.isArray(customBlocks)
+        ? Object.values(categoryMap)
+            .map((cat) => cat(isStage, targetId) + categorySeparator)
+        : customBlocks
+            .map((item) => categoryMap[item.category](isStage, targetId, item.blocks));
+
     const everything = [ xmlOpen ]
-        .concat(Object.values(categoryMap).map((cat) => cat(isStage, targetId) + categorySeparator));
+        .concat(categories);
 
     if (categoriesXML) {
         everything.push(gap, categoriesXML);
