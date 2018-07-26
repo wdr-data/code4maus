@@ -1,664 +1,663 @@
 [
     {
-      "name": "Selber malen",
-      "md5": "cd21514d0531fdffb22204e0ec5ed84a.svg",
-      "type": "costume",
-      "tags": [],
-      "info": [
-        0,
-        0,
-        1
-      ]
+        "name": "Selber malen",
+        "md5": "cd21514d0531fdffb22204e0ec5ed84a.svg",
+        "type": "costume",
+        "tags": [],
+        "info": [
+            0,
+            0,
+            1
+        ]
     },
     {
-      "name": "Apfel",
-      "md5": "6765eb216d251c0b8bb5ad5abafaa1fb.svg",
-      "type": "costume",
-      "tags": [
-          "dinge"
-      ],
-      "info": [
-        37.56999969482422,
-        41.20000076293945,
-        1
-      ]
-    },
-    {
-      "name": "Ball",
-      "md5": "d82fec1ddf3f7cef799cfc09d8de88bf.svg",
-      "type": "costume",
-      "tags": [
-          "dinge"
-      ],
-      "info": [
-        23.065000534057617,
-        23.565000534057617,
-        1
-      ]
-    },
-    {
-      "name": "Birne",
-      "md5": "8c75bb4d9ff286461c85535b80b8201b.svg",
-      "type": "costume",
-      "tags": [
-          "dinge"
-      ],
-      "info": [
-        30.885000228881836,
-        59.369998931884766,
-        1
-      ]
-    },
-    {
-      "name": "Blume-gelb",
-      "md5": "11cd402f03f46c515362180ece55a130.svg",
-      "type": "costume",
-      "tags": [
-          "dinge"
-      ],
-      "info": [
-        39.58000183105469,
-        37.435001373291016,
-        1
-      ]
-    },
-    {
-      "name": "Blume-lila",
-      "md5": "f1814e316ddc02a9a8c25ac74b442536.svg",
-      "type": "costume",
-      "tags": [
-          "dinge"
-      ],
-      "info": [
-        43.10499954223633,
-        39.310001373291016,
-        1
-      ]
-    },
-    {
-      "name": "Blume-rot",
-      "md5": "b20a20ac62ceb1bc909f81b873e8ae3f.svg",
-      "type": "costume",
-      "tags": [
-          "dinge"
-      ],
-      "info": [
-        43.10499954223633,
-        37.41999816894531,
-        1
-      ]
-    },
-    {
-      "name": "Elefant",
-      "md5": "dd66da89f9fa4c19674a88b7174839cd.svg",
-      "type": "costume",
-      "tags": [
-          "elefant"
-      ],
-      "info": [
-        83.5,
-        79.375,
-        null
-      ]
-    },
-    {
-      "name": "Elefant-Weltall-1",
-      "md5": "6437f894b28c31b2e40307f8260209df.svg",
-      "type": "costume",
-      "tags": [
-          "elefant",
-          "weltall"
-      ],
-      "info": [
-        83.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Elefant-Weltall-2",
-      "md5": "a9408be16bb2e9192d47743f2e6ee46c.svg",
-      "type": "costume",
-      "tags": [
-        "elefant",
-        "weltall"
-      ],
-      "info": [
-        83.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Elefant-Weltall-3",
-      "md5": "03082066e4a9059fa05972ac3ec52b57.svg",
-      "type": "costume",
-      "tags": [
-          "elefant",
-          "weltall"
-      ],
-      "info": [
-        83.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Elefant-trötet-1",
-      "md5": "dd66da89f9fa4c19674a88b7174839cd.svg",
-      "type": "costume",
-      "tags": [
-          "elefant"
-      ],
-      "info": [
-        83.5,
-        79.375,
-        null
-      ]
-    },
-    {
-      "name": "Elefant-trötet-2",
-      "md5": "0c7e30718bb78de6dc7e149da287fcfd.svg",
-      "type": "costume",
-      "tags": [
-          "elefant"
-      ],
-      "info": [
-        83.5,
-        79.375,
-        null
-      ]
-    },
-    {
-      "name": "Elefant-trötet-3",
-      "md5": "3c087fdc97a1502fb7a951ca1cb20b6b.svg",
-      "type": "costume",
-      "tags": [
-          "elefant"
-      ],
-      "info": [
-        83.5,
-        79.375,
-        null
-      ]
-    },
-    {
-      "name": "Elefant-trötet-4",
-      "md5": "3e94926b7fd2151d50148a4a8fd2707b.svg",
-      "type": "costume",
-      "tags": [
-          "elefant"
-      ],
-      "info": [
-        83.5,
-        79.375,
-        null
-      ]
-    },
-    {
-      "name": "Ente",
-      "md5": "4fcc79bb996780c748cd608340934c06.svg",
-      "type": "costume",
-      "tags": [
-          "ente"
-      ],
-      "info": [
-        40,
-        52.875,
-        1
-      ]
-    },
-    {
-      "name": "Ente-Weltall-1",
-      "md5": "882ec0e229f1f7cff53a5a8612660a8e.svg",
-      "type": "costume",
-      "tags": [
-          "ente",
-          "weltall"
-      ],
-      "info": [
-        40,
-        52.875,
-        1
-      ]
-    },
-    {
-      "name": "Ente-Weltall-2",
-      "md5": "92adb94d8d28486a6832dce9f5b7b8f1.svg",
-      "type": "costume",
-      "tags": [
-          "ente",
-          "weltall"
-      ],
-      "info": [
-        40,
-        52.875,
-        1
-      ]
-    },
-    {
-      "name": "Ente-flattert-1",
-      "md5": "370d505c3bfffcce42c82eae188e3dcc.svg",
-      "type": "costume",
-      "tags": [
-          "ente"
-      ],
-      "info": [
-        40,
-        52.875,
-        1
-      ]
-    },
-    {
-      "name": "Ente-flattert-2",
-      "md5": "9351ff13d3471e030d67047d97b0ab36.svg",
-      "type": "costume",
-      "tags": [
-          "ente"
-      ],
-      "info": [
-        40,
-        52.875,
-        1
-      ]
-    },
-    {
-      "name": "Ente-flattert-3",
-      "md5": "364fd0dcbabf29e9ba3a103a7794da05.svg",
-      "type": "costume",
-      "tags": [
-          "ente"
-      ],
-      "info": [
-        40,
-        52.875,
-        1
-      ]
-    },
-    {
-      "name": "Ente-flattert-4",
-      "md5": "8185bf6167a7c5ffb89053390ad10d82.svg",
-      "type": "costume",
-      "tags": [
-          "ente"
-      ],
-      "info": [
-        40,
-        52.875,
-        1
-      ]
-    },
-    {
-      "name": "Fisch-1",
-      "md5": "5766df8a9d4c1d5e66cd791987fa7eaf.svg",
-      "type": "costume",
-      "tags": [
-        "tiere",
-        "unterwasser"
-      ],
-      "info": [
-        66.10176615962936,
-        48.67842252668092,
-        1
-      ]
-    },
-    {
-      "name": "Fisch-2",
-      "md5": "ee93da8beade2e21ba7be2e64081ed8b.svg",
-      "type": "costume",
-      "tags": [
-        "tiere",
-        "unterwasser"
-      ],
-      "info": [
-        68.1201874098017,
-        55.22066077002381,
-        1
-      ]
-    },
-    {
-      "name": "Fisch-3",
-      "md5": "6b15273ab2d84acf09240eec9c3ea330.svg",
-      "type": "costume",
-      "tags": [
-        "tiere",
-        "unterwasser"
-      ],
-      "info": [
-        63.945126798452975,
-        61.11990614672723,
-        1
-      ]
-    },
-    {
-      "name": "Fledermaus-1",
-      "md5": "3020c62876adef5f42e1134b20bd6acd.svg",
-      "type": "costume",
-      "tags": [
-          "tiere"
-      ],
-      "info": [
-        44,
-        25.625,
-        1
-      ]
-    },
-    {
-      "name": "Fledermaus-2",
-      "md5": "2ecb10e17921de15834913a9573f7a52.svg",
-      "type": "costume",
-      "tags": [
-          "tiere"
-      ],
-      "info": [
-        44,
-        25.625,
-        1
-      ]
-    },
-    {
-      "name": "Fledermaus-3",
-      "md5": "3278d53db224e901431e682f26e7d376.svg",
-      "type": "costume",
-      "tags": [
-          "tiere"
-      ],
-      "info": [
-        44,
-        25.625,
-        1
-      ]
-    },
-    {
-      "name": "Luftballon",
-      "md5": "e08b2461bd985dd60b5820627d5e9168.svg",
-      "type": "costume",
-      "tags": [
-          "dinge"
-      ],
-      "info": [
-        28.125,
-        42.915000915527344,
-        1
-      ]
-    },
-    {
-      "name": "Maus-Drehung-1",
-      "md5": "779e556d729ec4cc0731cf0161c770b1.svg",
-      "type": "costume",
-      "tags": [
-          "maus"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Maus-Drehung-2",
-      "md5": "498c2aa7ce0c9cbac6b35997666530c5.svg",
-      "type": "costume",
-      "tags": [
-          "maus"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Maus-Drehung-3",
-      "md5": "e9aaa7ffffbc06780fdaf2f2157733f5.svg",
-      "type": "costume",
-      "tags": [
-          "maus"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Maus-Drehung-4",
-      "md5": "251b35394cefb72bac14e519c5b9d895.svg",
-      "type": "costume",
-      "tags": [
-          "maus"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Maus-Freudensprung-1",
-      "md5": "46c367ecdf1e46b9c79a202159cb81f3.svg",
-      "type": "costume",
-      "tags": [
-          "maus"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Maus-Freudensprung-2",
-      "md5": "7760a8b12a48c4bfee2602de3ef73109.svg",
-      "type": "costume",
-      "tags": [
-          "maus"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Maus-Freudensprung-3",
-      "md5": "29cfa8fd7a0b0ae266a0123987f69c61.svg",
-      "type": "costume",
-      "tags": [
-          "maus"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Maus-Skateboard-1",
-      "md5": "971d4efd863c9b02e603704c2e47ab67.svg",
-      "type": "costume",
-      "tags": [
-          "maus"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Maus-Skateboard-2",
-      "md5": "5fa6c2c9ae0b4c66ecb6f2b94692d91f.svg",
-      "type": "costume",
-      "tags": [
-          "maus"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Maus-Weltall-1",
-      "md5": "6711e1d39c95107d3cfbc075d12b2670.svg",
-      "type": "costume",
-      "tags": [
-          "maus",
-          "weltall"
-      ],
-      "info": [
-        59.869966572265554,
-        66.47552655130977,
-        1
-      ]
-    },
-    {
-      "name": "Maus-Weltall-2",
-      "md5": "48e35d74b868b89d47b19020658cc1aa.svg",
-      "type": "costume",
-      "tags": [
-          "maus",
-          "weltall"
-      ],
-      "info": [
-        47.601434999999896,
-        67.35373681151323,
-        1
-      ]
-    },
-    {
-      "name": "Maus-tanzt-1",
-      "md5": "0aa13e40ad79df5c4ef749ca812ed2e9.svg",
-      "type": "costume",
-      "tags": [
-          "maus"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Maus-tanzt-2",
-      "md5": "b2908be5f90d34ebb416f38b7870a73f.svg",
-      "type": "costume",
-      "tags": [
-          "maus"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Maus-taucht-1",
-      "md5": "f0f02c453f51ad54fee06d0753bf5885.svg",
-      "type": "costume",
-      "tags": [
-          "maus",
-          "unterwasser"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Maus-taucht-2",
-      "md5": "0b7e3129b66b5fab596aba7d0cd52143.svg",
-      "type": "costume",
-      "tags": [
-          "maus",
-          "unterwasser"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Maus-taucht-3",
-      "md5": "76b5e487890a915ffc8d61eb124649c8.svg",
-      "type": "costume",
-      "tags": [
-          "maus",
-          "unterwasser"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
-    },
-    {
-      "name": "Maus-verwirrt",
-      "md5": "de194e80281ef9f19435418b1f50e873.svg",
-      "type": "costume",
-      "tags": [
-          "maus"
+        "name": "Apfel",
+        "md5": "6765eb216d251c0b8bb5ad5abafaa1fb.svg",
+        "type": "costume",
+        "tags": [
+            "dinge"
         ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
+        "info": [
+            37.56999969482422,
+            41.20000076293945,
+            1
+        ]
     },
     {
-      "name": "Maus-zwinkert-1",
-      "md5": "9d77f8022370d3a10e0ae7ed9585121a.svg",
-      "type": "costume",
-      "tags": [
-          "maus"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
+        "name": "Ball",
+        "md5": "d82fec1ddf3f7cef799cfc09d8de88bf.svg",
+        "type": "costume",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            23.065000534057617,
+            23.565000534057617,
+            1
+        ]
     },
     {
-      "name": "Maus-zwinkert-2",
-      "md5": "a32f484ffcd2e03faabe006ac5be98bb.svg",
-      "type": "costume",
-      "tags": [
-          "maus"
-      ],
-      "info": [
-        84.5,
-        79.375,
-        1
-      ]
+        "name": "Birne",
+        "md5": "8c75bb4d9ff286461c85535b80b8201b.svg",
+        "type": "costume",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            30.885000228881836,
+            59.369998931884766,
+            1
+        ]
     },
     {
-      "name": "Weintrauben",
-      "md5": "7140d7544966bad8c87f3885d5b436c6.svg",
-      "type": "costume",
-      "tags": [
-          "dinge"
-      ],
-      "info": [
-        110.6050033569336,
-        68.25,
-        1
-      ]
+        "name": "Blume-gelb",
+        "md5": "11cd402f03f46c515362180ece55a130.svg",
+        "type": "costume",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            39.58000183105469,
+            37.435001373291016,
+            1
+        ]
     },
     {
-      "name": "Wurst",
-      "md5": "cb1a9f2cba8bc6ebcd2f35247fe874d1.svg",
-      "type": "costume",
-      "tags": [
-          "dinge"
-      ],
-      "info": [
-        30.65999984741211,
-        73.82499694824219,
-        1
-      ]
+        "name": "Blume-lila",
+        "md5": "f1814e316ddc02a9a8c25ac74b442536.svg",
+        "type": "costume",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            43.10499954223633,
+            39.310001373291016,
+            1
+        ]
+    },
+    {
+        "name": "Blume-rot",
+        "md5": "b20a20ac62ceb1bc909f81b873e8ae3f.svg",
+        "type": "costume",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            43.10499954223633,
+            37.41999816894531,
+            1
+        ]
+    },
+    {
+        "name": "Elefant",
+        "md5": "dd66da89f9fa4c19674a88b7174839cd.svg",
+        "type": "costume",
+        "tags": [
+            "elefant"
+        ],
+        "info": [
+            83.5,
+            79.375,
+            null
+        ]
+    },
+    {
+        "name": "Elefant-Weltall-1",
+        "md5": "6437f894b28c31b2e40307f8260209df.svg",
+        "type": "costume",
+        "tags": [
+            "elefant",
+            "weltall"
+        ],
+        "info": [
+            83.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Elefant-Weltall-2",
+        "md5": "a9408be16bb2e9192d47743f2e6ee46c.svg",
+        "type": "costume",
+        "tags": [
+            "elefant",
+            "weltall"
+        ],
+        "info": [
+            83.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Elefant-Weltall-3",
+        "md5": "03082066e4a9059fa05972ac3ec52b57.svg",
+        "type": "costume",
+        "tags": [
+            "elefant",
+            "weltall"
+        ],
+        "info": [
+            83.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Elefant-trötet-1",
+        "md5": "dd66da89f9fa4c19674a88b7174839cd.svg",
+        "type": "costume",
+        "tags": [
+            "elefant"
+        ],
+        "info": [
+            83.5,
+            79.375,
+            null
+        ]
+    },
+    {
+        "name": "Elefant-trötet-2",
+        "md5": "0c7e30718bb78de6dc7e149da287fcfd.svg",
+        "type": "costume",
+        "tags": [
+            "elefant"
+        ],
+        "info": [
+            83.5,
+            79.375,
+            null
+        ]
+    },
+    {
+        "name": "Elefant-trötet-3",
+        "md5": "3c087fdc97a1502fb7a951ca1cb20b6b.svg",
+        "type": "costume",
+        "tags": [
+            "elefant"
+        ],
+        "info": [
+            83.5,
+            79.375,
+            null
+        ]
+    },
+    {
+        "name": "Elefant-trötet-4",
+        "md5": "3e94926b7fd2151d50148a4a8fd2707b.svg",
+        "type": "costume",
+        "tags": [
+            "elefant"
+        ],
+        "info": [
+            83.5,
+            79.375,
+            null
+        ]
+    },
+    {
+        "name": "Ente",
+        "md5": "4fcc79bb996780c748cd608340934c06.svg",
+        "type": "costume",
+        "tags": [
+            "ente"
+        ],
+        "info": [
+            40,
+            52.875,
+            1
+        ]
+    },
+    {
+        "name": "Ente-Weltall-1",
+        "md5": "882ec0e229f1f7cff53a5a8612660a8e.svg",
+        "type": "costume",
+        "tags": [
+            "ente",
+            "weltall"
+        ],
+        "info": [
+            40,
+            52.875,
+            1
+        ]
+    },
+    {
+        "name": "Ente-Weltall-2",
+        "md5": "92adb94d8d28486a6832dce9f5b7b8f1.svg",
+        "type": "costume",
+        "tags": [
+            "ente",
+            "weltall"
+        ],
+        "info": [
+            40,
+            52.875,
+            1
+        ]
+    },
+    {
+        "name": "Ente-flattert-1",
+        "md5": "370d505c3bfffcce42c82eae188e3dcc.svg",
+        "type": "costume",
+        "tags": [
+            "ente"
+        ],
+        "info": [
+            40,
+            52.875,
+            1
+        ]
+    },
+    {
+        "name": "Ente-flattert-2",
+        "md5": "9351ff13d3471e030d67047d97b0ab36.svg",
+        "type": "costume",
+        "tags": [
+            "ente"
+        ],
+        "info": [
+            40,
+            52.875,
+            1
+        ]
+    },
+    {
+        "name": "Ente-flattert-3",
+        "md5": "364fd0dcbabf29e9ba3a103a7794da05.svg",
+        "type": "costume",
+        "tags": [
+            "ente"
+        ],
+        "info": [
+            40,
+            52.875,
+            1
+        ]
+    },
+    {
+        "name": "Ente-flattert-4",
+        "md5": "8185bf6167a7c5ffb89053390ad10d82.svg",
+        "type": "costume",
+        "tags": [
+            "ente"
+        ],
+        "info": [
+            40,
+            52.875,
+            1
+        ]
+    },
+    {
+        "name": "Fisch-1",
+        "md5": "5766df8a9d4c1d5e66cd791987fa7eaf.svg",
+        "type": "costume",
+        "tags": [
+            "tiere",
+            "unterwasser"
+        ],
+        "info": [
+            66.10176615962936,
+            48.67842252668092,
+            1
+        ]
+    },
+    {
+        "name": "Fisch-2",
+        "md5": "ee93da8beade2e21ba7be2e64081ed8b.svg",
+        "type": "costume",
+        "tags": [
+            "tiere",
+            "unterwasser"
+        ],
+        "info": [
+            68.1201874098017,
+            55.22066077002381,
+            1
+        ]
+    },
+    {
+        "name": "Fisch-3",
+        "md5": "6b15273ab2d84acf09240eec9c3ea330.svg",
+        "type": "costume",
+        "tags": [
+            "tiere",
+            "unterwasser"
+        ],
+        "info": [
+            63.945126798452975,
+            61.11990614672723,
+            1
+        ]
+    },
+    {
+        "name": "Fledermaus-1",
+        "md5": "3020c62876adef5f42e1134b20bd6acd.svg",
+        "type": "costume",
+        "tags": [
+            "tiere"
+        ],
+        "info": [
+            44,
+            25.625,
+            1
+        ]
+    },
+    {
+        "name": "Fledermaus-2",
+        "md5": "2ecb10e17921de15834913a9573f7a52.svg",
+        "type": "costume",
+        "tags": [
+            "tiere"
+        ],
+        "info": [
+            44,
+            25.625,
+            1
+        ]
+    },
+    {
+        "name": "Fledermaus-3",
+        "md5": "3278d53db224e901431e682f26e7d376.svg",
+        "type": "costume",
+        "tags": [
+            "tiere"
+        ],
+        "info": [
+            44,
+            25.625,
+            1
+        ]
+    },
+    {
+        "name": "Luftballon",
+        "md5": "e08b2461bd985dd60b5820627d5e9168.svg",
+        "type": "costume",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            28.125,
+            42.915000915527344,
+            1
+        ]
+    },
+    {
+        "name": "Maus-Drehung-1",
+        "md5": "779e556d729ec4cc0731cf0161c770b1.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-Drehung-2",
+        "md5": "498c2aa7ce0c9cbac6b35997666530c5.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-Drehung-3",
+        "md5": "e9aaa7ffffbc06780fdaf2f2157733f5.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-Drehung-4",
+        "md5": "251b35394cefb72bac14e519c5b9d895.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-Freudensprung-1",
+        "md5": "46c367ecdf1e46b9c79a202159cb81f3.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-Freudensprung-2",
+        "md5": "7760a8b12a48c4bfee2602de3ef73109.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-Freudensprung-3",
+        "md5": "29cfa8fd7a0b0ae266a0123987f69c61.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-Skateboard-1",
+        "md5": "971d4efd863c9b02e603704c2e47ab67.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-Skateboard-2",
+        "md5": "5fa6c2c9ae0b4c66ecb6f2b94692d91f.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-Weltall-1",
+        "md5": "6711e1d39c95107d3cfbc075d12b2670.svg",
+        "type": "costume",
+        "tags": [
+            "maus",
+            "weltall"
+        ],
+        "info": [
+            59.869966572265554,
+            66.47552655130977,
+            1
+        ]
+    },
+    {
+        "name": "Maus-Weltall-2",
+        "md5": "48e35d74b868b89d47b19020658cc1aa.svg",
+        "type": "costume",
+        "tags": [
+            "maus",
+            "weltall"
+        ],
+        "info": [
+            47.601434999999896,
+            67.35373681151323,
+            1
+        ]
+    },
+    {
+        "name": "Maus-tanzt-1",
+        "md5": "0aa13e40ad79df5c4ef749ca812ed2e9.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-tanzt-2",
+        "md5": "b2908be5f90d34ebb416f38b7870a73f.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-taucht-1",
+        "md5": "f0f02c453f51ad54fee06d0753bf5885.svg",
+        "type": "costume",
+        "tags": [
+            "maus",
+            "unterwasser"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-taucht-2",
+        "md5": "0b7e3129b66b5fab596aba7d0cd52143.svg",
+        "type": "costume",
+        "tags": [
+            "maus",
+            "unterwasser"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-taucht-3",
+        "md5": "76b5e487890a915ffc8d61eb124649c8.svg",
+        "type": "costume",
+        "tags": [
+            "maus",
+            "unterwasser"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-verwirrt",
+        "md5": "de194e80281ef9f19435418b1f50e873.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-zwinkert-1",
+        "md5": "9d77f8022370d3a10e0ae7ed9585121a.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Maus-zwinkert-2",
+        "md5": "a32f484ffcd2e03faabe006ac5be98bb.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
+        "name": "Weintrauben",
+        "md5": "7140d7544966bad8c87f3885d5b436c6.svg",
+        "type": "costume",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            110.6050033569336,
+            68.25,
+            1
+        ]
+    },
+    {
+        "name": "Wurst",
+        "md5": "cb1a9f2cba8bc6ebcd2f35247fe874d1.svg",
+        "type": "costume",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            30.65999984741211,
+            73.82499694824219,
+            1
+        ]
     }
-  ]
-  
+]

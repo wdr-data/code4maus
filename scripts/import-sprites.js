@@ -14,7 +14,7 @@ const importMain = async function() {
         await importCostumes(project);
         break;
     case 'backdrop':
-        console.log('not implemented');
+        await importBackdrops(project);;
         break;
     default:
         console.error("invalid type. Use 'costumes' or 'backdrop'");
@@ -125,6 +125,44 @@ const importCostumes = async function(project) {
     }).concat(Object.values(costumeInserts).filter((c) => !!c));
 
     await fs.writeFile(costumesPath, JSON.stringify(costumesResult, null, 4));
+};
+
+const importBackdrops = async function(project) {
+    const backdropInserts = {};
+
+    project.targets
+        .filter((t) => t.isStage)
+        .map((backdrop) => {
+            backdrop.costumes.map((c, key) => ({
+                name: c.name,
+                md5: c.md5ext,
+                type: 'backdrop',
+                tags: [],
+                info: [
+                    c.rotationCenterX,
+                    c.rotationCenterY,
+                    c.bitmapResolution,
+                ],
+            })).forEach((c) => {
+                backdropInserts[c.name] = c;
+            });
+        })
+    
+    const backdropsPath = path.resolve(__dirname, '../src/lib/libraries/backdrops.json');
+    const backdropsFile = await fs.readFile(backdropsPath);
+    const backdrops = JSON.parse(backdropsFile);
+
+    const backdropResult = backdrops.map((s) => {
+        if (!(s.name in backdropInserts)) {
+            return s;
+        }
+        const insert = backdropInserts[s.name];
+        insert.tags = s.tags;
+        backdropInserts[s.name] = null;
+        return insert;
+    }).concat(Object.values(backdropInserts).filter((s) => !!s));
+
+    await fs.writeFile(backdropsPath, JSON.stringify(backdropResult, null, 4));
 };
 
 importMain().then(() => console.log('Done')).catch((e) => {
