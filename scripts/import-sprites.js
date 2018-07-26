@@ -168,7 +168,7 @@ const importSounds = async function(project) {
                 md5: s.md5ext,
                 sampleCount: s.sampleCount,
                 rate: s.rate,
-                format: '',
+                format: 'mp3',
                 tags: []
             })).forEach((c) => {
                 soundsInserts[c.name] = c;

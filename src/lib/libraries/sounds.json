@@ -4,7 +4,7 @@
       "md5": "88bd474932b76c51058cb7e718f9a63a.mp3",
       "sampleCount": 316416,
       "rate": 44100,
-      "format": "",
+      "format": "mp3",
       "tags": [
         "musik"
       ]
@@ -14,7 +14,7 @@
       "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
       "sampleCount": 99328,
       "rate": 44100,
-      "format": "",
+      "format": "mp3",
       "tags": [
         "töne"
       ]
@@ -24,7 +24,7 @@
       "md5": "8b03556e678ab60e05c819be050d3dbe.mp3",
       "sampleCount": 83649,
       "rate": 44100,
-      "format": "",
+      "format": "mp3",
       "tags": [
         "elefant"
       ]
@@ -34,7 +34,7 @@
       "md5": "a17279ef62bbaead6b65dc5d54724793.mp3",
       "sampleCount": 41232,
       "rate": 44100,
-      "format": "",
+      "format": "mp3",
       "tags": [
         "elefant"
       ]
@@ -44,7 +44,7 @@
       "md5": "ffc769dfe1bc0beacf6d59993c68a865.mp3",
       "sampleCount": 38808,
       "rate": 44100,
-      "format": "",
+      "format": "mp3",
       "tags": [
         "ente"
       ]
@@ -54,7 +54,7 @@
       "md5": "ef7c9ee99ccfb2362bf1486c95f36dd8.mp3",
       "sampleCount": 44100,
       "rate": 44100,
-      "format": "",
+      "format": "mp3",
       "tags": [
         "geräusche"
       ]
@@ -64,7 +64,7 @@
       "md5": "6e53f4f35ccfc43adda4cf3c79591231.mp3",
       "sampleCount": 24423,
       "rate": 44100,
-      "format": "",
+      "format": "mp3",
       "tags": [
         "geräusche"
       ]
@@ -74,7 +74,7 @@
       "md5": "282fb24fedf9ed8f6b7dd08366a0f83c.mp3",
       "sampleCount": 19719,
       "rate": 44100,
-      "format": "",
+      "format": "mp3",
       "tags": [
         "maus"
       ]
@@ -84,7 +84,7 @@
       "md5": "7cd45cc0231181016ed3d6e5d7f1076e.mp3",
       "sampleCount": 2419,
       "rate": 44100,
-      "format": "",
+      "format": "mp3",
       "tags": [
         "maus"
       ]
@@ -94,7 +94,7 @@
       "md5": "f95bd4271b188c75a43fbd4104482253.mp3",
       "sampleCount": 270978,
       "rate": 44100,
-      "format": "",
+      "format": "mp3",
       "tags": [
         "geräusche"
       ]
@@ -104,7 +104,7 @@
       "md5": "19ee12af2e5fc48d689cadb3b45fde7a.mp3",
       "sampleCount": 159396,
       "rate": 44100,
-      "format": "",
+      "format": "mp3",
       "tags": [
         "töne"
       ]
@@ -114,7 +114,7 @@
       "md5": "d1f5095e898937bce0db339de5637142.mp3",
       "sampleCount": 441441,
       "rate": 44100,
-      "format": "",
+      "format": "mp3",
       "tags": [
         "geräusche"
       ]
@@ -124,7 +124,7 @@
       "md5": "b38904cb3103c903cd6be4b569b8db5c.mp3",
       "sampleCount": 16384,
       "rate": 44100,
-      "format": "",
+      "format": "mp3",
       "tags": [
         "geräusche"
       ]
