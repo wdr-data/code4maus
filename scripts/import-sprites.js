@@ -14,10 +14,13 @@ const importMain = async function() {
         await importCostumes(project);
         break;
     case 'backdrop':
-        await importBackdrops(project);;
+        await importBackdrops(project);
+        break;
+    case 'sounds':
+        await importSounds(project);
         break;
     default:
-        console.error("invalid type. Use 'costumes' or 'backdrop'");
+        console.error("invalid type. Use 'costumes', 'backdrop', 'sounds'");
         process.exit(1);
     }
 };
@@ -54,16 +57,6 @@ const importCostumes = async function(project) {
             })).forEach((c) => {
                 costumeInserts[c.name] = c;
             });
-
-            const sounds = sprite.sounds
-                .map((s) => ({
-                    soundName: s.name,
-                    soundID: -1,
-                    md5: s.md5ext,
-                    sampleCount: s.sampleCount,
-                    rate: s.rate,
-                    format: '',
-                }));
 
             return {
                 name: sprite.name,
@@ -164,6 +157,41 @@ const importBackdrops = async function(project) {
 
     await fs.writeFile(backdropsPath, JSON.stringify(backdropResult, null, 4));
 };
+
+const importSounds = async function(project) {
+    const soundsInserts = {};
+
+    project.targets
+        .map((target) => {
+            target.sounds.map((s, key) => ({
+                name: s.name,
+                md5: s.md5ext,
+                sampleCount: s.sampleCount,
+                rate: s.rate,
+                format: '',
+                tags: []
+            })).forEach((c) => {
+                soundsInserts[c.name] = c;
+            });
+        })
+    
+    const soundsPath = path.resolve(__dirname, '../src/lib/libraries/sounds.json');
+    const soundsFile = await fs.readFile(soundsPath);
+    const sounds = JSON.parse(soundsFile);
+
+    const soundsResult = sounds.map((s) => {
+        if (!(s.name in soundsInserts)) {
+            return s;
+        }
+        const insert = soundsInserts[s.name];
+        insert.tags = s.tags;
+        soundsInserts[s.name] = null;
+        return insert;
+    }).concat(Object.values(soundsInserts).filter((s) => !!s));
+
+    await fs.writeFile(soundsPath, JSON.stringify(soundsResult, null, 4));
+};
+
 
 importMain().then(() => console.log('Done')).catch((e) => {
     console.log('Failed:', e); process.exit(2);
