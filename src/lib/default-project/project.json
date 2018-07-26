@@ -16,7 +16,7 @@
             "costumes": [
                 {
                     "assetId": "3a343d19f40be5196f5b1cad1c7d1e39",
-                    "name": "hintergrund2",
+                    "name": "Wiese",
                     "md5ext": "3a343d19f40be5196f5b1cad1c7d1e39.jpg",
                     "dataFormat": "jpg",
                     "rotationCenterX": 480,
@@ -24,7 +24,7 @@
                 },
                 {
                     "assetId": "a35419bc3c9a8888430c157960ef28b4",
-                    "name": "hintergrund1",
+                    "name": "Unterwasser",
                     "md5ext": "a35419bc3c9a8888430c157960ef28b4.jpg",
                     "dataFormat": "jpg",
                     "rotationCenterX": 480,
@@ -34,7 +34,7 @@
             "sounds": [
                 {
                     "assetId": "b38904cb3103c903cd6be4b569b8db5c",
-                    "name": "bird",
+                    "name": "Vogel",
                     "dataFormat": "mp3",
                     "rate": 44100,
                     "sampleCount": 16384,
@@ -77,7 +77,7 @@
             "sounds": [
                 {
                     "assetId": "282fb24fedf9ed8f6b7dd08366a0f83c",
-                    "name": "Maus Klack Klack2",
+                    "name": "Maus Klack",
                     "dataFormat": "mp3",
                     "format": "",
                     "rate": 44100,
