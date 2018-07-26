@@ -344,6 +344,7 @@ class Blocks extends React.Component {
             onRequestCloseCustomProcedures,
             layoutMode,
             toolboxXML,
+            customBlocks,
             ...props
         } = this.props;
         /* eslint-enable no-unused-vars */
