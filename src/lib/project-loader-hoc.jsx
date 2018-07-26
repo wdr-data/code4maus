@@ -1,6 +1,7 @@
 import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuid } from 'uuid';
+import debounce from 'lodash.debounce';
 
 import log from './log';
 import storage, { s3userFile } from './storage';
@@ -40,6 +41,8 @@ const ProjectLoaderHOC = function(WrappedComponent) {
                 fetchingProject: false,
                 userId: null,
             };
+
+            this.loadProject = debounce(this.loadProject.bind(this), 2000, { leading: true });
         }
         async componentDidMount() {
             await this.createUserId();

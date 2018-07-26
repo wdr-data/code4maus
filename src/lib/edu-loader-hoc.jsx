@@ -21,10 +21,11 @@ const EduLoaderHOC = (WrappedComponent) => {
             }
         }
         async loadGame(id) {
+            this.props.dispatch(setProjectId(`edu/${id}`));
+
             const gameText = await (await fetch(`/edu/${id}/game.yml`)).text();
             const game = yaml.safeLoad(gameText);
             this.props.dispatch(loadGame(id, game));
-            this.props.dispatch(setProjectId(`edu/${id}`));
         }
         render() {
             const {
