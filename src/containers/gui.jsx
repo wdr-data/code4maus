@@ -16,6 +16,7 @@ import EduLoaderHOC from '../lib/edu-loader-hoc.jsx';
 import ProjectLoaderHOC from '../lib/project-loader-hoc.jsx';
 import ProjectSaveHOC from '../lib/project-save-hoc.jsx';
 import vmListenerHOC from '../lib/vm-listener-hoc.jsx';
+import onboardingRefsHOC from './onboarding-refs-provider.jsx';
 
 import GUIComponent from '../components/gui/gui.jsx';
 import { toggleLayoutMode } from '../reducers/layout-mode';
@@ -136,6 +137,6 @@ const ConnectedGUI = connect(
     mapDispatchToProps,
 )(GUI);
 
-const WrappedGui = EduLoaderHOC(ProjectLoaderHOC(ProjectSaveHOC(vmListenerHOC(ConnectedGUI))));
+const WrappedGui = EduLoaderHOC(ProjectLoaderHOC(ProjectSaveHOC(vmListenerHOC(onboardingRefsHOC(ConnectedGUI)))));
 
 export default WrappedGui;

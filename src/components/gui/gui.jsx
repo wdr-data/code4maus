@@ -15,6 +15,8 @@ import StageHeader from '../../containers/stage-header.jsx';
 import StageWrapper from '../../containers/stage-wrapper.jsx';
 import SoundTab from '../../containers/sound-tab.jsx';
 import TargetPane from '../../containers/target-pane.jsx';
+import ProjectSaver from '../../containers/project-saver.jsx';
+import OnboardingOverlay from '../../containers/onboarding-overlay.jsx';
 
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
@@ -22,7 +24,6 @@ import EduStage from '../edu-stage/edu-stage.jsx';
 import Input from '../forms/input.jsx';
 import Loader from '../loader/loader.jsx';
 import ModalComponent from '../modal/modal.jsx';
-import ProjectSaver from '../../containers/project-saver.jsx';
 
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/logo_text.png';
@@ -114,6 +115,7 @@ const GUIComponent = (props) => {
                 : null
             }
             {isRendererSupported ? null : <WebGlModal />}
+            <OnboardingOverlay shown={activeTabIndex === 0} />
             <Box className={styles.header}>
                 <Box className={styles.column}>
                     <img
