@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { loadGame } from '../reducers/edu-layer';
 import { setProjectId } from '../reducers/project';
+import yaml from 'js-yaml';
 
 const EduLoaderHOC = (WrappedComponent) => {
     class EduLoaderComponent extends React.Component {
@@ -20,7 +21,8 @@ const EduLoaderHOC = (WrappedComponent) => {
             }
         }
         async loadGame(id) {
-            const game = await (await fetch(`/edu/${id}/game.json`)).json();
+            const gameText = await (await fetch(`/edu/${id}/game.yml`)).text();
+            const game = yaml.safeLoad(gameText);
             this.props.dispatch(loadGame(id, game));
             this.props.dispatch(setProjectId(`edu/${id}`));
         }
