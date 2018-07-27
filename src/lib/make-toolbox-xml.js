@@ -215,7 +215,7 @@ const motion = prepareBlocks(motionDefaultBlocks, motionBlockLib, (isStage, bloc
     `;
 
     if (isStage) {
-        return xmlBase('<label text="Die Bühne kann sich nicht bewegen."></label>');
+        return xmlBase('<label text=""></label>');
     }
 
     return xmlBase(blockXml);
