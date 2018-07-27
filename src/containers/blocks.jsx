@@ -352,6 +352,7 @@ class Blocks extends React.Component {
             layoutMode,
             toolboxXML,
             customBlocks,
+            captureFlyoutRef,
             ...props
         } = this.props;
         /* eslint-enable no-unused-vars */
