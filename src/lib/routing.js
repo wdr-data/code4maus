@@ -3,6 +3,7 @@ import { routerForBrowser } from 'redux-little-router';
 export const Views = {
     edu: 'VIEW_EDU',
     menu: 'VIEW_MENU',
+    onboarding: 'VIEW_ONBOARDING',
     project: 'VIEW_PROJECT',
 };
 
@@ -34,6 +35,12 @@ const routes = {
     '/lernspiel/:eduId': {
         view: Views.edu,
     },
+    '/onboarding': {
+        '/:step': {
+            view: Views.onboarding,
+        },
+        view: Views.onboarding,
+    },
     '/projekt': {
         '/neu': {
             view: Views.project,
@@ -42,7 +49,6 @@ const routes = {
         '/:projectId': {
             view: Views.project,
         },
-        view: Views.project,
     },
 };
 

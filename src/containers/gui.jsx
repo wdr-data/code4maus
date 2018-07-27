@@ -20,6 +20,7 @@ import onboardingRefsHOC from './onboarding-refs-provider.jsx';
 
 import GUIComponent from '../components/gui/gui.jsx';
 import { toggleLayoutMode } from '../reducers/layout-mode';
+import { Views } from '../lib/routing';
 
 class GUI extends React.Component {
     constructor(props) {
@@ -112,6 +113,7 @@ const mapStateToProps = (state) => ({
     cardsVisible: state.scratchGui.cards.visible,
     costumesTabVisible: state.scratchGui.editorTab.activeTabIndex === COSTUMES_TAB_INDEX,
     importInfoVisible: state.scratchGui.modals.importInfo,
+    isOnboarding: state.router.result.view === Views.onboarding,
     loadingStateVisible: state.scratchGui.modals.loadingProject,
     previewInfoVisible: state.scratchGui.modals.previewInfo,
     targetIsStage:
