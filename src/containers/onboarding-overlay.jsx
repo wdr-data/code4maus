@@ -5,14 +5,13 @@ import OnboardingOverlayComponent from '../components/onboarding-overlay/onboard
 import onboardingConfig, { NEXT_STEP } from '../lib/onboarding/config';
 
 import { OnboardingRefs } from './onboarding-refs-provider.jsx';
+import { connect } from 'react-redux';
+import { push } from 'redux-little-router';
 
 class OnboardingOverlay extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            stepIndex: 0,
-        };
         this.overlayRef = React.createRef();
         this.triggerRef = null;
 
@@ -20,15 +19,20 @@ class OnboardingOverlay extends React.Component {
         this.handleTriggerClick = this.handleTriggerClick.bind(this);
     }
 
+    nextStep() {
+        const nextStep = this.props.step + 1;
+        if (nextStep >= onboardingConfig.steps.length) {
+            console.log('OnboardingOverlay: Finished!');
+            return;
+        }
+        this.props.setOnboardingStep(nextStep);
+    }
+
     buttonClickFactory(action) {
         return (event) => {
             switch (action) {
             case NEXT_STEP:
-                if (this.state.stepIndex + 1 === onboardingConfig.steps.length) {
-                    console.log('OnboardingOverlay: Finished!');
-                    break;
-                }
-                this.setState({ stepIndex: this.state.stepIndex + 1 });
+                this.nextStep();
                 break;
             default:
                 console.warn('OnboardingOverlay: button action not implemented!');
@@ -77,11 +81,11 @@ class OnboardingOverlay extends React.Component {
     }
 
     handleTriggerClick(event) {
-        this.setState({ stepIndex: this.state.stepIndex + 1 });
+        this.nextStep();
     }
 
     render() {
-        if (this.state.stepIndex < 0 || this.state.stepIndex >= onboardingConfig.steps.length) {
+        if (this.props.step < 0 || this.props.step >= onboardingConfig.steps.length) {
             return null;
         }
 
@@ -89,7 +93,7 @@ class OnboardingOverlay extends React.Component {
             arrowTo,
             trigger,
             ...componentProps
-        } = onboardingConfig.steps[this.state.stepIndex];
+        } = onboardingConfig.steps[this.props.step];
 
         const targetCoords = this.getPositioning(arrowTo);
         this.assignTrigger(trigger);
@@ -109,11 +113,22 @@ class OnboardingOverlay extends React.Component {
 OnboardingOverlay.propTypes = {
     capturedRefs: PropTypes.object.isRequired,
     shown: PropTypes.bool,
+    step: PropTypes.number.isRequired,
+    setOnboardingStep: PropTypes.func.isRequired,
 };
+
+const OnboardingOverlayConnected = connect(
+    (state) => ({
+        step: parseInt((state.router.params || {}).step) || 0,
+    }),
+    (dispatch) => ({
+        setOnboardingStep: (step) => dispatch(push(`/onboarding/${step}`)),
+    })
+)(OnboardingOverlay);
 
 const OnboardingOverlayConsumeRefs = (props) =>
     <OnboardingRefs>
-        {(refs) => <OnboardingOverlay capturedRefs={refs} {...props} />}
+        {(refs) => <OnboardingOverlayConnected capturedRefs={refs} {...props} />}
     </OnboardingRefs>;
 
 export default OnboardingOverlayConsumeRefs;

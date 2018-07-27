@@ -51,6 +51,7 @@ const GUIComponent = (props) => {
         importInfoVisible,
         saveProjectVisible,
         intl,
+        isOnboarding,
         loading,
         onExtensionButtonClick,
         onActivateCostumesTab,
@@ -115,7 +116,9 @@ const GUIComponent = (props) => {
                 : null
             }
             {isRendererSupported ? null : <WebGlModal />}
-            <OnboardingOverlay shown={activeTabIndex === 0} />
+            {!isOnboarding ? null :
+                <OnboardingOverlay shown={activeTabIndex === 0} />
+            }
             <Box className={styles.header}>
                 <Box className={styles.column}>
                     <img
@@ -278,6 +281,7 @@ GUIComponent.propTypes = {
     importInfoVisible: PropTypes.bool,
     saveProjectVisible: PropTypes.bool,
     intl: intlShape.isRequired,
+    isOnboarding: PropTypes.bool,
     loading: PropTypes.bool,
     onActivateCostumesTab: PropTypes.func,
     onActivateSoundsTab: PropTypes.func,
