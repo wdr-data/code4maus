@@ -76,7 +76,9 @@ class OnboardingOverlay extends React.Component {
         if (this.triggerRef) {
             this.triggerRef.removeEventListener('click', this.handleClick);
         }
-        ref.addEventListener('click', this.handleTriggerClick);
+        if (ref) {
+            ref.addEventListener('click', this.handleTriggerClick);
+        }
         this.triggerRef = ref;
     }
 
