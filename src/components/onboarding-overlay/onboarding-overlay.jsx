@@ -7,8 +7,7 @@ import ButtonPrimary from '../button-primary/button-primary.jsx';
 import { NEXT_STEP } from '../../lib/onboarding/config';
 
 import styles from './onboarding-overlay.css';
-import arrowLeft from './arrow-3.svg';
-import arrowRight from './arrow-4.svg';
+import arrowLong from './arrow-3.svg';
 
 const arrowOffset = {
     left: {
@@ -55,7 +54,11 @@ const getPositions = (props, ref) => {
 
     return {
         modalStyle,
-        arrow: <img src={orientation === 'left' ? arrowLeft : arrowRight} className={styles.arrow} style={arrowStyle} />,
+        arrow: <img
+            src={arrowLong}
+            className={classNames(styles.arrow, styles[`orientation-${orientation}`])}
+            style={arrowStyle}
+        />,
     };
 };
 

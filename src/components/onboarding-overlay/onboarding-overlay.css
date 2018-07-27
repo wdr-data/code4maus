@@ -48,3 +48,6 @@
 .arrow {
   position: absolute;
 }
+.arrow.orientation-right {
+  transform: scaleX(-1);
+}
