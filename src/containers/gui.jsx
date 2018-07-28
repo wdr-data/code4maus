@@ -33,24 +33,20 @@ class GUI extends React.Component {
         if (this.props.vm.initialized) {
             return;
         }
+
         this.audioEngine = new AudioEngine();
         this.props.vm.attachAudioEngine(this.audioEngine);
-        this.props.vm.loadProject(this.props.projectData)
-            .then(() => {
-                this.setState({ loading: false }, () => {
-                    this.props.vm.setCompatibilityMode(true);
-                    this.props.vm.start();
-                });
-            })
-            .catch((e) => {
-                // Need to catch this error and update component state so that
-                // error page gets rendered if project failed to load
-                this.setState({ loadingError: true, errorMessage: e });
-            });
-        this.props.vm.initialized = true;
+        this.loadProject();
     }
     componentDidUpdate(prevProps) {
         if (prevProps.projectData === this.props.projectData) {
+            return;
+        }
+
+        this.loadProject();
+    }
+    loadProject() {
+        if (this.props.fetchingProject) {
             return;
         }
 
@@ -58,6 +54,11 @@ class GUI extends React.Component {
             this.props.vm.loadProject(this.props.projectData)
                 .then(() => {
                     this.setState({ loading: false });
+                    if (!this.props.vm.initialized) {
+                        this.props.vm.setCompatibilityMode(true);
+                        this.props.vm.start();
+                        this.props.vm.initialized = true;
+                    }
                 })
                 .catch((e) => {
                     // Need to catch this error and update component state so that
