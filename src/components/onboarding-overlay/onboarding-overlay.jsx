@@ -4,10 +4,11 @@ import classNames from 'classnames';
 
 import Box from '../box/box.jsx';
 import ButtonPrimary from '../button-primary/button-primary.jsx';
-import { NEXT_STEP } from '../../lib/onboarding/config';
+import { NEXT_STEP, customOffsets } from '../../lib/onboarding/config';
 
 import styles from './onboarding-overlay.css';
 import arrowLong from './arrow-3.svg';
+import arrowShort from './arrow-1.svg';
 
 const arrowOffset = {
     left: {
@@ -18,8 +19,19 @@ const arrowOffset = {
         targetX: -45,
         modalX: 48,
     },
-    targetY: 35,
-    modalY: 200,
+    top: {
+        targetY: 35,
+        modalY: 200,
+    },
+    middle: {
+        targetX: 0,
+        targetY: -40,
+        modalY: 20,
+    },
+    bottom: {
+        targetY: 35,
+        modalY: 200,
+    },
 };
 
 const getPositions = (props, ref) => {
@@ -32,18 +44,32 @@ const getPositions = (props, ref) => {
 
     const overlayBounds = ref.current ? ref.current.getBoundingClientRect() : {};
 
-    const orientation = props.targetCoordinates.x > overlayBounds.width / 2 ? 'left' : 'right';
+    const orientationX = props.targetCoordinates.x > overlayBounds.width / 2 ? 'left' : 'right';
+    const quotientY = Math.floor(props.targetCoordinates.y / (overlayBounds.height / 3));
+    const orientationY =
+        quotientY < 1
+            ? 'top'
+            : quotientY < 2
+                ? 'middle'
+                : 'bottom';
+
     const offset = {
-        ...arrowOffset,
-        ...arrowOffset[orientation],
+        ...arrowOffset[orientationX],
+        ...arrowOffset[orientationY],
     };
+    if (props.arrowTo in customOffsets) {
+        offset.targetX = offset.targetX + customOffsets[props.arrowTo].x;
+        offset.modalX = offset.modalX + customOffsets[props.arrowTo].x;
+        offset.targetY = offset.targetY + customOffsets[props.arrowTo].y;
+        offset.modalY = offset.modalY + customOffsets[props.arrowTo].y;
+    }
 
     const modalStyle = {
         top: props.targetCoordinates.y + offset.modalY,
     };
-    if (orientation === 'left') {
+    if (orientationX === 'left') {
         modalStyle.right = overlayBounds.width - (props.targetCoordinates.x + offset.modalX);
-    } else if (orientation === 'right') {
+    } else if (orientationX === 'right') {
         modalStyle.left = props.targetCoordinates.x + offset.modalX;
     }
 
@@ -55,8 +81,8 @@ const getPositions = (props, ref) => {
     return {
         modalStyle,
         arrow: <img
-            src={arrowLong}
-            className={classNames(styles.arrow, styles[`orientation-${orientation}`])}
+            src={orientationY === 'middle' ? arrowShort : arrowLong}
+            className={classNames(styles.arrow, styles[`orientation-${orientationX}`], styles[`orientation-${orientationY}`])}
             style={arrowStyle}
         />,
     };
@@ -101,6 +127,7 @@ const OnboardingOverlayComponent = React.forwardRef((props, ref) => {
 
 OnboardingOverlayComponent.propTypes = {
     text: PropTypes.string.isRequired,
+    arrowTo: PropTypes.string,
     buttons: PropTypes.arrayOf(PropTypes.shape({
         text: PropTypes.string.isRequired,
         action: PropTypes.string.isRequired,
@@ -115,6 +142,7 @@ OnboardingOverlayComponent.propTypes = {
 };
 
 OnboardingOverlayComponent.defaultProps = {
+    arrowTo: '',
     buttons: [],
     targetCoordinates: null,
     dim: false,
