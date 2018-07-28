@@ -12,7 +12,8 @@ const MenuListingComponent = (props) =>
             className={styles.projectWrapper}
             onClick={props.handleProjectClickCreate(key)}
         >
-            <span>{project.name}</span>
+            <img src="https://via.placeholder.com/200x150/fff/333?text=Projekt-Vorschau" />
+            <span className={styles.projectName}>{project.name}</span>
             <span className={styles.projectChanged}>
                 {new Date(project.updated_at).toLocaleDateString()}
             </span>

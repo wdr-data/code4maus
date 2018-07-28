@@ -1,14 +1,29 @@
+@import '../../css/colors.css';
+
 .project-wrapper {
     display: flex;
     flex-direction: column;
-    margin: 3rem 0 3rem 1rem;
-    padding-top: 6rem;
+    justify-content: space-around;
+    margin-right: 1rem;
+    padding: 1rem;
     border: 1px solid #eee;
     border-radius: 1rem;
     min-width: 14rem;
     text-align: center;
+    color: $ui-grey;
+    cursor: pointer;
 }
 
-.project-wrapper > * {
-    padding: .5rem 1rem;
+.project-wrapper:last-of-type {
+    margin-right: 0;
+}
+
+.project-wrapper img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.project-name {
+    font-size: 1.25rem;
 }

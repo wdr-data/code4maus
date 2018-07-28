@@ -190,12 +190,18 @@
     display: flex;
     overflow-x: scroll;
     margin: 2rem;
+    padding: 3rem 1rem;
     background-color: white;
     transform: skewY(.5deg);
 }
+.section-body:after {
+    content: ' ';
+    display: inline-block;
+    min-width: 1rem;
+}
 
 .new-button {
-    padding: 1rem 4rem 0 4rem;
+    margin: 1rem 4rem 0 3rem;
     text-align: center;
 }
 
