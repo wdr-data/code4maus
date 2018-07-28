@@ -10,7 +10,7 @@ const MenuListingComponent = (props) =>
         <Box
             key={key}
             className={styles.projectWrapper}
-            onClick={props.handleProjectClickCreate(key)}
+            onClick={props.handleItemClickCreate(key)}
         >
             <img src="https://via.placeholder.com/200x150/fff/333?text=Projekt-Vorschau" />
             <span className={styles.projectName}>{project.name}</span>
@@ -21,7 +21,7 @@ const MenuListingComponent = (props) =>
     ))
 ;
 
-const SHAPE_PROJECT = {
+export const SHAPE_PROJECT = {
     name: PropTypes.string.isRequired,
     created_at: PropTypes.number.isRequired,
     updated_at: PropTypes.number.isRequired,
@@ -29,7 +29,7 @@ const SHAPE_PROJECT = {
 
 MenuListingComponent.propTypes = {
     projects: PropTypes.objectOf(PropTypes.shape(SHAPE_PROJECT)),
-    handleProjectClickCreate: PropTypes.func.isRequired,
+    handleItemClickCreate: PropTypes.func.isRequired,
 };
 
 export default MenuListingComponent;

@@ -65,6 +65,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     handleTabSelected: (tabId) => dispatch(push(`/${tabIdToTab[tabId]}`)),
+    handleProjectClickCreate: (projectId) => () => dispatch(push(`/projekt/${projectId}`)),
 });
 
 export default connect(

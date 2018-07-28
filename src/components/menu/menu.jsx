@@ -12,6 +12,7 @@ import InlineSVG from '../inline-svg/inline-svg.jsx';
 import MenuButton from '../menu-button/menu-button.jsx';
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/head_logo.png';
+import { SHAPE_PROJECT } from '../menu-listing/menu-listing.jsx';
 
 import ausrufezeichenIcon from './ausrufezeichen.svg';
 import buttonNew from '!raw-loader!./button-new.svg';
@@ -100,7 +101,7 @@ export const MenuComponent = (props) => {
                                 <InlineSVG svg={buttonNew} className={styles.newButtonIcon} />
                                 Neu
                             </Button>
-                            <MenuListing projects={props.projects} handleProjectClickCreate={() => {}} />
+                            <MenuListing projects={props.projects} handleItemClickCreate={props.handleProjectClickCreate} />
                         </Box>
                     </TabPanel>
                     <TabPanel className={tabClassNames.tabPanel}>
@@ -133,7 +134,9 @@ export const MenuComponent = (props) => {
 };
 
 MenuComponent.propTypes = {
+    projects: PropTypes.objectOf(PropTypes.shape(SHAPE_PROJECT)),
     selectedTab: PropTypes.number.isRequired,
+    handleProjectClickCreate: PropTypes.func.isRequired,
     handleTabSelected: PropTypes.func.isRequired,
 };
 
