@@ -1,0 +1,8 @@
+.wrapper {
+    display: inline-block;
+}
+
+.wrapper svg {
+    height: 100%;
+    width: auto;
+}
