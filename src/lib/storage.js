@@ -50,7 +50,8 @@ class Storage extends ScratchStorage {
             [ this.AssetType.Project ],
             (project) => {
                 if (!this.userId) {
-                    throw new Error('No user id set');
+                    console.warn('No user id set');
+                    return false;
                 }
                 return s3userFile(this.userId, `${project.assetId}.${project.dataFormat}`);
             }

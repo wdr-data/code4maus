@@ -36,7 +36,7 @@ const ProjectLoaderHOC = function(WrappedComponent) {
 
             this.state = {
                 projectData: null,
-                fetchingProject: false,
+                fetchingProject: true,
             };
 
             this.loadProject = debounce(this.loadProject.bind(this), 2000, { leading: true });
@@ -76,6 +76,7 @@ const ProjectLoaderHOC = function(WrappedComponent) {
                 localStorage.setItem('deviceId', userId);
             }
 
+            storage.userId = userId;
             this.props.setUserId(userId);
         }
         loadProject(id) {
@@ -108,9 +109,6 @@ const ProjectLoaderHOC = function(WrappedComponent) {
                 ...componentProps
             } = this.props;
             /* eslint-enable */
-            if (!this.state.projectData) {
-                return null;
-            }
             return (
                 <WrappedComponent
                     fetchingProject={this.state.fetchingProject}
