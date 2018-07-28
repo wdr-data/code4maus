@@ -102,6 +102,9 @@ const ProjectLoaderHOC = function(WrappedComponent) {
                 projectId,
                 gameEnabled,
                 userId,
+                setProjectName,
+                setProjectId,
+                setUserId,
                 ...componentProps
             } = this.props;
             /* eslint-enable */
