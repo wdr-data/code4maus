@@ -14,6 +14,9 @@ import headLogo from '../../../assets/img/head_logo.png';
 
 import ausrufezeichenIcon from './ausrufezeichen.svg';
 import buttonNew from '!raw-loader!./button-new.svg';
+import tabIconEdugames from '!raw-loader!../../../assets/icons/menu_edugames.svg';
+import tabIconProjects from '!raw-loader!../../../assets/icons/menu_projects.svg';
+import tabIconExamples from '!raw-loader!../../../assets/icons/menu_examples.svg';
 import styles from './menu.css';
 
 export const MenuComponent = (props) => {
@@ -59,6 +62,7 @@ export const MenuComponent = (props) => {
                     <TabList className={tabClassNames.tabList}>
                         <Tab className={tabClassNames.tab}>
                             <Box className={styles.tabContent}>
+                                <InlineSVG svg={tabIconEdugames} className={styles.tabIcon} />
                                 <FormattedMessage
                                     defaultMessage="Lernen"
                                     id="gui.gui.eduGames"
@@ -67,6 +71,7 @@ export const MenuComponent = (props) => {
                         </Tab>
                         <Tab className={tabClassNames.tab}>
                             <Box className={styles.tabContent}>
+                                <InlineSVG svg={tabIconProjects} className={styles.tabIcon} />
                                 <FormattedMessage
                                     defaultMessage="Selber machen"
                                     id="gui.gui.games"
@@ -75,6 +80,7 @@ export const MenuComponent = (props) => {
                         </Tab>
                         <Tab className={tabClassNames.tab}>
                             <Box className={styles.tabContent}>
+                                <InlineSVG svg={tabIconExamples} className={styles.tabIcon} />
                                 <FormattedMessage
                                     defaultMessage="Beispiele"
                                     id="gui.gui.examples"
