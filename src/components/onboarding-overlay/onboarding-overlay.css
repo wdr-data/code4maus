@@ -51,3 +51,6 @@
 .arrow.orientation-right {
   transform: scaleX(-1);
 }
+.arrow.orientation-bottom {
+  transform: scaleY(-1);
+}

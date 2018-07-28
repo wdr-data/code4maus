@@ -92,12 +92,11 @@ class OnboardingOverlay extends React.Component {
         }
 
         const {
-            arrowTo,
             trigger,
             ...componentProps
         } = onboardingConfig.steps[this.props.step];
 
-        const targetCoords = this.getPositioning(arrowTo);
+        const targetCoords = this.getPositioning(componentProps.arrowTo);
         this.assignTrigger(trigger);
 
         return (

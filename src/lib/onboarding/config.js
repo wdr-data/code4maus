@@ -10,6 +10,13 @@ export const TRIGGER_REFS = {
     blocksToolbox: 'blocksToolbox',
 };
 
+export const customOffsets = {
+    blocksToolbox: {
+        x: 100,
+        y: -150,
+    },
+};
+
 const onboardingConfig = {
     steps: [
         {
