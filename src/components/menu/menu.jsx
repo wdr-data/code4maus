@@ -7,11 +7,13 @@ import { FormattedMessage } from 'react-intl';
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
 import MenuListing from '../menu-listing/menu-listing.jsx';
-import MenuButton from '../../components/menu-button/menu-button.jsx';
+import InlineSVG from '../inline-svg/inline-svg.jsx';
+import MenuButton from '../menu-button/menu-button.jsx';
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/head_logo.png';
 
 import ausrufezeichenIcon from './ausrufezeichen.svg';
+import buttonNew from '!raw-loader!./button-new.svg';
 import styles from './menu.css';
 
 export const MenuComponent = (props) => {
@@ -86,27 +88,7 @@ export const MenuComponent = (props) => {
                     <TabPanel className={tabClassNames.tabPanel}>
                         <Box className={styles.sectionBody}>
                             <Button className={styles.newButton}>
-                                <div className={styles.newButtonIcon}>
-                                    <svg viewBox="0 0 37.29 37.3"
-                                        height="37.3"
-                                        width="37.29">
-                                        <rect
-                                            id="rect6"
-                                            fill="#fff"
-                                            height="21.31"
-                                            width="4.74"
-                                            y="7.99"
-                                            x="16.28" />
-                                        <rect
-                                            id="rect8"
-                                            fill="#fff"
-                                            transform="translate(37.3 0) rotate(90)"
-                                            height="21.31"
-                                            width="4.74"
-                                            y="7.99"
-                                            x="16.28" />
-                                    </svg>
-                                </div>
+                                <InlineSVG svg={buttonNew} className={styles.newButtonIcon} />
                                 Neu
                             </Button>
                             <MenuListing projects={props.projects} handleProjectClickCreate={() => {}} />

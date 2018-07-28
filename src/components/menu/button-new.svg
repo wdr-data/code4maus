@@ -1,0 +1,19 @@
+<svg viewBox="0 0 37.29 37.3"
+    height="37.3"
+    width="37.29">
+    <rect
+        id="rect6"
+        fill="#fff"
+        height="21.31"
+        width="4.74"
+        y="7.99"
+        x="16.28" />
+    <rect
+        id="rect8"
+        fill="#fff"
+        transform="translate(37.3 0) rotate(90)"
+        height="21.31"
+        width="4.74"
+        y="7.99"
+        x="16.28" />
+</svg>
