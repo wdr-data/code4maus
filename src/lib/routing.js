@@ -1,10 +1,15 @@
 import { routerForBrowser } from 'redux-little-router';
 
 export const Views = {
-    start: 'VIEW_START',
     edu: 'VIEW_EDU',
+    menu: 'VIEW_MENU',
     project: 'VIEW_PROJECT',
-    listing: 'VIEW_LISTING',
+};
+
+export const MenuTabs = {
+    edugames: 'lernspiele',
+    examples: 'beispiele',
+    projects: 'projekte',
 };
 
 export const eduUrl = (eduId) => `/lernspiel/${eduId}`;
@@ -12,16 +17,31 @@ export const projectUrl = (projectId) => `/projekt/${projectId}`;
 
 const routes = {
     '/': {
-        view: Views.start,
+        view: Views.menu,
+    },
+    '/lernspiele': {
+        view: Views.menu,
+        tab: MenuTabs.edugames,
+    },
+    '/projekte': {
+        view: Views.menu,
+        tab: MenuTabs.projects,
+    },
+    '/beispiele': {
+        view: Views.menu,
+        tab: MenuTabs.examples,
     },
     '/lernspiel/:eduId': {
         view: Views.edu,
     },
-    '/projekt/:projectId': {
+    '/projekt': {
+        '/new': {
+            view: Views.project,
+        },
+        '/:projectId': {
+            view: Views.project,
+        },
         view: Views.project,
-    },
-    '/projekte': {
-        view: Views.listing,
     },
 };
 
