@@ -4,9 +4,9 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import tabStyles from 'react-tabs/style/react-tabs.css';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
+import { Link } from 'redux-little-router';
 
 import Box from '../box/box.jsx';
-import Button from '../button/button.jsx';
 import MenuListing from '../menu-listing/menu-listing.jsx';
 import InlineSVG from '../inline-svg/inline-svg.jsx';
 import MenuButton from '../menu-button/menu-button.jsx';
@@ -97,10 +97,10 @@ export const MenuComponent = (props) => {
                     </TabPanel>
                     <TabPanel className={tabClassNames.tabPanel}>
                         <Box className={styles.sectionBody}>
-                            <Button className={styles.newButton}>
+                            <Link href="/projekt/neu" className={styles.newButton}>
                                 <InlineSVG svg={buttonNew} className={styles.newButtonIcon} />
                                 Neu
-                            </Button>
+                            </Link>
                             <MenuListing projects={props.projects} handleItemClickCreate={props.handleProjectClickCreate} />
                         </Box>
                     </TabPanel>

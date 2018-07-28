@@ -35,7 +35,7 @@ const routes = {
         view: Views.edu,
     },
     '/projekt': {
-        '/new': {
+        '/neu': {
             view: Views.project,
         },
         '/:projectId': {
