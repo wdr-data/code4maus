@@ -20,7 +20,6 @@ module.exports = {
         sourceType: "module"
     },
     rules: {
-        "no-extra-parens": "error",
         "curly": "error",
         "guard-for-in": "error",
         "no-caller": "error",
