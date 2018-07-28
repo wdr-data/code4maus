@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './project-listing.css';
+import styles from './menu.css';
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
 import classNames from 'classnames';
@@ -13,8 +13,7 @@ import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/head_logo.png';
 import ausrufezeichenIcon from './ausrufezeichen.svg';
 
-export const ProjectListingComponent = props => {
-
+export const MenuComponent = (props) => {
     const tabClassNames = {
         tabs: styles.tabs,
         tab: classNames(tabStyles.reactTabsTab, styles.tab),
@@ -108,7 +107,7 @@ export const ProjectListingComponent = props => {
                                 </div>
                                 Neu
                             </Button>
-                            {Object.keys(props.projects).map(key => (
+                            {Object.keys(props.projects).map((key) => (
                                 <Box key={key} className={styles.projectWrapper}>
                                     <Link href={`/projekt/${key}`} className={styles.projectName}>{props.projects[key].name}</Link>
                                     <span className={styles.projectChanged}>{new Date(props.projects[key].updated_at).toLocaleDateString()}</span>
@@ -144,4 +143,4 @@ export const ProjectListingComponent = props => {
     );
 };
 
-export default ProjectListingComponent;
+export default MenuComponent;

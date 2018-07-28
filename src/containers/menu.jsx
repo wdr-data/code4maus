@@ -1,11 +1,11 @@
 import React from 'react';
 import {Views} from '../lib/routing';
-import ProjectListingComponent from '../components/project-listing/project-listing.jsx';
+import MenuComponent from '../components/menu/menu.jsx';
 import {connect} from 'react-redux';
 
 const bucketUrl = process.env.S3_BUCKET_URL_PROJECT;
 
-class ProjectListing extends React.Component {
+class Menu extends React.Component {
     constructor (props) {
         super(props);
 
@@ -22,7 +22,7 @@ class ProjectListing extends React.Component {
     }
     render () {
         return (
-            <ProjectListingComponent projects={this.state.projects} />
+            <MenuComponent projects={this.state.projects} />
         )
     }
 }
@@ -38,4 +38,4 @@ const mapDispatchToProps = dispatch => ({});
 export default connect(
     mapStateToProps,
     mapDispatchToProps,
-)(ProjectListing);
+)(Menu);
