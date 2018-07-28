@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import tabStyles from 'react-tabs/style/react-tabs.css';
 import { FormattedMessage } from 'react-intl';
+import PropTypes from 'prop-types';
 
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
@@ -58,6 +59,8 @@ export const MenuComponent = (props) => {
                     forceRenderTabPanel={true} // eslint-disable-line react/jsx-boolean-value
                     selectedTabClassName={tabClassNames.tabSelected}
                     selectedTabPanelClassName={tabClassNames.tabPanelSelected}
+                    selectedIndex={props.selectedTab}
+                    onSelect={props.handleTabSelected}
                 >
                     <TabList className={tabClassNames.tabList}>
                         <Tab className={tabClassNames.tab}>
@@ -127,6 +130,11 @@ export const MenuComponent = (props) => {
             </Box>
         </Box>
     );
+};
+
+MenuComponent.propTypes = {
+    selectedTab: PropTypes.number.isRequired,
+    handleTabSelected: PropTypes.func.isRequired,
 };
 
 export default MenuComponent;

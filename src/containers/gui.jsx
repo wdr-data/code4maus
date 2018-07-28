@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import VM from '@wdr-data/scratch-vm';
 import { connect } from 'react-redux';
-import ReactModal from 'react-modal';
-import { addLocaleData, IntlProvider } from 'react-intl';
-import de from 'react-intl/locale-data/de';
 
-import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
 import { openExtensionLibrary, closeSaveProject } from '../reducers/modals';
 import {
     activateTab,
@@ -15,19 +11,14 @@ import {
     COSTUMES_TAB_INDEX,
     SOUNDS_TAB_INDEX,
 } from '../reducers/editor-tab';
-import {Views} from '../lib/routing';
 
 import EduLoaderHOC from '../lib/edu-loader-hoc.jsx';
 import ProjectLoaderHOC from '../lib/project-loader-hoc.jsx';
 import ProjectSaveHOC from '../lib/project-save-hoc.jsx';
 import vmListenerHOC from '../lib/vm-listener-hoc.jsx';
-import AppStateHOC from '../lib/app-state-hoc.jsx';
 
 import GUIComponent from '../components/gui/gui.jsx';
 import { toggleLayoutMode } from '../reducers/layout-mode';
-import localeDe from '../../translations/de.json';
-
-addLocaleData(de);
 
 class GUI extends React.Component {
     constructor(props) {
@@ -92,18 +83,13 @@ class GUI extends React.Component {
             ...componentProps
         } = this.props;
         return (
-            <IntlProvider
-                locale="de"
-                messages={localeDe}
+            <GUIComponent
+                loading={fetchingProject || this.state.loading || loadingStateVisible}
+                vm={vm}
+                {...componentProps}
             >
-                <GUIComponent
-                    loading={fetchingProject || this.state.loading || loadingStateVisible}
-                    vm={vm}
-                    {...componentProps}
-                >
-                    {children}
-                </GUIComponent>
-            </IntlProvider>
+                {children}
+            </GUIComponent>
         );
     }
 }
@@ -111,9 +97,7 @@ class GUI extends React.Component {
 GUI.propTypes = {
     ...GUIComponent.propTypes,
     fetchingProject: PropTypes.bool,
-    importInfoVisible: PropTypes.bool,
     loadingStateVisible: PropTypes.bool,
-    previewInfoVisible: PropTypes.bool,
     projectData: PropTypes.oneOfType([ PropTypes.object, PropTypes.string ]),
     vm: PropTypes.instanceOf(VM),
 };
@@ -126,8 +110,6 @@ const mapStateToProps = (state) => ({
     cardsVisible: state.scratchGui.cards.visible,
     costumesTabVisible: state.scratchGui.editorTab.activeTabIndex === COSTUMES_TAB_INDEX,
     importInfoVisible: state.scratchGui.modals.importInfo,
-    isListing: (state.router.result || {}).view === Views.listing,
-    isPlayerOnly: state.scratchGui.mode.isPlayerOnly,
     loadingStateVisible: state.scratchGui.modals.loadingProject,
     previewInfoVisible: state.scratchGui.modals.previewInfo,
     targetIsStage:
@@ -153,9 +135,6 @@ const ConnectedGUI = connect(
     mapDispatchToProps,
 )(GUI);
 
-const WrappedGui = ErrorBoundaryHOC('Top Level App')(
-    AppStateHOC(EduLoaderHOC(ProjectLoaderHOC(ProjectSaveHOC(vmListenerHOC(ConnectedGUI)))))
-);
+const WrappedGui = EduLoaderHOC(ProjectLoaderHOC(ProjectSaveHOC(vmListenerHOC(ConnectedGUI))));
 
-WrappedGui.setAppElement = ReactModal.setAppElement;
 export default WrappedGui;

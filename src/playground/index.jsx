@@ -3,7 +3,7 @@ import 'es6-object-assign/auto';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import GUI from '../containers/gui.jsx';
+import App from '../containers/app.jsx';
 
 import styles from './index.css';
 
@@ -16,6 +16,6 @@ const appTarget = document.createElement('div');
 appTarget.className = styles.app;
 document.body.appendChild(appTarget);
 
-GUI.setAppElement(appTarget);
+App.setAppElement(appTarget);
 
-ReactDOM.render(<GUI />, appTarget);
+ReactDOM.render(<App />, appTarget);

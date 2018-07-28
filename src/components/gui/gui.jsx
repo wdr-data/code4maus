@@ -20,7 +20,6 @@ import DragLayer from '../../containers/drag-layer.jsx';
 import ModalComponent from '../modal/modal.jsx';
 import Input from '../forms/input.jsx';
 import ProjectSaver from '../../containers/project-saver.jsx';
-import Menu from '../../containers/menu.jsx';
 import EduStage from '../edu-stage/edu-stage.jsx';
 import StageHeader from '../../containers/stage-header.jsx';
 
@@ -50,8 +49,6 @@ const GUIComponent = (props) => {
         importInfoVisible,
         saveProjectVisible,
         intl,
-        isListing,
-        isPlayerOnly,
         loading,
         onExtensionButtonClick,
         onActivateCostumesTab,
@@ -86,19 +83,6 @@ const GUIComponent = (props) => {
 
     if (isRendererSupported === null) {
         isRendererSupported = Renderer.isSupported();
-    }
-
-    if (isListing) {
-        return (
-            <Menu />
-        );
-    }
-
-    if (isPlayerOnly) {
-        return <StageWrapper
-            isRendererSupported={isRendererSupported}
-            vm={vm}
-        />;
     }
 
     return (
@@ -285,7 +269,6 @@ GUIComponent.propTypes = {
     importInfoVisible: PropTypes.bool,
     saveProjectVisible: PropTypes.bool,
     intl: intlShape.isRequired,
-    isPlayerOnly: PropTypes.bool,
     loading: PropTypes.bool,
     onActivateCostumesTab: PropTypes.func,
     onActivateSoundsTab: PropTypes.func,

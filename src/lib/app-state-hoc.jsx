@@ -1,17 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { initializeCurrentLocation } from 'redux-little-router';
 
-import { intlShape } from 'react-intl';
-import { IntlProvider, updateIntl } from 'react-intl-redux';
+import { IntlProvider } from 'react-intl-redux';
 import intlReducer from '../reducers/intl.js';
 
-import guiReducer, { guiInitialState, guiMiddleware, initFullScreen, initPlayer } from '../reducers/gui';
+import guiReducer, { guiInitialState, guiMiddleware } from '../reducers/gui';
 import * as router from './routing';
-
-import { setPlayer, setFullScreen } from '../reducers/mode.js';
 
 import { ScratchPaintReducer } from 'scratch-paint';
 
@@ -29,13 +25,7 @@ const AppStateHOC = function(WrappedComponent) {
     class AppStateWrapper extends React.Component {
         constructor(props) {
             super(props);
-            let initializedGui = guiInitialState;
-            if (props.isFullScreen) {
-                initializedGui = initFullScreen(initializedGui);
-            }
-            if (props.isPlayerOnly) {
-                initializedGui = initPlayer(initializedGui);
-            }
+
             const reducer = combineReducers({
                 intl: intlReducer,
                 scratchGui: guiReducer,
@@ -45,46 +35,25 @@ const AppStateHOC = function(WrappedComponent) {
 
             this.store = createStore(
                 reducer,
-                { scratchGui: initializedGui },
-                enhancer);
+                { scratchGui: guiInitialState },
+                enhancer
+            );
 
             const initialLocation = this.store.getState().router;
             if (initialLocation) {
                 this.store.dispatch(initializeCurrentLocation(initialLocation));
             }
         }
-        componentDidUpdate(prevProps) {
-            if (prevProps.intl !== this.props.intl) {
-                this.store.dispatch(updateIntl(this.props.intl));
-            }
-            if (prevProps.isPlayerOnly !== this.props.isPlayerOnly) {
-                this.store.dispatch(setPlayer(this.props.isPlayerOnly));
-            }
-            if (prevProps.isFullScreen !== this.props.isFullScreen) {
-                this.store.dispatch(setFullScreen(this.props.isFullScreen));
-            }
-        }
         render() {
-            const {
-                intl, // eslint-disable-line no-unused-vars
-                isFullScreen, // eslint-disable-line no-unused-vars
-                isPlayerOnly, // eslint-disable-line no-unused-vars
-                ...componentProps
-            } = this.props;
             return (
                 <Provider store={this.store}>
                     <IntlProvider>
-                        <WrappedComponent {...componentProps} />
+                        <WrappedComponent {...this.props} />
                     </IntlProvider>
                 </Provider>
             );
         }
     }
-    AppStateWrapper.propTypes = {
-        intl: intlShape,
-        isFullScreen: PropTypes.bool,
-        isPlayerOnly: PropTypes.bool,
-    };
     return AppStateWrapper;
 };
 
