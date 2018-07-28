@@ -14,11 +14,13 @@ import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/head_logo.png';
 import { SHAPE_PROJECT } from '../menu-listing/menu-listing.jsx';
 
-import ausrufezeichenIcon from './ausrufezeichen.svg';
 import buttonNew from '!raw-loader!./button-new.svg';
 import tabIconEdugames from '!raw-loader!../../../assets/icons/menu_edugames.svg';
 import tabIconProjects from '!raw-loader!../../../assets/icons/menu_projects.svg';
 import tabIconExamples from '!raw-loader!../../../assets/icons/menu_examples.svg';
+import buttonIconInfo from '!raw-loader!../../../assets/icons/menu_eltern-info.svg';
+import buttonIconMausseite from '!raw-loader!../../../assets/icons/menu_mausseite.svg';
+import buttonIconImpressum from '!raw-loader!../../../assets/icons/menu_impressum.svg';
 import styles from './menu.css';
 
 export const MenuComponent = (props) => {
@@ -110,22 +112,13 @@ export const MenuComponent = (props) => {
                 </Tabs>
             </Box>
             <Box className={styles.buttonRow}>
-                <MenuButton
-                    className={styles.menuButton}
-                    iconSrc={ausrufezeichenIcon}
-                >
+                <MenuButton iconSvg={buttonIconInfo}>
                     Eltern-Info
                 </MenuButton>
-                <MenuButton
-                    className={styles.menuButton}
-                    iconSrc={ausrufezeichenIcon}
-                >
+                <MenuButton iconSvg={buttonIconMausseite}>
                     Hier geht's zur Maus Seite
                 </MenuButton>
-                <MenuButton
-                    className={styles.menuButton}
-                    iconSrc={ausrufezeichenIcon}
-                >
+                <MenuButton iconSvg={buttonIconImpressum}>
                     Impressum
                 </MenuButton>
             </Box>
