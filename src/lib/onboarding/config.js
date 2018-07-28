@@ -142,7 +142,7 @@ const onboardingConfig = {
             trigger: TRIGGER_REFS.startButton,
         },
         {
-            text: 'Hast du’s gemerkt? Die Maus wird langsamer. Gib jetzt zum Beispiel mal 0.5 ein,\ndamit sie schneller wird.',
+            text: 'Hast du’s gemerkt? Die Maus wird langsamer. Gib jetzt zum Beispiel mal 0.5 ein, damit sie schneller wird.',
             arrowTo: TRIGGER_REFS.startButton,
             trigger: TRIGGER_REFS.startButton,
         },
