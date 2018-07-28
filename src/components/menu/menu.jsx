@@ -14,7 +14,7 @@ import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/head_logo.png';
 import { SHAPE_PROJECT } from '../menu-listing/menu-listing.jsx';
 
-import buttonNew from '!raw-loader!./button-new.svg';
+import buttonNew from '!raw-loader!../../../assets/icons/menu_plus.svg';
 import tabIconEdugames from '!raw-loader!../../../assets/icons/menu_edugames.svg';
 import tabIconProjects from '!raw-loader!../../../assets/icons/menu_projects.svg';
 import tabIconExamples from '!raw-loader!../../../assets/icons/menu_examples.svg';
