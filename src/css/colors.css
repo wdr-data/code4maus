@@ -27,3 +27,6 @@ $control-primary: hsla(38, 100%, 55%, 1); /* #FFAB19 */
 $data-primary: hsla(30, 100%, 55%, 1); /* #FF8C1A */
 
 $pen-primary: hsla(163, 85%, 40%, 1); /* #0FBD8C */
+
+/* Maus UI */
+$ui-grey: #929292;
