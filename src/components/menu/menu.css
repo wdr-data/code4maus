@@ -200,6 +200,7 @@
 }
 
 .new-button-icon {
+    display: block;
     border-radius: 50%;
     background-image: url('../gui/bg_orange@1x.png');
     width: 6rem;
