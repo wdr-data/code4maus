@@ -1,13 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Link } from 'redux-little-router';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import tabStyles from 'react-tabs/style/react-tabs.css';
 import { FormattedMessage } from 'react-intl';
-import PropTypes from 'prop-types';
 
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
+import MenuListing from '../menu-listing/menu-listing.jsx';
 import MenuButton from '../../components/menu-button/menu-button.jsx';
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/head_logo.png';
@@ -82,6 +81,7 @@ export const MenuComponent = (props) => {
                         </Tab>
                     </TabList>
                     <TabPanel className={tabClassNames.tabPanel}>
+                        <Box className={styles.sectionBody} />
                     </TabPanel>
                     <TabPanel className={tabClassNames.tabPanel}>
                         <Box className={styles.sectionBody}>
@@ -109,15 +109,11 @@ export const MenuComponent = (props) => {
                                 </div>
                                 Neu
                             </Button>
-                            {Object.keys(props.projects).map((key) => (
-                                <Box key={key} className={styles.projectWrapper}>
-                                    <Link href={`/projekt/${key}`} className={styles.projectName}>{props.projects[key].name}</Link>
-                                    <span className={styles.projectChanged}>{new Date(props.projects[key].updated_at).toLocaleDateString()}</span>
-                                </Box>
-                            ))}
+                            <MenuListing projects={props.projects} handleProjectClickCreate={() => {}} />
                         </Box>
                     </TabPanel>
                     <TabPanel className={tabClassNames.tabPanel}>
+                        <Box className={styles.sectionBody} />
                     </TabPanel>
                 </Tabs>
             </Box>

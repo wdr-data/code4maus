@@ -212,21 +212,6 @@
     height: 100%;
 }
 
-.project-wrapper {
-    display: flex;
-    flex-direction: column;
-    margin: 3rem 0 3rem 1rem;
-    padding-top: 6rem;
-    border: 1px solid #eee;
-    border-radius: 1rem;
-    min-width: 14rem;
-    text-align: center;
-}
-
-.project-wrapper > * {
-    padding: .5rem 1rem;
-}
-
 .button-row {
     display: flex;
     justify-content: space-between;
