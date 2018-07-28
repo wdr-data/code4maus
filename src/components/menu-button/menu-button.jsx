@@ -3,21 +3,25 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import styles from './menu-button.css';
+import InlineSVG from '../inline-svg/inline-svg.jsx';
 
 const MenuButtonComponent = ({
     className,
     iconClassName,
     iconSrc,
+    iconSvg,
     children,
     onClick,
     ...props
 }) => {
-    const icon = iconSrc &&
-        <img
-            className={classNames(iconClassName, styles.icon)}
-            draggable={false}
-            src={iconSrc}
-        />
+    const icon = iconSvg
+        ? <InlineSVG svg={iconSvg} className={classNames(iconClassName, styles.icon)} />
+        : iconSrc &&
+            <img
+                className={classNames(iconClassName, styles.icon)}
+                draggable={false}
+                src={iconSrc}
+            />
     ;
 
     return (
@@ -37,6 +41,7 @@ MenuButtonComponent.propTypes = {
     className: PropTypes.string,
     iconClassName: PropTypes.string,
     iconSrc: PropTypes.string,
+    iconSvg: PropTypes.string,
     onClick: PropTypes.func,
 };
 
