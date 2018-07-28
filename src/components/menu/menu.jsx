@@ -1,17 +1,19 @@
 import React from 'react';
-import styles from './menu.css';
-import Box from '../box/box.jsx';
-import Button from '../button/button.jsx';
 import classNames from 'classnames';
 import { Link } from 'redux-little-router';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import tabStyles from 'react-tabs/style/react-tabs.css';
 import { FormattedMessage } from 'react-intl';
-import MenuButton from '../../components/menu-button/menu-button.jsx';
+import PropTypes from 'prop-types';
 
+import Box from '../box/box.jsx';
+import Button from '../button/button.jsx';
+import MenuButton from '../../components/menu-button/menu-button.jsx';
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/head_logo.png';
+
 import ausrufezeichenIcon from './ausrufezeichen.svg';
+import styles from './menu.css';
 
 export const MenuComponent = (props) => {
     const tabClassNames = {
@@ -124,19 +126,19 @@ export const MenuComponent = (props) => {
                     className={styles.menuButton}
                     iconSrc={ausrufezeichenIcon}
                 >
-                Eltern-Info
+                    Eltern-Info
                 </MenuButton>
                 <MenuButton
                     className={styles.menuButton}
                     iconSrc={ausrufezeichenIcon}
                 >
-                Hier geht's zur Maus Seite
+                    Hier geht's zur Maus Seite
                 </MenuButton>
                 <MenuButton
                     className={styles.menuButton}
                     iconSrc={ausrufezeichenIcon}
                 >
-                Impressum
+                    Impressum
                 </MenuButton>
             </Box>
         </Box>
