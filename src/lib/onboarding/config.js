@@ -8,6 +8,7 @@ export const TRIGGER_REFS = {
     startButton: 'startButton',
     stopButton: 'stopButton',
     blocksToolbox: 'blocksToolbox',
+    saveProject: 'saveProject',
 };
 
 export const customOffsets = {
@@ -164,7 +165,7 @@ const onboardingConfig = {
         },
         {
             text: 'Wenn du deine Änderungen behalten möchtest, drücke auf ‘Speichern’\nund gib deinem Programm einen Namen. ',
-            arrowTo: TRIGGER_REFS.blocksToolbox,
+            arrowTo: TRIGGER_REFS.saveProject,
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
