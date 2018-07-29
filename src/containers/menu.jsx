@@ -19,14 +19,23 @@ class Menu extends React.Component {
         super(props);
 
         this.state = {
-            projects: {},
+            projects: [],
         };
     }
     componentDidMount() {
         this.loadUserProjects();
     }
     async loadUserProjects() {
-        const projects = await (await fetch(`${bucketUrl}/projects/${this.props.userId}/index.json`)).json();
+        const userProjects = await (await fetch(`${bucketUrl}/projects/${this.props.userId}/index.json`)).json();
+        const projects = Object.entries(userProjects)
+            .map(([ key, proj ]) => ({
+                key,
+                title: proj.name,
+                note: new Date(proj.updated_at).toLocaleDateString(),
+                linkTo: `/projekt/${key}`,
+                _sort: proj.updated_at,
+            }))
+            .sort((a, b) => b._sort - a._sort);
         this.setState({ projects });
     }
     static getTabId(tab) {
@@ -65,7 +74,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     handleTabSelected: (tabId) => dispatch(push(`/${tabIdToTab[tabId]}`)),
-    handleProjectClickCreate: (projectId) => () => dispatch(push(`/projekt/${projectId}`)),
 });
 
 export default connect(

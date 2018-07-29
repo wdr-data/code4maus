@@ -12,6 +12,7 @@
     text-align: center;
     color: $ui-grey;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .project-wrapper:last-of-type {
@@ -24,6 +25,6 @@
     margin-bottom: 1rem;
 }
 
-.project-name {
+.title {
     font-size: 1.25rem;
 }

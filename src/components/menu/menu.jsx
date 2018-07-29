@@ -103,7 +103,7 @@ export const MenuComponent = (props) => {
                                 <InlineSVG svg={buttonNew} className={styles.newButtonIcon} />
                                 Neu
                             </Link>
-                            <MenuListing projects={props.projects} handleItemClickCreate={props.handleProjectClickCreate} />
+                            <MenuListing projects={props.projects} />
                         </Box>
                     </TabPanel>
                     <TabPanel className={tabClassNames.tabPanel}>
@@ -127,9 +127,8 @@ export const MenuComponent = (props) => {
 };
 
 MenuComponent.propTypes = {
-    projects: PropTypes.objectOf(PropTypes.shape(SHAPE_PROJECT)),
+    projects: PropTypes.arrayOf(PropTypes.shape(SHAPE_PROJECT)),
     selectedTab: PropTypes.number.isRequired,
-    handleProjectClickCreate: PropTypes.func.isRequired,
     handleTabSelected: PropTypes.func.isRequired,
 };
 

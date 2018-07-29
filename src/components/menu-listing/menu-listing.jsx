@@ -1,35 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'redux-little-router';
 
 import Box from '../box/box.jsx';
 
 import styles from './menu-listing.css';
 
 const MenuListingComponent = (props) =>
-    Object.entries(props.projects).map(([ key, project ]) => (
-        <Box
-            key={key}
+    props.projects.map((project) => (
+        <Link
+            href={project.linkTo}
+            key={project.key}
             className={styles.projectWrapper}
-            onClick={props.handleItemClickCreate(key)}
         >
             <img src="https://via.placeholder.com/200x150/fff/333?text=Projekt-Vorschau" />
-            <span className={styles.projectName}>{project.name}</span>
-            <span className={styles.projectChanged}>
-                {new Date(project.updated_at).toLocaleDateString()}
+            <span className={styles.title}>
+                {project.title}
             </span>
-        </Box>
+            <span className={styles.note}>
+                {project.note}
+            </span>
+        </Link>
     ))
 ;
 
 export const SHAPE_PROJECT = {
-    name: PropTypes.string.isRequired,
-    created_at: PropTypes.number.isRequired,
-    updated_at: PropTypes.number.isRequired,
+    key: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    note: PropTypes.string,
+    image: PropTypes.string,
+    linkTo: PropTypes.string.isRequired,
 };
 
 MenuListingComponent.propTypes = {
-    projects: PropTypes.objectOf(PropTypes.shape(SHAPE_PROJECT)),
-    handleItemClickCreate: PropTypes.func.isRequired,
+    projects: PropTypes.arrayOf(PropTypes.shape(SHAPE_PROJECT)),
 };
 
 export default MenuListingComponent;
