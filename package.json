@@ -12,7 +12,7 @@
     "import-sprites": "node scripts/import-sprites.js",
     "assets:download": "aws s3 sync s3://code4maus-assets assets",
     "assets:netlify": "pip install awscli && AWS_ACCESS_KEY_ID=$DEPLOY_AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$DEPLOY_AWS_SECRET_ACCESS_KEY npm run assets:download",
-    "assets:upload": "aws s3 sync --exclude .gitkeep assets s3://code4maus-assets",
+    "assets:upload": "aws s3 sync --exclude .gitkeep --exclude .DS_Store assets s3://code4maus-assets",
     "start": "webpack-dev-server",
     "start:backend": "netlify-lambda serve src/backend -c webpack.backend.js",
     "test": "npm run test:lint && npm run test:unit && npm run build && npm run test:integration",
