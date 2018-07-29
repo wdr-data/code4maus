@@ -14,6 +14,7 @@ class OnboardingOverlay extends React.Component {
         super(props);
 
         this.overlayRef = React.createRef();
+        this.cachedOverlayWidth = -1;
         this.triggerRef = null;
 
         this.state = {
@@ -31,14 +32,22 @@ class OnboardingOverlay extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.step !== this.props.step &&
-            this.props.step >= 0 && this.props.step < onboardingConfig.steps.length
+        const overlayWidth = this.overlayRef.current ? this.overlayRef.current.getBoundingClientRect().width : -1;
+        if (
+            prevProps.step !== this.props.step ||
+            prevProps.capturedRefs !== this.props.capturedRefs ||
+            this.cachedOverlayWidth !== overlayWidth
         ) {
+            this.cachedOverlayWidth = overlayWidth;
             this.loadStep(this.props.step);
         }
     }
 
     loadStep(step) {
+        if (!(this.props.step >= 0 && this.props.step < onboardingConfig.steps.length)) {
+            return;
+        }
+
         const {
             trigger,
             loadProject,
@@ -46,6 +55,9 @@ class OnboardingOverlay extends React.Component {
         } = onboardingConfig.steps[step];
 
         const targetCoordinates = this.getPositioning(props.arrowTo);
+        if (props.arrowTo && !targetCoordinates) {
+            return;
+        }
 
         this.setState({
             overlayProps: {
@@ -129,16 +141,14 @@ class OnboardingOverlay extends React.Component {
     }
 
     render() {
-        if (!this.state.overlayProps) {
-            return null;
-        }
+        const contentReady = !!this.state.overlayProps;
 
         return (
             <OnboardingOverlayComponent
                 {...this.state.overlayProps}
                 buttonClickFactory={this.buttonClickFactory}
                 ref={this.overlayRef}
-                shown={this.props.shown}
+                shown={contentReady && this.props.shown}
             />
         );
     }
