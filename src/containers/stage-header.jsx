@@ -1,16 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import bindAll from 'lodash.bindall';
-import VM from '@wdr-data/scratch-vm';
-import { setStageSize, STAGE_SIZES } from '../reducers/stage-size';
-import { setFullScreen } from '../reducers/mode';
-import { openSaveProject } from '../reducers/modals';
-
 import { connect } from 'react-redux';
 
+import { setFullScreen } from '../reducers/mode';
+import { openSaveProject } from '../reducers/modals';
 import StageHeaderComponent from '../components/stage-header/stage-header.jsx';
 
-// eslint-disable-next-line react/prefer-stateless-function
 class StageHeader extends React.Component {
     constructor(props) {
         super(props);
@@ -29,36 +25,29 @@ class StageHeader extends React.Component {
     }
     render() {
         const {
+            onSetStageUnFull, // eslint-disable-line no-unused-vars
             ...props
         } = this.props;
         return (
             <StageHeaderComponent
                 {...props}
-                onKeyPress={this.handleKeyPress}
             />
         );
     }
 }
 
 StageHeader.propTypes = {
-    isFullScreen: PropTypes.bool,
-    isPlayerOnly: PropTypes.bool,
+    ...StageHeaderComponent.propTypes,
     onSetStageUnFull: PropTypes.func.isRequired,
-    stageSize: PropTypes.oneOf(Object.keys(STAGE_SIZES)),
-    vm: PropTypes.instanceOf(VM).isRequired,
 };
 
 const mapStateToProps = (state) => ({
     stageSize: state.scratchGui.stageSize.stageSize,
     isFullScreen: state.scratchGui.mode.isFullScreen,
-    isPlayerOnly: state.scratchGui.mode.isPlayerOnly,
 });
 
 const mapDispatchToProps = (dispatch) => ({
     onSaveProject: () => dispatch(openSaveProject()),
-    onSetStageLarge: () => dispatch(setStageSize(STAGE_SIZES.large)),
-    onSetStageSmall: () => dispatch(setStageSize(STAGE_SIZES.small)),
-    onSetStageFull: () => dispatch(setFullScreen(true)),
     onSetStageUnFull: () => dispatch(setFullScreen(false)),
 });
 
