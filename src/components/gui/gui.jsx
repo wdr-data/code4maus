@@ -9,28 +9,29 @@ import Renderer from 'scratch-render';
 
 import Blocks from '../../containers/blocks.jsx';
 import CostumeTab from '../../containers/costume-tab.jsx';
-import TargetPane from '../../containers/target-pane.jsx';
-import SoundTab from '../../containers/sound-tab.jsx';
-import StageWrapper from '../../containers/stage-wrapper.jsx';
-import Loader from '../loader/loader.jsx';
-import Box from '../box/box.jsx';
-
-import WebGlModal from '../../containers/webgl-modal.jsx';
 import DragLayer from '../../containers/drag-layer.jsx';
-import ModalComponent from '../modal/modal.jsx';
-import Input from '../forms/input.jsx';
-import ProjectSaver from '../../containers/project-saver.jsx';
-import EduStage from '../edu-stage/edu-stage.jsx';
+import WebGlModal from '../../containers/webgl-modal.jsx';
 import StageHeader from '../../containers/stage-header.jsx';
+import StageWrapper from '../../containers/stage-wrapper.jsx';
+import SoundTab from '../../containers/sound-tab.jsx';
+import TargetPane from '../../containers/target-pane.jsx';
 
-import styles from './gui.css';
+import Box from '../box/box.jsx';
+import Button from '../button/button.jsx';
+import EduStage from '../edu-stage/edu-stage.jsx';
+import Input from '../forms/input.jsx';
+import Loader from '../loader/loader.jsx';
+import ModalComponent from '../modal/modal.jsx';
+import ProjectSaver from '../../containers/project-saver.jsx';
+
+import wdrLogo from '../../../assets/img/wdr_logo.svg';
+import headLogo from '../../../assets/img/head_logo.png';
 import codeIcon from './icon--code.svg';
 import costumesIcon from './icon--costumes.svg';
 import soundsIcon from './icon--sounds.svg';
-import Button from '../button/button.jsx';
-import wdrLogo from '../../../assets/img/wdr_logo.svg';
-import headLogo from '../../../assets/img/head_logo.png';
 import expandIcon from './expand_right@2x.svg';
+
+import styles from './gui.css';
 
 // Cache this value to only retreive it once the first time.
 // Assume that it doesn't change for a session.
