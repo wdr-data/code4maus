@@ -47,6 +47,10 @@ const ProjectLoaderHOC = function(WrappedComponent) {
                 this.props.setProjectId(this.props.router.params.projectId);
                 return;
             }
+            if (this.props.router.isNewProject) {
+                this.props.setProjectId(0);
+                return;
+            }
             this.loadProject(this.props.projectId || 0);
         }
         componentDidUpdate(prevProps) {
@@ -128,6 +132,7 @@ const ProjectLoaderHOC = function(WrappedComponent) {
             projectId: state.scratchGui.project.id,
             router: {
                 view: state.router.result ? state.router.result.view : '',
+                isNewProject: !!(state.router.result || {}).newProject,
                 params: state.router.params || {},
             },
             userId: state.scratchGui.project.userId,
