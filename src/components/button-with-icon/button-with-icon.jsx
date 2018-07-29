@@ -2,22 +2,27 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import InlineSVG from '../inline-svg/inline-svg.jsx';
+
 import styles from './button-with-icon.css';
 
 const ButtonWithIconComponent = ({
     className,
     iconClassName,
     iconSrc,
+    iconSvg,
     children,
     onClick,
     ...props
 }) => {
-    const icon = iconSrc &&
-        <img
-            className={classNames(iconClassName, styles.icon)}
-            draggable={false}
-            src={iconSrc}
-        />
+    const icon = iconSvg
+        ? <InlineSVG svg={iconSvg} className={classNames(iconClassName, styles.icon)} />
+        : iconSrc &&
+            <img
+                className={classNames(iconClassName, styles.icon)}
+                draggable={false}
+                src={iconSrc}
+            />
     ;
 
     return (
@@ -37,6 +42,7 @@ ButtonWithIconComponent.propTypes = {
     className: PropTypes.string,
     iconClassName: PropTypes.string,
     iconSrc: PropTypes.string,
+    iconSvg: PropTypes.string,
     onClick: PropTypes.func,
 };
 
