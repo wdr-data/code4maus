@@ -183,6 +183,9 @@ const GUIComponent = (props) => {
                                 </Box>
                             </Tab>
                         </TabList>
+                        <TabPanel />
+                        <TabPanel />
+                        <TabPanel />
                     </Tabs>
                 </Box>
                 <Box className={styles.column}>
@@ -210,6 +213,11 @@ const GUIComponent = (props) => {
                         selectedTabPanelClassName={tabClassNames.tabPanelSelected}
                         onSelect={onActivateTab}
                     >
+                        <TabList style={{ display: 'none' }}>
+                            <Tab />
+                            <Tab />
+                            <Tab />
+                        </TabList>
                         <TabPanel className={[ tabClassNames.tabPanel, styles.codePanelWrapper ]}>
                             <Box className={styles.codeTopRow}>
                                 <Box className={styles.blocksWrapper}>
