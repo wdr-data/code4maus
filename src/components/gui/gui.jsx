@@ -25,7 +25,7 @@ import ModalComponent from '../modal/modal.jsx';
 import ProjectSaver from '../../containers/project-saver.jsx';
 
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
-import headLogo from '../../../assets/img/head_logo.png';
+import headLogo from '../../../assets/img/logo_text.png';
 import codeIcon from './icon--code.svg';
 import costumesIcon from './icon--costumes.svg';
 import soundsIcon from './icon--sounds.svg';
@@ -191,7 +191,7 @@ const GUIComponent = (props) => {
                 </Box>
                 <Box className={styles.column}>
                     <img
-                        alt="head"
+                        alt="Programmieren mit der Maus"
                         className={styles.logoCenter}
                         draggable={false}
                         src={headLogo}
