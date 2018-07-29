@@ -37,6 +37,9 @@ const onboardingConfig = {
             loadProject: 'edu/00',
         },
         {
+            timeout: 2000,
+        },
+        {
             text: 'Mit dem roten Knopf stoppst du das Programm wieder.',
             arrowTo: TRIGGER_REFS.stopButton,
             trigger: TRIGGER_REFS.stopButton,
