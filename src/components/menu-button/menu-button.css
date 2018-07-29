@@ -6,7 +6,7 @@
   font-family: 'Titillium Web';
   font-weight: 600;
   font-size: 1.2rem;
-  cursor: pointer;
+  text-decoration: none;
 }
 
 .icon {
