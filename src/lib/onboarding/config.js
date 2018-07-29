@@ -1,3 +1,5 @@
+import { push } from 'redux-little-router';
+
 export const NEXT_STEP = 'onboarding/NEXT_STEP';
 
 export const BUTTON_TEXTS = {
@@ -198,8 +200,8 @@ const onboardingConfig = {
             arrowTo: TRIGGER_REFS.menu,
             buttons: [
                 {
-                    text: BUTTON_TEXTS.next,
-                    action: NEXT_STEP,
+                    text: 'Weiter Lernen',
+                    action: () => push(`/lernspiel/01`),
                 },
             ],
         },

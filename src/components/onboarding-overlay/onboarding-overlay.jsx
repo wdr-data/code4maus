@@ -113,6 +113,7 @@ const OnboardingOverlayComponent = React.forwardRef((props, ref) => {
                                 key={button.text}
                                 arrowRight={button.action === NEXT_STEP}
                                 onClick={props.buttonClickFactory(button.action)}
+                                className={styles.button}
                             >
                                 {button.text}
                             </ButtonPrimary>
@@ -130,7 +131,7 @@ OnboardingOverlayComponent.propTypes = {
     arrowTo: PropTypes.string,
     buttons: PropTypes.arrayOf(PropTypes.shape({
         text: PropTypes.string.isRequired,
-        action: PropTypes.string.isRequired,
+        action: PropTypes.oneOf([ PropTypes.string, PropTypes.func ]).isRequired,
     })),
     targetCoordinates: PropTypes.shape({
         x: PropTypes.number.isRequired,

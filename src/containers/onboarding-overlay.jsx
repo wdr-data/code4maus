@@ -95,6 +95,12 @@ class OnboardingOverlay extends React.Component {
 
     buttonClickFactory(action) {
         return (event) => {
+            if (typeof action === 'function') {
+                // treat functions as action creators
+                this.props.dispatchAction(action());
+                return;
+            }
+
             switch (action) {
             case NEXT_STEP:
                 this.nextStep();
@@ -171,6 +177,7 @@ OnboardingOverlay.propTypes = {
     step: PropTypes.number.isRequired,
     loadProject: PropTypes.func.isRequired,
     setOnboardingStep: PropTypes.func.isRequired,
+    dispatchAction: PropTypes.func.isRequired,
 };
 
 const OnboardingOverlayConnected = connect(
@@ -180,6 +187,7 @@ const OnboardingOverlayConnected = connect(
     (dispatch) => ({
         loadProject: (id) => dispatch(setProjectId(id)),
         setOnboardingStep: (step) => dispatch(push(`/onboarding/${step}`)),
+        dispatchAction: dispatch,
     })
 )(OnboardingOverlay);
 
