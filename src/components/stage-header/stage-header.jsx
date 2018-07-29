@@ -10,8 +10,8 @@ import layout from '../../lib/layout-constants.js';
 import Box from '../box/box.jsx';
 import ButtonWithIcon from '../button-with-icon/button-with-icon.jsx';
 
-import saveButton from './download@2x.png';
-import menuIcon from './menue.svg';
+import saveIcon from '!raw-loader!../../../assets/icons/header_save.svg';
+import menuIcon from '!raw-loader!../../../assets/icons/header_menu.svg';
 import styles from './stage-header.css';
 
 const StageHeaderComponent = function(props) {
@@ -32,24 +32,25 @@ const StageHeaderComponent = function(props) {
                 style={{ width: stageSize.width }}
             >
                 <Controls
-                    className={isFullScreen ? styles.controlsFullscreen : ''}
+                    className={styles.controls}
                     vm={vm}
+                    isFullScreen={isFullScreen}
                 />
                 {isFullScreen
                     ? <Fullscreen />
                     : <React.Fragment>
                         <ButtonWithIcon
-                            className={styles.menuButton}
-                            iconSrc={menuIcon}
-                        >
-                                Übersicht
-                        </ButtonWithIcon>
-                        <ButtonWithIcon
-                            className={styles.saveButton}
-                            iconSrc={saveButton}
+                            className={styles.headerIcon}
+                            iconSvg={saveIcon}
                             onClick={onSaveProject}
                         >
                                 Speichern
+                        </ButtonWithIcon>
+                        <ButtonWithIcon
+                            className={styles.headerIcon}
+                            iconSvg={menuIcon}
+                        >
+                                Übersicht
                         </ButtonWithIcon>
                     </React.Fragment>
                 }

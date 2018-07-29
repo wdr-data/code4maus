@@ -197,10 +197,8 @@ const GUIComponent = (props) => {
                         src={headLogo}
                     />
                 </Box>
-                <Box className={styles.column}>
-                    <Box className={styles.stageMenuWrapper}>
-                        <StageHeader vm={vm} />
-                    </Box>
+                <Box className={classNames(styles.column, styles.columnButtons)}>
+                    <StageHeader vm={vm} />
                 </Box>
             </Box>
 

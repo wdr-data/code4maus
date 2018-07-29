@@ -24,6 +24,7 @@
     display: flex;
     justify-content: space-between;
     background-image: url('./bg_header@1x.png');
+    padding: 1rem .5rem 0;
 }
 
 
@@ -35,7 +36,13 @@
 }
 
 .column {
-    padding: .5rem 0 0 .75rem;
+    margin: 0 .5rem;
+}
+.column:last-of-type {
+    margin-right: 0;
+}
+.column-buttons {
+    overflow: hidden;
 }
 
 .menu-button {
@@ -56,15 +63,13 @@
 }
 
 .logo {
-    height:  1.6rem;
+    height:  1.25rem;
     display: block;
 }
 
 .logo-center {
-    height: 5rem;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 1rem auto;
 }
 
 .logo-menu {
@@ -80,7 +85,7 @@
     flex-shrink: 0;
 
     font-family: 'Titillium Web';
-    font-weight: 600;
+    font-weight: 400;
     font-size: 0.80rem;
 
     /* Overrides for react-tabs styling */
@@ -240,11 +245,6 @@
     */
     display: flex;
     flex-direction: column;
-}
-
-.stage-menu-wrapper {
-    display: flex;
-    align-self: flex-end !important;
 }
 
 [layoutmode=BUILD] .stage-and-target-wrapper {
