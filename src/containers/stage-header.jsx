@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import bindAll from 'lodash.bindall';
 import { connect } from 'react-redux';
+import { push } from 'redux-little-router';
 
 import { setFullScreen } from '../reducers/mode';
 import { openSaveProject } from '../reducers/modals';
@@ -47,6 +48,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+    onOpenMenu: () => dispatch(push('/')),
     onSaveProject: () => dispatch(openSaveProject()),
     onSetStageUnFull: () => dispatch(setFullScreen(false)),
 });
