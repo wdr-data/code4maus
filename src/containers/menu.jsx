@@ -19,13 +19,22 @@ class Menu extends React.Component {
     constructor(props) {
         super(props);
 
+        const eduGamesOnboarding = [
+            {
+                key: 'onboarding',
+                title: 'Einführung',
+                note: 'Lerne, wie du die Maus steuerst!',
+                linkTo: '/onboarding',
+            },
+        ].concat(eduGames.map((game) => ({
+            key: game.id,
+            title: game.name,
+            note: game.subtitle,
+            linkTo: `/lernspiel/${game.id}`,
+        })));
+
         this.state = {
-            eduGames: eduGames.map((game) => ({
-                key: game.id,
-                title: game.name,
-                note: game.subtitle,
-                linkTo: `/lernspiel/${game.id}`,
-            })),
+            eduGames: eduGamesOnboarding,
             projects: [],
         };
     }
