@@ -63,7 +63,7 @@ class OnboardingOverlay extends React.Component {
     assignTrigger(triggerId) {
         if (!(this.props.capturedRefs && triggerId in this.props.capturedRefs)) {
             if (this.triggerRef) {
-                this.triggerRef.removeEventListener('click', this.handleClick);
+                this.triggerRef.removeEventListener('click', this.handleTriggerClick);
             }
             return;
         }
@@ -74,7 +74,7 @@ class OnboardingOverlay extends React.Component {
         }
 
         if (this.triggerRef) {
-            this.triggerRef.removeEventListener('click', this.handleClick);
+            this.triggerRef.removeEventListener('click', this.handleTriggerClick);
         }
         if (ref) {
             ref.addEventListener('click', this.handleTriggerClick);
