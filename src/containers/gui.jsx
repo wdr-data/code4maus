@@ -139,6 +139,7 @@ const ConnectedGUI = connect(
     mapDispatchToProps,
 )(GUI);
 
+// eslint-disable-next-line new-cap
 const WrappedGui = EduLoaderHOC(ProjectLoaderHOC(ProjectSaveHOC(vmListenerHOC(onboardingRefsHOC(ConnectedGUI)))));
 
 export default WrappedGui;

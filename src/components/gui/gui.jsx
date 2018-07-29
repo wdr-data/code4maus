@@ -298,6 +298,9 @@ GUIComponent.propTypes = {
     onNameInputChange: PropTypes.func,
     projectName: PropTypes.string,
     eduLayerActive: PropTypes.bool.isRequired,
+    onSaveProject: PropTypes.func.isRequired,
+    onProjectNameChange: PropTypes.func.isRequired,
+    saveProjectError: PropTypes.string,
 };
 GUIComponent.defaultProps = {
     basePath: '/',
