@@ -28,16 +28,19 @@ const onboardingConfig = {
                 },
             ],
             dim: true,
+            loadProject: 'edu/00',
         },
         {
             text: 'Mit dem grünen Knopf wird ein Programm gestartet.',
             arrowTo: TRIGGER_REFS.startButton,
             trigger: TRIGGER_REFS.startButton,
+            loadProject: 'edu/00',
         },
         {
             text: 'Mit dem roten Knopf stoppst du das Programm wieder.',
             arrowTo: TRIGGER_REFS.stopButton,
             trigger: TRIGGER_REFS.stopButton,
+            loadProject: 'edu/00',
         },
         {
             text: '👍 Gut gemacht.\nJetzt lernst du, wie du bestimmst, was die Maus macht.\nMan nennt das programmieren.',
@@ -47,6 +50,7 @@ const onboardingConfig = {
                     action: NEXT_STEP,
                 },
             ],
+            loadProject: 0,
         },
         {
             text: 'Hier findest du Blöcke.\nJeder Block sagt der Maus eine Sache, die sie tun soll.',
@@ -97,7 +101,7 @@ const onboardingConfig = {
                     action: NEXT_STEP,
                 },
             ],
-        },   
+        },
         {
             text: 'Setze den Block "Für immer" wie eine Klammer um die anderen herum,\n damit die Maus sich immer wieder dreht und gleitet.',
             arrowTo: TRIGGER_REFS.blocksToolbox,
@@ -117,7 +121,7 @@ const onboardingConfig = {
                     action: NEXT_STEP,
                 },
             ],
-        },   
+        },
         {
             text: '👍 Dein erstes Programm ist fertig.\nDrücke auf den grünen Knopf\n und sieh Dir an, was die Maus macht.',
             buttons: [
@@ -135,7 +139,7 @@ const onboardingConfig = {
                     action: NEXT_STEP,
                 },
             ],
-        },  
+        },
         {
             text: 'Mit dem grünen Knopf noch mal starten.',
             arrowTo: TRIGGER_REFS.startButton,
@@ -194,7 +198,6 @@ const onboardingConfig = {
                 },
             ],
         },
-        
     ],
 };
 

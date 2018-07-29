@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import OnboardingOverlayComponent from '../components/onboarding-overlay/onboarding-overlay.jsx';
 import onboardingConfig, { NEXT_STEP } from '../lib/onboarding/config';
+import { setProjectId } from '../reducers/project';
 
 import { OnboardingRefs } from './onboarding-refs-provider.jsx';
 import { connect } from 'react-redux';
@@ -40,6 +41,7 @@ class OnboardingOverlay extends React.Component {
     loadStep(step) {
         const {
             trigger,
+            loadProject,
             ...props
         } = onboardingConfig.steps[step];
 
@@ -53,6 +55,10 @@ class OnboardingOverlay extends React.Component {
         });
 
         this.assignTrigger(trigger);
+
+        if (loadProject !== undefined) {
+            this.props.loadProject(loadProject);
+        }
     }
 
     nextStep() {
@@ -142,6 +148,7 @@ OnboardingOverlay.propTypes = {
     capturedRefs: PropTypes.object.isRequired,
     shown: PropTypes.bool,
     step: PropTypes.number.isRequired,
+    loadProject: PropTypes.func.isRequired,
     setOnboardingStep: PropTypes.func.isRequired,
 };
 
@@ -150,6 +157,7 @@ const OnboardingOverlayConnected = connect(
         step: parseInt((state.router.params || {}).step) || 0,
     }),
     (dispatch) => ({
+        loadProject: (id) => dispatch(setProjectId(id)),
         setOnboardingStep: (step) => dispatch(push(`/onboarding/${step}`)),
     })
 )(OnboardingOverlay);
