@@ -191,18 +191,19 @@
     display: flex;
     overflow-x: scroll;
     margin: 2rem;
-    padding: 3rem 1rem;
+    padding: 3rem 2rem;
     background-color: white;
     transform: skewY(.5deg);
+    width: 100%;
 }
 .section-body:after {
     content: ' ';
     display: inline-block;
-    min-width: 1rem;
+    min-width: 2rem;
 }
 
 .new-button {
-    margin: 1rem 4rem 0 3rem;
+    margin: 1rem 4rem 0 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
