@@ -9,6 +9,7 @@ export const TRIGGER_REFS = {
     stopButton: 'stopButton',
     blocksToolbox: 'blocksToolbox',
     saveProject: 'saveProject',
+    menu: 'menu',
 };
 
 export const customOffsets = {
@@ -193,8 +194,8 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Im Menü siehst du, wie weit du schon gekommen bist.\nDort findest du auch deine Spiele,\ndie du mit einem Namen abgespeichert hast.\n[weiter lernen]\n[zum Menü]',
-            arrowTo: TRIGGER_REFS.blocksToolbox,
+            text: 'Im Menü siehst du, wie weit du schon gekommen bist.\nDort findest du auch deine Spiele,\ndie du mit einem Namen abgespeichert hast.',
+            arrowTo: TRIGGER_REFS.menu,
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
