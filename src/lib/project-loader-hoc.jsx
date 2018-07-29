@@ -105,7 +105,6 @@ const ProjectLoaderHOC = function(WrappedComponent) {
             /* eslint-disable no-unused-vars */
             const {
                 projectId,
-                gameEnabled,
                 userId,
                 setProjectName,
                 setProjectId,
@@ -124,6 +123,14 @@ const ProjectLoaderHOC = function(WrappedComponent) {
     }
     ProjectLoaderComponent.propTypes = {
         projectId: PropTypes.string,
+        router: PropTypes.shape({
+            view: PropTypes.string.isRequired,
+            params: PropTypes.object,
+        }),
+        userId: PropTypes.string.isRequired,
+        setProjectName: PropTypes.func.isRequired,
+        setProjectId: PropTypes.func.isRequired,
+        setUserId: PropTypes.func.isRequired,
     };
 
     return connect(
