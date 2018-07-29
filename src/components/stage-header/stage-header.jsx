@@ -52,17 +52,22 @@ const StageHeaderComponent = function(props) {
                                     onClick={onSaveProject}
                                     ref={captureRef}
                                 >
-                                        Speichern
+                                    Speichern
                                 </ButtonWithIcon>
                             )}
                         </OnboardingCapture>
-                        <ButtonWithIcon
-                            className={styles.headerIcon}
-                            iconSvg={menuIcon}
-                            onClick={onOpenMenu}
-                        >
-                                Übersicht
-                        </ButtonWithIcon>
+                        <OnboardingCapture componentId={TRIGGER_REFS.menu}>
+                            {(captureRef) => (
+                                <ButtonWithIcon
+                                    className={styles.headerIcon}
+                                    iconSvg={menuIcon}
+                                    onClick={onOpenMenu}
+                                    ref={captureRef}
+                                >
+                                    Übersicht
+                                </ButtonWithIcon>
+                            )}
+                        </OnboardingCapture>
                     </React.Fragment>
                 }
             </Box>
