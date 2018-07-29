@@ -1,3 +1,27 @@
 .controls-container {
     display: flex;
 }
+
+.control {
+    width: 4rem;
+    height: 4rem;
+    padding: 0.25rem;
+    user-select: none;
+    user-drag: none;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+    margin-right: .5rem;
+}
+.control:hover {
+    transform: scale(1.2);
+}
+
+.control.isActive {
+    opacity: 0.5;
+}
+
+.isFullScreen .control {
+    width: 3rem;
+    height: 3rem;
+    padding: 0.375rem;
+}

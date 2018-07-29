@@ -27,6 +27,7 @@ const Controls = function(props) {
         active,
         className,
         intl,
+        isFullScreen,
         onGreenFlagClick,
         onStopAllClick,
         turbo,
@@ -34,18 +35,18 @@ const Controls = function(props) {
     } = props;
     return (
         <div
-            className={classNames(styles.controlsContainer, className)}
+            className={classNames(styles.controlsContainer, className, { [styles.isFullScreen]: isFullScreen })}
             {...componentProps}
         >
             <GreenFlag
-                active={active}
                 title={intl.formatMessage(messages.goTitle)}
                 onClick={onGreenFlagClick}
+                className={classNames(styles.control, { [styles.isActive]: active })}
             />
             <StopAll
-                active={active}
                 title={intl.formatMessage(messages.stopTitle)}
                 onClick={onStopAllClick}
+                className={classNames(styles.control, { [styles.isActive]: !active })}
             />
             {turbo ?
                 <TurboMode />
@@ -58,6 +59,7 @@ Controls.propTypes = {
     active: PropTypes.bool,
     className: PropTypes.string,
     intl: intlShape.isRequired,
+    isFullScreen: PropTypes.bool,
     onGreenFlagClick: PropTypes.func.isRequired,
     onStopAllClick: PropTypes.func.isRequired,
     turbo: PropTypes.bool,
