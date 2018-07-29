@@ -26,9 +26,9 @@ import ProjectSaver from '../../containers/project-saver.jsx';
 
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/logo_text.png';
+import soundsIcon from '../../../assets/icons/tab_sound.svg';
 import codeIcon from './icon--code.svg';
 import costumesIcon from './icon--costumes.svg';
-import soundsIcon from './icon--sounds.svg';
 import expandIcon from './expand_right@2x.svg';
 
 import styles from './gui.css';
