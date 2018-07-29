@@ -70,7 +70,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Um dein erstes Programm zu schreiben,\n ziehe einen Block rüber in die Mitte.',
+            text: 'Um dein erstes Programm zu schreiben, ziehe einen Block rüber in die Mitte.',
             arrowTo: TRIGGER_REFS.blocksToolbox,
             buttons: [
                 {
@@ -80,7 +80,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Wenn du auf den Block drückst,\nmacht die Maus das, was draufsteht.',
+            text: 'Wenn du auf den Block drückst, macht die Maus das, was draufsteht.',
             arrowTo: TRIGGER_REFS.blocksToolbox,
             buttons: [
                 {
@@ -90,7 +90,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Wenn du den zweiten Block zum ersten ziehst,\ndann kleben sie aneinander - wie Magnete.',
+            text: 'Wenn du den zweiten Block zum ersten ziehst, dann kleben sie aneinander - wie Magnete.',
             arrowTo: TRIGGER_REFS.blocksToolbox,
             buttons: [
                 {
@@ -100,7 +100,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Wenn etwas nicht richtig ist, kannst du die Blöcke\nnach unten wieder auseinander ziehen.\nProbier das mal aus.\nZieh die Blöcke dann wieder zusammen.',
+            text: 'Wenn etwas nicht richtig ist, kannst du die Blöcke nach unten wieder auseinander ziehen.\nProbier das mal aus.\nZieh die Blöcke dann wieder zusammen.',
             arrowTo: TRIGGER_REFS.blocksToolbox,
             buttons: [
                 {
@@ -110,7 +110,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Setze den Block "Für immer" wie eine Klammer um die anderen herum,\n damit die Maus sich immer wieder dreht und gleitet.',
+            text: 'Setze den Block "Für immer" wie eine Klammer um die anderen herum, damit die Maus sich immer wieder dreht und gleitet.',
             arrowTo: TRIGGER_REFS.blocksToolbox,
             buttons: [
                 {
@@ -120,7 +120,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Jetzt setze noch den Block\n "Wenn die grüne Fahne angeklickt wird"\n an den Anfang.',
+            text: 'Jetzt setze noch den Block "Wenn die grüne Fahne angeklickt wird" an den Anfang.',
             arrowTo: TRIGGER_REFS.blocksToolbox,
             buttons: [
                 {
@@ -167,7 +167,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Wenn du deine Änderungen behalten möchtest, drücke auf ‘Speichern’\nund gib deinem Programm einen Namen. ',
+            text: 'Wenn du deine Änderungen behalten möchtest, drücke auf ‘Speichern’ und gib deinem Programm einen Namen. ',
             arrowTo: TRIGGER_REFS.saveProject,
             buttons: [
                 {
@@ -187,7 +187,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Im Fenster wird gezeigt, was du machen sollst.\nWenn du das geschafft hast,\nklicke auf "Weiter".',
+            text: 'Im Fenster wird gezeigt, was du machen sollst.\nWenn du das geschafft hast, klicke auf "Weiter".',
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
@@ -196,7 +196,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Im Menü siehst du, wie weit du schon gekommen bist.\nDort findest du auch deine Spiele,\ndie du mit einem Namen abgespeichert hast.',
+            text: 'Im Menü siehst du, wie weit du schon gekommen bist.\nDort findest du auch deine Spiele, die du mit einem Namen abgespeichert hast.',
             arrowTo: TRIGGER_REFS.menu,
             buttons: [
                 {
