@@ -95,7 +95,9 @@ export const MenuComponent = (props) => {
                         </Tab>
                     </TabList>
                     <TabPanel className={tabClassNames.tabPanel}>
-                        <Box className={styles.sectionBody} />
+                        <Box className={styles.sectionBody}>
+                            <MenuListing projects={props.eduGames} />
+                        </Box>
                     </TabPanel>
                     <TabPanel className={tabClassNames.tabPanel}>
                         <Box className={styles.sectionBody}>
@@ -127,6 +129,7 @@ export const MenuComponent = (props) => {
 };
 
 MenuComponent.propTypes = {
+    eduGames: PropTypes.arrayOf(PropTypes.shape(SHAPE_PROJECT)),
     projects: PropTypes.arrayOf(PropTypes.shape(SHAPE_PROJECT)),
     selectedTab: PropTypes.number.isRequired,
     handleTabSelected: PropTypes.func.isRequired,
