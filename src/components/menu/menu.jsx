@@ -117,7 +117,7 @@ export const MenuComponent = (props) => {
                 <MenuButton iconSvg={buttonIconInfo}>
                     Eltern-Info
                 </MenuButton>
-                <MenuButton iconSvg={buttonIconMausseite}>
+                <MenuButton iconSvg={buttonIconMausseite} external linkTo="https://www.wdrmaus.de/">
                     Hier geht's zur Maus Seite
                 </MenuButton>
                 <MenuButton iconSvg={buttonIconImpressum}>

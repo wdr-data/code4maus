@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Link } from 'redux-little-router';
 
 import styles from './menu-button.css';
 import InlineSVG from '../inline-svg/inline-svg.jsx';
@@ -11,7 +12,8 @@ const MenuButtonComponent = ({
     iconSrc,
     iconSvg,
     children,
-    onClick,
+    linkTo,
+    external,
     ...props
 }) => {
     const icon = iconSvg
@@ -24,15 +26,30 @@ const MenuButtonComponent = ({
             />
     ;
 
+    if (external) {
+        return (
+            <a
+                href={linkTo || ''}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={classNames(className, styles.button)}
+                {...props}
+            >
+                {icon}
+                <div className={styles.content}>{children}</div>
+            </a>
+        );
+    }
+
     return (
-        <button
+        <Link
+            href={linkTo || '#'}
             className={classNames(className, styles.button)}
-            onClick={onClick}
             {...props}
         >
             {icon}
             <div className={styles.content}>{children}</div>
-        </button>
+        </Link>
     );
 };
 
@@ -42,7 +59,8 @@ MenuButtonComponent.propTypes = {
     iconClassName: PropTypes.string,
     iconSrc: PropTypes.string,
     iconSvg: PropTypes.string,
-    onClick: PropTypes.func,
+    linkTo: PropTypes.string,
+    external: PropTypes.bool,
 };
 
 export default MenuButtonComponent;
