@@ -5,24 +5,26 @@ import VM from '@wdr-data/scratch-vm';
 
 import Controls from '../../containers/controls.jsx';
 import Fullscreen from '../../containers/fullscreen.jsx';
+import { OnboardingCapture } from '../../containers/onboarding-refs-provider.jsx';
 import { getStageSize } from '../../lib/screen-utils.js';
 import layout from '../../lib/layout-constants.js';
+import { TRIGGER_REFS } from '../../lib/onboarding/config';
 import Box from '../box/box.jsx';
 import ButtonWithIcon from '../button-with-icon/button-with-icon.jsx';
 
 import saveIcon from '!raw-loader!../../../assets/icons/header_save.svg';
 import menuIcon from '!raw-loader!../../../assets/icons/header_menu.svg';
 import styles from './stage-header.css';
-import { OnboardingCapture } from '../../containers/onboarding-refs-provider.jsx';
-import { TRIGGER_REFS } from '../../lib/onboarding/config';
 
 const StageHeaderComponent = function(props) {
+    /* eslint-disable no-unused-vars */
     const {
         isFullScreen,
         onOpenMenu,
         onSaveProject,
         vm,
     } = props;
+    /* eslint-enable */
 
     const height = (window.innerHeight - layout.topBarHeight - layout.stageHeaderHeight - 8) / 2;
     const width = height * 4 / 3;
