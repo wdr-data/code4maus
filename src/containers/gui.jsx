@@ -38,20 +38,16 @@ class GUI extends React.Component {
 
         this.audioEngine = new AudioEngine();
         this.props.vm.attachAudioEngine(this.audioEngine);
-        this.loadProject();
+        if (this.props.projectData) {
+            this.loadProject();
+        }
     }
     componentDidUpdate(prevProps) {
-        if (prevProps.projectData === this.props.projectData) {
-            return;
+        if (prevProps.projectData !== this.props.projectData) {
+            this.loadProject();
         }
-
-        this.loadProject();
     }
     loadProject() {
-        if (this.props.fetchingProject) {
-            return;
-        }
-
         this.setState({ loading: true }, () => {
             this.props.vm.loadProject(this.props.projectData)
                 .then(() => {

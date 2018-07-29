@@ -39,7 +39,7 @@ const ProjectLoaderHOC = function(WrappedComponent) {
                 fetchingProject: true,
             };
 
-            this.loadProject = debounce(this.loadProject.bind(this), 2000, { leading: true });
+            this.loadProject = debounce(this.loadProject.bind(this), 2000, { leading: true, trailing: false });
         }
         async componentDidMount() {
             await this.createUserId();
