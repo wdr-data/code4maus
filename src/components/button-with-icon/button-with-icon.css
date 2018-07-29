@@ -3,23 +3,26 @@
   border: none;
   display: flex;
   flex-direction: column;
+
   font-family: 'Titillium Web';
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1rem;
-  padding-right: .5rem;
+
+  user-select: none;
+  cursor: pointer;
 }
 
 .icon {
-  width: 1.4rem;
+  width: 2rem;
+  height: 2rem;
   display: block;
-  margin-top: .2rem;
   align-self: center;
+  margin-bottom: .25rem;
 
-  cursor: pointer;
   transition: 0.2s ease-out;
 }
 
-.icon:hover {
+.button:hover .icon {
   transform: scale(1.2);
 }
 
