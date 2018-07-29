@@ -15,8 +15,44 @@ class OnboardingOverlay extends React.Component {
         this.overlayRef = React.createRef();
         this.triggerRef = null;
 
+        this.state = {
+            overlayProps: null,
+        };
+
         this.buttonClickFactory = this.buttonClickFactory.bind(this);
         this.handleTriggerClick = this.handleTriggerClick.bind(this);
+    }
+
+    componentDidMount() {
+        if (this.props.step >= 0 && this.props.step < onboardingConfig.steps.length) {
+            this.loadStep(this.props.step);
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.step !== this.props.step &&
+            this.props.step >= 0 && this.props.step < onboardingConfig.steps.length
+        ) {
+            this.loadStep(this.props.step);
+        }
+    }
+
+    loadStep(step) {
+        const {
+            trigger,
+            ...props
+        } = onboardingConfig.steps[step];
+
+        const targetCoordinates = this.getPositioning(props.arrowTo);
+
+        this.setState({
+            overlayProps: {
+                ...props,
+                targetCoordinates,
+            },
+        });
+
+        this.assignTrigger(trigger);
     }
 
     nextStep() {
@@ -87,22 +123,13 @@ class OnboardingOverlay extends React.Component {
     }
 
     render() {
-        if (this.props.step < 0 || this.props.step >= onboardingConfig.steps.length) {
+        if (!this.state.overlayProps) {
             return null;
         }
 
-        const {
-            trigger,
-            ...componentProps
-        } = onboardingConfig.steps[this.props.step];
-
-        const targetCoords = this.getPositioning(componentProps.arrowTo);
-        this.assignTrigger(trigger);
-
         return (
             <OnboardingOverlayComponent
-                {...componentProps}
-                targetCoordinates={targetCoords}
+                {...this.state.overlayProps}
                 buttonClickFactory={this.buttonClickFactory}
                 ref={this.overlayRef}
                 shown={this.props.shown}
