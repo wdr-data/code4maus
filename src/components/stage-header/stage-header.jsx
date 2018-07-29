@@ -13,6 +13,8 @@ import ButtonWithIcon from '../button-with-icon/button-with-icon.jsx';
 import saveIcon from '!raw-loader!../../../assets/icons/header_save.svg';
 import menuIcon from '!raw-loader!../../../assets/icons/header_menu.svg';
 import styles from './stage-header.css';
+import { OnboardingCapture } from '../../containers/onboarding-refs-provider.jsx';
+import { TRIGGER_REFS } from '../../lib/onboarding/config';
 
 const StageHeaderComponent = function(props) {
     const {
@@ -40,13 +42,18 @@ const StageHeaderComponent = function(props) {
                 {isFullScreen
                     ? <Fullscreen />
                     : <React.Fragment>
-                        <ButtonWithIcon
-                            className={styles.headerIcon}
-                            iconSvg={saveIcon}
-                            onClick={onSaveProject}
-                        >
-                                Speichern
-                        </ButtonWithIcon>
+                        <OnboardingCapture componentId={TRIGGER_REFS.saveProject}>
+                            {(captureRef) => (
+                                <ButtonWithIcon
+                                    className={styles.headerIcon}
+                                    iconSvg={saveIcon}
+                                    onClick={onSaveProject}
+                                    ref={captureRef}
+                                >
+                                        Speichern
+                                </ButtonWithIcon>
+                            )}
+                        </OnboardingCapture>
                         <ButtonWithIcon
                             className={styles.headerIcon}
                             iconSvg={menuIcon}

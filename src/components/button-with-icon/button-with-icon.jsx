@@ -6,7 +6,7 @@ import InlineSVG from '../inline-svg/inline-svg.jsx';
 
 import styles from './button-with-icon.css';
 
-const ButtonWithIconComponent = ({
+const ButtonWithIconComponent = React.forwardRef(({
     className,
     iconClassName,
     iconSrc,
@@ -14,7 +14,7 @@ const ButtonWithIconComponent = ({
     children,
     onClick,
     ...props
-}) => {
+}, ref) => {
     const icon = iconSvg
         ? <InlineSVG svg={iconSvg} className={classNames(iconClassName, styles.icon)} />
         : iconSrc &&
@@ -29,13 +29,14 @@ const ButtonWithIconComponent = ({
         <button
             className={classNames(className, styles.button)}
             onClick={onClick}
+            ref={ref}
             {...props}
         >
             {icon}
             <div className={styles.content}>{children}</div>
         </button>
     );
-};
+});
 
 ButtonWithIconComponent.propTypes = {
     children: PropTypes.node,
