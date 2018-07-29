@@ -48,27 +48,25 @@ class Menu extends React.Component {
     render() {
         /* eslint-disable no-unused-vars */
         const {
-            router,
+            tab,
             userId,
             ...props
         } = this.props;
         /* eslint-enable */
 
         return (
-            <MenuComponent projects={this.state.projects} selectedTab={Menu.getTabId(router.tab)} {...props} />
+            <MenuComponent projects={this.state.projects} selectedTab={tab} {...props} />
         );
     }
 }
 
 Menu.propTypes = {
-    router: PropTypes.shape({
-        tab: PropTypes.string.isRequired,
-    }),
+    tab: PropTypes.number.isRequired,
     userId: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-    router: state.router.result || {},
+    tab: Menu.getTabId((state.router.result || {}).tab),
     userId: state.scratchGui.project.userId,
 });
 
