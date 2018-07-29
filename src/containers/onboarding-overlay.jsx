@@ -16,6 +16,7 @@ class OnboardingOverlay extends React.Component {
         this.overlayRef = React.createRef();
         this.cachedOverlayWidth = -1;
         this.triggerRef = null;
+        this.currentTimeout = null;
 
         this.state = {
             overlayProps: null,
@@ -51,8 +52,18 @@ class OnboardingOverlay extends React.Component {
         const {
             trigger,
             loadProject,
+            timeout,
             ...props
         } = onboardingConfig.steps[step];
+
+        if (timeout) {
+            if (this.currentTimeout) {
+                clearTimeout(this.currentTimeout);
+            }
+            this.currentTimeout = setTimeout(() => this.nextStep(), timeout);
+            this.setState({ overlayProps: null });
+            return;
+        }
 
         const targetCoordinates = this.getPositioning(props.arrowTo);
         if (props.arrowTo && !targetCoordinates) {
