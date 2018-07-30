@@ -68,6 +68,8 @@
 }
 
 .logo-center {
+    /* from image to get correct sizing before image is loaded */
+    height: 78px;
     display: block;
     margin: 0 auto 1.5rem auto;
 }

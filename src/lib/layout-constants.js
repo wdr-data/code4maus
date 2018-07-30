@@ -5,7 +5,7 @@ export default {
     smallerStageHeight: 480 * 0.85,
     fullSizeMinWidth: 1096,
     fullSizePaintMinWidth: 1250,
-    topBarHeight: 48,
-    stageHeaderHeight: 44,
+    topBarHeight: 118,
+    stageHeaderHeight: 0,
     targetPaneHeight: 90,
 };
