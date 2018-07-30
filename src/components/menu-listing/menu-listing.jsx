@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'redux-little-router';
 
-import Box from '../box/box.jsx';
-
 import styles from './menu-listing.css';
 
 const MenuListingComponent = (props) =>
