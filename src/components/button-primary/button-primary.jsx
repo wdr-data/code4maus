@@ -11,6 +11,7 @@ const ButtonPrimary = (props) => {
         arrowLeft,
         arrowRight,
         className,
+        grey,
         ...componentProps
     } = props;
 
@@ -21,6 +22,7 @@ const ButtonPrimary = (props) => {
             {
                 [styles.arrowLeft]: arrowLeft,
                 [styles.arrowRight]: arrowRight,
+                [styles.grey]: grey,
             },
         )}
         {...componentProps}
@@ -31,6 +33,7 @@ ButtonPrimary.propTypes = {
     className: PropTypes.string,
     arrowLeft: PropTypes.bool,
     arrowRight: PropTypes.bool,
+    grey: PropTypes.bool,
 };
 
 ButtonPrimary.defaultProps = {

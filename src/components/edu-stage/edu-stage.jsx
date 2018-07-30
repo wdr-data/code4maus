@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
+import ButtonPrimary from '../button-primary/button-primary.jsx';
 import styles from './edu-stage.css';
 import arrowIcon from '../gui/arrow.svg';
 import fullScreenIcon from '../fullscreen/icon--fullscreen.svg';
@@ -30,29 +31,21 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
             style={{ backgroundImage: `url(/edu/${props.gameId}/assets/${props.imageSrc})` }}
         />
         <Box className={styles.eduFooter}>
-            <Button
+            <ButtonPrimary
                 className={styles.backButton}
+                arrowLeft grey
                 onClick={props.previousSlide}
             >
-                <img
-                    className={styles.backButtonIcon}
-                    draggable={false}
-                    src={arrowIcon}
-                    title="Back Arrow"
-                />
-            </Button>
+                Zurück
+            </ButtonPrimary>
             <p>{props.slideIndex + 1}/{props.slideCount}</p>
-            <Button
+            <ButtonPrimary
                 className={styles.forwardButton}
+                arrowRight
                 onClick={props.nextSlide}
             >
-                <img
-                    className={styles.forwardButtonIcon}
-                    draggable={false}
-                    src={arrowIcon}
-                    title="Forward arrow"
-                />
-            </Button>
+                Weiter
+            </ButtonPrimary>
         </Box>
     </Box>
 ;
