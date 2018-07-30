@@ -53,21 +53,35 @@
             "lists": {},
             "broadcasts": {},
             "blocks": {
-                "[s`lcK-5#U1/HeO^[pk,": {
+                "~zIG!1PS0R9G[/d.MzXr": {
                     "opcode": "event_whenflagclicked",
-                    "next": "RM6)dzDl@ucJwi~MBH2n",
+                    "next": "SY835(T{y9YQ!PTP6h@u",
                     "parent": null,
                     "inputs": {},
                     "fields": {},
                     "topLevel": true,
                     "shadow": false,
-                    "x": 194,
-                    "y": 62
+                    "x": 219,
+                    "y": 105
                 },
-                "RM6)dzDl@ucJwi~MBH2n": {
+                "SY835(T{y9YQ!PTP6h@u": {
+                    "opcode": "control_forever",
+                    "next": null,
+                    "parent": "~zIG!1PS0R9G[/d.MzXr",
+                    "inputs": {
+                        "SUBSTACK": [
+                            2,
+                            "uK1p(M7PeZVLlMg#4G@o"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "uK1p(M7PeZVLlMg#4G@o": {
                     "opcode": "motion_turnright",
-                    "next": "DIc9Pd(J0%nKvUtXr,{d",
-                    "parent": "[s`lcK-5#U1/HeO^[pk,",
+                    "next": "Y5I499?[9521#zRrFOX]",
+                    "parent": "SY835(T{y9YQ!PTP6h@u",
                     "inputs": {
                         "DEGREES": [
                             1,
@@ -81,10 +95,10 @@
                     "topLevel": false,
                     "shadow": false
                 },
-                "DIc9Pd(J0%nKvUtXr,{d": {
+                "Y5I499?[9521#zRrFOX]": {
                     "opcode": "motion_glideto",
                     "next": null,
-                    "parent": "RM6)dzDl@ucJwi~MBH2n",
+                    "parent": "uK1p(M7PeZVLlMg#4G@o",
                     "inputs": {
                         "SECS": [
                             1,
@@ -95,17 +109,17 @@
                         ],
                         "TO": [
                             1,
-                            "Z@W,y|B]=UNA8-cUA=Ci"
+                            "1?!+c`Os!P`){wg~hKmj"
                         ]
                     },
                     "fields": {},
                     "topLevel": false,
                     "shadow": false
                 },
-                "Z@W,y|B]=UNA8-cUA=Ci": {
+                "1?!+c`Os!P`){wg~hKmj": {
                     "opcode": "motion_glideto_menu",
                     "next": null,
-                    "parent": "DIc9Pd(J0%nKvUtXr,{d",
+                    "parent": "Y5I499?[9521#zRrFOX]",
                     "inputs": {},
                     "fields": {
                         "TO": [
@@ -150,8 +164,8 @@
             ],
             "volume": 100,
             "visible": true,
-            "x": 44.26765811,
-            "y": -2.89685546,
+            "x": 66.47799683,
+            "y": -6.86199951,
             "size": 100,
             "direction": 90,
             "draggable": false,
