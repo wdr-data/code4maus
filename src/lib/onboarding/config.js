@@ -44,6 +44,8 @@ export const customOffsets = {
 import block1 from '../edu/00/assets/block1.gif';
 import block2 from '../edu/00/assets/block2.gif';
 import block3 from '../edu/00/assets/block3.gif';
+import block4 from '../edu/00/assets/block4.gif';
+import block5 from '../edu/00/assets/block5.gif';
 
 const onboardingConfig = {
     steps: [
@@ -144,6 +146,7 @@ const onboardingConfig = {
                     action: NEXT_STEP,
                 },
             ],
+            image: block4,
         },
         {
             text: 'Jetzt setze noch den Block "Wenn die grüne Fahne angeklickt wird" an den Anfang.',
@@ -154,15 +157,12 @@ const onboardingConfig = {
                     action: NEXT_STEP,
                 },
             ],
+            image: block5,
         },
         {
             text: '👍 Dein erstes Programm ist fertig.\nDrücke auf den grünen Knopf\n und sieh Dir an, was die Maus macht.',
-            buttons: [
-                {
-                    text: BUTTON_TEXTS.next,
-                    action: NEXT_STEP,
-                },
-            ],
+            arrowTo: TRIGGER_REFS.startButton,
+            trigger: TRIGGER_REFS.startButton,
         },
         {
             text: 'Jetzt kommen die weißen Stellen in den Blöcken ins Spiel.\nKlick in die weiße Stelle und ändere die Zahl.',
@@ -193,7 +193,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Wenn du deine Änderungen behalten möchtest, drücke auf ‘Speichern’ und gib deinem Programm einen Namen. ',
+            text: 'Wenn du deine Änderungen behalten möchtest, drücke auf ‘Speichern’, gib deinem Programm einen Namen und dann auf den Speichern-Knopf.',
             arrowTo: TRIGGER_REFS.saveProject,
             buttons: [
                 {
