@@ -2,14 +2,16 @@
 @import "../../css/colors.css";
 
 .body-wrapper {
-    min-height:100vh;
+    min-height: 100vh;
     background-image: url('./bg_blue@1x.png');
     background-repeat: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .listing-wrapper {
     padding: 3rem;
-    min-height: 70vh;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -233,5 +235,5 @@
 .button-row {
     display: flex;
     justify-content: space-between;
-    margin: 0 5rem;
+    margin: 0 5rem 2rem;
 }
