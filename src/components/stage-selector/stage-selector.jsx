@@ -1,37 +1,15 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { defineMessages, intlShape, injectIntl, FormattedMessage } from 'react-intl';
 
 import Box from '../box/box.jsx';
-import ActionMenu from '../action-menu/action-menu.jsx';
 import CostumeCanvas from '../costume-canvas/costume-canvas.jsx';
 import styles from './stage-selector.css';
 
-import backdropIcon from '../action-menu/icon--backdrop.svg';
-
-const messages = defineMessages({
-    addBackdropFromLibrary: {
-        id: 'gui.spriteSelector.addBackdropFromLibrary',
-        description: 'Button to add a stage in the target pane from library',
-        defaultMessage: 'Choose a Backdrop',
-    },
-    addBackdropFromPaint: {
-        id: 'gui.stageSelector.addBackdropFromPaint',
-        description: 'Button to add a stage in the target pane from paint',
-        defaultMessage: 'Paint',
-    },
-    addBackdropFromSurprise: {
-        id: 'gui.stageSelector.addBackdropFromSurprise',
-        description: 'Button to add a random stage in the target pane',
-        defaultMessage: 'Surprise',
-    },
-    addBackdropFromFile: {
-        id: 'gui.stageSelector.addBackdropFromFile',
-        description: 'Button to add a stage in the target pane from file',
-        defaultMessage: 'Upload Backdrop',
-    },
-});
+import IconWithText from '../icon-text/icon-text.jsx';
+import InlineSVG from '../inline-svg/inline-svg.jsx';
+import IconBg from '!raw-loader!../../../assets/icons/target_bg.svg';
+import IconNew from '!raw-loader!../../../assets/icons/target_exchange.svg';
 
 const StageSelector = (props) => {
     const {
@@ -65,6 +43,9 @@ const StageSelector = (props) => {
             onMouseLeave={onMouseLeave}
             {...componentProps}
         >
+            <IconWithText className={styles.label} iconSvg={IconBg}>
+                Hintergrund
+            </IconWithText>
             {url ?
                 <CostumeCanvas
                     className={styles.costumeCanvas}
@@ -73,18 +54,9 @@ const StageSelector = (props) => {
                     width={72}
                 />
                 : null}
-            <div className={styles.header}>
-                <div className={styles.headerTitle}>
-                    <FormattedMessage
-                        defaultMessage="Bühne"
-                        description="Label for the stage in the stage selector"
-                        id="gui.stageSelector.stage"
-                    />
-                </div>
-            </div>
-            <ActionMenu
-                img={backdropIcon}
-                title={intl.formatMessage(messages.addBackdropFromLibrary)}
+            <InlineSVG
+                className={styles.buttonNew}
+                svg={IconNew}
                 onClick={onNewBackdropClick}
             />
         </Box>
@@ -94,7 +66,6 @@ const StageSelector = (props) => {
 StageSelector.propTypes = {
     backdropCount: PropTypes.number.isRequired,
     fileInputRef: PropTypes.func,
-    intl: intlShape.isRequired,
     onBackdropFileUpload: PropTypes.func,
     onBackdropFileUploadClick: PropTypes.func,
     onClick: PropTypes.func,
@@ -110,4 +81,4 @@ StageSelector.propTypes = {
     url: PropTypes.string,
 };
 
-export default injectIntl(StageSelector);
+export default StageSelector;

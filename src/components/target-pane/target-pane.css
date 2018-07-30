@@ -1,4 +1,4 @@
-@import "../../css/units.css";
+@import "../../css/colors.css";
 
 .target-pane {
     /* Makes columns for the sprite library selector + and the stage selector */
@@ -7,10 +7,17 @@
     min-height: 85px;
     margin-top: .5rem;
     max-width: calc(100vw - 1rem);
+    background-color: #f0f5fa;
 }
 
 .stage-selector-wrapper {
     display: flex;
-    flex: 0 0 315px;
-    border-right: 1px solid #97bade;
+    margin-right: 1rem;
+}
+
+.stage-selector-wrapper:after {
+    display: inline-block;
+    margin: .5rem 0;
+    content: '';
+    border-right: 1px solid $ui-grey;
 }

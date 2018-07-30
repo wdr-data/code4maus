@@ -5,17 +5,12 @@ $header-height: calc($stage-menu-height - 2px);
 
 .stage-selector {
     display: flex;
-    width: 270px;
     align-items: center;
-    position: relative; /* For the add backdrop button */
-    flex-grow: 1;
     padding: .5rem;
 
     font-family: 'Titillium Web';
-    background-color: #f0f5fa;
     color: $text-primary;
     cursor: pointer;
-    transition: border-color 0.25s ease-out, box-shadow 0.25s ease-out;
 }
 
 .stage-selector.is-selected .costume-canvas,
@@ -27,41 +22,15 @@ $header-height: calc($stage-menu-height - 2px);
     border-width: 3px;
 }
 
-.stage-selector.is-selected .header-title {
-    color: #5185ba;
-}
-
-.header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: $header-height;
-    color: $text-primary;
-    width: 100%;
-}
-
-.header-title {
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: $text-primary;
-
-    /* @todo: make this a mixin for all UI text labels */
-    user-select: none;
-}
-
-.count {
-    padding: 0.3rem 0.75rem;
-    font-size: 0.625rem;
-    color: $text-primary;
-    user-select: none;
-}
-
 .label {
-    margin: 0.75rem 0 0.25rem;
-    font-size: 0.6rem;
-    color: $text-primary;
-    user-select: none;
+    margin-right: 1rem;
+}
+
+.button-new {
+    height: 2.5rem;
+    margin-left: -1.25rem;
+    margin-right: 1rem;
+    z-index: 1;
 }
 
 .costume-canvas {
