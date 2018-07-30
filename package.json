@@ -95,6 +95,7 @@
     "react-draggable": "^3.0.5",
     "react-intl": "^2.4.0",
     "react-intl-redux": "^0.7.0",
+    "react-markdown-loader": "^1.1.14",
     "react-modal": "^3.4.4",
     "react-popover": "^0.5.7",
     "react-redux": "^5.0.7",

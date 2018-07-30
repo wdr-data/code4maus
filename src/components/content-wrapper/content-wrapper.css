@@ -1,0 +1,17 @@
+.page {
+    background: url(../gui/bg_darkblue@1x.png);
+}
+
+.wrapper {
+    max-width: 50rem;
+    padding: 3rem;
+    background: white;
+    margin: 0 auto;
+    box-shadow: 0 0 .5rem .125rem rgba(0,0,0,0.5);
+}
+
+.back-button {
+    color: black;
+    display: block;
+    text-align: right;
+}

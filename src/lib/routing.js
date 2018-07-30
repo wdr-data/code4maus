@@ -5,12 +5,17 @@ export const Views = {
     menu: 'VIEW_MENU',
     onboarding: 'VIEW_ONBOARDING',
     project: 'VIEW_PROJECT',
+    content: 'content',
 };
 
 export const MenuTabs = {
     edugames: 'lernspiele',
     examples: 'beispiele',
     projects: 'projekte',
+};
+
+export const ContentPages = {
+    parents: 'parents',
 };
 
 export const eduUrl = (eduId) => `/lernspiel/${eduId}`;
@@ -48,6 +53,12 @@ const routes = {
         },
         '/:projectId': {
             view: Views.project,
+        },
+    },
+    '/inhalte': {
+        '/eltern': {
+            view: Views.content,
+            page: ContentPages.parents,
         },
     },
 };

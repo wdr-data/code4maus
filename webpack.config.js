@@ -101,6 +101,17 @@ const base = {
                     },
                 ],
             },
+            {
+                test: /\.md$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                    },
+                    {
+                        loader: 'react-markdown-loader',
+                    },
+                ],
+            },
         ],
     },
     optimization: {

@@ -114,7 +114,7 @@ export const MenuComponent = (props) => {
                 </Tabs>
             </Box>
             <Box className={styles.buttonRow}>
-                <MenuButton iconSvg={buttonIconInfo}>
+                <MenuButton iconSvg={buttonIconInfo} linkTo="/inhalte/eltern">
                     Eltern-Info
                 </MenuButton>
                 <MenuButton iconSvg={buttonIconMausseite} external linkTo="https://www.wdrmaus.de/">
