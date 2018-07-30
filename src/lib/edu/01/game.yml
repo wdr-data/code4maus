@@ -36,3 +36,4 @@ blocks:
     blocks:
       - wait
       - repeat
+      - forever
