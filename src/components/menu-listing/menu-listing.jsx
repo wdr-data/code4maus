@@ -13,7 +13,7 @@ const MenuListingComponent = (props) =>
             key={project.key}
             className={styles.projectWrapper}
         >
-            <img src="https://via.placeholder.com/200x150/fff/333?text=Projekt-Vorschau" />
+            {project.image && <img src={project.image} />}
             <span className={styles.title}>
                 {project.title}
             </span>
