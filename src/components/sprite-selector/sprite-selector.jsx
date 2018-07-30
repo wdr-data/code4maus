@@ -4,13 +4,15 @@ import classNames from 'classnames';
 import { defineMessages, injectIntl, intlShape } from 'react-intl';
 
 import Box from '../box/box.jsx';
-import SpriteInfo from '../../containers/sprite-info.jsx';
 import SpriteSelectorItem from '../../containers/sprite-selector-item.jsx';
 
 import styles from './sprite-selector.css';
 import itemStyles from '../sprite-selector-item/sprite-selector-item.css';
 
-import spriteIcon from '../action-menu/icon--sprite.svg';
+import IconWithText from '../icon-text/icon-text.jsx';
+import InlineSVG from '../inline-svg/inline-svg.jsx';
+import CustomeIcon from '!raw-loader!../../../assets/icons/target_costume.svg';
+import AddIcon from '!raw-loader!../../../assets/icons/target_add.svg';
 
 const messages = defineMessages({
     addSpriteFromLibrary: {
@@ -68,6 +70,9 @@ const SpriteSelectorComponent = function(props) {
     }
     return (
         <Box className={styles.itemsWrapper}>
+            <IconWithText className={styles.label} iconSvg={CustomeIcon}>
+                Kostüm
+            </IconWithText>
             {Object.keys(sprites)
                 // Re-order by list order
                 .sort((id1, id2) => sprites[id1].order - sprites[id2].order)
@@ -96,7 +101,7 @@ const SpriteSelectorComponent = function(props) {
                 className={classNames(styles.sprite, itemStyles.spriteSelectorItem, styles.addBox)}
                 onClick={onNewSpriteClick}
             >
-                <span>+</span>
+                <InlineSVG svg={AddIcon} />
             </button>
         </Box>
     );

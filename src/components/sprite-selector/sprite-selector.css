@@ -16,8 +16,8 @@
         @todo: make room for the scrollbar
     */
     box-sizing: border-box;
-    flex: 0 0 5rem;
-    max-width: 5rem;
+    flex: 0 0 4rem;
+    max-width: 4rem;
     min-height: 4rem; /* @todo: calc height same as width */
     margin: calc($space / 2);
 }
@@ -26,16 +26,14 @@
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+    align-items: center;
     position: relative;
     font-family: 'Titillium Web';
     background-color: #f0f5fa;
 
     overflow-x: auto;
 
-    padding-top: calc($space / 2);
-    padding-left: calc($space / 2);
-    padding-right: calc($space / 2);
-    padding-bottom: $space;
+    padding: $space;
 }
 
 /* overflow: scroll will ignore padding on the right */
@@ -45,16 +43,18 @@
     display: block;
 }
 
+.label {
+    margin-right: 1rem;
+}
+
 .add-box {
     align-items: center;
+    justify-content: center;
     outline: none;
     background: transparent;
 }
 
 .add-box span {
-    color: #5185ba;
-    font-size: 4rem;
-    line-height: 2.5rem;
     height: 2.5rem;
 }
 
