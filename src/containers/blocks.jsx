@@ -485,7 +485,7 @@ const mapStateToProps = (state) => ({
     toolboxXML: state.scratchGui.toolbox.toolboxXML,
     customProceduresVisible: state.scratchGui.customProcedures.active,
     layoutMode: state.scratchGui.layoutMode,
-    customBlocks: (state.scratchGui.eduLayer.gameSpec || {}).blocks || null,
+    customBlocks: state.scratchGui.project.customBlocks,
 });
 
 const mapDispatchToProps = (dispatch) => ({

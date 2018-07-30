@@ -1,7 +1,7 @@
 const NEXT_SLIDE = 'scratch-gui/edu-layer/NEXT_SLIDE';
 const PREVIOUS_SLIDE = 'scratch-gui/edu-layer/PREVIOUS_SLIDE';
 const TOGGLE_FULLSCREEN = 'scratch-gui/edu-layer/TOGGLE_FULLSCREEN';
-const LOAD_GAME = 'scratch-gui/edu-layer/LOAD_GAME';
+export const LOAD_GAME = 'scratch-gui/edu-layer/LOAD_GAME';
 
 const initialState = {
     size: 0,
