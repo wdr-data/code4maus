@@ -20,6 +20,9 @@ const EduLoaderHOC = (WrappedComponent) => {
                 this.loadGame(this.props.router.params.eduId);
             }
         }
+        componentWillUnmount() {
+            this.props.dispatch(loadGame(null, null));
+        }
         async loadGame(id) {
             this.props.dispatch(setProjectId(`edu/${id}`));
 
