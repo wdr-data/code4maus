@@ -105,7 +105,8 @@ const OnboardingOverlayComponent = React.forwardRef((props, ref) => {
                 className={classNames(styles.modal, { [styles.center]: !props.targetCoordinates })}
                 style={modalStyle}
             >
-                <span>{props.text}</span>
+                <p>{props.text}</p>
+                {props.image && <img src={props.image} className={styles.image} />}
                 {props.buttons.length > 0 &&
                     <div className={styles.buttons}>
                         {props.buttons.map((button) =>
@@ -140,6 +141,7 @@ OnboardingOverlayComponent.propTypes = {
     dim: PropTypes.bool,
     buttonClickFactory: PropTypes.func.isRequired,
     shown: PropTypes.bool,
+    image: PropTypes.string,
 };
 
 OnboardingOverlayComponent.defaultProps = {

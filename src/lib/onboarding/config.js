@@ -21,6 +21,10 @@ export const customOffsets = {
     },
 };
 
+import block1 from '../edu/00/assets/block1.gif';
+import block2 from '../edu/00/assets/block2.gif';
+import block3 from '../edu/00/assets/block3.gif';
+
 const onboardingConfig = {
     steps: [
         {
@@ -78,10 +82,10 @@ const onboardingConfig = {
                     action: NEXT_STEP,
                 },
             ],
+            image: block1,
         },
         {
             text: 'Wenn du auf den Block drückst, macht die Maus das, was draufsteht.',
-            arrowTo: TRIGGER_REFS.blocksToolbox,
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
@@ -98,6 +102,7 @@ const onboardingConfig = {
                     action: NEXT_STEP,
                 },
             ],
+            image: block2,
         },
         {
             text: 'Wenn etwas nicht richtig ist, kannst du die Blöcke nach unten wieder auseinander ziehen.\nProbier das mal aus.\nZieh die Blöcke dann wieder zusammen.',
@@ -108,6 +113,7 @@ const onboardingConfig = {
                     action: NEXT_STEP,
                 },
             ],
+            image: block3,
         },
         {
             text: 'Setze den Block "Für immer" wie eine Klammer um die anderen herum, damit die Maus sich immer wieder dreht und gleitet.',

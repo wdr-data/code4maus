@@ -35,8 +35,9 @@
   transform: translate(-50%, -50%);
 }
 
-.modal span {
+.modal p {
   white-space: pre-wrap;
+  margin-top: 0;
 }
 
 .buttons {
@@ -47,6 +48,11 @@
 
 .button {
     margin: 0 1rem;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
 }
 
 .arrow {
