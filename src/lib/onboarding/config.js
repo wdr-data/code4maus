@@ -14,6 +14,26 @@ export const TRIGGER_REFS = {
     menu: 'menu',
 };
 
+export const customBlocks = [
+    {
+        'category': 'motion',
+        'blocks': [
+            'turnright',
+            'turnleft',
+            '--',
+            'glideto',
+        ],
+    },
+    {
+        'category': 'events',
+        'blocks': [ 'whenflagclicked' ],
+    },
+    {
+        'category': 'control',
+        'blocks': [ 'forever' ],
+    },
+];
+
 export const customOffsets = {
     blocksToolbox: {
         x: 100,

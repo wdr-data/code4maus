@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import OnboardingOverlayComponent from '../components/onboarding-overlay/onboarding-overlay.jsx';
-import onboardingConfig, { NEXT_STEP } from '../lib/onboarding/config';
-import { setProjectId } from '../reducers/project';
+import onboardingConfig, { NEXT_STEP, customBlocks } from '../lib/onboarding/config';
+import { setProjectId, setCustomBlocks } from '../reducers/project';
 
 import { OnboardingRefs } from './onboarding-refs-provider.jsx';
 import { connect } from 'react-redux';
@@ -30,6 +30,7 @@ class OnboardingOverlay extends React.Component {
         if (this.props.step >= 0 && this.props.step < onboardingConfig.steps.length) {
             this.loadStep(this.props.step);
         }
+        this.props.setCustomBlocks(customBlocks);
     }
 
     componentDidUpdate(prevProps) {
@@ -176,6 +177,7 @@ OnboardingOverlay.propTypes = {
     shown: PropTypes.bool,
     step: PropTypes.number.isRequired,
     loadProject: PropTypes.func.isRequired,
+    setCustomBlocks: PropTypes.func.isRequired,
     setOnboardingStep: PropTypes.func.isRequired,
     dispatchAction: PropTypes.func.isRequired,
 };
@@ -187,6 +189,7 @@ const OnboardingOverlayConnected = connect(
     (dispatch) => ({
         loadProject: (id) => dispatch(setProjectId(id)),
         setOnboardingStep: (step) => dispatch(push(`/onboarding/${step}`)),
+        setCustomBlocks: (blocks) => dispatch(setCustomBlocks(blocks)),
         dispatchAction: dispatch,
     })
 )(OnboardingOverlay);
