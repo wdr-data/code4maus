@@ -16,4 +16,4 @@ blocks:
       - whenflagclicked
   - category: control
     blocks:
-      - forever
+      - repeat

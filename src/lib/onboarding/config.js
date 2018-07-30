@@ -3,7 +3,8 @@ import { push } from 'redux-little-router';
 export const NEXT_STEP = 'onboarding/NEXT_STEP';
 
 export const BUTTON_TEXTS = {
-    next: 'Weiter',
+    start: "Los geht's",
+    next: "Weiter",
 };
 
 export const TRIGGER_REFS = {
@@ -30,7 +31,7 @@ export const customBlocks = [
     },
     {
         'category': 'control',
-        'blocks': [ 'forever' ],
+        'blocks': [ 'repeat' ],
     },
 ];
 
@@ -46,9 +47,23 @@ import block2 from '../edu/00/assets/block2.gif';
 import block3 from '../edu/00/assets/block3.gif';
 import block4 from '../edu/00/assets/block4.gif';
 import block5 from '../edu/00/assets/block5.gif';
+import emo1 from '../edu/00/assets/emo1.svg';
+import code1 from '../edu/00/assets/code1.gif';
+import play from '../edu/00/assets/play.png';
 
 const onboardingConfig = {
     steps: [
+        {
+            text: 'Willkommen zu Programmieren mit der Maus.\nDie Welt wird digitaler. Programmieren ist in dieser Welt eine Grundfertigkeit, um selbst aktiv werden, mitgestalten und auch Kritik üben zu können. Mit dieser Anwendung programmieren Kinder Schritt für Schritt erste eigene Bildergeschichten und kleine Spiele. Dabei lernen sie Variablen, Schleifen und Verzweigungen kennen.',
+            buttons: [
+                {
+                    text: BUTTON_TEXTS.start,
+                    action: NEXT_STEP,
+                },
+            ],
+            dim: true,
+            loadProject: 'edu/00',
+        },
         {
             text: 'Hallo, hier lernst du Schritt für Schritt, wie du Spiele programmierst.',
             buttons: [
@@ -70,19 +85,20 @@ const onboardingConfig = {
             timeout: 2000,
         },
         {
-            text: 'Mit dem roten Knopf stoppst du das Programm wieder.',
+            text: 'Falls das Programm nicht von selbst stoppt, kannst du es mit dem roten Knopf wieder anhalten.',
             arrowTo: TRIGGER_REFS.stopButton,
             trigger: TRIGGER_REFS.stopButton,
             loadProject: 'edu/00',
         },
         {
-            text: '👍 Gut gemacht.\nJetzt lernst du, wie du bestimmst, was die Maus macht.\nMan nennt das programmieren.',
+            text: 'Gut gemacht.\nJetzt lernst du, wie du bestimmst, was die Maus macht.\nMan nennt das programmieren.',
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
                     action: NEXT_STEP,
                 },
             ],
+            image: emo1,
             loadProject: 0,
         },
         {
@@ -96,8 +112,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Um dein erstes Programm zu schreiben, ziehe einen Block rüber in die Mitte.',
-            arrowTo: TRIGGER_REFS.blocksToolbox,
+            text: 'Um dein erstes Programm zu schreiben, ziehe diesen Block rüber in die Mitte.',
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
@@ -117,7 +132,6 @@ const onboardingConfig = {
         },
         {
             text: 'Wenn du den zweiten Block zum ersten ziehst, dann kleben sie aneinander - wie Magnete.',
-            arrowTo: TRIGGER_REFS.blocksToolbox,
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
@@ -127,8 +141,7 @@ const onboardingConfig = {
             image: block2,
         },
         {
-            text: 'Wenn etwas nicht richtig ist, kannst du die Blöcke nach unten wieder auseinander ziehen.\nProbier das mal aus.\nZieh die Blöcke dann wieder zusammen.',
-            arrowTo: TRIGGER_REFS.blocksToolbox,
+            text: 'Wenn etwas nicht richtig ist, kannst du die Blöcke nach unten wieder auseinander ziehen. Probier das mal aus. Zieh die Blöcke dann wieder zusammen.',
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
@@ -138,8 +151,7 @@ const onboardingConfig = {
             image: block3,
         },
         {
-            text: 'Setze den Block "Für immer" wie eine Klammer um die anderen herum, damit die Maus sich immer wieder dreht und gleitet.',
-            arrowTo: TRIGGER_REFS.blocksToolbox,
+            text: 'Setze den Block "Wiederhole 10 mal" wie eine Klammer um die anderen herum, damit die Maus sich 10 mal dreht und gleitet.',
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
@@ -150,7 +162,6 @@ const onboardingConfig = {
         },
         {
             text: 'Jetzt setze noch den Block "Wenn die grüne Fahne angeklickt wird" an den Anfang.',
-            arrowTo: TRIGGER_REFS.blocksToolbox,
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
@@ -160,40 +171,57 @@ const onboardingConfig = {
             image: block5,
         },
         {
-            text: '👍 Dein erstes Programm ist fertig.\nDrücke auf den grünen Knopf\n und sieh Dir an, was die Maus macht.',
-            arrowTo: TRIGGER_REFS.startButton,
-            trigger: TRIGGER_REFS.startButton,
-        },
-        {
-            text: 'Jetzt kommen die weißen Stellen in den Blöcken ins Spiel.\nKlick in die weiße Stelle und ändere die Zahl.',
+            text: 'Dein erstes Programm ist fertig. Drücke auf den grünen Knopf und sieh Dir an, was die Maus macht.',
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
                     action: NEXT_STEP,
                 },
             ],
+            image: play,
+        },
+        {
+            text: 'Jetzt kommen die weißen Stellen in den Blöcken ins Spiel. Klick in die weiße Stelle und ändere die Zahl.',
+            buttons: [
+                {
+                    text: BUTTON_TEXTS.next,
+                    action: NEXT_STEP,
+                },
+            ],
+            image: code1,
         },
         {
             text: 'Mit dem grünen Knopf noch mal starten.',
-            arrowTo: TRIGGER_REFS.startButton,
-            trigger: TRIGGER_REFS.startButton,
-        },
-        {
-            text: 'Hast du’s gemerkt? Die Maus wird langsamer. Gib jetzt zum Beispiel mal 0.5 ein, damit sie schneller wird.',
-            arrowTo: TRIGGER_REFS.startButton,
-            trigger: TRIGGER_REFS.startButton,
-        },
-        {
-            text: 'Super!\nProbiere gerne noch etwas herum.\nWenn du fertig bist, klicke weiter.',
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
                     action: NEXT_STEP,
                 },
             ],
+            image: play,
         },
         {
-            text: 'Wenn du deine Änderungen behalten möchtest, drücke auf ‘Speichern’, gib deinem Programm einen Namen und dann auf den Speichern-Knopf.',
+            text: 'Hast du’s gemerkt? Die Maus wird langsamer. Gib jetzt zum Beispiel mal 0.5 ein, damit sie schneller wird.',
+            buttons: [
+                {
+                    text: BUTTON_TEXTS.next,
+                    action: NEXT_STEP,
+                },
+            ],
+            image: play,
+        },
+        {
+            text: 'Super! Probiere gerne noch etwas herum. Wenn du fertig bist, klicke weiter.',
+            buttons: [
+                {
+                    text: BUTTON_TEXTS.next,
+                    action: NEXT_STEP,
+                },
+            ],
+            image: emo1,
+        },
+        {
+            text: 'Wenn du deine Änderungen behalten möchtest, drücke auf Speichern, gib deinem Programm einen Namen und drück dann auf den Speichern-Knopf.',
             arrowTo: TRIGGER_REFS.saveProject,
             buttons: [
                 {
@@ -203,8 +231,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Top! Nun weißt du das Wichtigste :) Ab jetzt bekommst du immer hier im Fenster Tipps und Aufgaben.',
-            arrowTo: TRIGGER_REFS.blocksToolbox,
+            text: 'Top! Nun weißt du das Wichtigste. Ab jetzt bekommst du immer hier im Fenster Tipps und Aufgaben.',
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
@@ -213,7 +240,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Im Fenster wird gezeigt, was du machen sollst.\nWenn du das geschafft hast, klicke auf "Weiter".',
+            text: 'Im Fenster wird gezeigt, was du machen sollst. Wenn du das geschafft hast, klicke auf "Weiter".',
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
@@ -222,7 +249,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Im Menü siehst du, wie weit du schon gekommen bist.\nDort findest du auch deine Spiele, die du mit einem Namen abgespeichert hast.',
+            text: 'Unter Übersicht siehst du wie weit du schon gekommen bist. Dort findest du auch deine Spiele, die du mit einem Namen abgespeichert hast.',
             arrowTo: TRIGGER_REFS.menu,
             buttons: [
                 {
