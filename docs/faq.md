@@ -8,11 +8,11 @@ You need aws credentials to do
 `aws configure`
 do `export AWS_PROFILE=hackingstudio`
 and then 
-`ỳarn assets:download`
+`yarn assets:download`
  
  If this is done, you can run your project locally with: 
 
-`ỳarn start`
+`yarn start`
 
 
 You have to set up an [.env](.env) file with aws credentials and then
