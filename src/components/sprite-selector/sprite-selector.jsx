@@ -71,7 +71,7 @@ const SpriteSelectorComponent = function(props) {
     return (
         <Box className={styles.itemsWrapper}>
             <IconWithText className={styles.label} iconSvg={CustomeIcon}>
-                Kostüm
+                Figur
             </IconWithText>
             {Object.keys(sprites)
                 // Re-order by list order
