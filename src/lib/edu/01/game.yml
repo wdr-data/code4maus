@@ -10,12 +10,13 @@ slides:
   - asset: 07.png
   - asset: 08.png
   - asset: 09.png
-  - asset: 10.png  
-  - asset: 11.gif
-  - asset: 12.png
+  - asset: 10.png
+  - asset: 11.png  
+  - asset: 12.gif
   - asset: 13.png
   - asset: 14.png
   - asset: 15.png
+  - asset: 16.png
 
 blocks:
   - category: motion
