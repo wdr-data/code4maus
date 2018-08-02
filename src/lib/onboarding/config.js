@@ -112,7 +112,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Um dein erstes Programm zu schreiben, ziehe diesen Block rüber in die Mitte.',
+            text: 'Um dein erstes Programm zu schreiben, ziehe den Block "drehe dich nach rechts um 15 Grad" rüber in die Mitte.',
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
@@ -131,7 +131,7 @@ const onboardingConfig = {
             ],
         },
         {
-            text: 'Wenn du den zweiten Block zum ersten ziehst, dann kleben sie aneinander - wie Magnete.',
+            text: 'Zieh den zweiten Block "gleite in 1 Sekude zu Zufallsposition" dazu. Die Blöcke kleben aneinander - wie Magnete.',
             buttons: [
                 {
                     text: BUTTON_TEXTS.next,
