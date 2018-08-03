@@ -1364,5 +1364,70 @@
             "visible": true,
             "spriteInfo": {}
         }
+    },
+    {
+        "name": "Pfeil",
+        "baseLayerID": -1,
+        "md5": "5d7440ea8bf8285f74548dcf39eb9206.svg",
+        "type": "sprite",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            0,
+            2
+        ],
+        "json": {
+            "objName": "Pfeil",
+            "sounds": [
+                {
+                    "soundName": "Boing",
+                    "soundID": -1,
+                    "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
+                    "sampleCount": 99328,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "pfeil-oben",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "5d7440ea8bf8285f74548dcf39eb9206.svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                },
+                {
+                    "costumeName": "pfeil-unten",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "8e6263602fa747c481275da21746d518.svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                },
+                {
+                    "costumeName": "pfeil-rechts",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "21bc1ee4e79f3b8f7fba2b7d862bb255.svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                },
+                {
+                    "costumeName": "pfeil-links",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "a3258256fe77f5615d23a04c932ca6d5.svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                }
+            ],
+            "currentCostumeIndex": 3,
+            "scratchX": -6,
+            "scratchY": -33.27351485,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
     }
 ]

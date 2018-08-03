@@ -635,6 +635,58 @@
         ]
     },
     {
+        "name": "pfeil-oben",
+        "md5": "5d7440ea8bf8285f74548dcf39eb9206.svg",
+        "type": "costume",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            30.44499969482422,
+            28.239999771118164,
+            null
+        ]
+    },
+    {
+        "name": "pfeil-unten",
+        "md5": "8e6263602fa747c481275da21746d518.svg",
+        "type": "costume",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            30.44499969482422,
+            28.239999771118164,
+            null
+        ]
+    },
+    {
+        "name": "pfeil-rechts",
+        "md5": "21bc1ee4e79f3b8f7fba2b7d862bb255.svg",
+        "type": "costume",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            30.44499969482422,
+            28.239999771118164,
+            null
+        ]
+    },
+    {
+        "name": "pfeil-links",
+        "md5": "a3258256fe77f5615d23a04c932ca6d5.svg",
+        "type": "costume",
+        "tags": [
+            "dinge"
+        ],
+        "info": [
+            30.44499969482422,
+            28.239999771118164,
+            null
+        ]
+    },
+    {
         "name": "Weintrauben",
         "md5": "7140d7544966bad8c87f3885d5b436c6.svg",
         "type": "costume",
