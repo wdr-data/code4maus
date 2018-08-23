@@ -6,15 +6,20 @@ import { connect } from 'react-redux';
 import { setHoveredSprite } from '../reducers/hovered-target';
 import { updateAssetDrag } from '../reducers/asset-drag';
 import { getEventXY } from '../lib/touch-utils';
+import VM from '@wdr-data/scratch-vm';
+import { SVGRenderer } from 'scratch-svg-renderer';
 
 import SpriteSelectorItemComponent from '../components/sprite-selector-item/sprite-selector-item.jsx';
 
 const dragThreshold = 3; // Same as the block drag threshold
+// Contains 'font-family', but doesn't only contain 'font-family="none"'
+const HAS_FONT_REGEXP = 'font-family(?!="none")';
 
 class SpriteSelectorItem extends React.Component {
     constructor(props) {
         super(props);
         bindAll(this, [
+            'getCostumeUrl',
             'handleClick',
             'handleDelete',
             'handleDuplicate',
@@ -24,6 +29,38 @@ class SpriteSelectorItem extends React.Component {
             'handleMouseMove',
             'handleMouseUp',
         ]);
+        this.svgRenderer = new SVGRenderer();
+        // Asset ID of the SVG currently in SVGRenderer
+        this.svgRendererAssetId = null;
+    }
+    getCostumeUrl() {
+        if (this.props.costumeURL) {
+            return this.props.costumeURL;
+        }
+        if (!this.props.assetId) {
+            return null;
+        }
+
+        const storage = this.props.vm.runtime.storage;
+        const asset = storage.get(this.props.assetId);
+        // If the SVG refers to fonts, they must be inlined in order to display correctly in the img tag.
+        // Avoid parsing the SVG when possible, since it's expensive.
+        if (asset.assetType === storage.AssetType.ImageVector) {
+            // If the asset ID has not changed, no need to re-parse
+            if (this.svgRendererAssetId === this.props.assetId) {
+                return this.cachedUrl;
+            }
+
+            const svgString = this.props.vm.runtime.storage.get(this.props.assetId).decodeText();
+            if (svgString.match(HAS_FONT_REGEXP)) {
+                this.svgRendererAssetId = this.props.assetId;
+                this.svgRenderer.loadString(svgString);
+                const svgText = this.svgRenderer.toString(true /* shouldInjectFonts */);
+                this.cachedUrl = `data:image/svg+xml;utf8,${encodeURIComponent(svgText)}`;
+                return this.cachedUrl;
+            }
+        }
+        return this.props.vm.runtime.storage.get(this.props.assetId).encodeDataURI();
     }
     handleMouseUp() {
         if (this.props.disableDrag) {
@@ -51,7 +88,7 @@ class SpriteSelectorItem extends React.Component {
         const dy = currentOffset.y - this.initialOffset.y;
         if (Math.sqrt(dx * dx + dy * dy) > dragThreshold) {
             this.props.onDrag({
-                img: this.props.costumeURL,
+                img: this.getCostumeUrl(),
                 currentOffset: currentOffset,
                 dragging: true,
             });
@@ -101,11 +138,14 @@ class SpriteSelectorItem extends React.Component {
             onDeleteButtonClick,
             onDuplicateButtonClick,
             receivedBlocks,
+            costumeURL,
+            vm,
             /* eslint-enable no-unused-vars */
             ...props
         } = this.props;
         return (
             <SpriteSelectorItemComponent
+                costumeURL={this.getCostumeUrl()}
                 onClick={this.handleClick}
                 onDeleteButtonClick={onDeleteButtonClick ? this.handleDelete : null}
                 onDuplicateButtonClick={onDuplicateButtonClick ? this.handleDuplicate : null}
@@ -131,13 +171,14 @@ SpriteSelectorItem.propTypes = {
     onDuplicateButtonClick: PropTypes.func,
     receivedBlocks: PropTypes.bool.isRequired,
     selected: PropTypes.bool,
+    vm: PropTypes.instanceOf(VM).isRequired,
 };
 
-const mapStateToProps = (state, { assetId, costumeURL, id }) => ({
-    costumeURL: costumeURL || assetId && state.scratchGui.vm.runtime.storage.get(assetId).encodeDataURI(),
+const mapStateToProps = (state, { id }) => ({
     dragging: state.scratchGui.assetDrag.dragging,
     receivedBlocks: state.scratchGui.hoveredTarget.receivedBlocks &&
             state.scratchGui.hoveredTarget.sprite === id,
+    vm: state.scratchGui.vm,
 });
 const mapDispatchToProps = (dispatch) => ({
     dispatchSetHoveredSprite: (spriteId) => {
@@ -146,7 +187,12 @@ const mapDispatchToProps = (dispatch) => ({
     onDrag: (data) => dispatch(updateAssetDrag(data)),
 });
 
-export default connect(
+const ConnectedComponent = connect(
     mapStateToProps,
     mapDispatchToProps
 )(SpriteSelectorItem);
+
+export {
+    ConnectedComponent as default,
+    HAS_FONT_REGEXP, // Exposed for testing
+};
