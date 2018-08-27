@@ -32,6 +32,11 @@
     font-family: 'Titillium Web';
 }
 
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
 .blocks :global(.blocklyFlyout) {
     box-sizing: content-box;
     transform: translate(4rem, 0) !important;

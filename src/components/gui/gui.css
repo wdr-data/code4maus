@@ -99,7 +99,7 @@
 .tab {
     flex-grow: 1;
     margin-bottom: 0;
-    margin-right: .5rem;
+    margin-right: .75rem;
     display: flex;
     align-items: center;
     height: 3rem;
@@ -307,33 +307,36 @@ $fade-out-distance: 15px;
 
 .save-modal-box {
     padding: 2rem;
-    background: #ffffff;
+    background-image: url('../menu/bg_blue@1x.png');
     display: flex;
+    z-index: 1;
     flex-direction: column;
+    align-content: center;
 }
 
 .save-modal-box input {
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .save-modal-button {
-    background: $control-primary;
+    background: #da632a;
     color: white;
     padding: 0.5rem 1rem;
     align-self: flex-start;
 }
 
 .save-modal-download {
-    border: 1px solid $control-primary;
-    color: $control-primary;
+    background: #da632a;
+    color: white;
     padding: 0.5rem 1rem;
     margin-top: 1rem;
-    align-self: flex-end;
+    align-self: center;
 }
 
 .save-modal-actions {
     display: flex;
+    align-self: center;
 }
 
 .save-modal-actions p {

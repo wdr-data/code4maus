@@ -72,9 +72,9 @@
 
 .tab {
     flex-grow: 1;
-    height: 3.5rem;
+    height: 4rem;
     margin-bottom: 0;
-    margin-right: .5rem;
+    margin-right: 1rem;
 
     padding: .5rem 0 1rem 0;
     font-size: 1.5rem;
@@ -97,6 +97,9 @@
 }
 
 .tab-content {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
     transform: skewY($tab-skew);
 }
 
@@ -121,11 +124,11 @@
 }
 
 .tab:hover:not(.is-selected) {
-    height: 3.8rem;
+    height: 4.5rem;
 }
 
 .tab.is-selected {
-    height: 3.8rem;
+    height: 4.5rem;
     background-image: url('../gui/bg_orange@1x.png') !important;
     border-radius: 0 !important;
     border-style: none !important;

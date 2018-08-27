@@ -18,9 +18,7 @@
 .modal-content {
     margin: 100px auto;
     outline: none;
-    border: 4px solid $ui-white-transparent;
     padding: 0;
-    border-radius: $space;
     user-select: none;
 
     font-family: 'Titillium Web';
@@ -66,7 +64,7 @@ $sides: 20rem;
 
     box-sizing: border-box;
     width: 100%;
-    background-color: $motion-primary;
+    background-image: url(../gui/bg_darkblue@1x.png);
 
     font-family: 'Titillium Web';
     font-size: 1rem;
