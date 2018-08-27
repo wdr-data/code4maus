@@ -3,20 +3,18 @@ slides:
   - asset: 01.png
   - asset: 02.png
   - asset: 03.png
+  - asset: 04.gif
   - asset: 04.png
-  - asset: 05.gif
   - asset: 05.png
+  - asset: 06.gif
   - asset: 06.png
   - asset: 07.png
   - asset: 08.png
   - asset: 09.png
-  - asset: 10.png
+  - asset: 10.gif
   - asset: 11.png  
-  - asset: 12.gif
+  - asset: 12.png
   - asset: 13.png
-  - asset: 14.png
-  - asset: 15.png
-  - asset: 16.png
 
 blocks:
   - category: motion
