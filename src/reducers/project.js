@@ -12,7 +12,7 @@ const initialState = {
     customBlocks: null,
     name: '',
     id: '',
-    userId: 'testuser',
+    userId: null,
 };
 
 export default function(state = initialState, action) {

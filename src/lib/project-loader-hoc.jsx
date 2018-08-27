@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { v4 as uuid } from 'uuid';
 import debounce from 'lodash.debounce';
 
 import log from './log';
-import storage, { s3userFile } from './storage';
+import storage from './storage';
 import { connect } from 'react-redux';
-import { setProjectName, setProjectId, setUserId } from '../reducers/project';
+import { setProjectName, setProjectId } from '../reducers/project';
 import { Views } from './routing';
 
 /* Higher Order Component to provide behavior for loading projects by id from
@@ -17,20 +16,6 @@ import { Views } from './routing';
  */
 const ProjectLoaderHOC = function(WrappedComponent) {
     class ProjectLoaderComponent extends React.Component {
-        static async userIdExists(userId) {
-            try {
-                const res = await fetch(s3userFile(userId, 'index.json'), {
-                    method: 'HEAD',
-                });
-                if (res.status >= 400) {
-                    return false;
-                }
-                return true;
-            } catch (e) {
-                return false;
-            }
-        }
-
         constructor(props) {
             super(props);
 
@@ -42,7 +27,6 @@ const ProjectLoaderHOC = function(WrappedComponent) {
             this.loadProject = debounce(this.loadProject.bind(this), 2000, { leading: true, trailing: false });
         }
         async componentDidMount() {
-            await this.createUserId();
             if (this.props.router.view === Views.project && this.props.router.params.projectId) {
                 this.props.setProjectId(this.props.router.params.projectId);
                 return;
@@ -65,23 +49,6 @@ const ProjectLoaderHOC = function(WrappedComponent) {
             if (shouldGetProjectFromUrl) {
                 this.props.setProjectId(this.props.router.params.projectId);
             }
-
-            if (prevProps.userId !== this.props.userId) {
-                storage.userId = this.props.userId;
-            }
-        }
-        async createUserId() {
-            const localStorage = window.localStorage;
-            let userId = localStorage.getItem('deviceId');
-            if (!userId) {
-                while (!userId || await ProjectLoaderComponent.userIdExists(userId)) {
-                    userId = uuid();
-                }
-                localStorage.setItem('deviceId', userId);
-            }
-
-            storage.userId = userId;
-            this.props.setUserId(userId);
         }
         loadProject(id) {
             this.setState({ fetchingProject: true }, () => (async () => {
@@ -105,10 +72,8 @@ const ProjectLoaderHOC = function(WrappedComponent) {
             /* eslint-disable no-unused-vars */
             const {
                 projectId,
-                userId,
                 setProjectName,
                 setProjectId,
-                setUserId,
                 ...componentProps
             } = this.props;
             /* eslint-enable */
@@ -127,10 +92,8 @@ const ProjectLoaderHOC = function(WrappedComponent) {
             view: PropTypes.string.isRequired,
             params: PropTypes.object,
         }),
-        userId: PropTypes.string.isRequired,
         setProjectName: PropTypes.func.isRequired,
         setProjectId: PropTypes.func.isRequired,
-        setUserId: PropTypes.func.isRequired,
     };
 
     return connect(
@@ -142,12 +105,10 @@ const ProjectLoaderHOC = function(WrappedComponent) {
                 isNewProject: !!(state.router.result || {}).newProject,
                 params: state.router.params || {},
             },
-            userId: state.scratchGui.project.userId,
         }),
         (dispatch) => ({
             setProjectName: (name) => dispatch(setProjectName(name)),
             setProjectId: (projectId) => dispatch(setProjectId(projectId)),
-            setUserId: (userId) => dispatch(setUserId(userId)),
         }),
     )(ProjectLoaderComponent);
 };
