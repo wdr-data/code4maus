@@ -1,0 +1,52 @@
+---
+slides:
+  - asset: 01.png
+  - asset: 02.png
+  - asset: 03.png
+  - asset: 04.gif
+  - asset: 05.png
+  - asset: 06.png
+  - asset: 07.png
+  - asset: 08.png
+  - asset: 09.png
+  - asset: 10.png
+  - asset: 11.png
+  - asset: 13.png
+  - asset: 14.gif
+  - asset: 15.png
+  - asset: 16.png
+  - asset: 17.png
+  - asset: 18.png
+  - asset: 19.png
+  - asset: 20.png
+  - asset: 21.gif
+  - asset: 21.png
+  - asset: 22.png
+  - asset: 23.png
+  - asset: 24.png
+  - asset: 25.png
+  - asset: 26.png
+  - asset: 27.png
+
+blocks:
+  - category: motion
+    blocks:
+      - turnright
+      - turnleft
+      - --
+      - glideto
+  - category: looks
+    blocks:
+      - nextcostume
+  - category: sound
+    blocks:
+      - playuntildone
+  - category: events
+    blocks:
+      - whenflagclicked
+      - whenthisspriteclicked
+  - category: control
+    blocks:
+      - wait
+      - repeat
+      - forever
