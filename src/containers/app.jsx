@@ -5,6 +5,7 @@ import { addLocaleData, IntlProvider } from 'react-intl';
 import de from 'react-intl/locale-data/de';
 import PropTypes from 'prop-types';
 import { v4 as uuid } from 'uuid';
+import { push } from 'redux-little-router';
 
 import { Views, ContentPages } from '../lib/routing';
 import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
@@ -13,7 +14,7 @@ import localeDe from '../../translations/de.json';
 import storage, { s3userFile } from '../lib/storage';
 import { setUserId } from '../reducers/project';
 
-import ParentHelp from '../lib/content/parents.md';
+import ParentHelp, { attributes as parentAttributes } from '../lib/content/parents.md';
 
 import GUI from './gui.jsx';
 import Menu from './menu.jsx';
@@ -65,8 +66,12 @@ class App extends Component {
         switch (this.props.page) {
         case ContentPages.parents:
         default:
-            return <ParentHelp />;
+            return this.wrapContent(<ParentHelp />, parentAttributes);
         }
+    }
+
+    wrapContent(children, props) {
+        return <ContentWrapper backToHome={this.props.backToHome} {...props}>{children}</ContentWrapper>;
     }
 
     renderView() {
@@ -76,7 +81,7 @@ class App extends Component {
         case Views.project:
             return <GUI />;
         case Views.content:
-            return <ContentWrapper>{this.renderContent()}</ContentWrapper>;
+            return this.renderContent();
         case Views.menu:
         default:
             return <Menu />;
@@ -103,7 +108,8 @@ App.propTypes = {
     view: PropTypes.string.isRequired,
     page: PropTypes.string,
     setUserId: PropTypes.func.isRequired,
-    userId: PropTypes.string.isRequired,
+    userId: PropTypes.string,
+    backToHome: PropTypes.func.isRequired,
 };
 
 const ConnectedApp = connect(
@@ -115,9 +121,10 @@ const ConnectedApp = connect(
             userId: state.scratchGui.project.userId,
         };
     },
-    {
-        setUserId,
-    }
+    dispatch => ({
+        setUserId: (id) => dispatch(setUserId(id)),
+        backToHome: () => dispatch(push('/')),
+    }),
 )(App);
 
 const WrappedApp = ErrorBoundaryHOC('Top Level App')(

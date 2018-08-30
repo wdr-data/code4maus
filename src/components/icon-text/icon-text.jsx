@@ -35,7 +35,6 @@ const IconWithText = (props) => {
 
 IconWithText.propTypes = {
     className: PropTypes.string,
-    children: React.childrenOnly,
     iconSrc: PropTypes.string,
     iconSvg: PropTypes.string,
 };

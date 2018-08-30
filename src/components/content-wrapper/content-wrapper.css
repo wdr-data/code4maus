@@ -1,17 +1,65 @@
+@import "../../css/colors.css";
+
 .page {
-    background: url(../gui/bg_darkblue@1x.png);
+}
+
+.style-blue {
+    background: url(../gui/bg_header@1x.png);
+}
+
+.style-orange {
+    background-image: url(../gui/bg_lightorange.png);
+}
+
+.style-orange .header {
+    background-image: url(../gui/bg_orange@1x.png);
 }
 
 .wrapper {
     max-width: 50rem;
-    padding: 3rem;
     background: white;
-    margin: 0 auto;
-    box-shadow: 0 0 .5rem .125rem rgba(0,0,0,0.5);
+    margin: 2rem auto;
+    box-shadow: 2px 2px .5rem .125rem rgba(0,0,0,0.5);
 }
 
-.back-button {
-    color: black;
-    display: block;
-    text-align: right;
+.split-sections .wrapper {
+    background: none;
+    box-shadow: none;
+}
+
+h2, h3, p, ul {
+    margin: 0;
+    padding: 2rem;
+    background: white;
+}
+
+ul {
+    padding: 2rem 3rem;
+}
+
+h2 {
+    padding-bottom: 0;
+}
+
+.style-blue h2, .style-blue a {
+    color: $ui-blue;
+}
+
+.style-orange h2, .style-orange a {
+    color: $ui-orange;
+}
+
+.split-sections h2,
+.split-sections h3,
+.split-sections p,
+.split-sections ul {
+    box-shadow: .25rem .25rem .5rem -2px rgba(0,0,0,0.5), -.125rem .125rem .125rem -2px rgba(0,0,0,0.5);
+}
+
+.split-sections h2 {
+    margin-top: 3rem;
+}
+
+p + p, p + h3, p + ul, h3 + p {
+    padding-top: 0;
 }
