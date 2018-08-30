@@ -114,11 +114,13 @@
     exports-loader "0.6.3"
     imports-loader "0.6.5"
 
-"@wdr-data/scratch-vm@0.1.0-minimal-1":
-  version "0.1.0-minimal-1"
-  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-vm/-/scratch-vm-0.1.0-minimal-1.tgz#14b6362c8f3aadc8d60e5324b61ce8cfb03c6dcc"
+"@wdr-data/scratch-vm@0.1.0-minimal-2":
+  version "0.1.0-minimal-2"
+  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-vm/-/scratch-vm-0.1.0-minimal-2.tgz#5d4d0b9e60bead621aab7b6e0715f5b50eda4acc"
   dependencies:
-    arraybuffer-loader "^1.0.3"
+    arraybuffer-loader "^1.0.6"
+    atob "2.1.1"
+    btoa "1.2.1"
     canvas-toBlob "1.0.0"
     decode-html "2.0.0"
     diff-match-patch "1.0.0"
@@ -129,7 +131,7 @@
     jszip "^3.1.5"
     minilog "3.1.0"
     nets "3.2.0"
-    scratch-parser "4.1.1"
+    scratch-parser "4.3.2"
     scratch-translate-extension-languages "0.0.20180521154850"
     socket.io-client "2.0.4"
     text-encoding "0.6.4"
@@ -530,6 +532,12 @@ arraybuffer-loader@^1.0.3:
   dependencies:
     loader-utils "^1.1.0"
 
+arraybuffer-loader@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/arraybuffer-loader/-/arraybuffer-loader-1.0.6.tgz#de0644c570a79ce2bbbc609c75a67c828f6362c7"
+  dependencies:
+    loader-utils "^1.1.0"
+
 arraybuffer.slice@~0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/arraybuffer.slice/-/arraybuffer.slice-0.0.7.tgz#3bbc4275dd584cc1b10809b89d4e8b63a69e7675"
@@ -622,7 +630,7 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
 
-atob@^2.1.1:
+atob@2.1.1, atob@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.1.tgz#ae2d5a729477f289d60dd7f96a6314a22dd6c22a"
 
@@ -2194,6 +2202,10 @@ bser@^2.0.0:
   resolved "https://registry.yarnpkg.com/bser/-/bser-2.0.0.tgz#9ac78d3ed5d915804fd87acb158bc797147a1719"
   dependencies:
     node-int64 "^0.4.0"
+
+btoa@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/btoa/-/btoa-1.2.1.tgz#01a9909f8b2c93f6bf680ba26131eb30f7fa3d73"
 
 buffer-equal@0.0.1:
   version "0.0.1"
@@ -8993,9 +9005,9 @@ scoped-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/scoped-regex/-/scoped-regex-1.0.0.tgz#a346bb1acd4207ae70bd7c0c7ca9e566b6baddb8"
 
-scratch-audio@0.1.0-prerelease.1528210666:
-  version "0.1.0-prerelease.1528210666"
-  resolved "https://registry.yarnpkg.com/scratch-audio/-/scratch-audio-0.1.0-prerelease.1528210666.tgz#e665bafbc477b3d4665432158961e9c825fb542a"
+scratch-audio@0.1.0-prerelease.20180625202813:
+  version "0.1.0-prerelease.20180625202813"
+  resolved "https://registry.yarnpkg.com/scratch-audio/-/scratch-audio-0.1.0-prerelease.20180625202813.tgz#23550b20b2b13d842e0cc72df30b5b1bc0d651f7"
   dependencies:
     audio-context "1.0.1"
     minilog "^3.0.1"
@@ -9032,9 +9044,9 @@ scratch-paint@0.2.0-prerelease.20180605153807:
     scratch-l10n "^2.0.0"
     scratch-svg-renderer "0.1.0-prerelease.20180605140533"
 
-scratch-parser@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/scratch-parser/-/scratch-parser-4.1.1.tgz#88835c8ec9af59a2f9928e10213035e659b290bc"
+scratch-parser@4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/scratch-parser/-/scratch-parser-4.3.2.tgz#8a5682310838d6ce9068d51b70b5bb9aa326244d"
   dependencies:
     ajv "6.3.0"
     async "2.6.0"

@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@wdr-data/scratch-blocks": "^0.1.0-de-7",
-    "@wdr-data/scratch-vm": "0.1.0-minimal-1",
+    "@wdr-data/scratch-vm": "0.1.0-minimal-2",
     "arraybuffer-loader": "^1.0.3",
     "autoprefixer": "^8.1.0",
     "aws-sdk": "^2.226.1",
@@ -110,7 +110,7 @@
     "redux-mock-store": "^1.2.3",
     "redux-throttle": "^0.1.1",
     "rimraf": "^2.6.1",
-    "scratch-audio": "0.1.0-prerelease.1528210666",
+    "scratch-audio": "0.1.0-prerelease.20180625202813",
     "scratch-l10n": "3.0.20180604162003",
     "scratch-paint": "0.2.0-prerelease.20180605153807",
     "scratch-render": "0.1.0-prerelease.20180605145739",
