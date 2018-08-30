@@ -3,8 +3,7 @@
 
 .tag-button {
     padding: .625rem 1rem;
-    background: $motion-primary;
-    border-radius: 1.375rem;
+    background-image: url('../gui/bg_darkblue@1x.png');
     color: $ui-white;
     height: $library-filter-bar-height;
 }
@@ -15,5 +14,5 @@
 }
 
 .active {
-    background: $data-primary;
+    background-image: url('../gui/bg_orange@1x.png');
 }

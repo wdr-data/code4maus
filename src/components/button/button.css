@@ -1,6 +1,6 @@
 .outlined-button {
     cursor: pointer;
-    display: inline-block;
+    display: flex;
     flex-direction: row;
     align-items: center;
     padding-left: .75rem;

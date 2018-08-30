@@ -6,7 +6,6 @@ import { defineMessages, injectIntl, intlShape } from 'react-intl';
 
 import LibraryItem from '../library-item/library-item.jsx';
 import Modal from '../../containers/modal.jsx';
-import Divider from '../divider/divider.jsx';
 import Filter from '../filter/filter.jsx';
 import TagButton from '../../containers/tag-button.jsx';
 import { s3assets } from '../../lib/storage';
@@ -134,9 +133,6 @@ class LibraryComponent extends React.Component {
                                 onChange={this.handleFilterChange}
                                 onClear={this.handleFilterClear}
                             />
-                        }
-                        {this.props.filterable && this.props.tags &&
-                            <Divider className={classNames(styles.filterBarItem, styles.divider)} />
                         }
                         {this.props.tags &&
                             <div className={styles.tagWrapper}>

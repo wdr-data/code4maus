@@ -25,10 +25,6 @@
     margin: 0.75rem 0.75rem 0.75rem 1rem;
 }
 
-.filter:focus-within {
-    box-shadow: 0 0 0 .25rem $motion-transparent;
-}
-
 /*
     Hidden state
 */
@@ -88,11 +84,9 @@
 .filter-input {
     flex-grow: 1;
     height: $library-filter-bar-height;
-    background-color: transparent;
     -webkit-appearance: none;
     outline: none;
     border: 0;
-    color: $text-primary;
     font-size: 0.75rem;
     letter-spacing: 0.15px;
     cursor: text;
