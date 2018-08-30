@@ -8,6 +8,7 @@ import ButtonPrimary from '../button-primary/button-primary.jsx';
 import styles from './edu-stage.css';
 import arrowIcon from '../gui/arrow.svg';
 import fullScreenIcon from '../fullscreen/icon--fullscreen.svg';
+import unFullScreenIcon from '../fullscreen/icon--unfullscreen.svg';
 import { connect } from 'react-redux';
 import { nextSlide, previousSlide, toggleFullscreen } from '../../reducers/edu-layer.js';
 
@@ -21,8 +22,7 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
                 <img
                     className={styles.fullscreenButtonIcon}
                     draggable={false}
-                    src={fullScreenIcon}
-                    title="Full Screen Control"
+                    src= {props.isFullscreen ? unFullScreenIcon : fullScreenIcon}
                 />
             </Button>
         </Box>

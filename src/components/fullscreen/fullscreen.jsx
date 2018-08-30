@@ -64,7 +64,6 @@ const FullscreenComponent = (props) => {
                     className={styles.stageButtonIcon}
                     draggable={false}
                     src={unFullScreenIcon}
-                    title={props.intl.formatMessage(messages.fullscreenControl)}
                 />
             </Button>
         ;
@@ -79,7 +78,6 @@ const FullscreenComponent = (props) => {
                     className={styles.stageButtonIcon}
                     draggable={false}
                     src={fullScreenIcon}
-                    title={props.intl.formatMessage(messages.fullscreenControl)}
                 />
             </Button>
         ;
