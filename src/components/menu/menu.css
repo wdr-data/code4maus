@@ -68,6 +68,7 @@
     /* Overrides for react-tabs styling */
     margin: 0 !important;
     border-bottom: 0 !important;
+    background: none;
 }
 
 .tab {

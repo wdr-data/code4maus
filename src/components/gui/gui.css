@@ -94,6 +94,7 @@
     border-bottom: 0 !important;
 
     overflow-y: hidden;
+    background: none;
 }
 
 .tab {
