@@ -1,16 +1,40 @@
 ---
 slides:
   - asset: 01.png
+  - asset: 02.png
+  - asset: 02x.png
+  - asset: b.gif
+  - asset: 03.png
+  - asset: 04.png
+  - asset: 05.png
+  - asset: 06.png
+  - asset: a.gif
+  - asset: 07.png
+  - asset: 08.png
+  - asset: 09.png
+  - asset: 10.png
+  - asset: 11.png
+  - asset: 12.png
+  - asset: 13.png
+  - asset: 14.png
+  - asset: 15.png
+  - asset: 16.png
+  - asset: 17.png
+  - asset: 18.png
+  - asset: 19.png
+  - asset: 20.png
 
 blocks:
   - category: motion
     blocks:
+      - movesteps
       - turnright
       - turnleft
       - --
       - glideto
   - category: looks
     blocks:
+      - switchcostumeto
       - nextcostume
   - category: sound
     blocks:
