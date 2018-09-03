@@ -24,6 +24,8 @@ import Loader from '../components/loader/loader.jsx';
 
 addLocaleData(de);
 
+const lsKeyDeviceId = 'deviceId';
+
 class App extends Component {
     static async userIdExists(userId) {
         try {
@@ -40,7 +42,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.createUserId();
+        this.ensureUserId();
     }
 
     componentDidUpdate(prevProps) {
@@ -49,14 +51,19 @@ class App extends Component {
         }
     }
 
-    async createUserId() {
+    async ensureUserId() {
+        if (this.userId) {
+            storage.userId = this.userId;
+            return;
+        }
+
         const localStorage = window.localStorage;
-        let userId = localStorage.getItem('deviceId');
+        let userId = localStorage.getItem(lsKeyDeviceId);
         if (!userId) {
             while (!userId || await App.userIdExists(userId)) {
                 userId = uuid();
             }
-            localStorage.setItem('deviceId', userId);
+            localStorage.setItem(lsKeyDeviceId, userId);
         }
 
         storage.userId = userId;
