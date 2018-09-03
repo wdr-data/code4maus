@@ -21,7 +21,7 @@ const WelcomeScreenComponent = (props) => (
                     Zur Einführung
                 </ButtonPrimary>
                 <ButtonPrimary className={styles.button} onClick={props.onMenuClick}>
-                    Zum Menü
+                    Zur Übersicht
                 </ButtonPrimary>
             </div>
         </div>
