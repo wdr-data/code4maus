@@ -18,6 +18,7 @@ import ParentHelp, { attributes as parentAttributes } from '../lib/content/paren
 
 import GUI from './gui.jsx';
 import Menu from './menu.jsx';
+import WelcomeScreen from './welcome-screen.jsx';
 import ContentWrapper from '../components/content-wrapper/content-wrapper.jsx';
 import Loader from '../components/loader/loader.jsx';
 
@@ -82,6 +83,8 @@ class App extends Component {
             return <GUI />;
         case Views.content:
             return this.renderContent();
+        case Views.welcome:
+            return <WelcomeScreen />;
         case Views.menu:
         default:
             return <Menu />;

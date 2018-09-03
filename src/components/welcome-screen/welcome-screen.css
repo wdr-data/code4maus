@@ -1,0 +1,18 @@
+.wrapper {
+    margin-top: 2.5rem;
+    max-width: 40rem;
+}
+
+.wrapper p {
+    font-size: 1.4rem;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2.5rem 0;
+}
+
+.button {
+    font-size: 1.4rem;
+}

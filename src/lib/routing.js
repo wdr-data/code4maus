@@ -6,6 +6,7 @@ export const Views = {
     onboarding: 'VIEW_ONBOARDING',
     project: 'VIEW_PROJECT',
     content: 'content',
+    welcome: 'welcome',
 };
 
 export const MenuTabs = {
@@ -39,6 +40,9 @@ const routes = {
     },
     '/lernspiel/:eduId': {
         view: Views.edu,
+    },
+    '/welcome': {
+        view: Views.welcome,
     },
     '/onboarding': {
         '/:step': {

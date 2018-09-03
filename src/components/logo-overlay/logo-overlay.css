@@ -28,5 +28,6 @@
 }
 
 .logo {
-    height: 50vh;
+    display: block;
+    max-height: 30vh;
 }
