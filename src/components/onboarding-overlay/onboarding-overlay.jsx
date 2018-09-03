@@ -128,11 +128,11 @@ const OnboardingOverlayComponent = React.forwardRef((props, ref) => {
 });
 
 OnboardingOverlayComponent.propTypes = {
-    text: PropTypes.string.isRequired,
+    text: PropTypes.string,
     arrowTo: PropTypes.string,
     buttons: PropTypes.arrayOf(PropTypes.shape({
         text: PropTypes.string.isRequired,
-        action: PropTypes.oneOf([ PropTypes.string, PropTypes.func ]).isRequired,
+        action: PropTypes.oneOfType([ PropTypes.string, PropTypes.func ]).isRequired,
     })),
     targetCoordinates: PropTypes.shape({
         x: PropTypes.number.isRequired,
@@ -149,6 +149,7 @@ OnboardingOverlayComponent.defaultProps = {
     buttons: [],
     targetCoordinates: null,
     dim: false,
+    text: '',
 };
 
 export default OnboardingOverlayComponent;
