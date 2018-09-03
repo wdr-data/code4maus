@@ -1,8 +1,5 @@
 @import "../../css/colors.css";
 
-.page {
-}
-
 .style-blue {
     background: url(../gui/bg_header@1x.png);
 }
@@ -27,17 +24,20 @@
     box-shadow: none;
 }
 
-h2, h3, p, ul {
+.wrapper h2,
+.wrapper h3,
+.wrapper p,
+.wrapper ul {
     margin: 0;
     padding: 2rem;
     background: white;
 }
 
-ul {
+.wrapper ul {
     padding: 2rem 3rem;
 }
 
-h2 {
+.wrapper h2 {
     padding-bottom: 0;
 }
 
@@ -60,6 +60,9 @@ h2 {
     margin-top: 3rem;
 }
 
-p + p, p + h3, p + ul, h3 + p {
+.wrapper p + p,
+.wrapper p + h3,
+.wrapper p + ul,
+.wrapper h3 + p {
     padding-top: 0;
 }
