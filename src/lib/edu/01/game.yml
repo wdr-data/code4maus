@@ -1,22 +1,22 @@
 ---
 slides:
-  - asset: 01.png
-  - asset: 02.png
-  - asset: 02x.png
-  - asset: 02y.png
-  - asset: 03.png
-  - asset: 04.gif
-  - asset: 04.png
-  - asset: 05.png
-  - asset: 06.gif
-  - asset: 06.png
-  - asset: 07.png
-  - asset: 08.png
-  - asset: 09.png
-  - asset: 10.gif
-  - asset: 11.png  
-  - asset: 12.png
-  - asset: 13.png
+  - asset: 000.png
+  - asset: 001.png
+  - asset: 002.png
+  - asset: 003.png
+  - asset: 004.png
+  - asset: 05.gif
+  - asset: 006.png
+  - asset: 007.png
+  - asset: 08.gif
+  - asset: 009.png
+  - asset: 010.png
+  - asset: 011.png  
+  - asset: 012.png
+  - asset: 13.gif
+  - asset: 014.png
+  - asset: 015.png
+  - asset: 016.png
 
 blocks:
   - category: motion
