@@ -5,7 +5,7 @@ import { addLocaleData, IntlProvider } from 'react-intl';
 import de from 'react-intl/locale-data/de';
 import PropTypes from 'prop-types';
 import { v4 as uuid } from 'uuid';
-import { push } from 'redux-little-router';
+import { push, replace } from 'redux-little-router';
 
 import { Views, ContentPages } from '../lib/routing';
 import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
@@ -25,6 +25,7 @@ import Loader from '../components/loader/loader.jsx';
 addLocaleData(de);
 
 const lsKeyDeviceId = 'deviceId';
+const lsKeyVisited = 'hasVisited';
 
 class App extends Component {
     static async userIdExists(userId) {
@@ -43,6 +44,7 @@ class App extends Component {
 
     componentDidMount() {
         this.ensureUserId();
+        this.maybeRedirectWelcome();
     }
 
     componentDidUpdate(prevProps) {
@@ -68,6 +70,17 @@ class App extends Component {
 
         storage.userId = userId;
         this.props.setUserId(userId);
+    }
+
+    maybeRedirectWelcome() {
+        const localStorage = window.localStorage;
+        const hasVisited = localStorage.getItem(lsKeyVisited);
+        if (hasVisited === 'yes') {
+            return;
+        }
+
+        this.props.redirectWelcome();
+        localStorage.setItem(lsKeyVisited, 'yes');
     }
 
     renderContent() {
@@ -120,6 +133,7 @@ App.propTypes = {
     setUserId: PropTypes.func.isRequired,
     userId: PropTypes.string,
     backToHome: PropTypes.func.isRequired,
+    redirectWelcome: PropTypes.func.isRequired,
 };
 
 const ConnectedApp = connect(
@@ -131,9 +145,10 @@ const ConnectedApp = connect(
             userId: state.scratchGui.project.userId,
         };
     },
-    dispatch => ({
+    (dispatch) => ({
         setUserId: (id) => dispatch(setUserId(id)),
         backToHome: () => dispatch(push('/')),
+        redirectWelcome: () => dispatch(replace('/welcome')),
     }),
 )(App);
 

@@ -54,17 +54,6 @@ import play from '../edu/00/assets/play.png';
 const onboardingConfig = {
     steps: [
         {
-            text: 'Willkommen zu Programmieren mit der Maus.\nDie Welt wird digitaler. Programmieren ist in dieser Welt eine Grundfertigkeit, um selbst aktiv werden, mitgestalten und auch Kritik üben zu können. Mit dieser Anwendung programmieren Kinder Schritt für Schritt erste eigene Bildergeschichten und kleine Spiele. Dabei lernen sie Variablen, Schleifen und Verzweigungen kennen.',
-            buttons: [
-                {
-                    text: BUTTON_TEXTS.start,
-                    action: NEXT_STEP,
-                },
-            ],
-            dim: true,
-            loadProject: 'edu/00',
-        },
-        {
             text: 'Hallo, hier lernst du Schritt für Schritt, wie du Spiele programmierst.',
             buttons: [
                 {
