@@ -71,12 +71,14 @@ const onboardingConfig = {
             loadProject: 'edu/00',
         },
         {
-            timeout: 2000,
-        },
-        {
             text: 'Falls das Programm nicht von selbst stoppt, kannst du es mit dem roten Knopf wieder anhalten.',
             arrowTo: TRIGGER_REFS.stopButton,
-            trigger: TRIGGER_REFS.stopButton,
+            buttons: [
+                {
+                    text: BUTTON_TEXTS.next,
+                    action: NEXT_STEP,
+                },
+            ],
             loadProject: 'edu/00',
         },
         {
