@@ -77,7 +77,7 @@ const onboardingConfig = {
             loadProject: 'edu/00',
         },
         {
-            text: 'Gut gemacht.\nJetzt lernst du, wie du bestimmst, was die Maus macht.\nMan nennt das programmieren.',
+            text: 'Gut gemacht.\nJetzt lernst du, wie du bestimmst, was die Maus macht.\nMan nennt das Programmieren.',
             buttons: [ BUTTON_NEXT ],
             image: emo1,
             loadProject: 0,
