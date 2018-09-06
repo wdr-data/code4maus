@@ -13,8 +13,6 @@ const tabIdToTab = {
     2: MenuTabs.examples,
 };
 
-const bucketUrl = process.env.S3_BUCKET_URL_PROJECT;
-
 class Menu extends React.Component {
     constructor(props) {
         super(props);
@@ -42,7 +40,7 @@ class Menu extends React.Component {
         this.loadUserProjects();
     }
     async loadUserProjects() {
-        const userProjects = await (await fetch(`${bucketUrl}/projects/${this.props.userId}/index.json`)).json();
+        const userProjects = await (await fetch(`/data/projects/${this.props.userId}/index.json`)).json();
         const projects = Object.entries(userProjects)
             .map(([ key, proj ]) => ({
                 key,
