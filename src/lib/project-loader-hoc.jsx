@@ -87,10 +87,11 @@ const ProjectLoaderHOC = function(WrappedComponent) {
         }
     }
     ProjectLoaderComponent.propTypes = {
-        projectId: PropTypes.string,
+        projectId: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
         router: PropTypes.shape({
             view: PropTypes.string.isRequired,
             params: PropTypes.object,
+            isNewProject: PropTypes.bool,
         }),
         setProjectName: PropTypes.func.isRequired,
         setProjectId: PropTypes.func.isRequired,
