@@ -10,6 +10,24 @@ import styles from './coming-soon.css';
 import awwCatIcon from './aww-cat.png';
 import coolCatIcon from './cool-cat.png';
 
+const messages = defineMessages({
+    message1: {
+        defaultMessage: 'Don\'t worry, we\'re on it {emoji}',
+        description: 'One of the "coming soon" random messages for yet-to-be-done features',
+        id: 'gui.comingSoon.message1',
+    },
+    message2: {
+        defaultMessage: 'Coming Soon...',
+        description: 'One of the "coming soon" random messages for yet-to-be-done features',
+        id: 'gui.comingSoon.message2',
+    },
+    message3: {
+        defaultMessage: 'We\'re working on it {emoji}',
+        description: 'One of the "coming soon" random messages for yet-to-be-done features',
+        id: 'gui.comingSoon.message3',
+    },
+});
+
 class ComingSoonContent extends React.Component {
     constructor(props) {
         super(props);
