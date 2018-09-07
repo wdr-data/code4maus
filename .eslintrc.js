@@ -7,6 +7,7 @@ module.exports = {
     ],
     env: {
         node: true,
+        es6: true,
     },
     parserOptions: {
         ecmaVersion: 2017,
@@ -17,7 +18,7 @@ module.exports = {
         "curly": "error",
         "guard-for-in": "error",
         "no-caller": "error",
-        "no-console": "warn",
+        "no-console": "off",
         "no-extend-native": "error",
         "no-extra-bind": "error",
         "no-invalid-this": "error",
