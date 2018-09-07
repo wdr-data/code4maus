@@ -1,4 +1,4 @@
-service: hackingstudio-code4maus-app
+service: hackingstudio-code4maus
 
 provider:
   name: aws
@@ -157,8 +157,8 @@ plugins:
   - serverless-webpack
 
 custom:
-  appBucketName: hackingstudio-code4maus-app-${file(scripts/env.js):stage}
-  projectBucketName: hackingstudio-code4maus-projects-${file(scripts/env.js):stage}
+  appBucketName: ${self:service}-app-${file(scripts/env.js):stage}
+  projectBucketName: ${self:service}-projects-${file(scripts/env.js):stage}
   client:
     bucketName: ${self:custom.appBucketName}
     distributionFolder: build
