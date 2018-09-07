@@ -33,6 +33,13 @@ const base = {
                     '^/api': '',
                 },
             },
+            '/data': {
+                target: bucketUrl,
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/data': '',
+                },
+            },
         },
         historyApiFallback: true,
     },
@@ -167,7 +174,6 @@ module.exports = [
             new webpack.DefinePlugin({
                 'process.env.NODE_ENV': '"' + process.env.NODE_ENV + '"',
                 'process.env.DEBUG': Boolean(process.env.DEBUG),
-                'process.env.S3_BUCKET_URL_PROJECT': `"${bucketUrl}"`,
             }),
             new HtmlWebpackPlugin({
                 chunks: [ 'lib.min', 'gui' ],

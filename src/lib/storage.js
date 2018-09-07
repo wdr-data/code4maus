@@ -6,9 +6,8 @@ const PROJECT_SERVER = 'https://projects.scratch.mit.edu';
 const ASSET_SERVER = 'https://cdn.assets.scratch.mit.edu';
 
 
-export const bucketUrl = process.env.S3_BUCKET_URL_PROJECT;
-export const s3assets = (filename) => `${bucketUrl}/assets/${filename}`;
-export const s3userFile = (userId, path) => `${bucketUrl}/projects/${userId}/${path}`;
+export const s3assets = (filename) => `/data/assets/${filename}`;
+export const s3userFile = (userId, path) => `/data/projects/${userId}/${path}`;
 
 /**
  * Wrapper for ScratchStorage which adds default web sources.

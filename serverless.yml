@@ -1,0 +1,159 @@
+service: hackingstudio-code4maus
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-central-1
+  role: 'arn:aws:iam::#{AWS::AccountId}:role/hackingstudio/code4maus/hackingstudio-code4maus-functions'
+  stage: ${file(scripts/env.js):stage}
+
+environment:
+  S3_BUCKET_PROJECTS: ${self:custom.projectBucketName}
+
+functions:
+  prepareAssetUpload:
+    handler: src/backend/prepareAssetUpload.handler
+    events:
+      - http:
+          path: prepareAssetUpload
+          method: POST
+
+  saveProject:
+    handler: src/backend/saveProject.handler
+    events:
+      - http:
+          path: saveProject
+          method: POST
+
+resources:
+  Resources:
+    AppBucket:
+      Type: 'AWS::S3::Bucket'
+      Properties:
+        AccessControl: PublicRead
+        BucketName: ${self:custom.appBucketName}
+        WebsiteConfiguration:
+          IndexDocument: index.html
+          ErrorDocument: index.html
+
+    ProjectBucket:
+      Type: 'AWS::S3::Bucket'
+      Properties:
+        AccessControl: PublicRead
+        BucketName: ${self:custom.projectBucketName}
+
+    EntrypointDistribution:
+      Type: AWS::CloudFront::Distribution
+      Properties:
+        DistributionConfig:
+          Aliases:
+          - ${file(scripts/env.js):baseDomain}
+          Comment: "Code4Maus ${file(scripts/env.js):stage}"
+          Enabled: true
+          PriceClass: PriceClass_100
+          CacheBehaviors:
+          - TargetOriginId: S3-${self:custom.projectBucketName}
+            PathPattern: data/*
+            ViewerProtocolPolicy: redirect-to-https
+            MinTTL: 0
+            AllowedMethods:
+            - HEAD
+            - DELETE
+            - POST
+            - GET
+            - OPTIONS
+            - PUT
+            - PATCH
+            CachedMethods:
+            - HEAD
+            - GET
+            ForwardedValues:
+              QueryString: false
+          - TargetOriginId: Custom-hackingstudio-code4maus-api-${file(scripts/env.js):stage}
+            PathPattern: api/*
+            ViewerProtocolPolicy: redirect-to-https
+            MinTTL: 0
+            AllowedMethods:
+            - HEAD
+            - DELETE
+            - POST
+            - GET
+            - OPTIONS
+            - PUT
+            - PATCH
+            CachedMethods:
+            - HEAD
+            - GET
+            ForwardedValues:
+              QueryString: false
+          DefaultCacheBehavior:
+            TargetOriginId: S3-${self:custom.appBucketName}
+            ViewerProtocolPolicy: redirect-to-https
+            MinTTL: 0
+            AllowedMethods:
+            - HEAD
+            - GET
+            CachedMethods:
+            - HEAD
+            - GET
+            ForwardedValues:
+              QueryString: false
+          Origins:
+          - DomainName: ${self:custom.appBucketName}.s3-website-eu-central-1.amazonaws.com
+            Id: S3-${self:custom.appBucketName}
+            CustomOriginConfig:
+              HTTPPort: '80'
+              HTTPSPort: '443'
+              OriginProtocolPolicy: https-only
+          - DomainName: ${self:custom.projectBucketName}.s3.amazonaws.com
+            Id: S3-${self:custom.projectBucketName}
+            S3OriginConfig: {}
+          - DomainName:
+              Fn::Join:
+              - ""
+              - - Ref: "ApiGatewayRestApi"
+                - ".execute-api.${self:provider.region}.amazonaws.com"
+            Id: Custom-hackingstudio-code4maus-api-${file(scripts/env.js):stage}
+            OriginPath: "/${file(scripts/env.js):stage}"
+            CustomOriginConfig:
+              HTTPPort: '80'
+              HTTPSPort: '443'
+              OriginProtocolPolicy: https-only
+          Restrictions:
+            GeoRestriction:
+              RestrictionType: none
+              Locations: []
+          ViewerCertificate:
+            SslSupportMethod: sni-only
+            MinimumProtocolVersion: TLSv1.1_2016
+            AcmCertificateArn: ${file(scripts/env.js):certArn}
+    EntrypointDNSRecord:
+      Type: AWS::Route53::RecordSet
+      Properties:
+        HostedZoneId: ${file(scripts/env.js):hostedZone}
+        Name: ${file(scripts/env.js):baseDomain}.
+        Type: A
+        AliasTarget:
+          DNSName:
+            Fn::GetAtt:
+            - EntrypointDistribution
+            - DomainName
+          HostedZoneId: Z2FDTNDATAQYW2
+
+plugins:
+  - serverless-finch
+  - serverless-pseudo-parameters
+  - serverless-webpack
+
+custom:
+  appBucketName: ${self:service}-app-${file(scripts/env.js):stage}
+  projectBucketName: ${self:service}-projects-${file(scripts/env.js):stage}
+  client:
+    bucketName: ${self:custom.appBucketName}
+    distributionFolder: build
+  webpack:
+    webpackConfig: 'webpack.backend.js'
+    packager: 'yarn'
+    includeModules:
+      forceExclude:
+        - aws-sdk
