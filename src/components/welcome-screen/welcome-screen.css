@@ -7,10 +7,16 @@
     font-size: 1.4rem;
 }
 
+.inner-wrapper {
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 0 0.8rem 1px rgba(0,0,0,.5);
+}
+
 .button-wrapper {
     display: flex;
     justify-content: space-evenly;
-    margin: 2.5rem 0;
+    margin: 2rem 0;
 }
 
 .button {
