@@ -52,91 +52,7 @@
             "variables": {},
             "lists": {},
             "broadcasts": {},
-            "blocks": {
-                "?Rc31$|+)dsvLS7GgEIn": {
-                    "opcode": "event_whenflagclicked",
-                    "next": "^60`5+kTwhfC:Pd:1|H(",
-                    "parent": null,
-                    "inputs": {},
-                    "fields": {},
-                    "topLevel": true,
-                    "shadow": false,
-                    "x": 325,
-                    "y": 95
-                },
-                "^60`5+kTwhfC:Pd:1|H(": {
-                    "opcode": "control_repeat",
-                    "next": null,
-                    "parent": "?Rc31$|+)dsvLS7GgEIn",
-                    "inputs": {
-                        "TIMES": [
-                            1,
-                            [
-                                6,
-                                "4"
-                            ]
-                        ],
-                        "SUBSTACK": [
-                            2,
-                            "sZoUxHplEGUC5Zx^DKt]"
-                        ]
-                    },
-                    "fields": {},
-                    "topLevel": false,
-                    "shadow": false
-                },
-                "sZoUxHplEGUC5Zx^DKt]": {
-                    "opcode": "motion_turnright",
-                    "next": "nt1+D$oyTB5~$y+[Xhqj",
-                    "parent": "^60`5+kTwhfC:Pd:1|H(",
-                    "inputs": {
-                        "DEGREES": [
-                            1,
-                            [
-                                4,
-                                "15"
-                            ]
-                        ]
-                    },
-                    "fields": {},
-                    "topLevel": false,
-                    "shadow": false
-                },
-                "nt1+D$oyTB5~$y+[Xhqj": {
-                    "opcode": "motion_glideto",
-                    "next": null,
-                    "parent": "sZoUxHplEGUC5Zx^DKt]",
-                    "inputs": {
-                        "SECS": [
-                            1,
-                            [
-                                4,
-                                "1"
-                            ]
-                        ],
-                        "TO": [
-                            1,
-                            "B(),;AsdpT*lxg1xdf)$"
-                        ]
-                    },
-                    "fields": {},
-                    "topLevel": false,
-                    "shadow": false
-                },
-                "B(),;AsdpT*lxg1xdf)$": {
-                    "opcode": "motion_glideto_menu",
-                    "next": null,
-                    "parent": "nt1+D$oyTB5~$y+[Xhqj",
-                    "inputs": {},
-                    "fields": {
-                        "TO": [
-                            "_random_"
-                        ]
-                    },
-                    "topLevel": false,
-                    "shadow": true
-                }
-            },
+            "blocks": {},
             "currentCostume": 0,
             "costumes": [
                 {
@@ -171,8 +87,8 @@
             ],
             "volume": 100,
             "visible": true,
-            "x": 59,
-            "y": -18,
+            "x": -6,
+            "y": -33.27351485,
             "size": 100,
             "direction": 90,
             "draggable": false,

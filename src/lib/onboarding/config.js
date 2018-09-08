@@ -73,13 +73,13 @@ const onboardingConfig = {
             loadProject: 'edu/01',
         },
         {
-            text: 'Ab jetzt steht hier im Fenster, was Du als nächstes machen sollst. Wenn du das geschafft hast, klicke auf "Weiter".',
+            text: 'Ab jetzt steht hier im Fenster, was du als nächstes machen sollst. Wenn du das geschafft hast, klicke auf "Weiter".',
             buttons: [ BUTTON_NEXT ],
             loadProject: 'edu/01',
             arrowTo: TRIGGER_REFS.stopButton,
             buttons: [
                 {
-                    text: 'Weiter Lernen',
+                    text: 'Weiter',
                     action: () => push(`/lernspiel/01`),
                 },
             ],

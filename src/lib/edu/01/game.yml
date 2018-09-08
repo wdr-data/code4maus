@@ -1,8 +1,33 @@
 ---
 slides:
-  - asset: 01.png
-  - asset: 02.png
-  - asset: 03.png
+  - asset: 000.png
+  - asset: 001.png
+  - asset: 002.png
+  - asset: 003.png
+  - asset: a.gif
+  - asset: 004.png
+  - asset: g.gif
+  - asset: 005.png
+  - asset: b.gif
+  - asset: 006.png
+  - asset: c.gif
+  - asset: 007.png
+  - asset: d.gif
+  - asset: 008.png
+  - asset: 009.png
+  - asset: e.gif
+  - asset: 010.png
+  - asset: 011.png
+  - asset: f.gif
+  - asset: 011.png
+  - asset: 012.png
+  - asset: 013.png
+  - asset: 014.png
+  - asset: 015.png
+  - asset: 016.png
+  - asset: 017.png
+  - asset: 018.png
+  - asset: 019.png
 
 blocks:
   - category: motion

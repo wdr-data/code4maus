@@ -1,7 +1,7 @@
 export default [
     {
         id: '01',
-        name: 'Geistermaus',
+        name: 'Die Geistermaus',
         subtitle: '01 Bewegung',
     },
     {
