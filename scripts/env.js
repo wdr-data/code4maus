@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+const { timeout, TimeoutError } = require('promise-timeout');
 
 const getHostedZoneForDomain = (domain) => {
     const route53 = new AWS.Route53({
@@ -6,7 +7,7 @@ const getHostedZoneForDomain = (domain) => {
     });
     const splittedDomain = domain.split('.');
     let foundId = null;
-    return route53.listHostedZones({}).promise()
+    return timeout(route53.listHostedZones({}).promise(), 2000)
         .then((data) => {
             return splittedDomain.every((part, i) => {
                 const domain = splittedDomain.slice(i).join('.') + '.';
@@ -26,7 +27,7 @@ const getCertArnForDomain = (domain) => {
         region: 'us-east-1',
     });
     const wildCardDomain = '*.' + domain.split('.').slice(1).join('.');
-    return acm.listCertificates({}).promise()
+    return timeout(acm.listCertificates({}).promise(), 2000)
         .then((data) => data.CertificateSummaryList
             .find((cert) => cert.DomainName === domain || cert.DomainName === wildCardDomain)
         )
@@ -47,6 +48,10 @@ const hostedZone = () => {
                 return Promise.reject(new Error(`Zone for domain "${domain}" not found.`));
             }
             return zone;
+        })
+        .catch((error) => {
+            console.warn('WARNING: Request for HostedZone failed!');
+            return Promise.resolve('');
         });
 };
 
@@ -58,6 +63,10 @@ const certArn = () => {
                 return Promise.reject(new Error(`Cert for domain "${domain}" not found.`));
             }
             return cert;
+        })
+        .catch((error) => {
+            console.warn('WARNING: Request for Certificate failed!');
+            return Promise.resolve('');
         });
 };
 
