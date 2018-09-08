@@ -2,7 +2,6 @@ import initS3 from './lib/s3';
 import nanoid from 'nanoid';
 
 const s3 = initS3();
-const Bucket = process.env.S3_BUCKET_PROJECTS;
 
 const getKey = (user, path = 'index.json') => `projects/${user}/${path}`;
 
@@ -31,7 +30,6 @@ export const handler = injectReplyJson(async (event, context, reply) => {
 
     try {
         await s3.putObject({
-            Bucket,
             Key: getKey(userId, `${projectId}.json`),
             Body: JSON.stringify(cleanedData),
         }).promise();
@@ -60,7 +58,6 @@ export const handler = injectReplyJson(async (event, context, reply) => {
 
             try {
                 await s3.putObject({
-                    Bucket,
                     Key: getKey(userId),
                     Body: JSON.stringify(base),
                 }).promise();
@@ -71,7 +68,6 @@ export const handler = injectReplyJson(async (event, context, reply) => {
 
         try {
             const indexFile = await s3.getObject({
-                Bucket,
                 Key: getKey(userId),
             }).promise();
             const index = JSON.parse(indexFile.Body.toString());

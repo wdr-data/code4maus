@@ -1,0 +1,46 @@
+version: '3.5'
+
+services:
+  entry:
+    image: traefik
+    command: -c /dev/null --api --docker --docker.domain=localhost --logLevel=DEBUG
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "8601:80"
+      - "8080:8080"
+    labels:
+      traefik.enable: false
+  app:
+    image: node:alpine
+    command: /src/node_modules/.bin/yarn start
+    working_dir: /src
+    environment:
+      AWS_ACCESS_KEY_ID: shaiChotufuochizi7ei
+      AWS_SECRET_ACCESS_KEY: thaacooG9iequeexooreiKoh9daihoo8ta0aifoh1ChahBi1ko
+      AWS_REGION: eu-central-1
+    volumes:
+      - ".:/src"
+    labels:
+      traefik.port: 8601
+      traefik.frontend.rule: Host:localhost
+  backend:
+    image: node:alpine
+    command: /src/node_modules/.bin/yarn start:backend -o 0.0.0.0
+    working_dir: /src
+    volumes:
+      - ".:/src"
+    labels:
+      traefik.port: 3000
+      traefik.frontend.rule: Host:localhost;PathPrefixStrip:/api/
+  storage:
+    image: minio/minio
+    command: server /data
+    volumes:
+      - "./.cache:/data"
+    environment:
+      MINIO_ACCESS_KEY: shaiChotufuochizi7ei
+      MINIO_SECRET_KEY: thaacooG9iequeexooreiKoh9daihoo8ta0aifoh1ChahBi1ko
+    labels:
+      traefik.port: 9000
+      traefik.frontend.rule: Host:localhost;PathPrefix:/data/

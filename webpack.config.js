@@ -16,8 +16,7 @@ let postcssMixins = require('postcss-mixins');
 
 require('dotenv').config();
 const bucketSuffix = process.env.BRANCH === 'production' ? 'prod' : 'staging';
-const bucketUrl = `https://${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}` +
-    `.s3.dualstack.${process.env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION}.amazonaws.com`;
+const bucketUrl = `https://${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}.s3.dualstack.${process.env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION}.amazonaws.com`;
 
 const base = {
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
@@ -28,7 +27,7 @@ const base = {
         port: process.env.PORT || 8601,
         proxy: {
             '/api': {
-                target: 'http://localhost:9000',
+                target: 'http://localhost:3000',
                 pathRewrite: {
                     '^/api': '',
                 },

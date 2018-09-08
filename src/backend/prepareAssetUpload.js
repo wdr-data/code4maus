@@ -1,7 +1,6 @@
 import initS3 from './lib/s3';
 
 const s3 = initS3();
-const Bucket = process.env.S3_BUCKET_PROJECTS;
 
 export const handler = async (event, context, callback) => {
     const { filename } = JSON.parse(event.body);
@@ -19,7 +18,6 @@ export const handler = async (event, context, callback) => {
     }
 
     const params = {
-        Bucket,
         Key: `assets/${filename}`,
     };
 

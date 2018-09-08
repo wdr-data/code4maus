@@ -142,6 +142,7 @@ resources:
 
 plugins:
   - serverless-finch
+  - serverless-offline
   - serverless-pseudo-parameters
   - serverless-webpack
 
