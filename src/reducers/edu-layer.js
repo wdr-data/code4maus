@@ -38,6 +38,7 @@ export default function(state = initialState, action) {
     case LOAD_GAME:
         return {
             ...state,
+            index: 0,
             size: action.gameSpec ? action.gameSpec.slides.length : 0,
             enabled: action.gameId !== null,
             gameId: action.gameId,
