@@ -47,18 +47,10 @@ export const customOffsets = {
     },
 };
 
-import block1 from '../edu/00/assets/block1.gif';
-import block2 from '../edu/00/assets/block2.gif';
-import block3 from '../edu/00/assets/block3.gif';
-import block4 from '../edu/00/assets/block4.gif';
-import block5 from '../edu/00/assets/block5.gif';
-import code1 from '../edu/00/assets/code1.gif';
-import play from '../edu/00/assets/play.png';
-
 const onboardingConfig = {
     steps: [
         {
-            text: 'Hallo, hier lernst du Schritt für Schritt, wie du Spiele programmierst.',
+            text: 'Hallo,\nhier lernst du Schritt für Schritt, wie du Spiele programmierst.',
             buttons: [ BUTTON_NEXT ],
             dim: true,
             loadProject: 'edu/00',
@@ -76,14 +68,14 @@ const onboardingConfig = {
             loadProject: 'edu/00',
         },
         {
-            text: 'Gut gemacht.\nJetzt lernst du, wie du bestimmst, was die Maus macht.\nMan nennt das Programmieren.',
+            text: 'Gut gemacht.\nJetzt lernst du, wie DU bestimmst, was die Maus macht.\nMan nennt das Programmieren.',
             buttons: [ BUTTON_NEXT ],
-            loadProject: 'edu/00',
+            loadProject: 'edu/01',
         },
         {
             text: 'Ab jetzt steht hier im Fenster, was Du als nächstes machen sollst. Wenn du das geschafft hast, klicke auf "Weiter".',
             buttons: [ BUTTON_NEXT ],
-            loadProject: 'edu/00',
+            loadProject: 'edu/01',
             arrowTo: TRIGGER_REFS.stopButton,
             buttons: [
                 {

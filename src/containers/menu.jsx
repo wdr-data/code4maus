@@ -21,7 +21,7 @@ class Menu extends React.Component {
             {
                 key: 'onboarding',
                 title: 'Einführung',
-                note: 'Lerne, wie du die Maus steuerst!',
+                note: '00 Erste Schritte',
                 linkTo: '/onboarding',
             },
         ].concat(eduGames.map((game) => ({
