@@ -14,11 +14,10 @@
 }
 
 .icon {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   display: block;
   align-self: center;
-  margin-bottom: .25rem;
 
   transition: 0.2s ease-out;
 }

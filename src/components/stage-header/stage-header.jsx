@@ -47,7 +47,6 @@ const StageHeaderComponent = function(props) {
                         <OnboardingCapture componentId={TRIGGER_REFS.saveProject}>
                             {(captureRef) => (
                                 <ButtonWithIcon
-                                    className={styles.headerIcon}
                                     iconSvg={saveIcon}
                                     onClick={onSaveProject}
                                     ref={captureRef}

@@ -7,14 +7,14 @@
 }
 
 .control {
-    width: 4rem;
-    height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
     padding: 0.25rem;
     user-select: none;
     user-drag: none;
     cursor: pointer;
     transition: transform 0.2s ease-out;
-    margin-right: .5rem;
+    margin-left: .5rem;
 }
 .control:hover {
     transform: scale(1.2);
