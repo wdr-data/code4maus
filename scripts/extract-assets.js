@@ -17,6 +17,27 @@ const extractAssetsFromProject = async (path) => {
     }, []);
 };
 
+const getLibraryContent = async () => {
+    const sprites = JSON.parse(
+        await fs.readFile(path.resolve(__dirname, '../src/lib/libraries/sprites.json'), 'utf-8')
+    );
+    const spritesAssets = sprites.reduce(
+        (out, sprite) => out
+            .concat(sprite.json.sounds.map((s) => s.md5))
+            .concat(sprite.json.costumes.map((c) => c.baseLayerMD5)),
+        [],
+    );
+
+    const singles = await Promise.all([ 'backdrops', 'costumes', 'sounds' ].map(
+        async (type) => JSON.parse(
+            await fs.readFile(path.resolve(__dirname, `../src/lib/libraries/${type}.json`), 'utf-8')
+        ).map((a) => a.md5),
+    ));
+    return spritesAssets.concat(
+        singles.reduce((out, assets) => out.concat(assets), [])
+    );
+};
+
 const main = async () => {
     const defaultPath = path.resolve(__dirname, '../src/lib/default-project/project.json');
     const eduProjects = await globby(
@@ -24,11 +45,12 @@ const main = async () => {
         { cwd: path.resolve(__dirname, '..') }
     );
     const projectPaths = [ defaultPath ].concat(eduProjects);
-    const assets = await projectPaths.reduce((prom, projectPath) => prom.then(
+    const assets = (await projectPaths.reduce((prom, projectPath) => prom.then(
         async (out) => out.concat(await extractAssetsFromProject(projectPath))
-    ), Promise.resolve([]));
+    ), Promise.resolve([])))
+        .concat(await getLibraryContent());
     const uniqueAssets = [ ...new Set(assets) ];
-    const outPath = path.resolve(__dirname, '../.cache/assets');
+    const outPath = path.resolve(__dirname, '../.cache/data/assets');
     await Promise.all(uniqueAssets.map(async (asset) => new Promise((resolve, reject) =>
         request(`${bucketUrl}/assets/${asset}`)
             .pipe(fsL.createWriteStream(path.join(outPath, asset)))
