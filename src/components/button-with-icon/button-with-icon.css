@@ -3,6 +3,7 @@
   border: none;
   display: flex;
   flex-direction: column;
+  padding-left: 0;
 
   font-family: 'Titillium Web';
   font-weight: 400;
