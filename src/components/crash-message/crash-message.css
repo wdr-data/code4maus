@@ -3,7 +3,7 @@
 @import "../../css/typography.css";
 
 .crash-wrapper {
-    background-color: hsla(19, 70%, 51%, 0.79);
+    background-image: url(../gui/bg_header@1x.png);
     width: 100%;
     height: 100%;
     display: flex;
