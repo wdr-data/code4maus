@@ -94,6 +94,8 @@ $sides: 20rem;
     letter-spacing: 0.4px;
     cursor: default;
     margin: 0 -$sides 0 0;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .full-screen .header-item-title {

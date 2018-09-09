@@ -1,12 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
-    <title>back-icon</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="back-icon" fill="#FFFFFF">
-            <path d="M4.10804912,8.57765055 L9.33203638,3.35366329 C9.63820413,3.04558199 10.1165912,3.04558199 10.422759,3.35366329 L15.6467462,8.57765055 C16.1442688,9.07517314 15.7806946,9.89608543 15.0918172,9.89608543 L12.4893913,9.89608543 L10.9394171,16.0385759 C10.7863332,16.6336895 10.1739977,16.9953502 9.58079768,16.8422663 C9.15981702,16.7485024 8.85364927,16.4231992 8.75797184,16.0385759 L7.2079976,9.89608543 L4.66297817,9.89608543 C3.97410073,9.89608543 3.61052653,9.07517314 4.10804912,8.57765055" id="Fill-1" transform="translate(9.877398, 10.000000) rotate(-90.000000) translate(-9.877398, -10.000000) "></path>
-        </g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 13.28 20.82"
+   height="20.82"
+   width="13.28">
+  <metadata
+     id="metadata14">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>zurück</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs12" />
+  <title
+     id="title2">zurück</title>
+  <g
+     style="fill:#ffffff"
+     data-name="Ebene 2"
+     id="Ebene_2">
+    <g
+       style="fill:#ffffff"
+       data-name="Ebene 2"
+       id="Ebene_2-2">
+      <polygon
+         style="fill:#ffffff"
+         id="polygon4"
+         fill="#8e8e8e"
+         points="10.03 0 0 9.59 9.75 20.82 13.28 18.54 5.77 10.1 13.28 2.75 10.03 0" />
     </g>
+  </g>
 </svg>
