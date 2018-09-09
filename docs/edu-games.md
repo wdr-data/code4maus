@@ -18,6 +18,8 @@ Slides can be defined for the game. They will be displayed in the bottom right a
 - File format: `svg` (recommended), `png`, `jpg` or `gif`
 - Available inside an `assets` directory in the edu game directory
 
+Download as .pdf from Google Slides, convert to .png using `convert -density 90 Lernspiel01_Geistermaus.pdf %03d.png`
+
 ### Limit available blocks
 
 To limit the kinds of blocks that are available in the game the settings `blocks` can be used. It will contain Elements in this manner:
