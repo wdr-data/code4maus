@@ -20,7 +20,7 @@ const WelcomeScreenComponent = (props) => (
             </div>
             <div className={styles.buttonWrapper}>
                 <ButtonPrimary className={styles.button} onClick={props.onIntroClick}>
-                    Zur Einführung
+                    Lernen, wie es geht
                 </ButtonPrimary>
                 <ButtonPrimary className={styles.button} onClick={props.onMenuClick}>
                     Zur Übersicht
