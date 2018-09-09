@@ -16,6 +16,7 @@ services:
     command: /src/node_modules/.bin/yarn start
     working_dir: /src
     environment:
+      DOCKER_WATCH: 1
       AWS_ACCESS_KEY_ID: shaiChotufuochizi7ei
       AWS_SECRET_ACCESS_KEY: thaacooG9iequeexooreiKoh9daihoo8ta0aifoh1ChahBi1ko
       AWS_REGION: eu-central-1

@@ -41,6 +41,10 @@ const base = {
             },
         },
         historyApiFallback: true,
+        watchOptions: process.env.DOCKER_WATCH === 1 ? {
+            aggregateTimeout: 300,
+            poll: 1000,
+        } : {},
     },
     output: {
         library: 'GUI',
