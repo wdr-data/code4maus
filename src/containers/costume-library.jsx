@@ -22,11 +22,15 @@ class CostumeLibrary extends React.PureComponent {
         super(props);
         bindAll(this, [ 'handleItemSelected' ]);
     }
-    handleItemSelected(item) {
+    handleItemSelected (item) {
+        const split = item.md5.split('.');
+        const type = split.length > 1 ? split[1] : null;
+        const rotationCenterX = type === 'svg' ? item.info[0] : item.info[0] / 2;
+        const rotationCenterY = type === 'svg' ? item.info[1] : item.info[1] / 2;
         const vmCostume = {
             name: item.name,
-            rotationCenterX: item.info[0],
-            rotationCenterY: item.info[1],
+            rotationCenterX,
+            rotationCenterY,
             bitmapResolution: item.info.length > 2 ? item.info[2] : 1,
             skinId: null,
         };

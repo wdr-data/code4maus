@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { getEventXY } from '../lib/touch-utils';
 import VideoProvider from '../lib/video/video-provider';
 import { SVGRenderer as V2SVGAdapter } from 'scratch-svg-renderer';
+import { BitmapAdapter as V2BitmapAdapter } from 'scratch-svg-renderer';
 
 import StageComponent from '../components/stage/stage.jsx';
 
@@ -51,6 +52,17 @@ class Stage extends React.Component {
             colorInfo: null,
             question: null,
         };
+        if (this.props.vm.runtime.renderer) {
+            this.renderer = this.props.vm.runtime.renderer;
+            this.canvas = this.props.vm.runtime.renderer._gl.canvas;
+        } else {
+            this.canvas = document.createElement('canvas');
+            this.renderer = new Renderer(this.canvas);
+            this.props.vm.attachRenderer(this.renderer);
+        }
+        this.props.vm.attachV2SVGAdapter(new V2SVGAdapter());
+        this.props.vm.attachV2BitmapAdapter(new V2BitmapAdapter());
+        this.props.vm.setVideoProvider(new VideoProvider());
     }
     componentDidMount() {
         this.attachRectEvents();
