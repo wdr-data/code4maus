@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@wdr-data/scratch-blocks": "^0.1.0-de-7",
-    "@wdr-data/scratch-vm": "0.1.0-minimal-2",
+    "@wdr-data/scratch-vm": "0.2.0-minimal-1",
     "arraybuffer-loader": "^1.0.3",
     "autoprefixer": "^8.1.0",
     "aws-sdk": "^2.226.1",
