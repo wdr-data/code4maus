@@ -10487,16 +10487,6 @@ scratch-svg-renderer@0.2.0-prerelease.20180817005452:
     minilog "3.1.0"
     scratch-render-fonts "1.0.0-prerelease.20180605131737"
 
-scratch-svg-renderer@0.2.0-prerelease.20180821210632:
-  version "0.2.0-prerelease.20180821210632"
-  resolved "https://registry.yarnpkg.com/scratch-svg-renderer/-/scratch-svg-renderer-0.2.0-prerelease.20180821210632.tgz#6328cb594edecb85c2e41e00db3f5f8d0868c73b"
-  dependencies:
-    base64-js "1.2.1"
-    base64-loader "1.0.0"
-    jimp "0.2.27"
-    minilog "3.1.0"
-    scratch-render-fonts "1.0.0-prerelease.20180605131737"
-
 scratch-translate-extension-languages@0.0.20180521154850:
   version "0.0.20180521154850"
   resolved "https://registry.yarnpkg.com/scratch-translate-extension-languages/-/scratch-translate-extension-languages-0.0.20180521154850.tgz#ffb5d2c113cdaf90e869f50808a30ee7dba5ba79"
