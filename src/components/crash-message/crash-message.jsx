@@ -19,19 +19,16 @@ const CrashMessage = (props) =>
                 src={reloadIcon}
             />
             <h2>
-                Oops! Something went wrong.
+                Upps! Da ist was schief gelaufen.
             </h2>
             <p>
-                We are so sorry, but it looks like Scratch has crashed. This bug has been
-                automatically reported to the Scratch Team. Please refresh your page to try
-                again.
-
+                "Programmieren mit der Maus" hat aufgehört, zu funktionieren. Bitte lade die Seite neu, um es noch einmal zu versuchen.
             </p>
             <button
                 className={styles.reloadButton}
                 onClick={props.onReload}
             >
-                Reload
+                Neu laden
             </button>
         </Box>
     </div>
