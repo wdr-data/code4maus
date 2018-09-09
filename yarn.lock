@@ -95,9 +95,9 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@scratch/paper@0.11.20180523194304":
-  version "0.11.20180523194304"
-  resolved "https://registry.yarnpkg.com/@scratch/paper/-/paper-0.11.20180523194304.tgz#8aa31a5cf79aa63424a44b2ae853af2ef5626217"
+"@scratch/paper@0.11.20180806212106":
+  version "0.11.20180806212106"
+  resolved "https://registry.yarnpkg.com/@scratch/paper/-/paper-0.11.20180806212106.tgz#53ab434b26d3fa33ba22ebebe9e7df1231af0ec2"
 
 "@serverless/platform-sdk@^0.2.1":
   version "0.2.1"
@@ -7422,7 +7422,7 @@ lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
 
-lodash.omit@^4.5.0:
+lodash.omit@4.5.0, lodash.omit@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
 
@@ -10406,19 +10406,20 @@ scratch-l10n@^2.0.0:
     babel-plugin-intl "^0.1.1"
     babel-plugin-react-intl "^2.3.1"
 
-scratch-paint@0.2.0-prerelease.20180605153807:
-  version "0.2.0-prerelease.20180605153807"
-  resolved "https://registry.yarnpkg.com/scratch-paint/-/scratch-paint-0.2.0-prerelease.20180605153807.tgz#5ddae5b14213da74b5b06d644618c671bd0858ac"
+scratch-paint@0.2.0-prerelease.20180907144642:
+  version "0.2.0-prerelease.20180907144642"
+  resolved "https://registry.yarnpkg.com/scratch-paint/-/scratch-paint-0.2.0-prerelease.20180907144642.tgz#eba5821599c3ee5de5f18e2a89e6013f33233c9a"
   dependencies:
-    "@scratch/paper" "0.11.20180523194304"
+    "@scratch/paper" "0.11.20180806212106"
     classnames "2.2.5"
     keymirror "0.1.1"
     lodash.bindall "4.4.0"
+    lodash.omit "4.5.0"
     minilog "3.1.0"
     parse-color "1.0.0"
     prop-types "^15.5.10"
     scratch-l10n "^2.0.0"
-    scratch-svg-renderer "0.1.0-prerelease.20180605140533"
+    scratch-svg-renderer "0.2.0-prerelease.20180907141232"
 
 scratch-parser@4.3.2:
   version "4.3.2"
@@ -10432,6 +10433,12 @@ scratch-parser@4.3.2:
 scratch-render-fonts@1.0.0-prerelease.20180605131737:
   version "1.0.0-prerelease.20180605131737"
   resolved "https://registry.yarnpkg.com/scratch-render-fonts/-/scratch-render-fonts-1.0.0-prerelease.20180605131737.tgz#07b3c04b831a5f1afd980808d200f4564111a994"
+  dependencies:
+    base64-loader "1.0.0"
+
+scratch-render-fonts@1.0.0-prerelease.20180906193204:
+  version "1.0.0-prerelease.20180906193204"
+  resolved "https://registry.yarnpkg.com/scratch-render-fonts/-/scratch-render-fonts-1.0.0-prerelease.20180906193204.tgz#6ac26c341c63b964235bf95de47d243ca251ed32"
   dependencies:
     base64-loader "1.0.0"
 
@@ -10471,15 +10478,6 @@ scratch-storage@^1.0.0:
     nets "3.2.0"
     text-encoding "0.6.4"
 
-scratch-svg-renderer@0.1.0-prerelease.20180605140533:
-  version "0.1.0-prerelease.20180605140533"
-  resolved "https://registry.yarnpkg.com/scratch-svg-renderer/-/scratch-svg-renderer-0.1.0-prerelease.20180605140533.tgz#8ba469ea60a3754a000e8e9118da3b9b5b87882a"
-  dependencies:
-    base64-loader "1.0.0"
-    jimp "0.2.27"
-    minilog "3.1.0"
-    scratch-render-fonts "1.0.0-prerelease.20180605131737"
-
 scratch-svg-renderer@0.2.0-prerelease.20180817005452:
   version "0.2.0-prerelease.20180817005452"
   resolved "https://registry.yarnpkg.com/scratch-svg-renderer/-/scratch-svg-renderer-0.2.0-prerelease.20180817005452.tgz#f052ecbd524a387ff64bc16cc2474c625205f34c"
@@ -10489,6 +10487,16 @@ scratch-svg-renderer@0.2.0-prerelease.20180817005452:
     jimp "0.2.27"
     minilog "3.1.0"
     scratch-render-fonts "1.0.0-prerelease.20180605131737"
+
+scratch-svg-renderer@0.2.0-prerelease.20180907141232:
+  version "0.2.0-prerelease.20180907141232"
+  resolved "https://registry.yarnpkg.com/scratch-svg-renderer/-/scratch-svg-renderer-0.2.0-prerelease.20180907141232.tgz#8553f6f42b62b4c900c940ab1f399a5a7d6de8d4"
+  dependencies:
+    base64-js "1.2.1"
+    base64-loader "1.0.0"
+    jimp "0.2.27"
+    minilog "3.1.0"
+    scratch-render-fonts "1.0.0-prerelease.20180906193204"
 
 scratch-translate-extension-languages@0.0.20180521154850:
   version "0.0.20180521154850"
