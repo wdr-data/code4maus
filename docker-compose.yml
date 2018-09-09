@@ -3,7 +3,7 @@ version: '3.5'
 services:
   entry:
     image: traefik
-    command: -c /dev/null --api --docker --docker.domain=localhost --logLevel=DEBUG
+    command: -c /dev/null --api --docker --docker.domain=localhost
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
