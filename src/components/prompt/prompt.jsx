@@ -32,7 +32,7 @@ const PromptComponent = (props) =>
                     onClick={props.onCancel}
                 >
                     <FormattedMessage
-                        defaultMessage="Cancel"
+                        defaultMessage="Abbrechen"
                         description="Button in prompt for cancelling the dialog"
                         id="gui.prompt.cancel"
                     />
