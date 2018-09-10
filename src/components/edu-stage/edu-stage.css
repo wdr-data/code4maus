@@ -1,5 +1,17 @@
 @import '../../css/colors.css';
 
+.edu-header {
+    display: flex;
+    align-items: flex-start;
+}
+
+.caption {
+    flex-grow: 1;
+    padding: .5rem 1rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
 .edu-wrapper {
     margin-top: .5em;
     flex-grow: 1;

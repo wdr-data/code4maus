@@ -14,6 +14,9 @@ import { nextSlide, previousSlide, toggleFullscreen } from '../../reducers/edu-l
 const EduStageComponent = (props) => !props.isEnabled ? null :
     <Box className={classNames(styles.eduWrapper, { [styles.fullscreen]: props.isFullscreen })}>
         <Box className={styles.eduHeader}>
+            <Box className={styles.caption}>
+                {props.caption}
+            </Box>
             <Button
                 className={styles.fullscreenButton}
                 onClick={props.toggleFullscreen}
@@ -50,6 +53,7 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
 ;
 
 EduStageComponent.propTypes = {
+    caption: PropTypes.string,
     imageSrc: PropTypes.string,
     isEnabled: PropTypes.bool,
     isFullscreen: PropTypes.bool,
@@ -61,14 +65,28 @@ EduStageComponent.propTypes = {
     toggleFullscreen: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-    slideIndex: state.scratchGui.eduLayer.index,
-    slideCount: state.scratchGui.eduLayer.size,
-    isFullscreen: state.scratchGui.eduLayer.isFullscreen,
-    isEnabled: state.scratchGui.eduLayer.enabled,
-    imageSrc: state.scratchGui.eduLayer.enabled ? state.scratchGui.eduLayer.gameSpec.slides[state.scratchGui.eduLayer.index].asset : '',
-    gameId: state.scratchGui.eduLayer.gameId,
-});
+const mapStateToProps = (state) => {
+    const base = {
+        slideIndex: state.scratchGui.eduLayer.index,
+        slideCount: state.scratchGui.eduLayer.size,
+        isFullscreen: state.scratchGui.eduLayer.isFullscreen,
+        isEnabled: state.scratchGui.eduLayer.enabled,
+        imageSrc: '',
+        gameId: state.scratchGui.eduLayer.gameId,
+        caption: '',
+    };
+
+    if (!base.isEnabled || base.slideIndex >= state.scratchGui.eduLayer.gameSpec.slides.length) {
+        return base;
+    }
+
+    const slide = state.scratchGui.eduLayer.gameSpec.slides[state.scratchGui.eduLayer.index];
+    return {
+        ...base,
+        imageSrc: slide.asset,
+        caption: slide.caption || '',
+    };
+};
 
 const mapDispatchToProps = {
     nextSlide,
