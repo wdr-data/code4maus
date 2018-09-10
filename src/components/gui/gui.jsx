@@ -24,6 +24,7 @@ import EduStage from '../edu-stage/edu-stage.jsx';
 import Input from '../forms/input.jsx';
 import Loader from '../loader/loader.jsx';
 import ModalComponent from '../modal/modal.jsx';
+import layout from '../../lib/layout-constants.js';
 
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/logo_text.png';
@@ -87,6 +88,12 @@ const GUIComponent = (props) => {
     if (isRendererSupported === null) {
         isRendererSupported = Renderer.isSupported();
     }
+
+    const stageHeight = (window.innerHeight - layout.topBarHeight - layout.stageHeaderHeight - 8) / 2;
+    const stageSize = {
+        height: stageHeight,
+        width: stageHeight * 4 / 3,
+    };
 
     return (
         <Box
@@ -247,9 +254,13 @@ const GUIComponent = (props) => {
                                         />
                                     </Button>
                                 </Box>
-                                <Box className={styles.stageAndTargetWrapper}>
+                                <Box
+                                    className={styles.stageAndTargetWrapper}
+                                    style={{ width: stageSize.width }}
+                                >
                                     <StageWrapper
                                         isRendererSupported={isRendererSupported}
+                                        stageSize={stageSize}
                                         vm={vm}
                                     />
                                     <EduStage />
