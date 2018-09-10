@@ -6,7 +6,6 @@ import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
 import ButtonPrimary from '../button-primary/button-primary.jsx';
 import styles from './edu-stage.css';
-import arrowIcon from '../gui/arrow.svg';
 import fullScreenIcon from '../fullscreen/icon--fullscreen.svg';
 import unFullScreenIcon from '../fullscreen/icon--unfullscreen.svg';
 import { connect } from 'react-redux';
@@ -54,8 +53,12 @@ EduStageComponent.propTypes = {
     imageSrc: PropTypes.string,
     isEnabled: PropTypes.bool,
     isFullscreen: PropTypes.bool,
+    gameId: PropTypes.string,
+    nextSlide: PropTypes.func.isRequired,
+    previousSlide: PropTypes.func.isRequired,
     slideCount: PropTypes.number,
     slideIndex: PropTypes.number,
+    toggleFullscreen: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
