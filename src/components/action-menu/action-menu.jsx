@@ -64,7 +64,7 @@ class ActionMenu extends React.Component {
                     className={styles.tooltip}
                     effect="solid"
                     id={mainTooltipId}
-                    place="left"
+                    place="right"
                 />
                 {!moreButtons ? null :
                     <div className={styles.moreButtons}>
@@ -102,7 +102,7 @@ class ActionMenu extends React.Component {
                                         })}
                                         effect="solid"
                                         id={tooltipId}
-                                        place="left"
+                                        place="right"
                                     />
                                 </div>
                             );

@@ -1,6 +1,6 @@
 @import "../../css/colors.css";
 
-$button-size: 4rem;
+$button-size: 3.5rem;
 
 .menu-container {
     display: flex;

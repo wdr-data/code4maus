@@ -1,12 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
-    <title>camera</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="camera" fill="#FFFFFF">
-            <path d="M10,14.5 C8.3485,14.5 7,13.1515 7,11.5 C7,9.8365 8.3485,8.5 10,8.5 C11.6635,8.5 13,9.8365 13,11.5 C13,13.1515 11.6635,14.5 10,14.5 M16,6.25 L14.95,6.25 C14.6635,6.25 14.425,6.1 14.2885,5.86 L13.2835,4.0315 C13.015,3.55 12.52,3.25 11.965,3.25 L8.05,3.25 C7.495,3.25 7,3.55 6.7285,4.0315 L5.71,5.86 C5.575,6.1 5.335,6.25 5.065,6.25 L4,6.25 C3.175,6.25 2.5,6.925 2.5,7.75 L2.5,15.25 C2.5,16.0765 3.175,16.75 4,16.75 L16,16.75 C16.825,16.75 17.5,16.0765 17.5,15.25 L17.5,7.75 C17.5,6.925 16.825,6.25 16,6.25" id="camera-icon"></path>
-        </g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="11.47"
+   height="9.35"
+   viewBox="0 0 11.47 9.35"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="icon--camera.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata14">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     id="namedview10"
+     showgrid="false"
+     inkscape:zoom="25.240641"
+     inkscape:cx="-2.1094917"
+     inkscape:cy="4.6750003"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <title
+     id="title2">Element 120</title>
+  <g
+     id="Ebene_2"
+     data-name="Ebene 2">
+    <g
+       id="Ebene_2-2"
+       data-name="Ebene 2">
+      <path
+         d="M11.46,6.36c-.07-2-.26-4.27-.66-4.74S9.58.88,7.64.81a1.77,1.77,0,0,0,0-.22V.44c0-.44,0-.47-.7-.43L4,.18C3.37.22,2.42.3,2.45.74l0,.59a6,6,0,0,0-2.19.86C-.2,3.43-.07,8.31.68,9.07a3.83,3.83,0,0,0,1.93.28c1.06,0,2.11-.06,3.17-.15,1.94-.17,3.53,0,5.4-.56C11.53,8.53,11.47,6.71,11.46,6.36Zm-6,1.34a2.83,2.83,0,0,1-2.8-2.5C2.26,3.55,2.94,2,5.12,2.39c1.45.25,2.72,1,2.81,2.5A2.66,2.66,0,0,1,5.42,7.7ZM9.28,3.58a.91.91,0,1,1,.86-1A.91.91,0,0,1,9.28,3.58Z"
+         fill="#fff"
+         id="path4"
+         style="fill:#5b84bf;fill-opacity:1" />
     </g>
+  </g>
 </svg>

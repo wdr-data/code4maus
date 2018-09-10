@@ -27,7 +27,6 @@ import addLibraryBackdropIcon from '../components/action-menu/icon--backdrop.svg
 import addLibraryCostumeIcon from '../components/action-menu/icon--sprite.svg';
 import fileUploadIcon from '../components/action-menu/icon--file-upload.svg';
 import paintIcon from '../components/action-menu/icon--paint.svg';
-import cameraIcon from '../components/action-menu/icon--camera.svg';
 import surpriseIcon from '../components/action-menu/icon--surprise.svg';
 
 import costumeLibraryContent from '../lib/libraries/costumes.json';
@@ -63,11 +62,6 @@ const messages = defineMessages({
         defaultMessage: 'Kostüm hochladen',
         description: 'Button to add a costume by uploading a file in the editor tab',
         id: 'gui.costumeTab.addFileCostume',
-    },
-    addCameraCostumeMsg: {
-        defaultMessage: 'Kamera',
-        description: 'Button to use the camera to create a costume costume in the editor tab',
-        id: 'gui.costumeTab.addCameraCostume',
     },
 });
 
@@ -248,11 +242,6 @@ class CostumeTab extends React.Component {
                         title: intl.formatMessage(addLibraryMessage),
                         img: addLibraryIcon,
                         onClick: addLibraryFunc,
-                    },
-                    {
-                        title: intl.formatMessage(messages.addCameraCostumeMsg),
-                        img: cameraIcon,
-                        onClick: onNewCostumeFromCameraClick,
                     },
                     {
                         title: intl.formatMessage(addFileMessage),

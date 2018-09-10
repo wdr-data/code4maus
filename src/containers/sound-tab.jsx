@@ -7,7 +7,6 @@ import VM from '@wdr-data/scratch-vm';
 import AssetPanel from '../components/asset-panel/asset-panel.jsx';
 import soundIcon from '../components/asset-panel/icon--sound.svg';
 import addSoundFromLibraryIcon from '../components/asset-panel/icon--add-sound-lib.svg';
-import addSoundFromRecordingIcon from '../components/asset-panel/icon--add-sound-record.svg';
 import fileUploadIcon from '../components/action-menu/icon--file-upload.svg';
 import surpriseIcon from '../components/action-menu/icon--surprise.svg';
 
@@ -154,11 +153,6 @@ class SoundTab extends React.Component {
                 description: 'Button to get a random sound in the editor tab',
                 id: 'gui.soundTab.surpriseSound',
             },
-            recordSound: {
-                defaultMessage: 'Record',
-                description: 'Button to record a sound in the editor tab',
-                id: 'gui.soundTab.recordSound',
-            },
             addSound: {
                 defaultMessage: 'Choose a Sound',
                 description: 'Button to add a sound in the editor tab',
@@ -184,10 +178,6 @@ class SoundTab extends React.Component {
                         title: intl.formatMessage(messages.surpriseSound),
                         img: surpriseIcon,
                         onClick: this.handleSurpriseSound,
-                    }, {
-                        title: intl.formatMessage(messages.recordSound),
-                        img: addSoundFromRecordingIcon,
-                        onClick: onNewSoundFromRecordingClick,
                     },
                 ]}
                 items={sounds.map((sound) => ({
