@@ -10,6 +10,7 @@ import CostumeLibrary from './costume-library.jsx';
 import BackdropLibrary from './backdrop-library.jsx';
 import CameraModal from './camera-modal.jsx';
 import { connect } from 'react-redux';
+import { emptyItem } from '../lib/default-project';
 import { handleFileUpload, costumeUpload } from '../lib/file-uploader.js';
 import errorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
 
@@ -140,9 +141,6 @@ class CostumeTab extends React.Component {
         this.props.vm.addCostume(costume.md5, costume);
     }
     handleNewBlankCostume() {
-        const emptyItem = costumeLibraryContent.find((item) =>
-            item.name === 'Empty'
-        );
         const name = this.props.vm.editingTarget.isStage ? `backdrop1` : `costume1`;
         const vmCostume = {
             name: name,

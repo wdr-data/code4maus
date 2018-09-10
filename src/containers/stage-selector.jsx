@@ -10,7 +10,7 @@ import { setHoveredSprite } from '../reducers/hovered-target';
 import StageSelectorComponent from '../components/stage-selector/stage-selector.jsx';
 
 import backdropLibraryContent from '../lib/libraries/backdrops.json';
-import costumeLibraryContent from '../lib/libraries/costumes.json';
+import { emptyItem } from '../lib/default-project';
 import { handleFileUpload, costumeUpload } from '../lib/file-uploader.js';
 
 class StageSelector extends React.Component {
@@ -53,8 +53,6 @@ class StageSelector extends React.Component {
         this.addBackdropFromLibraryItem(item);
     }
     handleEmptyBackdrop() {
-        // @todo this is brittle, will need to be refactored for localized libraries
-        const emptyItem = costumeLibraryContent.find((item) => item.name === 'Empty');
         if (emptyItem) {
             this.addBackdropFromLibraryItem(emptyItem);
         }
