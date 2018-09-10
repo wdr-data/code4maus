@@ -68,6 +68,7 @@ class Stage extends React.Component {
         this.attachMouseEvents(this.canvas);
         this.updateRect();
         this.props.vm.runtime.addListener('QUESTION', this.questionListener);
+        this.refreshWorkspace();
     }
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.width !== nextProps.width ||
@@ -84,13 +85,24 @@ class Stage extends React.Component {
             this.stopColorPickingLoop();
         }
         this.updateRect();
-        this.renderer.resize(this.rect.width, this.rect.height);
+        if (this.props.height !== prevProps.height || this.props.width !== prevProps.width) {
+            this.refreshWorkspace();
+        }
     }
     componentWillUnmount() {
         this.detachMouseEvents(this.canvas);
         this.detachRectEvents();
         this.stopColorPickingLoop();
         this.props.vm.runtime.removeListener('QUESTION', this.questionListener);
+        clearTimeout(this.toolboxUpdateTimeout);
+    }
+    refreshWorkspace() {
+        clearTimeout(this.toolboxUpdateTimeout);
+        this.toolboxUpdateTimeout = setTimeout(() => {
+            this.toolboxUpdateTimeout = false;
+            this.props.vm.refreshWorkspace();
+            window.dispatchEvent(new Event('resize'));
+        });
     }
     questionListener(question) {
         this.setState({ question: question });
@@ -416,6 +428,7 @@ const mapStateToProps = (state) => ({
     isFullScreen: state.scratchGui.mode.isFullScreen,
     // Do not use editor drag style in fullscreen or player mode.
     useEditorDragStyle: !(state.scratchGui.mode.isFullScreen || state.scratchGui.mode.isPlayerOnly),
+    vm: state.scratchGui.vm,
 });
 
 const mapDispatchToProps = (dispatch) => ({
