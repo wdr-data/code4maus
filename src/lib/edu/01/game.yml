@@ -3,7 +3,7 @@ slides:
   - asset: 000.png
     caption: "Du programmierst:"
   - asset: a.gif
-    caption: "⬅️ Zieh den Block:"
+    caption: "⬅️ Ziehe den Block:"
   - asset: a02.gif
     caption: "Vergrößern hier: ↗️:"
   - asset: bb.gif
