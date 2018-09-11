@@ -1,19 +1,53 @@
 ---
 slides:
   - asset: 000.png
-  - asset: 001.png
-    caption: "Drücke auf Start!"
-  - asset: 002.png
-    caption: "Drücke auf Stop!"
-  - asset: 003.png
+    caption: "Du programmierst:"
   - asset: a.gif
-    caption: "Jetzt du:"
+    caption: "⬅️ Zieh den Block:"
+  - asset: a02.gif
+    caption: "Vergrößern hier: ↗️:"
+  - asset: bb.gif
+    caption: "⬅️ Drücke den Block:" 
+  - asset: b.gif
+    caption: "⬅️ Noch einen dazu:"
+  - asset: c.gif
+    caption: "⬅️ Auseinander:"
+  - asset: d.gif
+    caption: "⬅️ Eine Schleife:"
+  - asset: x02.png
+    caption: "⬅️ An den Anfang:"
+  - asset: aa.gif
+    caption: "Fertig! Start ▶️"
+  - asset: f.gif
+    caption: "️️️️⬅️ Ändere:"
+  - asset: 001.png
+    caption: "Was passiert?" 
+  - asset: h.gif
+    caption: "🐢 Langsam ... "
+  - asset: x02.png
+    caption: "⬅️ Gib 0.2 ein:"
+  - asset: i.gif 
+    caption: "🐇 Schnell!"
+  - asset: x03.png
+    caption: "⬅️ Probiere herum:"
+  - asset: 002.png
+    caption: "⬆️ Wichtig: Speichern!"
+  - asset: 003.png
+    caption: "⬆️ Gespeichertes hier:"
+  - asset: 004.png
   - asset: 005.png
+    caption: "↙️ Ändere den Hintergrund:"
   - asset: 006.png
+    caption: "Weltall 👩‍🚀"
   - asset: 007.png
+    caption: "↙️ Neue Figur:"
   - asset: 008.png
+    caption: "Maus im Weltall:" 
   - asset: 009.png
+    caption: "Löschen:"
   - asset: 010.png
+  - asset: 011.png  
+
 
 blocks:
   - category: motion
@@ -28,3 +62,4 @@ blocks:
   - category: control
     blocks:
       - repeat
+      - forever

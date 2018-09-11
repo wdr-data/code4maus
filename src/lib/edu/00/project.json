@@ -12,6 +12,7 @@
             "lists": {},
             "broadcasts": {},
             "blocks": {},
+            "comments": {},
             "currentCostume": 0,
             "costumes": [
                 {
@@ -42,6 +43,7 @@
                 }
             ],
             "volume": 100,
+            "layerOrder": 0,
             "tempo": 60,
             "videoTransparency": 50,
             "videoState": "off"
@@ -53,42 +55,35 @@
             "lists": {},
             "broadcasts": {},
             "blocks": {
-                "?Rc31$|+)dsvLS7GgEIn": {
+                "pSly17lNz3S[(C,TZOVi": {
                     "opcode": "event_whenflagclicked",
-                    "next": "^60`5+kTwhfC:Pd:1|H(",
+                    "next": "-h.`h?-Y*F=g4kYnRT^$",
                     "parent": null,
                     "inputs": {},
                     "fields": {},
                     "topLevel": true,
                     "shadow": false,
-                    "x": 325,
-                    "y": 95
+                    "x": 855,
+                    "y": 204
                 },
-                "^60`5+kTwhfC:Pd:1|H(": {
-                    "opcode": "control_repeat",
+                "-h.`h?-Y*F=g4kYnRT^$": {
+                    "opcode": "control_forever",
                     "next": null,
-                    "parent": "?Rc31$|+)dsvLS7GgEIn",
+                    "parent": "pSly17lNz3S[(C,TZOVi",
                     "inputs": {
-                        "TIMES": [
-                            1,
-                            [
-                                6,
-                                "4"
-                            ]
-                        ],
                         "SUBSTACK": [
                             2,
-                            "sZoUxHplEGUC5Zx^DKt]"
+                            "]wpxpp{6E-mE6(iPfLIn"
                         ]
                     },
                     "fields": {},
                     "topLevel": false,
                     "shadow": false
                 },
-                "sZoUxHplEGUC5Zx^DKt]": {
+                "]wpxpp{6E-mE6(iPfLIn": {
                     "opcode": "motion_turnright",
-                    "next": "nt1+D$oyTB5~$y+[Xhqj",
-                    "parent": "^60`5+kTwhfC:Pd:1|H(",
+                    "next": "!!}ETkm52i5Zzb=D,ei$",
+                    "parent": "-h.`h?-Y*F=g4kYnRT^$",
                     "inputs": {
                         "DEGREES": [
                             1,
@@ -102,10 +97,10 @@
                     "topLevel": false,
                     "shadow": false
                 },
-                "nt1+D$oyTB5~$y+[Xhqj": {
+                "!!}ETkm52i5Zzb=D,ei$": {
                     "opcode": "motion_glideto",
                     "next": null,
-                    "parent": "sZoUxHplEGUC5Zx^DKt]",
+                    "parent": "]wpxpp{6E-mE6(iPfLIn",
                     "inputs": {
                         "SECS": [
                             1,
@@ -116,17 +111,17 @@
                         ],
                         "TO": [
                             1,
-                            "B(),;AsdpT*lxg1xdf)$"
+                            "o@HRhcO@DHB/Igg.G./c"
                         ]
                     },
                     "fields": {},
                     "topLevel": false,
                     "shadow": false
                 },
-                "B(),;AsdpT*lxg1xdf)$": {
+                "o@HRhcO@DHB/Igg.G./c": {
                     "opcode": "motion_glideto_menu",
                     "next": null,
-                    "parent": "nt1+D$oyTB5~$y+[Xhqj",
+                    "parent": "!!}ETkm52i5Zzb=D,ei$",
                     "inputs": {},
                     "fields": {
                         "TO": [
@@ -137,6 +132,7 @@
                     "shadow": true
                 }
             },
+            "comments": {},
             "currentCostume": 0,
             "costumes": [
                 {
@@ -170,18 +166,20 @@
                 }
             ],
             "volume": 100,
+            "layerOrder": 1,
             "visible": true,
-            "x": 59,
-            "y": -18,
+            "x": -6,
+            "y": -33.27351485,
             "size": 100,
             "direction": 90,
             "draggable": false,
             "rotationStyle": "all around"
         }
     ],
+    "extensions": [],
     "meta": {
         "semver": "3.0.0",
-        "vm": "0.1.0-minimal-1",
+        "vm": "0.2.0-minimal-1",
         "agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
     }
 }

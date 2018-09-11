@@ -1,8 +1,11 @@
 ---
 slides:
-  - asset: 01.png
-  - asset: 02.png
-  - asset: 03.png
+  - asset: 000.png
+  - asset: 001.png
+    caption: "Starte mit ▶️:"
+  - asset: 002.png
+    caption: "Stoppe mit ⏹️:"
+  - asset: 003.png
 
 blocks:
   - category: motion
@@ -17,3 +20,4 @@ blocks:
   - category: control
     blocks:
       - repeat
+      - forever
