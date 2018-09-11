@@ -5,8 +5,7 @@ import debounce from 'lodash.debounce';
 import log from './log';
 import storage from './storage';
 import { connect } from 'react-redux';
-import { setProjectName, setProjectId } from '../reducers/project';
-import { Views } from './routing';
+import { setProjectName } from '../reducers/project';
 
 /* Higher Order Component to provide behavior for loading projects by id from
  * the window's hash (#this part in the url) or by projectId prop passed in from
@@ -27,27 +26,11 @@ const ProjectLoaderHOC = function(WrappedComponent) {
             this.loadProject = debounce(this.loadProject.bind(this), 2000, { leading: true, trailing: false });
         }
         async componentDidMount() {
-            if (this.props.router.view === Views.project && this.props.router.params.projectId) {
-                this.props.setProjectId(this.props.router.params.projectId);
-                return;
-            }
-            if (this.props.router.isNewProject) {
-                this.props.setProjectId(0);
-                return;
-            }
             this.loadProject(this.props.projectId || 0);
         }
         componentDidUpdate(prevProps) {
             if (prevProps.projectId !== this.props.projectId) {
                 this.loadProject(this.props.projectId || 0);
-            }
-
-            const shouldGetProjectFromUrl =
-                this.props.router.view === Views.project &&
-                this.props.router.params.projectId &&
-                prevProps.router.params.projectId !== this.props.router.params.projectId;
-            if (shouldGetProjectFromUrl) {
-                this.props.setProjectId(this.props.router.params.projectId);
             }
         }
         loadProject(id) {
@@ -73,7 +56,6 @@ const ProjectLoaderHOC = function(WrappedComponent) {
             const {
                 projectId,
                 setProjectName,
-                setProjectId,
                 ...componentProps
             } = this.props;
             /* eslint-enable */
@@ -88,28 +70,15 @@ const ProjectLoaderHOC = function(WrappedComponent) {
     }
     ProjectLoaderComponent.propTypes = {
         projectId: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
-        router: PropTypes.shape({
-            view: PropTypes.string.isRequired,
-            params: PropTypes.object,
-            isNewProject: PropTypes.bool,
-        }),
         setProjectName: PropTypes.func.isRequired,
-        setProjectId: PropTypes.func.isRequired,
     };
 
     return connect(
         (state) => ({
-            vm: state.scratchGui.vm,
             projectId: state.scratchGui.project.id,
-            router: {
-                view: state.router.result ? state.router.result.view : '',
-                isNewProject: !!(state.router.result || {}).newProject,
-                params: state.router.params || {},
-            },
         }),
         (dispatch) => ({
             setProjectName: (name) => dispatch(setProjectName(name)),
-            setProjectId: (projectId) => dispatch(setProjectId(projectId)),
         }),
     )(ProjectLoaderComponent);
 };

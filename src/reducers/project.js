@@ -49,12 +49,18 @@ export default function(state = initialState, action) {
             customBlocks: action.gameSpec.blocks || null,
         };
     case LOCATION_CHANGED:
-        if (action.payload.result.view === Views.project || action.payload.result.view === Views.edu) {
+        if (action.payload.result.view !== Views.project) {
             return state;
+        }
+        if ((action.payload.result || {}).newProject) {
+            return {
+                ...state,
+                id: 0,
+            };
         }
         return {
             ...state,
-            customBlocks: null,
+            id: action.payload.params.projectId,
         };
     default:
         return state;
