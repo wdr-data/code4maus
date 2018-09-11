@@ -3,13 +3,13 @@ slides:
   - asset: 000.png
     caption: "Du programmierst:"
   - asset: a.gif
-    caption: "⬅️ Ziehe den Block:"
+    caption: "⬅️ Ziehe den Block rüber:"
   - asset: a02.gif
-    caption: "Vergrößern hier: ↗️:"
-  - asset: bb.gif
-    caption: "⬅️ Drücke den Block:" 
+    caption: "Vergrößern geht hier: ➡️"
   - asset: b.gif
-    caption: "⬅️ Noch einen dazu:"
+    caption: "⬅️ Drücke mal drauf:" 
+  - asset: b.gif
+    caption: "⬅️ Ziehe noch einen rüber:"
   - asset: c.gif
     caption: "⬅️ Auseinander:"
   - asset: d.gif
@@ -30,10 +30,6 @@ slides:
     caption: "🐇 Schnell!"
   - asset: x03.png
     caption: "⬅️ Probiere herum:"
-  - asset: 002.png
-    caption: "⬆️ Wichtig: Speichern!"
-  - asset: 003.png
-    caption: "⬆️ Gespeichertes hier:"
   - asset: 004.png
   - asset: 005.png
     caption: "↙️ Ändere den Hintergrund:"
@@ -46,6 +42,10 @@ slides:
   - asset: 009.png
     caption: "Löschen:"
   - asset: 010.png
+  - asset: 002.png
+    caption: "⬆️ Wichtig: Speichern!"
+  - asset: 003.png
+    caption: "⬆️ Deine Sachen hier:"
   - asset: 011.png  
 
 
