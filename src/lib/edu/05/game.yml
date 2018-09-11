@@ -26,6 +26,8 @@ slides:
   - asset: 023.png
   - asset: 024.png
   - asset: 025.png
+  - asset: 026.png
+  - asset: 027.png
 
 blocks:
   - category: motion

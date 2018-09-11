@@ -1,5 +1,15 @@
 export default [
     {
+        id: '00',
+        name: 'Hallo Welt',
+        subtitle: '00 Erste Schritte',
+    },
+    {
+        id: '01',
+        name: 'Die Weltraum-Maus',
+        subtitle: '01 Bewegung',
+    },
+    {
         id: '02',
         name: 'Die Maus blinzelt',
         subtitle: '02 Trickfilm',
