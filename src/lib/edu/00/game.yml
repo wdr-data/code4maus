@@ -1,10 +1,10 @@
 ---
 slides:
   - asset: 000.png
-  - asset: 001.png
-    caption: "Starte mit ▶️:"
-  - asset: 002.png
-    caption: "Stoppe mit ⏹️:"
+  - asset: a.gif
+    caption: "Starte mit:"
+  - asset: b.gif
+    caption: "Stoppe mit:"
   - asset: 003.png
 
 blocks:
