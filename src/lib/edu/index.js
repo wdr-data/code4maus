@@ -1,10 +1,5 @@
 export default [
     {
-        id: '01',
-        name: 'Die Weltraum-Maus',
-        subtitle: '01 Bewegung',
-    },
-    {
         id: '02',
         name: 'Die Maus blinzelt',
         subtitle: '02 Trickfilm',
@@ -16,7 +11,12 @@ export default [
     },
     {
         id: '04',
-        name: 'Wimmelbild',
+        name: 'Wimmelbild mit Elefant und Ente',
         subtitle: '04 Mehr Figuren',
+    },
+    {
+        id: '05',
+        name: 'Wurst im Weltraum',
+        subtitle: '01 Bewegung',
     },
 ];
