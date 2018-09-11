@@ -22,8 +22,6 @@ const ProjectLoaderHOC = function(WrappedComponent) {
                 projectData: null,
                 fetchingProject: true,
             };
-
-            this.loadProject = debounce(this.loadProject.bind(this), 2000, { leading: true, trailing: false });
         }
         async componentDidMount() {
             this.loadProject(this.props.projectId || 0);
