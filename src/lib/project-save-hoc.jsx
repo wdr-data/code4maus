@@ -100,18 +100,27 @@ const ProjectSaveHOC = (WrappedComponent) => {
                 payload.id = this.props.projectId;
             }
 
-            const res = await (await fetch('/api/saveProject', {
+            const res = await fetch('/api/saveProject', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(payload),
-            })).json();
+            });
+            let resObj = null;
+            try {
+                resObj = await res.json();
+            } catch (e) {
+                throw new Error(`Saving failed: ${await res.text()}`);
+            }
+            if (!res.ok) {
+                throw new Error(`Saving failed: ${resObj.error}`);
+            }
 
             this.props.dispatch(setProjectName(this.state.nameInput));
-            this.props.dispatch(setProjectId(res.id));
-            this.props.dispatch(push(projectUrl(res.id)));
+            this.props.dispatch(setProjectId(resObj.id));
+            this.props.dispatch(push(projectUrl(resObj.id)));
         }
         setError(text) {
             this.setState({ error: text });
