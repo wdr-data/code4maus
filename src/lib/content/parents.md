@@ -6,8 +6,24 @@ splitSections: true
 
 Die Welt wird digitaler. Programmieren ist in dieser Welt eine Grundfertigkeit, um selbst aktiv werden, mitgestalten und auch Kritik üben zu können. Bei **Programmieren mit der Maus** programmieren Kinder Schritt für Schritt erste eigene Bildergeschichten und kleine Spiele. Dabei lernen sie Variablen, Schleifen und Verzweigungen kennen.
 
+## FAQ 
+
+#### Welche Geräte werden unterstützt? 
+**Desktop**
+Chrome (63+)
+Edge (15+)
+Firefox (57+)
+Safari (11+)
+Internet Explorer wird NICHT unterstützt.
+
+**Tablet**
+Mobile Chrome (62+)
+Mobile Safari (11+)
+
+**Smartphones** werden nicht unterstützt.
+
 ## Digitalisierung im KiKa
-Ende September 2018 findet im KiKa ein Themenschwerpunkt **Digitalisierung** statt. Die **Sendung mit der Maus** nimmt den Tag zum Anlass, um diese Web-Anwendung zu veröffentlichen, die Kinder spielerisch an Grundkonzepte des Programmierens heranführt.
+Ende September 2018 findet im KiKa ein Themenschwerpunkt **Digitalisierung** statt. Die **Sendung mit der Maus** veröffentlicht dabei diese Web-Anwendung, die Kinder spielerisch an Grundkonzepte des Programmierens heranführt.
 
 ## Warum Programmieren für Kinder?
 - Technologiegetriebener Wandel bestimmt die gesellschaftliche Entwicklung in großem Maße. Große Teile der Gesellschaft haben aber kaum aktiven Anteil an der Gestaltung dieses Wandels.
@@ -38,26 +54,16 @@ Denkbar ist zum Beispiel Material für Lehrerinnen und Fachkräfte im offenen Ga
 
 Konzept, Programmierung: Patricia Ennenbach, Christine Gotthardt, Marcus Weiner
 
-Design: Machbar
+Design: Andreas Feischen, Daniel Barthelme, Sarah Heller (Machbar), Daniel Blanke
 
-
-## Info für Eltern zur den Lernspielen
-
-### 01 Starthilfe
-
-Im ersten Lernspiel werden die Grundlagen der Benutzeroberfläche erklärt und die Kinder schreiben ihr erstes Programm.
-
-[Anleitung01 als .pdf zum Download]()
-
-### 02 Thema
-[Anleitung02 als .pdf zum Download]()
-
-### 03 Anderes Thema
-[Anleitung03 als .pdf zum Download]()
+Redaktion: Matthias Körnich, Petra Chronz 
+Projektsteuerung und Einkauf: Oliver Schwarz, Torsten Fischer
 
 ### Credits
-Danke an den Lifelong Kindergarden des MIT ohne Scratch wäre Programmieren mit der Maus nicht möglich: [beta.scratch.mit.edu](beta.scratch.mit.edu)
+Danke an den Lifelong Kindergarden des MIT - ohne Scratch wäre Programmieren mit der Maus nicht möglich: beta.scratch.mit.edu
 
-Ein Dank auch an das deutschsprachige Scratch-Wiki und alle die **Programmieren mit der Maus** testen: [https://scratch-dach.info/wiki/Hauptseite]()
+Ein Dank auch an das deutschsprachige Scratch-Wiki und alle die **Programmieren mit der Maus** testen: https://scratch-dach.info/wiki/Hauptseite
 
-Einige Töne sind unter CC 0 Lizenz von hier übernommen, Danke dafür: [https://freesound.org/]([https://freesound.org/])
+Einige Töne sind unter CC 0 Lizenz von hier übernommen, Danke dafür: https://freesound.org
+
+### Credits für die Beispiele 
