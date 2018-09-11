@@ -1,6 +1,7 @@
 import initS3 from './lib/s3';
 
-const s3 = initS3();
+const customEndpoint = 'STORAGE_ENDPOINT_FRONTEND' in process.env ? process.env.STORAGE_ENDPOINT_FRONTEND : null;
+const s3 = initS3(customEndpoint);
 
 export const handler = async (event, context, callback) => {
     const { filename } = JSON.parse(event.body);
@@ -18,12 +19,13 @@ export const handler = async (event, context, callback) => {
     }
 
     const params = {
+        Bucket: process.env.STORAGE_BUCKET || process.env.S3_BUCKET_PROJECTS,
         Key: `assets/${filename}`,
     };
 
     // check for existence of asset
     try {
-        const assetExists = await s3.headObject(params).promise();
+        await s3.headObject(params).promise();
         callback(null, {
             statusCode: 409,
             headers: {

@@ -29,6 +29,10 @@ services:
     image: node:alpine
     command: /src/node_modules/.bin/yarn start:backend -o 0.0.0.0
     working_dir: /src
+    environment:
+      STORAGE_ENDPOINT: http://storage:9000
+      STORAGE_ENDPOINT_FRONTEND: http://localhost:9000
+      STORAGE_BUCKET: data
     volumes:
       - ".:/src"
     labels:
@@ -42,6 +46,8 @@ services:
     environment:
       MINIO_ACCESS_KEY: shaiChotufuochizi7ei
       MINIO_SECRET_KEY: thaacooG9iequeexooreiKoh9daihoo8ta0aifoh1ChahBi1ko
+    ports:
+      - "9000:9000"
     labels:
       traefik.port: 9000
       traefik.frontend.rule: Host:localhost;PathPrefix:/data/

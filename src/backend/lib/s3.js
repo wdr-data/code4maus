@@ -2,7 +2,7 @@ import AWS from 'aws-sdk';
 
 let options = {
     params: {
-        Bucket: process.env.S3_BUCKET_PROJECTS,
+        Bucket: process.env.STORAGE_BUCKET || process.env.S3_BUCKET_PROJECTS,
     },
 };
 
@@ -22,18 +22,21 @@ if ('FUNCTIONS_AWS_REGION' in process.env) {
     };
 }
 
-if ('USE_MINIO'in process.env && process.env.USE_MINIO === '1') {
+if ('STORAGE_ENDPOINT' in process.env) {
     options = {
         ...options,
-        endpoint: 'http://localhost:9000',
+        endpoint: process.env.STORAGE_ENDPOINT,
         s3ForcePathStyle: true,
         signatureVersion: 'v4',
-        params: {
-            Bucket: 'data',
-        },
     };
 }
 
-export default function() {
+export default function(endpoint = null) {
+    if (endpoint !== null) {
+        options = {
+            ...options,
+            endpoint,
+        };
+    }
     return new AWS.S3(options);
 }
