@@ -96,7 +96,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
                 name: this.state.nameInput,
                 userId: this.props.userId,
             };
-            if (this.props.projectId) {
+            if (this.props.projectId && !this.props.isEduGame) {
                 payload.id = this.props.projectId;
             }
 
@@ -129,6 +129,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
         render() {
             /* eslint-disable no-unused-vars */
             const {
+                isEduGame,
                 projectId,
                 projectName,
                 dispatch,
@@ -151,6 +152,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
     }
 
     return connect((state) => ({
+        isEduGame: state.scratchGui.eduLayer.enabled,
         projectId: state.scratchGui.project.id,
         projectName: state.scratchGui.project.name,
         userId: state.scratchGui.project.userId,
