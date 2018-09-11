@@ -1,6 +1,6 @@
 [
     {
-        "name": "Beat",
+        "name": "Disko",
         "md5": "88bd474932b76c51058cb7e718f9a63a.mp3",
         "sampleCount": 316416,
         "rate": 44100,
@@ -100,7 +100,7 @@
         ]
     },
     {
-        "name": "Space",
+        "name": "Weltall",
         "md5": "19ee12af2e5fc48d689cadb3b45fde7a.mp3",
         "sampleCount": 159396,
         "rate": 44100,
@@ -127,16 +127,6 @@
         "format": "mp3",
         "tags": [
             "geräusche"
-        ]
-    },
-    {
-        "name": "Boings",
-        "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
-        "sampleCount": 99328,
-        "rate": 44100,
-        "format": "mp3",
-        "tags": [
-            "töne"
         ]
     }
 ]
