@@ -79,7 +79,7 @@ export const MenuComponent = (props) => {
                             <Box className={styles.tabContent}>
                                 <InlineSVG svg={tabIconProjects} className={styles.tabIcon} />
                                 <FormattedMessage
-                                    defaultMessage="Selber machen"
+                                    defaultMessage="Meine Sachen"
                                     id="gui.gui.games"
                                 />
                             </Box>
