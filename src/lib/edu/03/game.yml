@@ -1,28 +1,25 @@
 ---
+
 slides:
   - asset: 000.png
+  - asset: ton.png
+    caption: "Als erstes: Töne!"
   - asset: 001.png
-  - asset: 002.png
-  - asset: b.gif
-  - asset: 003.png
-  - asset: 004.png
-  - asset: 005.png
-  - asset: 006.png
-  - asset: a.gif
-  - asset: 007.png
-  - asset: 008.png
-  - asset: 009.png
-  - asset: 010.png
-  - asset: 011.png
-  - asset: 012.png
-  - asset: 013.png
-  - asset: 014.png
-  - asset: 015.png
-  - asset: 016.png
-  - asset: 017.png
-  - asset: 018.png
-  - asset: 019.png
-  - asset: 020.png
+    caption: "+ Neuer Ton: Disko"
+  - asset: x002.png
+    caption: "Baue das Musik-Programm:"
+  - asset: x003.png
+    caption: "Klicke in den Block:"
+  - asset: start.png
+    caption: "Starte die Disko:"
+  - asset: stop.png
+    caption: "Tipp: Stoppe mit:"
+  - asset: 
+    caption: 
+  - asset: 
+    caption: 
+  - asset: 
+    caption: 
 
 blocks:
   - category: motion
