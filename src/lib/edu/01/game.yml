@@ -15,7 +15,7 @@ slides:
   - asset: n006.gif
     caption: "⬅️ Eine Schleife darum:"
   - asset: x02.png
-    caption: "⬅️ An den Anfang:"
+    caption: "⬅️ Setze an den Anfang:"
   - asset: a.gif
     caption: "Fertig! Start:"
   - asset: n007.gif
@@ -30,18 +30,20 @@ slides:
     caption: "🐇 Schnell!"
   - asset: x03.png
     caption: "⬅️ Probiere herum:"
-  - asset: 004.png
-  - asset: 007.png
+  - asset: 001.png
+  - asset: 002.png
   - asset: n008.gif
     caption: "🔃 Hintergrund: Weltall"
+  - asset: 003.png
+    caption: "Zurück zu Maus:" 
   - asset: n009.gif
     caption: " Kostüm: Maus im Weltall"
-  - asset: 004.png
+  - asset: 001.png
   - asset: n010.gif
     caption: "⬆️ Wichtig: Speichern!"
   - asset: n011.gif
     caption: "⬆️ Deine Sachen hier:"
-  - asset: 007.png
+  - asset: 002.png
 
 
 blocks:
