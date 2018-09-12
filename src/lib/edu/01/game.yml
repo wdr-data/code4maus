@@ -13,7 +13,7 @@ slides:
   - asset: n005.gif
     caption: "⬅ Setze diesen Block dazu:"
   - asset: n006.gif
-    caption: "⬅️ Eine Schleife:"
+    caption: "⬅️ Eine Schleife darum:"
   - asset: x02.png
     caption: "⬅️ An den Anfang:"
   - asset: a.gif
@@ -22,25 +22,26 @@ slides:
     caption: "️️️️⬅️ Ändere:"
   - asset: 001.png
     caption: "Was passiert?" 
-  - asset: h.gif
+  - asset: n012.gif
     caption: "🐢 Langsam ... "
   - asset: x02.png
     caption: "⬅️ Gib 0.2 ein:"
-  - asset: i.gif 
+  - asset: n013.gif 
     caption: "🐇 Schnell!"
   - asset: x03.png
     caption: "⬅️ Probiere herum:"
   - asset: 004.png
-  - asset: 005.png
-    caption: "↙️ Hintergrund: Weltall 👩‍🚀"
   - asset: 007.png
-    caption: " ↖️️ Kostüm: Maus im Weltall"
-  - asset: 010.png
-  - asset: 002.png
+  - asset: n008.gif
+    caption: "🔃 Hintergrund: Weltall"
+  - asset: n009.gif
+    caption: " Kostüm: Maus im Weltall"
+  - asset: 004.png
+  - asset: n010.gif
     caption: "⬆️ Wichtig: Speichern!"
-  - asset: 003.png
+  - asset: n011.gif
     caption: "⬆️ Deine Sachen hier:"
-  - asset: 011.png
+  - asset: 007.png
 
 
 blocks:

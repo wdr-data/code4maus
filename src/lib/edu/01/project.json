@@ -12,6 +12,7 @@
             "lists": {},
             "broadcasts": {},
             "blocks": {},
+            "comments": {},
             "currentCostume": 0,
             "costumes": [
                 {
@@ -29,6 +30,15 @@
                     "dataFormat": "jpg",
                     "rotationCenterX": 480,
                     "rotationCenterY": 360
+                },
+                {
+                    "assetId": "bea568d0b736f0a365cb41e7d05f8100",
+                    "name": "Weltall",
+                    "bitmapResolution": 2,
+                    "md5ext": "bea568d0b736f0a365cb41e7d05f8100.jpg",
+                    "dataFormat": "jpg",
+                    "rotationCenterX": 480,
+                    "rotationCenterY": 360
                 }
             ],
             "sounds": [
@@ -42,6 +52,7 @@
                 }
             ],
             "volume": 100,
+            "layerOrder": 0,
             "tempo": 60,
             "videoTransparency": 50,
             "videoState": "off"
@@ -53,6 +64,7 @@
             "lists": {},
             "broadcasts": {},
             "blocks": {},
+            "comments": {},
             "currentCostume": 0,
             "costumes": [
                 {
@@ -86,18 +98,20 @@
                 }
             ],
             "volume": 100,
+            "layerOrder": 1,
             "visible": true,
-            "x": -6,
-            "y": -33.27351485,
+            "x": 80.30304996,
+            "y": -16.78094549,
             "size": 100,
             "direction": 90,
             "draggable": false,
             "rotationStyle": "all around"
         }
     ],
+    "extensions": [],
     "meta": {
         "semver": "3.0.0",
-        "vm": "0.1.0-minimal-1",
+        "vm": "0.2.0-minimal-1",
         "agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
     }
 }
