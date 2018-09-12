@@ -2,23 +2,23 @@
 slides:
   - asset: 000.png
     caption: "Du programmierst:"
-  - asset: a.gif
+  - asset: n001.gif
     caption: "⬅️ Ziehe den Block rüber:"
-  - asset: b.gif
+  - asset: n002.gif
     caption: "⬅️ Drücke mal drauf:" 
-  - asset: c.gif
+  - asset: n003.gif
     caption: "⬅️ Ziehe noch einen rüber:"
-  - asset: c.gif
-    caption: "⬅️ Falsch. 🙁 Lösche wieder:"
-  - asset: c.gif
+  - asset: n004.gif
+    caption: "⬅️ Nicht richtig? Lösche:"
+  - asset: n005.gif
     caption: "⬅ Setze diesen Block dazu:"
-  - asset: d.gif
+  - asset: n006.gif
     caption: "⬅️ Eine Schleife:"
   - asset: x02.png
     caption: "⬅️ An den Anfang:"
-  - asset: aa.gif
+  - asset: a.gif
     caption: "Fertig! Start:"
-  - asset: f.gif
+  - asset: n007.gif
     caption: "️️️️⬅️ Ändere:"
   - asset: 001.png
     caption: "Was passiert?" 
@@ -32,9 +32,9 @@ slides:
     caption: "⬅️ Probiere herum:"
   - asset: 004.png
   - asset: 005.png
-    caption: "↙️ Ändere Hintergrund: Weltall 👩‍🚀"
+    caption: "↙️ Hintergrund: Weltall 👩‍🚀"
   - asset: 007.png
-    caption: " ↖️️ Neues Kostüm: Maus im Weltall"
+    caption: " ↖️️ Kostüm: Maus im Weltall"
   - asset: 010.png
   - asset: 002.png
     caption: "⬆️ Wichtig: Speichern!"
