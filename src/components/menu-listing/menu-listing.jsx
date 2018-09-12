@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'redux-little-router';
 
 import styles from './menu-listing.css';
+import defaultImage from '../../../assets/img/head_logo.png'
 
 const MenuListingComponent = (props) =>
     props.projects.map((project) => (
@@ -11,9 +12,11 @@ const MenuListingComponent = (props) =>
             key={project.key}
             className={styles.projectWrapper}
         >
-            {project.image && <img src={project.image} />}
             <span className={styles.title}>
                 {project.title}
+            </span>
+            <span className={styles.image}>
+                {project.image ? <img src={project.image} /> : <img src={defaultImage} />}
             </span>
             <span className={styles.note}>
                 {project.note}
@@ -26,7 +29,7 @@ export const SHAPE_PROJECT = {
     key: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     note: PropTypes.string,
-    image: PropTypes.string,
+    image: PropTypes.boolean,
     linkTo: PropTypes.string.isRequired,
 };
 

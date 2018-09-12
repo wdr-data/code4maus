@@ -29,6 +29,7 @@ class Menu extends React.Component {
             title: game.name,
             note: game.subtitle,
             linkTo: `/lernspiel/${game.id}`,
+            image: game.image,
         })));
 
         this.state = {
