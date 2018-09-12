@@ -10,12 +10,11 @@ const WelcomeScreenComponent = (props) => (
     <LogoOverlay>
         <div className={styles.wrapper}>
             <div className={styles.innerWrapper}>
-                <p>Willkommen zu <strong>Programmieren mit der Maus.</strong></p>
+                <p>Willkommen zu <strong>Programmieren mit der Maus</strong></p>
                 <p>
-                    Die Welt wird digitaler. Programmieren ist in dieser Welt eine Grundfertigkeit,
-                    um selbst aktiv werden, mitgestalten und auch Kritik üben zu können. Mit dieser
-                    Anwendung programmieren Kinder Schritt für Schritt erste eigene Bildergeschichten
-                    und kleine Spiele. Dabei lernen sie Variablen, Schleifen und Verzweigungen kennen.
+                Hier lernst du Schritt für Schritt Bildergeschichten 
+                und Spiele mit der Maus zu programmieren.
+                Viel Spaß!
                 </p>
             </div>
             <div className={styles.buttonWrapper}>
