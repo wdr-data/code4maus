@@ -1,0 +1,29 @@
+---
+slides:
+  - asset: 000.png
+  - asset: 001.png
+  - asset: 002.png
+  
+
+blocks:
+  - category: motion
+    blocks:
+      - turnright
+      - turnleft
+      - --
+      - glideto
+  - category: looks
+    blocks:
+      - nextcostume
+  - category: sound
+    blocks:
+      - playuntildone
+  - category: events
+    blocks:
+      - whenflagclicked
+      - whenthisspriteclicked
+  - category: control
+    blocks:
+      - wait
+      - repeat
+      - forever
