@@ -1,21 +1,30 @@
 ---
 slides:
   - asset: 000.png
+  - asset: x001.png
+    caption: "⬅️ Ziehe diesen Block:" 
   - asset: 001.png
-  - asset: a.gif
+    caption: "Drücke mal drauf:"
   - asset: 002.png
-  - asset: 003.png
-  - asset: 004.png
-  - asset: 005.png
+    caption: "Was macht die Maus?"
+  - asset: d.gif
+  - asset: 002.png
+    caption: "Wie geht das?"
   - asset: c.gif
-  - asset: 006.png
-  - asset: 007.png
-  - asset: 008.png
-  - asset: 009.png
+    caption: "Guck mal unter Kostüme:"
+  - asset: x002.png
+    caption: "⬅️ Baue dieses Programm:"
+  - asset: x003.png
+    caption: "⬅️ Ändere:"  
+  - asset: 003.png 
+    caption: "Teste dein Programm:"
   - asset: b.gif
-  - asset: 010.png
-  - asset: 011.png  
-  - asset: 012.png
+    caption: "Ton an und abspielen:"
+  - asset: x004.png
+    caption: "⬅️ Das Programm für den Ton:"
+  - asset: x005.png
+    caption: "⬅️ Ändere"
+  - asset: 004.png
 
 blocks:
   - category: motion
