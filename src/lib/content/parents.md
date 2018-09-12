@@ -40,13 +40,13 @@ Ende September 2018 findet im KiKa ein Themenschwerpunkt **Digitalisierung** sta
 
 ## Umsetzung
 - Vorbild und Grundlage ist die grafische Programmiersprache **Scratch des MIT Lifelong Kindergarden** (Flash basiert)
-- Das MIT entwickelt Version 3 dieser grafischen Programmiersprache. Die neue Anwendung ermöglicht es, Scratch auch auf Tablets zu benutzen. Die Ausspielung für Smartphones ist derzeit nicht Teil des Projektes. Eine Vorschau davon ist hier zu finden: [https://preview.scratch.mit.edu](https://preview.scratch.mit.edu)
+- Das MIT entwickelt Version 3 dieser grafischen Programmiersprache. Die neue Anwendung ermöglicht es, Scratch auch auf Tablets zu benutzen. Die Ausspielung für Smartphones ist derzeit nicht Teil des Projektes. Eine Vorschau davon ist hier zu finden: https://beta.scratch.mit.edu
 - Scratch ist Open Source Software. Deshalb konnten wir eine WDR-Version von Scratch 3 erstellen und sie in den Punkten Design, Figuren und Sounds der Sendung mit der Maus anpassen.
 
 ## Vision
 Wir erhoffen uns durch **Programmieren mit der Maus mehr** Kinder spielerisch für das Thema zu begeistern. Dabei ist vor allem wichtig, die selbstbestimmte Mediennutzung zu fördern: Selbermachen statt konsumieren.
 
-Auch **Programmieren mit der Maus** ist Open Source. Das heißt, dass der Code von Personen, Firmen, Vereinen genutzt, angepasst und weiter entwickelt werden kann. Verfügbar ist der Quelltext hier: [https://github.com/wdr-data/code4maus](https://github.com/wdr-data/code4maus)
+Auch **Programmieren mit der Maus** ist **Open Source**. Das heißt, dass der Code von Personen, Firmen, Vereinen genutzt, angepasst und weiter entwickelt werden kann. Verfügbar ist der Quelltext hier: https://github.com/wdr-data/code4maus
 
 Denkbar ist zum Beispiel Material für Lehrerinnen und Fachkräfte im offenen Ganztag zu entwickeln. Kurse, AGs, Schulclubs für Kinder zum Thema **Programmieren mit der Maus** sind möglich. Scratch veranstaltet auch regelmäßig so genannte Scratch-Days, bei denen sich Kinder treffen und ihr Wissen und ihre Projekte austauschen.
 
@@ -67,3 +67,19 @@ Ein Dank auch an das deutschsprachige Scratch-Wiki und alle die **Programmieren 
 Einige Töne sind unter CC 0 Lizenz von hier übernommen, Danke dafür: https://freesound.org
 
 ### Credits für die Beispiele 
+
+
+### Copyright
+
+© WDR 2018 - Alle Figuren und Sounds aus der Sendung mit der Maus sind urheberrechtlich geschützt. [https://www.wdrmaus.de/copyright.php5](https://www.wdrmaus.de/copyright.php5) 
+
+Die Anwendung basiert auf "Scratch", einem Projekt des MIT Media Lab. 
+Es gelten diese Lizenz-Bedingungen: 
+https://en.scratch-wiki.info/wiki/Scratch_Source_Code_License
+https://github.com/LLK/scratch-flash/blob/master/COPYING
+
+Der vom WDR-modifizierte Programmcode steht unter 
+https://github.com/wdr-data/code4maus Open Source zur Verfügung.
+
+
+
