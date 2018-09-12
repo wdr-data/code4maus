@@ -1,9 +1,24 @@
 ---
 slides:
   - asset: 000.png
+  - asset: ton.png
+    caption: "Als erstes: Musik an!"
   - asset: 001.png
-  - asset: 002.png
-  
+    caption: "Neuer Ton: Disko"
+  - asset: x02.png
+    caption: "Baue das Musik-Programm:"
+  - asset: x03.png
+    caption: "Klicke in den Block:"
+  - asset: start.png
+    caption: "Starte die Disko:"
+  - asset: stop.png
+    caption: "Tipp: Stoppe mit:"
+  - asset: 
+    caption: 
+  - asset: 
+    caption: 
+  - asset: 
+    caption: 
 
 blocks:
   - category: motion

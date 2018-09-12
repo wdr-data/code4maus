@@ -19,19 +19,19 @@ export default [
     },
     {
         id: '03',
-        name: 'Tanz, Maus, tanz!',
+        name: 'Die Maus tanzt!',
         subtitle: '03 Schleifen',
         image: '../edu/03/assets/000.png',
     },
     {
         id: '04',
-        name: 'Wimmelbild mit Elefant und Ente',
+        name: 'Wimmelbild',
         subtitle: '04 Mehr Figuren',
         image: '../edu/04/assets/000.png',
     },
     {
         id: '05',
-        name: 'Wurst im Weltraum',
+        name: 'Kugelfisch',
         subtitle: '01 Bewegung',
         image: '../edu/05/assets/000.png',
     },

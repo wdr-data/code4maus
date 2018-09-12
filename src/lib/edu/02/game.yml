@@ -2,7 +2,7 @@
 slides:
   - asset: 000.png
   - asset: x001.png
-    caption: "⬅️ Ziehe diesen Block:" 
+    caption: "⬅ Ziehe diesen Block:" 
   - asset: 001.png
     caption: "Drücke mal drauf:"
   - asset: 002.png
@@ -13,17 +13,17 @@ slides:
   - asset: c.gif
     caption: "Guck mal unter Kostüme:"
   - asset: x002.png
-    caption: "⬅️ Baue dieses Programm:"
+    caption: "⬅ Baue dieses Programm:"
   - asset: x003.png
-    caption: "⬅️ Ändere:"  
+    caption: "⬅ Ändere:"  
   - asset: 003.png 
     caption: "Teste dein Programm:"
   - asset: b.gif
     caption: "Ton an und abspielen:"
   - asset: x004.png
-    caption: "⬅️ Das Programm für den Ton:"
+    caption: "⬅ Das Programm für den Ton:"
   - asset: x005.png
-    caption: "⬅️ Ändere"
+    caption: "⬅ Ändere"
   - asset: 004.png
 
 blocks:
