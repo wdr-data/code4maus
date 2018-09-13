@@ -6,13 +6,13 @@
     justify-content: space-around;
     margin-right: 1rem;
     padding: 1rem;
-    border: 1px solid #eee;
+    border: 1.5px solid #eee;
     border-radius: 1rem;
     min-width: 14rem;
     max-width: 14rem;
     max-height: 16rem;
     text-align: center;
-    color: $ui-grey;
+    color: black;
     cursor: pointer;
     text-decoration: none;
 }
