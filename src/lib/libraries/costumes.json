@@ -50,7 +50,7 @@
         ]
     },
     {
-        "name": "Blume-gelb",
+        "name": "Blume-1",
         "md5": "11cd402f03f46c515362180ece55a130.svg",
         "type": "costume",
         "tags": [
@@ -63,7 +63,7 @@
         ]
     },
     {
-        "name": "Blume-lila",
+        "name": "Blume-2",
         "md5": "f1814e316ddc02a9a8c25ac74b442536.svg",
         "type": "costume",
         "tags": [
@@ -76,7 +76,7 @@
         ]
     },
     {
-        "name": "Blume-rot",
+        "name": "Blume-3",
         "md5": "b20a20ac62ceb1bc909f81b873e8ae3f.svg",
         "type": "costume",
         "tags": [
@@ -102,7 +102,7 @@
         ]
     },
     {
-        "name": "Elefant-Weltall-1",
+        "name": "Weltall-11",
         "md5": "6437f894b28c31b2e40307f8260209df.svg",
         "type": "costume",
         "tags": [
@@ -116,7 +116,7 @@
         ]
     },
     {
-        "name": "Elefant-Weltall-2",
+        "name": "Weltall-12",
         "md5": "a9408be16bb2e9192d47743f2e6ee46c.svg",
         "type": "costume",
         "tags": [
@@ -130,7 +130,7 @@
         ]
     },
     {
-        "name": "Elefant-Weltall-3",
+        "name": "Weltall-13",
         "md5": "03082066e4a9059fa05972ac3ec52b57.svg",
         "type": "costume",
         "tags": [
@@ -144,7 +144,7 @@
         ]
     },
     {
-        "name": "Elefant-trötet-1",
+        "name": "Tröt-1",
         "md5": "dd66da89f9fa4c19674a88b7174839cd.svg",
         "type": "costume",
         "tags": [
@@ -157,7 +157,7 @@
         ]
     },
     {
-        "name": "Elefant-trötet-2",
+        "name": "Tröt-2",
         "md5": "0c7e30718bb78de6dc7e149da287fcfd.svg",
         "type": "costume",
         "tags": [
@@ -170,7 +170,7 @@
         ]
     },
     {
-        "name": "Elefant-trötet-3",
+        "name": "Tröt-3",
         "md5": "3c087fdc97a1502fb7a951ca1cb20b6b.svg",
         "type": "costume",
         "tags": [
@@ -183,7 +183,7 @@
         ]
     },
     {
-        "name": "Elefant-trötet-4",
+        "name": "Tröt-4",
         "md5": "3e94926b7fd2151d50148a4a8fd2707b.svg",
         "type": "costume",
         "tags": [
@@ -209,7 +209,7 @@
         ]
     },
     {
-        "name": "Ente-Weltall-1",
+        "name": "Weltall-21",
         "md5": "882ec0e229f1f7cff53a5a8612660a8e.svg",
         "type": "costume",
         "tags": [
@@ -223,7 +223,7 @@
         ]
     },
     {
-        "name": "Ente-Weltall-2",
+        "name": "Weltall-22",
         "md5": "92adb94d8d28486a6832dce9f5b7b8f1.svg",
         "type": "costume",
         "tags": [
@@ -237,7 +237,7 @@
         ]
     },
     {
-        "name": "Ente-flattert-1",
+        "name": "Flattert-1",
         "md5": "370d505c3bfffcce42c82eae188e3dcc.svg",
         "type": "costume",
         "tags": [
@@ -250,7 +250,7 @@
         ]
     },
     {
-        "name": "Ente-flattert-2",
+        "name": "Flattert-2",
         "md5": "9351ff13d3471e030d67047d97b0ab36.svg",
         "type": "costume",
         "tags": [
@@ -263,7 +263,7 @@
         ]
     },
     {
-        "name": "Ente-flattert-3",
+        "name": "Flattert-3",
         "md5": "364fd0dcbabf29e9ba3a103a7794da05.svg",
         "type": "costume",
         "tags": [
@@ -276,7 +276,7 @@
         ]
     },
     {
-        "name": "Ente-flattert-4",
+        "name": "Flattert-4",
         "md5": "8185bf6167a7c5ffb89053390ad10d82.svg",
         "type": "costume",
         "tags": [
@@ -383,7 +383,7 @@
         ]
     },
     {
-        "name": "Maus-Drehung-1",
+        "name": "Dreht-1",
         "md5": "779e556d729ec4cc0731cf0161c770b1.svg",
         "type": "costume",
         "tags": [
@@ -396,7 +396,7 @@
         ]
     },
     {
-        "name": "Maus-Drehung-2",
+        "name": "Dreht-2",
         "md5": "498c2aa7ce0c9cbac6b35997666530c5.svg",
         "type": "costume",
         "tags": [
@@ -409,7 +409,7 @@
         ]
     },
     {
-        "name": "Maus-Drehung-3",
+        "name": "Dreht-3",
         "md5": "e9aaa7ffffbc06780fdaf2f2157733f5.svg",
         "type": "costume",
         "tags": [
@@ -422,7 +422,7 @@
         ]
     },
     {
-        "name": "Maus-Drehung-4",
+        "name": "Dreht-4",
         "md5": "251b35394cefb72bac14e519c5b9d895.svg",
         "type": "costume",
         "tags": [
@@ -435,7 +435,7 @@
         ]
     },
     {
-        "name": "Maus-Freudensprung-1",
+        "name": "Sprung-1",
         "md5": "46c367ecdf1e46b9c79a202159cb81f3.svg",
         "type": "costume",
         "tags": [
@@ -448,7 +448,7 @@
         ]
     },
     {
-        "name": "Maus-Freudensprung-2",
+        "name": "Sprung-2",
         "md5": "7760a8b12a48c4bfee2602de3ef73109.svg",
         "type": "costume",
         "tags": [
@@ -461,7 +461,7 @@
         ]
     },
     {
-        "name": "Maus-Freudensprung-3",
+        "name": "Sprung-3",
         "md5": "29cfa8fd7a0b0ae266a0123987f69c61.svg",
         "type": "costume",
         "tags": [
@@ -474,7 +474,7 @@
         ]
     },
     {
-        "name": "Maus-Skateboard-1",
+        "name": "Skate-1",
         "md5": "971d4efd863c9b02e603704c2e47ab67.svg",
         "type": "costume",
         "tags": [
@@ -487,7 +487,7 @@
         ]
     },
     {
-        "name": "Maus-Skateboard-2",
+        "name": "Skate-2",
         "md5": "5fa6c2c9ae0b4c66ecb6f2b94692d91f.svg",
         "type": "costume",
         "tags": [
@@ -500,7 +500,7 @@
         ]
     },
     {
-        "name": "Maus-Weltall-1",
+        "name": "Weltall-31",
         "md5": "6711e1d39c95107d3cfbc075d12b2670.svg",
         "type": "costume",
         "tags": [
@@ -514,7 +514,7 @@
         ]
     },
     {
-        "name": "Maus-Weltall-2",
+        "name": "Weltall-32",
         "md5": "48e35d74b868b89d47b19020658cc1aa.svg",
         "type": "costume",
         "tags": [
@@ -528,7 +528,7 @@
         ]
     },
     {
-        "name": "Maus-tanzt-1",
+        "name": "Tanzt-1",
         "md5": "0aa13e40ad79df5c4ef749ca812ed2e9.svg",
         "type": "costume",
         "tags": [
@@ -541,7 +541,7 @@
         ]
     },
     {
-        "name": "Maus-tanzt-2",
+        "name": "Tanzt-2",
         "md5": "b2908be5f90d34ebb416f38b7870a73f.svg",
         "type": "costume",
         "tags": [
@@ -554,7 +554,7 @@
         ]
     },
     {
-        "name": "Maus-taucht-1",
+        "name": "Taucht-1",
         "md5": "f0f02c453f51ad54fee06d0753bf5885.svg",
         "type": "costume",
         "tags": [
@@ -568,7 +568,7 @@
         ]
     },
     {
-        "name": "Maus-taucht-2",
+        "name": "Taucht-2",
         "md5": "0b7e3129b66b5fab596aba7d0cd52143.svg",
         "type": "costume",
         "tags": [
@@ -582,7 +582,7 @@
         ]
     },
     {
-        "name": "Maus-taucht-3",
+        "name": "Taucht-3",
         "md5": "76b5e487890a915ffc8d61eb124649c8.svg",
         "type": "costume",
         "tags": [
@@ -596,7 +596,7 @@
         ]
     },
     {
-        "name": "Maus-verwirrt",
+        "name": "Verwirrt",
         "md5": "de194e80281ef9f19435418b1f50e873.svg",
         "type": "costume",
         "tags": [
@@ -609,7 +609,7 @@
         ]
     },
     {
-        "name": "Maus-zwinkert-1",
+        "name": "Zwinkert-1",
         "md5": "9d77f8022370d3a10e0ae7ed9585121a.svg",
         "type": "costume",
         "tags": [
@@ -622,7 +622,7 @@
         ]
     },
     {
-        "name": "Maus-zwinkert-2",
+        "name": "Zwinkert-2",
         "md5": "a32f484ffcd2e03faabe006ac5be98bb.svg",
         "type": "costume",
         "tags": [
@@ -635,7 +635,7 @@
         ]
     },
     {
-        "name": "pfeil-oben",
+        "name": "Pfeil-oben",
         "md5": "5d7440ea8bf8285f74548dcf39eb9206.svg",
         "type": "costume",
         "tags": [
@@ -648,7 +648,7 @@
         ]
     },
     {
-        "name": "pfeil-unten",
+        "name": "Pfeil-unten",
         "md5": "8e6263602fa747c481275da21746d518.svg",
         "type": "costume",
         "tags": [
@@ -661,7 +661,7 @@
         ]
     },
     {
-        "name": "pfeil-rechts",
+        "name": "Pfeil-rechts",
         "md5": "21bc1ee4e79f3b8f7fba2b7d862bb255.svg",
         "type": "costume",
         "tags": [
@@ -674,7 +674,7 @@
         ]
     },
     {
-        "name": "pfeil-links",
+        "name": "Pfeil-links",
         "md5": "a3258256fe77f5615d23a04c932ca6d5.svg",
         "type": "costume",
         "tags": [
