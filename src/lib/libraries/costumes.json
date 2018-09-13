@@ -396,6 +396,19 @@
         ]
     },
     {
+        "name": "Blinzelt",
+        "md5": "a32f484ffcd2e03faabe006ac5be98bb.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
         "name": "Dreht-1",
         "md5": "779e556d729ec4cc0731cf0161c770b1.svg",
         "type": "costume",
@@ -611,19 +624,6 @@
     {
         "name": "Verwirrt",
         "md5": "de194e80281ef9f19435418b1f50e873.svg",
-        "type": "costume",
-        "tags": [
-            "maus"
-        ],
-        "info": [
-            84.5,
-            79.375,
-            1
-        ]
-    },
-    {
-        "name": "Blinzelt",
-        "md5": "a32f484ffcd2e03faabe006ac5be98bb.svg",
         "type": "costume",
         "tags": [
             "maus"
