@@ -35,7 +35,7 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
         <Box className={styles.eduFooter}>
             <ButtonPrimary
                 className={styles.backButton}
-                arrowLeft grey
+                arrowLeft grey={props.slideIndex == 0}
                 onClick={props.previousSlide}
             >
                 Zurück
