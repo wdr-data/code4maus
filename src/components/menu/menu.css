@@ -60,6 +60,7 @@
     height: $stage-menu-height;
     display: flex;
     align-items: flex-end;
+    max-width: 70rem;
 
     font-family: 'Titillium Web';
     font-weight: 600;
@@ -195,9 +196,10 @@
 
 .section-body {
     display: flex;
+    align-items: center;
     overflow-x: scroll;
     margin: 2rem;
-    padding: 3rem 2rem;
+    padding: 2rem 2rem;
     background-color: white;
     transform: skewY(.5deg);
     width: 100%;
@@ -239,5 +241,7 @@
 .button-row {
     display: flex;
     justify-content: space-between;
+    align-self: center;
     margin: 0 5rem 2rem;
+    max-width: 60rem;
 }
