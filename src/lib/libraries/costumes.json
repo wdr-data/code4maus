@@ -383,6 +383,19 @@
         ]
     },
     {
+        "name": "Maus",
+        "md5": "9d77f8022370d3a10e0ae7ed9585121a.svg",
+        "type": "costume",
+        "tags": [
+            "maus"
+        ],
+        "info": [
+            84.5,
+            79.375,
+            1
+        ]
+    },
+    {
         "name": "Dreht-1",
         "md5": "779e556d729ec4cc0731cf0161c770b1.svg",
         "type": "costume",
@@ -609,20 +622,7 @@
         ]
     },
     {
-        "name": "Zwinkert-1",
-        "md5": "9d77f8022370d3a10e0ae7ed9585121a.svg",
-        "type": "costume",
-        "tags": [
-            "maus"
-        ],
-        "info": [
-            84.5,
-            79.375,
-            1
-        ]
-    },
-    {
-        "name": "Zwinkert-2",
+        "name": "Blinzelt",
         "md5": "a32f484ffcd2e03faabe006ac5be98bb.svg",
         "type": "costume",
         "tags": [
