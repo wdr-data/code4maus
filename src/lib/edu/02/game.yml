@@ -24,7 +24,7 @@ slides:
     caption: "⬅ Das Programm für den Ton:"
   - asset: x005.png
     caption: "⬅ Ändere"
-  - asset: 004.png
+  - asset: super.png
 
 blocks:
   - category: motion
