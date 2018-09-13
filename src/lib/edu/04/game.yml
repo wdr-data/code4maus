@@ -1,33 +1,50 @@
 ---
 slides:
   - asset: 000.png
-  - asset: 001.png
-  - asset: 002.png
+    caption: "Du programmierst:"
   - asset: 03.gif
-  - asset: 004.png
-  - asset: 005.png
-  - asset: 006.png
-  - asset: 007.png
-  - asset: 008.png
-  - asset: 009.png
-  - asset: 010.png
-  - asset: 011.png
+    caption: "⬅ Ändere:"
+  - asset: 001.png
+    caption: "⬆️ Drücke auf die Maus:"
+  - asset: 04.gif
+    caption: "Füge 'Trötet' hinzu:"
+  - asset: frage.png
+    caption: "Wie trötet der Elefant?"
+  - asset: 002.png
+    caption: "Wechsle zur Maus:"
   - asset: 12.gif
-  - asset: 013.png
-  - asset: 014.png
-  - asset: 015.png
-  - asset: 016.png
-  - asset: 017.png
-  - asset: 018.png
+    caption: "Kopiere die Maus-Programme:"
+  - asset: 004.png 
+    caption: "Zurück zum Elefanten:"
+  - asset: 005.png
+    caption: "Klicke den Elefanten an:"
+  - asset: blitz.png
+    caption: "Wo ist der Ton?"
+  - asset: x01.png
+    caption: "⬅ Wähle 'Trötet-2'"
+  - asset: blitz.png
+    caption: "Das passt noch nicht."
   - asset: 19.gif
-  - asset: 019.png
-  - asset: 020.png
-  - asset: 021.png
-  - asset: 022.png
-  - asset: 023.png
-  - asset: 024.png
-  - asset: 025.png
-  - asset: 026.png
+    caption: "⬅ Nimm die Schleife raus:"
+  - asset: 005.png
+    caption: "⬆️ Drücke den Elefanten noch mal:"
+  - asset: herz.png
+    caption: "Baust du die Ente allein?"
+  - asset: x02.png
+    caption: "1. Neue Figur 'Flattert'"
+  - asset: x03.png
+    caption: "2. Programme kopieren"
+  - asset: 007.png
+    caption: "⬆️ Drücke auf die Ente"
+  - asset: x04.png
+    caption: "⬅ Passe den Ton an"
+  - asset: gut_gemacht.png
+  - asset: x05.png
+    caption: "Füge gerne mehr Figuren hinzu:"
+  - asset: speichern.png
+    caption: "Speichern nicht vergessen"
+  - asset: super.png
+    caption: "⏲️ Nimm dir eine Pause"
 
 blocks:
   - category: motion

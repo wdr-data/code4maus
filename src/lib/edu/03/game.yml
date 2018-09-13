@@ -2,6 +2,7 @@
 
 slides:
   - asset: 000.png
+    caption: "Du programmierst:"
   - asset: 001.png
     caption: "Als erstes: Töne ..."
   - asset: 002.png
@@ -24,6 +25,8 @@ slides:
     caption: "3. Füge 'Sprung-3' hinzu"
   - asset: 008.png
     caption: "Lösche: 'Blinzelt'"
+  - asset: x008.png
+    caption: "⬅ Jetzt das Tanz-Programm:"
   - asset: x002.png
     caption: "⬅ Außen: 'für immer'"
   - asset: x003.png
@@ -44,6 +47,10 @@ slides:
     caption: "Jetzt du! Ändere wie du magst."
   - asset: speichern.png
     caption: "⬆️ Denke ans Speichern!"
+  - asset: 009.png
+    caption: "Mach dein eigenes mit 'Neu'"
+  - asset: super.png
+    caption: "👣 Stehe auf und tanze"
 
 blocks:
   - category: motion

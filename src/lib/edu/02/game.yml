@@ -1,11 +1,12 @@
 ---
 slides:
   - asset: 000.png
+    caption: "Du programmierst:"
   - asset: x001.png
     caption: "⬅ Ziehe diesen Block:" 
   - asset: 001.png
     caption: "Drücke mal drauf:"
-  - asset: 002.png
+  - asset: frage.png
     caption: "Was macht die Maus?"
   - asset: d.gif
   - asset: 002.png
@@ -25,6 +26,7 @@ slides:
   - asset: x005.png
     caption: "⬅ Ändere"
   - asset: super.png
+    caption: "🍏 Esse oder trinke etwas"
 
 blocks:
   - category: motion
