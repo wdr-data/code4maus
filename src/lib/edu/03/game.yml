@@ -2,22 +2,22 @@
 
 slides:
   - asset: 000.png
-  - asset: ton.png
-    caption: "Als erstes: Töne!"
   - asset: 001.png
+    caption: "Als erstes: Töne!"
+  - asset: 002.png
     caption: "+ Neuer Ton: Disko"
   - asset: x002.png
     caption: "Baue das Musik-Programm:"
-  - asset: x003.png
-    caption: "Klicke in den Block:"
+  - asset: 003.png
+    caption: "Klicke Dreieck, wähle Disko:"
   - asset: start.png
     caption: "Starte die Disko:"
   - asset: stop.png
     caption: "Tipp: Stoppe mit:"
-  - asset: 
-    caption: 
-  - asset: 
-    caption: 
+  - asset: 004.png
+    caption: "Jetzt Kostüme:"
+  - asset: 005.png
+    caption: "Füge nacheinander hinzu:"
   - asset: 
     caption: 
 
