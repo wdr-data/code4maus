@@ -84,7 +84,7 @@
 }
 
 @keyframes glowing {
-    10% { box-shadow: 0 0 10px #7fff1e; }
-    90% { box-shadow: 0 0 10px #7fff1e; }
+    10% { box-shadow: 0 0 10px $ui-blue; }
+    90% { box-shadow: 0 0 10px $ui-blue; }
     100% { box-shadow: none; }
 }
