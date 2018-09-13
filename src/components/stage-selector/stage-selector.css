@@ -42,7 +42,6 @@ $header-height: calc($stage-menu-height - 2px);
 }
 
 .raised, .raised .header {
-    background-color: #1d83a8;
     transition: all 0.25s ease;
 }
 

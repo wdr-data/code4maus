@@ -58,13 +58,8 @@
     height: 2.5rem;
 }
 
-.raised {
-    background-color: #1d83a8;
-    transition: all 0.25s ease;
-}
-
 .raised:hover {
-    background-color: #1d83a8;
+    background-color: $ui-blue;
     transform: scale(1.05);
 }
 
@@ -73,7 +68,7 @@
     animation-duration: 500ms;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
-    background-color: #1d83a8;
+    background-color: $ui-blue
 }
 
 @keyframes wiggle {
