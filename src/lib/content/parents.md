@@ -6,18 +6,19 @@ splitSections: true
 
 Die Welt wird digitaler. Programmieren ist in dieser Welt eine Grundfertigkeit, um selbst aktiv werden, mitgestalten und auch Kritik üben zu können. Bei **Programmieren mit der Maus** programmieren Kinder Schritt für Schritt erste eigene Bildergeschichten und kleine Spiele. Dabei lernen sie Variablen, Schleifen und Verzweigungen kennen.
 
-## FAQ 
+## FAQ
 
-#### Welche Geräte werden unterstützt? 
-**Desktop**
-Chrome (63+)
-Edge (15+)
-Firefox (57+)
-Safari (11+)
+**Welche Geräte werden unterstützt?**
+
+**Desktop**  
+Chrome (63+)  
+Edge (15+)  
+Firefox (57+)  
+Safari (11+)  
 Internet Explorer wird NICHT unterstützt.
 
-**Tablet**
-Mobile Chrome (62+)
+**Tablet**  
+Mobile Chrome (62+)  
 Mobile Safari (11+)
 
 **Smartphones** werden nicht unterstützt.
@@ -56,7 +57,7 @@ Konzept, Programmierung: Patricia Ennenbach, Christine Gotthardt, Marcus Weiner
 
 Design: Andreas Feischen, Daniel Barthelme, Sarah Heller (Machbar), Daniel Blanke
 
-Redaktion: Matthias Körnich, Petra Chronz 
+Redaktion: Matthias Körnich, Petra Chronz
 Projektsteuerung und Einkauf: Oliver Schwarz, Torsten Fischer
 
 ### Credits
