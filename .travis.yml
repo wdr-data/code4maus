@@ -12,6 +12,13 @@ env:
 
 cache: yarn
 
+after_install:
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+
+before_script:
+  - yarn assets:download
+
 script:
   - NODE_ENV=production yarn build
 
