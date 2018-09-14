@@ -6,8 +6,8 @@ import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
 import ButtonPrimary from '../button-primary/button-primary.jsx';
 import styles from './edu-stage.css';
-import fullScreenIcon from '../fullscreen/icon--fullscreen.svg';
-import unFullScreenIcon from '../fullscreen/icon--unfullscreen.svg';
+import fullScreenIcon from '../../../assets/blocks-media/zoom-in.svg';
+import unFullScreenIcon from '../../../assets/blocks-media/zoom-out.svg';
 import { connect } from 'react-redux';
 import { nextSlide, previousSlide, toggleFullscreen } from '../../reducers/edu-layer.js';
 

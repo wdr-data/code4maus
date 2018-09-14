@@ -8,10 +8,10 @@ import Button from '../button/button.jsx';
 import { getStageSize } from '../../lib/screen-utils.js';
 import styles from './fullscreen.css';
 
-import fullScreenIcon from './icon--fullscreen.svg';
+import fullScreenIcon from '../../../assets/blocks-media/zoom-in.svg';
 import largeStageIcon from './icon--large-stage.svg';
 import smallStageIcon from './icon--small-stage.svg';
-import unFullScreenIcon from './icon--unfullscreen.svg';
+import unFullScreenIcon from '../../../assets/blocks-media/zoom-out.svg';
 
 const messages = defineMessages({
     largeStageSizeMessage: {
