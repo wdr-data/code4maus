@@ -38,8 +38,8 @@ export default [
     },
     {
         id: '05',
-        name: 'Kugelfisch',
-        subtitle: '01 Bewegung',
+        name: 'Wurst im Weltraum',
+        subtitle: '05 Spiel',
         image: image05,
     },
 ];
