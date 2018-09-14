@@ -7,6 +7,7 @@ node_js:
 
 env:
   global:
+    - NODE_ENV=production
     - S3_BUCKET_PREFIX=hackingstudio-code4maus-projects
     - AWS_REGION=eu-central-1
 
