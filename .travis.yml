@@ -12,7 +12,7 @@ env:
 
 cache: yarn
 
-after_install:
+before_install:
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
 
