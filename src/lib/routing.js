@@ -15,10 +15,6 @@ export const MenuTabs = {
     projects: 'projekte',
 };
 
-export const ContentPages = {
-    parents: 'parents',
-};
-
 export const eduUrl = (eduId) => `/lernspiel/${eduId}`;
 export const projectUrl = (projectId) => `/projekt/${projectId}`;
 
@@ -59,11 +55,8 @@ const routes = {
             view: Views.project,
         },
     },
-    '/inhalte': {
-        '/eltern': {
-            view: Views.content,
-            page: ContentPages.parents,
-        },
+    '/inhalte/:page': {
+        view: Views.content,
     },
 };
 
