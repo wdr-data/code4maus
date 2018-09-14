@@ -13,7 +13,7 @@ env:
 
 cache: yarn
 
-scripts:
+script:
   - yarn build
 
 deploy:
