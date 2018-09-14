@@ -20,10 +20,10 @@ const ContentWrapper = ({ children, backToHome, style, title, splitSections }) =
 
 ContentWrapper.propTypes = {
     backToHome: PropTypes.func.isRequired,
-    children: React.childrenOnly,
+    children: PropTypes.node.isRequired,
     style: PropTypes.string,
     title: PropTypes.string,
-    splitSections: PropTypes.boolean,
+    splitSections: PropTypes.bool,
 };
 
 ContentWrapper.defaultProps = {
