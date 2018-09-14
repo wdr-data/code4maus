@@ -17,6 +17,7 @@
     background: white;
     margin: 2rem auto;
     box-shadow: 2px 2px .5rem .125rem rgba(0,0,0,0.5);
+    user-select: text;
 }
 
 .split-sections .wrapper {
