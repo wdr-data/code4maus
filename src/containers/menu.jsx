@@ -6,6 +6,7 @@ import { push } from 'redux-little-router';
 import MenuComponent from '../components/menu/menu.jsx';
 import { MenuTabs } from '../lib/routing';
 import eduGameData from '../lib/edu';
+import exampleGameData from '../lib/edu/examples';
 
 const tabIdToTab = {
     0: MenuTabs.edugames,
@@ -28,9 +29,11 @@ class Menu extends React.Component {
         super(props);
 
         const eduGames = eduGameData.map(Menu.mapGameData);
+        const examples = exampleGameData.map(Menu.mapGameData);
 
         this.state = {
             eduGames,
+            examples,
             projects: [],
         };
     }
@@ -70,6 +73,7 @@ class Menu extends React.Component {
             <MenuComponent
                 projects={this.state.projects}
                 eduGames={this.state.eduGames}
+                examples={this.state.examples}
                 selectedTab={tab}
                 {...props}
             />
