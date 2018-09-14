@@ -4,7 +4,7 @@
   "description": "GraphicaL User Interface for creating and running Scratch 3.0 projects",
   "main": "./dist/scratch-gui.js",
   "scripts": {
-    "build": "npm run clean && webpack --colors --bail",
+    "build": "webpack --colors --bail",
     "build:backend:netlify": "netlify-lambda build src/backend -c webpack.netlify-functions.js",
     "build:netlify": "yarn assets:netlify && yarn build && yarn build:backend:netlify && node scripts/build-netlify-redirects.js",
     "clean": "rimraf ./build && mkdirp build && rimraf ./dist && mkdirp dist",
