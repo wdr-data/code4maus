@@ -120,7 +120,10 @@ export const MenuComponent = (props) => {
                 <MenuButton iconSvg={buttonIconMausseite} external linkTo="https://www.wdrmaus.de/">
                     Hier geht's zur Maus Seite
                 </MenuButton>
-                <MenuButton iconSvg={buttonIconImpressum}>
+                <MenuButton iconSvg={buttonIconImpressum} linkTo="/inhalte/datenschutz">
+                    Datenschutz
+                </MenuButton>
+                <MenuButton iconSvg={buttonIconImpressum} linkTo="/inhalte/impressum">
                     Impressum
                 </MenuButton>
             </Box>
