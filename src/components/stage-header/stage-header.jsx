@@ -47,6 +47,7 @@ const StageHeaderComponent = function(props) {
                     : <React.Fragment>
                         <ButtonWithIcon
                             iconSvg={mailIcon}
+                            href="mailto:maus@wdr.de"
                         >
                             Feedback
                         </ButtonWithIcon>
