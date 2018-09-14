@@ -5,7 +5,7 @@ import { push } from 'redux-little-router';
 
 import MenuComponent from '../components/menu/menu.jsx';
 import { MenuTabs } from '../lib/routing';
-import eduGames from '../lib/edu';
+import eduGameData from '../lib/edu';
 
 const tabIdToTab = {
     0: MenuTabs.edugames,
@@ -14,26 +14,23 @@ const tabIdToTab = {
 };
 
 class Menu extends React.Component {
-    constructor(props) {
-        super(props);
-
-        const eduGamesOnboarding = [
-            {
-                key: 'onboarding',
-                title: 'Einführung',
-                note: '00 Erste Schritte',
-                linkTo: '/onboarding',
-            },
-        ].concat(eduGames.map((game) => ({
+    static mapGameData(game) {
+        return {
             key: game.id,
             title: game.name,
             note: game.subtitle,
             linkTo: `/lernspiel/${game.id}`,
             image: game.image,
-        })));
+        };
+    }
+
+    constructor(props) {
+        super(props);
+
+        const eduGames = eduGameData.map(Menu.mapGameData);
 
         this.state = {
-            eduGames: eduGamesOnboarding,
+            eduGames,
             projects: [],
         };
     }
