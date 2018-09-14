@@ -13,6 +13,7 @@ const ButtonWithIconComponent = React.forwardRef(({
     iconSvg,
     children,
     onClick,
+    href,
     ...props
 }, ref) => {
     const icon = iconSvg
@@ -25,15 +26,35 @@ const ButtonWithIconComponent = React.forwardRef(({
             />
     ;
 
+    className = classNames(className, styles.button);
+    const inner = (
+        <React.Fragment>
+            {icon}
+            <div className={styles.content}>{children}</div>
+        </React.Fragment>
+    );
+
+    if (href) {
+        return (
+            <a
+                className={className}
+                href={href}
+                ref={ref}
+                {...props}
+            >
+                {inner}
+            </a>
+        );
+    }
+
     return (
         <button
-            className={classNames(className, styles.button)}
+            className={className}
             onClick={onClick}
             ref={ref}
             {...props}
         >
-            {icon}
-            <div className={styles.content}>{children}</div>
+            {inner}
         </button>
     );
 });
@@ -44,6 +65,7 @@ ButtonWithIconComponent.propTypes = {
     iconClassName: PropTypes.string,
     iconSrc: PropTypes.string,
     iconSvg: PropTypes.string,
+    href: PropTypes.string,
     onClick: PropTypes.func,
 };
 

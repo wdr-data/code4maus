@@ -3,7 +3,8 @@
   border: none;
   display: flex;
   flex-direction: column;
-  padding-left: 0;
+  padding: 0;
+  margin: 0 .25rem;
 
   font-family: 'Titillium Web';
   font-weight: 400;
@@ -12,6 +13,7 @@
   user-select: none;
   outline: none;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .icon {
