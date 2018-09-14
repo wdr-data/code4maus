@@ -2,18 +2,25 @@ const fsL = require('fs');
 const fs = fsL.promises;
 const path = require('path');
 const globby = require('globby');
-const request = require('request-promise-native');
+const request = require('request');
 
 require('dotenv').config();
 const bucketSuffix = process.env.BRANCH === 'production' ? 'prod' : 'staging';
 const bucketUrl = `https://${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}` +
     `.s3.dualstack.${process.env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION}.amazonaws.com`;
 
+const mapAssets = (asset) => {
+    if ('md5ext' in asset) {
+        return asset.md5ext;
+    }
+    return `${asset.assetId}.${asset.dataFormat}`;
+};
+
 const extractAssetsFromProject = async (path) => {
     const project = JSON.parse(await fs.readFile(path, 'utf-8'));
     return project.targets.reduce((out, target) => {
-        out = out.concat(target.costumes.map((asset) => asset.md5ext));
-        return out.concat(target.sounds.map((asset) => asset.md5ext));
+        out = out.concat(target.costumes.map(mapAssets));
+        return out.concat(target.sounds.map(mapAssets));
     }, []);
 };
 
@@ -51,12 +58,26 @@ const main = async () => {
         .concat(await getLibraryContent());
     const uniqueAssets = [ ...new Set(assets) ];
     const outPath = path.resolve(__dirname, '../.cache/data/assets');
-    await Promise.all(uniqueAssets.map(async (asset) => new Promise((resolve, reject) =>
-        request(`${bucketUrl}/assets/${asset}`)
-            .pipe(fsL.createWriteStream(path.join(outPath, asset)))
-            .on('error', reject)
-            .on('finish', resolve)
-    )));
+    await Promise.all(uniqueAssets.map((asset) => new Promise((resolve, reject) => {
+        const req = request(`${bucketUrl}/assets/${asset}`);
+        const writePath = path.join(outPath, asset);
+        const write = fsL.createWriteStream(writePath);
+        const stopStream = (e) => {
+            req.abort();
+            write.end(() => {
+                fs.unlink(writePath).then(() => reject(e));
+            });
+        };
+        req.on('error', stopStream)
+            .on('response', (response) => {
+                if (response.statusCode !== 200) {
+                    stopStream(new Error('Response status code indicates failure.'));
+                }
+            })
+            .pipe(write)
+            .on('error', stopStream)
+            .on('finish', resolve);
+    })));
     console.log(`Done. Written ${uniqueAssets.length} files.`);
 };
 
