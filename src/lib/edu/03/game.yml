@@ -4,9 +4,7 @@ slides:
   - asset: 000.png
     caption: "Du programmierst:"
   - asset: 001.png
-    caption: "Als erstes: Töne ..."
-  - asset: 002.png
-    caption: "Füge 'Disko' hinzu:"
+    caption: "Füge Ton 'Disko' hinzu:"
   - asset: x001.png
     caption: "⬅  Das Musik-Programm:"
   - asset: 003.png
@@ -16,12 +14,10 @@ slides:
   - asset: stop.png
     caption: "Stoppe mit:"
   - asset: 004.png
-    caption: "Neue Kostüme für den Tanz ..."
-  - asset: 005.png
     caption: "1. Füge 'Tanzt-2' hinzu"
-  - asset: 006.png
+  - asset: 005.png
     caption: "2. Füge 'Sprung-2' hinzu"
-  - asset: 007.png
+  - asset: 006.png
     caption: "3. Füge 'Sprung-3' hinzu"
   - asset: 008.png
     caption: "Lösche: 'Blinzelt'"
@@ -32,15 +28,15 @@ slides:
   - asset: x003.png
     caption: "⬅ Innen: zwei mal '10-mal'"
   - asset: x004.png
-    caption: "⬅ Ändere:"
+    caption: "⬅ Ändere die Zahlen:"
   - asset: x005.png
-    caption: "⬅ Fülle die erste Tanz-Schleife:"
+    caption: "⬅ 1. Tanz-Schleife:"
   - asset: start.png
-    caption: "Teste den Tanz:"
+    caption: "Teste den Tanz"
   - asset: x007.png
-    caption: "⬅ Zweite Schleife: Sprung"
+    caption: "⬅ 2. Tanz-Schleife: Sprung"
   - asset: x14.png
-    caption: "⬅ Mache nur einen Sprung:"
+    caption: "⬅ Ändere die Zahl:"
   - asset: start.png
     caption: "Teste noch mal:"
   - asset: gut_gemacht.png
@@ -48,7 +44,7 @@ slides:
   - asset: speichern.png
     caption: "⬆️ Denke ans Speichern!"
   - asset: 009.png
-    caption: "Mach dein eigenes mit 'Neu'"
+    caption: "Mach dein Eigenes mit 'Neu'"
   - asset: super.png
     caption: "👣 Stehe auf und tanze"
 
