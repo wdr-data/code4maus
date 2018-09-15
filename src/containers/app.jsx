@@ -84,7 +84,6 @@ class App extends Component {
     renderView() {
         switch (this.props.view) {
         case Views.edu:
-        case Views.onboarding:
         case Views.project:
             return <GUI />;
         case Views.content:

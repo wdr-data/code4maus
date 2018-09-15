@@ -109,7 +109,6 @@ const mapStateToProps = (state) => ({
     cardsVisible: state.scratchGui.cards.visible,
     costumesTabVisible: state.scratchGui.editorTab.activeTabIndex === COSTUMES_TAB_INDEX,
     importInfoVisible: state.scratchGui.modals.importInfo,
-    isOnboarding: state.router.result.view === Views.onboarding,
     loadingStateVisible: state.scratchGui.modals.loadingProject,
     previewInfoVisible: state.scratchGui.modals.previewInfo,
     targetIsStage:

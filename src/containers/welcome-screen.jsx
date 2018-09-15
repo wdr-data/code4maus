@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { push } from 'redux-little-router';
 
+import { eduUrl } from '../lib/routing';
 import WelcomeScreenComponent from '../components/welcome-screen/welcome-screen.jsx';
 
 class WelcomeScreen extends React.Component {
@@ -22,7 +23,7 @@ WelcomeScreen.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    handleIntroClick: () => dispatch(push('/onboarding')),
+    handleIntroClick: () => dispatch(push(eduUrl('00'))),
     handleMenuClick: () => dispatch(push('/')),
 });
 
