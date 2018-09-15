@@ -242,6 +242,6 @@
     display: flex;
     justify-content: space-between;
     align-self: center;
-    margin: 0 5rem 2rem;
-    max-width: 60rem;
+    margin: 0 2rem 2rem;
+    max-width: 80rem;
 }

@@ -10,6 +10,10 @@
   margin-right: 2rem;
 }
 
+.button:last-of-type {
+  margin-right: 0;
+}
+
 .icon {
   height: 3.5rem;
   margin-top: .25rem;

@@ -20,7 +20,9 @@ import tabIconProjects from '!raw-loader!../../../assets/icons/menu_projects.svg
 import tabIconExamples from '!raw-loader!../../../assets/icons/menu_examples.svg';
 import buttonIconInfo from '!raw-loader!../../../assets/icons/menu_eltern-info.svg';
 import buttonIconMausseite from '!raw-loader!../../../assets/icons/menu_mausseite.svg';
+import buttonIconDatenschutz from '!raw-loader!../../../assets/icons/icon_hilfe.svg';
 import buttonIconImpressum from '!raw-loader!../../../assets/icons/menu_impressum.svg';
+
 import styles from './menu.css';
 
 export const MenuComponent = (props) => {
@@ -122,7 +124,7 @@ export const MenuComponent = (props) => {
                 <MenuButton iconSvg={buttonIconMausseite} external linkTo="https://www.wdrmaus.de/">
                     Zur Maus-Seite
                 </MenuButton>
-                <MenuButton iconSvg={buttonIconImpressum} linkTo="/inhalte/datenschutz">
+                <MenuButton iconSvg={buttonIconDatenschutz} linkTo="/inhalte/datenschutz">
                     Datenschutz
                 </MenuButton>
                 <MenuButton iconSvg={buttonIconImpressum} linkTo="/inhalte/impressum">
