@@ -70,6 +70,7 @@ resources:
             - GET
             ForwardedValues:
               QueryString: false
+            Compress: true
           - TargetOriginId: Custom-hackingstudio-code4maus-api-${file(scripts/env.js):stage}
             PathPattern: api/*
             ViewerProtocolPolicy: redirect-to-https
@@ -99,6 +100,7 @@ resources:
             - GET
             ForwardedValues:
               QueryString: false
+            Compress: true
           Origins:
           - DomainName: ${self:custom.appBucketName}.s3-website.eu-central-1.amazonaws.com
             Id: S3-${self:custom.appBucketName}
