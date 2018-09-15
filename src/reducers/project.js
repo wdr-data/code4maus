@@ -45,10 +45,15 @@ export default function(state = initialState, action) {
         }
         return {
             ...state,
-            id: `edu/${action.gameId}`,
             customBlocks: action.gameSpec.blocks || null,
         };
     case LOCATION_CHANGED:
+        if (action.payload.result.view === Views.edu) {
+            return {
+                ...state,
+                id: `edu/${action.payload.params.eduId}`,
+            };
+        }
         if (action.payload.result.view !== Views.project) {
             return state;
         }
