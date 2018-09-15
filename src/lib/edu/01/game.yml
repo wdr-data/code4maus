@@ -3,35 +3,39 @@ slides:
   - asset: 000.png
     caption: "Du programmierst:"
   - asset: n001.gif
-    caption: "⬅ Ziehe den Block rüber:"
+    caption: "⬅ Ziehe Block1 rüber:"
   - asset: n002.gif
-    caption: "⬅ Drücke mal drauf:" 
+    caption: "⬅ Drücke auf Block1:" 
   - asset: n003.gif
-    caption: "⬅ Ziehe noch einen rüber:"
-  - asset: n004.gif
-    caption: "⬅ Nicht richtig? Lösche:"
+    caption: "⬅ Ziehe Block2 darunter:"
+  - asset: loeschen.gif
+    caption: "⬅ So kannst du löschen:"
   - asset: n005.gif
-    caption: "⬅ Setze diesen Block dazu:"
+    caption: "⬅ Ziehe Block3 darunter:"
   - asset: n006.gif
-    caption: "⬅ Eine Schleife darum:"
+    caption: "⬅ 'Für immer' drumherum:"
   - asset: x02.png
-    caption: "⬅ Setze an den Anfang:"
+    caption: "⬅ Block4 an den Anfang:"
   - asset: 001.png
     caption: "Fertig! Start:"
   - asset: n007.gif
     caption: "️️️️⬅ Ändere:"
   - asset: 001.png
     caption: "Was passiert?" 
-  - asset: n012.gif
+  - asset: n12.png
     caption: "🐢 Langsam ... "
   - asset: x02.png
     caption: "⬅ Gib 0.2 ein:"
-  - asset: n013.gif 
+  - asset: n13.png 
     caption: "🐇 Schnell!"
+  - asset: herz.png
+    caption: "⬅ Jetzt Du:"
   - asset: x03.png
-    caption: "⬅ Probiere herum:"
+    caption: "⬅ Ändere, wie du magst:"
   - asset: 001.png
   - asset: 002.png
+  - asset: herz.png
+    caption: "Mache dein Spiel daraus. Ändere Hintergrund und Kostüme."
   - asset: n008.gif
     caption: "🔃 Hintergrund: Weltall"
   - asset: 003.png
@@ -39,12 +43,14 @@ slides:
   - asset: n009.gif
     caption: "Kostüm: Maus im Weltall"
   - asset: 001.png
-  - asset: n010.gif
+  - asset: 004.png
     caption: "⬆️ Wichtig: Speichern!"
   - asset: n011.gif
-    caption: "⬆️ Deine Sachen hier:"
+    caption: "⬆️ Dein Spiel liegt dann hier:"
+  - asset: 005.png
+    caption: "Mache dein Eigenes mit +"
   - asset: 002.png
-    caption: "🍵 Gönn Dir eine Pause"
+    caption: "Fertig 🍵 Mache eine Pause"
 
 
 blocks:
