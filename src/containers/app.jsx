@@ -10,6 +10,7 @@ import { replace } from 'redux-little-router';
 import { Views } from '../lib/routing';
 import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
 import AppStateHOC from '../lib/app-state-hoc.jsx';
+import withTracking from '../lib/tracking-hoc.jsx';
 import localeDe from '../../translations/de.json';
 import storage, { s3userFile } from '../lib/storage';
 import { setUserId } from '../reducers/project';
@@ -134,7 +135,7 @@ const ConnectedApp = connect(
 )(App);
 
 const WrappedApp = ErrorBoundaryHOC('Top Level App')(
-    AppStateHOC(ConnectedApp),
+    AppStateHOC(withTracking(ConnectedApp)),
 );
 
 WrappedApp.setAppElement = ReactModal.setAppElement;

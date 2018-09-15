@@ -122,6 +122,10 @@ const base = {
                     },
                 ],
             },
+            {
+                test: require.resolve('zepto'),
+                loader: 'imports-loader?this=>window',
+            },
         ],
     },
     optimization: {
