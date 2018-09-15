@@ -10,7 +10,7 @@
     "clean": "rimraf ./build && mkdirp build && rimraf ./dist && mkdirp dist",
     "deploy:build": "serverless package",
     "deploy:apply": "serverless deploy -p .serverless",
-    "deploy:frontend": "serverless client deploy --no-confirm --no-delete-contents",
+    "deploy:frontend": "serverless client deploy --no-confirm --no-delete-contents --no-config-change --no-policy-change --no-cors-change",
     "deploy": "yarn deploy:build && yarn deploy:apply && yarn deploy:frontend",
     "cache-assets": "AWS_REGION=eu-central-1 node scripts/extract-assets.js",
     "i18n:src": "babel src > tmp.js && rimraf tmp.js && build-i18n-src ./translations/messages/ ./translations/",
