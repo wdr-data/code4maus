@@ -3,17 +3,17 @@ slides:
   - asset: 000.png
     caption: "Du programmierst:"
   - asset: 03.gif
-    caption: "⬅ Ändere:"
+    caption: "⬅ Ändere den Anfang:"
   - asset: 001.png
     caption: "⬆️ Drücke auf die Maus:"
   - asset: 04.gif
-    caption: "Füge 'Trötet' hinzu:"
+    caption: "Neue Figur 'Trötet':"
   - asset: frage.png
     caption: "Wie trötet der Elefant?"
   - asset: 002.png
     caption: "Wechsle zur Maus:"
   - asset: 12.gif
-    caption: "Kopiere die Maus-Programme:"
+    caption: "Kopiere die Programme:"
   - asset: 004.png 
     caption: "Zurück zum Elefanten:"
   - asset: 005.png
@@ -27,7 +27,7 @@ slides:
   - asset: 19.gif
     caption: "⬅ Nimm die Schleife raus:"
   - asset: 005.png
-    caption: "⬆️ Drücke den Elefanten noch mal:"
+    caption: "⬆️ Drücke den Elefanten:"
   - asset: herz.png
     caption: "Baust du die Ente allein?"
   - asset: x02.png
