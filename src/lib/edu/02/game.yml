@@ -15,12 +15,12 @@ slides:
     caption: "⬅ Ändere die Zahlen:"  
   - asset: 003.png 
     caption: "Teste dein Programm:"
-  - asset: b.gif
-    caption: "Ton an und abspielen:"
   - asset: x004.png
     caption: "⬅ 2. Programm: Für den Ton"
   - asset: x005.png
-    caption: "⬅ Ändere die Zahlen"
+    caption: "⬅ Ändere die Zahl:"
+  - asset: 003.png 
+    caption: "Fertig. Starte:"
   - asset: super.png
     caption: "🍏 Esse oder trinke etwas"
 
