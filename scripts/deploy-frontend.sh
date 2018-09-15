@@ -9,4 +9,4 @@ else
     BUCKET="${BUCKET}-staging"
 fi
 
-aws s3 sync build s3://${BUCKET} --delete --acl public-read --dryrun
+aws s3 sync build s3://${BUCKET} --delete --acl public-read
