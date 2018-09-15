@@ -10,7 +10,10 @@ env:
     - S3_BUCKET_PREFIX=hackingstudio-code4maus-projects
     - AWS_REGION=eu-central-1
 
-cache: yarn
+cache:
+  yarn: true
+  directories:
+    - assets/
 
 before_install:
   - pip install --user awscli
