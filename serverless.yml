@@ -15,14 +15,14 @@ functions:
     handler: src/backend/prepareAssetUpload.handler
     events:
       - http:
-          path: prepareAssetUpload
+          path: api/prepareAssetUpload
           method: POST
 
   saveProject:
     handler: src/backend/saveProject.handler
     events:
       - http:
-          path: saveProject
+          path: api/saveProject
           method: POST
 
 resources:
