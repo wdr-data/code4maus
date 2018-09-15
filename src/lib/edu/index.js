@@ -1,9 +1,9 @@
 import image00 from './00/assets/000.png';
-import image01 from './01/assets/000.png';
-import image02 from './02/assets/000.png';
-import image03 from './03/assets/000.png';
-import image04 from './04/assets/000.png';
-import image05 from './05/assets/000.png';
+import image01 from './01/assets/s000.png';
+import image02 from './02/assets/s000.png';
+import image03 from './03/assets/s000.png';
+import image04 from './04/assets/s000.png';
+import image05 from './05/assets/s000.png';
 
 export default [
     {
@@ -38,7 +38,7 @@ export default [
     },
     {
         id: '05',
-        name: 'Wurst im Weltraum',
+        name: 'Im Weltall',
         subtitle: '05 Spiel',
         image: image05,
     },
