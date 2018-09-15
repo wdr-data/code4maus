@@ -36,3 +36,12 @@ deploy:
     script: SLS_STAGE=prod yarn deploy
     on:
       branch: production
+
+notifications:
+  slack:
+    rooms:
+      - secure: btEFLcYC2Nska3YypQkwoRhZWQkZddSM2vkUwDggAeLryGVN4vy46AL7PbvAg/fKPWe2Kz7iHfe4xfy/mP7egMjUze4sLCdCUn8mxgkdwnAsjZqXMm/bXyUG5ofqMrugzWyTcBJlv2icTGuvatLx6U+iyQQjPebR2+lB+8mBf49eoMVXfFGXXGVez1OgsKr3ZQwIi/+Bp/CpK1UjX2dSKe56J+3PQc234MUZTpAxEDsqrfvTylNSH3XrRklsEw5TlzNjETYbwxKtz1upLcakYdNExp6knzM4ORsL90A2IrG8Mjw+L2JcT+irfHW4fNiFWo6NPalLdtFhgv9LsDZ4Y1TrV/NkhO03j1Ql3BotdsmXmuWwtAI1rIt+KuyASNeULOFEN/crQKUCACk2YHdvf8LI99BtWi8VssXOVG3PMqyCZdGgRX31JxV/VDErjOqNGtodiYrxgtV0zxwZAa4DyIMJX13cT2WhabDiYRXvRZC0bKD0xoefrVYW8Eb8tyGvba54HArRcwRGZo2JDV9dRBptHaLPrPlUG8vjeQy3bspzBtTyBiH1BNFc7G7BF599Ru1T+Rub00HqZr20Flf6fPeGRZeGZxTH3fc7L0TJCdp8ndJpx+EDxggrNphSB5Eu02Bw9S1rkNDq8f5jr3Utg6CU0R2GuqJJXwnObrW2EIo=
+    on_pull_requests: false
+    template:
+      - "Deployment %{result}:"
+      - "<%{compare_url}|%{repository_slug}:%{branch}#%{commit}> by %{author}"
