@@ -13,6 +13,7 @@ npm-*
 /build
 /dist
 /.opt-in
+/.serverless/
 
 # generated translation files
 /translations
