@@ -141,7 +141,6 @@ resources:
           HostedZoneId: Z2FDTNDATAQYW2
 
 plugins:
-  - serverless-finch
   - serverless-offline
   - serverless-pseudo-parameters
   - serverless-webpack
@@ -149,9 +148,6 @@ plugins:
 custom:
   appBucketName: ${self:service}-app-${file(scripts/env.js):stage}
   projectBucketName: ${self:service}-projects-${file(scripts/env.js):stage}
-  client:
-    bucketName: ${self:custom.appBucketName}
-    distributionFolder: build
   webpack:
     webpackConfig: 'webpack.backend.js'
     packager: 'yarn'
