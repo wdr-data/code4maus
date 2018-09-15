@@ -3,7 +3,7 @@
 # todo: make dynamic via serverless
 BUCKET="hackingstudio-code4maus-app"
 
-if [ "$BRANCH" == "production" ]; then
+if [ "$TRAVIS_BRANCH" == "production" ]; then
     BUCKET="${BUCKET}-prod"
 else
     BUCKET="${BUCKET}-staging"
