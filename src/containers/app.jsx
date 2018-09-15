@@ -15,9 +15,9 @@ import localeDe from '../../translations/de.json';
 import storage, { s3userFile } from '../lib/storage';
 import { setUserId } from '../reducers/project';
 
-import GUI from './gui.jsx';
 import Menu from './menu.jsx';
 import WelcomeScreen from './welcome-screen.jsx';
+import LazyRender from './lazy-render.jsx';
 import Content from './content.jsx';
 import Loader from '../components/loader/loader.jsx';
 
@@ -86,7 +86,7 @@ class App extends Component {
         switch (this.props.view) {
         case Views.edu:
         case Views.project:
-            return <GUI />;
+            return <LazyRender promise={import('./gui.jsx')} />;
         case Views.content:
             return <Content />;
         case Views.welcome:
