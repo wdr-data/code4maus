@@ -71,6 +71,7 @@ const main = async () => {
         req.on('error', stopStream)
             .on('response', (response) => {
                 if (response.statusCode !== 200) {
+                    console.warn('Asset not found:', asset);
                     stopStream(new Error('Response status code indicates failure.'));
                 }
             })
