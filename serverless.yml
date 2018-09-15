@@ -99,7 +99,7 @@ resources:
             ForwardedValues:
               QueryString: false
           Origins:
-          - DomainName: ${self:custom.appBucketName}.s3-website-eu-central-1.amazonaws.com
+          - DomainName: ${self:custom.appBucketName}.s3-website.eu-central-1.amazonaws.com
             Id: S3-${self:custom.appBucketName}
             CustomOriginConfig:
               HTTPPort: '80'
