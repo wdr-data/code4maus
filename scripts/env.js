@@ -7,7 +7,7 @@ const getHostedZoneForDomain = (domain) => {
     });
     const splittedDomain = domain.split('.');
     let foundId = null;
-    return timeout(route53.listHostedZones({}).promise(), 2000)
+    return timeout(route53.listHostedZones({}).promise(), 5000)
         .then((data) => {
             return splittedDomain.every((part, i) => {
                 const domain = splittedDomain.slice(i).join('.') + '.';
@@ -27,7 +27,7 @@ const getCertArnForDomain = (domain) => {
         region: 'us-east-1',
     });
     const wildCardDomain = '*.' + domain.split('.').slice(1).join('.');
-    return timeout(acm.listCertificates({}).promise(), 2000)
+    return timeout(acm.listCertificates({}).promise(), 5000)
         .then((data) => data.CertificateSummaryList
             .find((cert) => cert.DomainName === domain || cert.DomainName === wildCardDomain)
         )
@@ -50,7 +50,7 @@ const hostedZone = () => {
             return zone;
         })
         .catch((error) => {
-            console.warn('WARNING: Request for HostedZone failed!');
+            console.warn('WARNING: Request for HostedZone failed!', error.message);
             return Promise.resolve('');
         });
 };
@@ -65,7 +65,7 @@ const certArn = () => {
             return cert;
         })
         .catch((error) => {
-            console.warn('WARNING: Request for Certificate failed!');
+            console.warn('WARNING: Request for Certificate failed!', error.message);
             return Promise.resolve('');
         });
 };
