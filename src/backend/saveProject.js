@@ -3,7 +3,7 @@ import nanoid from 'nanoid';
 
 const s3 = initS3();
 
-const getKey = (user, path = 'index.json') => `projects/${user}/${path}`;
+const getKey = (user, path = 'index.json') => `data/projects/${user}/${path}`;
 
 const injectReplyJson = (handler) => (event, context, callback) => handler(event, context, (code, body) => callback(null, {
     statusCode: code,
