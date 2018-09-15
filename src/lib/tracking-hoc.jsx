@@ -5,32 +5,36 @@ import { connect } from 'react-redux';
 
 import { Views } from '../lib/routing';
 
-const baseGroups = [
-    'WDR',
-    'Fernsehen',
-    'Kinder',
-    'Die Sendung mit der Maus',
-    'Programmieren mit der Maus',
-];
-
-const extendZepto = ($) => {
-    $.ajaxSetup = (opts) => {
-        $.ajaxSettings = $.extend($.ajaxSettings, opts);
-    };
-    $.getScript = (url, success, error) => {
-        const script = document.createElement('script');
-        script.src = url;
-
-        const $script = $(script);
-        $script.bind('load', success);
-        $script.bind('error', error);
-
-        $('body').append(script);
-    };
-    return $;
-};
-
 const withTracking = (WrappedComponent) => {
+    if (!process.env.ENABLE_TRACKING) {
+        return WrappedComponent;
+    }
+
+    const baseGroups = [
+        'WDR',
+        'Fernsehen',
+        'Kinder',
+        'Die Sendung mit der Maus',
+        'Programmieren mit der Maus',
+    ];
+
+    const extendZepto = ($) => {
+        $.ajaxSetup = (opts) => {
+            $.ajaxSettings = $.extend($.ajaxSettings, opts);
+        };
+        $.getScript = (url, success, error) => {
+            const script = document.createElement('script');
+            script.src = url;
+
+            const $script = $(script);
+            $script.bind('load', success);
+            $script.bind('error', error);
+
+            $('body').append(script);
+        };
+        return $;
+    };
+
     class WDRTracking extends React.Component {
         constructor(props) {
             super(props);

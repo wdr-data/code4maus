@@ -14,7 +14,8 @@ const postcssImport = require('postcss-import');
 const postcssMixins = require('postcss-mixins');
 
 require('dotenv').config();
-const bucketSuffix = process.env.BRANCH === 'production' ? 'prod' : 'staging';
+const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH;
+const bucketSuffix = branch === 'production' ? 'prod' : 'staging';
 const bucketUrl = `https://${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}.s3.dualstack.${process.env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION}.amazonaws.com`;
 
 module.exports = {
@@ -148,6 +149,7 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"' + process.env.NODE_ENV + '"',
             'process.env.DEBUG': Boolean(process.env.DEBUG),
+            'process.env.ENABLE_TRACKING': JSON.stringify(Boolean(branch === 'production')),
         }),
         new HtmlWebpackPlugin({
             chunks: 'gui',
