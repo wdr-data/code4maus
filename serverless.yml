@@ -104,7 +104,7 @@ resources:
             CustomOriginConfig:
               HTTPPort: '80'
               HTTPSPort: '443'
-              OriginProtocolPolicy: https-only
+              OriginProtocolPolicy: http-only
           - DomainName: ${self:custom.projectBucketName}.s3.amazonaws.com
             Id: S3-${self:custom.projectBucketName}
             S3OriginConfig: {}
