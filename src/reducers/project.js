@@ -56,11 +56,13 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 id: 0,
+                customBlocks: null,
             };
         }
         return {
             ...state,
             id: action.payload.params.projectId,
+            customBlocks: null,
         };
     default:
         return state;
