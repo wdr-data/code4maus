@@ -1,26 +1,25 @@
-const defaultsDeep = require('lodash.defaultsdeep');
-let path = require('path');
-let webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 // Plugins
-let CopyWebpackPlugin = require('copy-webpack-plugin');
-let HtmlWebpackPlugin = require('html-webpack-plugin');
-let UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-let Visualizer = require('webpack-visualizer-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const Visualizer = require('webpack-visualizer-plugin');
 
 // PostCss
-let autoprefixer = require('autoprefixer');
-let postcssVars = require('postcss-simple-vars');
-let postcssImport = require('postcss-import');
-let postcssMixins = require('postcss-mixins');
+const autoprefixer = require('autoprefixer');
+const postcssVars = require('postcss-simple-vars');
+const postcssImport = require('postcss-import');
+const postcssMixins = require('postcss-mixins');
 
 require('dotenv').config();
 const bucketSuffix = process.env.BRANCH === 'production' ? 'prod' : 'staging';
 const bucketUrl = `https://${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}.s3.dualstack.${process.env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION}.amazonaws.com`;
 
-const base = {
+module.exports = {
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
-    devtool: 'cheap-module-source-map',
+    devtool: 'source-map',
     devServer: {
         contentBase: path.resolve(__dirname, 'build'),
         host: '0.0.0.0',
@@ -46,16 +45,13 @@ const base = {
             poll: 1000,
         } : {},
     },
+    entry: {
+        'app': './src/playground/index.jsx',
+    },
     output: {
-        library: 'GUI',
+        path: path.resolve(__dirname, 'build'),
         filename: '[name].js',
-    },
-    externals: {
-        React: 'react',
-        ReactDOM: 'react-dom',
-    },
-    resolve: {
-        symlinks: false,
+        publicPath: '/',
     },
     module: {
         rules: [
@@ -64,8 +60,8 @@ const base = {
                 loader: 'babel-loader',
                 include: [ path.resolve(__dirname, 'src'), /node_modules[\\/](@wdr-data[\\/])?scratch-[^\\/]+[\\/]src/ ],
                 options: {
-                // Explicitly disable babelrc so we don't catch various config
-                // in much lower dependencies.
+                    // Explicitly disable babelrc so we don't catch various config
+                    // in much lower dependencies.
                     babelrc: false,
                     plugins: [
                         'syntax-dynamic-import',
@@ -77,7 +73,14 @@ const base = {
                             },
                         ],
                     ],
-                    presets: [ [ 'env', { targets: { browsers: [ 'last 3 versions', 'Safari >= 8', 'iOS >= 8' ] } } ], 'react' ],
+                    presets: [
+                        [
+                            'env', { targets: {
+                                browsers: [ 'last 3 versions', 'Safari >= 8', 'iOS >= 8' ],
+                            } },
+                        ],
+                        'react',
+                    ],
                 },
             },
             {
@@ -112,6 +115,13 @@ const base = {
                 ],
             },
             {
+                test: /\.(svg|png|wav|gif|jpg)$/,
+                loader: 'file-loader',
+                options: {
+                    outputPath: 'static/assets/',
+                },
+            },
+            {
                 test: /\.md$/,
                 use: [
                     {
@@ -129,168 +139,58 @@ const base = {
         ],
     },
     optimization: {
-        minimizer: [
-            new UglifyJsPlugin({
-                include: /\.min\.js$/,
-            }),
-        ],
+        minimizer: [ new UglifyJsPlugin() ],
+        splitChunks: {
+            chunks: 'all',
+        },
     },
-    plugins: [],
-};
-
-module.exports = [
-    // to run editor examples
-    defaultsDeep({}, base, {
-        entry: {
-            'lib.min': [ 'react', 'react-dom' ],
-            'gui': './src/playground/index.jsx',
-            'blocksonly': './src/playground/blocks-only.jsx',
-            'compatibilitytesting': './src/playground/compatibility-testing.jsx',
-            'player': './src/playground/player.jsx',
-        },
-        output: {
-            path: path.resolve(__dirname, 'build'),
-            filename: '[name].js',
-            publicPath: '/',
-        },
-        externals: {
-            React: 'react',
-            ReactDOM: 'react-dom',
-        },
-        module: {
-            rules: base.module.rules.concat([
-                {
-                    test: /\.(svg|png|wav|gif|jpg)$/,
-                    loader: 'file-loader',
-                    options: {
-                        outputPath: 'static/assets/',
-                    },
-                },
-            ]),
-        },
-        optimization: {
-            splitChunks: {
-                chunks: 'all',
-                name: 'lib.min',
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': '"' + process.env.NODE_ENV + '"',
+            'process.env.DEBUG': Boolean(process.env.DEBUG),
+        }),
+        new HtmlWebpackPlugin({
+            chunks: 'gui',
+            template: 'src/playground/index.ejs',
+            title: 'Programmieren mit der Maus',
+        }),
+        new CopyWebpackPlugin([
+            {
+                from: 'assets/img/favicon.png',
+                to: '',
             },
-            runtimeChunk: {
-                name: 'lib.min',
-            },
-        },
-        plugins: base.plugins.concat([
-            new webpack.DefinePlugin({
-                'process.env.NODE_ENV': '"' + process.env.NODE_ENV + '"',
-                'process.env.DEBUG': Boolean(process.env.DEBUG),
-            }),
-            new HtmlWebpackPlugin({
-                chunks: [ 'lib.min', 'gui' ],
-                template: 'src/playground/index.ejs',
-                title: 'Programmieren mit der Maus',
-                sentryConfig: process.env.SENTRY_CONFIG ? '"' + process.env.SENTRY_CONFIG + '"' : null,
-            }),
-            new HtmlWebpackPlugin({
-                chunks: [ 'lib.min', 'blocksonly' ],
-                template: 'src/playground/index.ejs',
-                filename: 'blocks-only.html',
-                title: 'Scratch 3.0 GUI: Blocks Only Example',
-            }),
-            new HtmlWebpackPlugin({
-                chunks: [ 'lib.min', 'compatibilitytesting' ],
-                template: 'src/playground/index.ejs',
-                filename: 'compatibility-testing.html',
-                title: 'Scratch 3.0 GUI: Compatibility Testing',
-            }),
-            new HtmlWebpackPlugin({
-                chunks: [ 'lib.min', 'player' ],
-                template: 'src/playground/index.ejs',
-                filename: 'player.html',
-                title: 'Scratch 3.0 GUI: Player Example',
-            }),
-            new CopyWebpackPlugin([
-                {
-                    from: 'assets/img/favicon.png',
-                    to: '',
-                },
-            ]),
-            new CopyWebpackPlugin([
-                {
-                    from: 'node_modules/@wdr-data/scratch-blocks/media',
-                    to: 'static/blocks-media',
-                }, {
-                    from: 'assets/blocks-media',
-                    to: 'static/blocks-media',
-                },
-            ]),
-            new CopyWebpackPlugin([
-                {
-                    from: 'extensions/**',
-                    to: 'static',
-                    context: 'src/examples',
-                },
-            ]),
-            new CopyWebpackPlugin([
-                {
-                    from: '_redirects',
-                },
-            ]),
-            new CopyWebpackPlugin([
-                {
-                    from: 'edu/**/*',
-                    context: 'src/lib/',
-                },
-            ]),
-            new CopyWebpackPlugin([
-                {
-                    from: 'static',
-                    to: 'static',
-                }, {
-                    from: 'assets/icons',
-                    to: 'static/icons',
-                },
-            ]),
-            new Visualizer({
-                filename: 'statistics.html',
-            }),
         ]),
-    }),
-].concat(
-    process.env.NODE_ENV === 'production' ?
-        // export as library
-        defaultsDeep({}, base, {
-            target: 'web',
-            entry: {
-                'scratch-gui': './src/index.js',
+        new CopyWebpackPlugin([
+            {
+                from: 'node_modules/@wdr-data/scratch-blocks/media',
+                to: 'static/blocks-media',
+            }, {
+                from: 'assets/blocks-media',
+                to: 'static/blocks-media',
             },
-            output: {
-                libraryTarget: 'umd',
-                path: path.resolve('dist'),
+        ]),
+        new CopyWebpackPlugin([
+            {
+                from: '_redirects',
             },
-            externals: {
-                React: 'react',
-                ReactDOM: 'react-dom',
+        ]),
+        new CopyWebpackPlugin([
+            {
+                from: 'edu/**/*',
+                context: 'src/lib/',
             },
-            module: {
-                rules: base.module.rules.concat([
-                    {
-                        test: /\.(svg|png|wav|gif|jpg)$/,
-                        loader: 'file-loader',
-                        options: {
-                            outputPath: 'static/assets/',
-                            publicPath: '/static/assets/',
-                        },
-                    },
-                ]),
+        ]),
+        new CopyWebpackPlugin([
+            {
+                from: 'static',
+                to: 'static',
+            }, {
+                from: 'assets/icons',
+                to: 'static/icons',
             },
-            plugins: base.plugins.concat([
-                new CopyWebpackPlugin([
-                    {
-                        from: 'node_modules/@wdr-data/scratch-blocks/media',
-                        to: 'static/blocks-media',
-                    }, {
-                        from: 'assets/blocks-media',
-                        to: 'static/blocks-media',
-                    },
-                ]),
-            ]),
-        }) : []
-);
+        ]),
+        new Visualizer({
+            filename: 'statistics.html',
+        }),
+    ],
+};
