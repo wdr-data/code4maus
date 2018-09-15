@@ -104,11 +104,11 @@ const GUIComponent = (props) => {
             {saveProjectVisible ?
                 <ModalComponent
                     className={styles.saveModal}
-                    contentLabel="Lege einen Namen fest"
+                    contentLabel="Wie soll dein Spiel heißen?"
                     onRequestClose={onSaveModalClose}
                 >
                     <Box className={styles.saveModalBox}>
-                        <Input placeholder="Name deines Projektes" onChange={(e) => onProjectNameChange(e.target.value)} value={projectName} />
+                        <Input placeholder="Hier eintippen, wie dein Spiel heißen soll" onChange={(e) => onProjectNameChange(e.target.value)} value={projectName} />
                         <Box className={styles.saveModalActions}>
                             <p>{saveProjectError}</p>
                             <Button className={styles.saveModalButton} onClick={() => onSaveProject().then(() => onSaveModalClose())}>Speichern</Button>
