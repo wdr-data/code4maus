@@ -10,6 +10,21 @@
 	background: url(./bg-grey.png) no-repeat;
 }
 
+.button.wiggle {
+	animation-name: wiggle;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes wiggle {
+    0% {transform: rotate(3deg) scale(1.05);}
+    25% {transform: rotate(-3deg) scale(1.05);}
+    50% {transform: rotate(3deg) scale(1.05);}
+    75% {transform: rotate(-3deg) scale(1.05);}
+    100% {transform: rotate(0deg) scale(1.05);}
+}
+
 .arrow-left {
     padding-left: 2.5rem;
 }

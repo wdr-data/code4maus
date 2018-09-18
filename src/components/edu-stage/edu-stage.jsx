@@ -43,7 +43,7 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
             <p>{props.slideIndex + 1}/{props.slideCount}</p>
             <ButtonPrimary
                 className={styles.forwardButton}
-                arrowRight
+                arrowRight wiggle={props.slideIndex == 0}
                 onClick={props.nextSlide}
             >
                 Weiter

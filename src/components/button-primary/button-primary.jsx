@@ -12,6 +12,7 @@ const ButtonPrimary = (props) => {
         arrowRight,
         className,
         grey,
+        wiggle,
         ...componentProps
     } = props;
 
@@ -23,6 +24,7 @@ const ButtonPrimary = (props) => {
                 [styles.arrowLeft]: arrowLeft,
                 [styles.arrowRight]: arrowRight,
                 [styles.grey]: grey,
+                [styles.wiggle]: wiggle,
             },
         )}
         {...componentProps}
@@ -34,6 +36,7 @@ ButtonPrimary.propTypes = {
     arrowLeft: PropTypes.bool,
     arrowRight: PropTypes.bool,
     grey: PropTypes.bool,
+    wiggle: PropTypes.bool,
 };
 
 ButtonPrimary.defaultProps = {
