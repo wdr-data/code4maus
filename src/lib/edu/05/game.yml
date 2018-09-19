@@ -3,33 +3,61 @@
 
 slides:
   - asset: L05.png
+  - asset: x11.png
+    caption: "Ziel: Fange mit dem Fisch die Äpfel."
+  - asset: 000.png
+    caption: "Hintergrund: Unterwasser"
   - asset: 001.png
+    caption: "Füge Figur 'Fisch' hinzu:"
   - asset: 002.png
+    caption: "Noch eine Figur: 'Apfel'"
   - asset: 003.png
+    caption: "Lösche die Maus:"
+  - asset: x01.png
+    caption: "1. Block für den Apfel:"
+  - asset: x02.png
+    caption: "2. Block für den Apfel:"
+  - asset: x03.png
+    caption: "3. Block für den Apfel:"
+  - asset: start.png
+    caption: "Teste dein Programm:"
+  - asset: super.png
   - asset: 004.png
+    caption: "Nun zum Fisch:"
+  - asset: x04.png
+    caption: "Code für den Fisch:"
+  - asset: start.png
+    caption: "Teste dein Programm wieder:"
   - asset: 005.png
+    caption: "Füge 2 mal Figur Pfeil hinzu:"
   - asset: 006.png
+    caption: "Bei 'Pfeil': Kostüm links:"
   - asset: 007.png
+    caption: "Bei 'Pfeil2': Kostüm rechts:"
   - asset: 008.png
-  - asset: 009.png
-  - asset: 010.png
-  - asset: 011.png
-  - asset: 012.png
-  - asset: 013.png
-  - asset: 014.png
-  - asset: 015.png
-  - asset: 016.png
-  - asset: 017.png
-  - asset: 018.png
-  - asset: 019.png
-  - asset: 020.png
-  - asset: 021.png
-  - asset: 022.png
-  - asset: 023.png
-  - asset: 024.png
-  - asset: 025.png
-  - asset: 026.png
-  - asset: 027.png
+    caption: "So sollen die Figuren aussehen:"
+  - asset: x10.png
+    caption: "So soll die Bühne aussehen:"
+  - asset: x05.png
+    caption: "Code für Pfeil links:"
+  - asset: x06.png
+    caption: "Wähle 'Neue Nachricht'"
+  - asset: x07.png
+    caption: "Gib links ein:"
+  - asset: herz.png
+    caption: "Kannst du rechts alleine?"
+  - asset: x08.png
+    caption: "Code für Pfeil rechts:"
+  - asset: 008.png
+    caption: "Zurück zum Fisch:"
+  - asset: x09.png
+    caption: "Um den Fisch zu steuern:"
+  - asset: start.png
+    caption: "Teste dein Spiel"
+  - asset: super.png
+    caption: "Fertig. Du hast alle Lernspiele geschafft."
+  - asset: neu.png
+    caption: "Mache dein eigenes mit +"
 
 blocks:
   - category: motion
@@ -38,7 +66,15 @@ blocks:
       - turnright
       - turnleft
       - --
+      - goto
+      - gotoxy
       - glideto
+      - glidesecstoxy
+      - --
+      - changexby
+      - setx
+      - changeyby
+      - sety
   - category: looks
     blocks:
       - switchcostumeto
