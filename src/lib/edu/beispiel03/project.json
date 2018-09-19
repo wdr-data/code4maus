@@ -1,1 +1,2150 @@
-{"targets":[{"isStage":true,"name":"Stage","variables":{"`jEk@4|i[#Fk?(8x)AV.-my variable":["meine Variable",0]},"lists":{},"broadcasts":{"4Ct:soYL12h50$-1$JNi":"Hab dich gefunden, Elefant!","ue,=,M^ZX`4p.H;;qP.X":"Hab dich gefunden, Ente!"},"blocks":{},"comments":{},"currentCostume":0,"costumes":[{"assetId":"3a343d19f40be5196f5b1cad1c7d1e39","name":"Wiese","md5ext":"3a343d19f40be5196f5b1cad1c7d1e39.jpg","dataFormat":"jpg","rotationCenterX":480,"rotationCenterY":360},{"assetId":"a35419bc3c9a8888430c157960ef28b4","name":"Unterwasser","md5ext":"a35419bc3c9a8888430c157960ef28b4.jpg","dataFormat":"jpg","rotationCenterX":480,"rotationCenterY":360}],"sounds":[{"assetId":"b38904cb3103c903cd6be4b569b8db5c","name":"Vogel","dataFormat":"mp3","rate":48000,"sampleCount":17832,"md5ext":"b38904cb3103c903cd6be4b569b8db5c.mp3"}],"volume":100,"layerOrder":0,"tempo":60,"videoTransparency":50,"videoState":"off"},{"isStage":false,"name":"Maus geht","variables":{},"lists":{},"broadcasts":{},"blocks":{";*$LCwj^-8c+X*/7`Mg5":{"opcode":"event_whenkeypressed","next":"A]4Hg(Q]Yp0s3Xp-5p!G","parent":null,"inputs":{},"fields":{"KEY_OPTION":["left arrow"]},"topLevel":true,"shadow":false,"x":75,"y":51},";](4VBl1|Kv,MSn,1sl?":{"opcode":"motion_changexby","next":"?2.$Tqobhg@oBk^A*wz,","parent":"A]4Hg(Q]Yp0s3Xp-5p!G","inputs":{"DX":[1,[4,"-10"]]},"fields":{},"topLevel":false,"shadow":false},"?2.$Tqobhg@oBk^A*wz,":{"opcode":"control_wait","next":"96R~+0*^G,^.Ey[n:KU(","parent":";](4VBl1|Kv,MSn,1sl?","inputs":{"DURATION":[1,[5,"0.1"]]},"fields":{},"topLevel":false,"shadow":false},"96R~+0*^G,^.Ey[n:KU(":{"opcode":"looks_nextcostume","next":",[AE%2_4ySG.oVU6]rzT","parent":"?2.$Tqobhg@oBk^A*wz,","inputs":{},"fields":{},"topLevel":false,"shadow":false},",[AE%2_4ySG.oVU6]rzT":{"opcode":"sound_play","next":null,"parent":"96R~+0*^G,^.Ey[n:KU(","inputs":{"SOUND_MENU":[1,"r*xcLHRSfronJN0`M!FU"]},"fields":{},"topLevel":false,"shadow":false},"r*xcLHRSfronJN0`M!FU":{"opcode":"sound_sounds_menu","next":null,"parent":",[AE%2_4ySG.oVU6]rzT","inputs":{},"fields":{"SOUND_MENU":["Maus geht"]},"topLevel":false,"shadow":true},"r-=7=vxigI{A=Td82yC0":{"opcode":"event_whenkeypressed","next":"|(s%gCF^@h^a4P9rQ/@C","parent":null,"inputs":{},"fields":{"KEY_OPTION":["space"]},"topLevel":true,"shadow":false,"x":494,"y":79},"|(s%gCF^@h^a4P9rQ/@C":{"opcode":"control_if","next":"Z2--7W{A(^QOMPqqfx6p","parent":"r-=7=vxigI{A=Td82yC0","inputs":{"CONDITION":[2,"5R},:r7s}b7hHg|Vk4J/"],"SUBSTACK":[2,"lR=z_D+l44^@.Zp*Aa-2"]},"fields":{},"topLevel":false,"shadow":false},"5R},:r7s}b7hHg|Vk4J/":{"opcode":"sensing_touchingobject","next":null,"parent":"|(s%gCF^@h^a4P9rQ/@C","inputs":{"TOUCHINGOBJECTMENU":[1,"+rCeIB9c,KI:osPLl+}x"]},"fields":{},"topLevel":false,"shadow":false},"+rCeIB9c,KI:osPLl+}x":{"opcode":"sensing_touchingobjectmenu","next":null,"parent":"5R},:r7s}b7hHg|Vk4J/","inputs":{},"fields":{"TOUCHINGOBJECTMENU":["Elefant trötet"]},"topLevel":false,"shadow":true},"lR=z_D+l44^@.Zp*Aa-2":{"opcode":"event_broadcast","next":null,"parent":"|(s%gCF^@h^a4P9rQ/@C","inputs":{"BROADCAST_INPUT":[1,[11,"Hab dich gefunden, Elefant!","4Ct:soYL12h50$-1$JNi"]]},"fields":{},"topLevel":false,"shadow":false},"Z2--7W{A(^QOMPqqfx6p":{"opcode":"control_if","next":null,"parent":"|(s%gCF^@h^a4P9rQ/@C","inputs":{"CONDITION":[2,"lt#{]Q=5TRD/GDNIFb{^"],"SUBSTACK":[2,"{wOY+K7c`#$6)/3gKXm3"]},"fields":{},"topLevel":false,"shadow":false},"lt#{]Q=5TRD/GDNIFb{^":{"opcode":"sensing_touchingobject","next":null,"parent":"Z2--7W{A(^QOMPqqfx6p","inputs":{"TOUCHINGOBJECTMENU":[1,"Rjh5$^Dp`mkh%+dKPh`^"]},"fields":{},"topLevel":false,"shadow":false},"Rjh5$^Dp`mkh%+dKPh`^":{"opcode":"sensing_touchingobjectmenu","next":null,"parent":"lt#{]Q=5TRD/GDNIFb{^","inputs":{},"fields":{"TOUCHINGOBJECTMENU":["Ente flattert"]},"topLevel":false,"shadow":true},"{wOY+K7c`#$6)/3gKXm3":{"opcode":"event_broadcast","next":null,"parent":"Z2--7W{A(^QOMPqqfx6p","inputs":{"BROADCAST_INPUT":[1,[11,"Hab dich gefunden, Ente!","ue,=,M^ZX`4p.H;;qP.X"]]},"fields":{},"topLevel":false,"shadow":false},"[Nj7#@53)6gYaLfW/Qu0":{"opcode":"event_whenkeypressed","next":"UsDZcZgn29_[a#M*yI%!","parent":null,"inputs":{},"fields":{"KEY_OPTION":["right arrow"]},"topLevel":true,"shadow":false,"x":75,"y":394},"6e*+6k`fk@h{cijvCP$(":{"opcode":"motion_changexby","next":"eFSb)u8DYWGm|Tr:KVHG","parent":"UsDZcZgn29_[a#M*yI%!","inputs":{"DX":[1,[4,"10"]]},"fields":{},"topLevel":false,"shadow":false},"eFSb)u8DYWGm|Tr:KVHG":{"opcode":"control_wait","next":";kiPGsKZ1VFV{$pjNF%D","parent":"6e*+6k`fk@h{cijvCP$(","inputs":{"DURATION":[1,[5,"0.1"]]},"fields":{},"topLevel":false,"shadow":false},";kiPGsKZ1VFV{$pjNF%D":{"opcode":"looks_nextcostume","next":"w}%y^CI$gS-]b5m}:ILw","parent":"eFSb)u8DYWGm|Tr:KVHG","inputs":{},"fields":{},"topLevel":false,"shadow":false},"w}%y^CI$gS-]b5m}:ILw":{"opcode":"sound_play","next":null,"parent":";kiPGsKZ1VFV{$pjNF%D","inputs":{"SOUND_MENU":[1,"{+?WS#+YJHd@RaE!WSRn"]},"fields":{},"topLevel":false,"shadow":false},"{+?WS#+YJHd@RaE!WSRn":{"opcode":"sound_sounds_menu","next":null,"parent":"w}%y^CI$gS-]b5m}:ILw","inputs":{},"fields":{"SOUND_MENU":["Maus geht"]},"topLevel":false,"shadow":true},"UsDZcZgn29_[a#M*yI%!":{"opcode":"motion_pointindirection","next":"6e*+6k`fk@h{cijvCP$(","parent":"[Nj7#@53)6gYaLfW/Qu0","inputs":{"DIRECTION":[1,[8,"90"]]},"fields":{},"topLevel":false,"shadow":false},"A]4Hg(Q]Yp0s3Xp-5p!G":{"opcode":"motion_pointindirection","next":";](4VBl1|Kv,MSn,1sl?","parent":";*$LCwj^-8c+X*/7`Mg5","inputs":{"DIRECTION":[1,[8,"-90"]]},"fields":{},"topLevel":false,"shadow":false}},"comments":{},"currentCostume":0,"costumes":[{"assetId":"ba577ee81a7790ca2c5deddb658d0b64","name":"MAUS-Posen-SVGs-150px_geht-1","bitmapResolution":1,"md5ext":"ba577ee81a7790ca2c5deddb658d0b64.svg","dataFormat":"svg","rotationCenterX":84.5,"rotationCenterY":79.375},{"assetId":"071dc435fa394064e9a6bc327cc7becb","name":"MAUS-Posen-SVGs-150px_geht-2","bitmapResolution":1,"md5ext":"071dc435fa394064e9a6bc327cc7becb.svg","dataFormat":"svg","rotationCenterX":84.5,"rotationCenterY":79.375},{"assetId":"295a85dc4e77dbe4bc8eab303507ff56","name":"MAUS-Posen-SVGs-150px_geht-3","bitmapResolution":1,"md5ext":"295a85dc4e77dbe4bc8eab303507ff56.svg","dataFormat":"svg","rotationCenterX":84.5,"rotationCenterY":79.375},{"assetId":"f0d453e9cb3d26060035dd5e7840b29b","name":"MAUS-Posen-SVGs-150px_geht-4","bitmapResolution":1,"md5ext":"f0d453e9cb3d26060035dd5e7840b29b.svg","dataFormat":"svg","rotationCenterX":84.5,"rotationCenterY":79.375},{"assetId":"353e0d9ac4ed77ae2c368186be99fe6f","name":"MAUS-Posen-SVGs-150px_geht-5","bitmapResolution":1,"md5ext":"353e0d9ac4ed77ae2c368186be99fe6f.svg","dataFormat":"svg","rotationCenterX":84.5,"rotationCenterY":79.375}],"sounds":[{"assetId":"7cd45cc0231181016ed3d6e5d7f1076e","name":"Maus geht","dataFormat":"mp3","format":"","rate":48000,"sampleCount":2632,"md5ext":"7cd45cc0231181016ed3d6e5d7f1076e.mp3"}],"volume":100,"layerOrder":1,"visible":true,"x":-114.18357672,"y":-42,"size":100,"direction":-90,"draggable":false,"rotationStyle":"left-right"},{"isStage":false,"name":"Elefant trötet","variables":{},"lists":{},"broadcasts":{},"blocks":{"3{i46f5[|_pMdeSDqZKJ":{"opcode":"event_whenflagclicked","next":"L9s)GE!Lp8NY)?)Uu)`w","parent":null,"inputs":{},"fields":{},"topLevel":true,"shadow":false,"x":71,"y":81},"L9s)GE!Lp8NY)?)Uu)`w":{"opcode":"looks_switchcostumeto","next":"kzC*(+g1O}h]cfu)f(0+","parent":"3{i46f5[|_pMdeSDqZKJ","inputs":{"COSTUME":[1,"A5.i)2,2jHzb/^7eSb#S"]},"fields":{},"topLevel":false,"shadow":false},"A5.i)2,2jHzb/^7eSb#S":{"opcode":"looks_costume","next":null,"parent":"L9s)GE!Lp8NY)?)Uu)`w","inputs":{},"fields":{"COSTUME":["Versteckt"]},"topLevel":false,"shadow":true},"kzC*(+g1O}h]cfu)f(0+":{"opcode":"motion_gotoxy","next":null,"parent":"L9s)GE!Lp8NY)?)Uu)`w","inputs":{"X":[1,[4,"175"]],"Y":[1,[4,"-104"]]},"fields":{},"topLevel":false,"shadow":false},"`6yOq5@OLUX4jCDd/T?q":{"opcode":"event_whenbroadcastreceived","next":"m8;Je;GbZV=osSha(3;/","parent":null,"inputs":{},"fields":{"BROADCAST_OPTION":["Hab dich gefunden, Elefant!","4Ct:soYL12h50$-1$JNi"]},"topLevel":true,"shadow":false,"x":62,"y":315},"m8;Je;GbZV=osSha(3;/":{"opcode":"motion_gotoxy","next":"sbUne8Q$Muoss[gH!Vya","parent":"`6yOq5@OLUX4jCDd/T?q","inputs":{"X":[1,[4,"91"]],"Y":[1,[4,"-46"]]},"fields":{},"topLevel":false,"shadow":false},"sbUne8Q$Muoss[gH!Vya":{"opcode":"control_repeat","next":"c.)~pIU=5I^B,OV-]W5)","parent":"m8;Je;GbZV=osSha(3;/","inputs":{"TIMES":[1,[6,"4"]],"SUBSTACK":[2,"0F{S5ch;g:~e#_rBf|jQ"]},"fields":{},"topLevel":false,"shadow":false},"0F{S5ch;g:~e#_rBf|jQ":{"opcode":"looks_nextcostume","next":null,"parent":"sbUne8Q$Muoss[gH!Vya","inputs":{},"fields":{},"topLevel":false,"shadow":false},"c.)~pIU=5I^B,OV-]W5)":{"opcode":"sound_playuntildone","next":null,"parent":"sbUne8Q$Muoss[gH!Vya","inputs":{"SOUND_MENU":[1,"j+)G)(e/BvmMt7f#kh,+"]},"fields":{},"topLevel":false,"shadow":false},"j+)G)(e/BvmMt7f#kh,+":{"opcode":"sound_sounds_menu","next":null,"parent":"c.)~pIU=5I^B,OV-]W5)","inputs":{},"fields":{"SOUND_MENU":["Elefant trötet 1"]},"topLevel":false,"shadow":true}},"comments":{},"currentCostume":4,"costumes":[{"assetId":"94e6b7d18bcdd738149cf142c23b53a6","name":"Elefant-trötet-1","bitmapResolution":1,"md5ext":"94e6b7d18bcdd738149cf142c23b53a6.svg","dataFormat":"svg","rotationCenterX":83.5,"rotationCenterY":79.375},{"assetId":"be4aaeaee8b9316a77fb84bdd7aeac7e","name":"Elefant-trötet-2","bitmapResolution":1,"md5ext":"be4aaeaee8b9316a77fb84bdd7aeac7e.svg","dataFormat":"svg","rotationCenterX":83.5,"rotationCenterY":79.375},{"assetId":"8b7aa7aca06b3c09d27bdc8ddd1be9ef","name":"Elefant-trötet-3","bitmapResolution":1,"md5ext":"8b7aa7aca06b3c09d27bdc8ddd1be9ef.svg","dataFormat":"svg","rotationCenterX":83.5,"rotationCenterY":79.375},{"assetId":"c518b983f4e1cd1c3fd67131a0db3f12","name":"Elefant-trötet-4","bitmapResolution":1,"md5ext":"c518b983f4e1cd1c3fd67131a0db3f12.svg","dataFormat":"svg","rotationCenterX":83.5,"rotationCenterY":79.375},{"assetId":"1375a5f177a66c476568e228dd44d588","name":"Versteckt","bitmapResolution":1,"md5ext":"1375a5f177a66c476568e228dd44d588.svg","dataFormat":"svg","rotationCenterX":2.5,"rotationCenterY":2.100006103515625}],"sounds":[{"assetId":"8b03556e678ab60e05c819be050d3dbe","name":"Elefant trötet 1","dataFormat":"mp3","format":"","rate":48000,"sampleCount":91046,"md5ext":"8b03556e678ab60e05c819be050d3dbe.mp3"},{"assetId":"a17279ef62bbaead6b65dc5d54724793","name":"Elefant trötet 2","dataFormat":"mp3","format":"","rate":48000,"sampleCount":44878,"md5ext":"a17279ef62bbaead6b65dc5d54724793.mp3"}],"volume":100,"layerOrder":2,"visible":true,"x":175,"y":-104,"size":100,"direction":90,"draggable":false,"rotationStyle":"all around"},{"isStage":false,"name":"Ente flattert","variables":{},"lists":{},"broadcasts":{},"blocks":{"i6MGf%aFT|hDX@EkY:+A":{"opcode":"event_whenflagclicked","next":"/*b5LVmKL^Wb~xf/XHwW","parent":null,"inputs":{},"fields":{},"topLevel":true,"shadow":false,"x":87,"y":72},"/*b5LVmKL^Wb~xf/XHwW":{"opcode":"looks_switchcostumeto","next":"C9qTc.;Z89Bh;rDNs*V/","parent":"i6MGf%aFT|hDX@EkY:+A","inputs":{"COSTUME":[1,"]Qpj7Utn@nc4QK9BMpFB"]},"fields":{},"topLevel":false,"shadow":false},"]Qpj7Utn@nc4QK9BMpFB":{"opcode":"looks_costume","next":null,"parent":"/*b5LVmKL^Wb~xf/XHwW","inputs":{},"fields":{"COSTUME":["Versteckt"]},"topLevel":false,"shadow":true},"C9qTc.;Z89Bh;rDNs*V/":{"opcode":"motion_gotoxy","next":null,"parent":"/*b5LVmKL^Wb~xf/XHwW","inputs":{"X":[1,[4,"-134"]],"Y":[1,[4,"-108"]]},"fields":{},"topLevel":false,"shadow":false},"nV9eG!ysF~4;V#!{2Zz[":{"opcode":"event_whenbroadcastreceived","next":"^TaTU.!XA5Dm(9Zf=+qd","parent":null,"inputs":{},"fields":{"BROADCAST_OPTION":["Hab dich gefunden, Ente!","ue,=,M^ZX`4p.H;;qP.X"]},"topLevel":true,"shadow":false,"x":59,"y":315},"^TaTU.!XA5Dm(9Zf=+qd":{"opcode":"motion_gotoxy","next":"YK.-~^?;wtO}ZPk6g{:T","parent":"nV9eG!ysF~4;V#!{2Zz[","inputs":{"X":[1,[4,"-172"]],"Y":[1,[4,"-68"]]},"fields":{},"topLevel":false,"shadow":false},"YK.-~^?;wtO}ZPk6g{:T":{"opcode":"control_repeat","next":"!x])PUZ6X@4g0cfC]zdk","parent":"^TaTU.!XA5Dm(9Zf=+qd","inputs":{"TIMES":[1,[6,"4"]],"SUBSTACK":[2,"r1lw[tEw,~uEFXT9i*}C"]},"fields":{},"topLevel":false,"shadow":false},"r1lw[tEw,~uEFXT9i*}C":{"opcode":"looks_nextcostume","next":null,"parent":"YK.-~^?;wtO}ZPk6g{:T","inputs":{},"fields":{},"topLevel":false,"shadow":false},"!x])PUZ6X@4g0cfC]zdk":{"opcode":"sound_playuntildone","next":null,"parent":"YK.-~^?;wtO}ZPk6g{:T","inputs":{"SOUND_MENU":[1,"bp7,6MfmGppuiI(ZEu]6"]},"fields":{},"topLevel":false,"shadow":false},"bp7,6MfmGppuiI(ZEu]6":{"opcode":"sound_sounds_menu","next":null,"parent":"!x])PUZ6X@4g0cfC]zdk","inputs":{},"fields":{"SOUND_MENU":["Ente flattert"]},"topLevel":false,"shadow":true}},"comments":{},"currentCostume":4,"costumes":[{"assetId":"370d505c3bfffcce42c82eae188e3dcc","name":"Ente-flattert-1","bitmapResolution":1,"md5ext":"370d505c3bfffcce42c82eae188e3dcc.svg","dataFormat":"svg","rotationCenterX":40,"rotationCenterY":52.875},{"assetId":"9351ff13d3471e030d67047d97b0ab36","name":"Ente-flattert-2","bitmapResolution":1,"md5ext":"9351ff13d3471e030d67047d97b0ab36.svg","dataFormat":"svg","rotationCenterX":40,"rotationCenterY":52.875},{"assetId":"364fd0dcbabf29e9ba3a103a7794da05","name":"Ente-flattert-3","bitmapResolution":1,"md5ext":"364fd0dcbabf29e9ba3a103a7794da05.svg","dataFormat":"svg","rotationCenterX":40,"rotationCenterY":52.875},{"assetId":"d3738a1e2598c57e2bafbefe488ac2a4","name":"Ente-flattert-4","bitmapResolution":1,"md5ext":"d3738a1e2598c57e2bafbefe488ac2a4.svg","dataFormat":"svg","rotationCenterX":40,"rotationCenterY":52.875},{"assetId":"3903e00a74fea074924aa49c0d3034a6","name":"Versteckt","bitmapResolution":1,"md5ext":"3903e00a74fea074924aa49c0d3034a6.svg","dataFormat":"svg","rotationCenterX":1.5,"rotationCenterY":3.100006103515625}],"sounds":[{"assetId":"ffc769dfe1bc0beacf6d59993c68a865","name":"Ente flattert","dataFormat":"mp3","format":"","rate":48000,"sampleCount":42240,"md5ext":"ffc769dfe1bc0beacf6d59993c68a865.mp3"}],"volume":100,"layerOrder":3,"visible":true,"x":-134,"y":-108,"size":100,"direction":90,"draggable":false,"rotationStyle":"all around"}],"extensions":[],"meta":{"semver":"3.0.0","vm":"0.2.0-minimal-1","agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"}}
+{
+    "targets": [
+        {
+            "isStage": true,
+            "name": "Stage",
+            "variables": {
+                "`jEk@4|i[#Fk?(8x)AV.-my variable": [
+                    "meine Variable",
+                    0
+                ]
+            },
+            "lists": {},
+            "broadcasts": {
+                "4Ct:soYL12h50$-1$JNi": "Hab dich gefunden, Elefant!",
+                "ue,=,M^ZX`4p.H;;qP.X": "Hab dich gefunden, Ente!",
+                "+^^MPrk#1nkTjQ`pE^?f": "links",
+                "atsJwpZdZk3tjb!|k(mt": "rechts",
+                "9|{qk9ifX`|zvx?;I48c": "unten",
+                "a..heHs3]:{?pEG|@O4v": "oben"
+            },
+            "blocks": {},
+            "comments": {},
+            "currentCostume": 0,
+            "costumes": [
+                {
+                    "assetId": "3a343d19f40be5196f5b1cad1c7d1e39",
+                    "name": "Wiese",
+                    "md5ext": "3a343d19f40be5196f5b1cad1c7d1e39.jpg",
+                    "dataFormat": "jpg",
+                    "rotationCenterX": 480,
+                    "rotationCenterY": 360
+                },
+                {
+                    "assetId": "a35419bc3c9a8888430c157960ef28b4",
+                    "name": "Unterwasser",
+                    "md5ext": "a35419bc3c9a8888430c157960ef28b4.jpg",
+                    "dataFormat": "jpg",
+                    "rotationCenterX": 480,
+                    "rotationCenterY": 360
+                }
+            ],
+            "sounds": [
+                {
+                    "assetId": "b38904cb3103c903cd6be4b569b8db5c",
+                    "name": "Vogel",
+                    "dataFormat": "mp3",
+                    "rate": 44100,
+                    "sampleCount": 16384,
+                    "md5ext": "b38904cb3103c903cd6be4b569b8db5c.mp3"
+                }
+            ],
+            "volume": 100,
+            "layerOrder": 0,
+            "tempo": 60,
+            "videoTransparency": 50,
+            "videoState": "off"
+        },
+        {
+            "isStage": false,
+            "name": "Elefant trötet",
+            "variables": {},
+            "lists": {},
+            "broadcasts": {},
+            "blocks": {
+                "3{i46f5[|_pMdeSDqZKJ": {
+                    "opcode": "event_whenflagclicked",
+                    "next": "Bw.Fr?ElO$#{8~^;]r5n",
+                    "parent": null,
+                    "inputs": {},
+                    "fields": {},
+                    "topLevel": true,
+                    "shadow": false,
+                    "x": 71,
+                    "y": 81
+                },
+                "L9s)GE!Lp8NY)?)Uu)`w": {
+                    "opcode": "looks_switchcostumeto",
+                    "next": "kzC*(+g1O}h]cfu)f(0+",
+                    "parent": "Bw.Fr?ElO$#{8~^;]r5n",
+                    "inputs": {
+                        "COSTUME": [
+                            1,
+                            "A5.i)2,2jHzb/^7eSb#S"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "A5.i)2,2jHzb/^7eSb#S": {
+                    "opcode": "looks_costume",
+                    "next": null,
+                    "parent": "L9s)GE!Lp8NY)?)Uu)`w",
+                    "inputs": {},
+                    "fields": {
+                        "COSTUME": [
+                            "Versteckt"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                "kzC*(+g1O}h]cfu)f(0+": {
+                    "opcode": "motion_gotoxy",
+                    "next": null,
+                    "parent": "L9s)GE!Lp8NY)?)Uu)`w",
+                    "inputs": {
+                        "X": [
+                            3,
+                            "dCsi1(;2ZoPlw4*mUw?@",
+                            [
+                                4,
+                                "175"
+                            ]
+                        ],
+                        "Y": [
+                            3,
+                            "BXrCL{1Oh`tn2#vW;x*7",
+                            [
+                                4,
+                                "-104"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "`6yOq5@OLUX4jCDd/T?q": {
+                    "opcode": "event_whenbroadcastreceived",
+                    "next": "E2)sMoxs{o83~YqGndSg",
+                    "parent": null,
+                    "inputs": {},
+                    "fields": {
+                        "BROADCAST_OPTION": [
+                            "Hab dich gefunden, Elefant!",
+                            "4Ct:soYL12h50$-1$JNi"
+                        ]
+                    },
+                    "topLevel": true,
+                    "shadow": false,
+                    "x": 62,
+                    "y": 315
+                },
+                "sbUne8Q$Muoss[gH!Vya": {
+                    "opcode": "control_repeat",
+                    "next": "c.)~pIU=5I^B,OV-]W5)",
+                    "parent": "E2)sMoxs{o83~YqGndSg",
+                    "inputs": {
+                        "TIMES": [
+                            1,
+                            [
+                                6,
+                                "4"
+                            ]
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "0F{S5ch;g:~e#_rBf|jQ"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "0F{S5ch;g:~e#_rBf|jQ": {
+                    "opcode": "looks_nextcostume",
+                    "next": null,
+                    "parent": "sbUne8Q$Muoss[gH!Vya",
+                    "inputs": {},
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "c.)~pIU=5I^B,OV-]W5)": {
+                    "opcode": "sound_playuntildone",
+                    "next": null,
+                    "parent": "sbUne8Q$Muoss[gH!Vya",
+                    "inputs": {
+                        "SOUND_MENU": [
+                            1,
+                            "j+)G)(e/BvmMt7f#kh,+"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "j+)G)(e/BvmMt7f#kh,+": {
+                    "opcode": "sound_sounds_menu",
+                    "next": null,
+                    "parent": "c.)~pIU=5I^B,OV-]W5)",
+                    "inputs": {},
+                    "fields": {
+                        "SOUND_MENU": [
+                            "Elefant trötet 1"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                "dCsi1(;2ZoPlw4*mUw?@": {
+                    "opcode": "operator_random",
+                    "next": null,
+                    "parent": "kzC*(+g1O}h]cfu)f(0+",
+                    "inputs": {
+                        "FROM": [
+                            1,
+                            [
+                                4,
+                                "-200"
+                            ]
+                        ],
+                        "TO": [
+                            1,
+                            [
+                                4,
+                                "200"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "BXrCL{1Oh`tn2#vW;x*7": {
+                    "opcode": "operator_random",
+                    "next": null,
+                    "parent": "kzC*(+g1O}h]cfu)f(0+",
+                    "inputs": {
+                        "FROM": [
+                            1,
+                            [
+                                4,
+                                "-200"
+                            ]
+                        ],
+                        "TO": [
+                            1,
+                            [
+                                4,
+                                "200"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "E2)sMoxs{o83~YqGndSg": {
+                    "opcode": "looks_show",
+                    "next": "sbUne8Q$Muoss[gH!Vya",
+                    "parent": "`6yOq5@OLUX4jCDd/T?q",
+                    "inputs": {},
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "Bw.Fr?ElO$#{8~^;]r5n": {
+                    "opcode": "looks_setsizeto",
+                    "next": "L9s)GE!Lp8NY)?)Uu)`w",
+                    "parent": "3{i46f5[|_pMdeSDqZKJ",
+                    "inputs": {
+                        "SIZE": [
+                            1,
+                            [
+                                4,
+                                "50"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                }
+            },
+            "comments": {},
+            "currentCostume": 1,
+            "costumes": [
+                {
+                    "assetId": "94e6b7d18bcdd738149cf142c23b53a6",
+                    "name": "Elefant-trötet-1",
+                    "bitmapResolution": 1,
+                    "md5ext": "94e6b7d18bcdd738149cf142c23b53a6.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "assetId": "be4aaeaee8b9316a77fb84bdd7aeac7e",
+                    "name": "Elefant-trötet-2",
+                    "bitmapResolution": 1,
+                    "md5ext": "be4aaeaee8b9316a77fb84bdd7aeac7e.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "assetId": "8b7aa7aca06b3c09d27bdc8ddd1be9ef",
+                    "name": "Elefant-trötet-3",
+                    "bitmapResolution": 1,
+                    "md5ext": "8b7aa7aca06b3c09d27bdc8ddd1be9ef.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "assetId": "c518b983f4e1cd1c3fd67131a0db3f12",
+                    "name": "Elefant-trötet-4",
+                    "bitmapResolution": 1,
+                    "md5ext": "c518b983f4e1cd1c3fd67131a0db3f12.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 83.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "assetId": "1375a5f177a66c476568e228dd44d588",
+                    "name": "Versteckt",
+                    "bitmapResolution": 1,
+                    "md5ext": "1375a5f177a66c476568e228dd44d588.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 2.5,
+                    "rotationCenterY": 2.100006103515625
+                }
+            ],
+            "sounds": [
+                {
+                    "assetId": "8b03556e678ab60e05c819be050d3dbe",
+                    "name": "Elefant trötet 1",
+                    "dataFormat": "mp3",
+                    "format": "",
+                    "rate": 44100,
+                    "sampleCount": 83649,
+                    "md5ext": "8b03556e678ab60e05c819be050d3dbe.mp3"
+                },
+                {
+                    "assetId": "a17279ef62bbaead6b65dc5d54724793",
+                    "name": "Elefant trötet 2",
+                    "dataFormat": "mp3",
+                    "format": "",
+                    "rate": 44100,
+                    "sampleCount": 41232,
+                    "md5ext": "a17279ef62bbaead6b65dc5d54724793.mp3"
+                }
+            ],
+            "volume": 100,
+            "layerOrder": 1,
+            "visible": true,
+            "x": -115,
+            "y": -10,
+            "size": 50,
+            "direction": 90,
+            "draggable": false,
+            "rotationStyle": "all around"
+        },
+        {
+            "isStage": false,
+            "name": "Ente flattert",
+            "variables": {},
+            "lists": {},
+            "broadcasts": {},
+            "blocks": {
+                "i6MGf%aFT|hDX@EkY:+A": {
+                    "opcode": "event_whenflagclicked",
+                    "next": "rPGW@?jFRz=)1tuswx*+",
+                    "parent": null,
+                    "inputs": {},
+                    "fields": {},
+                    "topLevel": true,
+                    "shadow": false,
+                    "x": 87,
+                    "y": 72
+                },
+                "/*b5LVmKL^Wb~xf/XHwW": {
+                    "opcode": "looks_switchcostumeto",
+                    "next": "C9qTc.;Z89Bh;rDNs*V/",
+                    "parent": "rPGW@?jFRz=)1tuswx*+",
+                    "inputs": {
+                        "COSTUME": [
+                            1,
+                            "]Qpj7Utn@nc4QK9BMpFB"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "]Qpj7Utn@nc4QK9BMpFB": {
+                    "opcode": "looks_costume",
+                    "next": null,
+                    "parent": "/*b5LVmKL^Wb~xf/XHwW",
+                    "inputs": {},
+                    "fields": {
+                        "COSTUME": [
+                            "Versteckt"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                "C9qTc.;Z89Bh;rDNs*V/": {
+                    "opcode": "motion_gotoxy",
+                    "next": null,
+                    "parent": "/*b5LVmKL^Wb~xf/XHwW",
+                    "inputs": {
+                        "X": [
+                            3,
+                            "Dz/Tt`ZY}_;_p()fA5b@",
+                            [
+                                4,
+                                "-134"
+                            ]
+                        ],
+                        "Y": [
+                            3,
+                            "I:{/BC*NUo}QS[Ly6L[m",
+                            [
+                                4,
+                                "-108"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "nV9eG!ysF~4;V#!{2Zz[": {
+                    "opcode": "event_whenbroadcastreceived",
+                    "next": "p}G)q6gqgQ1DZI-lgZ0!",
+                    "parent": null,
+                    "inputs": {},
+                    "fields": {
+                        "BROADCAST_OPTION": [
+                            "Hab dich gefunden, Ente!",
+                            "ue,=,M^ZX`4p.H;;qP.X"
+                        ]
+                    },
+                    "topLevel": true,
+                    "shadow": false,
+                    "x": 59,
+                    "y": 315
+                },
+                "YK.-~^?;wtO}ZPk6g{:T": {
+                    "opcode": "control_repeat",
+                    "next": "!x])PUZ6X@4g0cfC]zdk",
+                    "parent": "p}G)q6gqgQ1DZI-lgZ0!",
+                    "inputs": {
+                        "TIMES": [
+                            1,
+                            [
+                                6,
+                                "4"
+                            ]
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "r1lw[tEw,~uEFXT9i*}C"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "r1lw[tEw,~uEFXT9i*}C": {
+                    "opcode": "looks_nextcostume",
+                    "next": null,
+                    "parent": "YK.-~^?;wtO}ZPk6g{:T",
+                    "inputs": {},
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "!x])PUZ6X@4g0cfC]zdk": {
+                    "opcode": "sound_playuntildone",
+                    "next": null,
+                    "parent": "YK.-~^?;wtO}ZPk6g{:T",
+                    "inputs": {
+                        "SOUND_MENU": [
+                            1,
+                            "bp7,6MfmGppuiI(ZEu]6"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "bp7,6MfmGppuiI(ZEu]6": {
+                    "opcode": "sound_sounds_menu",
+                    "next": null,
+                    "parent": "!x])PUZ6X@4g0cfC]zdk",
+                    "inputs": {},
+                    "fields": {
+                        "SOUND_MENU": [
+                            "Ente flattert"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                "Dz/Tt`ZY}_;_p()fA5b@": {
+                    "opcode": "operator_random",
+                    "next": null,
+                    "parent": "C9qTc.;Z89Bh;rDNs*V/",
+                    "inputs": {
+                        "FROM": [
+                            1,
+                            [
+                                4,
+                                "-200"
+                            ]
+                        ],
+                        "TO": [
+                            1,
+                            [
+                                4,
+                                "200"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "I:{/BC*NUo}QS[Ly6L[m": {
+                    "opcode": "operator_random",
+                    "next": null,
+                    "parent": "C9qTc.;Z89Bh;rDNs*V/",
+                    "inputs": {
+                        "FROM": [
+                            1,
+                            [
+                                4,
+                                "-200"
+                            ]
+                        ],
+                        "TO": [
+                            1,
+                            [
+                                4,
+                                "200"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "p}G)q6gqgQ1DZI-lgZ0!": {
+                    "opcode": "looks_show",
+                    "next": "YK.-~^?;wtO}ZPk6g{:T",
+                    "parent": "nV9eG!ysF~4;V#!{2Zz[",
+                    "inputs": {},
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "rPGW@?jFRz=)1tuswx*+": {
+                    "opcode": "looks_setsizeto",
+                    "next": "/*b5LVmKL^Wb~xf/XHwW",
+                    "parent": "i6MGf%aFT|hDX@EkY:+A",
+                    "inputs": {
+                        "SIZE": [
+                            1,
+                            [
+                                4,
+                                "50"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                }
+            },
+            "comments": {},
+            "currentCostume": 2,
+            "costumes": [
+                {
+                    "assetId": "370d505c3bfffcce42c82eae188e3dcc",
+                    "name": "Ente-flattert-1",
+                    "bitmapResolution": 1,
+                    "md5ext": "370d505c3bfffcce42c82eae188e3dcc.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                },
+                {
+                    "assetId": "9351ff13d3471e030d67047d97b0ab36",
+                    "name": "Ente-flattert-2",
+                    "bitmapResolution": 1,
+                    "md5ext": "9351ff13d3471e030d67047d97b0ab36.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                },
+                {
+                    "assetId": "364fd0dcbabf29e9ba3a103a7794da05",
+                    "name": "Ente-flattert-3",
+                    "bitmapResolution": 1,
+                    "md5ext": "364fd0dcbabf29e9ba3a103a7794da05.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                },
+                {
+                    "assetId": "d3738a1e2598c57e2bafbefe488ac2a4",
+                    "name": "Ente-flattert-4",
+                    "bitmapResolution": 1,
+                    "md5ext": "d3738a1e2598c57e2bafbefe488ac2a4.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 40,
+                    "rotationCenterY": 52.875
+                },
+                {
+                    "assetId": "3903e00a74fea074924aa49c0d3034a6",
+                    "name": "Versteckt",
+                    "bitmapResolution": 1,
+                    "md5ext": "3903e00a74fea074924aa49c0d3034a6.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 1.5,
+                    "rotationCenterY": 3.100006103515625
+                }
+            ],
+            "sounds": [
+                {
+                    "assetId": "ffc769dfe1bc0beacf6d59993c68a865",
+                    "name": "Ente flattert",
+                    "dataFormat": "mp3",
+                    "format": "",
+                    "rate": 44100,
+                    "sampleCount": 38808,
+                    "md5ext": "ffc769dfe1bc0beacf6d59993c68a865.mp3"
+                }
+            ],
+            "volume": 100,
+            "layerOrder": 2,
+            "visible": true,
+            "x": -61,
+            "y": -3,
+            "size": 50,
+            "direction": 90,
+            "draggable": false,
+            "rotationStyle": "all around"
+        },
+        {
+            "isStage": false,
+            "name": "Geht",
+            "variables": {},
+            "lists": {},
+            "broadcasts": {},
+            "blocks": {
+                "Mpt9Me^JPp35(w,:qU*u": {
+                    "opcode": "event_whenbroadcastreceived",
+                    "next": "OhFN+OBuB/SBo%N!5uWf",
+                    "parent": null,
+                    "inputs": {},
+                    "fields": {
+                        "BROADCAST_OPTION": [
+                            "links",
+                            "+^^MPrk#1nkTjQ`pE^?f"
+                        ]
+                    },
+                    "topLevel": true,
+                    "shadow": false,
+                    "x": 70,
+                    "y": 48
+                },
+                "OhFN+OBuB/SBo%N!5uWf": {
+                    "opcode": "control_if",
+                    "next": "*=HjBc::G()2:.nq9He:",
+                    "parent": "Mpt9Me^JPp35(w,:qU*u",
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "K|z}{%@G^*Zc8e7:puUa"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "FEA};0}cRvunyi75C.OY"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "K|z}{%@G^*Zc8e7:puUa": {
+                    "opcode": "sensing_touchingobject",
+                    "next": null,
+                    "parent": "OhFN+OBuB/SBo%N!5uWf",
+                    "inputs": {
+                        "TOUCHINGOBJECTMENU": [
+                            1,
+                            "CZt#TpQVX:iN2.*ZQ%J:"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "CZt#TpQVX:iN2.*ZQ%J:": {
+                    "opcode": "sensing_touchingobjectmenu",
+                    "next": null,
+                    "parent": "K|z}{%@G^*Zc8e7:puUa",
+                    "inputs": {},
+                    "fields": {
+                        "TOUCHINGOBJECTMENU": [
+                            "Elefant trötet"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                "FEA};0}cRvunyi75C.OY": {
+                    "opcode": "event_broadcast",
+                    "next": null,
+                    "parent": "OhFN+OBuB/SBo%N!5uWf",
+                    "inputs": {
+                        "BROADCAST_INPUT": [
+                            1,
+                            [
+                                11,
+                                "Hab dich gefunden, Elefant!",
+                                "4Ct:soYL12h50$-1$JNi"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "*=HjBc::G()2:.nq9He:": {
+                    "opcode": "control_if",
+                    "next": "AhV)v4:P(3u)C5m{ukzW",
+                    "parent": "OhFN+OBuB/SBo%N!5uWf",
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "d=Tixu_a1Iv__z(pvSjf"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "i=Pn@UQ*YYxL[gzz`is|"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "d=Tixu_a1Iv__z(pvSjf": {
+                    "opcode": "sensing_touchingobject",
+                    "next": null,
+                    "parent": "*=HjBc::G()2:.nq9He:",
+                    "inputs": {
+                        "TOUCHINGOBJECTMENU": [
+                            1,
+                            "*+hrfanWF=ZdeF=;ce%P"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "*+hrfanWF=ZdeF=;ce%P": {
+                    "opcode": "sensing_touchingobjectmenu",
+                    "next": null,
+                    "parent": "d=Tixu_a1Iv__z(pvSjf",
+                    "inputs": {},
+                    "fields": {
+                        "TOUCHINGOBJECTMENU": [
+                            "Ente flattert"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                "i=Pn@UQ*YYxL[gzz`is|": {
+                    "opcode": "event_broadcast",
+                    "next": null,
+                    "parent": "*=HjBc::G()2:.nq9He:",
+                    "inputs": {
+                        "BROADCAST_INPUT": [
+                            1,
+                            [
+                                11,
+                                "Hab dich gefunden, Ente!",
+                                "ue,=,M^ZX`4p.H;;qP.X"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "AhV)v4:P(3u)C5m{ukzW": {
+                    "opcode": "motion_pointindirection",
+                    "next": "b_yFLUy`b4iH0O]OBLIi",
+                    "parent": "*=HjBc::G()2:.nq9He:",
+                    "inputs": {
+                        "DIRECTION": [
+                            1,
+                            [
+                                8,
+                                "-90"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "b_yFLUy`b4iH0O]OBLIi": {
+                    "opcode": "motion_changexby",
+                    "next": "LnCIR/#Qk3y5.Lt~ew)p",
+                    "parent": "AhV)v4:P(3u)C5m{ukzW",
+                    "inputs": {
+                        "DX": [
+                            1,
+                            [
+                                4,
+                                "-10"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "LnCIR/#Qk3y5.Lt~ew)p": {
+                    "opcode": "looks_nextcostume",
+                    "next": null,
+                    "parent": "b_yFLUy`b4iH0O]OBLIi",
+                    "inputs": {},
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "Do%1=bwh~6sEwTIi22uJ": {
+                    "opcode": "event_whenbroadcastreceived",
+                    "next": "fYYh}Z9(z,D6pn:rO:g=",
+                    "parent": null,
+                    "inputs": {},
+                    "fields": {
+                        "BROADCAST_OPTION": [
+                            "rechts",
+                            "atsJwpZdZk3tjb!|k(mt"
+                        ]
+                    },
+                    "topLevel": true,
+                    "shadow": false,
+                    "x": 521,
+                    "y": 54
+                },
+                "fYYh}Z9(z,D6pn:rO:g=": {
+                    "opcode": "control_if",
+                    "next": ",K;IwLtGZoY+85us,.Wb",
+                    "parent": "Do%1=bwh~6sEwTIi22uJ",
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "1dY3tt%#l7afn[pL]A0j"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "~mBTU#dJseFi(r};_0Pt"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "1dY3tt%#l7afn[pL]A0j": {
+                    "opcode": "sensing_touchingobject",
+                    "next": null,
+                    "parent": "fYYh}Z9(z,D6pn:rO:g=",
+                    "inputs": {
+                        "TOUCHINGOBJECTMENU": [
+                            1,
+                            "Qa$78S?Uk}hVn!U+,u.-"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "Qa$78S?Uk}hVn!U+,u.-": {
+                    "opcode": "sensing_touchingobjectmenu",
+                    "next": null,
+                    "parent": "1dY3tt%#l7afn[pL]A0j",
+                    "inputs": {},
+                    "fields": {
+                        "TOUCHINGOBJECTMENU": [
+                            "Elefant trötet"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                "~mBTU#dJseFi(r};_0Pt": {
+                    "opcode": "event_broadcast",
+                    "next": null,
+                    "parent": "fYYh}Z9(z,D6pn:rO:g=",
+                    "inputs": {
+                        "BROADCAST_INPUT": [
+                            1,
+                            [
+                                11,
+                                "Hab dich gefunden, Elefant!",
+                                "4Ct:soYL12h50$-1$JNi"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                ",K;IwLtGZoY+85us,.Wb": {
+                    "opcode": "control_if",
+                    "next": "-^LE4-R#4tiIp[7E_zPN",
+                    "parent": "fYYh}Z9(z,D6pn:rO:g=",
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "!a6NQ7^P|D!R7Tz(07LI"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "0z!zVSz2x#fa,mXvv3Tx"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "!a6NQ7^P|D!R7Tz(07LI": {
+                    "opcode": "sensing_touchingobject",
+                    "next": null,
+                    "parent": ",K;IwLtGZoY+85us,.Wb",
+                    "inputs": {
+                        "TOUCHINGOBJECTMENU": [
+                            1,
+                            "J}v-v%qL{$VK6u@WJ/Iz"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "J}v-v%qL{$VK6u@WJ/Iz": {
+                    "opcode": "sensing_touchingobjectmenu",
+                    "next": null,
+                    "parent": "!a6NQ7^P|D!R7Tz(07LI",
+                    "inputs": {},
+                    "fields": {
+                        "TOUCHINGOBJECTMENU": [
+                            "Ente flattert"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                "0z!zVSz2x#fa,mXvv3Tx": {
+                    "opcode": "event_broadcast",
+                    "next": null,
+                    "parent": ",K;IwLtGZoY+85us,.Wb",
+                    "inputs": {
+                        "BROADCAST_INPUT": [
+                            1,
+                            [
+                                11,
+                                "Hab dich gefunden, Ente!",
+                                "ue,=,M^ZX`4p.H;;qP.X"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "-^LE4-R#4tiIp[7E_zPN": {
+                    "opcode": "motion_pointindirection",
+                    "next": "!:Se,A%p;*I9P2Go}[Ft",
+                    "parent": ",K;IwLtGZoY+85us,.Wb",
+                    "inputs": {
+                        "DIRECTION": [
+                            1,
+                            [
+                                8,
+                                "90"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "!:Se,A%p;*I9P2Go}[Ft": {
+                    "opcode": "motion_changexby",
+                    "next": "F4d~Kbp)%%mN,UM5q!zo",
+                    "parent": "-^LE4-R#4tiIp[7E_zPN",
+                    "inputs": {
+                        "DX": [
+                            1,
+                            [
+                                4,
+                                "10"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "F4d~Kbp)%%mN,UM5q!zo": {
+                    "opcode": "looks_nextcostume",
+                    "next": null,
+                    "parent": "!:Se,A%p;*I9P2Go}[Ft",
+                    "inputs": {},
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "ArNKj*j-zY7?4zk*4+tp": {
+                    "opcode": "event_whenbroadcastreceived",
+                    "next": "^[CFfU6X@s:NqvWs[9JJ",
+                    "parent": null,
+                    "inputs": {},
+                    "fields": {
+                        "BROADCAST_OPTION": [
+                            "oben",
+                            "a..heHs3]:{?pEG|@O4v"
+                        ]
+                    },
+                    "topLevel": true,
+                    "shadow": false,
+                    "x": 112,
+                    "y": 568
+                },
+                "^[CFfU6X@s:NqvWs[9JJ": {
+                    "opcode": "control_if",
+                    "next": "0z84!Ycn*WK90]E@Gc6T",
+                    "parent": "ArNKj*j-zY7?4zk*4+tp",
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "iRF`^s^Ocx5u#]{][WOr"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "wU([fyu~_!z@[Zwh[62V"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "iRF`^s^Ocx5u#]{][WOr": {
+                    "opcode": "sensing_touchingobject",
+                    "next": null,
+                    "parent": "^[CFfU6X@s:NqvWs[9JJ",
+                    "inputs": {
+                        "TOUCHINGOBJECTMENU": [
+                            1,
+                            "[U;]bUMszDu^~RRdrhiG"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "[U;]bUMszDu^~RRdrhiG": {
+                    "opcode": "sensing_touchingobjectmenu",
+                    "next": null,
+                    "parent": "iRF`^s^Ocx5u#]{][WOr",
+                    "inputs": {},
+                    "fields": {
+                        "TOUCHINGOBJECTMENU": [
+                            "Elefant trötet"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                "wU([fyu~_!z@[Zwh[62V": {
+                    "opcode": "event_broadcast",
+                    "next": null,
+                    "parent": "^[CFfU6X@s:NqvWs[9JJ",
+                    "inputs": {
+                        "BROADCAST_INPUT": [
+                            1,
+                            [
+                                11,
+                                "Hab dich gefunden, Elefant!",
+                                "4Ct:soYL12h50$-1$JNi"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "0z84!Ycn*WK90]E@Gc6T": {
+                    "opcode": "control_if",
+                    "next": "C5=y1I~)]@5i-/PUVFTJ",
+                    "parent": "^[CFfU6X@s:NqvWs[9JJ",
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "#wF$D_tZA;!QfzdX`!b!"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "O1Xla/,K*[qg03BPlp+a"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "#wF$D_tZA;!QfzdX`!b!": {
+                    "opcode": "sensing_touchingobject",
+                    "next": null,
+                    "parent": "0z84!Ycn*WK90]E@Gc6T",
+                    "inputs": {
+                        "TOUCHINGOBJECTMENU": [
+                            1,
+                            "eUl-rG:4z|RuQbM`U}^U"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "eUl-rG:4z|RuQbM`U}^U": {
+                    "opcode": "sensing_touchingobjectmenu",
+                    "next": null,
+                    "parent": "#wF$D_tZA;!QfzdX`!b!",
+                    "inputs": {},
+                    "fields": {
+                        "TOUCHINGOBJECTMENU": [
+                            "Ente flattert"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                "O1Xla/,K*[qg03BPlp+a": {
+                    "opcode": "event_broadcast",
+                    "next": null,
+                    "parent": "0z84!Ycn*WK90]E@Gc6T",
+                    "inputs": {
+                        "BROADCAST_INPUT": [
+                            1,
+                            [
+                                11,
+                                "Hab dich gefunden, Ente!",
+                                "ue,=,M^ZX`4p.H;;qP.X"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "C5=y1I~)]@5i-/PUVFTJ": {
+                    "opcode": "motion_pointindirection",
+                    "next": "z+c9K@|L#vHY2Rn8tPbx",
+                    "parent": "0z84!Ycn*WK90]E@Gc6T",
+                    "inputs": {
+                        "DIRECTION": [
+                            1,
+                            [
+                                8,
+                                "0"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "z+c9K@|L#vHY2Rn8tPbx": {
+                    "opcode": "motion_changeyby",
+                    "next": "uKB7uH[5A#G4Ph[6$s?n",
+                    "parent": "C5=y1I~)]@5i-/PUVFTJ",
+                    "inputs": {
+                        "DY": [
+                            1,
+                            [
+                                4,
+                                "10"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "uKB7uH[5A#G4Ph[6$s?n": {
+                    "opcode": "looks_nextcostume",
+                    "next": null,
+                    "parent": "z+c9K@|L#vHY2Rn8tPbx",
+                    "inputs": {},
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "520pmruB=@`lE$uGa?+:": {
+                    "opcode": "event_whenbroadcastreceived",
+                    "next": ",R?vowHg6#1kireTA^g@",
+                    "parent": null,
+                    "inputs": {},
+                    "fields": {
+                        "BROADCAST_OPTION": [
+                            "unten",
+                            "9|{qk9ifX`|zvx?;I48c"
+                        ]
+                    },
+                    "topLevel": true,
+                    "shadow": false,
+                    "x": 666,
+                    "y": 548
+                },
+                ",R?vowHg6#1kireTA^g@": {
+                    "opcode": "control_if",
+                    "next": "Zg=R2lUPw}S#~iLCYD0)",
+                    "parent": "520pmruB=@`lE$uGa?+:",
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "v$JHuq3b!5xbZsEW]@Tt"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "Eb-L2,s(Uyo8s%rr9..u"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "v$JHuq3b!5xbZsEW]@Tt": {
+                    "opcode": "sensing_touchingobject",
+                    "next": null,
+                    "parent": ",R?vowHg6#1kireTA^g@",
+                    "inputs": {
+                        "TOUCHINGOBJECTMENU": [
+                            1,
+                            "rmF7H$cE};HH#3Xu7HK~"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "rmF7H$cE};HH#3Xu7HK~": {
+                    "opcode": "sensing_touchingobjectmenu",
+                    "next": null,
+                    "parent": "v$JHuq3b!5xbZsEW]@Tt",
+                    "inputs": {},
+                    "fields": {
+                        "TOUCHINGOBJECTMENU": [
+                            "Elefant trötet"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                "Eb-L2,s(Uyo8s%rr9..u": {
+                    "opcode": "event_broadcast",
+                    "next": null,
+                    "parent": ",R?vowHg6#1kireTA^g@",
+                    "inputs": {
+                        "BROADCAST_INPUT": [
+                            1,
+                            [
+                                11,
+                                "Hab dich gefunden, Elefant!",
+                                "4Ct:soYL12h50$-1$JNi"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "Zg=R2lUPw}S#~iLCYD0)": {
+                    "opcode": "control_if",
+                    "next": "[L*bwjy%Pw=.~t-04*e]",
+                    "parent": ",R?vowHg6#1kireTA^g@",
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "S^@PD_R3Zu2JT!XkCO3l"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "Bz/B@^3859QPjQ`Y}{j!"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "S^@PD_R3Zu2JT!XkCO3l": {
+                    "opcode": "sensing_touchingobject",
+                    "next": null,
+                    "parent": "Zg=R2lUPw}S#~iLCYD0)",
+                    "inputs": {
+                        "TOUCHINGOBJECTMENU": [
+                            1,
+                            "5-T5Yz;YH[C=#%X?1k.$"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "5-T5Yz;YH[C=#%X?1k.$": {
+                    "opcode": "sensing_touchingobjectmenu",
+                    "next": null,
+                    "parent": "S^@PD_R3Zu2JT!XkCO3l",
+                    "inputs": {},
+                    "fields": {
+                        "TOUCHINGOBJECTMENU": [
+                            "Ente flattert"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                "Bz/B@^3859QPjQ`Y}{j!": {
+                    "opcode": "event_broadcast",
+                    "next": null,
+                    "parent": "Zg=R2lUPw}S#~iLCYD0)",
+                    "inputs": {
+                        "BROADCAST_INPUT": [
+                            1,
+                            [
+                                11,
+                                "Hab dich gefunden, Ente!",
+                                "ue,=,M^ZX`4p.H;;qP.X"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "[L*bwjy%Pw=.~t-04*e]": {
+                    "opcode": "motion_pointindirection",
+                    "next": "q+d`]lX,bv}0/3Cx6^EM",
+                    "parent": "Zg=R2lUPw}S#~iLCYD0)",
+                    "inputs": {
+                        "DIRECTION": [
+                            1,
+                            [
+                                8,
+                                "180"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "q+d`]lX,bv}0/3Cx6^EM": {
+                    "opcode": "motion_changeyby",
+                    "next": "_iH-7$5b^8hQrW-;_jHC",
+                    "parent": "[L*bwjy%Pw=.~t-04*e]",
+                    "inputs": {
+                        "DY": [
+                            1,
+                            [
+                                4,
+                                "-10"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "_iH-7$5b^8hQrW-;_jHC": {
+                    "opcode": "looks_nextcostume",
+                    "next": null,
+                    "parent": "q+d`]lX,bv}0/3Cx6^EM",
+                    "inputs": {},
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "HjwoH[.$MyB{M4QimjnQ": {
+                    "opcode": "event_whenflagclicked",
+                    "next": "qkUdDs}Y7Rnh#zLow/9=",
+                    "parent": null,
+                    "inputs": {},
+                    "fields": {},
+                    "topLevel": true,
+                    "shadow": false,
+                    "x": 988,
+                    "y": 86
+                },
+                "qkUdDs}Y7Rnh#zLow/9=": {
+                    "opcode": "looks_setsizeto",
+                    "next": "yb^sUdOn8r5Pqq;i9/Ia",
+                    "parent": "HjwoH[.$MyB{M4QimjnQ",
+                    "inputs": {
+                        "SIZE": [
+                            1,
+                            [
+                                4,
+                                "50"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "yb^sUdOn8r5Pqq;i9/Ia": {
+                    "opcode": "motion_gotoxy",
+                    "next": null,
+                    "parent": "qkUdDs}Y7Rnh#zLow/9=",
+                    "inputs": {
+                        "X": [
+                            1,
+                            [
+                                4,
+                                "0"
+                            ]
+                        ],
+                        "Y": [
+                            1,
+                            [
+                                4,
+                                "0"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                }
+            },
+            "comments": {},
+            "currentCostume": 2,
+            "costumes": [
+                {
+                    "assetId": "ba577ee81a7790ca2c5deddb658d0b64",
+                    "name": "Geht-1",
+                    "bitmapResolution": 1,
+                    "md5ext": "ba577ee81a7790ca2c5deddb658d0b64.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "assetId": "071dc435fa394064e9a6bc327cc7becb",
+                    "name": "Geht-2",
+                    "bitmapResolution": 1,
+                    "md5ext": "071dc435fa394064e9a6bc327cc7becb.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "assetId": "295a85dc4e77dbe4bc8eab303507ff56",
+                    "name": "Geht-3",
+                    "bitmapResolution": 1,
+                    "md5ext": "295a85dc4e77dbe4bc8eab303507ff56.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "assetId": "f0d453e9cb3d26060035dd5e7840b29b",
+                    "name": "Geht-4",
+                    "bitmapResolution": 1,
+                    "md5ext": "f0d453e9cb3d26060035dd5e7840b29b.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                },
+                {
+                    "assetId": "353e0d9ac4ed77ae2c368186be99fe6f",
+                    "name": "Geht-5",
+                    "bitmapResolution": 1,
+                    "md5ext": "353e0d9ac4ed77ae2c368186be99fe6f.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 84.5,
+                    "rotationCenterY": 79.375
+                }
+            ],
+            "sounds": [
+                {
+                    "assetId": "7cd45cc0231181016ed3d6e5d7f1076e",
+                    "name": "Geht",
+                    "dataFormat": "mp3",
+                    "format": "",
+                    "rate": 44100,
+                    "sampleCount": 2419,
+                    "md5ext": "7cd45cc0231181016ed3d6e5d7f1076e.mp3"
+                }
+            ],
+            "volume": 100,
+            "layerOrder": 3,
+            "visible": true,
+            "x": 60.30769231,
+            "y": 82.92362037,
+            "size": 50,
+            "direction": 180,
+            "draggable": false,
+            "rotationStyle": "all around"
+        },
+        {
+            "isStage": false,
+            "name": "Pfeil",
+            "variables": {},
+            "lists": {},
+            "broadcasts": {},
+            "blocks": {
+                "vJD[IXafOsExCic}HXa{": {
+                    "opcode": "event_whenflagclicked",
+                    "next": "2ulOBvbG0dTg.{*yy#dm",
+                    "parent": null,
+                    "inputs": {},
+                    "fields": {},
+                    "topLevel": true,
+                    "shadow": false,
+                    "x": 331,
+                    "y": 121
+                },
+                "2ulOBvbG0dTg.{*yy#dm": {
+                    "opcode": "control_forever",
+                    "next": null,
+                    "parent": "vJD[IXafOsExCic}HXa{",
+                    "inputs": {
+                        "SUBSTACK": [
+                            2,
+                            "x*[3|jp!7@=[~w_8d34:"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "x*[3|jp!7@=[~w_8d34:": {
+                    "opcode": "control_if",
+                    "next": null,
+                    "parent": "2ulOBvbG0dTg.{*yy#dm",
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "nmWylg5oqYf/VVX}T)Rp"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "m_?hY|s=M?-]yPMnt9:)"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "nmWylg5oqYf/VVX}T)Rp": {
+                    "opcode": "sensing_touchingobject",
+                    "next": null,
+                    "parent": "x*[3|jp!7@=[~w_8d34:",
+                    "inputs": {
+                        "TOUCHINGOBJECTMENU": [
+                            1,
+                            "GLklxqu`:LH*nGz1s4DY"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "GLklxqu`:LH*nGz1s4DY": {
+                    "opcode": "sensing_touchingobjectmenu",
+                    "next": null,
+                    "parent": "nmWylg5oqYf/VVX}T)Rp",
+                    "inputs": {},
+                    "fields": {
+                        "TOUCHINGOBJECTMENU": [
+                            "_mouse_"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                "m_?hY|s=M?-]yPMnt9:)": {
+                    "opcode": "event_broadcast",
+                    "next": null,
+                    "parent": "x*[3|jp!7@=[~w_8d34:",
+                    "inputs": {
+                        "BROADCAST_INPUT": [
+                            1,
+                            [
+                                11,
+                                "links",
+                                "+^^MPrk#1nkTjQ`pE^?f"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                }
+            },
+            "comments": {},
+            "currentCostume": 3,
+            "costumes": [
+                {
+                    "assetId": "15012d3feb47634100a7ea3da52f59e9",
+                    "name": "pfeil-oben",
+                    "bitmapResolution": 1,
+                    "md5ext": "15012d3feb47634100a7ea3da52f59e9.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                },
+                {
+                    "assetId": "7d983efaac139a99738918a2f12e528f",
+                    "name": "pfeil-unten",
+                    "bitmapResolution": 1,
+                    "md5ext": "7d983efaac139a99738918a2f12e528f.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                },
+                {
+                    "assetId": "9aa08790f785b5935371a71bd7ee20ac",
+                    "name": "pfeil-rechts",
+                    "bitmapResolution": 1,
+                    "md5ext": "9aa08790f785b5935371a71bd7ee20ac.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                },
+                {
+                    "assetId": "78105b219fd8006bdfe63335b93a3c32",
+                    "name": "pfeil-links",
+                    "bitmapResolution": 1,
+                    "md5ext": "78105b219fd8006bdfe63335b93a3c32.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                }
+            ],
+            "sounds": [
+                {
+                    "assetId": "99c07ce0307d4d112721dc0b1b7ac02d",
+                    "name": "Boing",
+                    "dataFormat": "wav",
+                    "format": "",
+                    "rate": 44100,
+                    "sampleCount": 99328,
+                    "md5ext": "99c07ce0307d4d112721dc0b1b7ac02d.wav"
+                }
+            ],
+            "volume": 100,
+            "layerOrder": 4,
+            "visible": true,
+            "x": 114.65099458,
+            "y": -117.41809211,
+            "size": 100,
+            "direction": 90,
+            "draggable": false,
+            "rotationStyle": "all around"
+        },
+        {
+            "isStage": false,
+            "name": "Pfeil2",
+            "variables": {},
+            "lists": {},
+            "broadcasts": {},
+            "blocks": {
+                "(F0#dRC8e8`Dlt+e,]jC": {
+                    "opcode": "event_whenflagclicked",
+                    "next": "6LL,VtBU8w#R{VL=eM-M",
+                    "parent": null,
+                    "inputs": {},
+                    "fields": {},
+                    "topLevel": true,
+                    "shadow": false,
+                    "x": 627,
+                    "y": 396
+                },
+                "6LL,VtBU8w#R{VL=eM-M": {
+                    "opcode": "control_forever",
+                    "next": null,
+                    "parent": "(F0#dRC8e8`Dlt+e,]jC",
+                    "inputs": {
+                        "SUBSTACK": [
+                            2,
+                            "V/I(MHpt^i!(UC9Dp[6m"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "V/I(MHpt^i!(UC9Dp[6m": {
+                    "opcode": "control_if",
+                    "next": null,
+                    "parent": "6LL,VtBU8w#R{VL=eM-M",
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "b)ohV7YkE^K*D0T3[YbD"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            ".m5Fi0L%|W;n6z-zyg(B"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "b)ohV7YkE^K*D0T3[YbD": {
+                    "opcode": "sensing_touchingobject",
+                    "next": null,
+                    "parent": "V/I(MHpt^i!(UC9Dp[6m",
+                    "inputs": {
+                        "TOUCHINGOBJECTMENU": [
+                            1,
+                            "Y~+~=b-t,^oB~}z4w}{S"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "Y~+~=b-t,^oB~}z4w}{S": {
+                    "opcode": "sensing_touchingobjectmenu",
+                    "next": null,
+                    "parent": "b)ohV7YkE^K*D0T3[YbD",
+                    "inputs": {},
+                    "fields": {
+                        "TOUCHINGOBJECTMENU": [
+                            "_mouse_"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                ".m5Fi0L%|W;n6z-zyg(B": {
+                    "opcode": "event_broadcast",
+                    "next": null,
+                    "parent": "V/I(MHpt^i!(UC9Dp[6m",
+                    "inputs": {
+                        "BROADCAST_INPUT": [
+                            1,
+                            [
+                                11,
+                                "rechts",
+                                "atsJwpZdZk3tjb!|k(mt"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                }
+            },
+            "comments": {},
+            "currentCostume": 2,
+            "costumes": [
+                {
+                    "assetId": "15012d3feb47634100a7ea3da52f59e9",
+                    "name": "pfeil-oben",
+                    "bitmapResolution": 1,
+                    "md5ext": "15012d3feb47634100a7ea3da52f59e9.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                },
+                {
+                    "assetId": "7d983efaac139a99738918a2f12e528f",
+                    "name": "pfeil-unten",
+                    "bitmapResolution": 1,
+                    "md5ext": "7d983efaac139a99738918a2f12e528f.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                },
+                {
+                    "assetId": "9aa08790f785b5935371a71bd7ee20ac",
+                    "name": "pfeil-rechts",
+                    "bitmapResolution": 1,
+                    "md5ext": "9aa08790f785b5935371a71bd7ee20ac.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                },
+                {
+                    "assetId": "78105b219fd8006bdfe63335b93a3c32",
+                    "name": "pfeil-links",
+                    "bitmapResolution": 1,
+                    "md5ext": "78105b219fd8006bdfe63335b93a3c32.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                }
+            ],
+            "sounds": [
+                {
+                    "assetId": "99c07ce0307d4d112721dc0b1b7ac02d",
+                    "name": "Boing",
+                    "dataFormat": "wav",
+                    "format": "",
+                    "rate": 44100,
+                    "sampleCount": 99328,
+                    "md5ext": "99c07ce0307d4d112721dc0b1b7ac02d.wav"
+                }
+            ],
+            "volume": 100,
+            "layerOrder": 5,
+            "visible": true,
+            "x": 214.47015924,
+            "y": -117.41809045,
+            "size": 100,
+            "direction": 90,
+            "draggable": false,
+            "rotationStyle": "all around"
+        },
+        {
+            "isStage": false,
+            "name": "Pfeil3",
+            "variables": {},
+            "lists": {},
+            "broadcasts": {},
+            "blocks": {
+                "]4VWyYz/P;b_2l5djmc2": {
+                    "opcode": "event_whenflagclicked",
+                    "next": "qfA5J.ZPBBva20xChkdT",
+                    "parent": null,
+                    "inputs": {},
+                    "fields": {},
+                    "topLevel": true,
+                    "shadow": false,
+                    "x": 377,
+                    "y": 388
+                },
+                "qfA5J.ZPBBva20xChkdT": {
+                    "opcode": "control_forever",
+                    "next": null,
+                    "parent": "]4VWyYz/P;b_2l5djmc2",
+                    "inputs": {
+                        "SUBSTACK": [
+                            2,
+                            "Ckyq8[N%#mzZ93MeXBBU"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "Ckyq8[N%#mzZ93MeXBBU": {
+                    "opcode": "control_if",
+                    "next": null,
+                    "parent": "qfA5J.ZPBBva20xChkdT",
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "D~,r-(z|Mth9R?7eq[SM"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "^KmOCs=T!aU%j;w`D335"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "D~,r-(z|Mth9R?7eq[SM": {
+                    "opcode": "sensing_touchingobject",
+                    "next": null,
+                    "parent": "Ckyq8[N%#mzZ93MeXBBU",
+                    "inputs": {
+                        "TOUCHINGOBJECTMENU": [
+                            1,
+                            "(Qx~XvW]Z4t.T^x@uY/M"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "(Qx~XvW]Z4t.T^x@uY/M": {
+                    "opcode": "sensing_touchingobjectmenu",
+                    "next": null,
+                    "parent": "D~,r-(z|Mth9R?7eq[SM",
+                    "inputs": {},
+                    "fields": {
+                        "TOUCHINGOBJECTMENU": [
+                            "_mouse_"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                "^KmOCs=T!aU%j;w`D335": {
+                    "opcode": "event_broadcast",
+                    "next": null,
+                    "parent": "Ckyq8[N%#mzZ93MeXBBU",
+                    "inputs": {
+                        "BROADCAST_INPUT": [
+                            1,
+                            [
+                                11,
+                                "oben",
+                                "a..heHs3]:{?pEG|@O4v"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                }
+            },
+            "comments": {},
+            "currentCostume": 0,
+            "costumes": [
+                {
+                    "assetId": "15012d3feb47634100a7ea3da52f59e9",
+                    "name": "pfeil-oben",
+                    "bitmapResolution": 1,
+                    "md5ext": "15012d3feb47634100a7ea3da52f59e9.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                },
+                {
+                    "assetId": "7d983efaac139a99738918a2f12e528f",
+                    "name": "pfeil-unten",
+                    "bitmapResolution": 1,
+                    "md5ext": "7d983efaac139a99738918a2f12e528f.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                },
+                {
+                    "assetId": "9aa08790f785b5935371a71bd7ee20ac",
+                    "name": "pfeil-rechts",
+                    "bitmapResolution": 1,
+                    "md5ext": "9aa08790f785b5935371a71bd7ee20ac.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                },
+                {
+                    "assetId": "78105b219fd8006bdfe63335b93a3c32",
+                    "name": "pfeil-links",
+                    "bitmapResolution": 1,
+                    "md5ext": "78105b219fd8006bdfe63335b93a3c32.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                }
+            ],
+            "sounds": [
+                {
+                    "assetId": "99c07ce0307d4d112721dc0b1b7ac02d",
+                    "name": "Boing",
+                    "dataFormat": "wav",
+                    "format": "",
+                    "rate": 44100,
+                    "sampleCount": 99328,
+                    "md5ext": "99c07ce0307d4d112721dc0b1b7ac02d.wav"
+                }
+            ],
+            "volume": 100,
+            "layerOrder": 6,
+            "visible": true,
+            "x": 164.99457383,
+            "y": -90.5265274,
+            "size": 100,
+            "direction": 90,
+            "draggable": false,
+            "rotationStyle": "all around"
+        },
+        {
+            "isStage": false,
+            "name": "Pfeil4",
+            "variables": {},
+            "lists": {},
+            "broadcasts": {},
+            "blocks": {
+                "m!)qDn6mJog.nzW9`-,!": {
+                    "opcode": "event_whenflagclicked",
+                    "next": "g^tA2byNWVE/a27+X4?:",
+                    "parent": null,
+                    "inputs": {},
+                    "fields": {},
+                    "topLevel": true,
+                    "shadow": false,
+                    "x": 286,
+                    "y": 166
+                },
+                "g^tA2byNWVE/a27+X4?:": {
+                    "opcode": "control_forever",
+                    "next": null,
+                    "parent": "m!)qDn6mJog.nzW9`-,!",
+                    "inputs": {
+                        "SUBSTACK": [
+                            2,
+                            "v1LCy#{Uuqg2ILgJ+w;b"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "v1LCy#{Uuqg2ILgJ+w;b": {
+                    "opcode": "control_if",
+                    "next": null,
+                    "parent": "g^tA2byNWVE/a27+X4?:",
+                    "inputs": {
+                        "CONDITION": [
+                            2,
+                            "g,00NkiKlZ;2Y#?,uPX2"
+                        ],
+                        "SUBSTACK": [
+                            2,
+                            "Sfx#`VWm^y;dm|rlbNi^"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "g,00NkiKlZ;2Y#?,uPX2": {
+                    "opcode": "sensing_touchingobject",
+                    "next": null,
+                    "parent": "v1LCy#{Uuqg2ILgJ+w;b",
+                    "inputs": {
+                        "TOUCHINGOBJECTMENU": [
+                            1,
+                            "D(=FvwQpboow#Fa[[1:f"
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                },
+                "D(=FvwQpboow#Fa[[1:f": {
+                    "opcode": "sensing_touchingobjectmenu",
+                    "next": null,
+                    "parent": "g,00NkiKlZ;2Y#?,uPX2",
+                    "inputs": {},
+                    "fields": {
+                        "TOUCHINGOBJECTMENU": [
+                            "_mouse_"
+                        ]
+                    },
+                    "topLevel": false,
+                    "shadow": true
+                },
+                "Sfx#`VWm^y;dm|rlbNi^": {
+                    "opcode": "event_broadcast",
+                    "next": null,
+                    "parent": "v1LCy#{Uuqg2ILgJ+w;b",
+                    "inputs": {
+                        "BROADCAST_INPUT": [
+                            1,
+                            [
+                                11,
+                                "unten",
+                                "9|{qk9ifX`|zvx?;I48c"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "topLevel": false,
+                    "shadow": false
+                }
+            },
+            "comments": {},
+            "currentCostume": 1,
+            "costumes": [
+                {
+                    "assetId": "15012d3feb47634100a7ea3da52f59e9",
+                    "name": "pfeil-oben",
+                    "bitmapResolution": 1,
+                    "md5ext": "15012d3feb47634100a7ea3da52f59e9.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                },
+                {
+                    "assetId": "7d983efaac139a99738918a2f12e528f",
+                    "name": "pfeil-unten",
+                    "bitmapResolution": 1,
+                    "md5ext": "7d983efaac139a99738918a2f12e528f.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                },
+                {
+                    "assetId": "9aa08790f785b5935371a71bd7ee20ac",
+                    "name": "pfeil-rechts",
+                    "bitmapResolution": 1,
+                    "md5ext": "9aa08790f785b5935371a71bd7ee20ac.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                },
+                {
+                    "assetId": "78105b219fd8006bdfe63335b93a3c32",
+                    "name": "pfeil-links",
+                    "bitmapResolution": 1,
+                    "md5ext": "78105b219fd8006bdfe63335b93a3c32.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 30.44499969482422,
+                    "rotationCenterY": 28.239999771118164
+                }
+            ],
+            "sounds": [
+                {
+                    "assetId": "99c07ce0307d4d112721dc0b1b7ac02d",
+                    "name": "Boing",
+                    "dataFormat": "wav",
+                    "format": "",
+                    "rate": 44100,
+                    "sampleCount": 99328,
+                    "md5ext": "99c07ce0307d4d112721dc0b1b7ac02d.wav"
+                }
+            ],
+            "volume": 100,
+            "layerOrder": 7,
+            "visible": true,
+            "x": 164.99457728,
+            "y": -152.11688232,
+            "size": 100,
+            "direction": 90,
+            "draggable": false,
+            "rotationStyle": "all around"
+        }
+    ],
+    "extensions": [],
+    "meta": {
+        "semver": "3.0.0",
+        "vm": "0.2.0-minimal-1",
+        "agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
+    }
+}

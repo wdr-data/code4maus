@@ -12,14 +12,14 @@ export default [
     },
     {
         id: 'beispiel02',
-        name: 'Füttere den Elefanten',
-        subtitle: 'Bewege die Maus mit den Pfeilen',
+        name: 'Maus-Alarm',
+        subtitle: 'Füttere den Elefanten',
         image: image02,
     },
     {
         id: 'beispiel03',
-        name: 'Hilfe! Die Ente ist weg',
-        subtitle: 'Funktioniert nicht auf dem iPad',
+        name: 'Suchspiel',
+        subtitle: 'Hilfe! Die Ente ist weg',
         image: image03,
     },
     {
