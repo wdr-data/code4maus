@@ -11,7 +11,7 @@ import MenuListing from '../menu-listing/menu-listing.jsx';
 import InlineSVG from '../inline-svg/inline-svg.jsx';
 import MenuButton from '../menu-button/menu-button.jsx';
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
-import headLogo from '../../../assets/img/head_logo.png';
+import headLogo from '../../../assets/img/head_logo_beta.png';
 import { SHAPE_PROJECT } from '../menu-listing/menu-listing.jsx';
 
 import buttonNew from '!raw-loader!../../../assets/icons/menu_plus.svg';
