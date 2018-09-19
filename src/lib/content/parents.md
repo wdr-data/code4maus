@@ -69,6 +69,7 @@ Einige Töne sind unter CC 0 Lizenz von hier übernommen, Danke dafür: https://
 
 ### Credits für die Beispiele 
 
+Jannes Höke, Wilfried Elmenreich, Gretchen Elmenreich, Johanna Janiszewski
 
 ### Copyright
 

@@ -32,7 +32,7 @@ slides:
   - asset: x005.png
     caption: "⬅ 1. Tanz-Schleife:"
   - asset: start.png
-    caption: "Teste den Tanz"
+    caption: "Teste den Tanz:"
   - asset: x007.png
     caption: "⬅ 2. Tanz-Schleife: Sprung"
   - asset: x14.png
@@ -40,13 +40,13 @@ slides:
   - asset: start.png
     caption: "Teste noch mal:"
   - asset: gut_gemacht.png
-    caption: "Jetzt du! Ändere wie du magst."
+    caption: "Jetzt du! Ändere, wie du magst"
   - asset: speichern.png
     caption: "⬆️ Denke ans Speichern!"
   - asset: 009.png
-    caption: "Mach dein Eigenes mit 'Neu'"
+    caption: "Mach dein Spiel mit 'Neu'"
   - asset: super.png
-    caption: "👣 Stehe auf und tanze"
+    caption: "Fertig. 👣 Stehe auf und tanze"
 
 blocks:
   - category: motion

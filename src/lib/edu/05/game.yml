@@ -24,12 +24,16 @@ slides:
   - asset: super.png
   - asset: 004.png
     caption: "Nun zum Fisch:"
-  - asset: x04.png
-    caption: "Code für den Fisch:"
+  - asset: 01.png
+    caption: "Code für den Fisch Teil 1:"
+  - asset: 02.png
+    caption: "Wenn der Apfel berührt wird ...:"
+  - asset: 03.png
+    caption: "Nachricht, Ton, Bewegung"
   - asset: start.png
     caption: "Teste dein Programm wieder:"
   - asset: 005.png
-    caption: "Füge 2 mal Figur Pfeil hinzu:"
+    caption: "Füge 2 mal Figur 'Pfeil' hinzu:"
   - asset: 006.png
     caption: "Bei 'Pfeil': Kostüm links"
   - asset: 007.png
@@ -37,17 +41,17 @@ slides:
   - asset: 008.png
     caption: "So sollen die Figuren aussehen:"
   - asset: x10.png
-    caption: "So soll die Bühne aussehen:"
+    caption: "Ziehe die Figuren an ihren Platz:"
   - asset: x05.png
-    caption: "Code für Pfeil links:"
+    caption: "Code für 'Pfeil' links:"
   - asset: x06.png
     caption: "Wähle 'Neue Nachricht'"
   - asset: x07.png
-    caption: "Gib links ein:"
+    caption: "Gib 'links' ein:"
   - asset: herz.png
     caption: "Kannst du rechts alleine?"
   - asset: x08.png
-    caption: "Code für Pfeil rechts:"
+    caption: "Code für 'Pfeil2' rechts:"
   - asset: 009.png
     caption: "Zurück zum Fisch:"
   - asset: x09.png
@@ -57,7 +61,9 @@ slides:
   - asset: super.png
     caption: "Fertig. Du hast alle Lernspiele geschafft."
   - asset: neu.png
-    caption: "Mache dein Eigenes mit +"
+    caption: "Mache dein eigenes Spiel mit +"
+  - asset: 04.png
+    caption: "Ideen findest du unter 'Beispiele'."
 
 blocks:
   - category: motion

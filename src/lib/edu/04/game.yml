@@ -33,16 +33,16 @@ slides:
   - asset: x02.png
     caption: "1. Neue Figur 'Flattert'"
   - asset: x03.png
-    caption: "2. Programme kopieren"
+    caption: "2. Kopiere die Programme"
   - asset: 007.png
     caption: "⬆️ Drücke auf die Ente"
   - asset: x04.png
     caption: "⬅ Passe den Ton an"
   - asset: gut_gemacht.png
   - asset: x05.png
-    caption: "Füge gerne mehr Figuren hinzu:"
+    caption: "Füge gerne mehr Figuren hinzu"
   - asset: speichern.png
-    caption: "Speichern nicht vergessen"
+    caption: "Speichern nicht vergessen!"
   - asset: super.png
     caption: "⏲️ Nimm dir eine Pause"
 

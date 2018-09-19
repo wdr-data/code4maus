@@ -3,19 +3,19 @@ slides:
   - asset: L01.png
     caption: "Du programmierst:"
   - asset: n001.gif
-    caption: "⬅ Ziehe Block1 rüber:"
+    caption: "⬅ Ziehe Block 1 rüber:"
   - asset: n002.gif
-    caption: "⬅ Drücke auf Block1:" 
+    caption: "⬅ Drücke auf Block 1:" 
   - asset: n003.gif
-    caption: "⬅ Ziehe Block2 darunter:"
+    caption: "⬅ Ziehe Block 2 darunter:"
   - asset: loeschen.gif
     caption: "⬅ So kannst du löschen:"
   - asset: n005.gif
-    caption: "⬅ Ziehe Block3 darunter:"
+    caption: "⬅ Ziehe Block 3 darunter:"
   - asset: n006.gif
-    caption: "⬅ 'Für immer' drumherum:"
+    caption: " Ziehe 'Für immer' drumherum:"
   - asset: x02.png
-    caption: "⬅ Block4 an den Anfang:"
+    caption: "Setze Block 4 an den Anfang:"
   - asset: 001.png
     caption: "Fertig! Start:"
   - asset: n007.gif
@@ -35,9 +35,9 @@ slides:
   - asset: 001.png
   - asset: 002.png
   - asset: herz.png
-    caption: "Mache dein Spiel daraus. Ändere Hintergrund und Kostüme."
+    caption: "Mache dein eigenes Spiel daraus. Ändere Hintergrund und Kostüme."
   - asset: n008.gif
-    caption: "🔃 Hintergrund: Weltall"
+    caption: "Wähle Hintergrund: Weltall"
   - asset: 003.png
     caption: "Zurück zur Maus:" 
   - asset: n009.gif
@@ -48,9 +48,9 @@ slides:
   - asset: n011.gif
     caption: "⬆️ Dein Spiel liegt dann hier:"
   - asset: neu.png
-    caption: "Mache dein Eigenes mit +"
+    caption: "Mache dein eigenes Spiel mit +"
   - asset: 002.png
-    caption: "Fertig 🍵 Mache eine Pause"
+    caption: "Fertig 🍵 Mach mal eine Pause"
 
 
 blocks:

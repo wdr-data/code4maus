@@ -3,7 +3,7 @@ slides:
   - asset: L00.png
     caption: ➡️ Hier geht's los!
   - asset: 000.png
-    caption: "Hier wird im Kleinen gezeigt, was du drumherum machen sollst. Drücke dann 'Weiter' ⬇️:"
+    caption: "Hier in diesem Kasten siehst du, was du machen sollst. Drücke nach jedem Schritt 'Weiter' ⬇️:"
   - asset: a.gif
     caption: "Starte mit:"
   - asset: b.gif

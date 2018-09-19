@@ -7,25 +7,25 @@ export default [
     {
         id: 'beispiel01',
         name: 'Kühlschrank-Memo',
-        subtitle: 'Jannes Höke',
+        subtitle: 'Merke dir das Essen',
         image: image01,
     },
     {
         id: 'beispiel02',
         name: 'Füttere den Elefanten',
-        subtitle: 'Wilfried Elmenreich',
+        subtitle: 'Bewege die Maus mit den Pfeilen',
         image: image02,
     },
     {
         id: 'beispiel03',
         name: 'Hilfe! Die Ente ist weg',
-        subtitle: 'Gretchen Elmenreich',
+        subtitle: 'Funktioniert nicht auf dem iPad',
         image: image03,
     },
     {
         id: 'beispiel04',
         name: 'Weltraum-Abenteuer',
-        subtitle: 'Johanna Janiszewski',
+        subtitle: 'Fange den Elefanten ein',
         image: image04,
     },
 ];
