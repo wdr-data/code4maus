@@ -1,7 +1,7 @@
 ---
 slides:
   - asset: 000.png
-
+    caption: "Merke Dir auf was der Elefant zeigt. Jede Runde kommt eine Sache dazu."
 
 blocks:
   - category: motion
