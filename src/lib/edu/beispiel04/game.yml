@@ -2,6 +2,7 @@
 slides:
   - asset: 000.png
 
+    caption: "Bewege die Maus mit den Pfeilen und füttere den Elefanten."
 
 blocks:
   - category: motion
