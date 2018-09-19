@@ -31,9 +31,9 @@ slides:
   - asset: 005.png
     caption: "Füge 2 mal Figur Pfeil hinzu:"
   - asset: 006.png
-    caption: "Bei 'Pfeil': Kostüm links:"
+    caption: "Bei 'Pfeil': Kostüm links"
   - asset: 007.png
-    caption: "Bei 'Pfeil2': Kostüm rechts:"
+    caption: "Bei 'Pfeil2': Kostüm rechts"
   - asset: 008.png
     caption: "So sollen die Figuren aussehen:"
   - asset: x10.png
@@ -48,7 +48,7 @@ slides:
     caption: "Kannst du rechts alleine?"
   - asset: x08.png
     caption: "Code für Pfeil rechts:"
-  - asset: 008.png
+  - asset: 009.png
     caption: "Zurück zum Fisch:"
   - asset: x09.png
     caption: "Um den Fisch zu steuern:"
@@ -57,7 +57,7 @@ slides:
   - asset: super.png
     caption: "Fertig. Du hast alle Lernspiele geschafft."
   - asset: neu.png
-    caption: "Mache dein eigenes mit +"
+    caption: "Mache dein Eigenes mit +"
 
 blocks:
   - category: motion
