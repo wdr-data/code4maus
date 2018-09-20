@@ -42,6 +42,13 @@ resources:
       Properties:
         AccessControl: PublicRead
         BucketName: ${self:custom.projectBucketName}
+        CorsConfiguration:
+          CorsRules:
+          - AllowedHeaders: ['content-type']
+            AllowedMethods: [PUT]
+            AllowedOrigins: ['${file(scripts/env.js):baseDomain}']
+            Id: myCORSRuleId1
+            MaxAge: '1800'
 
     EntrypointDistribution:
       Type: AWS::CloudFront::Distribution
