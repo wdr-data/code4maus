@@ -1,0 +1,81 @@
+---
+
+Description: 'Setup code4maus.de for redirection'
+
+Resources:
+  Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: code4maus-redirect
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: programmieren.wdrmaus.de
+          Protocol: https
+
+  Certificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: "code4maus.de"
+      SubjectAlternativeNames:
+        - "www.code4maus.de"
+      ValidationMethod: DNS
+
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Aliases:
+        - "code4maus.de"
+        - "www.code4maus.de"
+        Comment: "code4maus.de Redirect"
+        Enabled: true
+        IPV6Enabled: true
+        PriceClass: PriceClass_100
+        DefaultCacheBehavior:
+          TargetOriginId: S3-web-code4maus-redirect
+          ViewerProtocolPolicy: redirect-to-https
+          MinTTL: 0
+          AllowedMethods:
+          - HEAD
+          - GET
+          CachedMethods:
+          - HEAD
+          - GET
+          ForwardedValues:
+            QueryString: false
+        Origins:
+        - DomainName: !Select [2, !Split ["/", !GetAtt Bucket.WebsiteURL]]
+          Id: S3-web-code4maus-redirect
+          CustomOriginConfig:
+            HTTPPort: '80'
+            HTTPSPort: '443'
+            OriginProtocolPolicy: http-only
+        Restrictions:
+          GeoRestriction:
+            RestrictionType: none
+            Locations: []
+        ViewerCertificate:
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.1_2016
+          AcmCertificateArn: !Ref Certificate
+
+  DNSRecords:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneName: code4maus.de.
+      RecordSets:
+        - Name: code4maus.de.
+          Type: A
+          AliasTarget:
+            DNSName: !GetAtt Distribution.DomainName
+            HostedZoneId: Z2FDTNDATAQYW2
+        - Name: code4maus.de.
+          Type: AAAA
+          AliasTarget:
+            DNSName: !GetAtt Distribution.DomainName
+            HostedZoneId: Z2FDTNDATAQYW2
+        - Name: www.code4maus.de.
+          Type: CNAME
+          TTL: 900
+          ResourceRecords:
+            - code4maus.de

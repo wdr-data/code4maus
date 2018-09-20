@@ -1,7 +1,8 @@
 ---
 slides:
   - asset: 000.png
-    caption: "Bewege die Maus mit den Pfeilen, fange das Obst und füttere den Elefanten."
+    caption: "Übe das Einmaleins"
+
 
 blocks:
   - category: motion

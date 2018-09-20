@@ -1,8 +1,7 @@
 ---
 slides:
   - asset: 000.png
-
-    caption: "Bewege die Maus mit den Pfeilen und füttere den Elefanten."
+    caption: "Das Raumschiff des Elefanten ist außer Kontrolle. Kannst du ihn einfangen?"
 
 blocks:
   - category: motion
