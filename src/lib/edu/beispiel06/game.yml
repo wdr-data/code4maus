@@ -1,0 +1,156 @@
+---
+slides:
+  - asset: 000.png
+
+
+blocks:
+  - category: motion
+    blocks:
+      - movesteps
+      - turnright
+      - turnleft
+      - --
+      - goto
+      - gotoxy
+      - glideto
+      - glidesecstoxy
+      - --
+      - pointindirection
+      - pointtowards
+      - --
+      - changexby
+      - setx
+      - changeyby
+      - sety
+      - --
+      - ifonedgebounce
+      - --
+      - setrotationstyle
+      - --
+      - xposition
+      - yposition
+      - direction
+  - category: looks
+    blocks:
+      - sayforsecs
+      - say
+      - thinkforsecs
+      - think
+      - --
+      - switchcostumeto
+      - nextcostume
+      - switchbackdropto
+      - switchbackdroptoandwait
+      - nextbackdrop
+      - --
+      - changesizeby
+      - setsizeto
+      - --
+      - changeeffectby
+      - seteffectto
+      - cleargraphiceffects
+      - --
+      - show
+      - hide
+      - --
+      - gotofrontback
+      - goforwardbackwardlayers
+      - costumenumbername
+      - backdropnumbername
+      - size
+  - category: sound
+    blocks:
+      - play
+      - playuntildone
+      - stopallsounds
+      - --
+      - changeeffectby
+      - seteffectto
+      - cleareffects
+      - --
+      - changevolumeby
+      - setvolumeto
+      - volume
+  - category: events
+    blocks:
+      - whenflagclicked
+      - whenkeypressed
+      - whenstageclicked
+      - whenthisspriteclicked
+      - whenbackdropswitchesto
+      - --
+      - whengreaterthan
+      - --
+      - whenbroadcastreceived
+      - broadcast
+      - broadcastandwait
+  - category: control
+    blocks:
+      - wait
+      - --
+      - repeat
+      - forever
+      - --
+      - if
+      - if_else
+      - wait_until
+      - repeat_until
+      - --
+      - stop
+      - --
+      - start_as_clone
+      - create_clone_of
+      - delete_this_clone
+  - category: sensing
+    blocks:
+      - touchingobject
+      - touchingcolor
+      - coloristouchingcolor
+      - distanceto
+      - --
+      - askandwait
+      - answer
+      - --
+      - keypressed
+      - mousedown
+      - mousex
+      - mousey
+      - setdragmode
+      - loudness
+      - --
+      - timer
+      - resettimer
+      - --
+      - of
+      - --
+      - current
+      - --
+      - dayssince2000
+      - username
+  - category: operators
+    blocks:
+      - add
+      - subtract
+      - multiply
+      - divide
+      - --
+      - random
+      - --
+      - gt
+      - lt
+      - equals
+      - --
+      - and
+      - or
+      - not
+      - --
+      - join
+      - letter_of
+      - length
+      - contains
+      - --
+      - mod
+      - round
+      - --
+      - mathop
+  - category: variables
