@@ -46,7 +46,7 @@ resources:
           CorsRules:
           - AllowedHeaders: ['content-type']
             AllowedMethods: [PUT]
-            AllowedOrigins: ['${file(scripts/env.js):baseDomain}']
+            AllowedOrigins: ['https://${file(scripts/env.js):baseDomain}']
             Id: myCORSRuleId1
             MaxAge: '1800'
 
