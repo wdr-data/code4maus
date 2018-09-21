@@ -122,6 +122,7 @@ const importCostumes = async function(project) {
         }
         const insert = costumeInserts[c.name];
         costumeInserts[c.name] = null;
+        insert.tags = c.tags;
         console.log('overwriting costume', insert);
         return insert;
     }).concat(Object.values(costumeInserts).filter((c) => !!c));
