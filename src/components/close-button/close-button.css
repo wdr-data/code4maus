@@ -21,15 +21,15 @@
 }
 
 .small {
-    width: 0.825rem;
-    height: 0.825rem;
+    width: 1.4rem;
+    height: 1.4rem;
     color: $ui-white;
     background-color: #5185ba;
 }
 
 .large {
-    width: 1.75rem;
-    height: 1.75rem;
+    width: 2rem;
+    height: 2rem;
     box-shadow: 0 0 0 2px $ui-black-transparent;
 }
 
