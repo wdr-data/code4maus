@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'redux-little-router';
 
 import styles from './menu-listing.css';
-import defaultImage from '../../../assets/img/head_logo_beta.png'
+import defaultImage from '../../../assets/img/meine_sachen.png'
 
 const MenuListingComponent = (props) =>
     props.projects.map((project) => (
