@@ -69,7 +69,8 @@ Einige Töne sind unter CC 0 Lizenz von hier übernommen, Danke dafür: https://
 
 ### Credits für die Beispiele 
 
-Jannes Höke, Wilfried Elmenreich, Gretchen Elmenreich, Johanna Janiszewski
+Vielen Dank an die Scratch-Community und Freunde, die mit uns getestet und uns Beispiele zur Verfügung gestellt haben: 
+Jannes Höke, Wilfried Elmenreich, Gretchen Elmenreich, Johanna Janiszewski, Christoph Enzinger
 
 ### Copyright
 

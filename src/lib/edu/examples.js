@@ -5,6 +5,7 @@ import image04 from './beispiel04/assets/000.png';
 import image06 from './beispiel06/assets/000.png';
 import image07 from './beispiel07/assets/000.png';
 import image08 from './beispiel08/assets/000.png';
+import image09 from './beispiel09/assets/000.png';
 
 export default [
     {
@@ -48,5 +49,11 @@ export default [
         name: 'Weltraum-Abenteuer',
         subtitle: 'Fange den Elefanten ein',
         image: image04,
+    },
+    {
+        id: 'beispiel09',
+        name: 'Schlaue Maus',
+        subtitle: 'Die Maus findet deine Zahl',
+        image: image09,
     },
 ];
