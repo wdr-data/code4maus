@@ -110,7 +110,7 @@ const importCostumes = async function(project) {
         return insert;
     }).concat(Object.values(insertedSprites).filter((s) => !!s));
 
-    await fs.writeFile(spritesPath, JSON.stringify(spritesResult, null, 4));
+    await fs.writeFile(spritesPath, JSON.stringify(spritesResult, null, 4) + '\n');
 
     const costumesPath = path.resolve(__dirname, '../src/lib/libraries/costumes.json');
     const costumesFile = await fs.readFile(costumesPath);
@@ -126,7 +126,7 @@ const importCostumes = async function(project) {
         return insert;
     }).concat(Object.values(costumeInserts).filter((c) => !!c));
 
-    await fs.writeFile(costumesPath, JSON.stringify(costumesResult, null, 4));
+    await fs.writeFile(costumesPath, JSON.stringify(costumesResult, null, 4) + '\n');
 };
 
 const importBackdrops = async function(project) {
@@ -148,8 +148,8 @@ const importBackdrops = async function(project) {
             })).forEach((c) => {
                 backdropInserts[c.name] = c;
             });
-        })
-    
+        });
+
     const backdropsPath = path.resolve(__dirname, '../src/lib/libraries/backdrops.json');
     const backdropsFile = await fs.readFile(backdropsPath);
     const backdrops = JSON.parse(backdropsFile);
@@ -178,12 +178,12 @@ const importSounds = async function(project) {
                 sampleCount: s.sampleCount,
                 rate: s.rate,
                 format: 'mp3',
-                tags: []
+                tags: [],
             })).forEach((c) => {
                 soundsInserts[c.name] = c;
             });
-        })
-    
+        });
+
     const soundsPath = path.resolve(__dirname, '../src/lib/libraries/sounds.json');
     const soundsFile = await fs.readFile(soundsPath);
     const sounds = JSON.parse(soundsFile);
