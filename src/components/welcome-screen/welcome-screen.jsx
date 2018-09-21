@@ -16,14 +16,14 @@ const WelcomeScreenComponent = (props) => (
                 und Spiele mit der Maus zu programmieren.
                 Viel Spaß!
                 </p>
-            </div>
-            <div className={styles.buttonWrapper}>
-                <ButtonPrimary className={styles.button} onClick={props.onIntroClick}>
-                    Lernen, wie es geht
-                </ButtonPrimary>
-                <ButtonPrimary className={styles.button} onClick={props.onMenuClick}>
-                    Zur Übersicht
-                </ButtonPrimary>
+                <div className={styles.buttonWrapper}>
+                    <ButtonPrimary className={styles.button} onClick={props.onIntroClick}>
+                        Lernen, wie es geht
+                    </ButtonPrimary>
+                    <ButtonPrimary className={styles.button} onClick={props.onMenuClick}>
+                        Zur Übersicht
+                    </ButtonPrimary>
+                </div>
             </div>
         </div>
     </LogoOverlay>

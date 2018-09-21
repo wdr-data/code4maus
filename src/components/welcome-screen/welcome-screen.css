@@ -15,10 +15,12 @@
 
 .button-wrapper {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     margin: 2rem 0;
 }
 
 .button {
     font-size: 1.4rem;
+    width: 16rem;
+    justify-content: center;
 }
