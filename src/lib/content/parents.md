@@ -55,10 +55,12 @@ Denkbar ist zum Beispiel Material für Lehrerinnen und Fachkräfte im offenen Ga
 
 Konzept, Programmierung: Patricia Ennenbach, Christine Gotthardt, Marcus Weiner
 
-Design: Andreas Feischen, Daniel Barthelme, Sarah Heller (Machbar), Daniel Blanke
+Design: Andreas Feischen, Daniel Barthelme, Sarah Heller (Machbar); Daniel Blanke
 
 Redaktion: Matthias Körnich, Petra Chronz
 Projektsteuerung und Einkauf: Oliver Schwarz, Torsten Fischer
+Unterstützung UX: Hans-Joachim Belz
+Unterstützung Entwicklung: Andreas Streichardt
 
 ### Credits
 Danke an den Lifelong Kindergarden des MIT - ohne Scratch wäre Programmieren mit der Maus nicht möglich: beta.scratch.mit.edu
@@ -71,6 +73,10 @@ Einige Töne sind unter CC 0 Lizenz von hier übernommen, Danke dafür: https://
 
 Vielen Dank an die Scratch-Community und Freunde, die mit uns getestet und uns Beispiele zur Verfügung gestellt haben: 
 Jannes Höke, Wilfried Elmenreich, Gretchen Elmenreich, Johanna Janiszewski, Christoph Enzinger
+
+### Credits für Tester
+
+Danke an Emily, Grace, Mats, Romy E., Simon, Clara, Lisa, Luis, Gabriel, Vincent, Hannah, Ida, Romy H. und an die OGS der Grundschule Forststraße Köln Rath-Heumar fürs Testen.
 
 ### Copyright
 
