@@ -68,7 +68,7 @@
 
 .logo-center {
     /* from image to get correct sizing before image is loaded */
-    height: 78px;
+    height: 6rem;
     display: block;
     margin: 0 auto 1.5rem auto;
 }
@@ -345,3 +345,9 @@ $fade-out-distance: 15px;
     flex-grow: 1;
     margin: 0 1rem 0 0;
 }
+
+@media (max-width: 1024px) {
+    .logo-center {
+        height: 4rem;
+    }
+  }

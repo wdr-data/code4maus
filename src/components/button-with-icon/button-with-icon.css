@@ -32,3 +32,10 @@
 .content {
   color: #3f84aa;
 }
+
+@media (max-width: 1024px) {
+  .icon {
+      width: 2.5rem;
+      height: 2.5rem;
+  }
+}
