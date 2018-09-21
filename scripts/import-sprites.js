@@ -28,6 +28,15 @@ const importMain = async function() {
 const importCostumes = async function(project) {
     const costumeInserts = {};
 
+    const mapSounds = (s, key) => ({
+        soundName: s.name,
+        soundID: -1,
+        md5: s.md5ext,
+        sampleCount: s.sampleCount,
+        rate: s.rate,
+        format: '',
+    });
+
     const insertedSprites = project.targets
         .filter((t) => !t.isStage)
         .map((sprite) => {
@@ -67,7 +76,7 @@ const importCostumes = async function(project) {
                 info: [ 0, 2 ],
                 json: {
                     objName: sprite.name,
-                    sounds,
+                    sounds: sprite.sounds.map(mapSounds),
                     costumes,
                     currentCostumeIndex: sprite.currentCostume,
                     scratchX: sprite.x,
