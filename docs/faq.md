@@ -26,7 +26,7 @@ do
 
 ## Add a costum sprite
 
-- In code4maus.netlify.com frontend choose upload. 
+- In programmieren.wdrmaus.de frontend choose upload. 
 - Import svg for each costume and import sound.
 - save project
 - download project and change .sb to .zip
@@ -38,7 +38,6 @@ This will change these files:
 src/lib/libraries/sprites.json
 src/lib/libraries/costumes.json
  
-
 
 ## Change blocks translations
 

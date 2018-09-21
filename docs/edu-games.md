@@ -20,6 +20,8 @@ Slides can be defined for the game. They will be displayed in the bottom right a
 
 Download as .pdf from Google Slides, convert to .png using `convert -density 90 Lernspiel01_Geistermaus.pdf %03d.png`
 
+- You can add `captions` to it, text that will be displayed above the image file 
+
 ### Limit available blocks
 
 To limit the kinds of blocks that are available in the game the settings `blocks` can be used. It will contain Elements in this manner:
@@ -41,7 +43,9 @@ To limit the kinds of blocks that are available in the game the settings `blocks
 ---
 slides:
   - asset: spiel01_bewegung.png
+    caption: "Hier gehts los"
   - asset: green_flag_move_ten_steps.gif
+    caption: "Ziehe den Block"
   - asset: green_flag.gif
   - asset: cat_moves_ten_steps.gif
   - asset: maus_question.svg
