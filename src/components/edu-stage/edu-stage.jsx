@@ -12,49 +12,53 @@ import { connect } from 'react-redux';
 import { nextSlide, previousSlide, toggleFullscreen } from '../../reducers/edu-layer.js';
 
 const EduStageComponent = (props) => !props.isEnabled ? null :
-    <Box className={classNames(styles.eduWrapper, { [styles.fullscreen]: props.isFullscreen })}>
-        <Box className={styles.eduHeader}>
-            <Box className={styles.caption}>
-                {props.caption}
+    <React.Fragment>
+        {props.isDimmed && <div className={styles.dim} />}
+        <Box className={classNames(styles.eduWrapper, { [styles.fullscreen]: props.isFullscreen })}>
+            <Box className={styles.eduHeader}>
+                <Box className={styles.caption}>
+                    {props.caption}
+                </Box>
+                <Button
+                    className={styles.fullscreenButton}
+                    onClick={props.toggleFullscreen}
+                >
+                    <img
+                        className={styles.fullscreenButtonIcon}
+                        draggable={false}
+                        src= {props.isFullscreen ? unFullScreenIcon : fullScreenIcon}
+                    />
+                </Button>
             </Box>
-            <Button
-                className={styles.fullscreenButton}
-                onClick={props.toggleFullscreen}
-            >
-                <img
-                    className={styles.fullscreenButtonIcon}
-                    draggable={false}
-                    src= {props.isFullscreen ? unFullScreenIcon : fullScreenIcon}
-                />
-            </Button>
+            <Box
+                className={styles.eduSlides}
+                style={{ backgroundImage: `url(/edu/${props.gameId}/assets/${props.imageSrc})` }}
+            />
+            <Box className={styles.eduFooter}>
+                <ButtonPrimary
+                    className={styles.backButton}
+                    arrowLeft grey={props.slideIndex == 0}
+                    onClick={props.previousSlide}
+                >
+                    Zurück
+                </ButtonPrimary>
+                <p>{props.slideIndex + 1}/{props.slideCount}</p>
+                <ButtonPrimary
+                    className={styles.forwardButton}
+                    arrowRight wiggle={props.slideIndex == 0}
+                    onClick={props.nextSlide}
+                >
+                    Weiter
+                </ButtonPrimary>
+            </Box>
         </Box>
-        <Box
-            className={styles.eduSlides}
-            style={{ backgroundImage: `url(/edu/${props.gameId}/assets/${props.imageSrc})` }}
-        />
-        <Box className={styles.eduFooter}>
-            <ButtonPrimary
-                className={styles.backButton}
-                arrowLeft grey={props.slideIndex == 0}
-                onClick={props.previousSlide}
-            >
-                Zurück
-            </ButtonPrimary>
-            <p>{props.slideIndex + 1}/{props.slideCount}</p>
-            <ButtonPrimary
-                className={styles.forwardButton}
-                arrowRight wiggle={props.slideIndex == 0}
-                onClick={props.nextSlide}
-            >
-                Weiter
-            </ButtonPrimary>
-        </Box>
-    </Box>
+    </React.Fragment>
 ;
 
 EduStageComponent.propTypes = {
     caption: PropTypes.string,
     imageSrc: PropTypes.string,
+    isDimmed: PropTypes.bool,
     isEnabled: PropTypes.bool,
     isFullscreen: PropTypes.bool,
     gameId: PropTypes.string,
@@ -85,6 +89,7 @@ const mapStateToProps = (state) => {
         ...base,
         imageSrc: slide.asset,
         caption: slide.caption || '',
+        isDimmed: !!slide.dim,
     };
 };
 

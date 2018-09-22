@@ -2,6 +2,7 @@
 slides:
   - asset: L00.png
     caption: ➡️ Hier geht's los!
+    dim: true
   - asset: 000.png
     caption: "Hier in diesem Kasten lernst du Schritt für Schritt, wie das hier geht. Drücke nach jedem Schritt 'Weiter' ⬇️:"
   - asset: a.gif
