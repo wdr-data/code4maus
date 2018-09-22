@@ -130,9 +130,9 @@
     exports-loader "0.6.3"
     imports-loader "0.6.5"
 
-"@wdr-data/scratch-vm@0.2.0-minimal-1":
-  version "0.2.0-minimal-1"
-  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-vm/-/scratch-vm-0.2.0-minimal-1.tgz#c76152317a645dff291ebda152c12cddcad51a7f"
+"@wdr-data/scratch-vm@0.2.0-minimal-2":
+  version "0.2.0-minimal-2"
+  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-vm/-/scratch-vm-0.2.0-minimal-2.tgz#5c98b10073b6275996e948871de336a756d45f1a"
   dependencies:
     arraybuffer-loader "^1.0.6"
     atob "2.1.2"
@@ -141,7 +141,7 @@
     decode-html "2.0.0"
     diff-match-patch "1.0.4"
     escape-html "1.0.3"
-    format-message "6.1.0"
+    format-message "6.2.0"
     htmlparser2 "3.9.2"
     immutable "3.8.1"
     jszip "^3.1.5"
@@ -4792,29 +4792,29 @@ form-data@^2.3.1, form-data@~2.3.1, form-data@~2.3.2:
     combined-stream "1.0.6"
     mime-types "^2.1.12"
 
-format-message-formats@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/format-message-formats/-/format-message-formats-6.1.0.tgz#ff10fd3e6e52f6fc2a6e2586dd3baaa6a52e10b3"
+format-message-formats@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/format-message-formats/-/format-message-formats-6.2.0.tgz#231c2a3d2806e3200331c7aa06430cb403f58792"
 
-format-message-interpret@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/format-message-interpret/-/format-message-interpret-6.1.0.tgz#6112ce49d4cb70338fd60f43bda0c5895d23200d"
+format-message-interpret@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/format-message-interpret/-/format-message-interpret-6.2.0.tgz#a290ff2c218638594204485557184cdff07d8d90"
   dependencies:
-    format-message-formats "^6.1.0"
-    lookup-closest-locale "^6.1.0"
+    format-message-formats "^6.2.0"
+    lookup-closest-locale "^6.2.0"
 
-format-message-parse@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/format-message-parse/-/format-message-parse-6.1.0.tgz#97b7231bc1b7c0f4f21f0cf5d9f3cd85bca7adbf"
+format-message-parse@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/format-message-parse/-/format-message-parse-6.2.0.tgz#d84c008efb9828b234cf9f7e59a8e966a09c0f27"
 
-format-message@6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/format-message/-/format-message-6.1.0.tgz#0d581b40995ba6ebbf5d98d037a9a6959834c112"
+format-message@6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/format-message/-/format-message-6.2.0.tgz#5c0f6f9afe82161a2137f8ef40a6d294cc6b0795"
   dependencies:
-    format-message-formats "^6.1.0"
-    format-message-interpret "^6.1.0"
-    format-message-parse "^6.1.0"
-    lookup-closest-locale "^6.1.0"
+    format-message-formats "^6.2.0"
+    format-message-interpret "^6.2.0"
+    format-message-parse "^6.2.0"
+    lookup-closest-locale "^6.2.0"
 
 formidable@^1.2.0:
   version "1.2.1"
@@ -7246,9 +7246,9 @@ longest@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
 
-lookup-closest-locale@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/lookup-closest-locale/-/lookup-closest-locale-6.1.0.tgz#26a60196dbe8da7e362d4a69a655a722c451b5d8"
+lookup-closest-locale@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/lookup-closest-locale/-/lookup-closest-locale-6.2.0.tgz#57f665e604fd26f77142d48152015402b607bcf3"
 
 loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
   version "1.4.0"
@@ -10027,9 +10027,9 @@ scratch-l10n@^2.0.0:
     babel-plugin-intl "^0.1.1"
     babel-plugin-react-intl "^2.3.1"
 
-scratch-paint@0.2.0-prerelease.20180907144642:
-  version "0.2.0-prerelease.20180907144642"
-  resolved "https://registry.yarnpkg.com/scratch-paint/-/scratch-paint-0.2.0-prerelease.20180907144642.tgz#eba5821599c3ee5de5f18e2a89e6013f33233c9a"
+scratch-paint@0.2.0-prerelease.20180918203812:
+  version "0.2.0-prerelease.20180918203812"
+  resolved "https://registry.yarnpkg.com/scratch-paint/-/scratch-paint-0.2.0-prerelease.20180918203812.tgz#c280f821bfbc56db5e47fdae75412b8f36f021bd"
   dependencies:
     "@scratch/paper" "0.11.20180806212106"
     classnames "2.2.5"
