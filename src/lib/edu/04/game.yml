@@ -14,7 +14,7 @@ slides:
     caption: "Wechsle zur Maus:"
   - asset: 12.gif
     caption: "Kopiere die Programme:"
-  - asset: 004.png 
+  - asset: 004.png
     caption: "Zurück zum Elefanten:"
   - asset: 005.png
     caption: "Klicke den Elefanten an:"
@@ -45,6 +45,8 @@ slides:
     caption: "Speichern nicht vergessen!"
   - asset: super.png
     caption: "⏲️ Nimm dir eine Pause"
+
+nextGame: '05'
 
 blocks:
   - category: motion

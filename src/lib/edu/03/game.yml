@@ -48,6 +48,8 @@ slides:
   - asset: super.png
     caption: "Fertig. 👣 Stehe auf und tanze"
 
+nextGame: '04'
+
 blocks:
   - category: motion
     blocks:

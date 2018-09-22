@@ -3,7 +3,7 @@ slides:
   - asset: L02.png
     caption: "Du programmierst:"
   - asset: a.gif
-    caption: "⬅ Ziehe diesen Block:" 
+    caption: "⬅ Ziehe diesen Block:"
   - asset: 001.png
     caption: "Drücke ein paar Mal drauf:"
   - asset: frage.png
@@ -12,17 +12,19 @@ slides:
   - asset: x002.png
     caption: "⬅ Baue dieses Programm:"
   - asset: x003.png
-    caption: "⬅ Ändere die Zahlen:"  
-  - asset: 003.png 
+    caption: "⬅ Ändere die Zahlen:"
+  - asset: 003.png
     caption: "Teste dein Programm:"
   - asset: x004.png
     caption: "⬅ 2. Programm: Für den Ton"
   - asset: x005.png
     caption: "⬅ Ändere die Zahl:"
-  - asset: 003.png 
+  - asset: 003.png
     caption: "Fertig. Starte:"
   - asset: super.png
     caption: "Fertig. 🍏 Iss oder trink etwas"
+
+nextGame: '03'
 
 blocks:
   - category: motion

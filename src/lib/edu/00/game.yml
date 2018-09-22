@@ -11,6 +11,8 @@ slides:
     caption: "Stoppe mit:"
   - asset: 003.png
 
+nextGame: '01'
+
 blocks:
   - category: motion
     blocks:
