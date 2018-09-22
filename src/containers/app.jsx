@@ -20,6 +20,7 @@ import WelcomeScreen from './welcome-screen.jsx';
 import LazyRender from './lazy-render.jsx';
 import Content from './content.jsx';
 import Loader from '../components/loader/loader.jsx';
+import MobileScreen from '../components/mobile-screen/mobile-screen.jsx';
 
 addLocaleData(de);
 
@@ -107,7 +108,10 @@ class App extends Component {
                 locale="de"
                 messages={localeDe}
             >
-                {this.renderView()}
+                <React.Fragment>
+                    <MobileScreen />
+                    {this.renderView()}
+                </React.Fragment>
             </IntlProvider>
         );
     }
