@@ -37,7 +37,7 @@ services:
       - ".:/src"
     labels:
       traefik.port: 3000
-      traefik.frontend.rule: Host:localhost;PathPrefixStrip:/api/
+      traefik.frontend.rule: Host:localhost;PathPrefix:/api/
   storage:
     image: minio/minio
     command: server /data
