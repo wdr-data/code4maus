@@ -34,7 +34,21 @@ const getCertArnForDomain = (domain) => {
         .then((cert) => cert && cert.CertificateArn);
 };
 
-const stage = () => process.env.SLS_STAGE || 'dev';
+const stageFromBranch = () => {
+    const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH;
+    if (branch === 'production') {
+        return 'prod';
+    }
+    if (branch === 'develop') {
+        return 'staging';
+    }
+    return false;
+};
+
+const stage = () =>
+    process.env.SLS_STAGE ||
+    stageFromBranch() ||
+    'dev';
 
 const baseDomain = () => stage() === 'prod'
     ? 'programmieren.wdrmaus.de'
