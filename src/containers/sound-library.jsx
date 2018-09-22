@@ -84,7 +84,7 @@ class SoundLibrary extends React.PureComponent {
 
         // Save the promise so code to stop the sound may queue the stop
         // instruction after the play instruction.
-        this.playingSoundPromise = vm.runtime.storage.load(vm.runtime.storage.AssetType.Sound, md5)
+        this.playingSoundPromise = vm.runtime.storage.load(vm.runtime.storage.AssetType.Sound, md5, soundItem.format)
             .then((soundAsset) => {
                 const sound = {
                     md5: md5ext,
