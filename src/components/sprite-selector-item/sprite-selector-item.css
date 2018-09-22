@@ -22,12 +22,12 @@
 }
 
 .sprite-selector-item.is-selected {
-    border: solid #5185ba;
+    border: solid $ui-blue;
     background: $ui-white;
 }
 
 .sprite-selector-item:hover {
-    border: solid #5185ba;
+    border: solid $ui-blue;
     background: $ui-white;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .is-selected .sprite-info {
-    background: #5185ba;
+    background: $ui-blue;
     color: $ui-white;
 }
 

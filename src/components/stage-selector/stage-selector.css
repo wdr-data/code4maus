@@ -15,7 +15,7 @@ $header-height: calc($stage-menu-height - 2px);
 
 .stage-selector.is-selected .costume-canvas,
 .stage-selector:hover .costume-canvas {
-    border-color: #5185ba;
+    border-color: $ui-blue;
 }
 
 .stage-selector.is-selected .costume-canvas {
@@ -54,7 +54,7 @@ $header-height: calc($stage-menu-height - 2px);
 }
 
 @keyframes glowing {
-    10% { box-shadow: 0 0 10px #7fff1e; }
-    90% { box-shadow: 0 0 10px #7fff1e; }
+    10% { box-shadow: 0 0 10px $ui-blue; }
+    90% { box-shadow: 0 0 10px $ui-blue; }
     100% { box-shadow: none; }
 }

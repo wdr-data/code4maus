@@ -73,21 +73,21 @@ button::-moz-focus-inner {
     is not very easy to style.
 */
 .tooltip {
-    background-color: #e85e38 !important;
+    background-color: $ui-orange !important;
     opacity: 1 !important;
     font-family: 'Titillium Web' !important;
 }
 
 .tooltip:after {
-    background-color: #e85e38;
+    background-color: $ui-orange;
 }
 
 .coming-soon-tooltip {
-    background-color: #e85e38 !important;
+    background-color: $ui-orange !important;
 }
 
 .coming-soon-tooltip:after {
-    background-color: #e85e38 !important;
+    background-color: $ui-orange !important;
 }
 
 .tooltip {

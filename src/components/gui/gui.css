@@ -321,14 +321,14 @@ $fade-out-distance: 15px;
 }
 
 .save-modal-button {
-    background: #da632a;
+    background: $ui-orange;
     color: white;
     padding: 0.5rem 1rem;
     align-self: flex-start;
 }
 
 .save-modal-download {
-    background: #da632a;
+    background: $ui-orange;
     color: white;
     padding: 0.5rem 1rem;
     margin-top: 1rem;
