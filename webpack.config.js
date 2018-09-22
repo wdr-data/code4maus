@@ -13,6 +13,8 @@ const postcssVars = require('postcss-simple-vars');
 const postcssImport = require('postcss-import');
 const postcssMixins = require('postcss-mixins');
 
+const { baseDomain } = require('./scripts/env');
+
 require('dotenv').config();
 const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH;
 const bucketSuffix = branch === 'production' ? 'prod' : 'staging';
@@ -154,6 +156,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             chunks: 'gui',
             template: 'src/playground/index.ejs',
+            baseUrl: process.env.DEPLOY_PRIME_URL || `https://${baseDomain()}`,
             title: 'Programmieren mit der Maus',
         }),
         new CopyWebpackPlugin([
