@@ -69,7 +69,7 @@ const main = async () => {
         } catch (e) {} // eslint-disable-line no-empty
 
         return new Promise((resolve, reject) => {
-            const req = request(`${bucketUrl}/assets/${asset}`);
+            const req = request(`${bucketUrl}/data/assets/${asset}`);
             const write = fsL.createWriteStream(writePath);
             let aborted = false;
             const stopStream = (e) => {
