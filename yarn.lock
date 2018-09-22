@@ -130,6 +130,20 @@
     exports-loader "0.6.3"
     imports-loader "0.6.5"
 
+"@wdr-data/scratch-render@^0.1.0-prerelease.20180918201144-fixed-1":
+  version "0.1.0-prerelease.20180918201144-fixed-1"
+  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-render/-/scratch-render-0.1.0-prerelease.20180918201144-fixed-1.tgz#03ab49411f25f9ff32d8bcf8284fac3f17131913"
+  dependencies:
+    grapheme-breaker "0.3.2"
+    hull.js "0.2.10"
+    ify-loader "1.0.4"
+    linebreak "0.3.0"
+    minilog "3.1.0"
+    raw-loader "^0.5.1"
+    scratch-storage "^1.0.0"
+    scratch-svg-renderer "0.2.0-prerelease.20180907141232"
+    twgl.js "4.4.0"
+
 "@wdr-data/scratch-vm@0.2.0-minimal-2":
   version "0.2.0-minimal-2"
   resolved "https://registry.yarnpkg.com/@wdr-data/scratch-vm/-/scratch-vm-0.2.0-minimal-2.tgz#5c98b10073b6275996e948871de336a756d45f1a"
@@ -10062,20 +10076,6 @@ scratch-render-fonts@1.0.0-prerelease.20180906193204:
   resolved "https://registry.yarnpkg.com/scratch-render-fonts/-/scratch-render-fonts-1.0.0-prerelease.20180906193204.tgz#6ac26c341c63b964235bf95de47d243ca251ed32"
   dependencies:
     base64-loader "1.0.0"
-
-scratch-render@0.1.0-prerelease.20180824141819:
-  version "0.1.0-prerelease.20180824141819"
-  resolved "https://registry.yarnpkg.com/scratch-render/-/scratch-render-0.1.0-prerelease.20180824141819.tgz#c07bb186bc9ab7bd2949ffd0b7db54a3b436fe0a"
-  dependencies:
-    grapheme-breaker "0.3.2"
-    hull.js "0.2.10"
-    ify-loader "1.0.4"
-    linebreak "0.3.0"
-    minilog "3.1.0"
-    raw-loader "^0.5.1"
-    scratch-storage "^1.0.0"
-    scratch-svg-renderer "0.2.0-prerelease.20180817005452"
-    twgl.js "4.4.0"
 
 scratch-storage@^0.5.1:
   version "0.5.1"
