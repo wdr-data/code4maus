@@ -40,6 +40,8 @@ const baseDomain = () => stage() === 'prod'
     ? 'programmieren.wdrmaus.de'
     : `${stage()}.code4maus.wt.wdr.cloud`;
 
+const bucketSuffix = () => stage() === 'prod' ? 'prod' : 'staging';
+
 const hostedZone = () => {
     const domain = baseDomain();
     return getHostedZoneForDomain(domain)
@@ -72,6 +74,7 @@ const certArn = () => {
 
 module.exports = {
     baseDomain,
+    bucketSuffix,
     certArn,
     hostedZone,
     stage,
