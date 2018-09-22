@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './logo-overlay.css';
 
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
-import logo from '../../../assets/img/head_logo_beta.png';
+import logo from '../../../assets/img/head_logo.png';
 
 const LogoOverlayComponent = ({ children }) => (
     <div className={styles.background}>

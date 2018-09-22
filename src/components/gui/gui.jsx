@@ -27,7 +27,7 @@ import ModalComponent from '../modal/modal.jsx';
 import layout from '../../lib/layout-constants.js';
 
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
-import headLogo from '../../../assets/img/logo_text_beta.png';
+import headLogo from '../../../assets/img/logo_text.png';
 import soundsIcon from '../../../assets/icons/tab_sound.svg';
 import codeIcon from './icon--code.svg';
 import costumesIcon from './icon--costumes.svg';
