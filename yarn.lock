@@ -123,9 +123,9 @@
   version "10.3.1"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.3.1.tgz#51092fbacaed768a122a293814474fbf6e5e8b6d"
 
-"@wdr-data/scratch-blocks@^0.1.0-de-7":
-  version "0.1.0-de-7"
-  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-blocks/-/scratch-blocks-0.1.0-de-7.tgz#3df575ebbda68f68cc3380bdb5fae5d3d8764141"
+"@wdr-data/scratch-blocks@^0.1.0-de-8":
+  version "0.1.0-de-8"
+  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-blocks/-/scratch-blocks-0.1.0-de-8.tgz#45539e7b448bd86136ee8bcfa4482a1b4b8f759a"
   dependencies:
     exports-loader "0.6.3"
     imports-loader "0.6.5"

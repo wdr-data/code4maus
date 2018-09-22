@@ -40,7 +40,7 @@
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
-    "@wdr-data/scratch-blocks": "^0.1.0-de-7",
+    "@wdr-data/scratch-blocks": "^0.1.0-de-8",
     "@wdr-data/scratch-render": "^0.1.0-prerelease.20180918201144-fixed-1",
     "@wdr-data/scratch-vm": "0.2.0-minimal-2",
     "arraybuffer-loader": "^1.0.3",
