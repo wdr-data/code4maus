@@ -1,20 +1,20 @@
 [
     {
         "name": "Disko",
-        "md5": "88bd474932b76c51058cb7e718f9a63a.mp3",
-        "sampleCount": 316416,
+        "md5": "60c1ec6f4071f4b2f0d0ab08fedd93b1.wav",
+        "sampleCount": 19719,
         "rate": 44100,
-        "format": "mp3",
+        "format": "wav",
         "tags": [
             "musik"
         ]
     },
     {
         "name": "Boing",
-        "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
+        "md5": "9cf7206f4e3c8544c7aee1d3ff58387b.wav",
         "sampleCount": 99328,
         "rate": 44100,
-        "format": "mp3",
+        "format": "wav",
         "tags": [
             "töne"
         ]
