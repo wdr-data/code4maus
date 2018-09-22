@@ -32,10 +32,8 @@ export const handler = injectReplyJson(async (event, context, reply) => {
         await s3.putObject({
             Key: getKey(userId, `${projectId}.json`),
             Body: JSON.stringify(cleanedData),
-            Metadata: {
-                'Cache-Control': 'max-age=0',
-                'Content-Type': 'application/json',
-            },
+            CacheControl: 'max-age=0',
+            ContentType: 'application/json',
         }).promise();
     } catch (e) {
         console.error(e); // eslint-disable-line no-console
@@ -64,10 +62,8 @@ export const handler = injectReplyJson(async (event, context, reply) => {
                 await s3.putObject({
                     Key: getKey(userId),
                     Body: JSON.stringify(base),
-                    Metadata: {
-                        'Cache-Control': 'max-age=0',
-                        'Content-Type': 'application/json',
-                    },
+                    CacheControl: 'max-age=0',
+                    ContentType: 'application/json',
                 }).promise();
             } catch (e) {
                 console.error(e);
