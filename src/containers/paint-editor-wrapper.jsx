@@ -71,7 +71,7 @@ const mapStateToProps = (state, { selectedCostumeIndex }) => {
         rotationCenterX: costume && costume.rotationCenterX,
         rotationCenterY: costume && costume.rotationCenterY,
         imageFormat: costume && costume.dataFormat,
-        imageId: editingTarget && `${editingTarget}${costume.skinId}`,
+        imageId: editingTarget && costume && `${editingTarget}${costume.skinId}`,
         vm: state.scratchGui.vm,
     };
 };
