@@ -64,9 +64,14 @@ class SpriteLibrary extends React.PureComponent {
             costumeIndex: nextCostumeIndex,
             sprites: this.state.sprites.map((sprite) => {
                 if (sprite.name === this.state.activeSprite.name) {
+                    const nextCostume = sprite.json.costumes[nextCostumeIndex];
+                    if (!nextCostume) {
+                        return sprite;
+                    }
+
                     return {
                         ...sprite,
-                        md5: sprite.json.costumes[nextCostumeIndex].baseLayerMD5,
+                        md5: nextCostume.baseLayerMD5,
                     };
                 }
                 return sprite;
