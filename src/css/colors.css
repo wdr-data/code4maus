@@ -31,4 +31,5 @@ $pen-primary: hsla(163, 85%, 40%, 1); /* #0FBD8C */
 /* Maus UI */
 $ui-grey: hsla(0, 0%, 57%, 1);
 $ui-orange: hsla(19, 70%, 51%, 1);
-$ui-blue: hsla(215, 44%, 55%, 1);
+$ui-blue: hsla(215, 44%, 55%, 1); /* #5B84BF */
+$ui-baby-blue: hsla(215, 54%, 75%, 1); /* #9EBAE2 */

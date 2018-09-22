@@ -6,7 +6,7 @@ import VM from '@wdr-data/scratch-vm';
 
 import AssetPanel from '../components/asset-panel/asset-panel.jsx';
 import soundIcon from '../components/asset-panel/icon--sound.svg';
-import addSoundFromLibraryIcon from '../components/asset-panel/icon--add-sound-lib.svg';
+import addSoundFromLibraryIcon from '../../assets/icons/target_add.svg';
 import fileUploadIcon from '../components/action-menu/icon--file-upload.svg';
 import surpriseIcon from '../components/action-menu/icon--surprise.svg';
 

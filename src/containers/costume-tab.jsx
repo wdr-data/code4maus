@@ -23,8 +23,8 @@ import {
     openBackdropLibrary,
 } from '../reducers/modals';
 
-import addLibraryBackdropIcon from '../components/action-menu/icon--backdrop.svg';
-import addLibraryCostumeIcon from '../components/action-menu/icon--sprite.svg';
+import addLibraryBackdropIcon from '../../assets/icons/target_add.svg';
+import addLibraryCostumeIcon from '../../assets/icons/target_add.svg';
 import fileUploadIcon from '../components/action-menu/icon--file-upload.svg';
 import paintIcon from '../components/action-menu/icon--paint.svg';
 import surpriseIcon from '../components/action-menu/icon--surprise.svg';
