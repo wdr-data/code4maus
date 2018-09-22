@@ -13,7 +13,7 @@
     "deploy:frontend": "./scripts/deploy-frontend.sh",
     "deploy": "yarn deploy:build && yarn deploy:apply && yarn deploy:frontend",
     "deploy:code4maus": "aws --region us-east-1 cloudformation deploy --stack-name code4maus-redirect --template-file scripts/deployment-code4maus.yml",
-    "cache-assets": "AWS_REGION=eu-central-1 node scripts/extract-assets.js",
+    "cache-assets": "AWS_REGION=eu-central-1 ASSET_BUCKET=hackingstudio-code4maus-projects-prod node scripts/extract-assets.js",
     "i18n:src": "babel src > tmp.js && rimraf tmp.js && build-i18n-src ./translations/messages/ ./translations/",
     "import-sprites": "node scripts/import-sprites.js",
     "assets:download": "aws s3 sync s3://code4maus-assets assets",

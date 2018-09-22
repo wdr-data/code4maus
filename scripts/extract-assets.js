@@ -4,9 +4,7 @@ const path = require('path');
 const globby = require('globby');
 const request = require('request');
 
-require('dotenv').config();
-const bucketSuffix = process.env.BRANCH === 'production' ? 'prod' : 'staging';
-const bucketUrl = `https://${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}` +
+const bucketUrl = `https://${process.env.ASSET_BUCKET}` +
     `.s3.dualstack.${process.env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION}.amazonaws.com`;
 
 const mapAssets = (asset) => {
