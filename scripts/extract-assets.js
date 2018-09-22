@@ -56,28 +56,43 @@ const main = async () => {
         .concat(await getLibraryContent());
     const uniqueAssets = [ ...new Set(assets) ];
     const outPath = path.resolve(__dirname, '../.cache/data/assets');
-    await Promise.all(uniqueAssets.map((asset) => new Promise((resolve, reject) => {
-        const req = request(`${bucketUrl}/assets/${asset}`);
+    let writtenFileCount = 0;
+    let existingFileCount = 0;
+    await Promise.all(uniqueAssets.map(async (asset) => {
         const writePath = path.join(outPath, asset);
-        const write = fsL.createWriteStream(writePath);
-        const stopStream = (e) => {
-            req.abort();
-            write.end(() => {
-                fs.unlink(writePath).then(() => reject(e));
-            });
-        };
-        req.on('error', stopStream)
-            .on('response', (response) => {
-                if (response.statusCode !== 200) {
-                    console.warn('Asset not found:', asset);
-                    stopStream(new Error('Response status code indicates failure.'));
-                }
-            })
-            .pipe(write)
-            .on('error', stopStream)
-            .on('finish', resolve);
-    })));
-    console.log(`Done. Written ${uniqueAssets.length} files.`);
+        try {
+            const exists = (await fs.stat(writePath)).isFile();
+            if (exists) {
+                existingFileCount++;
+                return;
+            }
+        } catch (e) {} // eslint-disable-line no-empty
+
+        return new Promise((resolve, reject) => {
+            const req = request(`${bucketUrl}/assets/${asset}`);
+            const write = fsL.createWriteStream(writePath);
+            let aborted = false;
+            const stopStream = (e) => {
+                aborted = true;
+                req.abort();
+                write.end(() => {
+                    fs.unlink(writePath).then(() => reject(e));
+                });
+            };
+            req.on('error', stopStream)
+                .on('response', (response) => {
+                    if (response.statusCode !== 200) {
+                        stopStream(new Error('Response status code indicates failure.'));
+                    }
+                })
+                .pipe(write)
+                .on('error', stopStream)
+                .on('finish', () => !aborted && resolve());
+        })
+            .then(() => writtenFileCount++)
+            .catch(() => console.warn('Asset not found:', asset));
+    }));
+    console.log(`Done. ${existingFileCount} existed. Written ${writtenFileCount} new files.`);
 };
 
 main().catch(console.error);
