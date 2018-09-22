@@ -904,51 +904,6 @@
         }
     },
     {
-        "name": "Weintrauben",
-        "baseLayerID": -1,
-        "md5": "7140d7544966bad8c87f3885d5b436c6.svg",
-        "type": "sprite",
-        "tags": [
-            "dinge"
-        ],
-        "info": [
-            0,
-            2
-        ],
-        "json": {
-            "objName": "Weintrauben",
-            "sounds": [
-                {
-                    "soundName": "Boing",
-                    "soundID": -1,
-                    "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
-                    "sampleCount": 99328,
-                    "rate": 44100,
-                    "format": ""
-                }
-            ],
-            "costumes": [
-                {
-                    "costumeName": "Weintrauben",
-                    "baseLayerID": -1,
-                    "baseLayerMD5": "7140d7544966bad8c87f3885d5b436c6.svg",
-                    "bitmapResolution": 1,
-                    "rotationCenterX": 110.6050033569336,
-                    "rotationCenterY": 68.25
-                }
-            ],
-            "currentCostumeIndex": 0,
-            "scratchX": -102.58612144,
-            "scratchY": -5.51620106,
-            "scale": 1,
-            "direction": 90,
-            "rotationStyle": "normal",
-            "isDraggable": false,
-            "visible": true,
-            "spriteInfo": {}
-        }
-    },
-    {
         "name": "Luftballon",
         "baseLayerID": -1,
         "md5": "e08b2461bd985dd60b5820627d5e9168.svg",
