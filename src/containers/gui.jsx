@@ -43,7 +43,10 @@ class GUI extends React.Component {
         }
     }
     componentDidUpdate(prevProps) {
-        if (prevProps.projectData !== this.props.projectData) {
+        if (prevProps.projectData !== this.props.projectData ||
+            // force clearing workspace after fetching
+            (!this.props.fetchingProject && prevProps.fetchingProject !== this.props.fetchingProject)
+        ) {
             this.loadProject();
         }
     }
@@ -135,6 +138,6 @@ const ConnectedGUI = connect(
 )(GUI);
 
 // eslint-disable-next-line new-cap
-const WrappedGui = EduLoaderHOC(ProjectLoaderHOC(ProjectSaveHOC(vmListenerHOC(onboardingRefsHOC(ConnectedGUI)))));
+const WrappedGui = EduLoaderHOC(ProjectSaveHOC(vmListenerHOC(onboardingRefsHOC(ProjectLoaderHOC(ConnectedGUI)))));
 
 export default WrappedGui;
