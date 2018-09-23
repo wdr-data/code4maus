@@ -33,7 +33,7 @@ slides:
   - asset: x03.png
     caption: "⬅ Ändere, wie du magst:"
   - asset: 001.png
-  - asset: 002.png
+  - asset: gut_gemacht.png
   - asset: herz.png
     caption: "Mache dein eigenes Spiel daraus. Ändere Hintergrund und Kostüme."
   - asset: n008.gif
@@ -49,7 +49,7 @@ slides:
     caption: "⬆️ Dein Spiel liegt dann hier:"
   - asset: neu.png
     caption: "Mache dein eigenes Spiel mit +"
-  - asset: 002.png
+  - asset: gut_gemacht.png
     caption: "Fertig 🍵 Mach mal eine Pause"
 
 nextGame: '02'
