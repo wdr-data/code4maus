@@ -137,6 +137,9 @@ resources:
             SslSupportMethod: sni-only
             MinimumProtocolVersion: TLSv1.1_2016
             AcmCertificateArn: ${file(scripts/env.js):certArn}
+          CustomErrorResponses:
+            - ErrorCachingMinTTL: 0
+              ErrorCode: 404
     EntrypointDNSRecord:
       Type: AWS::Route53::RecordSet
       Properties:
