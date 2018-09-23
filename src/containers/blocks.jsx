@@ -122,6 +122,11 @@ class Blocks extends React.Component {
             });
         }
 
+        if (prevProps.customBlocks !== this.props.customBlocks) {
+            const target = this.props.vm.editingTarget;
+            this.updateToolboxXml(target);
+        }
+
         if (prevProps.toolboxXML !== this.props.toolboxXML) {
             // rather than update the toolbox "sync" -- update it in the next frame
             clearTimeout(this.toolboxUpdateTimeout);
