@@ -2,7 +2,6 @@
 slides:
   - asset: 000.png
 
-nextGame: 'beispiel06'
 
 blocks:
   - category: motion

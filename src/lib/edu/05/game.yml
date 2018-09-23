@@ -65,8 +65,6 @@ slides:
   - asset: 04.png
     caption: "Ideen findest du unter 'Beispiele'."
 
-nextGame: 'beispiel01'
-
 blocks:
   - category: motion
     blocks:

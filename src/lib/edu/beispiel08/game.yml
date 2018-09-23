@@ -3,7 +3,6 @@ slides:
   - asset: 000.png
     caption: "Übe das Einmaleins"
 
-nextGame: 'beispiel09'
 
 blocks:
   - category: motion

@@ -3,8 +3,6 @@ slides:
 - asset: 000.png
   caption: "Bewege die Maus mit den Pfeilen und suche Elefant und Ente."
 
-nextGame: 'beispiel03'
-
 blocks:
   - category: motion
     blocks:

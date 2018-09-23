@@ -3,7 +3,6 @@ slides:
   - asset: 000.png
     caption: "Mit deinem Finger oder der Computermaus: Lass den Luftballon vor der Ente weglaufen."
 
-nextGame: 'beispiel07'
 
 blocks:
   - category: motion

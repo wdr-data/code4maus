@@ -3,7 +3,6 @@ slides:
   - asset: 000.png
     caption: "Errätst Du die geheime Zahl?"
 
-nextGame: 'beispiel08'
 
 blocks:
   - category: motion
