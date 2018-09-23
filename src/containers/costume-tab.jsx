@@ -238,7 +238,7 @@ class CostumeTab extends React.Component {
         return (
             <AssetPanel
                 buttons={[
-                    {
+                    target.isStage ? null : {
                         title: intl.formatMessage(addLibraryMessage),
                         img: addLibraryIcon,
                         onClick: addLibraryFunc,
@@ -261,7 +261,7 @@ class CostumeTab extends React.Component {
                         img: paintIcon,
                         onClick: this.handleNewBlankCostume,
                     },
-                ]}
+                ].filter(o => !!o)}
                 items={costumeData}
                 selectedItemIndex={this.state.selectedCostumeIndex}
                 onDeleteClick={target && target.costumes && target.costumes.length > 1 ?
@@ -339,7 +339,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     onNewLibraryBackdropClick: (e) => {
         e.preventDefault();
-        dispatch(openBackdropLibrary());
+        // no-op
     },
     onNewLibraryCostumeClick: (e) => {
         e.preventDefault();

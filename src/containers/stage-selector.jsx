@@ -119,7 +119,6 @@ const mapDispatchToProps = (dispatch) => ({
     onNewBackdropClick: (e) => {
         e.preventDefault();
         dispatch(activateTab(COSTUMES_TAB_INDEX));
-        dispatch(openBackdropLibrary());
     },
     onActivateTab: (tabIndex) => {
         dispatch(activateTab(tabIndex));
