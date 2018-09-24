@@ -1,45 +1,30 @@
 @import "../../css/colors.css";
 
 .page-wrapper {
-  display: none;
-}
-
-.wrapper {
-  margin-top: 5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.wrapper p {
-  font-size: 3rem;
+    display: none;
 }
 
 .inner-wrapper {
-  max-width: 50rem;
-  padding: 2rem;
-  margin: 2rem;
-  background-color: white;
-  box-shadow: 0 0 0.8rem 1px rgba(0,0,0,.5);
+    max-width: 50rem;
+    padding: 1.5rem;
+    background-color: white;
+    box-shadow: 0 0 0.8rem 1px rgba(0, 0, 0, .5);
+}
+
+.inner-wrapper strong {
+    color: $ui-orange;
 }
 
 .maus-question {
-  height: 50rem;
+    height: 60vw;
 }
 
-@media only screen and (max-width: 600px) {
-  .page-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 1000; /* Above welcome screen modal */
+.page-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     background: url(../gui/bg_header@1x.png);
     padding: 2rem;
-  }
+    height: 100%;
 }

@@ -19,8 +19,8 @@ import Menu from './menu.jsx';
 import WelcomeScreen from './welcome-screen.jsx';
 import LazyRender from './lazy-render.jsx';
 import Content from './content.jsx';
+import MobileScreen from './mobile-screen.jsx';
 import Loader from '../components/loader/loader.jsx';
-import MobileScreen from '../components/mobile-screen/mobile-screen.jsx';
 
 addLocaleData(de);
 
@@ -104,15 +104,15 @@ class App extends Component {
         }
 
         return (
-            <IntlProvider
-                locale="de"
-                messages={localeDe}
-            >
-                <React.Fragment>
-                    <MobileScreen />
+            <React.Fragment>
+                <IntlProvider
+                    locale="de"
+                    messages={localeDe}
+                >
                     {this.renderView()}
-                </React.Fragment>
-            </IntlProvider>
+                </IntlProvider>
+                <MobileScreen />
+            </React.Fragment>
         );
     }
 }
