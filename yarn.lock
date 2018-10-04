@@ -130,20 +130,6 @@
     exports-loader "0.6.3"
     imports-loader "0.6.5"
 
-"@wdr-data/scratch-render@^0.1.0-prerelease.20180918201144-fixed-1":
-  version "0.1.0-prerelease.20180918201144-fixed-1"
-  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-render/-/scratch-render-0.1.0-prerelease.20180918201144-fixed-1.tgz#03ab49411f25f9ff32d8bcf8284fac3f17131913"
-  dependencies:
-    grapheme-breaker "0.3.2"
-    hull.js "0.2.10"
-    ify-loader "1.0.4"
-    linebreak "0.3.0"
-    minilog "3.1.0"
-    raw-loader "^0.5.1"
-    scratch-storage "^1.0.0"
-    scratch-svg-renderer "0.2.0-prerelease.20180907141232"
-    twgl.js "4.4.0"
-
 "@wdr-data/scratch-vm@0.2.0-minimal-2":
   version "0.2.0-minimal-2"
   resolved "https://registry.yarnpkg.com/@wdr-data/scratch-vm/-/scratch-vm-0.2.0-minimal-2.tgz#5c98b10073b6275996e948871de336a756d45f1a"
@@ -10077,6 +10063,20 @@ scratch-render-fonts@1.0.0-prerelease.20180906193204:
   dependencies:
     base64-loader "1.0.0"
 
+scratch-render@^0.1.0-prerelease.20181002192350:
+  version "0.1.0-prerelease.20181002192350"
+  resolved "https://registry.yarnpkg.com/scratch-render/-/scratch-render-0.1.0-prerelease.20181002192350.tgz#560a94f449330b35db577c26756ccaf17632e41c"
+  dependencies:
+    grapheme-breaker "0.3.2"
+    hull.js "0.2.10"
+    ify-loader "1.0.4"
+    linebreak "0.3.0"
+    minilog "3.1.0"
+    raw-loader "^0.5.1"
+    scratch-storage "^1.0.0"
+    scratch-svg-renderer "0.2.0-prerelease.20180926143036"
+    twgl.js "4.4.0"
+
 scratch-storage@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/scratch-storage/-/scratch-storage-0.5.1.tgz#a1772365323d5bdb7c6dba69d74d238d4ab74acf"
@@ -10112,6 +10112,16 @@ scratch-svg-renderer@0.2.0-prerelease.20180817005452:
 scratch-svg-renderer@0.2.0-prerelease.20180907141232:
   version "0.2.0-prerelease.20180907141232"
   resolved "https://registry.yarnpkg.com/scratch-svg-renderer/-/scratch-svg-renderer-0.2.0-prerelease.20180907141232.tgz#8553f6f42b62b4c900c940ab1f399a5a7d6de8d4"
+  dependencies:
+    base64-js "1.2.1"
+    base64-loader "1.0.0"
+    jimp "0.2.27"
+    minilog "3.1.0"
+    scratch-render-fonts "1.0.0-prerelease.20180906193204"
+
+scratch-svg-renderer@0.2.0-prerelease.20180926143036:
+  version "0.2.0-prerelease.20180926143036"
+  resolved "https://registry.yarnpkg.com/scratch-svg-renderer/-/scratch-svg-renderer-0.2.0-prerelease.20180926143036.tgz#d4ea2576cc5ed7b0a07a1b9373e8e43aed64f072"
   dependencies:
     base64-js "1.2.1"
     base64-loader "1.0.0"

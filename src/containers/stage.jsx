@@ -1,7 +1,7 @@
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Renderer from '@wdr-data/scratch-render';
+import Renderer from 'scratch-render';
 import VM from '@wdr-data/scratch-vm';
 import { connect } from 'react-redux';
 

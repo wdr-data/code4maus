@@ -5,7 +5,7 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import tabStyles from 'react-tabs/style/react-tabs.css';
 import VM from '@wdr-data/scratch-vm';
-import Renderer from '@wdr-data/scratch-render';
+import Renderer from 'scratch-render';
 
 import Blocks from '../../containers/blocks.jsx';
 import CostumeTab from '../../containers/costume-tab.jsx';
