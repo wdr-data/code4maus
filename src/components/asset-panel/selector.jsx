@@ -34,19 +34,20 @@ const Selector = (props) => {
             <Box className={styles.listArea}>
                 {items.map((item, index) =>
                     <SpriteSelectorItem
-                        assetId={item.assetId}
+                        asset={item.asset}
                         className={styles.listItem}
                         costumeURL={item.url}
                         details={item.details}
+                        dragPayload={item.dragPayload}
                         id={index}
-                        key={`asset-${index}`}
+                        index={index}
                         name={item.name}
+                        key={item.name}
                         number={index + 1 /* 1-indexed */}
                         selected={index === selectedItemIndex}
                         onClick={onItemClick}
                         onDeleteButtonClick={onDeleteClick}
                         onDuplicateButtonClick={onDuplicateClick}
-                        disableDrag
                     />
                 )}
             </Box>
