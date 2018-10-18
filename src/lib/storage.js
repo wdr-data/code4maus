@@ -79,12 +79,12 @@ class Storage extends ScratchStorage {
         );
     }
 
-    cacheDefaultProject () {
-        defaultProjectAssets.forEach(asset => this.builtinHelper._store(
+    cacheDefaultProject() {
+        defaultProjectAssets.forEach((asset) => this.builtinHelper._store(
             this.AssetType[asset.assetType],
             this.DataFormat[asset.dataFormat],
             asset.data,
-            asset.id
+            asset.id,
         ));
     }
 }
