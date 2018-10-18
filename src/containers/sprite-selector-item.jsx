@@ -5,9 +5,11 @@ import { connect } from 'react-redux';
 
 import { setHoveredSprite } from '../reducers/hovered-target';
 import { updateAssetDrag } from '../reducers/asset-drag';
+import storage from '../lib/storage';
 import { getEventXY } from '../lib/touch-utils';
 import VM from '@wdr-data/scratch-vm';
 import { SVGRenderer } from 'scratch-svg-renderer';
+import getCostumeUrl from '../lib/get-costume-url';
 
 import SpriteSelectorItemComponent from '../components/sprite-selector-item/sprite-selector-item.jsx';
 
@@ -33,7 +35,7 @@ class SpriteSelectorItem extends React.Component {
         // Asset ID of the SVG currently in SVGRenderer
         this.decodedAssetId = null;
     }
-    shouldComponentUpdate (nextProps) {
+    shouldComponentUpdate(nextProps) {
         // Ignore dragPayload due to https://github.com/LLK/scratch-gui/issues/3172.
         // This function should be removed once the issue is fixed.
         for (const property in nextProps) {
@@ -43,36 +45,15 @@ class SpriteSelectorItem extends React.Component {
         }
         return false;
     }
-    getCostumeUrl() {
+    getCostumeData() {
         if (this.props.costumeURL) {
             return this.props.costumeURL;
         }
-        if (!this.props.assetId) {
+        if (!this.props.asset) {
             return null;
         }
 
-        const storage = this.props.vm.runtime.storage;
-        const asset = storage.get(this.props.assetId);
-        // If the SVG refers to fonts, they must be inlined in order to display correctly in the img tag.
-        // Avoid parsing the SVG when possible, since it's expensive.
-        if (asset.assetType === storage.AssetType.ImageVector) {
-            // If the asset ID has not changed, no need to re-parse
-            if (this.decodedAssetId === this.props.assetId) {
-                // @todo consider caching more than one URL.
-                return this.cachedUrl;
-            }
-            this.decodedAssetId = this.props.assetId;
-            const svgString = this.props.vm.runtime.storage.get(this.props.assetId).decodeText();
-            if (svgString.match(HAS_FONT_REGEXP)) {
-                this.svgRenderer.loadString(svgString);
-                const svgText = this.svgRenderer.toString(true /* shouldInjectFonts */);
-                this.cachedUrl = `data:image/svg+xml;utf8,${encodeURIComponent(svgText)}`;
-            } else {
-                this.cachedUrl = this.props.vm.runtime.storage.get(this.props.assetId).encodeDataURI();
-            }
-            return this.cachedUrl;
-        }
-        return this.props.vm.runtime.storage.get(this.props.assetId).encodeDataURI();
+        return getCostumeUrl(this.props.asset);
     }
     handleMouseUp() {
         if (this.props.disableDrag) {
@@ -171,7 +152,7 @@ class SpriteSelectorItem extends React.Component {
 }
 
 SpriteSelectorItem.propTypes = {
-    assetId: PropTypes.string,
+    asset: PropTypes.instanceOf(storage.Asset),
     costumeURL: PropTypes.string,
     dispatchSetHoveredSprite: PropTypes.func.isRequired,
     disableDrag: PropTypes.bool,
