@@ -63,19 +63,20 @@ const handleFileUpload = function(fileInput, onload) {
  * which can be used to look up the data in storage
  */
 const cacheAsset = function(storage, fileName, assetType, dataFormat, data) {
-    const md5 = storage.createAsset(
+    const asset = storage.createAsset(
         assetType,
         dataFormat,
         data,
         null,
-        true,
+        true, // generate md5
     );
 
     return {
         name: fileName,
         dataFormat: dataFormat,
-        md5: `${md5}.${dataFormat}`,
-        assetId: md5,
+        asset: asset,
+        md5: `${asset.assetId}.${dataFormat}`,
+        assetId: asset.assetId,
     };
 };
 
