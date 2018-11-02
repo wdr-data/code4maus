@@ -124,7 +124,7 @@ class SpriteSelectorItem extends React.Component {
     render() {
         const {
             /* eslint-disable no-unused-vars */
-            assetId,
+            asset,
             disableDrag,
             id,
             onClick,
