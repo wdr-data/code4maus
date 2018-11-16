@@ -264,10 +264,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.9.tgz#a07bfa74331471e1dc22a47eb72026843f7b95c8"
   integrity sha512-eajkMXG812/w3w4a1OcBlaTwsFPO5F7fJ/amy+tieQxEMWBlbV1JGSjkFM+zkHNf81Cad+dfIRA+IBkvmvdAeA==
 
-"@wdr-data/scratch-blocks@^0.1.0-de-8":
-  version "0.1.0-de-8"
-  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-blocks/-/scratch-blocks-0.1.0-de-8.tgz#45539e7b448bd86136ee8bcfa4482a1b4b8f759a"
-  integrity sha512-0+/TtSCpLO9WMz0Mv0oppv7D91dHgCLdwOeX5IYIx9B5kn4mqHpD6rbaorRT5QbPmxGc/XxGVc3Z2BnjnCtn3A==
+"@wdr-data/scratch-blocks@0.1.1-ids":
+  version "0.1.1-ids"
+  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-blocks/-/scratch-blocks-0.1.1-ids.tgz#39774e491747d4cde63c4c4e894b23fe7e04c2b2"
+  integrity sha512-ag5Oc39U+EIalk6uFTUD/AWiJx2i/n1uDrpT8+VT0niPX8uheHfU49/sQ5ciB4dMyce13NAf/idCJ5D5aTJ/7Q==
   dependencies:
     exports-loader "0.6.3"
     imports-loader "0.6.5"
@@ -2905,9 +2905,9 @@ chrome-trace-event@^1.0.0:
     tslib "^1.9.0"
 
 chromedriver@^2.39.0:
-  version "2.43.2"
-  resolved "https://registry.yarnpkg.com/chromedriver/-/chromedriver-2.43.2.tgz#03e4f4055a3c0b89e71e230a5ee84eee1428566e"
-  integrity sha512-GM2BbqB+cL3ZfD6H9Ci/BJB3ZxH8MHb9Yr0GO03KXzQDjntt7NICfAAadAoXiK8i6XSm0ubp5vBxBcyCHao/iw==
+  version "2.43.1"
+  resolved "https://registry.yarnpkg.com/chromedriver/-/chromedriver-2.43.1.tgz#b5ee75857f012ab540e74638206c062a0a962044"
+  integrity sha512-AqUEHpS+IzYm7HkBwElzVGe26Rs7hQwBoUSA4l7ju6Uymr1l0EtYpYfA3mDBqvvFif80yYh7blR0gLsc7h6Qpw==
   dependencies:
     del "^3.0.0"
     extract-zip "^1.6.7"

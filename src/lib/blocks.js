@@ -192,5 +192,7 @@ export default function(vm) {
         return monitoredBlock ? monitoredBlock.isMonitored : false;
     };
 
+    ScratchBlocks.ScratchMsgs.setLocale('de');
+
     return ScratchBlocks;
 }
