@@ -11,6 +11,20 @@
   right: 0;
   margin-top: .6rem;
   margin-right: .5em;
+
+  animation-name: wiggle;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+  animation-delay: 60s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes wiggle {
+  0% {transform: rotate(3deg) scale(1.05);}
+  25% {transform: rotate(-3deg) scale(1.05);}
+  50% {transform: rotate(5deg) scale(1.05);}
+  75% {transform: rotate(-2deg) scale(1.05);}
+  100% {transform: rotate(0deg) scale(1.05);}
 }
 
 .stage-button-icon {
