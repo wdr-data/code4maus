@@ -22,12 +22,7 @@ class Storage extends ScratchStorage {
         this.setupS3Source();
         this.setupScratchLegacySources();
 
-        defaultProjectAssets.forEach((asset) => this.createAsset(
-            this.AssetType[asset.assetType],
-            this.DataFormat[asset.dataFormat],
-            asset.data,
-            asset.id
-        ));
+        this.cacheDefaultProject();
     }
 
     setupEduSource() {
@@ -65,6 +60,9 @@ class Storage extends ScratchStorage {
         this.addWebStore(
             [ this.AssetType.Project ],
             (projectAsset) => {
+                if (projectAsset.assetId === 0) {
+                    return false;
+                }
                 const [ projectId, revision ] = projectAsset.assetId.split('.');
                 return revision ?
                     `${PROJECT_SERVER}/internalapi/project/${projectId}/get/${revision}` :
@@ -79,6 +77,15 @@ class Storage extends ScratchStorage {
             [ this.AssetType.Sound ],
             (asset) => `static/extension-assets/scratch3_music/${asset.assetId}.${asset.dataFormat}`
         );
+    }
+
+    cacheDefaultProject () {
+        defaultProjectAssets.forEach(asset => this.builtinHelper._store(
+            this.AssetType[asset.assetType],
+            this.DataFormat[asset.dataFormat],
+            asset.data,
+            asset.id
+        ));
     }
 }
 
