@@ -22,7 +22,7 @@ class Storage extends ScratchStorage {
         this.setupS3Source();
         this.setupScratchLegacySources();
 
-        defaultProjectAssets.forEach((asset) => this.cache(
+        defaultProjectAssets.forEach((asset) => this.createAsset(
             this.AssetType[asset.assetType],
             this.DataFormat[asset.dataFormat],
             asset.data,
@@ -31,7 +31,7 @@ class Storage extends ScratchStorage {
     }
 
     setupEduSource() {
-        this.addWebSource(
+        this.addWebStore(
             [ this.AssetType.Project ],
             (project) => {
                 const [ cat, projectId ] = String(project.assetId).split('/');
@@ -45,7 +45,7 @@ class Storage extends ScratchStorage {
     }
 
     setupS3Source() {
-        this.addWebSource(
+        this.addWebStore(
             [ this.AssetType.Project ],
             (project) => {
                 if (!this.userId) {
@@ -55,14 +55,14 @@ class Storage extends ScratchStorage {
                 return s3userFile(this.userId, `${project.assetId}.${project.dataFormat}`);
             }
         );
-        this.addWebSource(
+        this.addWebStore(
             [ this.AssetType.ImageVector, this.AssetType.ImageBitmap, this.AssetType.Sound ],
             (asset) => s3assets(`${asset.assetId}.${asset.dataFormat}`)
         );
     }
 
     setupScratchLegacySources() {
-        this.addWebSource(
+        this.addWebStore(
             [ this.AssetType.Project ],
             (projectAsset) => {
                 const [ projectId, revision ] = projectAsset.assetId.split('.');
@@ -71,11 +71,11 @@ class Storage extends ScratchStorage {
                     `${PROJECT_SERVER}/internalapi/project/${projectId}/get/`;
             }
         );
-        this.addWebSource(
+        this.addWebStore(
             [ this.AssetType.ImageVector, this.AssetType.ImageBitmap, this.AssetType.Sound ],
             (asset) => `${ASSET_SERVER}/internalapi/asset/${asset.assetId}.${asset.dataFormat}/get/`
         );
-        this.addWebSource(
+        this.addWebStore(
             [ this.AssetType.Sound ],
             (asset) => `static/extension-assets/scratch3_music/${asset.assetId}.${asset.dataFormat}`
         );
