@@ -63,10 +63,12 @@ const handleFileUpload = function(fileInput, onload) {
  * which can be used to look up the data in storage
  */
 const cacheAsset = function(storage, fileName, assetType, dataFormat, data) {
-    const md5 = storage.builtinHelper.cache(
+    const md5 = storage.createAsset(
         assetType,
         dataFormat,
-        data
+        data,
+        null,
+        true,
     );
 
     return {
