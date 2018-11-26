@@ -272,10 +272,10 @@
     exports-loader "0.6.3"
     imports-loader "0.6.5"
 
-"@wdr-data/scratch-vm@0.2.0-minimal-2":
-  version "0.2.0-minimal-2"
-  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-vm/-/scratch-vm-0.2.0-minimal-2.tgz#5c98b10073b6275996e948871de336a756d45f1a"
-  integrity sha512-fr8qM//8SdIX6e4pwJxmxv1YN1vkbu10MSuUN2Y08Rjr8ILmNQPwUKm1SstzcNaMtZekgl1g6FL5GgTtMetF5g==
+"@wdr-data/scratch-vm@0.2.0-minimal-3":
+  version "0.2.0-minimal-3"
+  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-vm/-/scratch-vm-0.2.0-minimal-3.tgz#60dafe79f25e544adb143481434f2ef6a0994262"
+  integrity sha512-Bffk/rrnh4av08nGV6DrxE0wn2OWC8DRubdmhhVEJr6GO8/7OGWiETnCHoh6J3HuaAOjDFeSZ1N2IRbryKFxJQ==
   dependencies:
     arraybuffer-loader "^1.0.6"
     atob "2.1.2"
@@ -284,8 +284,8 @@
     decode-html "2.0.0"
     diff-match-patch "1.0.4"
     escape-html "1.0.3"
-    format-message "6.2.0"
-    htmlparser2 "3.9.2"
+    format-message "6.2.1"
+    htmlparser2 "3.10.0"
     immutable "3.8.1"
     jszip "^3.1.5"
     minilog "3.1.0"
@@ -5173,10 +5173,10 @@ format-message-parse@^6.2.0:
   resolved "https://registry.yarnpkg.com/format-message-parse/-/format-message-parse-6.2.0.tgz#d84c008efb9828b234cf9f7e59a8e966a09c0f27"
   integrity sha512-j7MAUobWTufhdcCsLbqhH2f/qFGlH5vEtw1dEsiWeoSB6hnkopo03YTQZ6+atSbQecMH11cDQ2oE0mu3aoDbuA==
 
-format-message@6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/format-message/-/format-message-6.2.0.tgz#5c0f6f9afe82161a2137f8ef40a6d294cc6b0795"
-  integrity sha512-QzjDk0owKnAj/+HviUIaR6I3y6zOa8hKdbQbkl7ejkjbaVJ0j4YWllZmZDAyNrG2iEWdqKCmIU1mum8mHGLEFw==
+format-message@6.2.1:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/format-message/-/format-message-6.2.1.tgz#90a27d28960d4114f99912fd51cda1789bdd3ff0"
+  integrity sha512-6gBXI+MOE9pu9QNeZf95V87GKYiLCdUvhisjts75xonaPAshtBu20NTZt2l8kbYcoMtxNyH9E9af+aieIRfVmw==
   dependencies:
     format-message-formats "^6.2.0"
     format-message-interpret "^6.2.0"
@@ -5892,19 +5892,7 @@ html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
-htmlparser2@3.9.2:
-  version "3.9.2"
-  resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.9.2.tgz#1bdf87acca0f3f9e53fa4fcceb0f4b4cbb00b338"
-  integrity sha1-G9+HrMoPP55T+k/M6w9LTLsAszg=
-  dependencies:
-    domelementtype "^1.3.0"
-    domhandler "^2.3.0"
-    domutils "^1.5.1"
-    entities "^1.1.1"
-    inherits "^2.0.1"
-    readable-stream "^2.0.2"
-
-htmlparser2@^3.9.0, htmlparser2@^3.9.1:
+htmlparser2@3.10.0, htmlparser2@^3.9.0, htmlparser2@^3.9.1:
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.10.0.tgz#5f5e422dcf6119c0d983ed36260ce9ded0bee464"
   integrity sha512-J1nEUGv+MkXS0weHNWVKJJ+UrLfePxRWpN3C9bEi9fLxL2+ggW94DQvgYVXsaT30PGwYRIZKNZXuyMhp3Di4bQ==
