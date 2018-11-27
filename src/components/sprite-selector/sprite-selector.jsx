@@ -93,6 +93,7 @@ const SpriteSelectorComponent = function(props) {
                         onClick={onSelectSprite}
                         onDeleteButtonClick={onDeleteSprite}
                         onDuplicateButtonClick={onDuplicateSprite}
+                        disableDrag
                     />
                 )
             }
