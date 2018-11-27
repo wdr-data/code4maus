@@ -79,7 +79,7 @@ const SpriteSelectorComponent = function(props) {
                 .map((id) => sprites[id])
                 .map((sprite) =>
                     <SpriteSelectorItem
-                        assetId={sprite.costume && sprite.costume.assetId}
+                        asset={sprite.costume && sprite.costume.asset}
                         className={hoveredTarget.sprite === sprite.id &&
                             sprite.id !== editingTarget &&
                             hoveredTarget.receivedBlocks ?
