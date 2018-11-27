@@ -21,7 +21,6 @@ class SpriteSelectorItem extends React.Component {
     constructor(props) {
         super(props);
         bindAll(this, [
-            'getCostumeUrl',
             'handleClick',
             'handleDelete',
             'handleDuplicate',
@@ -138,7 +137,7 @@ class SpriteSelectorItem extends React.Component {
         } = this.props;
         return (
             <SpriteSelectorItemComponent
-                costumeURL={this.getCostumeUrl()}
+                costumeURL={this.getCostumeData()}
                 onClick={this.handleClick}
                 onDeleteButtonClick={onDeleteButtonClick ? this.handleDelete : null}
                 onDuplicateButtonClick={onDuplicateButtonClick ? this.handleDuplicate : null}
