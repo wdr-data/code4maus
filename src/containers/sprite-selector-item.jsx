@@ -26,6 +26,10 @@ class SpriteSelectorItem extends React.Component {
         ]);
     }
     handleMouseUp() {
+        if (this.props.disableDrag) {
+            return;
+        }
+
         this.initialOffset = null;
         window.removeEventListener('mouseup', this.handleMouseUp);
         window.removeEventListener('mousemove', this.handleMouseMove);
@@ -38,6 +42,10 @@ class SpriteSelectorItem extends React.Component {
         });
     }
     handleMouseMove(e) {
+        if (this.props.disableDrag) {
+            return;
+        }
+
         const currentOffset = getEventXY(e);
         const dx = currentOffset.x - this.initialOffset.x;
         const dy = currentOffset.y - this.initialOffset.y;
@@ -51,6 +59,10 @@ class SpriteSelectorItem extends React.Component {
         e.preventDefault();
     }
     handleMouseDown(e) {
+        if (this.props.disableDrag) {
+            return;
+        }
+
         this.initialOffset = getEventXY(e);
         window.addEventListener('mouseup', this.handleMouseUp);
         window.addEventListener('mousemove', this.handleMouseMove);
@@ -83,6 +95,7 @@ class SpriteSelectorItem extends React.Component {
         const {
             /* eslint-disable no-unused-vars */
             assetId,
+            disableDrag,
             id,
             onClick,
             onDeleteButtonClick,
@@ -109,6 +122,7 @@ SpriteSelectorItem.propTypes = {
     assetId: PropTypes.string,
     costumeURL: PropTypes.string,
     dispatchSetHoveredSprite: PropTypes.func.isRequired,
+    disableDrag: PropTypes.bool,
     id: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
     name: PropTypes.string,
     onClick: PropTypes.func,

@@ -46,6 +46,7 @@ const Selector = (props) => {
                         onClick={onItemClick}
                         onDeleteButtonClick={onDeleteClick}
                         onDuplicateButtonClick={onDuplicateClick}
+                        disableDrag
                     />
                 )}
             </Box>
