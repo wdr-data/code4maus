@@ -69,42 +69,44 @@ const SpriteSelectorComponent = function(props) {
         spriteInfoDisabled = true;
     }
     return (
-        <Box className={styles.itemsWrapper}>
+        <React.Fragment>
             <IconWithText className={styles.label} iconSvg={CustomeIcon}>
                 Figur
             </IconWithText>
-            {Object.keys(sprites)
+            <Box className={styles.itemsWrapper}>
+                {Object.keys(sprites)
                 // Re-order by list order
-                .sort((id1, id2) => sprites[id1].order - sprites[id2].order)
-                .map((id) => sprites[id])
-                .map((sprite) =>
-                    <SpriteSelectorItem
-                        asset={sprite.costume && sprite.costume.asset}
-                        className={hoveredTarget.sprite === sprite.id &&
+                    .sort((id1, id2) => sprites[id1].order - sprites[id2].order)
+                    .map((id) => sprites[id])
+                    .map((sprite) =>
+                        <SpriteSelectorItem
+                            asset={sprite.costume && sprite.costume.asset}
+                            className={hoveredTarget.sprite === sprite.id &&
                             sprite.id !== editingTarget &&
                             hoveredTarget.receivedBlocks ?
-                            classNames(styles.sprite, styles.receivedBlocks) :
-                            raised && sprite.id !== editingTarget ?
-                                classNames(styles.sprite, styles.raised) : styles.sprite}
-                        id={sprite.id}
-                        key={sprite.id}
-                        name={sprite.name}
-                        selected={sprite.id === selectedId}
-                        onClick={onSelectSprite}
-                        onDeleteButtonClick={onDeleteSprite}
-                        onDuplicateButtonClick={onDuplicateSprite}
-                        disableDrag
-                    />
-                )
-            }
-            <button
-                aria-label={intl.formatMessage(messages.addSpriteFromLibrary)}
-                className={classNames(styles.sprite, itemStyles.spriteSelectorItem, styles.addBox)}
-                onClick={onNewSpriteClick}
-            >
-                <InlineSVG svg={AddIcon} />
-            </button>
-        </Box>
+                                classNames(styles.sprite, styles.receivedBlocks) :
+                                raised && sprite.id !== editingTarget ?
+                                    classNames(styles.sprite, styles.raised) : styles.sprite}
+                            id={sprite.id}
+                            key={sprite.id}
+                            name={sprite.name}
+                            selected={sprite.id === selectedId}
+                            onClick={onSelectSprite}
+                            onDeleteButtonClick={onDeleteSprite}
+                            onDuplicateButtonClick={onDuplicateSprite}
+                            disableDrag
+                        />
+                    )
+                }
+                <button
+                    aria-label={intl.formatMessage(messages.addSpriteFromLibrary)}
+                    className={classNames(styles.sprite, itemStyles.spriteSelectorItem, styles.addBox)}
+                    onClick={onNewSpriteClick}
+                >
+                    <InlineSVG svg={AddIcon} />
+                </button>
+            </Box>
+        </React.Fragment>
     );
 };
 
