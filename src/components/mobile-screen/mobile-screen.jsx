@@ -23,6 +23,7 @@ const MobileScreenComponent = () => (
             </Link>
         </div>
         <InlineSVG className={styles.mausQuestion} svg={mausQuestion} />
+        <Link href="/inhalte/impressum">Impressum</Link>
     </Box>
 );
 
