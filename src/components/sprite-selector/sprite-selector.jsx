@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { defineMessages, injectIntl, intlShape } from 'react-intl';
 
 import Box from '../box/box.jsx';
 import SpriteSelectorItem from '../../containers/sprite-selector-item.jsx';
@@ -13,29 +12,6 @@ import IconWithText from '../icon-text/icon-text.jsx';
 import InlineSVG from '../inline-svg/inline-svg.jsx';
 import CustomeIcon from '!raw-loader!../../../assets/icons/target_costume.svg';
 import AddIcon from '!raw-loader!../../../assets/icons/target_add.svg';
-
-const messages = defineMessages({
-    addSpriteFromLibrary: {
-        id: 'gui.spriteSelector.addSpriteFromLibrary',
-        description: 'Button to add a sprite in the target pane from library',
-        defaultMessage: 'Choose a Sprite',
-    },
-    addSpriteFromPaint: {
-        id: 'gui.spriteSelector.addSpriteFromPaint',
-        description: 'Button to add a sprite in the target pane from paint',
-        defaultMessage: 'Paint',
-    },
-    addSpriteFromSurprise: {
-        id: 'gui.spriteSelector.addSpriteFromSurprise',
-        description: 'Button to add a random sprite in the target pane',
-        defaultMessage: 'Surprise',
-    },
-    addSpriteFromFile: {
-        id: 'gui.spriteSelector.addSpriteFromFile',
-        description: 'Button to add a sprite in the target pane from file',
-        defaultMessage: 'Upload',
-    },
-});
 
 const SpriteSelectorComponent = function(props) {
     const {
@@ -99,7 +75,6 @@ const SpriteSelectorComponent = function(props) {
                     )
                 }
                 <button
-                    aria-label={intl.formatMessage(messages.addSpriteFromLibrary)}
                     className={classNames(styles.sprite, itemStyles.spriteSelectorItem, styles.addBox)}
                     onClick={onNewSpriteClick}
                 >
@@ -116,7 +91,6 @@ SpriteSelectorComponent.propTypes = {
         hoveredSprite: PropTypes.string,
         receivedBlocks: PropTypes.bool,
     }),
-    intl: intlShape.isRequired,
     onChangeSpriteDirection: PropTypes.func,
     onChangeSpriteName: PropTypes.func,
     onChangeSpriteSize: PropTypes.func,
@@ -149,4 +123,4 @@ SpriteSelectorComponent.propTypes = {
     }),
 };
 
-export default injectIntl(SpriteSelectorComponent);
+export default SpriteSelectorComponent;
