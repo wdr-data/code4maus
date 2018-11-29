@@ -60,6 +60,7 @@
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "dotenv": "^5.0.1",
+    "envsubstr": "^0.0.1",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "es6-object-assign": "^1.1.0",

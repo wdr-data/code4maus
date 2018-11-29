@@ -4181,6 +4181,11 @@ envify@^3.0.0:
     jstransform "^11.0.3"
     through "~2.3.4"
 
+envsubstr@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/envsubstr/-/envsubstr-0.0.1.tgz#cfc78e15ae4568a64cdb093211ba3bf27603ebed"
+  integrity sha512-lauSU5FpTorKUMcYCmqUPhxjnfEyAUkTFs9yAQDiuDKXasGkUAEqHSvkUChGpI5xog+QriyrqldqfxH3KKFcnw==
+
 enzyme-adapter-react-16@^1.1.1:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.7.0.tgz#90344395a89624edbe7f0e443bc19fef62bf1f9f"

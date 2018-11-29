@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const envsub = require('envsubstr');
 
 // Plugins
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -177,6 +178,7 @@ module.exports = {
         new CopyWebpackPlugin([
             {
                 from: '_redirects',
+                transform: (content) => envsub(content.toString()),
             },
         ]),
         new CopyWebpackPlugin([
