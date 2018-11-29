@@ -5,11 +5,13 @@ import VM from '@wdr-data/scratch-vm';
 
 import Controls from '../../containers/controls.jsx';
 import Fullscreen from '../../containers/fullscreen.jsx';
+import SBFileUploader from '../../containers/sb-file-uploader.jsx';
 import { getStageSize } from '../../lib/screen-utils.js';
 import layout from '../../lib/layout-constants.js';
 import Box from '../box/box.jsx';
 import ButtonWithIcon from '../button-with-icon/button-with-icon.jsx';
 
+import openIcon from '!raw-loader!../../../assets/icons/header_open.svg';
 import saveIcon from '!raw-loader!../../../assets/icons/header_save.svg';
 import menuIcon from '!raw-loader!../../../assets/icons/header_menu.svg';
 import mailIcon from '!raw-loader!../../../assets/icons/menu_impressum.svg';
@@ -55,6 +57,17 @@ const StageHeaderComponent = function(props) {
                         >
                             Speichern
                         </ButtonWithIcon>
+                        <SBFileUploader>
+                            {(_, renderFileInput, handleClick) => (
+                                <ButtonWithIcon
+                                    iconSvg={openIcon}
+                                    onClick={handleClick}
+                                >
+                                    Öffnen
+                                    {renderFileInput()}
+                                </ButtonWithIcon>
+                            )}
+                        </SBFileUploader>
                         <ButtonWithIcon
                             className={styles.headerIcon}
                             iconSvg={menuIcon}
