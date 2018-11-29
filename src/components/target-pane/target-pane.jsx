@@ -38,6 +38,7 @@ const TargetPane = ({
     raiseSprites,
     stage,
     sprites,
+    spriteSelectorRef,
     vm,
     ...componentProps
 }) =>
@@ -59,6 +60,7 @@ const TargetPane = ({
             />}
         </div>
         <SpriteSelectorComponent
+            ref={spriteSelectorRef}
             editingTarget={editingTarget}
             hoveredTarget={hoveredTarget}
             raised={raiseSprites}
@@ -136,6 +138,10 @@ TargetPane.propTypes = {
     raiseSprites: PropTypes.bool,
     spriteLibraryVisible: PropTypes.bool,
     sprites: PropTypes.objectOf(spriteShape),
+    spriteSelectorRef: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+    ]),
     stage: spriteShape,
     vm: PropTypes.instanceOf(VM),
 };

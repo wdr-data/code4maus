@@ -64,7 +64,7 @@
     transform: scale(1.05);
 }
 
-.raised:hover {
+.raised:hover, .raised.drag-target {
     animation-name: wiggle;
     animation-duration: 500ms;
     animation-iteration-count: 1;
