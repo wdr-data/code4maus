@@ -17,6 +17,7 @@ import SoundTab from '../../containers/sound-tab.jsx';
 import TargetPane from '../../containers/target-pane.jsx';
 import ProjectSaver from '../../containers/project-saver.jsx';
 import OnboardingOverlay from '../../containers/onboarding-overlay.jsx';
+import SBFileUploader from '../../containers/sb-file-uploader.jsx';
 
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
@@ -112,11 +113,19 @@ const GUIComponent = (props) => {
                             <p>{saveProjectError}</p>
                             <Button className={styles.saveModalButton} onClick={() => onSaveProject().then(() => onSaveModalClose())}>Speichern</Button>
                         </Box>
-                        <ProjectSaver>{(downloadProject) =>
-                            <Button className={styles.saveModalDownload} onClick={downloadProject}>
-                                Projekt herunterladen
-                            </Button>
-                        }</ProjectSaver>
+                        <Box direction="row" justifyContent="center" style={{ display: 'flex' }}>
+                            <ProjectSaver>{(downloadProject) =>
+                                <Button className={styles.saveModalDownload} onClick={downloadProject}>
+                                    Projekt herunterladen
+                                </Button>
+                            }</ProjectSaver>
+                            <SBFileUploader>{(_, renderFileInput, handleClick) => (
+                                <Button className={styles.saveModalDownload} onClick={handleClick}>
+                                    Projekt hochladen
+                                    {renderFileInput()}
+                                </Button>
+                            )}</SBFileUploader>
+                        </Box>
                     </Box>
                 </ModalComponent>
                 : null

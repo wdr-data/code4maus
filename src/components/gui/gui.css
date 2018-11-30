@@ -331,7 +331,7 @@ $fade-out-distance: 15px;
     background: $ui-orange;
     color: white;
     padding: 0.5rem 1rem;
-    margin-top: 1rem;
+    margin: 1rem .5rem 0 .5rem;
     align-self: center;
 }
 
