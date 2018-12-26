@@ -9,11 +9,13 @@ import {
 } from '../reducers/modals';
 
 import { activateTab, COSTUMES_TAB_INDEX } from '../reducers/editor-tab';
-import { setReceivedBlocks } from '../reducers/hovered-target';
+import { setHoveredSprite, setReceivedBlocks } from '../reducers/hovered-target';
 
 import TargetPaneComponent from '../components/target-pane/target-pane.jsx';
 import spriteLibraryContent from '../lib/libraries/sprites.json';
 import { handleFileUpload, spriteUpload } from '../lib/file-uploader.js';
+
+const SpriteSelectorItemWidth = 62;
 
 class TargetPane extends React.Component {
     constructor(props) {
@@ -34,14 +36,19 @@ class TargetPane extends React.Component {
             'handlePaintSpriteClick',
             'handleFileUploadClick',
             'handleSpriteUpload',
+            'handleGlobalTouchMove',
             'setFileInput',
         ]);
+
+        this.spriteSelectorRef = React.createRef();
     }
     componentDidMount() {
         this.props.vm.addListener('BLOCK_DRAG_END', this.handleBlockDragEnd);
+        document.body.addEventListener('touchmove', this.handleGlobalTouchMove);
     }
     componentWillUnmount() {
         this.props.vm.removeListener('BLOCK_DRAG_END', this.handleBlockDragEnd);
+        document.body.removeEventListener('touchmove', this.handleGlobalTouchMove);
     }
     handleChangeSpriteDirection(direction) {
         this.props.vm.postSpriteInfo({ direction });
@@ -106,10 +113,45 @@ class TargetPane extends React.Component {
             this.props.onReceivedBlocks(true);
         }
     }
+    handleGlobalTouchMove(event) {
+        if (event.touches.length < 1) {
+            return this.resetHoveredTarget();
+        }
+
+        const selector = this.spriteSelectorRef.current;
+        if (!selector) {
+            return this.resetHoveredTarget();
+        }
+
+        const bbox = selector.getBoundingClientRect();
+        const startX = bbox.x + 8;
+        const startY = bbox.y + 8;
+        const stopY = bbox.bottom - 8;
+        const touch = event.touches.item(0);
+
+        if (touch.clientY < startY || touch.clientY > stopY) {
+            return this.resetHoveredTarget();
+        }
+
+        const i = Math.floor((touch.clientX - startX) / SpriteSelectorItemWidth);
+        if (i < 0 || i > Object.keys(this.props.sprites).length) {
+            return this.resetHoveredTarget();
+        }
+
+        const sprites = Object.values(this.props.sprites)
+            .sort((sprite1, sprite2) => sprite1.order - sprite2.order);
+        this.props.onHoveredSprite(sprites[i].id);
+    }
+    resetHoveredTarget() {
+        if (this.props.hoveredTarget) {
+            this.props.onHoveredSprite(null);
+        }
+    }
     render() {
         const {
             onActivateTab, // eslint-disable-line no-unused-vars
             onReceivedBlocks, // eslint-disable-line no-unused-vars
+            onHoveredSprite, // eslint-disable-line no-unused-vars
             ...componentProps
         } = this.props;
         return (
@@ -129,6 +171,7 @@ class TargetPane extends React.Component {
                 onSelectSprite={this.handleSelectSprite}
                 onSpriteUpload={this.handleSpriteUpload}
                 onSurpriseSpriteClick={this.handleSurpriseSpriteClick}
+                spriteSelectorRef={this.spriteSelectorRef}
             />
         );
     }
@@ -136,6 +179,7 @@ class TargetPane extends React.Component {
 
 const {
     onSelectSprite, // eslint-disable-line no-unused-vars
+    spriteSelectorRef, // eslint-disable-line no-unused-vars
     ...targetPaneProps
 } = TargetPaneComponent.propTypes;
 
@@ -181,6 +225,7 @@ const mapDispatchToProps = (dispatch) => ({
     onReceivedBlocks: (receivedBlocks) => {
         dispatch(setReceivedBlocks(receivedBlocks));
     },
+    onHoveredSprite: (spriteId) => dispatch(setHoveredSprite(spriteId)),
 });
 
 export default connect(

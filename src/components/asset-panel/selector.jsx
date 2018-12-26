@@ -20,15 +20,10 @@ const Selector = (props) => {
     let newButtonSection = null;
 
     if (buttons.length > 0) {
-        const { img, title, onClick } = buttons[0];
-        const moreButtons = buttons.slice(1);
         newButtonSection =
             <Box className={styles.newButtons}>
                 <ActionMenu
-                    img={img}
-                    moreButtons={moreButtons}
-                    title={title}
-                    onClick={onClick}
+                    moreButtons={buttons}
                 />
             </Box>
         ;
@@ -39,13 +34,15 @@ const Selector = (props) => {
             <Box className={styles.listArea}>
                 {items.map((item, index) =>
                     <SpriteSelectorItem
-                        assetId={item.assetId}
+                        asset={item.asset}
                         className={styles.listItem}
                         costumeURL={item.url}
                         details={item.details}
+                        dragPayload={item.dragPayload}
                         id={index}
-                        key={`asset-${index}`}
+                        index={index}
                         name={item.name}
+                        key={item.name}
                         number={index + 1 /* 1-indexed */}
                         selected={index === selectedItemIndex}
                         onClick={onItemClick}

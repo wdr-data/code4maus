@@ -5,10 +5,8 @@ import VM from '@wdr-data/scratch-vm';
 
 import Controls from '../../containers/controls.jsx';
 import Fullscreen from '../../containers/fullscreen.jsx';
-import { OnboardingCapture } from '../../containers/onboarding-refs-provider.jsx';
 import { getStageSize } from '../../lib/screen-utils.js';
 import layout from '../../lib/layout-constants.js';
-import { TRIGGER_REFS } from '../../lib/onboarding/config';
 import Box from '../box/box.jsx';
 import ButtonWithIcon from '../button-with-icon/button-with-icon.jsx';
 
@@ -51,29 +49,19 @@ const StageHeaderComponent = function(props) {
                         >
                             Feedback
                         </ButtonWithIcon>
-                        <OnboardingCapture componentId={TRIGGER_REFS.saveProject}>
-                            {(captureRef) => (
-                                <ButtonWithIcon
-                                    iconSvg={saveIcon}
-                                    onClick={onSaveProject}
-                                    ref={captureRef}
-                                >
-                                    Speichern
-                                </ButtonWithIcon>
-                            )}
-                        </OnboardingCapture>
-                        <OnboardingCapture componentId={TRIGGER_REFS.menu}>
-                            {(captureRef) => (
-                                <ButtonWithIcon
-                                    className={styles.headerIcon}
-                                    iconSvg={menuIcon}
-                                    onClick={onOpenMenu}
-                                    ref={captureRef}
-                                >
-                                    Übersicht
-                                </ButtonWithIcon>
-                            )}
-                        </OnboardingCapture>
+                        <ButtonWithIcon
+                            iconSvg={saveIcon}
+                            onClick={onSaveProject}
+                        >
+                            Speichern
+                        </ButtonWithIcon>
+                        <ButtonWithIcon
+                            className={styles.headerIcon}
+                            iconSvg={menuIcon}
+                            onClick={onOpenMenu}
+                        >
+                            Übersicht
+                        </ButtonWithIcon>
                     </React.Fragment>
                 }
             </Box>

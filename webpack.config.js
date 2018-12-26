@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const envsub = require('envsubstr');
 
 // Plugins
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -19,6 +20,11 @@ require('dotenv').config();
 const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH;
 const bucketSuffix = branch === 'production' ? 'prod' : 'staging';
 const bucketUrl = `https://${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}.s3.dualstack.${process.env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION}.amazonaws.com`;
+
+// fix for Netlify, where we cannot define AWS_REGION in the environment
+if ('FUNCTIONS_AWS_REGION' in process.env) {
+    process.env.AWS_REGION = process.env.FUNCTIONS_AWS_REGION;
+}
 
 module.exports = {
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
@@ -177,6 +183,7 @@ module.exports = {
         new CopyWebpackPlugin([
             {
                 from: '_redirects',
+                transform: (content) => envsub(content.toString()),
             },
         ]),
         new CopyWebpackPlugin([

@@ -7,7 +7,7 @@ import renderer from 'react-test-renderer';
 import { IntlProvider, intlShape } from 'react-intl';
 import { mount, shallow } from 'enzyme';
 
-const intlProvider = new IntlProvider({ locale: 'en' }, {});
+const intlProvider = new IntlProvider({ locale: 'de' }, {});
 const { intl } = intlProvider.getChildContext();
 
 const nodeWithIntlProp = node => React.cloneElement(node, { intl });
@@ -28,7 +28,7 @@ const mountWithIntl = (node, { context, childContextTypes } = {}) => mount(
 );
 
 // react-test-renderer component for use with snapshot testing
-const componentWithIntl = (children, props = { locale: 'en' }) => renderer.create(
+const componentWithIntl = (children, props = { locale: 'de' }) => renderer.create(
     <IntlProvider {...props}>{children}</IntlProvider>
 );
 

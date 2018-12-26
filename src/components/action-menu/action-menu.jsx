@@ -33,39 +33,14 @@ class ActionMenu extends React.Component {
     render() {
         const {
             className,
-            img: mainImg,
-            title: mainTitle,
             moreButtons,
-            onClick,
         } = this.props;
-
-        const mainTooltipId = `tooltip-${Math.random()}`;
 
         return (
             <div
                 className={classNames(styles.menuContainer, className)}
                 ref={this.setContainerRef}
             >
-                <button
-                    aria-label={mainTitle}
-                    className={classNames(styles.button, styles.mainButton)}
-                    data-for={mainTooltipId}
-                    data-tip={mainTitle}
-                    ref={this.setButtonRef}
-                    onClick={onClick}
-                >
-                    <img
-                        className={styles.mainIcon}
-                        draggable={false}
-                        src={mainImg}
-                    />
-                </button>
-                <ReactTooltip
-                    className={styles.tooltip}
-                    effect="solid"
-                    id={mainTooltipId}
-                    place="right"
-                />
                 {!moreButtons ? null :
                     <div className={styles.moreButtons}>
                         {(moreButtons || []).map(({ img, title, onClick: handleClick,
@@ -116,7 +91,6 @@ class ActionMenu extends React.Component {
 
 ActionMenu.propTypes = {
     className: PropTypes.string,
-    img: PropTypes.string,
     moreButtons: PropTypes.arrayOf(PropTypes.shape({
         img: PropTypes.string,
         title: PropTypes.node.isRequired,
@@ -125,8 +99,6 @@ ActionMenu.propTypes = {
         fileChange: PropTypes.func, // Optional, only for file upload
         fileInput: PropTypes.func, // Optional, only for file upload
     })),
-    onClick: PropTypes.func.isRequired,
-    title: PropTypes.node.isRequired,
 };
 
 export default ActionMenu;

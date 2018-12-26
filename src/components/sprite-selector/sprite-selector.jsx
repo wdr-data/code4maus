@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { defineMessages, injectIntl, intlShape } from 'react-intl';
 
 import Box from '../box/box.jsx';
 import SpriteSelectorItem from '../../containers/sprite-selector-item.jsx';
@@ -14,30 +13,7 @@ import InlineSVG from '../inline-svg/inline-svg.jsx';
 import CustomeIcon from '!raw-loader!../../../assets/icons/target_costume.svg';
 import AddIcon from '!raw-loader!../../../assets/icons/target_add.svg';
 
-const messages = defineMessages({
-    addSpriteFromLibrary: {
-        id: 'gui.spriteSelector.addSpriteFromLibrary',
-        description: 'Button to add a sprite in the target pane from library',
-        defaultMessage: 'Choose a Sprite',
-    },
-    addSpriteFromPaint: {
-        id: 'gui.spriteSelector.addSpriteFromPaint',
-        description: 'Button to add a sprite in the target pane from paint',
-        defaultMessage: 'Paint',
-    },
-    addSpriteFromSurprise: {
-        id: 'gui.spriteSelector.addSpriteFromSurprise',
-        description: 'Button to add a random sprite in the target pane',
-        defaultMessage: 'Surprise',
-    },
-    addSpriteFromFile: {
-        id: 'gui.spriteSelector.addSpriteFromFile',
-        description: 'Button to add a sprite in the target pane from file',
-        defaultMessage: 'Upload',
-    },
-});
-
-const SpriteSelectorComponent = function(props) {
+const SpriteSelectorComponent = React.forwardRef((props, ref) => {
     const {
         editingTarget,
         hoveredTarget,
@@ -69,43 +45,46 @@ const SpriteSelectorComponent = function(props) {
         spriteInfoDisabled = true;
     }
     return (
-        <Box className={styles.itemsWrapper}>
+        <React.Fragment>
             <IconWithText className={styles.label} iconSvg={CustomeIcon}>
                 Figur
             </IconWithText>
-            {Object.keys(sprites)
+            <Box className={styles.itemsWrapper} componentRef={ref}>
+                {Object.keys(sprites)
                 // Re-order by list order
-                .sort((id1, id2) => sprites[id1].order - sprites[id2].order)
-                .map((id) => sprites[id])
-                .map((sprite) =>
-                    <SpriteSelectorItem
-                        assetId={sprite.costume && sprite.costume.assetId}
-                        className={hoveredTarget.sprite === sprite.id &&
-                            sprite.id !== editingTarget &&
-                            hoveredTarget.receivedBlocks ?
-                            classNames(styles.sprite, styles.receivedBlocks) :
-                            raised && sprite.id !== editingTarget ?
-                                classNames(styles.sprite, styles.raised) : styles.sprite}
-                        id={sprite.id}
-                        key={sprite.id}
-                        name={sprite.name}
-                        selected={sprite.id === selectedId}
-                        onClick={onSelectSprite}
-                        onDeleteButtonClick={onDeleteSprite}
-                        onDuplicateButtonClick={onDuplicateSprite}
-                    />
-                )
-            }
-            <button
-                aria-label={intl.formatMessage(messages.addSpriteFromLibrary)}
-                className={classNames(styles.sprite, itemStyles.spriteSelectorItem, styles.addBox)}
-                onClick={onNewSpriteClick}
-            >
-                <InlineSVG svg={AddIcon} />
-            </button>
-        </Box>
+                    .sort((id1, id2) => sprites[id1].order - sprites[id2].order)
+                    .map((id) => sprites[id])
+                    .map((sprite) =>
+                        <SpriteSelectorItem
+                            asset={sprite.costume && sprite.costume.asset}
+                            className={classNames(styles.sprite, {
+                                [styles.receivedBlocks]: hoveredTarget.sprite === sprite.id &&
+                                    sprite.id !== editingTarget &&
+                                    hoveredTarget.receivedBlocks,
+                                [styles.raised]: raised && sprite.id !== editingTarget,
+                                [styles.dragTarget]: sprite.id === hoveredTarget.sprite,
+                            })}
+                            id={sprite.id}
+                            key={sprite.id}
+                            name={sprite.name}
+                            selected={sprite.id === selectedId}
+                            onClick={onSelectSprite}
+                            onDeleteButtonClick={onDeleteSprite}
+                            onDuplicateButtonClick={onDuplicateSprite}
+                            disableDrag
+                        />
+                    )
+                }
+                <button
+                    className={classNames(styles.sprite, itemStyles.spriteSelectorItem, styles.addBox)}
+                    onClick={onNewSpriteClick}
+                >
+                    <InlineSVG svg={AddIcon} />
+                </button>
+            </Box>
+        </React.Fragment>
     );
-};
+});
 
 SpriteSelectorComponent.propTypes = {
     editingTarget: PropTypes.string,
@@ -113,7 +92,6 @@ SpriteSelectorComponent.propTypes = {
         hoveredSprite: PropTypes.string,
         receivedBlocks: PropTypes.bool,
     }),
-    intl: intlShape.isRequired,
     onChangeSpriteDirection: PropTypes.func,
     onChangeSpriteName: PropTypes.func,
     onChangeSpriteSize: PropTypes.func,
@@ -146,4 +124,4 @@ SpriteSelectorComponent.propTypes = {
     }),
 };
 
-export default injectIntl(SpriteSelectorComponent);
+export default SpriteSelectorComponent;

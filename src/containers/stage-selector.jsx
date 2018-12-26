@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { openBackdropLibrary } from '../reducers/modals';
 import { activateTab, COSTUMES_TAB_INDEX } from '../reducers/editor-tab';
 import { setHoveredSprite } from '../reducers/hovered-target';
 
@@ -78,7 +77,8 @@ class StageSelector extends React.Component {
     render() {
         const {
             /* eslint-disable no-unused-vars */
-            assetId,
+            asset,
+            dispatchSetHoveredSprite,
             id,
             onActivateTab,
             onSelect,
@@ -107,8 +107,8 @@ StageSelector.propTypes = {
     onSelect: PropTypes.func,
 };
 
-const mapStateToProps = (state, { assetId, id }) => ({
-    url: assetId && state.scratchGui.vm.runtime.storage.get(assetId).encodeDataURI(),
+const mapStateToProps = (state, { asset, id }) => ({
+    url: asset && asset.encodeDataURI(),
     vm: state.scratchGui.vm,
     receivedBlocks: state.scratchGui.hoveredTarget.receivedBlocks &&
             state.scratchGui.hoveredTarget.sprite === id,

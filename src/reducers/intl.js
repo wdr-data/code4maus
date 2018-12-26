@@ -2,8 +2,8 @@ import { intlReducer } from 'react-intl-redux';
 
 const intlInitialState = {
     intl: {
-        defaultLocale: 'en',
-        locale: 'en',
+        defaultLocale: 'de',
+        locale: 'de',
         messages: {},
     },
 };
