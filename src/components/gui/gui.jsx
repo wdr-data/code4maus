@@ -119,7 +119,7 @@ const GUIComponent = (props) => {
                                     Projekt herunterladen
                                 </Button>
                             }</ProjectSaver>
-                            <SBFileUploader>{(_, renderFileInput, handleClick) => (
+                            <SBFileUploader onSuccess={onSaveModalClose}>{(_, renderFileInput, handleClick) => (
                                 <Button className={styles.saveModalDownload} onClick={handleClick}>
                                     Projekt hochladen
                                     {renderFileInput()}

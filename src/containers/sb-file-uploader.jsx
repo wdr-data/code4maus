@@ -58,6 +58,9 @@ class SBFileUploader extends React.Component {
         reader.onload = () => this.props.vm.loadProject(reader.result)
             .then(() => {
                 this.props.onLoadingFinished();
+                if (this.props.onSuccess) {
+                    this.props.onSuccess();
+                }
                 // Reset the file input after project is loaded
                 // This is necessary in case the user wants to reload a project
                 thisFileInput.value = null;
@@ -108,6 +111,7 @@ SBFileUploader.propTypes = {
     className: PropTypes.string,
     onLoadingFinished: PropTypes.func,
     onLoadingStarted: PropTypes.func,
+    onSuccess: PropTypes.func,
     vm: PropTypes.shape({
         loadProject: PropTypes.func,
     }),
