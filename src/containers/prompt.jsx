@@ -23,7 +23,7 @@ class Prompt extends React.Component {
     }
     handleOk() {
         this.props.onOk(this.state.inputValue, {
-            scope: 'local',
+            scope: 'global',
             isCloud: false,
         });
     }
