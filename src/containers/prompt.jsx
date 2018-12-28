@@ -22,7 +22,10 @@ class Prompt extends React.Component {
         }
     }
     handleOk() {
-        this.props.onOk(this.state.inputValue);
+        this.props.onOk(this.state.inputValue, {
+            scope: 'local',
+            isCloud: false,
+        });
     }
     handleCancel() {
         this.props.onCancel();
