@@ -47,10 +47,10 @@ German translations are found in this file:
 
 4. Change package.json
 Then add +1 to the version of the package in the [package.json](package.json):
-`"version": "0.1.0-de-`**7**`"`
+`"version": "0.1.3`"`
 
 5. Commit
-Git commit the changes to the json and and js file.
+Git commit the changes.
 
 6. Release to npm
 Now you can release the changes as a new version to npm:
@@ -60,7 +60,7 @@ If you are doing this for the first time on your machine, you have to run:
 and sign in with username, password and email.
 
 7. Push
-Push your commit to scratch-block/feature-translated-de
+Push your commit to scratch-blocks/patch/translations
 
 7. Add the new version to code4maus
 Change to the code4maus repo and add the new version:
