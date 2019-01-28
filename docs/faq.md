@@ -43,21 +43,13 @@ src/lib/libraries/costumes.json
 
 1. Change translation
 German translations are found in this file:
-* [scratch-blocks/msg/js/de.json](msg/js/de.json)
+* scratch-blocks/msg/scratch_msgs.js *
 
-2. Convert
-If changes are done, we have to convert to javascript:
-` nmp run translate `
-
-3. Build
-This command will build a new version of this file:
- * [msg/js/de.js](msg/js/de.js)
-
-5. Change package.json
+4. Change package.json
 Then add +1 to the version of the package in the [package.json](package.json):
 `"version": "0.1.0-de-`**7**`"`
 
-4. Commit
+5. Commit
 Git commit the changes to the json and and js file.
 
 6. Release to npm
