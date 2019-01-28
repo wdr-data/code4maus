@@ -14,6 +14,8 @@ const MenuButtonComponent = ({
     children,
     linkTo,
     external,
+    orientation,
+    onClick,
     ...props
 }) => {
     const icon = iconSvg
@@ -26,13 +28,18 @@ const MenuButtonComponent = ({
             />
     ;
 
+    const buttonClassName = classNames(className, styles.button, {
+        [styles.buttonVertical]: orientation==='vertical'
+    })
+
     if (external) {
         return (
             <a
                 href={linkTo || ''}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={classNames(className, styles.button)}
+                className={buttonClassName}
+                onClick={onClick}
                 {...props}
             >
                 {icon}
@@ -44,7 +51,8 @@ const MenuButtonComponent = ({
     return (
         <Link
             href={linkTo || '#'}
-            className={classNames(className, styles.button)}
+            className={buttonClassName}
+            onClick={onClick}
             {...props}
         >
             {icon}
@@ -61,6 +69,8 @@ MenuButtonComponent.propTypes = {
     iconSvg: PropTypes.string,
     linkTo: PropTypes.string,
     external: PropTypes.bool,
+    orientation: PropTypes.oneOf(['vertical', 'horizontal']),
+    onClick: PropTypes.func,
 };
 
 export default MenuButtonComponent;
