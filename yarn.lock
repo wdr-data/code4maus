@@ -264,10 +264,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.9.tgz#a07bfa74331471e1dc22a47eb72026843f7b95c8"
   integrity sha512-eajkMXG812/w3w4a1OcBlaTwsFPO5F7fJ/amy+tieQxEMWBlbV1JGSjkFM+zkHNf81Cad+dfIRA+IBkvmvdAeA==
 
-"@wdr-data/scratch-blocks@^0.1.2-ids":
-  version "0.1.2-ids"
-  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-blocks/-/scratch-blocks-0.1.2-ids.tgz#ea77f600a2b2e4610c071eb5de328b37d57221cb"
-  integrity sha512-K5u86SEASpfMlm7cIG04aJdbmW+2eX+vn8r8Rb71GBN8aiAe9kSRqCm/xRqvbBg3Ld3yot+127Bw8uCFJS53GA==
+"@wdr-data/scratch-blocks@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-blocks/-/scratch-blocks-0.1.3.tgz#eb9f449e526504d383800e70dedf1f090e473591"
+  integrity sha512-7f7UFYOsMgk3UM+Myflbi0B+VQYtyRFTTMEDQFkRhFvA8aWs3iJRZreu7c1kB2gxb+BCnX27zjsjNQ0YXZ7Hyw==
   dependencies:
     exports-loader "0.6.3"
     imports-loader "0.6.5"
