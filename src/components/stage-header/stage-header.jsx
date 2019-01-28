@@ -9,6 +9,7 @@ import { getStageSize } from '../../lib/screen-utils.js';
 import layout from '../../lib/layout-constants.js';
 import Box from '../box/box.jsx';
 import ButtonWithIcon from '../button-with-icon/button-with-icon.jsx';
+import MenuButton from '../menu-button/menu-button.jsx';
 
 import saveIcon from '!raw-loader!../../../assets/icons/header_save.svg';
 import menuIcon from '!raw-loader!../../../assets/icons/header_menu.svg';
@@ -43,25 +44,28 @@ const StageHeaderComponent = function(props) {
                 {isFullScreen
                     ? <Fullscreen />
                     : <React.Fragment>
-                        <ButtonWithIcon
+                        <MenuButton
+                            orientation='vertical'
                             iconSvg={mailIcon}
-                            href="mailto:maus@wdr.de"
-                        >
+                            external
+                            linkTo="mailto:maus@wdr.de">
                             Feedback
-                        </ButtonWithIcon>
-                        <ButtonWithIcon
+                        </MenuButton>
+                        <MenuButton
+                            orientation='vertical'
                             iconSvg={saveIcon}
                             onClick={onSaveProject}
                         >
                             Speichern
-                        </ButtonWithIcon>
-                        <ButtonWithIcon
+                        </MenuButton>
+                        <MenuButton
+                            orientation='vertical'
                             className={styles.headerIcon}
                             iconSvg={menuIcon}
                             onClick={onOpenMenu}
                         >
                             Übersicht
-                        </ButtonWithIcon>
+                        </MenuButton>
                     </React.Fragment>
                 }
             </Box>

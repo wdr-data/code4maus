@@ -134,7 +134,8 @@ const GUIComponent = (props) => {
             <Box className={styles.header}>
                 <Box className={styles.column}>
                     <img
-                        alt="WDR"
+                        alt="Logo WDR"
+                        title="Logo WDR"
                         className={styles.logo}
                         draggable={false}
                         src={wdrLogo}
@@ -207,12 +208,16 @@ const GUIComponent = (props) => {
                     </Tabs>
                 </Box>
                 <Box className={styles.column}>
-                    <img
-                        alt="Programmieren mit der Maus"
-                        className={styles.logoCenter}
-                        draggable={false}
-                        src={headLogo}
-                    />
+                    <span>
+                        <h1 style={{ display: 'none' }}>Logo Programmieren mit der Maus</h1>
+                        <img
+                            alt="Logo Programmieren mit der Maus"
+                            title="Logo Programmieren mit der Maus"
+                            className={styles.logoCenter}
+                            draggable={false}
+                            src={headLogo}
+                        />
+                    </span>
                 </Box>
                 <Box className={classNames(styles.column, styles.columnButtons)}>
                     <StageHeader vm={vm} />
