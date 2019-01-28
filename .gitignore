@@ -31,3 +31,6 @@ npm-*
  # Cache
 /.cache/
 .webpack/
+
+ # Yarn
+yarn-error.log
