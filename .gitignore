@@ -1,5 +1,33 @@
 # Mac OS
 .DS_Store
 
-# Yarn
-yarn.lock
+# NPM
+/node_module
+npm-*
+
+ # Testing
+/.nyc_output
+/coverage
+
+ # Build
+/build
+/dist
+/.opt-in
+/.serverless/
+
+ # generated translation files
+/translations
+/locale
+
+ # Netlify Functions
+/lambda/
+
+ # Local config
+.env
+
+ # External assets
+/assets/
+
+ # Cache
+/.cache/
+.webpack/
