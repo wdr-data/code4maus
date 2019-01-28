@@ -106,7 +106,8 @@
     height: 3rem;
 
     padding: 0 1.25rem 1rem 1.25rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
     color: white;
 
     background-image: url(./bg_darkblue@1x.png);
