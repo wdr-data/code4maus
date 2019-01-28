@@ -36,7 +36,7 @@ Ende September 2018 findet im KiKa ein Themenschwerpunkt **Digitalisierung** sta
 - Die Kinder erstellen dabei kleine Animationen, Wimmelbilder und erste Spiele.
 - Die Kinder haben die Möglichkeit jedes Spiel zu ihrem eigenen zu machen, indem sie Figuren, Hintergründe und Sounds individuell anpassen.
 - Die selbst programmierten Spiele können abgespeichert und dann gemeinsam mit Freunden und Verwandten gespielt und wieder verändert werden.
-- Zielgruppe sind Kinder ab der 2. bis zur 6. Klasse (7-12 Jahre, die Kinder sollten kurze Texte lesen können. Jüngere Kinder können die Anwendung mit ihren Eltern nutzen.)
+- Zielgruppe sind Kinder ab 8 Jahre. (Die Kinder sollten kurze Texte lesen können. Jüngere Kinder können die Anwendung mit ihren Eltern nutzen.)
 - Zielausspielung sind Tablets (ab iOS 11) und Desktop-Geräte, auf Smartphones ist die Anwendung derzeit leider nicht nutzbar.
 
 ## Umsetzung
