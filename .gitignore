@@ -2,7 +2,7 @@
 .DS_Store
 
 # NPM
-/node_module
+/node_modules
 npm-*
 
  # Testing
