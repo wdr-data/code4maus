@@ -209,7 +209,7 @@ const motionDefaultBlocks = [
 
 const motion = prepareBlocks(motionDefaultBlocks, motionBlockLib, (isStage, blockXml) => {
     const xmlBase = (inner) => `
-        <category name="Bewegung" id="motion" iconURI="/static/icons/icon_bewegung.svg">
+        <category name="Bewegung" id="motion">
             ${inner}
         </category>
     `;
@@ -435,7 +435,7 @@ const looksDefaultBlocks = [
 ];
 
 const looks = prepareBlocks(looksDefaultBlocks, looksBlockLib, (isStage, blockXml) => `
-    <category name="Aussehen" id="looks" iconURI="/static/icons/icon_aussehen.svg">
+    <category name="Aussehen" id="looks">
         ${blockXml}
     </category>
 `);
@@ -519,7 +519,7 @@ const soundDefaultBlocks = [
 ];
 
 const sound = prepareBlocks(soundDefaultBlocks, soundBlockLib, (isStage, blockXml) => `
-    <category name="Klang" id="sound" iconURI="/static/icons/icon_klang.svg">
+    <category name="Klang" id="sound">
         ${blockXml}
     </category>
 `);
@@ -583,7 +583,7 @@ const eventDefaultBlocks = [
 ];
 
 const events = prepareBlocks(eventDefaultBlocks, eventsBlockLib, (isStage, blockXml) => `
-    <category name="Ereignisse" id="events" iconURI="/static/icons/icon_ereignisse.svg">
+    <category name="Ereignisse" id="events">
         ${blockXml}
     </category>
 `);
@@ -659,7 +659,7 @@ const controlDefaultBlocks = [
 ];
 
 const control = prepareBlocks(controlDefaultBlocks, controlBlockLib, (isStage, blockXml) => `
-    <category name="Steuerung" id="control" iconURI="/static/icons/icon_steuerung.svg">
+    <category name="Steuerung" id="control">
         ${blockXml}
     </category>
 `);
@@ -792,7 +792,7 @@ const sensingDefaultBlocks = [
 ];
 
 const sensing = prepareBlocks(sensingDefaultBlocks, sensingBlockLib, (isStage, blockXml) => `
-    <category name="Fühlen" id="sensing" iconURI="/static/icons/icon_fuehlen.svg">
+    <category name="Fühlen" id="sensing">
         ${blockXml}
     </category>
 `);
@@ -1032,14 +1032,14 @@ const operatorsDefaultBlocks = [
 ];
 
 const operators = prepareBlocks(operatorsDefaultBlocks, operatorsBlockLib, (isStage, blockXml) => `
-    <category name="Operatoren" id="operators" iconURI="/static/icons/icon_operatoren.svg">
+    <category name="Operatoren" id="operators">
         ${blockXml}
     </category>
 `);
 
 const variables = function() {
     return `
-    <category name="Variablen" id="variables" iconURI="/static/icons/icon_variablen.svg" custom="VARIABLE">
+    <category name="Variablen" id="variables">
     </category>
     `;
 };
