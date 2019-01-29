@@ -15,4 +15,6 @@
 
 .content {
     white-space: nowrap;
+    font-weight: bold;
+    font-size: 1rem;
 }
