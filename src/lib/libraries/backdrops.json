@@ -7,7 +7,7 @@
         "info": [
             480,
             360,
-            null
+            2
         ]
     },
     {
@@ -20,12 +20,12 @@
         "info": [
             480,
             360,
-            null
+            2
         ]
     },
     {
         "name": "Weltall",
-        "md5": "c09c86d5680f157fb7e778fd09bc0eb2.jpg",
+        "md5": "bea568d0b736f0a365cb41e7d05f8100.jpg",
         "type": "backdrop",
         "tags": [
             "weltall"
@@ -33,7 +33,7 @@
         "info": [
             480,
             360,
-            null
+            2
         ]
     },
     {
@@ -60,6 +60,28 @@
             480,
             360,
             null
+        ]
+    },
+    {
+        "name": "Blau",
+        "md5": "7a0b6208f0ac9b50189eaa3a2fa68590.jpg",
+        "type": "backdrop",
+        "tags": [],
+        "info": [
+            480,
+            360,
+            2
+        ]
+    },
+    {
+        "name": "Maus",
+        "md5": "b533867ddb6e18b4d508f11be3b46095.jpg",
+        "type": "backdrop",
+        "tags": [],
+        "info": [
+            480,
+            360,
+            2
         ]
     }
 ]
