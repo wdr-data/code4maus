@@ -1,17 +1,17 @@
 [
     {
         "name": "Disko",
-        "md5": "60c1ec6f4071f4b2f0d0ab08fedd93b1.wav",
-        "sampleCount": 19719,
+        "md5": "88bd474932b76c51058cb7e718f9a63a.mp3",
+        "sampleCount": 93359,
         "rate": 44100,
-        "format": "wav",
+        "format": "mp3",
         "tags": [
             "musik"
         ]
     },
     {
         "name": "Boing",
-        "md5": "9cf7206f4e3c8544c7aee1d3ff58387b.wav",
+        "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
         "sampleCount": 99328,
         "rate": 44100,
         "format": "wav",
@@ -128,5 +128,93 @@
         "tags": [
             "geräusche"
         ]
+    },
+    {
+        "name": "Geht",
+        "md5": "7cd45cc0231181016ed3d6e5d7f1076e.mp3",
+        "sampleCount": 2419,
+        "rate": 44100,
+        "format": "mp3",
+        "tags": []
+    },
+    {
+        "name": "Maus Klack Klack",
+        "md5": "282fb24fedf9ed8f6b7dd08366a0f83c.mp3",
+        "sampleCount": 19719,
+        "rate": 44100,
+        "format": "mp3",
+        "tags": []
+    },
+    {
+        "name": "Maus-Klack-Klack",
+        "md5": "282fb24fedf9ed8f6b7dd08366a0f83c.mp3",
+        "sampleCount": 19719,
+        "rate": 44100,
+        "format": "mp3",
+        "tags": []
+    },
+    {
+        "name": "Space",
+        "md5": "19ee12af2e5fc48d689cadb3b45fde7a.mp3",
+        "sampleCount": 159396,
+        "rate": 44100,
+        "format": "mp3",
+        "tags": []
+    },
+    {
+        "name": "Tröt-1",
+        "md5": "8b03556e678ab60e05c819be050d3dbe.mp3",
+        "sampleCount": 83649,
+        "rate": 44100,
+        "format": "mp3",
+        "tags": []
+    },
+    {
+        "name": "Tröt-2",
+        "md5": "b7723edb708a0fa407a4d44f1f7ce2d1.wav",
+        "sampleCount": 41231,
+        "rate": 44100,
+        "format": "wav",
+        "tags": []
+    },
+    {
+        "name": "Trötet-1",
+        "md5": "8b03556e678ab60e05c819be050d3dbe.mp3",
+        "sampleCount": 83649,
+        "rate": 44100,
+        "format": "mp3",
+        "tags": []
+    },
+    {
+        "name": "Trötet-2",
+        "md5": "a17279ef62bbaead6b65dc5d54724793.mp3",
+        "sampleCount": 41232,
+        "rate": 44100,
+        "format": "mp3",
+        "tags": []
+    },
+    {
+        "name": "Flattert",
+        "md5": "ffc769dfe1bc0beacf6d59993c68a865.mp3",
+        "sampleCount": 38808,
+        "rate": 44100,
+        "format": "mp3",
+        "tags": []
+    },
+    {
+        "name": "Boing2",
+        "md5": "99c07ce0307d4d112721dc0b1b7ac02d.wav",
+        "sampleCount": 99328,
+        "rate": 44100,
+        "format": "wav",
+        "tags": []
+    },
+    {
+        "name": "Klack-Klack-2",
+        "md5": "282fb24fedf9ed8f6b7dd08366a0f83c.mp3",
+        "sampleCount": 19719,
+        "rate": 44100,
+        "format": "mp3",
+        "tags": []
     }
 ]
