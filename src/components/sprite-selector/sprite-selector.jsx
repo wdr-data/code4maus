@@ -49,7 +49,11 @@ const SpriteSelectorComponent = React.forwardRef((props, ref) => {
             <IconWithText className={styles.label} iconSvg={CustomeIcon}>
                 Figur
             </IconWithText>
-            <Box className={styles.itemsWrapper} componentRef={ref}>
+            <Box 
+                aria-label="Sprites auswählen"
+                className={styles.itemsWrapper} 
+                componentRef={ref}
+            >
                 {Object.keys(sprites)
                 // Re-order by list order
                     .sort((id1, id2) => sprites[id1].order - sprites[id2].order)

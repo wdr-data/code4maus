@@ -15,7 +15,10 @@ const StageWrapperComponent = function(props) {
     } = props;
 
     return (
-        <Box className={styles.stageWrapper}>
+        <Box 
+            className={styles.stageWrapper} 
+            aria-label="Bühne"
+        >
             <Box className={styles.stageCanvasWrapper}>
                 <Stage
                     height={stageSize.height}
