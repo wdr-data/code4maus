@@ -33,6 +33,7 @@ const StageSelector = (props) => {
     } = props;
     return (
         <Box
+            aria-label="Hintergrund auswählen"
             className={classNames(styles.stageSelector, {
                 [styles.isSelected]: selected,
                 [styles.raised]: raised,

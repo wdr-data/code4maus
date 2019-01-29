@@ -43,7 +43,9 @@ const StageHeaderComponent = function(props) {
                 />
                 {isFullScreen
                     ? <Fullscreen />
-                    : <React.Fragment>
+                    : <div
+                        className={styles.menuWrapper}
+                        role="navigation">
                         <MenuButton
                             orientation='vertical'
                             iconSvg={mailIcon}
@@ -66,7 +68,7 @@ const StageHeaderComponent = function(props) {
                         >
                             Übersicht
                         </MenuButton>
-                    </React.Fragment>
+                    </div>
                 }
             </Box>
         </Box>

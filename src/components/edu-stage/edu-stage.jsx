@@ -16,7 +16,10 @@ import { eduUrl } from '../../lib/routing';
 const EduStageComponent = (props) => !props.isEnabled ? null :
     <React.Fragment>
         {props.isDimmed && <div className={styles.dim} />}
-        <Box className={classNames(styles.eduWrapper, { [styles.fullscreen]: props.isFullscreen })}>
+        <Box
+            aria-label="Lernspiel"
+            className={classNames(styles.eduWrapper, { [styles.fullscreen]: props.isFullscreen })}
+        >
             <Box className={styles.eduHeader}>
                 <Box className={styles.caption}>
                     {props.caption}

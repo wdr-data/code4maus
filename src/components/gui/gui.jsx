@@ -131,7 +131,7 @@ const GUIComponent = (props) => {
                 : null
             }
             {isRendererSupported ? null : <WebGlModal />}
-            <Box className={styles.header}>
+            <Box className={styles.header} role="header">
                 <Box className={styles.column}>
                     <img
                         alt="Logo WDR"
@@ -208,23 +208,21 @@ const GUIComponent = (props) => {
                     </Tabs>
                 </Box>
                 <Box className={styles.column}>
-                    <span>
-                        <h1 style={{ display: 'none' }}>Logo Programmieren mit der Maus</h1>
-                        <img
-                            alt="Logo Programmieren mit der Maus"
-                            title="Logo Programmieren mit der Maus"
-                            className={styles.logoCenter}
-                            draggable={false}
-                            src={headLogo}
-                        />
-                    </span>
+                    <img
+                        role="heading"
+                        alt="Programmieren mit der Maus"
+                        title="Logo Programmieren mit der Maus"
+                        className={styles.logoCenter}
+                        draggable={false}
+                        src={headLogo}
+                    />
                 </Box>
                 <Box className={classNames(styles.column, styles.columnButtons)}>
                     <StageHeader vm={vm} />
                 </Box>
             </Box>
 
-            <Box className={styles.bodyWrapper}>
+            <Box className={styles.bodyWrapper} role="main">
                 <Box className={styles.editorWrapper}>
                     <Tabs
                         className={tabClassNames.tabs}
@@ -241,7 +239,7 @@ const GUIComponent = (props) => {
                         </TabList>
                         <TabPanel className={[ tabClassNames.tabPanel, styles.codePanelWrapper ]}>
                             <Box className={styles.codeTopRow}>
-                                <Box className={styles.blocksWrapper}>
+                                <Box className={styles.blocksWrapper} aria-label="Scratch Blocks">
                                     <Blocks
                                         grow={1}
                                         isVisible={blocksTabVisible}
@@ -257,7 +255,7 @@ const GUIComponent = (props) => {
                                         className={styles.layoutSwitcher}
                                     >
                                         <img
-                                            alt="WDR"
+                                            alt="Coding Area vergrößern"
                                             className={styles.layoutSwitcherIcon}
                                             draggable={false}
                                             src={expandIcon}
