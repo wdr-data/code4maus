@@ -26,6 +26,10 @@
     align-items: flex-end;
 }
 
+.menu-wrapper {
+    display: flex;
+}
+
 .controls {
     margin-right: auto;
 }
