@@ -43,9 +43,6 @@ module.exports = {
             '/data': {
                 target: bucketUrl,
                 changeOrigin: true,
-                pathRewrite: {
-                    '^/data': '',
-                },
             },
         },
         historyApiFallback: true,
