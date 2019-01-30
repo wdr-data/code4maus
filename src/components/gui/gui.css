@@ -123,6 +123,7 @@
 
     transform: skewY(-$tab-skew);
     margin-bottom: -1rem;
+    box-shadow: .125rem .125rem .75rem 0 rgba(0, 0, 0, 0.5);
 }
 
 .tab-content {
