@@ -50,41 +50,35 @@
         ]
     },
     {
-        "name": "Blume-1",
-        "md5": "11cd402f03f46c515362180ece55a130.svg",
+        "name": "Blume rot",
+        "md5": "1c827d4d8c6adc7d1d0c4c399b12e07a.svg",
         "type": "costume",
-        "tags": [
-            "dinge"
-        ],
+        "tags": ["dinge"],
         "info": [
-            39.58000183105469,
-            37.435001373291016,
+            43.099998474121094,
+            37.42099979450725,
             1
         ]
     },
     {
-        "name": "Blume-2",
-        "md5": "f1814e316ddc02a9a8c25ac74b442536.svg",
+        "name": "Blume lila",
+        "md5": "54daa731a3059091193c6810b570fbcc.svg",
         "type": "costume",
-        "tags": [
-            "dinge"
-        ],
+        "tags": ["dinge"],
         "info": [
-            43.10499954223633,
-            39.310001373291016,
+            43.099998474121094,
+            39.32126074857584,
             1
         ]
     },
     {
-        "name": "Blume-3",
-        "md5": "b20a20ac62ceb1bc909f81b873e8ae3f.svg",
+        "name": "Blume gelb",
+        "md5": "a91f7794b1d936e1380173556d4a2bc9.svg",
         "type": "costume",
-        "tags": [
-            "dinge"
-        ],
+        "tags": ["dinge"],
         "info": [
-            43.10499954223633,
-            37.41999816894531,
+            38.599998474121094,
+            37.4712471550732,
             1
         ]
     },
@@ -98,6 +92,50 @@
         "info": [
             43.15871208085835,
             -4.299998474121054,
+            1
+        ]
+    },
+    {
+        "name": "Trötet-1",
+        "md5": "872a8bba57c4451e8d52aa72f76172b9.svg",
+        "type": "costume",
+        "tags": ["elefant"],
+        "info": [
+            43.15871208085835,
+            -4.299998474121054,
+            1
+        ]
+    },
+    {
+        "name": "Trötet-2",
+        "md5": "c0d60d06d76ec0f8d997cc3c402ef3cb.svg",
+        "type": "costume",
+        "tags": ["elefant"],
+        "info": [
+            44.75047288494804,
+            -4.85684523035124,
+            1
+        ]
+    },
+    {
+        "name": "Trötet-3",
+        "md5": "dc3df23aa845382af47d2cbcdaa1b9e9.svg",
+        "type": "costume",
+        "tags": ["elefant"],
+        "info": [
+            52.514253261477705,
+            -6.161776607495085,
+            1
+        ]
+    },
+    {
+        "name": "Trötet-4",
+        "md5": "a33c5d499ecf5b7d924bb42474dba2c8.svg",
+        "type": "costume",
+        "tags": ["elefant"],
+        "info": [
+            50.42500000000007,
+            -6.259998474121062,
             1
         ]
     },
@@ -144,58 +182,6 @@
         ]
     },
     {
-        "name": "Tröt-1",
-        "md5": "dd66da89f9fa4c19674a88b7174839cd.svg",
-        "type": "costume",
-        "tags": [
-            "elefant"
-        ],
-        "info": [
-            83.5,
-            79.375,
-            null
-        ]
-    },
-    {
-        "name": "Tröt-2",
-        "md5": "0c7e30718bb78de6dc7e149da287fcfd.svg",
-        "type": "costume",
-        "tags": [
-            "elefant"
-        ],
-        "info": [
-            83.5,
-            79.375,
-            null
-        ]
-    },
-    {
-        "name": "Tröt-3",
-        "md5": "3c087fdc97a1502fb7a951ca1cb20b6b.svg",
-        "type": "costume",
-        "tags": [
-            "elefant"
-        ],
-        "info": [
-            83.5,
-            79.375,
-            null
-        ]
-    },
-    {
-        "name": "Tröt-4",
-        "md5": "3e94926b7fd2151d50148a4a8fd2707b.svg",
-        "type": "costume",
-        "tags": [
-            "elefant"
-        ],
-        "info": [
-            83.5,
-            79.375,
-            null
-        ]
-    },
-    {
         "name": "Ente",
         "md5": "dc636c4008bfaccd5ee7a991ad68b98a.svg",
         "type": "costume",
@@ -233,6 +219,20 @@
         "info": [
             31.83606797749971,
             52.906295621306484,
+            1
+        ]
+    },
+    {
+        "name": "Weltall-23",
+        "md5": "ffff8efe2808bdb4af991e65b1239dc2.svg",
+        "type": "costume",
+        "tags": [
+            "ente",
+            "weltall"
+        ],
+        "info": [
+            39.00405183549043,
+            53.83405459704311,
             1
         ]
     },
@@ -285,87 +285,6 @@
         "info": [
             31.69999999999999,
             30.675001525878884,
-            1
-        ]
-    },
-    {
-        "name": "Fisch-1",
-        "md5": "5766df8a9d4c1d5e66cd791987fa7eaf.svg",
-        "type": "costume",
-        "tags": [
-            "tiere",
-            "unterwasser"
-        ],
-        "info": [
-            66.10176615962936,
-            48.67842252668092,
-            1
-        ]
-    },
-    {
-        "name": "Fisch-2",
-        "md5": "ee93da8beade2e21ba7be2e64081ed8b.svg",
-        "type": "costume",
-        "tags": [
-            "tiere",
-            "unterwasser"
-        ],
-        "info": [
-            68.1201874098017,
-            55.22066077002381,
-            1
-        ]
-    },
-    {
-        "name": "Fisch-3",
-        "md5": "6b15273ab2d84acf09240eec9c3ea330.svg",
-        "type": "costume",
-        "tags": [
-            "tiere",
-            "unterwasser"
-        ],
-        "info": [
-            63.945126798452975,
-            61.11990614672723,
-            1
-        ]
-    },
-    {
-        "name": "Fledermaus-1",
-        "md5": "3020c62876adef5f42e1134b20bd6acd.svg",
-        "type": "costume",
-        "tags": [
-            "tiere"
-        ],
-        "info": [
-            44,
-            25.625,
-            1
-        ]
-    },
-    {
-        "name": "Fledermaus-2",
-        "md5": "2ecb10e17921de15834913a9573f7a52.svg",
-        "type": "costume",
-        "tags": [
-            "tiere"
-        ],
-        "info": [
-            44,
-            25.625,
-            1
-        ]
-    },
-    {
-        "name": "Fledermaus-3",
-        "md5": "3278d53db224e901431e682f26e7d376.svg",
-        "type": "costume",
-        "tags": [
-            "tiere"
-        ],
-        "info": [
-            44,
-            25.625,
             1
         ]
     },
@@ -457,6 +376,61 @@
         "info": [
             48.900000000000006,
             40.412560007576246,
+            1
+        ]
+    },
+    {
+        "name": "Geht-1",
+        "md5": "33154eaf38d5408b22b68d4550f009ff.svg",
+        "type": "costume",
+        "tags": ["maus"],
+        "info": [
+            47.15450849718752,
+            42.555825122786075,
+            1
+        ]
+    },
+    {
+        "name": "Geht-2",
+        "md5": "88535cda1aeb975f1e384d6b8f0d5f9a.svg",
+        "type": "costume",
+        "tags": ["maus"],
+        "info": [
+            43.19999999999999,
+            42.98626026093012,
+            1
+        ]
+    },
+    {
+        "name": "Geht-3",
+        "md5": "2f50ce4f222587834894df14980fc75a.svg",
+        "type": "costume",
+        "tags": ["maus"],
+        "info": [
+            48.29999999999998,
+            38.32601448475151,
+            1
+        ]
+    },
+    {
+        "name": "Geht-4",
+        "md5": "116b833943f616b6ee8591352b505cbb.svg",
+        "type": "costume",
+        "tags": ["maus"],
+        "info": [
+            45,
+            41.21583988845637,
+            1
+        ]
+    },
+    {
+        "name": "Geht-5",
+        "md5": "c9f5770c10e2501a97e071c8d2f44e2a.svg",
+        "type": "costume",
+        "tags": ["maus"],
+        "info": [
+            50.10000000000011,
+            38.926014484751505,
             1
         ]
     },
@@ -635,185 +609,10 @@
         ]
     },
     {
-        "name": "Pfeil-oben",
-        "md5": "5d7440ea8bf8285f74548dcf39eb9206.svg",
-        "type": "costume",
-        "tags": [
-            "dinge"
-        ],
-        "info": [
-            30.44499969482422,
-            28.239999771118164,
-            null
-        ]
-    },
-    {
-        "name": "Pfeil-unten",
-        "md5": "8e6263602fa747c481275da21746d518.svg",
-        "type": "costume",
-        "tags": [
-            "dinge"
-        ],
-        "info": [
-            30.44499969482422,
-            28.239999771118164,
-            null
-        ]
-    },
-    {
-        "name": "Pfeil-rechts",
-        "md5": "21bc1ee4e79f3b8f7fba2b7d862bb255.svg",
-        "type": "costume",
-        "tags": [
-            "dinge"
-        ],
-        "info": [
-            30.44499969482422,
-            28.239999771118164,
-            null
-        ]
-    },
-    {
-        "name": "Pfeil-links",
-        "md5": "a3258256fe77f5615d23a04c932ca6d5.svg",
-        "type": "costume",
-        "tags": [
-            "dinge"
-        ],
-        "info": [
-            30.44499969482422,
-            28.239999771118164,
-            null
-        ]
-    },
-    {
         "name": "Wurst",
-        "md5": "cb1a9f2cba8bc6ebcd2f35247fe874d1.svg",
-        "type": "costume",
-        "tags": [
-            "dinge"
-        ],
-        "info": [
-            30.65999984741211,
-            73.82499694824219,
-            1
-        ]
-    },
-    {
-        "name": "Geht-1",
-        "md5": "33154eaf38d5408b22b68d4550f009ff.svg",
-        "type": "costume",
-        "tags": [],
-        "info": [
-            47.15450849718752,
-            42.555825122786075,
-            1
-        ]
-    },
-    {
-        "name": "Geht-2",
-        "md5": "88535cda1aeb975f1e384d6b8f0d5f9a.svg",
-        "type": "costume",
-        "tags": [],
-        "info": [
-            43.19999999999999,
-            42.98626026093012,
-            1
-        ]
-    },
-    {
-        "name": "Geht-3",
-        "md5": "2f50ce4f222587834894df14980fc75a.svg",
-        "type": "costume",
-        "tags": [],
-        "info": [
-            48.29999999999998,
-            38.32601448475151,
-            1
-        ]
-    },
-    {
-        "name": "Geht-4",
-        "md5": "116b833943f616b6ee8591352b505cbb.svg",
-        "type": "costume",
-        "tags": [],
-        "info": [
-            45,
-            41.21583988845637,
-            1
-        ]
-    },
-    {
-        "name": "Geht-5",
-        "md5": "c9f5770c10e2501a97e071c8d2f44e2a.svg",
-        "type": "costume",
-        "tags": [],
-        "info": [
-            50.10000000000011,
-            38.926014484751505,
-            1
-        ]
-    },
-    {
-        "name": "Trötet-1",
-        "md5": "872a8bba57c4451e8d52aa72f76172b9.svg",
-        "type": "costume",
-        "tags": [],
-        "info": [
-            43.15871208085835,
-            -4.299998474121054,
-            1
-        ]
-    },
-    {
-        "name": "Trötet-2",
-        "md5": "c0d60d06d76ec0f8d997cc3c402ef3cb.svg",
-        "type": "costume",
-        "tags": [],
-        "info": [
-            44.75047288494804,
-            -4.85684523035124,
-            1
-        ]
-    },
-    {
-        "name": "Trötet-3",
-        "md5": "dc3df23aa845382af47d2cbcdaa1b9e9.svg",
-        "type": "costume",
-        "tags": [],
-        "info": [
-            52.514253261477705,
-            -6.161776607495085,
-            1
-        ]
-    },
-    {
-        "name": "Trötet-4",
-        "md5": "a33c5d499ecf5b7d924bb42474dba2c8.svg",
-        "type": "costume",
-        "tags": [],
-        "info": [
-            50.42500000000007,
-            -6.259998474121062,
-            1
-        ]
-    },
-    {
-        "name": "Weltall-23",
-        "md5": "ffff8efe2808bdb4af991e65b1239dc2.svg",
-        "type": "costume",
-        "tags": [],
-        "info": [
-            39.00405183549043,
-            53.83405459704311,
-            1
-        ]
-    },
-    {
-        "name": "wurst",
         "md5": "fbad6bbcd831f03d2639e2c9a2fcec36.svg",
         "type": "costume",
-        "tags": [],
+        "tags": ["dinge"],
         "info": [
             30.649999618530273,
             73.84694377121563,
@@ -821,43 +620,10 @@
         ]
     },
     {
-        "name": "Blume rot",
-        "md5": "1c827d4d8c6adc7d1d0c4c399b12e07a.svg",
-        "type": "costume",
-        "tags": [],
-        "info": [
-            43.099998474121094,
-            37.42099979450725,
-            1
-        ]
-    },
-    {
-        "name": "Blume lila",
-        "md5": "54daa731a3059091193c6810b570fbcc.svg",
-        "type": "costume",
-        "tags": [],
-        "info": [
-            43.099998474121094,
-            39.32126074857584,
-            1
-        ]
-    },
-    {
-        "name": "Blume gelb",
-        "md5": "a91f7794b1d936e1380173556d4a2bc9.svg",
-        "type": "costume",
-        "tags": [],
-        "info": [
-            38.599998474121094,
-            37.4712471550732,
-            1
-        ]
-    },
-    {
-        "name": "Fledermaus 1",
+        "name": "Fledermaus-1",
         "md5": "fb9d239c1c07d6ff7ee896a58053b447.svg",
         "type": "costume",
-        "tags": [],
+        "tags": ["tiere"],
         "info": [
             14.16801727849679,
             22.43876334062668,
@@ -865,10 +631,10 @@
         ]
     },
     {
-        "name": "Fledermaus 2",
+        "name": "Fledermaus-2",
         "md5": "c7240ac2c7bd7061fc96ca52888bcac4.svg",
         "type": "costume",
-        "tags": [],
+        "tags": ["tiere"],
         "info": [
             26.041421356237322,
             21.928867894929198,
@@ -876,10 +642,10 @@
         ]
     },
     {
-        "name": "Fledermaus 3",
+        "name": "Fledermaus-3",
         "md5": "ce9c35c9000901e6f6a853aa5f01dc48.svg",
         "type": "costume",
-        "tags": [],
+        "tags": ["tiere"],
         "info": [
             41.19999999999999,
             22.309553699063315,
@@ -887,10 +653,13 @@
         ]
     },
     {
-        "name": "Fisch pink 1",
+        "name": "Fisch-1",
         "md5": "2117b63c0064bffbecd9e61ef01fd6fa.svg",
         "type": "costume",
-        "tags": [],
+        "tags": [
+            "tiere",
+            "unterwasser"
+        ],
         "info": [
             19.771261892984995,
             15.106250381469692,
@@ -898,10 +667,13 @@
         ]
     },
     {
-        "name": "Fisch pink 2",
+        "name": "Fisch-2",
         "md5": "26b105f8793083545cc5fbc95dda00f1.svg",
         "type": "costume",
-        "tags": [],
+        "tags": [
+            "tiere",
+            "unterwasser"
+        ],
         "info": [
             17.639286227669032,
             14.48800038146976,
@@ -909,10 +681,13 @@
         ]
     },
     {
-        "name": "Fisch pink 3",
+        "name": "Fisch-3",
         "md5": "ce8fdccfa24d73f22e63d6bfd81182cb.svg",
         "type": "costume",
-        "tags": [],
+        "tags": [
+            "tiere",
+            "unterwasser"
+        ],
         "info": [
             27.17580053595873,
             28.32742526586273,
@@ -920,10 +695,10 @@
         ]
     },
     {
-        "name": "Pfeil Oben",
+        "name": "Pfeil-oben",
         "md5": "d595ebd867850b52bf1ab97e5f3b0b4d.svg",
         "type": "costume",
-        "tags": [],
+        "tags": ["dinge"],
         "info": [
             26.822574250180878,
             24.20195116415573,
@@ -931,10 +706,10 @@
         ]
     },
     {
-        "name": "Pfeil Unten",
+        "name": "Pfeil-unten",
         "md5": "4eefe034dcdab98521c119b0c7a98c96.svg",
         "type": "costume",
-        "tags": [],
+        "tags": ["dinge"],
         "info": [
             26.822574250180907,
             24.614712789282493,
@@ -942,10 +717,10 @@
         ]
     },
     {
-        "name": "Pfeil Links",
+        "name": "Pfeil-links",
         "md5": "4126866dde0dda66a51e4d3dfa8f8267.svg",
         "type": "costume",
-        "tags": [],
+        "tags": ["dinge"],
         "info": [
             26.822574250180878,
             24.20195116415573,
@@ -953,10 +728,10 @@
         ]
     },
     {
-        "name": "Pfeil Rechts",
+        "name": "Pfeil-rechts",
         "md5": "7fd77a77c25ec32075dc519d99fbe832.svg",
         "type": "costume",
-        "tags": [],
+        "tags": ["dinge"],
         "info": [
             25.79470342793863,
             24.20195116415576,
