@@ -86,19 +86,19 @@
             "currentCostume": 0,
             "costumes": [
                 {
-                    "assetId": "9d77f8022370d3a10e0ae7ed9585121a",
+                    "assetId": "a152bb912cab56d3d4407819fb5e28ea",
                     "name": "Maus",
                     "bitmapResolution": 1,
-                    "md5ext": "9d77f8022370d3a10e0ae7ed9585121a.svg",
+                    "md5ext": "a152bb912cab56d3d4407819fb5e28ea.svg",
                     "dataFormat": "svg",
                     "rotationCenterX": 84.5,
                     "rotationCenterY": 79.375
                 },
                 {
-                    "assetId": "a32f484ffcd2e03faabe006ac5be98bb",
+                    "assetId": "d277d9a46f007cd05a758065463e09f8",
                     "name": "Blinzelt",
                     "bitmapResolution": 1,
-                    "md5ext": "a32f484ffcd2e03faabe006ac5be98bb.svg",
+                    "md5ext": "d277d9a46f007cd05a758065463e09f8.svg",
                     "dataFormat": "svg",
                     "rotationCenterX": 84.5,
                     "rotationCenterY": 79.375
