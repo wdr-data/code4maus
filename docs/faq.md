@@ -24,7 +24,7 @@ do
 
 ## Create an educational game
 
-## Add a costum sprite
+## Add a costum or sprite
 
 - In programmieren.wdrmaus.de frontend choose upload.
 - Import svg for each costume and import sound.
@@ -33,11 +33,11 @@ do
 - unpack .zip
 - open project.json in vs code, str+shift+p ```format document```
 - then change the name of the new sprites in project.json
-- In your terminal in folder code4maus run ```yarn import-sprites costumes ../sprites_import/wurst/project.json start``` with adjusted path to the folder you just downloaded
+- In your terminal in folder code4maus run ```yarn import-sprites all ../sprites_import/wurst/project.json start``` with adjusted path to the folder you just downloaded
 This will change these files:
 src/lib/libraries/sprites.json
 src/lib/libraries/costumes.json
-
+src/lib/libraries/sounds.json
 
 ## Change blocks translations
 
