@@ -48,13 +48,13 @@ export default function(state = initialState, action) {
             customBlocks: action.gameSpec.blocks || null,
         };
     case LOCATION_CHANGED:
-        if (action.payload.result.view === Views.edu) {
+        if (action.payload.result && action.payload.result.view === Views.edu) {
             return {
                 ...state,
                 id: `edu/${action.payload.params.eduId}`,
             };
         }
-        if (action.payload.result.view !== Views.project) {
+        if (action.payload.result && action.payload.result.view !== Views.project) {
             return state;
         }
         if ((action.payload.result || {}).newProject) {
