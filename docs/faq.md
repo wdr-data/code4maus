@@ -41,15 +41,15 @@ src/lib/libraries/sounds.json
 
 ## Change blocks translations
 
-1. Change translation
+1. Change translation in scratch-blocks/patch-translations
 German translations are found in this file:
 * scratch-blocks/msg/scratch_msgs.js *
 
-4. Change package.json
+4. Change package.json in scratch-blocks/patch-translations
 Then add +1 to the version of the package in the [package.json](package.json):
 `"version": "0.1.3`"`
 
-5. Commit
+5. Commit to scratch-blocks/patch-translations
 Git commit the changes.
 
 6. Release to npm
@@ -59,9 +59,9 @@ If you are doing this for the first time on your machine, you have to run:
 `npm login`
 and sign in with username, password and email.
 
-7. Push
+7. Push to scratch-blocks/patch-translations
 Push your commit to scratch-blocks/patch/translations
 
-7. Add the new version to code4maus
+7. Add the new version to code4maus/develop
 Change to the code4maus repo and add the new version:
 `yarn add --dev @wdr-data/scratch-blocks`
