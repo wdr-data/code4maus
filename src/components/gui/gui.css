@@ -143,7 +143,7 @@
 }
 
 .tab:hover:not(.is-selected), .tab.is-selected {
-    height: 3.5rem;
+    height: 4rem;
 }
 
 .tab.is-selected {
@@ -345,6 +345,17 @@ $fade-out-distance: 15px;
     color: red;
     flex-grow: 1;
     margin: 0 1rem 0 0;
+}
+
+span.breadcrumb {
+    list-style: none;
+    padding: 0;
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
 }
 
 @media (max-width: 1024px) {

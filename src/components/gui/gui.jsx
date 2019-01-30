@@ -4,6 +4,7 @@ import React from 'react';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import tabStyles from 'react-tabs/style/react-tabs.css';
+import { Fragment, Link } from 'redux-little-router';
 import VM from '@wdr-data/scratch-vm';
 import Renderer from 'scratch-render';
 
@@ -69,6 +70,7 @@ const GUIComponent = (props) => {
         saveProjectError,
         projectName,
         eduLayerActive,
+        eduId,
         ...componentProps
     } = props;
     /* eslint-enable */
@@ -140,6 +142,15 @@ const GUIComponent = (props) => {
                         draggable={false}
                         src={wdrLogo}
                     />
+                    <span
+                        className={styles.breadcrumb}
+                        aria-label="Brotkrümel Navigation"
+                        role="navigation"
+                    >
+                        <Link href="/">Übersicht</Link>
+                        <Fragment forRoute="/lernspiel/"><span>Lernspiel {eduId}</span></Fragment>
+                        <Fragment forRoute="/projekt/"><span>Projekt {projectName}</span></Fragment>
+                    </span>
                     <Tabs
                         forceRenderTabPanel={true} // eslint-disable-line react/jsx-boolean-value
                         selectedIndex={activeTabIndex}
