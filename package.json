@@ -40,8 +40,8 @@
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
-    "@wdr-data/scratch-blocks": "^0.1.3",
     "@types/node": "^10.12.19",
+    "@wdr-data/scratch-blocks": "^0.1.3",
     "@wdr-data/scratch-vm": "0.2.0-minimal-3",
     "arraybuffer-loader": "^1.0.3",
     "autoprefixer": "^8.1.0",
