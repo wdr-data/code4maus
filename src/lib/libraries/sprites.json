@@ -1082,7 +1082,7 @@
             ],
             "costumes": [
                 {
-                    "costumeName": "Fledermaus 1",
+                    "costumeName": "Fledermaus-1",
                     "baseLayerID": -1,
                     "baseLayerMD5": "fb9d239c1c07d6ff7ee896a58053b447.svg",
                     "bitmapResolution": 1,
@@ -1090,7 +1090,7 @@
                     "rotationCenterY": 22.43876334062668
                 },
                 {
-                    "costumeName": "Fledermaus 2",
+                    "costumeName": "Fledermaus-2",
                     "baseLayerID": -1,
                     "baseLayerMD5": "c7240ac2c7bd7061fc96ca52888bcac4.svg",
                     "bitmapResolution": 1,
@@ -1098,7 +1098,7 @@
                     "rotationCenterY": 21.928867894929198
                 },
                 {
-                    "costumeName": "Fledermaus 3",
+                    "costumeName": "Fledermaus-3",
                     "baseLayerID": -1,
                     "baseLayerMD5": "ce9c35c9000901e6f6a853aa5f01dc48.svg",
                     "bitmapResolution": 1,
