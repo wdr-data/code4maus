@@ -17,6 +17,10 @@ slides:
     caption: "1. Block für den Apfel:"
   - asset: x02.png
     caption: "2. Block für den Apfel:"
+  - asset: 09.gif
+    caption: "Zufallszahlen hinzufügen"
+  - asset: x09.png
+    caption: "Zahlen ändern"
   - asset: x03.png
     caption: "3. Block für den Apfel:"
   - asset: start.png
