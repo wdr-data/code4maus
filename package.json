@@ -131,6 +131,7 @@
     "selenium-webdriver": "3.6.0",
     "serverless": "^1.30.3",
     "serverless-domain-manager": "^2.6.0",
+    "serverless-dotenv-plugin": "^2.0.1",
     "serverless-offline": "^3.25.11",
     "serverless-pseudo-parameters": "^2.2.0",
     "serverless-webpack": "^5.2.0",
