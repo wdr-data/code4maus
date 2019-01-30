@@ -1039,7 +1039,12 @@ const operators = prepareBlocks(operatorsDefaultBlocks, operatorsBlockLib, (isSt
 
 const variables = function() {
     return `
-    <category name="Variablen" id="variables">
+    <category
+        name="Variablen"
+        id="variables"
+        colour="#FF8C1A"
+        secondaryColour="#DB6E00"
+        custom="VARIABLE">
     </category>
     `;
 };
