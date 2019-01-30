@@ -121,6 +121,7 @@ const mapStateToProps = (state) => ({
     layoutmode: state.scratchGui.layoutMode,
     saveProjectVisible: state.scratchGui.modals.saveProject,
     eduLayerActive: state.scratchGui.eduLayer.enabled,
+    eduId: state.scratchGui.eduLayer.gameId,
 });
 
 const mapDispatchToProps = (dispatch) => ({
