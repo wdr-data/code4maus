@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --colors --bail",
     "build:backend:netlify": "netlify-lambda build src/backend -c webpack.netlify-functions.js",
-    "build:netlify": "yarn assets:netlify && yarn build && yarn build:backend:netlify && node scripts/build-netlify-redirects.js",
+    "build:netlify": "yarn assets:netlify && yarn build && yarn build:backend:netlify",
     "clean": "rimraf ./build && mkdirp build && rimraf ./dist && mkdirp dist",
     "deploy:build": "serverless package",
     "deploy:apply": "serverless deploy -p .serverless",
