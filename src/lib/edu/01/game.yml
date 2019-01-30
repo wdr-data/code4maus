@@ -66,5 +66,6 @@ blocks:
       - whenflagclicked
   - category: control
     blocks:
+      - wait
       - repeat
       - forever
