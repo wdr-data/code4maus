@@ -157,6 +157,7 @@ plugins:
   - serverless-offline
   - serverless-pseudo-parameters
   - serverless-webpack
+  - serverless-dotenv-plugin
 
 custom:
   appBucketName: ${self:service}-app-${file(scripts/env.js):stage}
