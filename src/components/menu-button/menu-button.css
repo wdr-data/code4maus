@@ -35,21 +35,27 @@
 }
 
 .button-vertical > .icon {
-  height: 3.5rem;
+  height: 3rem;
   margin: 0 0 -.3rem 0;
 }
 
-.button-vertical:first-child {
-  margin-top: .4rem;
-}
-
-.button-vertical:first-child > .icon {
-  height: 3.5rem;
-  margin: 0 0 -.7rem 0;
+.button-vertical:first-child > .icon{
+  margin: .3rem 0 -.6rem 0;
 }
 
 .button-vertical > .content {
   font-size: 1rem;
   padding: 0 .2rem;
   box-shadow: .125rem .125rem .75rem 0 rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 1024px) {
+  .button-vertical {
+      width: 80%;
+      height: auto;
+  }
+  .button-vertical > .icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 }
