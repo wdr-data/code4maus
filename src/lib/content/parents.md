@@ -77,18 +77,3 @@ Jannes Höke, Wilfried Elmenreich, Gretchen Elmenreich, Johanna Janiszewski, Chr
 ### Credits für Tester
 
 Danke an Emily, Grace, Mats, Romy E., Simon, Clara, Lisa, Luis, Gabriel, Vincent, Hannah, Ida, Romy H. und an die OGS der Grundschule Forststraße Köln Rath-Heumar fürs Testen.
-
-### Copyright
-
-© WDR 2018 - Alle Figuren und Sounds aus der Sendung mit der Maus sind urheberrechtlich geschützt. [https://www.wdrmaus.de/copyright.php5](https://www.wdrmaus.de/copyright.php5) 
-
-Die Anwendung basiert auf "Scratch", einem Projekt des MIT Media Lab. 
-Es gelten diese Lizenz-Bedingungen: 
-https://en.scratch-wiki.info/wiki/Scratch_Source_Code_License
-https://github.com/LLK/scratch-flash/blob/master/COPYING
-
-Der vom WDR-modifizierte Programmcode steht unter 
-https://github.com/wdr-data/code4maus Open Source zur Verfügung.
-
-
-

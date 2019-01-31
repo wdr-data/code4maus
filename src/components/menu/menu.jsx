@@ -55,7 +55,9 @@ export const MenuComponent = (props) => {
                     />
                 </Box>
                 <Box className={styles.thirdColumn}>
-
+                    <Link href="/inhalte/impressum/" className={styles.copyright}>
+                        <span>&#9400; WDR {(new Date().getFullYear())}</span>
+                    </Link>
                 </Box>
             </Box>
             <Box className={styles.listingWrapper}>

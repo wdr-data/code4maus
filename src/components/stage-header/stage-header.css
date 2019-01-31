@@ -34,3 +34,21 @@
     margin-right: auto;
 }
 
+.flex-wrapper {
+    height: 100%;
+}
+
+.copyright-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.copyright {
+    align-self: flex-end;
+    color: #00345f;
+    font-weight: bold;
+    text-decoration: none;
+    padding-right: .5rem;
+}
+

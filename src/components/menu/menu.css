@@ -39,10 +39,6 @@
     padding: .5rem 0 .04rem 0;
 }
 
-.third-column {
-    width: 6rem;
-}
-
 .logo {
     height:  1.6rem;
     display: block;
@@ -244,4 +240,12 @@
     align-self: center;
     margin: 0 2rem 2rem;
     max-width: 80rem;
+}
+
+.copyright {
+    display: inline-block;
+    color: #00345f;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1rem;
 }
