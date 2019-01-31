@@ -22,6 +22,7 @@ import SBFileUploader from '../../containers/sb-file-uploader.jsx';
 
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
+import ButtonPrimary from '../button-primary/button-primary.jsx';
 import EduStage from '../edu-stage/edu-stage.jsx';
 import Input from '../forms/input.jsx';
 import Loader from '../loader/loader.jsx';
@@ -113,19 +114,23 @@ const GUIComponent = (props) => {
                         <Input placeholder="Hier eintippen, wie dein Spiel heißen soll" onChange={(e) => onProjectNameChange(e.target.value)} value={projectName} />
                         <Box className={styles.saveModalActions}>
                             <p>{saveProjectError}</p>
-                            <Button className={styles.saveModalButton} onClick={() => onSaveProject().then(() => onSaveModalClose())}>Speichern</Button>
+                            <ButtonPrimary
+                                onClick={() => onSaveProject().then(() => onSaveModalClose())}
+                            >
+                                Speichern
+                            </ButtonPrimary>
                         </Box>
                         <Box direction="row" justifyContent="center" style={{ display: 'flex' }}>
                             <ProjectSaver>{(downloadProject) =>
-                                <Button className={styles.saveModalDownload} onClick={downloadProject}>
+                                <ButtonPrimary className={styles.saveModalDownload} onClick={downloadProject}>
                                     Projekt herunterladen
-                                </Button>
+                                </ButtonPrimary>
                             }</ProjectSaver>
                             <SBFileUploader onSuccess={onSaveModalClose}>{(_, renderFileInput, handleClick) => (
-                                <Button className={styles.saveModalDownload} onClick={handleClick}>
+                                <ButtonPrimary className={styles.saveModalDownload} onClick={handleClick}>
                                     Projekt hochladen
                                     {renderFileInput()}
-                                </Button>
+                                </ButtonPrimary>
                             )}</SBFileUploader>
                         </Box>
                     </Box>

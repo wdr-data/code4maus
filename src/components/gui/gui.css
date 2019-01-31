@@ -322,17 +322,7 @@ $fade-out-distance: 15px;
     margin-bottom: 1rem;
 }
 
-.save-modal-button {
-    background: $ui-orange;
-    color: white;
-    padding: 0.5rem 1rem;
-    align-self: flex-start;
-}
-
 .save-modal-download {
-    background: $ui-orange;
-    color: white;
-    padding: 0.5rem 1rem;
     margin: 1rem .5rem 0 .5rem;
     align-self: center;
 }
