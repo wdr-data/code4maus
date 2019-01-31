@@ -313,6 +313,7 @@ $fade-out-distance: 15px;
     background-image: url('../menu/bg_blue@1x.png');
     display: flex;
     z-index: 1;
+    position: relative;
     flex-direction: column;
     align-content: center;
 }
@@ -347,6 +348,20 @@ span.breadcrumb {
     overflow: hidden;
     clip: rect(1px 1px 1px 1px);
     clip: rect(1px, 1px, 1px, 1px);
+}
+
+.saving-overlay {
+    position: absolute;
+    z-index: 1;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.saving-overlay[hidden] {
+    display: none;
 }
 
 @media (max-width: 1024px) {

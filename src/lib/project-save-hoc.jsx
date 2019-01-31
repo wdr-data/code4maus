@@ -33,11 +33,13 @@ const ProjectSaveHOC = (WrappedComponent) => {
                 isSaving: false,
             };
             this.isSaving = false;
+            this.requestCancelSave = false;
 
             this.saveProject = this.saveProject.bind(this);
             this.saveAssets = this.saveAssets.bind(this);
             this.saveMeta = this.saveMeta.bind(this);
             this.handleProjectNameChange = this.handleProjectNameChange.bind(this);
+            this.cancelSave = this.cancelSave.bind(this);
         }
         componentDidUpdate(prevProps) {
             if (this.state.nameInput === '' && prevProps.projectName !== this.props.projectName) {
@@ -52,6 +54,8 @@ const ProjectSaveHOC = (WrappedComponent) => {
                 return;
             }
 
+            this.setError('');
+
             if (!this.state.nameInput) {
                 return this.setError('Du hast vergessen, dem Spiel einen Namen zu geben.');
             }
@@ -59,16 +63,21 @@ const ProjectSaveHOC = (WrappedComponent) => {
             this.isSaving = true; // used to immediately block multiple clicks
             this.setState({ isSaving: true }); // component state (async) used to reflect state on button
 
-            await new Promise((res) => setTimeout(res, 5000));
-
             let errPromise;
             try {
                 await this.saveAssets();
                 await this.saveMeta();
             } catch (e) {
                 console.error(e);
-                errPromise = this.setError('Das hat leider nicht geklappt');
+                if (!this.requestCancelSave) {
+                    errPromise = this.setError('Das hat leider nicht geklappt');
+                } else {
+                    errPromise = Promise.reject();
+                }
             } finally {
+                if (this.requestCancelSave) {
+                    this.requestCancelSave = false;
+                }
                 this.isSaving = false;
                 this.setState({ isSaving: false });
             }
@@ -110,6 +119,10 @@ const ProjectSaveHOC = (WrappedComponent) => {
                 }));
         }
         async saveMeta() {
+            if (this.requestCancelSave) {
+                return;
+            }
+
             const payload = {
                 data: this.props.vm.toJSON(),
                 name: this.state.nameInput,
@@ -137,9 +150,21 @@ const ProjectSaveHOC = (WrappedComponent) => {
                 throw new Error(`Saving failed: ${resObj.error}`);
             }
 
+            if (this.requestCancelSave) {
+                return;
+            }
+
             this.props.dispatch(setProjectName(this.state.nameInput));
             this.props.dispatch(setProjectId(resObj.id));
             this.props.dispatch(push(projectUrl(resObj.id)));
+        }
+        cancelSave() {
+            if (!this.isSaving) {
+                return;
+            }
+            this.requestCancelSave = true;
+            this.isSaving = false;
+            this.setState({ isSaving: false });
         }
         setError(text) {
             this.setState({ error: text });
@@ -166,6 +191,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
                     onSaveProject={this.saveProject}
                     saveProjectError={this.state.error}
                     isSaving={this.state.isSaving}
+                    cancelSave={this.cancelSave}
                     {...componentProps}
                 />
             );
