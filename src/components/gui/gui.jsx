@@ -24,7 +24,7 @@ import Button from '../button/button.jsx';
 import ButtonPrimary from '../button-primary/button-primary.jsx';
 import EduStage from '../edu-stage/edu-stage.jsx';
 import Input from '../forms/input.jsx';
-import Loader from '../loader/loader.jsx';
+import Loader, { Spinner } from '../loader/loader.jsx';
 import ModalComponent from '../modal/modal.jsx';
 import layout from '../../lib/layout-constants.js';
 
@@ -67,6 +67,7 @@ const GUIComponent = (props) => {
         vm,
         onProjectNameChange,
         onSaveModalClose,
+        closeSaveModal,
         saveProjectError,
         isSaving,
         projectName,
@@ -111,11 +112,14 @@ const GUIComponent = (props) => {
                     onRequestClose={onSaveModalClose}
                 >
                     <Box className={styles.saveModalBox}>
+                        <Box className={styles.savingOverlay} hidden={!isSaving}>
+                            <Spinner />
+                        </Box>
                         <Input placeholder="Hier eintippen, wie dein Spiel heißen soll" onChange={(e) => onProjectNameChange(e.target.value)} value={projectName} />
                         <Box className={styles.saveModalActions}>
                             <p>{saveProjectError}</p>
                             <ButtonPrimary
-                                onClick={() => onSaveProject().then(() => onSaveModalClose())}
+                                onClick={() => onSaveProject().then(() => closeSaveModal())}
                                 disabled={isSaving}
                             >
                                 Speichern
@@ -127,7 +131,7 @@ const GUIComponent = (props) => {
                                     Projekt herunterladen
                                 </ButtonPrimary>
                             }</ProjectSaver>
-                            <SBFileUploader onSuccess={onSaveModalClose}>{(_, renderFileInput, handleClick) => (
+                            <SBFileUploader onSuccess={closeSaveModal}>{(_, renderFileInput, handleClick) => (
                                 <ButtonPrimary className={styles.saveModalDownload} onClick={handleClick}>
                                     Projekt hochladen
                                     {renderFileInput()}
@@ -329,6 +333,7 @@ GUIComponent.propTypes = {
     soundsTabVisible: PropTypes.bool,
     targetIsStage: PropTypes.bool,
     vm: PropTypes.instanceOf(VM).isRequired,
+    closeSaveModal: PropTypes.func.isRequired,
     onSaveModalClose: PropTypes.func,
     onNameInputChange: PropTypes.func,
     projectName: PropTypes.string,

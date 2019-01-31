@@ -29,6 +29,8 @@ class GUI extends React.Component {
             loadingError: false,
             errorMessage: '',
         };
+
+        this.handleSaveModalClose = this.handleSaveModalClose.bind(this);
     }
     componentDidMount() {
         if (this.props.vm.initialized) {
@@ -70,12 +72,17 @@ class GUI extends React.Component {
     componentWillUnmount() {
         this.props.vm.stopAll();
     }
+    handleSaveModalClose() {
+        this.props.cancelSave();
+        this.props.closeSaveModal();
+    }
     render() {
         if (this.state.loadingError) {
             throw new Error(
                 `Failed to load project from server: ${this.state.errorMessage}`);
         }
         const {
+            cancelSave, // eslint-disable-line no-unused-vars
             children,
             fetchingProject,
             loadingStateVisible,
@@ -86,6 +93,7 @@ class GUI extends React.Component {
         return (
             <GUIComponent
                 loading={fetchingProject || this.state.loading || loadingStateVisible}
+                onSaveModalClose={this.handleSaveModalClose}
                 vm={vm}
                 {...componentProps}
             >
@@ -101,6 +109,7 @@ GUI.propTypes = {
     loadingStateVisible: PropTypes.bool,
     projectData: PropTypes.oneOfType([ PropTypes.object, PropTypes.string ]),
     vm: PropTypes.instanceOf(VM),
+    cancelSave: PropTypes.func.isRequired,
 };
 
 GUI.defaultProps = GUIComponent.defaultProps;
@@ -124,12 +133,12 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+    closeSaveModal: () => dispatch(closeSaveProject()),
     onExtensionButtonClick: () => dispatch(openExtensionLibrary()),
     onActivateTab: (tab) => dispatch(activateTab(tab)),
     onActivateCostumesTab: () => dispatch(activateTab(COSTUMES_TAB_INDEX)),
     onActivateSoundsTab: () => dispatch(activateTab(SOUNDS_TAB_INDEX)),
     onLayoutModeClick: () => dispatch(toggleLayoutMode()),
-    onSaveModalClose: () => dispatch(closeSaveProject()),
 });
 
 const ConnectedGUI = connect(

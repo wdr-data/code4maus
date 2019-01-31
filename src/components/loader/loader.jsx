@@ -7,9 +7,11 @@ import loader from '!raw-loader!../../../assets/img/loader.svg';
 
 import styles from './loader.css';
 
+export const Spinner = () => <InlineSVG className={styles.loader} svg={loader} />;
+
 const LoaderComponent = () => (
     <LogoOverlay>
-        <InlineSVG className={styles.loader} svg={loader} />
+        <Spinner />
     </LogoOverlay>
 );
 
