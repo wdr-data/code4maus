@@ -17,6 +17,7 @@ import EduLoaderHOC from '../lib/edu-loader-hoc.jsx';
 import ProjectLoaderHOC from '../lib/project-loader-hoc.jsx';
 import ProjectSaveHOC from '../lib/project-save-hoc.jsx';
 import vmListenerHOC from '../lib/vm-listener-hoc.jsx';
+import { StageSizeProviderHOC } from '../lib/stage-size-provider.jsx';
 
 import GUIComponent from '../components/gui/gui.jsx';
 import { toggleLayoutMode } from '../reducers/layout-mode';
@@ -152,6 +153,7 @@ const WrappedGui = flow([
     ProjectSaveHOC,
     vmListenerHOC,
     ProjectLoaderHOC,
+    StageSizeProviderHOC,
 ])(ConnectedGUI);
 
 export default WrappedGui;

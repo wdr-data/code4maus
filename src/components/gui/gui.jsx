@@ -26,7 +26,6 @@ import EduStage from '../edu-stage/edu-stage.jsx';
 import Input from '../forms/input.jsx';
 import Loader, { Spinner } from '../loader/loader.jsx';
 import ModalComponent from '../modal/modal.jsx';
-import layout from '../../lib/layout-constants.js';
 
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/logo_text.png';
@@ -36,6 +35,7 @@ import costumesIcon from './icon--costumes.svg';
 import expandIcon from './expand_right@2x.svg';
 
 import styles from './gui.css';
+import { StageSizeConsumer } from '../../lib/stage-size-provider.jsx';
 
 // Cache this value to only retreive it once the first time.
 // Assume that it doesn't change for a session.
@@ -92,12 +92,6 @@ const GUIComponent = (props) => {
     if (isRendererSupported === null) {
         isRendererSupported = Renderer.isSupported();
     }
-
-    const stageHeight = (window.innerHeight - layout.topBarHeight - layout.stageHeaderHeight - 8) / 2;
-    const stageSize = {
-        height: stageHeight,
-        width: stageHeight * 4 / 3,
-    };
 
     return (
         <Box
@@ -283,17 +277,21 @@ const GUIComponent = (props) => {
                                         />
                                     </Button>
                                 </Box>
-                                <Box
-                                    className={styles.stageAndTargetWrapper}
-                                    style={{ width: stageSize.width }}
-                                >
-                                    <StageWrapper
-                                        isRendererSupported={isRendererSupported}
-                                        stageSize={stageSize}
-                                        vm={vm}
-                                    />
-                                    <EduStage />
-                                </Box>
+                                <StageSizeConsumer>
+                                    {(stageSize) => (
+                                        <Box
+                                            className={styles.stageAndTargetWrapper}
+                                            style={{ width: stageSize.width }}
+                                        >
+                                            <StageWrapper
+                                                isRendererSupported={isRendererSupported}
+                                                stageSize={stageSize}
+                                                vm={vm}
+                                            />
+                                            <EduStage />
+                                        </Box>
+                                    )}
+                                </StageSizeConsumer>
                             </Box>
                             {props.eduLayerActive ? null : <TargetPane vm={vm} />}
                         </TabPanel>
