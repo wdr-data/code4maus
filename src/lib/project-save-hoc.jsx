@@ -30,9 +30,13 @@ const ProjectSaveHOC = (WrappedComponent) => {
             this.state = {
                 nameInput: '',
                 error: '',
+                isSaving: false,
             };
+            this.isSaving = false;
 
             this.saveProject = this.saveProject.bind(this);
+            this.saveAssets = this.saveAssets.bind(this);
+            this.saveMeta = this.saveMeta.bind(this);
             this.handleProjectNameChange = this.handleProjectNameChange.bind(this);
         }
         componentDidUpdate(prevProps) {
@@ -44,16 +48,31 @@ const ProjectSaveHOC = (WrappedComponent) => {
             this.setState({ nameInput });
         }
         async saveProject() {
+            if (this.isSaving) {
+                return;
+            }
+
             if (!this.state.nameInput) {
                 return this.setError('Du hast vergessen, dem Spiel einen Namen zu geben.');
             }
 
+            this.isSaving = true; // used to immediately block multiple clicks
+            this.setState({ isSaving: true }); // component state (async) used to reflect state on button
+
+            await new Promise((res) => setTimeout(res, 5000));
+
+            let errPromise;
             try {
-                await this.saveAssets().then(this.saveMeta.bind(this));
+                await this.saveAssets();
+                await this.saveMeta();
             } catch (e) {
                 console.error(e);
-                return this.setError('Das hat leider nicht geklappt');
+                errPromise = this.setError('Das hat leider nicht geklappt');
+            } finally {
+                this.isSaving = false;
+                this.setState({ isSaving: false });
             }
+            return errPromise;
         }
         async saveAssets() {
             const costumeAssets = serializeCostumes(this.props.vm.runtime);
@@ -146,6 +165,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
                     projectName={this.state.nameInput}
                     onSaveProject={this.saveProject}
                     saveProjectError={this.state.error}
+                    isSaving={this.state.isSaving}
                     {...componentProps}
                 />
             );

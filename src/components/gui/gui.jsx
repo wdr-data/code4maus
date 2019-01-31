@@ -68,6 +68,7 @@ const GUIComponent = (props) => {
         onProjectNameChange,
         onSaveModalClose,
         saveProjectError,
+        isSaving,
         projectName,
         eduLayerActive,
         eduId,
@@ -115,6 +116,7 @@ const GUIComponent = (props) => {
                             <p>{saveProjectError}</p>
                             <ButtonPrimary
                                 onClick={() => onSaveProject().then(() => onSaveModalClose())}
+                                disabled={isSaving}
                             >
                                 Speichern
                             </ButtonPrimary>
@@ -332,6 +334,7 @@ GUIComponent.propTypes = {
     projectName: PropTypes.string,
     eduLayerActive: PropTypes.bool.isRequired,
     onSaveProject: PropTypes.func.isRequired,
+    isSaving: PropTypes.bool,
     onProjectNameChange: PropTypes.func.isRequired,
     saveProjectError: PropTypes.string,
 };
