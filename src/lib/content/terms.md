@@ -2,6 +2,18 @@
 title: Impressum
 ---
 
+**Copyright**
+
+© WDR {(new Date().getFullYear())} - Alle Figuren und Sounds aus der Sendung mit der Maus sind urheberrechtlich geschützt. [https://www.wdrmaus.de/copyright.php5](https://www.wdrmaus.de/copyright.php5)
+
+Die Anwendung basiert auf "Scratch", einem Projekt des MIT Media Lab.
+Es gelten diese Lizenz-Bedingungen:
+https://en.scratch-wiki.info/wiki/Scratch_Source_Code_License
+https://github.com/LLK/scratch-flash/blob/master/COPYING
+
+Der vom WDR-modifizierte Programmcode steht unter
+https://github.com/wdr-data/code4maus Open Source zur Verfügung.
+
 **Anbieter:**
 
 Westdeutscher Rundfunk Köln

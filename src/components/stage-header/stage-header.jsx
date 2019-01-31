@@ -2,6 +2,7 @@ import { injectIntl, intlShape } from 'react-intl';
 import PropTypes from 'prop-types';
 import React from 'react';
 import VM from '@wdr-data/scratch-vm';
+import { Link } from 'redux-little-router';
 
 import Controls from '../../containers/controls.jsx';
 import Fullscreen from '../../containers/fullscreen.jsx';
@@ -43,31 +44,40 @@ const StageHeaderComponent = function(props) {
                 />
                 {isFullScreen
                     ? <Fullscreen />
-                    : <div
-                        className={styles.menuWrapper}
-                        role="navigation">
-                        <MenuButton
-                            orientation='vertical'
-                            iconSvg={mailIcon}
-                            external
-                            linkTo="mailto:maus@wdr.de">
-                            Feedback
-                        </MenuButton>
-                        <MenuButton
-                            orientation='vertical'
-                            iconSvg={saveIcon}
-                            onClick={onSaveProject}
+                    :
+                    <div className={styles.flexWrapper}>
+                        <div className={styles.copyrightWrapper}>
+                            <Link href="/inhalte/impressum/" className={styles.copyright}>
+                                <span>&#9400; WDR {(new Date().getFullYear())}</span>
+                            </Link>
+                        </div>
+                        <div
+                            className={styles.menuWrapper}
+                            role="navigation"
                         >
-                            Speichern
-                        </MenuButton>
-                        <MenuButton
-                            orientation='vertical'
-                            className={styles.headerIcon}
-                            iconSvg={menuIcon}
-                            onClick={onOpenMenu}
-                        >
-                            Übersicht
-                        </MenuButton>
+                            <MenuButton
+                                orientation='vertical'
+                                iconSvg={mailIcon}
+                                external
+                                linkTo="mailto:maus@wdr.de">
+                                Feedback
+                            </MenuButton>
+                            <MenuButton
+                                orientation='vertical'
+                                iconSvg={saveIcon}
+                                onClick={onSaveProject}
+                            >
+                                Speichern
+                            </MenuButton>
+                            <MenuButton
+                                orientation='vertical'
+                                className={styles.headerIcon}
+                                iconSvg={menuIcon}
+                                onClick={onOpenMenu}
+                            >
+                                Übersicht
+                            </MenuButton>
+                        </div>
                     </div>
                 }
             </Box>
