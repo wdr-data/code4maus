@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import VM from '@wdr-data/scratch-vm';
 import { connect } from 'react-redux';
+import flow from 'lodash.flowright';
 
 import { openExtensionLibrary, closeSaveProject } from '../reducers/modals';
 import {
@@ -146,6 +147,11 @@ const ConnectedGUI = connect(
 )(GUI);
 
 // eslint-disable-next-line new-cap
-const WrappedGui = EduLoaderHOC(ProjectSaveHOC(vmListenerHOC(ProjectLoaderHOC(ConnectedGUI))));
+const WrappedGui = flow([
+    EduLoaderHOC,
+    ProjectSaveHOC,
+    vmListenerHOC,
+    ProjectLoaderHOC,
+])(ConnectedGUI);
 
 export default WrappedGui;

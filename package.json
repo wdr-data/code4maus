@@ -83,6 +83,7 @@
     "lodash.bindall": "^4.4.0",
     "lodash.debounce": "^4.0.8",
     "lodash.defaultsdeep": "^4.6.0",
+    "lodash.flowright": "^3.5.0",
     "lodash.isequal": "^4.5.0",
     "lodash.omit": "^4.5.0",
     "lodash.pick": "^4.4.0",
