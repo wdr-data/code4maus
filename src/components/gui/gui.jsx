@@ -17,7 +17,6 @@ import StageWrapper from '../../containers/stage-wrapper.jsx';
 import SoundTab from '../../containers/sound-tab.jsx';
 import TargetPane from '../../containers/target-pane.jsx';
 import ProjectSaver from '../../containers/project-saver.jsx';
-import OnboardingOverlay from '../../containers/onboarding-overlay.jsx';
 import SBFileUploader from '../../containers/sb-file-uploader.jsx';
 
 import Box from '../box/box.jsx';
