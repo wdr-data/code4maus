@@ -20,6 +20,8 @@ slides:
     caption: "Klicke den Elefanten an:"
   - asset: blitz.png
     caption: "Wo ist der Ton?"
+  - asset: n01.png
+    caption: "Kein 'Klack'-Ton beim Elefanten:"
   - asset: x01.png
     caption: "⬅ Wähle 'Trötet-2'"
   - asset: blitz.png
