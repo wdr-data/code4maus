@@ -135,6 +135,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
                 dispatch,
                 vm,
                 userId,
+                routeProject,
                 ...componentProps
             } = this.props;
             /* eslint-enable */
