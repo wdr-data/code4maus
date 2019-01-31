@@ -18,14 +18,12 @@ import mailIcon from '!raw-loader!../../../assets/icons/menu_impressum.svg';
 import styles from './stage-header.css';
 
 const StageHeaderComponent = function(props) {
-    /* eslint-disable no-unused-vars */
     const {
         isFullScreen,
         onOpenMenu,
         onSaveProject,
         vm,
     } = props;
-    /* eslint-enable */
 
     const height = (window.innerHeight - layout.topBarHeight - layout.stageHeaderHeight - 8) / 2;
     const width = height * 4 / 3;

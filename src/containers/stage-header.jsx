@@ -43,7 +43,6 @@ StageHeader.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-    stageSize: state.scratchGui.stageSize.stageSize,
     isFullScreen: state.scratchGui.mode.isFullScreen,
 });
 
