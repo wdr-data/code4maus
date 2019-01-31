@@ -6,6 +6,8 @@
     padding-left: .75rem;
     padding-right: .75rem;
     user-select: none;
+    border: none;
+    background: none;
 }
 
 .icon {
