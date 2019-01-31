@@ -26,18 +26,18 @@ const ButtonComponent = ({
     ;
 
     return (
-        <span
+        <button
             className={classNames(
                 styles.outlinedButton,
-                className
+                className,
             )}
-            role="button"
+            disabled={disabled}
             onClick={onClick}
             {...props}
         >
             {icon}
-            <div className={styles.content}>{children}</div>
-        </span>
+            <span className={styles.content}>{children}</span>
+        </button>
     );
 };
 

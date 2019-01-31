@@ -54,3 +54,9 @@
 	right: .75rem;
 	border-left-color: white;
 }
+
+.disabled {
+    background: url(./bg-grey.png) no-repeat;
+    cursor: not-allowed;
+    color: #ccc;
+}
