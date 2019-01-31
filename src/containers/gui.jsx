@@ -20,7 +20,6 @@ import onboardingRefsHOC from './onboarding-refs-provider.jsx';
 
 import GUIComponent from '../components/gui/gui.jsx';
 import { toggleLayoutMode } from '../reducers/layout-mode';
-import { Views } from '../lib/routing';
 
 class GUI extends React.Component {
     constructor(props) {
