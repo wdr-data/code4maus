@@ -13,6 +13,8 @@ slides:
     caption: "Noch eine Figur: 'Apfel'"
   - asset: 003.png
     caption: "Lösche die Maus:"
+  - asset: 05_01.png
+    caption: "Los geht's beim Apfel:"
   - asset: x01.png
     caption: "1. Block für den Apfel:"
   - asset: x02.png
