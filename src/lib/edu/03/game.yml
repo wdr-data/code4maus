@@ -14,13 +14,13 @@ slides:
   - asset: stop.png
     caption: "Stoppe mit:"
   - asset: 004.png
-    caption: "1. Füge 'Tanzt-2' hinzu"
+    caption: "1. Füge Kostüm 'Tanzt-2' hinzu"
   - asset: 005.png
-    caption: "2. Füge 'Sprung-2' hinzu"
+    caption: "2. Füge Kostüm 'Sprung-2' hinzu"
   - asset: 006.png
-    caption: "3. Füge 'Sprung-3' hinzu"
+    caption: "3. Füge Kostüm 'Sprung-3' hinzu"
   - asset: 008.png
-    caption: "Lösche: 'Blinzelt'"
+    caption: "Lösche Kostüm 'Blinzelt'"
   - asset: x008.png
     caption: "⬅ Jetzt das Tanz-Programm:"
   - asset: x002.png
@@ -43,8 +43,6 @@ slides:
     caption: "Jetzt du! Ändere, wie du magst"
   - asset: speichern.png
     caption: "⬆️ Denke ans Speichern!"
-  - asset: 009.png
-    caption: "Unter 'Übersicht', 'Meine Sachen' kannst du mit 'Neu' dein eigenes Projekt starten."
   - asset: super.png
     caption: "Fertig. 👣 Stehe auf und tanze"
 

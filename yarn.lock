@@ -252,10 +252,10 @@
   resolved "https://registry.yarnpkg.com/@vernier/godirect/-/godirect-1.4.1.tgz#5b3e9f44f7faacd77a602b774646a165c04d1a5d"
   integrity sha512-5RaBF0UOLJR85UWlPTUv4c7aE3OW3wtaWd6MFEEhVrHTfUuEJPq7444U8tC4hKZnrNyppV/bCN9JtSmN0OlHkg==
 
-"@wdr-data/scratch-blocks@^0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-blocks/-/scratch-blocks-0.1.5.tgz#76964e3fa0a29a9dcba197a6e8bf5a601fbe887f"
-  integrity sha512-QvaeFy3DvwALrYirtWuTcp8nOx8iNXTogXXtker7uXWY/Nq3kJQzCzEVsvBMUCa2ZgNzPlEiCWBLZP/1Um7c/A==
+"@wdr-data/scratch-blocks@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-blocks/-/scratch-blocks-0.1.7.tgz#9c25105d34102b240dfa79853ec62590cb87c90e"
+  integrity sha512-9sAS+S+frS0LPOD4I1/6Wv/RIjdbdpePiqCBSdfb77Jlz9gjy+o+PmNfHkXlVlZG44143KREVI9T721ne/EmAQ==
   dependencies:
     exports-loader "0.6.3"
     imports-loader "0.6.5"
@@ -7593,6 +7593,11 @@ lodash.flattendeep@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.flattendeep/-/lodash.flattendeep-4.4.0.tgz#fb030917f86a3134e5bc9bec0d69e0013ddfedb2"
   integrity sha1-+wMJF/hqMTTlvJvsDWngAT3f7bI=
+
+lodash.flowright@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.flowright/-/lodash.flowright-3.5.0.tgz#2b5fff399716d7e7dc5724fe9349f67065184d67"
+  integrity sha1-K1//OZcW1+fcVyT+k0n2cGUYTWc=
 
 lodash.includes@^4.3.0:
   version "4.3.0"

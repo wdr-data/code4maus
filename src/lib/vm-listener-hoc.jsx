@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { updateTargets } from '../reducers/targets';
 import { updateBlockDrag } from '../reducers/block-drag';
 import { updateMonitors } from '../reducers/monitors';
+import { setProjectChanged } from '../reducers/project-changed';
 
 /*
  * Higher Order Component to manage events emitted by the VM
@@ -31,6 +32,7 @@ const vmListenerHOC = function(WrappedComponent) {
             this.props.vm.on('targetsUpdate', this.props.onTargetsUpdate);
             this.props.vm.on('MONITORS_UPDATE', this.props.onMonitorsUpdate);
             this.props.vm.on('BLOCK_DRAG_UPDATE', this.props.onBlockDragUpdate);
+            this.props.vm.on('PROJECT_CHANGED', this.props.onProjectChanged);
         }
         componentDidMount() {
             if (this.props.attachKeyboardEvents) {
@@ -79,6 +81,7 @@ const vmListenerHOC = function(WrappedComponent) {
                 onKeyUp,
                 onMonitorsUpdate,
                 onTargetsUpdate,
+                onProjectChanged,
                 /* eslint-enable no-unused-vars */
                 ...props
             } = this.props;
@@ -91,6 +94,7 @@ const vmListenerHOC = function(WrappedComponent) {
         onKeyDown: PropTypes.func,
         onKeyUp: PropTypes.func,
         onMonitorsUpdate: PropTypes.func.isRequired,
+        onProjectChanged: PropTypes.func.isRequired,
         onTargetsUpdate: PropTypes.func.isRequired,
         vm: PropTypes.instanceOf(VM).isRequired,
     };
@@ -110,6 +114,7 @@ const vmListenerHOC = function(WrappedComponent) {
         onBlockDragUpdate: (areBlocksOverGui) => {
             dispatch(updateBlockDrag(areBlocksOverGui));
         },
+        onProjectChanged: () => dispatch(setProjectChanged()),
     });
     return connect(
         mapStateToProps,

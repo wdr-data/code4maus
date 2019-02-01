@@ -43,12 +43,10 @@ StageHeader.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-    stageSize: state.scratchGui.stageSize.stageSize,
     isFullScreen: state.scratchGui.mode.isFullScreen,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    onOpenMenu: () => dispatch(push('/')),
     onSaveProject: () => dispatch(openSaveProject()),
     onSetStageUnFull: () => dispatch(setFullScreen(false)),
 });

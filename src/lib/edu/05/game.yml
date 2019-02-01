@@ -13,6 +13,8 @@ slides:
     caption: "Noch eine Figur: 'Apfel'"
   - asset: 003.png
     caption: "Lösche die Maus:"
+  - asset: 05_01.png
+    caption: "Los geht's beim Apfel:"
   - asset: x01.png
     caption: "1. Block für den Apfel:"
   - asset: x02.png
@@ -39,9 +41,9 @@ slides:
   - asset: 005.png
     caption: "Füge 2 mal Figur 'Pfeil' hinzu:"
   - asset: 006.png
-    caption: "Bei 'Pfeil': Kostüm links"
+    caption: "Wähle bei 'Pfeil': Kostüm 'links'"
   - asset: 007.png
-    caption: "Bei 'Pfeil2': Kostüm rechts"
+    caption: "Bei 'Pfeil2': Kostüm 'rechts'"
   - asset: 008.png
     caption: "So sollen die Figuren aussehen:"
   - asset: x10.png

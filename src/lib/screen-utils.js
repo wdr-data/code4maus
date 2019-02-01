@@ -1,3 +1,5 @@
+import layout from './layout-constants.js';
+
 const STAGE_SIZE_DEFAULTS = {
     heightSmall: 360,
     widthSmall: 480,
@@ -5,31 +7,33 @@ const STAGE_SIZE_DEFAULTS = {
     menuHeightAdjustment: 40,
 };
 
-const getStageSize = (
-    isFullScreen = false,
-    height = STAGE_SIZE_DEFAULTS.heightSmall,
-    width = STAGE_SIZE_DEFAULTS.widthSmall) => {
+const getStageSize = (isFullScreen = false) => {
+    let height = (window.innerHeight - layout.topBarHeight - layout.stageHeaderHeight - 8) / 2;
+    let width = height * 4 / 3;
+
     const stageSize = {
-        heightDefault: height,
-        widthDefault: width,
-        height: height,
-        width: width,
+        defaultHeight: height,
+        defaultWidth: width,
     };
 
     if (isFullScreen) {
-        stageSize.height = window.innerHeight -
-                           STAGE_SIZE_DEFAULTS.menuHeightAdjustment -
-                           STAGE_SIZE_DEFAULTS.spacingBorderAdjustment;
+        height = window.innerHeight -
+                    STAGE_SIZE_DEFAULTS.menuHeightAdjustment -
+                    STAGE_SIZE_DEFAULTS.spacingBorderAdjustment;
 
-        stageSize.width = stageSize.height + stageSize.height / 3;
+        width = height + height / 3;
 
-        if (stageSize.width > window.innerWidth) {
-            stageSize.width = window.innerWidth;
-            stageSize.height = stageSize.width * .75;
+        if (width > window.innerWidth) {
+            width = window.innerWidth;
+            height = width * .75;
         }
     }
 
-    return stageSize;
+    return {
+        ...stageSize,
+        height,
+        width,
+    };
 };
 
 export {

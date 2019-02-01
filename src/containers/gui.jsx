@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import VM from '@wdr-data/scratch-vm';
 import { connect } from 'react-redux';
+import flow from 'lodash.flowright';
 
 import { openExtensionLibrary, closeSaveProject } from '../reducers/modals';
 import {
@@ -16,10 +17,12 @@ import EduLoaderHOC from '../lib/edu-loader-hoc.jsx';
 import ProjectLoaderHOC from '../lib/project-loader-hoc.jsx';
 import ProjectSaveHOC from '../lib/project-save-hoc.jsx';
 import vmListenerHOC from '../lib/vm-listener-hoc.jsx';
-import onboardingRefsHOC from './onboarding-refs-provider.jsx';
+import UnsavedProjectBlockerHOC from '../lib/unsaved-project-blocker.jsx';
+import { StageSizeProviderHOC } from '../lib/stage-size-provider.jsx';
 
 import GUIComponent from '../components/gui/gui.jsx';
 import { toggleLayoutMode } from '../reducers/layout-mode';
+import { setProjectUnchanged } from '../reducers/project-changed';
 
 class GUI extends React.Component {
     constructor(props) {
@@ -61,6 +64,7 @@ class GUI extends React.Component {
                         this.props.vm.start();
                         this.props.vm.initialized = true;
                     }
+                    setTimeout(() => this.props.onSetUnchanged(), 100);
                 })
                 .catch((e) => {
                     // Need to catch this error and update component state so that
@@ -86,6 +90,7 @@ class GUI extends React.Component {
             children,
             fetchingProject,
             loadingStateVisible,
+            onSetUnchanged, // eslint-disable-line no-unused-vars
             projectData, // eslint-disable-line no-unused-vars
             vm,
             ...componentProps
@@ -139,6 +144,7 @@ const mapDispatchToProps = (dispatch) => ({
     onActivateCostumesTab: () => dispatch(activateTab(COSTUMES_TAB_INDEX)),
     onActivateSoundsTab: () => dispatch(activateTab(SOUNDS_TAB_INDEX)),
     onLayoutModeClick: () => dispatch(toggleLayoutMode()),
+    onSetUnchanged: () => dispatch(setProjectUnchanged()),
 });
 
 const ConnectedGUI = connect(
@@ -147,6 +153,13 @@ const ConnectedGUI = connect(
 )(GUI);
 
 // eslint-disable-next-line new-cap
-const WrappedGui = EduLoaderHOC(ProjectSaveHOC(vmListenerHOC(onboardingRefsHOC(ProjectLoaderHOC(ConnectedGUI)))));
+const WrappedGui = flow([
+    EduLoaderHOC,
+    ProjectSaveHOC,
+    vmListenerHOC,
+    ProjectLoaderHOC,
+    StageSizeProviderHOC,
+    UnsavedProjectBlockerHOC,
+])(ConnectedGUI);
 
 export default WrappedGui;
