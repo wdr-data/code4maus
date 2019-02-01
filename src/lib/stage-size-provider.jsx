@@ -17,8 +17,15 @@ export const StageSizeProviderHOC = (WrappedComponent) => {
                 height: initialStageSize.height,
                 width: initialStageSize.width,
             };
+            this.handleScreenSizeChanged = debounce(this.handleScreenSizeChanged.bind(this), 300);
+        }
 
-            window.addEventListener('resize', debounce(this.handleScreenSizeChanged.bind(this), 300));
+        componentDidMount() {
+            window.addEventListener('resize', this.handleScreenSizeChanged);
+        }
+
+        componentWillUnmount() {
+            window.removeEventListener('resize', this.handleScreenSizeChanged);
         }
 
         handleScreenSizeChanged() {
@@ -28,6 +35,7 @@ export const StageSizeProviderHOC = (WrappedComponent) => {
 
         render() {
             const {
+                dispatch, // eslint-disable-line no-unused-vars
                 isFullScreen, // eslint-disable-line no-unused-vars
                 ...componentProps
             } = this.props;
@@ -41,6 +49,7 @@ export const StageSizeProviderHOC = (WrappedComponent) => {
     }
 
     StageSizeState.propTypes = {
+        dispatch: PropTypes.func,
         isFullScreen: PropTypes.bool.isRequired,
     };
 

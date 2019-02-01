@@ -19,7 +19,6 @@ import { StageSizeConsumer } from '../../lib/stage-size-provider.jsx';
 const StageHeaderComponent = function(props) {
     const {
         isFullScreen,
-        onOpenMenu,
         onSaveProject,
         vm,
     } = props;
@@ -66,9 +65,9 @@ const StageHeaderComponent = function(props) {
                                     </MenuButton>
                                     <MenuButton
                                         orientation='vertical'
+                                        linkTo='/'
                                         className={styles.headerIcon}
                                         iconSvg={menuIcon}
-                                        onClick={onOpenMenu}
                                     >
                                         Übersicht
                                     </MenuButton>
@@ -85,7 +84,6 @@ const StageHeaderComponent = function(props) {
 StageHeaderComponent.propTypes = {
     intl: intlShape,
     isFullScreen: PropTypes.bool.isRequired,
-    onOpenMenu: PropTypes.func.isRequired,
     onSaveProject: PropTypes.func.isRequired,
     vm: PropTypes.instanceOf(VM).isRequired,
 };

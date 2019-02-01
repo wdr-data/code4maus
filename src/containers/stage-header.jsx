@@ -47,7 +47,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    onOpenMenu: () => dispatch(push('/')),
     onSaveProject: () => dispatch(openSaveProject()),
     onSetStageUnFull: () => dispatch(setFullScreen(false)),
 });
