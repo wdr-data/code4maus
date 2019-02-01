@@ -11,7 +11,7 @@ const UnsavedProjectBlockerHOC = (WrappedComponent) => {
         }
         componentDidUpdate(oldProps) {
             if (this.props.isProjectUnsaved !== oldProps.isProjectUnsaved) {
-                if (/* process.env.NODE_ENV === 'production' && */ typeof window === 'object') {
+                if (process.env.NODE_ENV === 'production' && typeof window === 'object') {
                     if (this.props.isProjectUnsaved) {
                         // Warn before navigating away
                         window.addEventListener('beforeunload', this.stopBrowserNavigation);
