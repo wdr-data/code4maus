@@ -60,7 +60,7 @@ slides:
     caption: "Code für 'Pfeil2' rechts:"
   - asset: 009.png
     caption: "Zurück zum Fisch:"
-  - asset: x09.png
+  - asset: xx09.png
     caption: "Um den Fisch zu steuern:"
   - asset: start.png
     caption: "Teste dein Spiel"
