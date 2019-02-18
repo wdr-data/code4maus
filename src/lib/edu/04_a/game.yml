@@ -1,11 +1,44 @@
 ---
 
-
 slides:
   - asset: 01.png
   - asset: 02.png
   - asset: 03.png
   - asset: 04.png
+  - asset: 05.png
+  - asset: 06.png
+  - asset: 07.png
+  - asset: 08.png
+  - asset: 09.png
+  - asset: 10.png
+  - asset: 11.png
+  - asset: 12.png
+  - asset: 13.png
+  - asset: 14.png
+  - asset: 15.png
+  - asset: 16.png
+  - asset: 17.png
+  - asset: 18.png
+  - asset: 19.png
+  - asset: 20.png
+  - asset: 21.png
+  - asset: 22.png
+  - asset: 23.png
+  - asset: 24.png
+  - asset: 25.png
+  - asset: 26.png
+  - asset: 28.png
+  - asset: 29.png
+  - asset: 30.png
+  - asset: 31.png
+  - asset: 32.png
+  - asset: 33.png
+  - asset: 34.png
+  - asset: 35.png
+  - asset: 36.png
+  - asset: 37.png
+  - asset: 38.png
+  - asset: 39.png
 
 blocks:
   - category: motion
@@ -88,3 +121,4 @@ blocks:
       - and
       - or
       - not
+  - category: variables
