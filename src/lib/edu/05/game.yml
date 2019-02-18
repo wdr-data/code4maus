@@ -152,3 +152,4 @@ blocks:
       - and
       - or
       - not
+  - category: variables
