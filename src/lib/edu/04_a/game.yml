@@ -1,0 +1,90 @@
+---
+
+
+slides:
+  - asset: 01.png
+  - asset: 02.png
+  - asset: 03.png
+  - asset: 04.png
+
+blocks:
+  - category: motion
+    blocks:
+      - movesteps
+      - turnright
+      - turnleft
+      - --
+      - goto
+      - gotoxy
+      - glideto
+      - glidesecstoxy
+      - --
+      - changexby
+      - setx
+      - changeyby
+      - sety
+  - category: looks
+    blocks:
+      - switchcostumeto
+      - nextcostume
+      - --
+      - changesizeby
+      - setsizeto
+      - --
+      - show
+      - hide
+      - --
+      - size
+  - category: sound
+    blocks:
+      - playuntildone
+  - category: events
+    blocks:
+      - whenflagclicked
+      - whenthisspriteclicked
+      - --
+      - whenbroadcastreceived
+      - broadcast
+      - broadcastandwait
+  - category: control
+    blocks:
+      - wait
+      - repeat
+      - forever
+      - --
+      - if
+      - if_else
+      - wait_until
+      - repeat_until
+      - --
+      - stop
+      - --
+      - start_as_clone
+      - create_clone_of
+      - delete_this_clone
+  - category: sensing
+    blocks:
+      - touchingobject
+      - --
+      - mousedown
+      - mousex
+      - mousey
+      - setdragmode
+      - --
+      - timer
+      - resettimer
+      - --
+      - of
+      - --
+      - current
+  - category: operators
+    blocks:
+      - random
+      - --
+      - gt
+      - lt
+      - equals
+      - --
+      - and
+      - or
+      - not
