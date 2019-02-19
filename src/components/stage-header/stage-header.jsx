@@ -7,7 +7,6 @@ import { Link } from 'redux-little-router';
 import Controls from '../../containers/controls.jsx';
 import Fullscreen from '../../containers/fullscreen.jsx';
 import Box from '../box/box.jsx';
-import ButtonWithIcon from '../button-with-icon/button-with-icon.jsx';
 import MenuButton from '../menu-button/menu-button.jsx';
 
 import saveIcon from '!raw-loader!../../../assets/icons/header_save.svg';
