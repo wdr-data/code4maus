@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { initializeCurrentLocation } from 'redux-little-router';
+import { createLogger } from 'redux-logger';
 
 import { IntlProvider } from 'react-intl-redux';
 import intlReducer from '../reducers/intl.js';
@@ -11,9 +12,14 @@ import * as router from './routing';
 
 import { ScratchPaintReducer } from 'scratch-paint';
 
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const enhancer = composeEnhancers(router.enhancer, guiMiddleware, applyMiddleware(router.middleware));
+const enhancer = compose(
+    router.enhancer,
+    guiMiddleware,
+    applyMiddleware(
+        router.middleware,
+        process.env.NODE_ENV !== 'production' ? createLogger({}) : null
+    ),
+);
 
 /*
  * Higher Order Component to provide redux state. If an `intl` prop is provided
