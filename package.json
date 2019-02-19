@@ -26,7 +26,9 @@
     "test:lint": "eslint . --ext .js,.jsx",
     "test:unit": "jest test[\\\\/]unit",
     "test:smoke": "jest --runInBand test[\\\\/]smoke",
-    "watch": "webpack --progress --colors --watch"
+    "watch": "webpack --progress --colors --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "Massachusetts Institute of Technology",
   "license": "BSD-3-Clause",
@@ -150,7 +152,11 @@
     "webpack-dev-server": "^3.1.10",
     "webpack-visualizer-plugin": "^0.1.11",
     "xhr": "^2.5.0",
-    "yarn": "^1.9.4"
+    "yarn": "^1.9.4",
+    "@storybook/react": "^4.1.12",
+    "@storybook/addon-actions": "^4.1.12",
+    "@storybook/addon-links": "^4.1.12",
+    "@storybook/addons": "^4.1.12"
   },
   "jest": {
     "setupFiles": [
