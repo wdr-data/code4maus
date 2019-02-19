@@ -17,7 +17,7 @@ const enhancer = compose(
     guiMiddleware,
     applyMiddleware(
         router.middleware,
-        process.env.NODE_ENV !== 'production' ? createLogger({}) : null
+        ...(process.env.NODE_ENV !== 'production' ? [ createLogger({}) ] : [])
     ),
 );
 
