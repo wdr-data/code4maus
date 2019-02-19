@@ -13,41 +13,39 @@ const PromptComponent = (props) =>
         contentLabel={props.title}
         onRequestClose={props.onCancel}
     >
-        <Box className={styles.body}>
-            <Box className={styles.label}>
-                {props.label}
-            </Box>
-            <Box>
-                <input
-                    autoFocus
-                    className={styles.input}
-                    placeholder={props.placeholder}
-                    onChange={props.onChange}
-                    onKeyPress={props.onKeyPress}
+        <Box className={styles.label}>
+            {props.label}
+        </Box>
+        <Box>
+            <input
+                autoFocus
+                className={styles.input}
+                placeholder={props.placeholder}
+                onChange={props.onChange}
+                onKeyPress={props.onKeyPress}
+            />
+        </Box>
+        <Box className={styles.buttonRow}>
+            <button
+                className={styles.cancelButton}
+                onClick={props.onCancel}
+            >
+                <FormattedMessage
+                    defaultMessage="Abbrechen"
+                    description="Button in prompt for cancelling the dialog"
+                    id="gui.prompt.cancel"
                 />
-            </Box>
-            <Box className={styles.buttonRow}>
-                <button
-                    className={styles.cancelButton}
-                    onClick={props.onCancel}
-                >
-                    <FormattedMessage
-                        defaultMessage="Abbrechen"
-                        description="Button in prompt for cancelling the dialog"
-                        id="gui.prompt.cancel"
-                    />
-                </button>
-                <button
-                    className={styles.okButton}
-                    onClick={props.onOk}
-                >
-                    <FormattedMessage
-                        defaultMessage="OK"
-                        description="Button in prompt for confirming the dialog"
-                        id="gui.prompt.ok"
-                    />
-                </button>
-            </Box>
+            </button>
+            <button
+                className={styles.okButton}
+                onClick={props.onOk}
+            >
+                <FormattedMessage
+                    defaultMessage="OK"
+                    description="Button in prompt for confirming the dialog"
+                    id="gui.prompt.ok"
+                />
+            </button>
         </Box>
     </Modal>
 ;

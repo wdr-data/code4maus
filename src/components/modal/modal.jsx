@@ -15,7 +15,7 @@ import styles from './modal.css';
 const ModalComponent = (props) =>
     <ReactModal
         isOpen
-        className={classNames(styles.modalContent, props.className, {
+        className={classNames(styles.modalWrapper, props.className, {
             [styles.fullScreen]: props.fullScreen,
         })}
         contentLabel={props.contentLabel}
@@ -61,7 +61,9 @@ const ModalComponent = (props) =>
                     }
                 </div>
             </div>
-            {props.children}
+            <div className={styles.content}>
+                {props.children}
+            </div>
         </Box>
     </ReactModal>
 ;

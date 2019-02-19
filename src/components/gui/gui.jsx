@@ -105,33 +105,31 @@ const GUIComponent = (props) => {
                     contentLabel="Wie soll dein Spiel heißen?"
                     onRequestClose={onSaveModalClose}
                 >
-                    <Box className={styles.saveModalBox}>
-                        <Box className={styles.savingOverlay} hidden={!isSaving}>
-                            <Spinner />
-                        </Box>
-                        <Input placeholder="Hier eintippen, wie dein Spiel heißen soll" onChange={(e) => onProjectNameChange(e.target.value)} value={projectName} />
-                        <Box className={styles.saveModalActions}>
-                            <p>{saveProjectError}</p>
-                            <ButtonPrimary
-                                onClick={() => onSaveProject().then(() => closeSaveModal())}
-                                disabled={isSaving}
-                            >
-                                Speichern
+                    <Box className={styles.savingOverlay} hidden={!isSaving}>
+                        <Spinner />
+                    </Box>
+                    <Input placeholder="Hier eintippen, wie dein Spiel heißen soll" onChange={(e) => onProjectNameChange(e.target.value)} value={projectName} />
+                    <Box className={styles.saveModalActions}>
+                        <p>{saveProjectError}</p>
+                        <ButtonPrimary
+                            onClick={() => onSaveProject().then(() => closeSaveModal())}
+                            disabled={isSaving}
+                        >
+                            Speichern
+                        </ButtonPrimary>
+                    </Box>
+                    <Box direction="row" justifyContent="center" style={{ display: 'flex' }}>
+                        <ProjectSaver>{(downloadProject) =>
+                            <ButtonPrimary className={styles.saveModalDownload} onClick={downloadProject}>
+                                Projekt herunterladen
                             </ButtonPrimary>
-                        </Box>
-                        <Box direction="row" justifyContent="center" style={{ display: 'flex' }}>
-                            <ProjectSaver>{(downloadProject) =>
-                                <ButtonPrimary className={styles.saveModalDownload} onClick={downloadProject}>
-                                    Projekt herunterladen
-                                </ButtonPrimary>
-                            }</ProjectSaver>
-                            <SBFileUploader onSuccess={closeSaveModal}>{(_, renderFileInput, handleClick) => (
-                                <ButtonPrimary className={styles.saveModalDownload} onClick={handleClick}>
-                                    Projekt hochladen
-                                    {renderFileInput()}
-                                </ButtonPrimary>
-                            )}</SBFileUploader>
-                        </Box>
+                        }</ProjectSaver>
+                        <SBFileUploader onSuccess={closeSaveModal}>{(_, renderFileInput, handleClick) => (
+                            <ButtonPrimary className={styles.saveModalDownload} onClick={handleClick}>
+                                Projekt hochladen
+                                {renderFileInput()}
+                            </ButtonPrimary>
+                        )}</SBFileUploader>
                     </Box>
                 </ModalComponent>
                 : null

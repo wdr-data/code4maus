@@ -304,10 +304,6 @@ $fade-out-distance: 15px;
     margin-top: 0;
 }
 
-.save-modal {
-    max-width: 500px;
-}
-
 .save-modal-box {
     padding: 2rem;
     background-image: url('../menu/bg_blue@1x.png');

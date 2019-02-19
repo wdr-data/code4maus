@@ -1,5 +1,6 @@
 @import "../../css/colors.css";
 @import "../../css/units.css";
+@import "../../css/typography.css";
 
 .modal-overlay {
     position: fixed;
@@ -9,16 +10,17 @@
     bottom: 0;
     z-index: 1000;
     background-color: $ui-modal-overlay;
+    display: flex;
 }
 
-.modal-content * {
+.modal-wrapper * {
     box-sizing: border-box;
 }
 
-.modal-content {
+.modal-wrapper {
     margin: 100px auto;
     outline: none;
-    padding: 0;
+    padding: 2rem;
     user-select: none;
 
     font-family: 'Titillium Web';
@@ -26,7 +28,7 @@
     overflow: hidden;
 }
 
-.modal-content.full-screen {
+.modal-wrapper.full-screen {
     position: absolute;
 
     display: flex;
@@ -116,4 +118,11 @@ $sides: 20rem;
 .back-button {
     font-weight: normal;
     padding-left: 0;
+}
+
+.content {
+    padding: 2rem;
+    background-image: url('../menu/bg_blue@1x.png');
+    display: flex;
+    flex-direction: column;
 }
