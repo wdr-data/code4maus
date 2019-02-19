@@ -27,7 +27,7 @@ slides:
   - asset: 10.png
     caption: "Abfrage: Ist es schon drin?"
   - asset: 11.png
-    caption: "Ziehe enthält 'Antwort' rein"
+    caption: "Ziehe 'enthält Antwort' rein"
   - asset: start.png
     caption: "Teste noch mal"
   - asset: 12.png
@@ -39,7 +39,7 @@ slides:
   - asset: 16.png
     caption: Neues Programm für die Zeit
   - asset: 14.png
-    caption: Setze 'Zeit' auf 30 (Sekunden)
+    caption: Setze 'Zeit' auf 30
   - asset: 17.png
     caption: Wiederhole bis ...
   - asset: 18.png
@@ -47,9 +47,9 @@ slides:
   - asset: 19.png
     caption: Jede Sekunde eins weniger
   - asset: 20.png
-    caption: Am Ende Nachricht senden
+    caption: "Am Ende: Nachricht senden"
   - asset: x04.png
-    caption: Nenne die neue Nachricht 'Ende'
+    caption: Neue Nachricht 'Ende' erstellen
   - asset: 21.png
     caption: Zum Schluss 'Boing' abspielen
   - asset: 23.png
@@ -60,6 +60,8 @@ slides:
     caption: "'Verbinde'-Operator reinziehen"
   - asset: 26.png
     caption: "Text eingeben"
+  - asset: 27.png
+    caption: "Komplett:"
   - asset: start.png
     caption: "Teste noch mal"
   - asset: herz.png
