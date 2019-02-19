@@ -32,6 +32,10 @@ slides:
     caption: "⬅ Jetzt Du:"
   - asset: x03.png
     caption: "⬅ Ändere, wie du magst:"
+  - asset: peek.gif
+    caption: "Wenn Dir etwas zu klein ist:"
+  - asset: vergroessern.png
+    caption: Vergößere und verkleinere mit der Lupe
   - asset: 001.png
   - asset: gut_gemacht.png
   - asset: herz.png
