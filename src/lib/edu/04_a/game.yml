@@ -1,44 +1,95 @@
 ---
 
 slides:
+  - asset: 00.png
   - asset: 01.png
+    caption: "Neue Figur 'Ente' hinzufügen"
+  - asset: 01.png
+    caption: "Figur 'Maus' löschen"
   - asset: 02.png
+    caption: "Klicke auf 'Neue Liste'"
+  - asset: x01.png
+    caption: "Gib 'Wörter' als Name ein"
+  - asset: x02.png
+    caption: "Baue das Abfrage-Programm"
   - asset: 03.png
-  - asset: 04.png
+    caption: "Füge 'Antwort' hinzu"
   - asset: 05.png
-  - asset: 06.png
-  - asset: 07.png
+    caption: "Ändere den Frage-Text"
+  - asset: start.png
+    caption: "Teste dein Spiel"
+  - asset: x03.png
+    caption: Noch sind Doppelte möglich
   - asset: 08.png
+    caption: Setze ein 'Falls-Dann' ein
   - asset: 09.png
+    caption: Ziehe ein 'nicht' dazu
   - asset: 10.png
+    caption: "Abfrage: Ist es schon drin?"
   - asset: 11.png
+    caption: "Ziehe enthält 'Antwort' rein"
+  - asset: start.png
+    caption: "Teste noch mal"
   - asset: 12.png
+    caption: "Keine Doppelten mehr möglich"
+  - asset: gut_gemacht.png
+    caption: "Jetzt kommt mehr Spannung..."
   - asset: 13.png
-  - asset: 14.png
-  - asset: 15.png
+    caption: "Erstelle die Variable 'Zeit'"
   - asset: 16.png
+    caption: Neues Programm für die Zeit
+  - asset: 14.png
+    caption: Setze 'Zeit' auf 30 (Sekunden)
   - asset: 17.png
+    caption: Wiederhole bis ...
   - asset: 18.png
+    caption: ... Zeit gleich null ist
   - asset: 19.png
+    caption: Jede Sekunde eins weniger
   - asset: 20.png
+    caption: Am Ende Nachricht senden
+  - asset: x04.png
+    caption: Nenne die neue Nachricht 'Ende'
   - asset: 21.png
-  - asset: 22.png
+    caption: Zum Schluss 'Boing' abspielen
   - asset: 23.png
+    caption: Mache ein drittes Programm
   - asset: 24.png
+    caption: Wie viele Wörter sind drin?
   - asset: 25.png
+    caption: "'Verbinde'-Operator reinziehen"
   - asset: 26.png
+    caption: "Text eingeben"
+  - asset: start.png
+    caption: "Teste noch mal"
+  - asset: herz.png
+    caption: Gut! Aber immer nur 'E'?
   - asset: 28.png
+    caption: "Neue Variable 'A-Z'"
   - asset: 29.png
+    caption: Im ersten Programm hinzufügen
   - asset: 30.png
+    caption: Nutze 'Zeichen von'
   - asset: 31.png
+    caption: Um zufällig auszuwählen ...
   - asset: 32.png
+    caption: ... ein Zeichen aus dem A-Z
+  - asset: start.png
+    caption: "Fast fertig."
   - asset: 33.png
-  - asset: 34.png
+    caption: Nur doppelte Wörter prüfen?
   - asset: 35.png
+    caption: "Zwei Bedingungen sollen gelten:"
   - asset: 36.png
+    caption: Nicht doppelt ...
   - asset: 37.png
+    caption: Nutze den 'gleich'-Operator
   - asset: 38.png
+    caption: Und den 'Zeichen von'-Operator
   - asset: 39.png
+    caption: Stimmt der erste Buchstabe?
+  - asset: gut_gemacht.png
+    caption: Viel Spaß mit Stadt-Land-Ente!
 
 blocks:
   - category: motion
@@ -98,6 +149,8 @@ blocks:
   - category: sensing
     blocks:
       - touchingobject
+      - askandwait
+      - answer
       - --
       - mousedown
       - mousex
