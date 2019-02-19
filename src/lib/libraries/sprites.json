@@ -721,7 +721,7 @@
         "md5": "7ad6b9346d46a0f0aae8e27606e67140.svg",
         "type": "sprite",
         "tags": [
-            "ente",
+            "maus",
             "weltall"
         ],
         "info": [
@@ -1260,7 +1260,10 @@
         "name": "Weltall2",
         "md5": "c23337cf4a1b13e08d3060fdd7b4a493.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": [
+            "elefant",
+            "weltall"
+        ],
         "info": [
             0,
             3,
@@ -1335,7 +1338,10 @@
         "name": "Weltall3",
         "md5": "0fc3aae88262d7fb73b50438d4ae53bf.svg",
         "type": "sprite",
-        "tags": [],
+        "tags": [
+            "ente",
+            "weltall"
+        ],
         "info": [
             0,
             3,
