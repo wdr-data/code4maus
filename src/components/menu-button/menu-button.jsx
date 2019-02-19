@@ -48,9 +48,22 @@ const MenuButtonComponent = ({
         );
     }
 
+    if (!linkTo) {
+        return (
+            <a
+                className={buttonClassName}
+                onClick={onClick}
+                {...props}
+            >
+                {icon}
+                <div className={styles.content}>{children}</div>
+            </a>
+        );
+    }
+
     return (
         <Link
-            href={linkTo || '#'}
+            href={linkTo}
             className={buttonClassName}
             onClick={onClick}
             {...props}
