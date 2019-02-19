@@ -2,3 +2,6 @@
   Command = "yarn build:netlify"
   Functions = "lambda"
   Publish = "build"
+
+[build.environment]
+  NODE_ENV = "production"
