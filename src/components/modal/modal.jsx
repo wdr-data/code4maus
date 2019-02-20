@@ -17,6 +17,7 @@ const ModalComponent = (props) =>
         isOpen
         className={classNames(styles.modalWrapper, props.className, {
             [styles.fullScreen]: props.fullScreen,
+            [styles.styleOrange]: props.style === 'orange',
         })}
         contentLabel={props.contentLabel}
         overlayClassName={styles.modalOverlay}
@@ -73,6 +74,11 @@ ModalComponent.propTypes = {
     fullScreen: PropTypes.bool,
     headerClassName: PropTypes.string,
     onRequestClose: PropTypes.func,
+    style: PropTypes.oneOf([ 'orange', 'blue' ]),
+};
+
+ModalComponent.defaultProps = {
+    style: 'blue',
 };
 
 export default ModalComponent;

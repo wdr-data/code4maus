@@ -75,6 +75,9 @@ $sides: 20rem;
     font-size: 1rem;
     font-weight: normal;
 }
+.style-orange .header {
+    background-image: url(../gui/bg_orange@1x.png);
+}
 
 .header-item {
     display: flex;
@@ -125,11 +128,19 @@ $sides: 20rem;
 
 .content {
     padding: 2rem;
+
     background-image: url('../menu/bg_blue@1x.png');
+    background-attachment: fixed;
+
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
 }
 .full-screen .content {
     padding: 0;
     flex-grow: 1;
+}
+.style-orange .content {
+    background-image: url(../gui/bg_lightorange.png);
 }
