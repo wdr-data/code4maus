@@ -1,7 +1,4 @@
 [build]
-  Command = "yarn build:netlify"
+  Command = "NODE_ENV=production yarn build:netlify"
   Functions = "lambda"
   Publish = "build"
-
-[build.environment]
-  NODE_ENV = "production"
