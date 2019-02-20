@@ -5,7 +5,6 @@ import { push } from 'redux-little-router';
 
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
-import ButtonPrimary from '../button-primary/button-primary.jsx';
 import styles from './edu-stage.css';
 import fullScreenIcon from '../../../assets/blocks-media/zoom-in.svg';
 import unFullScreenIcon from '../../../assets/blocks-media/zoom-out.svg';
@@ -27,6 +26,7 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
                 <Button
                     className={styles.fullscreenButton}
                     onClick={props.toggleFullscreen}
+                    outlined
                 >
                     <img
                         className={styles.fullscreenButtonIcon}
@@ -40,21 +40,21 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
                 style={{ backgroundImage: `url(/edu/${props.gameId}/assets/${props.imageSrc})` }}
             />
             <Box className={styles.eduFooter}>
-                <ButtonPrimary
+                <Button
                     className={styles.backButton}
                     arrowLeft grey={props.slideIndex === 0}
                     onClick={props.previousSlide}
                 >
                     Zurück
-                </ButtonPrimary>
+                </Button>
                 <p>{props.slideIndex + 1}/{props.slideCount}</p>
-                <ButtonPrimary
+                <Button
                     className={styles.forwardButton}
                     arrowRight wiggle={props.slideIndex === 0}
                     onClick={props.nextSlide}
                 >
                     {!props.linkNextGame ? 'Weiter' : 'Nächstes Lernspiel'}
-                </ButtonPrimary>
+                </Button>
             </Box>
         </Box>
     </React.Fragment>

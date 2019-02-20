@@ -121,11 +121,6 @@ $sides: 20rem;
     justify-content: flex-start;
 }
 
-.back-button {
-    font-weight: normal;
-    padding-left: 0;
-}
-
 .content {
     padding: 2rem;
 
