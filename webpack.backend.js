@@ -1,7 +1,7 @@
 /* eslint-disable import/no-commonjs */
 const slsw = require('serverless-webpack');
 
-require('dotenv').config({ silent: true });
+require('dotenv').config({ silent: true, path: '.env.backend' });
 
 module.exports = {
     entry: slsw.lib.entries,

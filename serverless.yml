@@ -162,6 +162,8 @@ plugins:
 custom:
   appBucketName: ${self:service}-app-${file(scripts/env.js):stage}
   projectBucketName: ${self:service}-projects-${file(scripts/env.js):bucketSuffix}
+  dotenv:
+    path: .env.backend
   webpack:
     webpackConfig: 'webpack.backend.js'
     packager: 'yarn'

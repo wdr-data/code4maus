@@ -24,6 +24,7 @@ npm-*
 
 # Local config
 .env
+.env.backend
 
 # External assets
 /assets/

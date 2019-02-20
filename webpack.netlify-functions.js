@@ -2,7 +2,7 @@
 const webpack = require('webpack');
 const fs = require('fs');
 const path = require('path');
-require('dotenv').config({ silent: true });
+require('dotenv').config({ silent: true, path: '.env.backend' });
 
 const bucketSuffix = process.env.BRANCH === 'production' ? 'prod' : 'staging';
 const bucket = `${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}`;
