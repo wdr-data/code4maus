@@ -157,8 +157,10 @@ const ProjectSaveHOC = (WrappedComponent) => {
             }
 
             this.props.dispatch(setProjectName(this.state.nameInput));
-            this.props.dispatch(setProjectId(resObj.id));
-            this.props.dispatch(push(projectUrl(resObj.id)));
+            if (this.props.routeProject !== resObj.id) {
+                this.props.dispatch(setProjectId(resObj.id));
+                this.props.dispatch(push(projectUrl(resObj.id)));
+            }
         }
         cancelSave() {
             if (!this.isSaving) {
