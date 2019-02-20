@@ -34,3 +34,6 @@ npm-*
 
  # Yarn
 yarn-error.log
+
+# GH Pages
+.patternlib
