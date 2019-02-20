@@ -21,7 +21,6 @@ import SBFileUploader from '../../containers/sb-file-uploader.jsx';
 
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
-import ButtonPrimary from '../button-primary/button-primary.jsx';
 import EduStage from '../edu-stage/edu-stage.jsx';
 import Input from '../forms/input.jsx';
 import Loader, { Spinner } from '../loader/loader.jsx';
@@ -111,24 +110,24 @@ const GUIComponent = (props) => {
                     <Input placeholder="Hier eintippen, wie dein Spiel heißen soll" onChange={(e) => onProjectNameChange(e.target.value)} value={projectName} />
                     <Box className={styles.saveModalActions}>
                         <p>{saveProjectError}</p>
-                        <ButtonPrimary
+                        <Button
                             onClick={() => onSaveProject().then(() => closeSaveModal())}
                             disabled={isSaving}
                         >
                             Speichern
-                        </ButtonPrimary>
+                        </Button>
                     </Box>
                     <Box direction="row" justifyContent="center" style={{ display: 'flex' }}>
                         <ProjectSaver>{(downloadProject) =>
-                            <ButtonPrimary className={styles.saveModalDownload} onClick={downloadProject}>
+                            <Button className={styles.saveModalDownload} onClick={downloadProject}>
                                 Projekt herunterladen
-                            </ButtonPrimary>
+                            </Button>
                         }</ProjectSaver>
                         <SBFileUploader onSuccess={closeSaveModal}>{(_, renderFileInput, handleClick) => (
-                            <ButtonPrimary className={styles.saveModalDownload} onClick={handleClick}>
+                            <Button className={styles.saveModalDownload} onClick={handleClick}>
                                 Projekt hochladen
                                 {renderFileInput()}
-                            </ButtonPrimary>
+                            </Button>
                         )}</SBFileUploader>
                     </Box>
                 </ModalComponent>
@@ -266,6 +265,7 @@ const GUIComponent = (props) => {
                                     <Button
                                         onClick={onLayoutModeClick}
                                         className={styles.layoutSwitcher}
+                                        outlined
                                     >
                                         <img
                                             alt="Coding Area vergrößern"

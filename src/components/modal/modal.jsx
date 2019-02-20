@@ -40,9 +40,9 @@ const ModalComponent = (props) =>
             >
                 {props.fullScreen ?
                     <Button
-                        className={styles.backButton}
                         iconSrc={backIcon}
                         onClick={props.onRequestClose}
+                        outlined
                     >
                         <FormattedMessage
                             defaultMessage="Back"

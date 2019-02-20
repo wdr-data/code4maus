@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Box from '../box/box.jsx';
-import ButtonPrimary from '../button-primary/button-primary.jsx';
+import Button from '../button/button.jsx';
 import { NEXT_STEP, customOffsets } from '../../lib/onboarding/config';
 
 import styles from './onboarding-overlay.css';
@@ -110,14 +110,14 @@ const OnboardingOverlayComponent = React.forwardRef((props, ref) => {
                 {props.buttons.length > 0 &&
                     <div className={styles.buttons}>
                         {props.buttons.map((button) =>
-                            <ButtonPrimary
+                            <Button
                                 key={button.text}
                                 arrowRight={button.action === NEXT_STEP}
                                 onClick={props.buttonClickFactory(button.action)}
                                 className={styles.button}
                             >
                                 {button.text}
-                            </ButtonPrimary>
+                            </Button>
                         )}
                     </div>
                 }
