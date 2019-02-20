@@ -22,6 +22,9 @@
     outline: none;
     user-select: none;
 
+    display: flex;
+    flex-direction: column;
+
     font-family: 'Titillium Web';
     color: $text-primary;
     overflow: hidden;
@@ -63,6 +66,7 @@ $sides: 20rem;
     justify-content: flex-start;
     height: $library-header-height;
 
+    flex-shrink: 0;
     box-sizing: border-box;
     width: 100%;
     background-image: url(../gui/bg_darkblue@1x.png);
@@ -127,4 +131,5 @@ $sides: 20rem;
 }
 .full-screen .content {
     padding: 0;
+    flex-grow: 1;
 }
