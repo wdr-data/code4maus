@@ -42,6 +42,10 @@
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^4.1.12",
+    "@storybook/addon-links": "^4.1.12",
+    "@storybook/addons": "^4.1.12",
+    "@storybook/react": "^4.1.12",
     "@types/node": "^10.12.19",
     "@wdr-data/scratch-blocks": "^0.1.7",
     "@wdr-data/scratch-vm": "0.2.0-minimal-4",
@@ -153,11 +157,7 @@
     "webpack-dev-server": "^3.1.10",
     "webpack-visualizer-plugin": "^0.1.11",
     "xhr": "^2.5.0",
-    "yarn": "^1.9.4",
-    "@storybook/react": "^4.1.12",
-    "@storybook/addon-actions": "^4.1.12",
-    "@storybook/addon-links": "^4.1.12",
-    "@storybook/addons": "^4.1.12"
+    "yarn": "^1.9.4"
   },
   "jest": {
     "setupFiles": [
