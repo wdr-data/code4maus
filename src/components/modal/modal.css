@@ -125,3 +125,6 @@ $sides: 20rem;
     display: flex;
     flex-direction: column;
 }
+.full-screen .content {
+    padding: 0;
+}
