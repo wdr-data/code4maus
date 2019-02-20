@@ -11,6 +11,11 @@ const ButtonComponent = ({
     iconSrc,
     onClick,
     children,
+    arrowLeft,
+    arrowRight,
+    grey,
+    wiggle,
+    outlined,
     ...props
 }) => {
     if (disabled) {
@@ -25,20 +30,26 @@ const ButtonComponent = ({
         />
     ;
 
-    return (
-        <button
-            className={classNames(
-                styles.outlinedButton,
-                className,
-            )}
-            disabled={disabled}
-            onClick={onClick}
-            {...props}
-        >
-            {icon}
-            <span className={styles.content}>{children}</span>
-        </button>
-    );
+    return <button
+        className={classNames(
+            styles.button,
+            {
+                [styles.arrowLeft]: arrowLeft,
+                [styles.arrowRight]: arrowRight,
+                [styles.disabled]: disabled,
+                [styles.grey]: grey,
+                [styles.wiggle]: wiggle,
+                [styles.outlined]: outlined,
+            },
+            className,
+        )}
+        disabled={disabled}
+        onClick={onClick}
+        {...props}
+    >
+        {icon}
+        <span className={styles.content}>{children}</span>
+    </button>;
 };
 
 ButtonComponent.propTypes = {
@@ -48,6 +59,11 @@ ButtonComponent.propTypes = {
     iconClassName: PropTypes.string,
     iconSrc: PropTypes.string,
     onClick: PropTypes.func,
+    arrowLeft: PropTypes.bool,
+    arrowRight: PropTypes.bool,
+    grey: PropTypes.bool,
+    wiggle: PropTypes.bool,
+    outlined: PropTypes.bool,
 };
 
 export default ButtonComponent;

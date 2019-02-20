@@ -58,6 +58,7 @@ const FullscreenComponent = (props) => {
                 className={styles.stageButtonFullscreen}
                 onClick={onSetStageUnFull}
                 onKeyPress={onKeyPress}
+                outlined
             >
                 <img
                     alt={props.intl.formatMessage(messages.unFullStageSizeMessage)}
@@ -72,6 +73,7 @@ const FullscreenComponent = (props) => {
             <Button
                 className={styles.stageButton}
                 onClick={onSetStageFull}
+                outlined
             >
                 <img
                     alt={props.intl.formatMessage(messages.fullStageSizeMessage)}

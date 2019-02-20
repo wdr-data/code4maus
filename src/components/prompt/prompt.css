@@ -31,19 +31,6 @@
     text-align: right;
 }
 
-.button-row button {
-    padding: 0.75rem 1rem;
-    color: white;
-    background: #da632a;
-    font-weight: 600;
-    font-size: 0.85rem;
-    border: none;
-}
-
-.button-row button.ok-button {
-    background: #3277a0
-}
-
 .button-row button + button {
     margin-left: 0.5rem;
 }
