@@ -1,17 +1,5 @@
 @import "../../css/colors.css";
 
-.style-blue {
-    background: url(../gui/bg_header@1x.png);
-}
-
-.style-orange {
-    background-image: url(../gui/bg_lightorange.png);
-}
-
-.style-orange .header {
-    background-image: url(../gui/bg_orange@1x.png);
-}
-
 .wrapper {
     max-width: 50rem;
     background: white;
@@ -20,7 +8,7 @@
     user-select: text;
 }
 
-.split-sections .wrapper {
+.wrapper.split-sections {
     background: none;
     box-shadow: none;
 }

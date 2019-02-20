@@ -10,11 +10,17 @@ const ContentWrapper = ({ children, backToHome, style, title, splitSections }) =
     <Modal
         fullScreen
         contentLabel={title}
-        className={classNames(styles.page, styles[`style-${style}`], { [styles.splitSections]: splitSections })}
         headerClassName={styles.header}
         onRequestClose={backToHome}
+        style={style}
     >
-        <div className={styles.wrapper}>{children}</div>
+        <div className={classNames(
+            styles.wrapper,
+            styles[`style-${style}`],
+            { [styles.splitSections]: splitSections }
+        )}>
+            {children}
+        </div>
     </Modal>
 );
 
