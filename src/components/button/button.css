@@ -1,33 +1,20 @@
-.button.outlined {
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: .75rem;
-    margin: 0;
-    user-select: none;
-    border: none;
-    background: none !important;
-    color: white;
-}
-
-.icon {
-    margin-right: .5rem;
-    height: 1.5rem;
-}
-
-.content {
-    white-space: nowrap;
-    font-weight: bold;
-    font-size: 1rem;
-}
-
 .button {
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
     background: url(../gui/bg_orange@1x.png) no-repeat;
     color: white;
     padding: .5rem 1.5rem;
     position: relative;
     border: none;
+}
+
+.button.outlined {
+    padding: .75rem;
+    margin: 0;
+    user-select: none;
+    background: none !important;
 }
 
 .button.grey {
@@ -83,4 +70,15 @@
     background: url(./bg-grey.png) no-repeat;
     cursor: not-allowed;
     color: #ccc;
+}
+
+.icon {
+    margin-right: .5rem;
+    height: 1.5rem;
+}
+
+.content {
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 1rem;
 }
