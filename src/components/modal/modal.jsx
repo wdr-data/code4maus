@@ -22,49 +22,44 @@ const ModalComponent = (props) =>
         overlayClassName={styles.modalOverlay}
         onRequestClose={props.onRequestClose}
     >
-        <Box
-            direction="column"
-            grow={1}
-        >
-            <div className={classNames(styles.header, props.headerClassName)}>
-                <div
-                    className={classNames(
-                        styles.headerItem,
-                        styles.headerItemTitle
-                    )}
-                >
-                    {props.contentLabel}
-                </div>
-                <div
-                    className={classNames(
-                        styles.headerItem,
-                        styles.headerItemClose
-                    )}
-                >
-                    {props.fullScreen ?
-                        <Button
-                            className={styles.backButton}
-                            iconSrc={backIcon}
-                            onClick={props.onRequestClose}
-                        >
-                            <FormattedMessage
-                                defaultMessage="Back"
-                                description="Back button in modal"
-                                id="gui.modal.back"
-                            />
-                        </Button>
-                        :
-                        <CloseButton
-                            size={CloseButton.SIZE_LARGE}
-                            onClick={props.onRequestClose}
+        <div className={classNames(styles.header, props.headerClassName)}>
+            <div
+                className={classNames(
+                    styles.headerItem,
+                    styles.headerItemTitle
+                )}
+            >
+                {props.contentLabel}
+            </div>
+            <div
+                className={classNames(
+                    styles.headerItem,
+                    styles.headerItemClose
+                )}
+            >
+                {props.fullScreen ?
+                    <Button
+                        className={styles.backButton}
+                        iconSrc={backIcon}
+                        onClick={props.onRequestClose}
+                    >
+                        <FormattedMessage
+                            defaultMessage="Back"
+                            description="Back button in modal"
+                            id="gui.modal.back"
                         />
-                    }
-                </div>
+                    </Button>
+                    :
+                    <CloseButton
+                        size={CloseButton.SIZE_LARGE}
+                        onClick={props.onRequestClose}
+                    />
+                }
             </div>
-            <div className={styles.content}>
-                {props.children}
-            </div>
-        </Box>
+        </div>
+        <div className={styles.content}>
+            {props.children}
+        </div>
     </ReactModal>
 ;
 
