@@ -7,6 +7,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Box from '../box/box.jsx';
+import Button from '../button/button.jsx';
 
 import styles from './crash-message.css';
 import reloadIcon from './reload.svg';
@@ -24,12 +25,12 @@ const CrashMessage = (props) =>
             <p>
                 "Programmieren mit der Maus" hat aufgehört, zu funktionieren. Bitte lade die Seite neu, um es noch einmal zu versuchen.
             </p>
-            <button
-                className={styles.reloadButton}
+            <Button
+                primary
                 onClick={props.onReload}
             >
                 Neu laden
-            </button>
+            </Button>
         </Box>
     </div>
 ;
