@@ -7,15 +7,22 @@ storiesOf('Button', module)
         <Button />
     ))
     .add('primary', () => (
-        <Button primary='true'></Button>
+        <Button style='primary'>
+            <span>Hier könnte ihr Text stehen</span>
+        </Button>
     ))
     .add('secondary', () => (
-        <Button secondary='true'></Button>
+        <Button style='secondary'>
+            <span>Hier könnte ihr Text stehen</span>
+        </Button>
     ))
     .add('wiggle', () => (
-        <Button wiggle='true' primary='true'></Button>
+        <Button wiggle style='primary'>
+            <span>Hier könnte ihr Text stehen</span>
+        </Button>
     ))
     .add('disabled', () => (
-        <Button disabled='true'>
+        <Button disabled>
+            <span>Hier könnte ihr Text stehen</span>
         </Button>
     ));
