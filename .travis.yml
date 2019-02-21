@@ -43,11 +43,11 @@ deploy:
     script: SLS_STAGE=prod yarn deploy
     on:
       branch: production
-#   - provider: script
-#     skip-cleanup: true
-#     script: yarn deploy:patternlib
-#     on:
-#       branch: develop
+  - provider: script
+    skip-cleanup: true
+    script: yarn deploy:patternlib
+    on:
+      branch: develop
 
 notifications:
   slack:
