@@ -66,24 +66,6 @@ module.exports = {
                     // Explicitly disable babelrc so we don't catch various config
                     // in much lower dependencies.
                     babelrc: false,
-                    plugins: [
-                        'syntax-dynamic-import',
-                        'transform-async-to-generator',
-                        'transform-object-rest-spread',
-                        [
-                            'react-intl', {
-                                messagesDir: './translations/messages/',
-                            },
-                        ],
-                    ],
-                    presets: [
-                        [
-                            'env', { targets: {
-                                browsers: [ 'last 3 versions', 'Safari >= 8', 'iOS >= 8' ],
-                            } },
-                        ],
-                        'react',
-                    ],
                 },
             },
             {
