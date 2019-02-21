@@ -13,9 +13,9 @@ const ButtonComponent = ({
     children,
     arrowLeft,
     arrowRight,
-    grey,
+    primary,
+    secondary,
     wiggle,
-    outlined,
     ...props
 }) => {
     if (disabled) {
@@ -37,9 +37,9 @@ const ButtonComponent = ({
                 [styles.arrowLeft]: arrowLeft,
                 [styles.arrowRight]: arrowRight,
                 [styles.disabled]: disabled,
-                [styles.grey]: grey,
+                [styles.primary]: primary,
+                [styles.secondary]: secondary,
                 [styles.wiggle]: wiggle,
-                [styles.outlined]: outlined,
             },
             className,
         )}
@@ -61,9 +61,9 @@ ButtonComponent.propTypes = {
     onClick: PropTypes.func,
     arrowLeft: PropTypes.bool,
     arrowRight: PropTypes.bool,
-    grey: PropTypes.bool,
+    primary: PropTypes.bool,
+    secondary: PropTypes.bool,
     wiggle: PropTypes.bool,
-    outlined: PropTypes.bool,
 };
 
 export default ButtonComponent;

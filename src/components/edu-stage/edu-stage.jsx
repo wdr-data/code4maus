@@ -41,16 +41,14 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
             />
             <Box className={styles.eduFooter}>
                 <Button
-                    className={styles.backButton}
-                    arrowLeft grey={props.slideIndex === 0}
+                    arrowLeft primary disabled={props.slideIndex === 0}
                     onClick={props.previousSlide}
                 >
                     Zurück
                 </Button>
                 <p>{props.slideIndex + 1}/{props.slideCount}</p>
                 <Button
-                    className={styles.forwardButton}
-                    arrowRight wiggle={props.slideIndex === 0}
+                    arrowRight primary wiggle={props.slideIndex === 0}
                     onClick={props.nextSlide}
                 >
                     {!props.linkNextGame ? 'Weiter' : 'Nächstes Lernspiel'}
