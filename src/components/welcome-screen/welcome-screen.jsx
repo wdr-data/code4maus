@@ -17,10 +17,10 @@ const WelcomeScreenComponent = (props) => (
                 Viel Spaß!
                 </p>
                 <div className={styles.buttonWrapper}>
-                    <Button className={styles.button} onClick={props.onIntroClick}>
+                    <Button primary onClick={props.onIntroClick}>
                         Lernen, wie es geht
                     </Button>
-                    <Button className={styles.button} onClick={props.onMenuClick}>
+                    <Button primary onClick={props.onMenuClick}>
                         Zur Übersicht
                     </Button>
                 </div>

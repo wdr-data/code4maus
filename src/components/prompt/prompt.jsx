@@ -26,7 +26,7 @@ const PromptComponent = (props) =>
         />
         <Box className={styles.buttonRow}>
             <Button
-                grey
+                secondary
                 onClick={props.onCancel}
             >
                 <FormattedMessage
@@ -36,6 +36,7 @@ const PromptComponent = (props) =>
                 />
             </Button>
             <Button
+                primary
                 onClick={props.onOk}
             >
                 <FormattedMessage

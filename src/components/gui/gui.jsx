@@ -111,6 +111,7 @@ const GUIComponent = (props) => {
                     <Box className={styles.saveModalActions}>
                         <p>{saveProjectError}</p>
                         <Button
+                            primary
                             onClick={() => onSaveProject().then(() => closeSaveModal())}
                             disabled={isSaving}
                         >
@@ -119,12 +120,20 @@ const GUIComponent = (props) => {
                     </Box>
                     <Box direction="row" justifyContent="center" style={{ display: 'flex' }}>
                         <ProjectSaver>{(downloadProject) =>
-                            <Button className={styles.saveModalDownload} onClick={downloadProject}>
+                            <Button
+                                secondary
+                                className={styles.saveModalDownload}
+                                onClick={downloadProject}
+                            >
                                 Projekt herunterladen
                             </Button>
                         }</ProjectSaver>
                         <SBFileUploader onSuccess={closeSaveModal}>{(_, renderFileInput, handleClick) => (
-                            <Button className={styles.saveModalDownload} onClick={handleClick}>
+                            <Button
+                                secondary
+                                className={styles.saveModalDownload}
+                                onClick={handleClick}
+                            >
                                 Projekt hochladen
                                 {renderFileInput()}
                             </Button>
