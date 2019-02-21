@@ -274,7 +274,6 @@ const GUIComponent = (props) => {
                                     <Button
                                         onClick={onLayoutModeClick}
                                         className={styles.layoutSwitcher}
-                                        outlined
                                     >
                                         <img
                                             alt="Coding Area vergrößern"

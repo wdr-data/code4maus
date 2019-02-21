@@ -13,8 +13,7 @@ const ButtonComponent = ({
     children,
     arrowLeft,
     arrowRight,
-    primary,
-    secondary,
+    style,
     wiggle,
     ...props
 }) => {
@@ -37,8 +36,8 @@ const ButtonComponent = ({
                 [styles.arrowLeft]: arrowLeft,
                 [styles.arrowRight]: arrowRight,
                 [styles.disabled]: disabled,
-                [styles.primary]: primary,
-                [styles.secondary]: secondary,
+                [styles.primary]: style === 'primary',
+                [styles.secondary]: style === 'secondary',
                 [styles.wiggle]: wiggle,
             },
             className,
@@ -61,8 +60,7 @@ ButtonComponent.propTypes = {
     onClick: PropTypes.func,
     arrowLeft: PropTypes.bool,
     arrowRight: PropTypes.bool,
-    primary: PropTypes.bool,
-    secondary: PropTypes.bool,
+    style: PropTypes.oneOf([ 'primary', 'secondary' ]),
     wiggle: PropTypes.bool,
 };
 
