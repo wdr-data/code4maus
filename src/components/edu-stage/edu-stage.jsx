@@ -26,7 +26,6 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
                 <Button
                     className={styles.fullscreenButton}
                     onClick={props.toggleFullscreen}
-                    outlined
                 >
                     <img
                         className={styles.fullscreenButtonIcon}
