@@ -1,0 +1,110 @@
+---
+
+slides:
+  - asset: 00.png
+  - asset: L00.png
+    caption: "Willkommen! Drücke 'Weiter'"
+  - asset: x01.png
+    caption: "Mache Kunst mit Maus & Code"
+  - asset: 01.png
+    caption: Ziehe Blöcke in die Mitte
+  - asset: 02.png
+    caption: "Baue dieses Programm:"
+  - asset: start.png
+    caption: Drücke auf Start
+  - asset: 03.png
+    caption: Ändere die Grad-Zahl
+  - asset: start.png
+    caption: "Was verändert sich?"
+  - asset: 04.png
+    caption: Füge Schritt hinzu
+  - asset: start.png
+    caption: Teste noch einmal
+  - asset: 05.png
+    caption: "Unter Aussehen: 'Nächstes Kostüm'"
+  - asset: 06.png
+
+blocks:
+  - category: motion
+    blocks:
+      - movesteps
+      - turnright
+      - turnleft
+      - --
+      - goto
+      - gotoxy
+      - glideto
+      - glidesecstoxy
+      - --
+      - changexby
+      - setx
+      - changeyby
+      - sety
+  - category: looks
+    blocks:
+      - switchcostumeto
+      - nextcostume
+      - --
+      - changesizeby
+      - setsizeto
+      - --
+      - show
+      - hide
+      - --
+      - size
+  - category: sound
+    blocks:
+      - playuntildone
+  - category: events
+    blocks:
+      - whenflagclicked
+      - whenthisspriteclicked
+      - --
+      - whenbroadcastreceived
+      - broadcast
+      - broadcastandwait
+  - category: control
+    blocks:
+      - wait
+      - repeat
+      - forever
+      - --
+      - if
+      - if_else
+      - wait_until
+      - repeat_until
+      - --
+      - stop
+      - --
+      - start_as_clone
+      - create_clone_of
+      - delete_this_clone
+  - category: sensing
+    blocks:
+      - touchingobject
+      - askandwait
+      - answer
+      - --
+      - mousedown
+      - mousex
+      - mousey
+      - setdragmode
+      - --
+      - timer
+      - resettimer
+      - --
+      - of
+      - --
+      - current
+  - category: operators
+    blocks:
+      - random
+      - --
+      - gt
+      - lt
+      - equals
+      - --
+      - and
+      - or
+      - not
+  - category: variables
