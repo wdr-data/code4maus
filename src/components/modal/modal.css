@@ -134,12 +134,11 @@ $sides: 20rem;
 
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    flex-shrink: 0;
 }
 .full-screen .content {
     padding: 0;
     flex-grow: 1;
+    flex-shrink: 0;
 }
 .style-orange .content {
     background-image: url(../gui/bg_lightorange.png);
