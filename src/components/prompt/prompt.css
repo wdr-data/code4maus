@@ -28,7 +28,8 @@
 
 .button-row {
     font-weight: bolder;
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .button-row button + button {
