@@ -4,7 +4,9 @@ import Button from './button.jsx';
 
 storiesOf('Button', module)
     .add('default', () => (
-        <Button />
+        <Button>
+            <span>Hier könnte ihr Text stehen</span>
+        </Button>
     ))
     .add('primary', () => (
         <Button style='primary'>
