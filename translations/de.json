@@ -95,7 +95,7 @@
   "gui.previewInfo.previewfaq": "To learn more, go to the {previewFaqLink}.",
   "gui.previewInfo.previewfaqlink": "Preview FAQ",
   "gui.gui.variablePrompt": "More Options",
-  "gui.prompt.cancel": "Cancel",
+  "gui.prompt.cancel": "Zurück",
   "gui.prompt.ok": "OK",
   "gui.playbackStep.stopMsg": "Stopp",
   "gui.playbackStep.playMsg": "Abspielen",
