@@ -1,0 +1,57 @@
+---
+
+slides:
+  - asset: Mathe00.png
+  - asset: Mathe01.png
+    caption: "Ziel: Der Elefant stellt Mathe-Aufgaben."
+  - asset: Mathe02.png
+    caption: "Füge zwei neue Variablen hinzu."
+  - asset: Mathe03.png
+  - asset: Mathe04.png
+  - asset: Mathe05.png
+    caption: "Ein neuer Block: Denke"
+  - asset: Mathe06.png
+    caption: "Das soll der Elefant denken:"
+  - caption: "Jetzt die Frage:"
+  - asset: Mathe07.png
+    caption: "Ändere den Text:"
+  - asset: Mathe08.png
+    caption: "Füge den Startblock hinzu:"
+  - asset: start.png
+    caption: "Teste dein Programm:"
+  - asset: Mathe09.png
+    caption: "Für die Antwort erst eine Schleife:"
+  - asset: Mathe10.png
+    caption: "Füge dann die Bedingung ein:"
+  - asset: Mathe11.png
+    caption: "Jetzt noch die Antworten:"
+  - asset: Mathe12.png
+    caption: "Füge “Für immer” ein:"
+  - asset: start.png
+    caption: "Teste noch einmal:"
+  - caption: "Die Zahlen ändern sich nicht!"
+  - asset: Mathe13.png
+    caption: "Füge Zufallszahlen ein:"
+
+
+blocks:
+  - category: looks
+    blocks:
+      - thinkforsecs
+  - category: events
+    blocks:
+      - whenflagclicked
+  - category: control
+    blocks:
+      - forever
+      - if_else
+  - category: sensing
+    blocks:
+      - askandwait
+      - answer
+  - category: operators
+    blocks:
+      - add
+      - random
+      - equals
+  - category: variables
