@@ -17,7 +17,7 @@ const MobileScreenComponent = () => (
                 Im Moment werden nur Tablets und Desktop-Rechner unterstützt.
             </p>
             <Link href="/inhalte/eltern">
-                <Button primary className={styles.infoButton}>
+                <Button style='primary' className={styles.infoButton}>
                     Mehr Infos
                 </Button>
             </Link>
