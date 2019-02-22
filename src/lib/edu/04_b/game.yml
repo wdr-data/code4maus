@@ -1,36 +1,36 @@
 ---
 
 slides:
-  - asset: Mathe00.png
-  - asset: Mathe01.png
+  - asset: 00.png
+  - asset: 01.png
     caption: "Ziel: Der Elefant stellt Mathe-Aufgaben."
-  - asset: Mathe02.png
+  - asset: 02.png
     caption: "Füge zwei neue Variablen hinzu."
-  - asset: Mathe03.png
-  - asset: Mathe04.png
-  - asset: Mathe05.png
+  - asset: 03.png
+  - asset: 04.png
+  - asset: 05.png
     caption: "Ein neuer Block: Denke"
-  - asset: Mathe06.png
+  - asset: 06.png
     caption: "Das soll der Elefant denken:"
   - caption: "Jetzt die Frage:"
-  - asset: Mathe07.png
+  - asset: 07.png
     caption: "Ändere den Text:"
-  - asset: Mathe08.png
+  - asset: 08.png
     caption: "Füge den Startblock hinzu:"
   - asset: start.png
     caption: "Teste dein Programm:"
-  - asset: Mathe09.png
+  - asset: 09.png
     caption: "Für die Antwort erst eine Schleife:"
-  - asset: Mathe10.png
+  - asset: 10.png
     caption: "Füge dann die Bedingung ein:"
-  - asset: Mathe11.png
+  - asset: 11.png
     caption: "Jetzt noch die Antworten:"
-  - asset: Mathe12.png
+  - asset: 12.png
     caption: "Füge “Für immer” ein:"
   - asset: start.png
     caption: "Teste noch einmal:"
   - caption: "Die Zahlen ändern sich nicht!"
-  - asset: Mathe13.png
+  - asset: 13.png
     caption: "Füge Zufallszahlen ein:"
 
 
