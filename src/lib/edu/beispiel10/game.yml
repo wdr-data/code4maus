@@ -5,4 +5,4 @@ slides:
   - asset: start.png
     caption: "Lass die Blume wachsen:"
   - asset: 001.png
-    caption: "Ändere Größe, Farbe und Anzahl der Blätter:"
+    caption: "Ändere die Zahlen für Größe, Farbe und Anzahl der Blätter:"
