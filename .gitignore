@@ -38,3 +38,7 @@ yarn-error.log
 
 # GH Pages
 .patternlib
+
+# VS-Code
+.vscode/
+
