@@ -1,7 +1,6 @@
 ---
 
 slides:
-  - asset: 00.png
   - asset: L00.png
     caption: "Willkommen! Drücke 'Weiter'"
   - asset: x01.png
@@ -23,6 +22,9 @@ slides:
   - asset: 05.png
     caption: "Unter Aussehen: 'Nächstes Kostüm'"
   - asset: 06.png
+    caption: ""
+  - asset: start.png
+    caption: ""
 
 blocks:
   - category: motion
