@@ -1,18 +1,18 @@
 ---
 
 slides:
-  - asset: 00.png
+  - asset: StadtLandEnte.svg
   - asset: 01.png
-    caption: "Neue Figur 'Ente' hinzufügen"
-  - asset: 01.png
+    caption: "Figur 'Ente' hinzufügen"
+  - asset: 01_1.png
     caption: "Figur 'Maus' löschen"
   - asset: 02.png
-    caption: "Klicke auf 'Neue Liste'"
-  - asset: x01.png
-    caption: "Gib 'Wörter' als Name ein"
-  - asset: x02.png
-    caption: "Baue das Abfrage-Programm"
-  - asset: 03.png
+    caption: "Neue Liste 'Wörter'"
+  - asset: 03_1.png
+    caption: "Erster Teil Abfrage:"
+  - asset: 03_02.png
+    caption: "Zweiter Teil: "
+  - asset: 01.gif
     caption: "Füge 'Antwort' hinzu"
   - asset: 05.png
     caption: "Ändere den Frage-Text"
@@ -23,39 +23,52 @@ slides:
   - asset: 08.png
     caption: Setze ein 'Falls-Dann' ein
   - asset: 09.png
-    caption: Ziehe ein 'nicht' dazu
+    caption: Füge Operator 'nicht' ein
   - asset: 10.png
-    caption: "Abfrage: Ist es schon drin?"
+    caption: "Ist Ding schon in 'Wörter'?"
   - asset: 11.png
-    caption: "Ziehe 'enthält Antwort' rein"
+    caption: "Ziehe 'Antwort' rein"
+  - asset: xx2.png
+    caption: "Lösche Wörter beim Start"
   - asset: start.png
     caption: "Teste noch mal"
   - asset: 12.png
-    caption: "Keine Doppelten mehr möglich"
+    caption: "Keine Doppelten mehr"
   - asset: gut_gemacht.png
-    caption: "Jetzt kommt mehr Spannung..."
-  - asset: 13.png
+  - asset:  spannung.png
+    caption: "Mehr Spannung ..."
+  - asset: xx1.png
     caption: "Erstelle die Variable 'Zeit'"
   - asset: 16.png
     caption: Neues Programm für die Zeit
   - asset: 14.png
     caption: Setze 'Zeit' auf 30
-  - asset: 17.png
+  - asset: XX3.png
     caption: Wiederhole bis ...
+  - asset: XX4.png
+    caption: Operator hinzufügen
+  - asset: 02.gif
+    caption: ... Zeit ...
   - asset: 18.png
-    caption: ... Zeit gleich null ist
+    caption: ... gleich null ist
   - asset: 19.png
     caption: Jede Sekunde eins weniger
   - asset: 20.png
-    caption: "Am Ende: Nachricht senden"
+    caption: "Ereignis 'Nachricht senden'"
   - asset: x04.png
-    caption: Neue Nachricht 'Ende' erstellen
+    caption: Neue Nachricht 'Ende'
   - asset: 21.png
-    caption: Zum Schluss 'Boing' abspielen
+    caption: Zum Schluss 'Boing' spielen
+  - asset: start.png
+    caption: "Teste und schau auf die Zeit"
+  - asset: herz.png
+    caption: Klasse!
   - asset: 23.png
     caption: Mache ein drittes Programm
   - asset: 24.png
-    caption: Wie viele Wörter sind drin?
+    caption: "Bei Variablen: 'Länge von'"
+  - asset: start.png
+    caption: "Teste noch mal"
   - asset: 25.png
     caption: "'Verbinde'-Operator reinziehen"
   - asset: 26.png
@@ -83,13 +96,13 @@ slides:
   - asset: 35.png
     caption: "Zwei Bedingungen sollen gelten:"
   - asset: 36.png
-    caption: Nicht doppelt ...
+    caption:  Prüfen auf Doppelte…”
   - asset: 37.png
     caption: Nutze den 'gleich'-Operator
   - asset: 38.png
     caption: Und den 'Zeichen von'-Operator
   - asset: 39.png
-    caption: Stimmt der erste Buchstabe?
+    caption: Prüft den ersten Buchstaben
   - asset: gut_gemacht.png
     caption: Viel Spaß mit Stadt-Land-Ente!
 
@@ -111,6 +124,10 @@ blocks:
       - sety
   - category: looks
     blocks:
+      - sayforsecs
+      - say
+      - thinkforsecs
+      - think
       - switchcostumeto
       - nextcostume
       - --
