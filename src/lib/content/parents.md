@@ -51,7 +51,7 @@ Auch **Programmieren mit der Maus** ist **Open Source**. Das heißt, dass der Co
 
 Denkbar ist zum Beispiel Material für Lehrerinnen und Fachkräfte im offenen Ganztag zu entwickeln. Kurse, AGs, Schulclubs für Kinder zum Thema **Programmieren mit der Maus** sind möglich. Scratch veranstaltet auch regelmäßig so genannte Scratch-Days, bei denen sich Kinder treffen und ihr Wissen und ihre Projekte austauschen.
 
-## Barrierearmut
+## Barrierefreiheit
 Der WDR möchte seine Inhalte im Netz **möglichst allen Nutzerinnen und Nutzern zugänglich** machen. Deshalb ist die [Barrierefreiheit](https://www1.wdr.de/hilfe/barrierefrei102.html) eines der Grundprinzipien des WDR-Internetangebots.
 
 'Programmieren mit der Maus' beruht auf Scratch. Dort gibt es Einschränkungen im Bereich der Barrierefreiheit: Die Blöcke können leider nicht per Tastatur bedient werden und das Farbschema hält nicht immer die erforderlichen Kontrastwerte ein. Wir haben entsprechende Rückmeldungen an das OpenSource Projekt [Scratch-Blocks](https://github.com/LLK/scratch-blocks/issues/1884) gegeben.

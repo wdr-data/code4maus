@@ -31,6 +31,7 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
                         className={styles.fullscreenButtonIcon}
                         draggable={false}
                         src= {props.isFullscreen ? unFullScreenIcon : fullScreenIcon}
+                        title={props.isFullscreen ? 'Verkleinern' : 'Vergrößern'}
                     />
                 </Button>
             </Box>
