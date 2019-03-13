@@ -57,6 +57,8 @@ slides:
     caption: "Ereignis 'Nachricht senden'"
   - asset: x04.png
     caption: Neue Nachricht 'Ende'
+  - asset: 20_2.png
+    caption: "Füge den Ton 'Boing' hinzu"
   - asset: 21.png
     caption: Zum Schluss 'Boing' spielen
   - asset: start.png
@@ -96,7 +98,7 @@ slides:
   - asset: 35.png
     caption: "Zwei Bedingungen sollen gelten:"
   - asset: 36.png
-    caption:  Prüfen auf Doppelte…”
+    caption:  Prüfen auf Doppelte…
   - asset: 37.png
     caption: Nutze den 'gleich'-Operator
   - asset: 38.png
@@ -104,7 +106,7 @@ slides:
   - asset: 39.png
     caption: Prüft den ersten Buchstaben
   - asset: gut_gemacht.png
-    caption: Viel Spaß mit Stadt-Land-Ente!
+    caption: Geschafft, viel Spaß mit Stadt-Land-Ente!
 
 blocks:
   - category: motion
@@ -193,4 +195,6 @@ blocks:
       - and
       - or
       - not
+      - join
+      - letter_of
   - category: variables
