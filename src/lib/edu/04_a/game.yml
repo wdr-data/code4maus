@@ -93,8 +93,10 @@ slides:
     caption: ... ein Zeichen aus dem A-Z
   - asset: start.png
     caption: "Fast fertig."
-  - asset: 33.png
-    caption: Nur doppelte Wörter prüfen?
+  - asset: 33_1.png
+    caption: Ändere 'Wörter mit E' zu 'Verbinde'
+  - asset: 33_2.png
+    caption: Setze die Variable 'A-Z'
   - asset: 35.png
     caption: "Zwei Bedingungen sollen gelten:"
   - asset: 36.png
