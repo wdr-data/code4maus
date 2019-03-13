@@ -6,8 +6,9 @@
     justify-content: space-around;
     margin-right: 1rem;
     padding: 1rem;
-    border: 1.5px solid #eee;
+    border: 1px solid rgb(216, 215, 215);
     border-radius: 1rem;
+    box-shadow: .125rem .125rem .75rem 0 rgba(0, 0, 0, 0.5);
     min-width: 14rem;
     max-width: 14rem;
     max-height: 16rem;
