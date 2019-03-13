@@ -1,13 +1,15 @@
 ---
 
 slides:
-  - asset: 00.png
+  - asset: Mathefant.svg
   - asset: 01.png
     caption: "Ziel: Der Elefant stellt Mathe-Aufgaben."
   - asset: 02.png
     caption: "Füge zwei neue Variablen hinzu."
   - asset: 03.png
+    caption: "Zahl 1:"
   - asset: 04.png
+    caption: "Zahl 2:"
   - asset: 05.png
     caption: "Ein neuer Block: Denke"
   - asset: 06.png
@@ -31,7 +33,9 @@ slides:
     caption: "Teste noch einmal:"
   - caption: "Die Zahlen ändern sich nicht!"
   - asset: 13.png
-    caption: "Füge Zufallszahlen ein:"
+    caption: "Füge Zufallszahlen von 1 bis 100 ein:"
+  - asset: herz.png
+    caption: "Das hast du super gemacht!"
 
 
 blocks:
