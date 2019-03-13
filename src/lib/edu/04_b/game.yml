@@ -14,7 +14,8 @@ slides:
     caption: "Ein neuer Block: Denke"
   - asset: 06.png
     caption: "Das soll der Elefant denken:"
-  - caption: "Jetzt die Frage:"
+  - asset: 06_2.gif
+    caption: "Jetzt die Frage:"
   - asset: 07.png
     caption: "Ändere den Text:"
   - asset: 08.png
@@ -31,7 +32,8 @@ slides:
     caption: "Füge “Für immer” ein:"
   - asset: start.png
     caption: "Teste noch einmal:"
-  - caption: "Die Zahlen ändern sich nicht!"
+  - asset: blitz.svg
+    caption: "Die Zahlen ändern sich nicht!"
   - asset: 13.png
     caption: "Füge Zufallszahlen von 1 bis 100 ein:"
   - asset: herz.png
