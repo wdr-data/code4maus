@@ -4,6 +4,8 @@ import React from 'react';
 
 import Box from '../box/box.jsx';
 import Modal from '../modal/modal.jsx';
+import Input from '../forms/input.jsx';
+import Button from '../button/button.jsx';
 
 import styles from './prompt.css';
 
@@ -16,18 +18,15 @@ const PromptComponent = (props) =>
         <Box className={styles.label}>
             {props.label}
         </Box>
-        <Box>
-            <input
-                autoFocus
-                className={styles.input}
-                placeholder={props.placeholder}
-                onChange={props.onChange}
-                onKeyPress={props.onKeyPress}
-            />
-        </Box>
+        <Input
+            autoFocus
+            placeholder={props.placeholder}
+            onChange={props.onChange}
+            onKeyPress={props.onKeyPress}
+        />
         <Box className={styles.buttonRow}>
-            <button
-                className={styles.cancelButton}
+            <Button
+                style="secondary"
                 onClick={props.onCancel}
             >
                 <FormattedMessage
@@ -35,9 +34,9 @@ const PromptComponent = (props) =>
                     description="Button in prompt for cancelling the dialog"
                     id="gui.prompt.cancel"
                 />
-            </button>
-            <button
-                className={styles.okButton}
+            </Button>
+            <Button
+                style="primary"
                 onClick={props.onOk}
             >
                 <FormattedMessage
@@ -45,7 +44,7 @@ const PromptComponent = (props) =>
                     description="Button in prompt for confirming the dialog"
                     id="gui.prompt.ok"
                 />
-            </button>
+            </Button>
         </Box>
     </Modal>
 ;

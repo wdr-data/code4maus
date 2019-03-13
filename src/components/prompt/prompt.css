@@ -28,20 +28,8 @@
 
 .button-row {
     font-weight: bolder;
-    text-align: right;
-}
-
-.button-row button {
-    padding: 0.75rem 1rem;
-    color: white;
-    background: #da632a;
-    font-weight: 600;
-    font-size: 0.85rem;
-    border: none;
-}
-
-.button-row button.ok-button {
-    background: #3277a0
+    display: flex;
+    justify-content: flex-end;
 }
 
 .button-row button + button {

@@ -1,14 +1,72 @@
-.outlined-button {
-    cursor: pointer;
+.button {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    padding-left: .75rem;
-    padding-right: .75rem;
-    user-select: none;
-    border: none;
+    margin: 0;
     background: none;
+    cursor: pointer;
+    padding: .5rem 1.5rem;
+    position: relative;
+    border: none;
     color: white;
+}
+
+.button.primary {
+    background: url(../gui/bg_orange@1x.png) no-repeat;
+}
+
+.button.secondary {
+	background: url(../gui/bg_darkblue@1x.png) no-repeat;
+}
+
+.button.wiggle {
+	animation-name: wiggle;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes wiggle {
+    0% {transform: rotate(3deg) scale(1.05);}
+    25% {transform: rotate(-3deg) scale(1.05);}
+    50% {transform: rotate(3deg) scale(1.05);}
+    75% {transform: rotate(-3deg) scale(1.05);}
+    100% {transform: rotate(0deg) scale(1.05);}
+}
+
+.arrow-left {
+    padding-left: 2.5rem;
+}
+
+.arrow-right {
+    padding-right: 2.5rem;
+}
+
+.arrow-left:before, .arrow-right:after {
+	top: 50%;
+	height: 0;
+	width: 0;
+	position: absolute;
+	border: solid transparent;
+	border-width: .5rem;
+	margin-top: -.5rem;
+	content: " ";
+	pointer-events: none;
+}
+
+.arrow-left:before {
+    left: .75rem;
+	border-right-color: white;
+}
+
+.arrow-right:after {
+	right: .75rem;
+	border-left-color: white;
+}
+
+.disabled {
+    background: url(./bg-grey.png) no-repeat !important;
+    cursor: not-allowed;
+    color: #ccc;
 }
 
 .icon {

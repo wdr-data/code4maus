@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import LogoOverlay from '../logo-overlay/logo-overlay.jsx';
-import ButtonPrimary from '../button-primary/button-primary.jsx';
+import Button from '../button/button.jsx';
 
 import styles from './welcome-screen.css';
 
@@ -17,12 +17,12 @@ const WelcomeScreenComponent = (props) => (
                 Viel Spaß!
                 </p>
                 <div className={styles.buttonWrapper}>
-                    <ButtonPrimary className={styles.button} onClick={props.onIntroClick}>
+                    <Button style='primary' onClick={props.onIntroClick}>
                         Lernen, wie es geht
-                    </ButtonPrimary>
-                    <ButtonPrimary className={styles.button} onClick={props.onMenuClick}>
+                    </Button>
+                    <Button style='primary' onClick={props.onMenuClick}>
                         Zur Übersicht
-                    </ButtonPrimary>
+                    </Button>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@ import { Link } from 'redux-little-router';
 
 import Box from '../box/box.jsx';
 import InlineSVG from '../inline-svg/inline-svg.jsx';
-import Button from '../button-primary/button-primary.jsx';
+import Button from '../button/button.jsx';
 
 import mausQuestion from '!raw-loader!../../../assets/img/maus_question.svg';
 
@@ -17,7 +17,7 @@ const MobileScreenComponent = () => (
                 Im Moment werden nur Tablets und Desktop-Rechner unterstützt.
             </p>
             <Link href="/inhalte/eltern">
-                <Button className={styles.infoButton}>
+                <Button style='primary' className={styles.infoButton}>
                     Mehr Infos
                 </Button>
             </Link>
