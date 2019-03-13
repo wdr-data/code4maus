@@ -126,6 +126,10 @@
     box-shadow: .125rem .125rem .75rem 0 rgba(0, 0, 0, 0.5);
 }
 
+.tab:hover:not(.is-selected) .tab-content {
+    text-decoration: underline;
+}
+
 .tab-content {
     display: flex;
     justify-content: center;

@@ -94,6 +94,10 @@
     margin-bottom: -.5rem;
 }
 
+.tab:hover:not(.is-selected) .tab-content {
+    text-decoration: underline;
+}
+
 .tab-content {
     display: flex;
     flex-direction: row;

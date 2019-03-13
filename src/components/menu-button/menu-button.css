@@ -8,6 +8,7 @@
   font-size: 1.2rem;
   text-decoration: none;
   margin-right: 1rem;
+  cursor: pointer;
 }
 
 .button:last-of-type {

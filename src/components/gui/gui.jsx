@@ -280,6 +280,7 @@ const GUIComponent = (props) => {
                                             className={styles.layoutSwitcherIcon}
                                             draggable={false}
                                             src={expandIcon}
+                                            title='Coding Area'
                                         />
                                     </Button>
                                 </Box>
