@@ -101,8 +101,8 @@ slides:
     caption: "Ziehe 'verbinde' in 'frage':"
   - asset: 33_2.png
     caption: Ändere Text und ziehe 'A-Z' rein
-  - asset: 35.png
-    caption: "Zwei Bedingungen sollen gelten:"
+  - asset: q1.gif
+    caption: "Baue um zum 'und'-Operator:"
   - asset: 36.png
     caption:  Prüfen auf Doppelte…
   - asset: 37.png
