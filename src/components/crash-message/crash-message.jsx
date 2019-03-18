@@ -26,7 +26,7 @@ const CrashMessage = (props) =>
                 "Programmieren mit der Maus" hat aufgehört, zu funktionieren. Bitte lade die Seite neu, um es noch einmal zu versuchen.
             </p>
             <Button
-                primary
+                style="primary"
                 onClick={props.onReload}
             >
                 Neu laden
