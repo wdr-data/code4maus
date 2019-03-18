@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bowser from 'bowser';
 import BrowserModalComponent from '../components/browser-modal/browser-modal.jsx';
 import CrashMessageComponent from '../components/crash-message/crash-message.jsx';
 import log from '../lib/log.js';
