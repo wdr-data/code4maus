@@ -8,6 +8,7 @@
     position: relative;
     border: none;
     color: white;
+    font-size: inherit;
 }
 
 .button.primary {
@@ -77,5 +78,4 @@
 .content {
     white-space: nowrap;
     font-weight: bold;
-    font-size: 1rem;
 }
