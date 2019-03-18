@@ -2,6 +2,8 @@
 
 slides:
   - asset: StadtLandEnte.svg
+  - asset: 12.png
+    caption: Programmiere ein Wörter-Abfrage-Spiel.
   - asset: 01.png
     caption: "Figur 'Ente' hinzufügen"
   - asset: 01_1.png
@@ -93,10 +95,12 @@ slides:
     caption: ... ein Zeichen aus dem A-Z
   - asset: start.png
     caption: "Fast fertig."
+  - asset: 12.png
+    caption: "Passe die Fragen an"
   - asset: 33_1.png
-    caption: Ändere 'Wörter mit E' zu 'Verbinde'
+    caption: "Ziehe 'verbinde' in 'frage':"
   - asset: 33_2.png
-    caption: Setze die Variable 'A-Z'
+    caption: Ändere Text und ziehe 'A-Z' rein
   - asset: 35.png
     caption: "Zwei Bedingungen sollen gelten:"
   - asset: 36.png
