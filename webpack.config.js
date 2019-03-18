@@ -21,6 +21,11 @@ const bucketSuffix = branch === 'production' ? 'prod' : 'staging';
 const bucketUrl = `https://${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}.s3.dualstack.${process
     .env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION}.amazonaws.com`;
 
+const { GenerateSW } = require('workbox-webpack-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin');
+
+const GenerateS3SWPrecachePlugin = require('./plugins/generate-s3-sw-precache-plugin');
+
 // fix for Netlify, where we cannot define AWS_REGION in the environment
 if ('FUNCTIONS_AWS_REGION' in process.env) {
     process.env.AWS_REGION = process.env.FUNCTIONS_AWS_REGION;
@@ -186,6 +191,16 @@ module.exports = {
         ]),
         new Visualizer({
             filename: 'statistics.html',
+        }),
+        new GenerateSW({
+            importWorkboxFrom: 'local',
+            navigateFallback: '/index.html',
+            exclude: [ /\.map$/, /^manifest.*\.js$/, /_redirects$/, /data\/projects\/[^/]+\/index\.json$/, /\/1x1\.gif$/ ],
+            clientsClaim: true,
+            importScripts: [ 's3-manifest.[hash].js' ],
+        }),
+        new GenerateS3SWPrecachePlugin({
+            filename: 's3-manifest.[hash].js',
         }),
     ],
 };

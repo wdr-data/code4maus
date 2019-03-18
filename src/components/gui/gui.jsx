@@ -79,6 +79,8 @@ const GUIComponent = (props) => {
         return <Box {...componentProps}>{children}</Box>;
     }
 
+    const offline = navigator.onLine;
+
     const tabClassNames = {
         tabs: styles.tabs,
         tab: classNames(tabStyles.reactTabsTab, styles.tab),
@@ -108,16 +110,25 @@ const GUIComponent = (props) => {
                         <Spinner />
                     </Box>
                     <Input placeholder="Hier eintippen, wie dein Spiel heißen soll" id="save_input" onChange={(e) => onProjectNameChange(e.target.value)} value={projectName} />
-                    <Box className={styles.saveModalActions}>
-                        <p>{saveProjectError}</p>
-                        <Button
-                            style='primary'
-                            onClick={() => onSaveProject().then(() => closeSaveModal())}
-                            disabled={isSaving}
-                        >
-                            Speichern
-                        </Button>
-                    </Box>
+                    {offline ?
+                        <Box className={styles.saveModalActions}>
+                            <p>{saveProjectError}</p>
+                            <Button
+                                style='primary'
+                                onClick={() => onSaveProject().then(() => closeSaveModal())}
+                                disabled={isSaving}
+                            >
+                                Speichern
+                            </Button>
+                        </Box>
+                        :
+                        <Box className={styles.saveModalActions}>
+                            <FormattedMessage
+                                defaultMessage="Du bist aktuell Offline und kannst deine Arbeit nur auf deinen Rechner runterladen und nicht im Internet speichern"
+                                id="gui.gui.offline"
+                            />
+                        </Box>
+                    }
                     <Box direction="row" justifyContent="center" style={{ display: 'flex' }}>
                         <ProjectSaver>{(downloadProject) =>
                             <Button
