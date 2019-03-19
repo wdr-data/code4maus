@@ -1,112 +1,54 @@
 ---
 
 slides:
-  - asset: L00.png
-    caption: "Willkommen! Drücke 'Weiter'"
-  - asset: x01.png
-    caption: "Mache Kunst mit Maus & Code"
+  - asset: 03.gif
+    caption: "Wir machen Kunst mit Maus, Elefant und Ente."
+  - asset: 01.gif
+    caption: "Ziehe 'Erzeuge Klon' in das Programm"
   - asset: 01.png
-    caption: Ziehe Blöcke in die Mitte
+    caption: "Füge 'Nächstes Kostüm' hinzu"
+  - asset: start.png
+    caption: "Probier mal!"
+  - asset: 02.gif
+    caption: "Füge neuen Start-Block hinzu"
   - asset: 02.png
-    caption: "Baue dieses Programm:"
-  - asset: start.png
-    caption: Drücke auf Start
+    caption: "Für immer..."
   - asset: 03.png
-    caption: Ändere die Grad-Zahl
-  - asset: start.png
-    caption: "Was verändert sich?"
+    caption: "Ändere Schritte zu 0.5"
+  - asset: fragezeichen.svg
+    caption: "Was passiert?"
   - asset: 04.png
-    caption: Füge Schritt hinzu
-  - asset: start.png
-    caption: Teste noch einmal
+    caption: "Wähle Effekt Farbe und ändere um 5"
+  - asset: beispiel-stern.jpg
+  - asset: stern.svg
+    caption: "Mach dein eigenes Kunstwerk!"
   - asset: 05.png
-    caption: "Unter Aussehen: 'Nächstes Kostüm'"
+    caption: "Spiele mit den Effekten rum..."
   - asset: 06.png
-    caption: ""
-  - asset: start.png
-    caption: ""
+    caption: "oder ändere die Größe."
+  - asset: daumen-hoch.svg
+    caption: "Viel Spaß!"
+
+
 
 blocks:
   - category: motion
     blocks:
-      - movesteps
       - turnright
       - turnleft
-      - --
-      - goto
+      - movesteps
       - gotoxy
-      - glideto
-      - glidesecstoxy
-      - --
-      - changexby
-      - setx
-      - changeyby
-      - sety
   - category: looks
     blocks:
-      - switchcostumeto
       - nextcostume
-      - --
+      - changeeffectby
       - changesizeby
-      - setsizeto
-      - --
-      - show
-      - hide
-      - --
-      - size
-  - category: sound
-    blocks:
-      - playuntildone
   - category: events
     blocks:
       - whenflagclicked
-      - whenthisspriteclicked
-      - --
-      - whenbroadcastreceived
-      - broadcast
-      - broadcastandwait
   - category: control
     blocks:
-      - wait
-      - repeat
       - forever
-      - --
-      - if
-      - if_else
-      - wait_until
-      - repeat_until
-      - --
-      - stop
-      - --
-      - start_as_clone
+      - wait
       - create_clone_of
-      - delete_this_clone
-  - category: sensing
-    blocks:
-      - touchingobject
-      - askandwait
-      - answer
-      - --
-      - mousedown
-      - mousex
-      - mousey
-      - setdragmode
-      - --
-      - timer
-      - resettimer
-      - --
-      - of
-      - --
-      - current
-  - category: operators
-    blocks:
-      - random
-      - --
-      - gt
-      - lt
-      - equals
-      - --
-      - and
-      - or
-      - not
-  - category: variables
+      - start_as_clone
