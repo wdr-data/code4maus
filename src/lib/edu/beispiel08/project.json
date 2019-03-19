@@ -10,11 +10,11 @@
                 ],
                 "R|=Dltp(STkR:=mpa9:i": [
                     "Faktor 1",
-                    6
+                    7
                 ],
                 "X8Mvw33M8/i41H+ee7%/": [
                     "Faktor 2",
-                    1
+                    2
                 ]
             },
             "lists": {},
@@ -26,6 +26,7 @@
                 {
                     "assetId": "3a343d19f40be5196f5b1cad1c7d1e39",
                     "name": "Wiese",
+                    "bitmapResolution": 2,
                     "md5ext": "3a343d19f40be5196f5b1cad1c7d1e39.jpg",
                     "dataFormat": "jpg",
                     "rotationCenterX": 480,
@@ -34,6 +35,7 @@
                 {
                     "assetId": "a35419bc3c9a8888430c157960ef28b4",
                     "name": "Unterwasser",
+                    "bitmapResolution": 2,
                     "md5ext": "a35419bc3c9a8888430c157960ef28b4.jpg",
                     "dataFormat": "jpg",
                     "rotationCenterX": 480,
@@ -81,7 +83,8 @@
             "layerOrder": 0,
             "tempo": 60,
             "videoTransparency": 50,
-            "videoState": "off"
+            "videoState": "off",
+            "textToSpeechLanguage": null
         },
         {
             "isStage": false,
@@ -96,8 +99,8 @@
                     "parent": null,
                     "inputs": {},
                     "fields": {},
-                    "topLevel": true,
                     "shadow": false,
+                    "topLevel": true,
                     "x": 257,
                     "y": 113
                 },
@@ -108,17 +111,17 @@
                     "inputs": {
                         "SUBSTACK": [
                             2,
-                            "YwD?__Eu!x8F0q)3Y_/l"
+                            "iZ!Y]jx#Hs4n/]6c:M[/"
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "YwD?__Eu!x8F0q)3Y_/l": {
                     "opcode": "looks_thinkforsecs",
                     "next": "jX:?|NCVb!Pi9LK3;3(u",
-                    "parent": "v@!]xW%AiTWTl)?y?|R{",
+                    "parent": "1dzdL$Xt%GZqv5gsP$E/",
                     "inputs": {
                         "MESSAGE": [
                             1,
@@ -136,8 +139,8 @@
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "jX:?|NCVb!Pi9LK3;3(u": {
                     "opcode": "looks_thinkforsecs",
@@ -165,8 +168,8 @@
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "J7;lc7GB6^8~ShCg}hQe": {
                     "opcode": "looks_thinkforsecs",
@@ -189,8 +192,8 @@
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "ei|UbDSz[mMNqJeToD;h": {
                     "opcode": "looks_thinkforsecs",
@@ -218,8 +221,8 @@
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "*Eq=6]Ljrx1s?zz?Bl(*": {
                     "opcode": "sensing_askandwait",
@@ -235,8 +238,8 @@
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "22$5l~YlEm;mP8#|g$aa": {
                     "opcode": "control_if_else",
@@ -257,8 +260,8 @@
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "D2:WRd46VDeu$xe91EYL": {
                     "opcode": "operator_equals",
@@ -283,8 +286,8 @@
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "l}+gPeqQ9N4-nij5_PVP": {
                     "opcode": "sensing_answer",
@@ -292,8 +295,8 @@
                     "parent": "D2:WRd46VDeu$xe91EYL",
                     "inputs": {},
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "NIfvA*Zr|X-tQaWIU0q=": {
                     "opcode": "operator_multiply",
@@ -326,8 +329,8 @@
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "{Kl{xB(]j71%zeVO[ag?": {
                     "opcode": "looks_think",
@@ -343,12 +346,12 @@
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "^BAvq{SMbzY}A%hEvXt{": {
                     "opcode": "control_wait",
-                    "next": "iZ!Y]jx#Hs4n/]6c:M[/",
+                    "next": "wpkgrH[.z9g:Rb~(xfro",
                     "parent": "{Kl{xB(]j71%zeVO[ag?",
                     "inputs": {
                         "DURATION": [
@@ -360,13 +363,13 @@
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "iZ!Y]jx#Hs4n/]6c:M[/": {
                     "opcode": "data_setvariableto",
                     "next": "1dzdL$Xt%GZqv5gsP$E/",
-                    "parent": "^BAvq{SMbzY}A%hEvXt{",
+                    "parent": "v@!]xW%AiTWTl)?y?|R{",
                     "inputs": {
                         "VALUE": [
                             3,
@@ -383,8 +386,8 @@
                             "R|=Dltp(STkR:=mpa9:i"
                         ]
                     },
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "ZiuNA+sLbqi2klW|4=O+": {
                     "opcode": "operator_random",
@@ -407,12 +410,12 @@
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "1dzdL$Xt%GZqv5gsP$E/": {
                     "opcode": "data_setvariableto",
-                    "next": "wpkgrH[.z9g:Rb~(xfro",
+                    "next": "YwD?__Eu!x8F0q)3Y_/l",
                     "parent": "iZ!Y]jx#Hs4n/]6c:M[/",
                     "inputs": {
                         "VALUE": [
@@ -430,8 +433,8 @@
                             "X8Mvw33M8/i41H+ee7%/"
                         ]
                     },
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "6r07V`GoX=%Zuc$Tjd+b": {
                     "opcode": "operator_random",
@@ -454,13 +457,13 @@
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "wpkgrH[.z9g:Rb~(xfro": {
                     "opcode": "control_repeat",
                     "next": null,
-                    "parent": "1dzdL$Xt%GZqv5gsP$E/",
+                    "parent": "^BAvq{SMbzY}A%hEvXt{",
                     "inputs": {
                         "TIMES": [
                             1,
@@ -475,8 +478,8 @@
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "v9w3cYSPd{~2RG8D/EmF": {
                     "opcode": "motion_movesteps",
@@ -492,8 +495,8 @@
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "`J]Y23t(#+NhJPX:[`/o": {
                     "opcode": "looks_nextcostume",
@@ -501,8 +504,8 @@
                     "parent": "v9w3cYSPd{~2RG8D/EmF",
                     "inputs": {},
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "?s(5u6jXlhsB@XO:C*+T": {
                     "opcode": "motion_ifonedgebounce",
@@ -510,8 +513,8 @@
                     "parent": "`J]Y23t(#+NhJPX:[`/o",
                     "inputs": {},
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "xME^r{m(u(nA!Esge9t[": {
                     "opcode": "motion_setrotationstyle",
@@ -520,11 +523,12 @@
                     "inputs": {},
                     "fields": {
                         "STYLE": [
-                            "left-right"
+                            "left-right",
+                            null
                         ]
                     },
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "4G)!TDr=X@qB_L^:NzAV": {
                     "opcode": "looks_thinkforsecs",
@@ -547,8 +551,19 @@
                         ]
                     },
                     "fields": {},
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
+                },
+                "@)Ts[j6bSwazszZ#t{t8": {
+                    "opcode": "event_whenflagclicked",
+                    "next": "TxK+E!6pCEI)}X+ih;18",
+                    "parent": null,
+                    "inputs": {},
+                    "fields": {},
+                    "shadow": false,
+                    "topLevel": true,
+                    "x": 859,
+                    "y": 127
                 },
                 "TxK+E!6pCEI)}X+ih;18": {
                     "opcode": "data_showvariable",
@@ -561,8 +576,8 @@
                             "R|=Dltp(STkR:=mpa9:i"
                         ]
                     },
-                    "topLevel": false,
-                    "shadow": false
+                    "shadow": false,
+                    "topLevel": false
                 },
                 "9V.[?].|EI|y^S^Z7SDu": {
                     "opcode": "data_showvariable",
@@ -575,19 +590,8 @@
                             "X8Mvw33M8/i41H+ee7%/"
                         ]
                     },
-                    "topLevel": false,
-                    "shadow": false
-                },
-                "@)Ts[j6bSwazszZ#t{t8": {
-                    "opcode": "event_whenflagclicked",
-                    "next": "TxK+E!6pCEI)}X+ih;18",
-                    "parent": null,
-                    "inputs": {},
-                    "fields": {},
-                    "topLevel": true,
                     "shadow": false,
-                    "x": 1056,
-                    "y": 123
+                    "topLevel": false
                 }
             },
             "comments": {},
@@ -635,18 +639,54 @@
             "volume": 100,
             "layerOrder": 1,
             "visible": true,
-            "x": -79.22784509,
+            "x": -89.22784509000002,
             "y": -89.22891851,
             "size": 100,
-            "direction": 90,
+            "direction": -90,
             "draggable": false,
             "rotationStyle": "left-right"
+        }
+    ],
+    "monitors": [
+        {
+            "id": "R|=Dltp(STkR:=mpa9:i",
+            "mode": "default",
+            "opcode": "data_variable",
+            "params": {
+                "VARIABLE": "Faktor 1"
+            },
+            "spriteName": null,
+            "value": 7,
+            "width": 0,
+            "height": 0,
+            "x": null,
+            "y": null,
+            "visible": true,
+            "sliderMin": 0,
+            "sliderMax": 100
+        },
+        {
+            "id": "X8Mvw33M8/i41H+ee7%/",
+            "mode": "default",
+            "opcode": "data_variable",
+            "params": {
+                "VARIABLE": "Faktor 2"
+            },
+            "spriteName": null,
+            "value": 2,
+            "width": 0,
+            "height": 0,
+            "x": null,
+            "y": null,
+            "visible": true,
+            "sliderMin": 0,
+            "sliderMax": 100
         }
     ],
     "extensions": [],
     "meta": {
         "semver": "3.0.0",
-        "vm": "0.2.0-minimal-1",
-        "agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
+        "vm": "0.2.0-minimal-4",
+        "agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36"
     }
 }
