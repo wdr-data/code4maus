@@ -38,10 +38,6 @@
     "type": "git",
     "url": "git+ssh://git@github.com/LLK/scratch-gui.git"
   },
-  "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
-  },
   "devDependencies": {
     "@babel/core": "^7.3.3",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
