@@ -118,8 +118,8 @@
                     "fields": {},
                     "shadow": false,
                     "topLevel": true,
-                    "x": 119,
-                    "y": 134
+                    "x": 109,
+                    "y": 393
                 },
                 "|I0EC7+M_6w?Bx3X8[/b": {
                     "opcode": "looks_hide",
@@ -132,7 +132,7 @@
                 },
                 "-R`@3@z/k81L:prCb+aO": {
                     "opcode": "event_broadcast",
-                    "next": "8Iy++pug0[wDW|dF0:gt",
+                    "next": null,
                     "parent": "|I0EC7+M_6w?Bx3X8[/b",
                     "inputs": {
                         "BROADCAST_INPUT": [
@@ -151,7 +151,7 @@
                 "8Iy++pug0[wDW|dF0:gt": {
                     "opcode": "data_setvariableto",
                     "next": "d+,-V?[X=L^;pueci5mq",
-                    "parent": "-R`@3@z/k81L:prCb+aO",
+                    "parent": "oT)k0S[ERU;~/=)Ulk}X",
                     "inputs": {
                         "VALUE": [
                             1,
@@ -547,6 +547,17 @@
                     "fields": {},
                     "shadow": false,
                     "topLevel": false
+                },
+                "oT)k0S[ERU;~/=)Ulk}X": {
+                    "opcode": "event_whenflagclicked",
+                    "next": "8Iy++pug0[wDW|dF0:gt",
+                    "parent": null,
+                    "inputs": {},
+                    "fields": {},
+                    "shadow": false,
+                    "topLevel": true,
+                    "x": 117,
+                    "y": 120
                 }
             },
             "comments": {},
@@ -579,7 +590,7 @@
             "x": -110,
             "y": 50,
             "size": 30,
-            "direction": -102.35764235763935,
+            "direction": 17.64235764236065,
             "draggable": false,
             "rotationStyle": "all around"
         },
@@ -1086,7 +1097,7 @@
             "x": -110,
             "y": 50,
             "size": 24,
-            "direction": 142.66033966034146,
+            "direction": 142.66033966034135,
             "draggable": false,
             "rotationStyle": "all around"
         },
@@ -1375,7 +1386,7 @@
             "visible": false,
             "x": -110,
             "y": 52,
-            "size": 28.000000000000004,
+            "size": 25,
             "direction": 135.6423576423575,
             "draggable": false,
             "rotationStyle": "all around"
