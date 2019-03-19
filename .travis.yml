@@ -48,12 +48,3 @@ deploy:
     script: yarn deploy:patternlib
     on:
       branch: develop
-
-notifications:
-  slack:
-    rooms:
-      - secure: qbkYYEEhFPO0OEFOlvTmhC9DGs9dJp+LA+Nh4hvJfx7QNtnl921U8Dzzaxhpb0/VLHyIYVjQ+W4sAQ/6JejbZzNSRpr16GOc9fW1uh/gSThoAUlDNB+CbHvy6hWNHucjzkZAvTyOcaaFyZnfTg/3KedKaXtUJEk6TCseSpDZMbX21SVbzT9+RRoWI0QLjyDlX0MqT+wTBzrrtcv56R/jFthPCXaztWJYzc0yZfbZOEBzWjhSsN3EZrxiM9DmbkJ99JNWA1BP+Polg/j1NSVbM3Q0/DrtDjatO+2mVtnX+e558TSDWzS6PmTXdrNe1q/mzoI5KRTKuf0tc/4Y1IUeEeOUjc0Li/zRheAneWXVwuWIxC+aFU4e/j2fG4I0Uk4sOY2jXGRk8DI02sbJsnJq/0t9UtgOgBIWqXRvl0wK6VCpaHUJhJ5uagOC2LZtQgepsuOv1P9UFfQ7wDz3PHmurDpfacgdxkRDPquKh6f1pZsmjsf44jOqwuH76xRR2AVKsu9M47sA9g+fYIBgmusEVBXU+LDlwv58c0EtONCo6bzgrbR80znnSvLhuehthgduNj6TqJoBGcXadYZclRsyjj2o7AD0CzlP4HtkK7MVP5rujyRKcQJuXC4dRtDbJX1I83hpjpEuZKqouArhXHga1jvZICk09hT9EYx/FELGLyY=
-    on_pull_requests: false
-    template:
-      - "Deployment %{result}:"
-      - "<%{compare_url}|%{repository_slug}:%{branch}#%{commit}> by %{author}"
