@@ -2,6 +2,7 @@
 const webpack = require('webpack');
 const fs = require('fs');
 const path = require('path');
+const babelConfig = require('./babel.backend');
 require('dotenv').config({ silent: true, path: '.env.backend' });
 
 const bucketSuffix = process.env.BRANCH === 'production' ? 'prod' : 'staging';
@@ -23,12 +24,7 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: 'babel-loader',
-                    options: {
-                        presets: [ [ 'env', { targets: { node: '8.10.0' } } ] ],
-                        plugins: [ 'transform-object-rest-spread' ],
-                        babelrc: false,
-                        configFile: false,
-                    },
+                    options: babelConfig,
                 },
             },
         ],

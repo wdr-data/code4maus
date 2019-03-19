@@ -1,5 +1,6 @@
 /* eslint-disable import/no-commonjs */
 const slsw = require('serverless-webpack');
+const babelConfig = require('./babel.backend');
 
 require('dotenv').config({ silent: true, path: '.env.backend' });
 
@@ -14,12 +15,7 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: 'babel-loader',
-                    options: {
-                        presets: [ [ 'env', { targets: { node: '8.10.0' } } ] ],
-                        plugins: [ 'transform-object-rest-spread' ],
-                        babelrc: false,
-                        configFile: false,
-                    },
+                    options: babelConfig,
                 },
             },
         ],
