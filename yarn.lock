@@ -11185,7 +11185,7 @@ react-dom@^0.14.0:
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-0.14.9.tgz#05064a3dcf0fb1880a3b2bfc9d58c55d8d9f6293"
   integrity sha1-BQZKPc8PsYgKOyv8nVjFXY2fYpM=
 
-react-dom@^16.4.1, react-dom@^16.8.1:
+react-dom@^16.8.1, react-dom@^16.8.4:
   version "16.8.4"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.4.tgz#1061a8e01a2b3b0c8160037441c3bf00a0e3bc48"
   integrity sha512-Ob2wK7XG2tUDt7ps7LtLzGYYB6DXMCLj0G5fO6WeEICtT4/HdpOi7W/xLzZnR6RCG1tYza60nMdqtxzA8FaPJQ==
@@ -11385,7 +11385,7 @@ react-tabs@^3.0.0:
     classnames "^2.2.0"
     prop-types "^15.5.0"
 
-react-test-renderer@^16.0.0-0, react-test-renderer@^16.2.0:
+react-test-renderer@^16.0.0-0, react-test-renderer@^16.8.4:
   version "16.8.4"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.8.4.tgz#abee4c2c3bf967a8892a7b37f77370c5570d5329"
   integrity sha512-jQ9Tf/ilIGSr55Cz23AZ/7H3ABEdo9oy2zF9nDHZyhLHDSLKuoILxw2ifpBfuuwQvj4LCoqdru9iZf7gwFH28A==
@@ -11431,7 +11431,7 @@ react@^0.14.0:
     envify "^3.0.0"
     fbjs "^0.6.1"
 
-react@^16.4.1, react@^16.8.1:
+react@^16.8.1, react@^16.8.4:
   version "16.8.4"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.4.tgz#fdf7bd9ae53f03a9c4cd1a371432c206be1c4768"
   integrity sha512-0GQ6gFXfUH7aZcjGVymlPOASTuSjlQL4ZtVC5YKH+3JL6bBLCVO21DknzmaPlI90LN253ojj02nsapy+j7wIjg==
