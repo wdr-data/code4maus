@@ -1,9 +1,9 @@
 ---
-title: Lehrerinnen
+title: Lehrer*innen
 splitSections: true
 ---
 
-Begleitend zu Programmieren mit der Maus gibt es ab Mai 2019 Material für alle, die mit Kindern programmieren wollen: Für Lehrerinnen, AGs im offenen Ganztag oder für interessierte Erwachsene, die einen Programmiertag an einer Grundschule organisieren möchten. [programmieren.wdrmaus.de/lehrerinnen]
+Begleitend zu Programmieren mit der Maus gibt es ab Mai 2019 Material für alle, die mit Kindern programmieren wollen: Für Lehrer*innen, AGs im offenen Ganztag oder für interessierte Erwachsene, die einen Programmiertag an einer Grundschule organisieren möchten. [programmieren.wdrmaus.de/lehrerinnen]
 
 ## Spielerisch programmieren lernen
 Kinder ab 8 lernen erstes programmieren - mit Blöcken, die sich stapeln lassen wie Bauklötze. Dabei werden sie von den Figuren und Tönen aus der Sendung mit der Maus begleitet. Schritt für Schritt lernen sie so Schleifen, Verzweigungen und Variablen kennen und programmieren Animationen und erste Spiele.
