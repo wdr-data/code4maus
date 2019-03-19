@@ -8,6 +8,8 @@ slides:
     caption: "Klicke auf Variablen"
   - asset: 02.png
     caption: "Füge zwei neue Variablen hinzu. Nenne sie 'Zahl 1' und 'Zahl 2'."
+  - asset: p1.png
+    caption: "Beginne ein Programm"
   - asset: x03.png
     caption: "Ziehe zwei Mal 'setze auf' rüber:"
   - asset: 01.gif
