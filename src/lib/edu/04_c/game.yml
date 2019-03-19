@@ -1,18 +1,22 @@
 ---
 
 slides:
+  - asset: L00.png
+    caption: "Willkommen zu Programmieren mit der Maus. Klicke weiter."
   - asset: 03.gif
-    caption: "Wir machen Kunst mit Maus, Elefant und Ente."
-  - asset: 01.gif
-    caption: "Ziehe 'Erzeuge Klon' in das Programm"
-  - asset: 01.png
-    caption: "Füge 'Nächstes Kostüm' hinzu"
+    caption: "Hier machst du Kunst mit Maus, Elefant und Ente."
+  - asset: y01.png
+    caption: Die Blöcke steuern die Maus
   - asset: start.png
-    caption: "Probier mal!"
-  - asset: 02.gif
-    caption: "Füge neuen Start-Block hinzu"
+    caption: "Drücke und teste:"
+  - asset: stop.png
+    caption: "Zum Stoppen:"
+  - asset: y01.gif
+    caption: "Ziehe den 'erzeuge Klon'-Block rein"
+  - asset: start.png
+    caption: "Teste noch mal"
   - asset: 02.png
-    caption: "Für immer..."
+    caption: "Füge einen 2. Block hinzu"
   - asset: 03.png
     caption: "Ändere Schritte zu 0.5"
   - asset: fragezeichen.svg
