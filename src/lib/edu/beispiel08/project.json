@@ -14,7 +14,7 @@
                 ],
                 "X8Mvw33M8/i41H+ee7%/": [
                     "Faktor 2",
-                    2
+                    1
                 ]
             },
             "lists": {},
@@ -112,6 +112,100 @@
                         "SUBSTACK": [
                             2,
                             "iZ!Y]jx#Hs4n/]6c:M[/"
+                        ]
+                    },
+                    "fields": {},
+                    "shadow": false,
+                    "topLevel": false
+                },
+                "iZ!Y]jx#Hs4n/]6c:M[/": {
+                    "opcode": "data_setvariableto",
+                    "next": "1dzdL$Xt%GZqv5gsP$E/",
+                    "parent": "v@!]xW%AiTWTl)?y?|R{",
+                    "inputs": {
+                        "VALUE": [
+                            3,
+                            "ZiuNA+sLbqi2klW|4=O+",
+                            [
+                                10,
+                                "0"
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Faktor 1",
+                            "R|=Dltp(STkR:=mpa9:i"
+                        ]
+                    },
+                    "shadow": false,
+                    "topLevel": false
+                },
+                "ZiuNA+sLbqi2klW|4=O+": {
+                    "opcode": "operator_random",
+                    "next": null,
+                    "parent": "iZ!Y]jx#Hs4n/]6c:M[/",
+                    "inputs": {
+                        "FROM": [
+                            1,
+                            [
+                                4,
+                                "1"
+                            ]
+                        ],
+                        "TO": [
+                            1,
+                            [
+                                4,
+                                "10"
+                            ]
+                        ]
+                    },
+                    "fields": {},
+                    "shadow": false,
+                    "topLevel": false
+                },
+                "1dzdL$Xt%GZqv5gsP$E/": {
+                    "opcode": "data_setvariableto",
+                    "next": "YwD?__Eu!x8F0q)3Y_/l",
+                    "parent": "iZ!Y]jx#Hs4n/]6c:M[/",
+                    "inputs": {
+                        "VALUE": [
+                            3,
+                            "6r07V`GoX=%Zuc$Tjd+b",
+                            [
+                                10,
+                                "0"
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Faktor 2",
+                            "X8Mvw33M8/i41H+ee7%/"
+                        ]
+                    },
+                    "shadow": false,
+                    "topLevel": false
+                },
+                "6r07V`GoX=%Zuc$Tjd+b": {
+                    "opcode": "operator_random",
+                    "next": null,
+                    "parent": "1dzdL$Xt%GZqv5gsP$E/",
+                    "inputs": {
+                        "FROM": [
+                            1,
+                            [
+                                4,
+                                "1"
+                            ]
+                        ],
+                        "TO": [
+                            1,
+                            [
+                                4,
+                                "10"
+                            ]
                         ]
                     },
                     "fields": {},
@@ -366,100 +460,6 @@
                     "shadow": false,
                     "topLevel": false
                 },
-                "iZ!Y]jx#Hs4n/]6c:M[/": {
-                    "opcode": "data_setvariableto",
-                    "next": "1dzdL$Xt%GZqv5gsP$E/",
-                    "parent": "v@!]xW%AiTWTl)?y?|R{",
-                    "inputs": {
-                        "VALUE": [
-                            3,
-                            "ZiuNA+sLbqi2klW|4=O+",
-                            [
-                                10,
-                                "0"
-                            ]
-                        ]
-                    },
-                    "fields": {
-                        "VARIABLE": [
-                            "Faktor 1",
-                            "R|=Dltp(STkR:=mpa9:i"
-                        ]
-                    },
-                    "shadow": false,
-                    "topLevel": false
-                },
-                "ZiuNA+sLbqi2klW|4=O+": {
-                    "opcode": "operator_random",
-                    "next": null,
-                    "parent": "iZ!Y]jx#Hs4n/]6c:M[/",
-                    "inputs": {
-                        "FROM": [
-                            1,
-                            [
-                                4,
-                                "1"
-                            ]
-                        ],
-                        "TO": [
-                            1,
-                            [
-                                4,
-                                "10"
-                            ]
-                        ]
-                    },
-                    "fields": {},
-                    "shadow": false,
-                    "topLevel": false
-                },
-                "1dzdL$Xt%GZqv5gsP$E/": {
-                    "opcode": "data_setvariableto",
-                    "next": "YwD?__Eu!x8F0q)3Y_/l",
-                    "parent": "iZ!Y]jx#Hs4n/]6c:M[/",
-                    "inputs": {
-                        "VALUE": [
-                            3,
-                            "6r07V`GoX=%Zuc$Tjd+b",
-                            [
-                                10,
-                                "0"
-                            ]
-                        ]
-                    },
-                    "fields": {
-                        "VARIABLE": [
-                            "Faktor 2",
-                            "X8Mvw33M8/i41H+ee7%/"
-                        ]
-                    },
-                    "shadow": false,
-                    "topLevel": false
-                },
-                "6r07V`GoX=%Zuc$Tjd+b": {
-                    "opcode": "operator_random",
-                    "next": null,
-                    "parent": "1dzdL$Xt%GZqv5gsP$E/",
-                    "inputs": {
-                        "FROM": [
-                            1,
-                            [
-                                4,
-                                "1"
-                            ]
-                        ],
-                        "TO": [
-                            1,
-                            [
-                                4,
-                                "10"
-                            ]
-                        ]
-                    },
-                    "fields": {},
-                    "shadow": false,
-                    "topLevel": false
-                },
                 "wpkgrH[.z9g:Rb~(xfro": {
                     "opcode": "control_repeat",
                     "next": null,
@@ -553,45 +553,6 @@
                     "fields": {},
                     "shadow": false,
                     "topLevel": false
-                },
-                "@)Ts[j6bSwazszZ#t{t8": {
-                    "opcode": "event_whenflagclicked",
-                    "next": "TxK+E!6pCEI)}X+ih;18",
-                    "parent": null,
-                    "inputs": {},
-                    "fields": {},
-                    "shadow": false,
-                    "topLevel": true,
-                    "x": 859,
-                    "y": 127
-                },
-                "TxK+E!6pCEI)}X+ih;18": {
-                    "opcode": "data_showvariable",
-                    "next": "9V.[?].|EI|y^S^Z7SDu",
-                    "parent": "@)Ts[j6bSwazszZ#t{t8",
-                    "inputs": {},
-                    "fields": {
-                        "VARIABLE": [
-                            "Faktor 1",
-                            "R|=Dltp(STkR:=mpa9:i"
-                        ]
-                    },
-                    "shadow": false,
-                    "topLevel": false
-                },
-                "9V.[?].|EI|y^S^Z7SDu": {
-                    "opcode": "data_showvariable",
-                    "next": null,
-                    "parent": "TxK+E!6pCEI)}X+ih;18",
-                    "inputs": {},
-                    "fields": {
-                        "VARIABLE": [
-                            "Faktor 2",
-                            "X8Mvw33M8/i41H+ee7%/"
-                        ]
-                    },
-                    "shadow": false,
-                    "topLevel": false
                 }
             },
             "comments": {},
@@ -661,7 +622,7 @@
             "height": 0,
             "x": null,
             "y": null,
-            "visible": true,
+            "visible": false,
             "sliderMin": 0,
             "sliderMax": 100
         },
@@ -673,12 +634,12 @@
                 "VARIABLE": "Faktor 2"
             },
             "spriteName": null,
-            "value": 2,
+            "value": 1,
             "width": 0,
             "height": 0,
             "x": null,
             "y": null,
-            "visible": true,
+            "visible": false,
             "sliderMin": 0,
             "sliderMax": 100
         }
