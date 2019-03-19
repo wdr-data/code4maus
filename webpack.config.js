@@ -5,7 +5,6 @@ const envsub = require('envsubstr');
 // Plugins
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
 
 // PostCss
@@ -124,7 +123,6 @@ module.exports = {
         ],
     },
     optimization: {
-        minimizer: [ new UglifyJsPlugin() ],
         splitChunks: {
             chunks: 'all',
         },
