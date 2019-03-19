@@ -5,6 +5,7 @@ import { push } from 'redux-little-router';
 
 import ContentWrapper from '../components/content-wrapper/content-wrapper.jsx';
 import ParentHelp, { attributes as parentAttributes } from '../lib/content/parents.md';
+import Teacher, { attributes as teacherAttributes } from '../lib/content/teachers.md';
 import Privacy, { attributes as privacyAttributes } from '../lib/content/privacy.md';
 import Terms, { attributes as termsAttributes } from '../lib/content/terms.md';
 
@@ -12,6 +13,10 @@ const contentMap = {
     'eltern': {
         Component: ParentHelp,
         attributes: parentAttributes,
+    },
+    'lehrerinnen': {
+        Component: Teacher,
+        attributes: teacherAttributes,
     },
     'datenschutz': {
         Component: Privacy,
