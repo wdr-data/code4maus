@@ -1,0 +1,53 @@
+@import "../../css/units.css";
+@import "../../css/colors.css";
+
+.toolbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 501;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.toolbox-background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    padding: 1rem;
+
+    -webkit-box-shadow: 0.125rem 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0.125rem 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.5);
+}
+
+.sharing-button {
+    height: 5rem;
+    cursor: pointer;
+}
+
+.sharing-button:last-child {
+    margin-top: .5rem;
+}
+
+.screenshot-wrapper {
+    background-color: white;
+    padding: 1rem;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-wrapper > * {
+    margin: 1rem;
+    font-size: 2rem;
+}
