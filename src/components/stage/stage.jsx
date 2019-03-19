@@ -10,6 +10,7 @@ import Question from '../../containers/question.jsx';
 import { getStageSize } from '../../lib/screen-utils.js';
 import styles from './stage.css';
 import Fullscreen from '../../containers/fullscreen.jsx';
+import SharingToolbox from '../sharing-toolbox/sharing-toolbox.jsx';
 
 const StageComponent = (props) => {
     const {
@@ -40,6 +41,7 @@ const StageComponent = (props) => {
                 })}
                 onDoubleClick={onDoubleClick}
             >
+                {isFullScreen && <SharingToolbox />}
                 <DOMElementRenderer
                     className={classNames(
                         styles.stage,
