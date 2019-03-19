@@ -18,6 +18,7 @@ module.exports = {
                         presets: [ [ 'env', { targets: { node: '8.10.0' } } ] ],
                         plugins: [ 'transform-object-rest-spread' ],
                         babelrc: false,
+                        configFile: false,
                     },
                 },
             },
