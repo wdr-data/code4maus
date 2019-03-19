@@ -14,7 +14,7 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 5000;
+    z-index: 500;
 }
 
 .stage-menu-wrapper {
@@ -51,4 +51,3 @@
     text-decoration: none;
     padding-right: .5rem;
 }
-
