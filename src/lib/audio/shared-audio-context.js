@@ -1,4 +1,4 @@
-import startAudioContext from './startaudiocontext';
+import startAudioContext from './startaudiocontext/StartAudioContext';
 import bowser from 'bowser';
 
 let AUDIO_CONTEXT;
