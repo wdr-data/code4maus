@@ -1,10 +1,10 @@
-import AudioEngine from 'scratch-audio';
+import AudioEngine from '@wdr-data/scratch-audio';
 import PropTypes from 'prop-types';
 import React from 'react';
 import VM from '@wdr-data/scratch-vm';
 import { connect } from 'react-redux';
 import flow from 'lodash.flowright';
-import SharedAudioContext from '../lib/audio/shared-audio-context';
+import sharedAudioContext from '../lib/audio/shared-audio-context';
 
 import { openExtensionLibrary, closeSaveProject } from '../reducers/modals';
 import {
@@ -41,8 +41,8 @@ class GUI extends React.Component {
             return;
         }
 
-        this.audioEngine = new AudioEngine(SharedAudioContext());
-        this.props.vm.attachAudioEngine(this.audioEngine);
+        const audioEngine = new AudioEngine(sharedAudioContext());
+        this.props.vm.attachAudioEngine(audioEngine);
         if (this.props.projectData) {
             this.loadProject();
         }

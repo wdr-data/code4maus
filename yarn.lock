@@ -1716,6 +1716,15 @@
   resolved "https://registry.yarnpkg.com/@vernier/godirect/-/godirect-1.4.1.tgz#5b3e9f44f7faacd77a602b774646a165c04d1a5d"
   integrity sha512-5RaBF0UOLJR85UWlPTUv4c7aE3OW3wtaWd6MFEEhVrHTfUuEJPq7444U8tC4hKZnrNyppV/bCN9JtSmN0OlHkg==
 
+"@wdr-data/scratch-audio@0.1.0-prerelease.20190320154358":
+  version "0.1.0-prerelease.20190320154358"
+  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-audio/-/scratch-audio-0.1.0-prerelease.20190320154358.tgz#10a1b14b6c7611acb203f67225b464d5ed0de94e"
+  integrity sha512-eRkCqh7wBSaC1+IUYNWMJ125zCekIpXwf3W2ZqtqCevHvltBdY+gzvam0Yxgenip1UNG+MLyGTucAn+0Pw1bDw==
+  dependencies:
+    audio-context "1.0.1"
+    minilog "^3.0.1"
+    startaudiocontext "1.2.1"
+
 "@wdr-data/scratch-blocks@^0.1.7":
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/@wdr-data/scratch-blocks/-/scratch-blocks-0.1.7.tgz#9c25105d34102b240dfa79853ec62590cb87c90e"
@@ -12105,15 +12114,6 @@ schema-utils@^1.0.0:
     ajv "^6.1.0"
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
-
-scratch-audio@0.1.0-prerelease.20181023202904:
-  version "0.1.0-prerelease.20181023202904"
-  resolved "https://registry.yarnpkg.com/scratch-audio/-/scratch-audio-0.1.0-prerelease.20181023202904.tgz#83ea866f05791e53254c322af14dcfa195040a3c"
-  integrity sha512-0cf+snpT04RFWFgMsMzbztzNVyh2PkUaT8mjlwNNoIRy5p7yDN3EMC2zGbR71nZMus1tO2EDxqrpan2ix4IWDw==
-  dependencies:
-    audio-context "1.0.1"
-    minilog "^3.0.1"
-    startaudiocontext "1.2.1"
 
 scratch-l10n@3.1.20190220143732:
   version "3.1.20190220143732"
