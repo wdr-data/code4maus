@@ -3,36 +3,44 @@
 slides:
   - asset: L00.png
     caption: "Willkommen zu Programmieren mit der Maus. Klicke weiter."
-  - asset: 03.gif
-    caption: "Hier machst du Kunst mit Maus, Elefant und Ente."
+  - asset: e.png
+    caption: "Mache Kunst mit Maus, Elefant und Ente."
   - asset: y01.png
     caption: Die Blöcke steuern die Maus
   - asset: start.png
-    caption: "Drücke und teste:"
+    caption: "Drücke zum Testen"
   - asset: stop.png
-    caption: "Zum Stoppen:"
+    caption: "Zum Stoppen"
   - asset: y01.gif
-    caption: "Ziehe den 'erzeuge Klon'-Block rein"
+    caption: "Ziehe 'erzeuge Klon' dazu"
   - asset: start.png
     caption: "Teste noch mal"
-  - asset: 02.png
-    caption: "Füge einen 2. Block hinzu"
-  - asset: 03.png
-    caption: "Ändere Schritte zu 0.5"
-  - asset: fragezeichen.svg
+  - asset: stop.png
+    caption: Stoppen
+  - asset: z08.png
+    caption: "Füge ein 2. Programm hinzu"
+  - asset: z01.png
+    caption: "Dazu 'für immer' und 'gehe'"
+  - asset: z02.png
+    caption: "Ändere Schritte zu 1"
+  - asset: start.png
     caption: "Was passiert?"
-  - asset: 04.png
-    caption: "Wähle Effekt Farbe und ändere um 5"
-  - asset: beispiel-stern.jpg
+  - asset: z03.png
+    caption: "Ziehe 'ändere Effekt' dazu"
+  - asset: z04.png
+    caption: "Ändere zu 'um 5'"
+  - asset: start.png
+    caption: "Wie sieht's aus?" 
+  - asset: z05.png
+    caption: "Spiele mit den Effekten..."
+  - asset: z06.png
+    caption: "Oder ändere die Größe"
+  - asset: v01.png
+    caption: "Elefant, Ente? Klicke nächstes Kostüm"
   - asset: stern.svg
     caption: "Mach dein eigenes Kunstwerk!"
-  - asset: 05.png
-    caption: "Spiele mit den Effekten rum..."
-  - asset: 06.png
-    caption: "oder ändere die Größe."
   - asset: daumen-hoch.svg
-    caption: "Viel Spaß!"
-
+    caption: "Drucke oder teile dein Werk!"
 
 
 blocks:
