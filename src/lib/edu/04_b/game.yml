@@ -4,12 +4,12 @@ slides:
   - asset: Mathefant.svg
   - asset: 01.png
     caption: "Ziel: Der Elefant stellt Mathe-Aufgaben."
+  - asset: p1.png
+    caption: "Beginne ein Programm"
   - asset: variablen_hand.png
     caption: "Klicke auf Variablen"
   - asset: 02.png
     caption: "Füge zwei neue Variablen hinzu. Nenne sie 'Zahl 1' und 'Zahl 2'."
-  - asset: p1.png
-    caption: "Beginne ein Programm"
   - asset: x03.png
     caption: "Ziehe zwei Mal 'setze auf' rüber:"
   - asset: 01.gif
@@ -23,7 +23,7 @@ slides:
   - asset: x01_1.png
     caption: "Ziehe vier mal 'denke' dazu:"
   - asset: x01_2.png
-    caption: "Ändere Texte und Sekunden:"
+    caption: "Ändere Texte und Sekunden so:"
   - asset: 03.gif
     caption: "Ziehe 'Zahl 1' und 'Zahl 2' rein:"
   - asset: y_02.png
@@ -35,11 +35,13 @@ slides:
   - asset: start.png
     caption: "Teste dein Programm:"
   - asset: y_03.png
-    caption: "Das Programm wartet, bis du die Lösung und ENTER tippst."
+    caption: "Das Programm wartet, bis du die Lösung tippst und bestätigst."
   - asset: blitz.svg
     caption: "Aber wie weiß das Programm die Lösung?"
+  - asset: steuerung.png
+    caption: "Klicke auf 'Steuerung'"
   - asset: y_04.png
-    caption: "Dafür brauchst du ein 'falls-dann-sonst':"
+    caption: "Du brauchst 'falls-dann-sonst':"
   - asset: y_05.png
     caption: "Klicke auf Operatoren"
   - asset: y_06.png
