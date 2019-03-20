@@ -107,7 +107,7 @@ const GUIComponent = (props) => {
                     <Box className={styles.savingOverlay} hidden={!isSaving}>
                         <Spinner />
                     </Box>
-                    <Input placeholder="Hier eintippen, wie dein Spiel heißen soll" onChange={(e) => onProjectNameChange(e.target.value)} value={projectName} />
+                    <Input placeholder="Hier eintippen, wie dein Spiel heißen soll" id="save_input" onChange={(e) => onProjectNameChange(e.target.value)} value={projectName} />
                     <Box className={styles.saveModalActions}>
                         <p>{saveProjectError}</p>
                         <Button
@@ -258,7 +258,7 @@ const GUIComponent = (props) => {
                             <Tab />
                             <Tab />
                         </TabList>
-                        <TabPanel className={[ tabClassNames.tabPanel, styles.codePanelWrapper ]}>
+                        <TabPanel className={[tabClassNames.tabPanel, styles.codePanelWrapper]}>
                             <Box className={styles.codeTopRow}>
                                 <Box className={styles.blocksWrapper} aria-label="Scratch Blocks">
                                     <Blocks
