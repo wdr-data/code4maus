@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import VM from '@wdr-data/scratch-vm';
@@ -13,28 +13,59 @@ import gifIcon from '!raw-loader!../../../assets/icons/icon_gif.svg';
 import printIcon from '!raw-loader!../../../assets/icons/icon_print.svg';
 import mausImage from '../../../assets/img/head_logo.png';
 
-const useScreenshotState = (vm) => {
+const useScreenshotState = (vm, open) => {
     const [ isScreenshotOpen, setScreenshotOpen ] = useState(false);
     const [ screenshotSource, setScreenshotSource ] = useState('');
-    const openScreenshotModal = () => {
-        const canvas = vm.runtime.renderer._gl.canvas;
-        requestAnimationFrame(() => {
-            const image = canvas.toDataURL();
-            setScreenshotSource(image);
-            setScreenshotOpen(true);
-        });
-    };
+    useEffect(() => {
+        if (open) {
+            const renderer = vm.runtime.renderer;
+            renderer.requestSnapshot((image) => {
+                setScreenshotSource(image);
+                setScreenshotOpen(true);
+            });
+        } else {
+            setScreenshotOpen(false);
+            setScreenshotSource('');
+        }
+    }, [ open ]);
     return {
         isScreenshotOpen,
-        openScreenshotModal,
-        closeScreenshotModal: () => setScreenshotOpen(false),
         screenshotSource,
     };
 };
 
+const SharingImageModal = ({ open, vm, onRequestClose }) => {
+    const { isScreenshotOpen, screenshotSource } = useScreenshotState(vm, open);
+    if (!isScreenshotOpen) {
+        return null;
+    }
+    return (
+        <Modal
+            className={styles.modalContent}
+            contentLabel="Dein Foto"
+            onRequestClose={onRequestClose}
+        >
+            <Box className={styles.screenshotWrapper}>
+                <img
+                    src={screenshotSource}
+                    className={styles.screenshotStage}
+                />
+                <Box className={styles.buttonWrapper}>
+                    <Button style='primary'>
+                        Drucken
+                    </Button>
+                    <Button style='primary'>
+                        Teilen
+                    </Button>
+                </Box>
+            </Box>
+        </Modal>
+    );
+};
+
 const SharingToolboxComponent = ({ vm }) => {
     const [ isGifOpen, setGifOpen ] = useState(false);
-    const { isScreenshotOpen, openScreenshotModal, closeScreenshotModal, screenshotSource } = useScreenshotState(vm);
+    const [ isScreenshotOpen, setScreenshotOpen ] = useState(false);
 
     return (
         <React.Fragment>
@@ -48,30 +79,15 @@ const SharingToolboxComponent = ({ vm }) => {
                     <InlineSvg
                         svg={printIcon}
                         className={styles.sharingButton}
-                        onClick={openScreenshotModal}
+                        onClick={() => setScreenshotOpen(true)}
                     />
                 </div>
             </div>
-            {isScreenshotOpen && <Modal
-                className={styles.modalContent}
-                contentLabel="Dein Foto"
-                onRequestClose={closeScreenshotModal}
-            >
-                <Box className={styles.screenshotWrapper}>
-                    <img
-                        src={screenshotSource}
-                        className={styles.screenshotStage}
-                    />
-                    <Box className={styles.buttonWrapper}>
-                        <Button style='primary'>
-                            Drucken
-                        </Button>
-                        <Button style='primary'>
-                            Teilen
-                        </Button>
-                    </Box>
-                </Box>
-            </Modal>}
+            <SharingImageModal
+                vm={vm}
+                open={isScreenshotOpen}
+                onRequestClose={() => setScreenshotOpen(false)}
+            />
             {isGifOpen && <Modal
                 className={styles.modalContent}
                 contentLabel="Dein Gif"
