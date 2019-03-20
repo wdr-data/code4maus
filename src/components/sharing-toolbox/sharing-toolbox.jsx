@@ -150,10 +150,37 @@ SharingImageModal.propTypes = {
     onRequestClose: PropTypes.func.isRequired,
 };
 
+const useRecording = (vm) => {
+    const [ isRecording, setRecording ] = useState(false);
+    const [ timeLeft, setTimeLeft ] = useState(10);
+    const toggleRecording = useCallback(() => {
+        if (isRecording) {
+            vm.stopAll();
+            setRecording(false);
+        } else {
+            setRecording(true);
+            vm.greenFlag();
+        }
+    }, [ vm, setRecording, isRecording ]);
+    useEffect(() => {
+        let interval = null;
+        if (isRecording) {
+            interval = setInterval(() => console.warn('tick'), 1000);
+        }
+        return () => {
+            if (interval) {
+                clearInterval(interval);
+            }
+        };
+    }, [ isRecording ]);
+    return { timeLeft, toggleRecording, isRecording };
+};
+
 const SharingToolboxComponent = ({ vm }) => {
     const [ isGifOpen, setGifOpen ] = useState(false);
     const [ isScreenshotOpen, setScreenshotOpen ] = useState(false);
     const { image, takeScreenshot } = useScreenshotState(vm, () => setScreenshotOpen(true));
+    const { toggleRecording, isRecording, timeLeft } = useRecording(vm);
 
     return (
         <React.Fragment>
@@ -162,8 +189,9 @@ const SharingToolboxComponent = ({ vm }) => {
                     <InlineSvg
                         svg={gifIcon}
                         className={styles.sharingButton}
-                        onClick={() => setGifOpen(true)}
+                        onClick={toggleRecording}
                     />
+                    {isRecording && <span>{timeLeft}</span>}
                     <InlineSvg
                         svg={printIcon}
                         className={styles.sharingButton}
