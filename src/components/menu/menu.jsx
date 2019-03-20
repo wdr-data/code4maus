@@ -18,6 +18,7 @@ import buttonNew from '!raw-loader!../../../assets/icons/menu_plus.svg';
 import tabIconEdugames from '!raw-loader!../../../assets/icons/menu_edugames.svg';
 import tabIconProjects from '!raw-loader!../../../assets/icons/menu_projects.svg';
 import tabIconExamples from '!raw-loader!../../../assets/icons/menu_examples.svg';
+import buttonIconLehrerinnen from '!raw-loader!../../../assets/icons/menu_lehrer.svg';
 import buttonIconInfo from '!raw-loader!../../../assets/icons/menu_eltern-info.svg';
 import buttonIconMausseite from '!raw-loader!../../../assets/icons/menu_mausseite.svg';
 import buttonIconDatenschutz from '!raw-loader!../../../assets/icons/icon_hilfe.svg';
@@ -120,6 +121,9 @@ export const MenuComponent = (props) => {
                 </Tabs>
             </Box>
             <Box className={styles.buttonRow}>
+                <MenuButton iconSvg={buttonIconLehrerinnen} linkTo="/inhalte/lehrkraefte">
+                    Lehrkräfte
+                </MenuButton>
                 <MenuButton iconSvg={buttonIconInfo} linkTo="/inhalte/eltern">
                     Eltern-Info
                 </MenuButton>

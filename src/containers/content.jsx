@@ -14,7 +14,7 @@ const contentMap = {
         Component: ParentHelp,
         attributes: parentAttributes,
     },
-    'lehrerinnen': {
+    'lehrkraefte': {
         Component: Teacher,
         attributes: teacherAttributes,
     },
