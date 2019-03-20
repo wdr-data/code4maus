@@ -39,11 +39,42 @@
     min-height: 40vh;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .screenshot-wrapper img {
     height: 60vh;
     width: auto;
+    margin-bottom: 2rem;
+}
+
+.print-screenshot {
+    border: 1px solid red;
+}
+
+.spinner-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.sharing-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .button-wrapper {
