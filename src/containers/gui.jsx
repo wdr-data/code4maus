@@ -4,6 +4,7 @@ import React from 'react';
 import VM from '@wdr-data/scratch-vm';
 import { connect } from 'react-redux';
 import flow from 'lodash.flowright';
+import SharedAudioContext from '../lib/audio/shared-audio-context';
 
 import { openExtensionLibrary, closeSaveProject } from '../reducers/modals';
 import {
@@ -40,7 +41,7 @@ class GUI extends React.Component {
             return;
         }
 
-        this.audioEngine = new AudioEngine();
+        this.audioEngine = new AudioEngine(SharedAudioContext());
         this.props.vm.attachAudioEngine(this.audioEngine);
         if (this.props.projectData) {
             this.loadProject();
