@@ -16,21 +16,16 @@ import gifIcon from '!raw-loader!../../../assets/icons/icon_gif.svg';
 import printIcon from '!raw-loader!../../../assets/icons/icon_print.svg';
 import mausImage from '../../../assets/img/head_logo.png';
 
-const useScreenshotState = (vm, open, dispatch) => {
-    const [ screenshotSource, setScreenshotSource ] = useState('');
-    useEffect(() => {
-        if (open) {
-            const renderer = vm.runtime.renderer;
-            renderer.requestSnapshot((image) => {
-                setScreenshotSource(image);
-                dispatch({ type: actionOpen });
-            });
-        } else {
-            dispatch({ type: actionClose });
-            setScreenshotSource('');
-        }
-    }, [ open ]);
-    return screenshotSource;
+const useScreenshotState = (vm, onImageReady) => {
+    const [ image, setImage ] = useState('');
+    const takeScreenshot = useCallback(() => {
+        const renderer = vm.runtime.renderer;
+        renderer.requestSnapshot((image) => {
+            setImage(image);
+            onImageReady();
+        });
+    }, [ vm, onImageReady, setImage ]);
+    return { takeScreenshot, image };
 };
 
 const usePrintScreenshot = (image, dispatch) => {
@@ -63,11 +58,8 @@ const initialState = {
     mode: 'default',
     isLoading: false,
     sharingUrl: '',
-    open: false,
 };
 
-const actionOpen = 'open';
-const actionClose = 'close';
 const actionPrintPreview = 'printPreview';
 const actionPrintFinished = 'printFinished';
 const actionPrintLoading = 'printLoading';
@@ -76,10 +68,6 @@ const actionSharePreview = 'sharePreview';
 
 const reducer = (state, action) => {
     switch (action.type) {
-    case actionOpen:
-        return { ...state, open: true };
-    case actionClose:
-        return initialState;
     case actionPrintPreview:
         return { ...state, mode: 'print' };
     case actionPrintFinished:
@@ -99,14 +87,10 @@ const reducer = (state, action) => {
     }
 };
 
-const SharingImageModal = ({ open, vm, onRequestClose }) => {
+const SharingImageModal = ({ onRequestClose, image }) => {
     const [ state, dispatch ] = useReducer(reducer, initialState);
-    const image = useScreenshotState(vm, open, dispatch);
     const print = usePrintScreenshot(image, dispatch);
     const share = useSharingScreenshot(image, dispatch);
-    if (!state.open) {
-        return null;
-    }
     return (
         <Modal
             className={styles.modalContent}
@@ -162,14 +146,14 @@ const SharingImageModal = ({ open, vm, onRequestClose }) => {
 };
 
 SharingImageModal.propTypes = {
-    open: PropTypes.bool,
-    vm: PropTypes.instanceOf(VM).isRequired,
+    image: PropTypes.string,
     onRequestClose: PropTypes.func.isRequired,
 };
 
 const SharingToolboxComponent = ({ vm }) => {
     const [ isGifOpen, setGifOpen ] = useState(false);
     const [ isScreenshotOpen, setScreenshotOpen ] = useState(false);
+    const { image, takeScreenshot } = useScreenshotState(vm, () => setScreenshotOpen(true));
 
     return (
         <React.Fragment>
@@ -183,15 +167,15 @@ const SharingToolboxComponent = ({ vm }) => {
                     <InlineSvg
                         svg={printIcon}
                         className={styles.sharingButton}
-                        onClick={() => setScreenshotOpen(true)}
+                        onClick={takeScreenshot}
                     />
                 </div>
             </div>
-            <SharingImageModal
+            {isScreenshotOpen && <SharingImageModal
                 vm={vm}
-                open={isScreenshotOpen}
+                image={image}
                 onRequestClose={() => setScreenshotOpen(false)}
-            />
+            />}
             {isGifOpen && <Modal
                 className={styles.modalContent}
                 contentLabel="Dein Gif"
