@@ -41,6 +41,11 @@
     flex-direction: column;
 }
 
+.screenshot-wrapper img {
+    height: 60vh;
+    width: auto;
+}
+
 .button-wrapper {
     display: flex;
     justify-content: center;
