@@ -14,7 +14,7 @@ import withTracking from '../lib/tracking-hoc.jsx';
 import localeDe from '../../translations/de.json';
 import storage, { s3userFile } from '../lib/storage';
 import { setUserId } from '../reducers/project';
-import { startFirstTimeInstall, failFirstTimeInstall, finishFirstTimeInstall, setInstalled } from '../reducers/offline';
+import { startInstall, failInstall, setInstalled } from '../reducers/offline';
 
 import Menu from './menu.jsx';
 import WelcomeScreen from './welcome-screen.jsx';
@@ -46,7 +46,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        if (this.props.installOnLoad) {
+        if (this.props.offlineEnabled) {
             this.offlineSupport();
         }
         this.ensureUserId();
@@ -58,42 +58,39 @@ class App extends Component {
             storage.userId = this.props.userId;
         }
 
-        if (prevProps.installOnLoad !== this.props.installOnLoad && this.props.installOnLoad) {
-            this.firstTimeInstall();
+        if (prevProps.offlineEnabled !== this.props.offlineEnabled && this.props.offlineEnabled) {
+            this.offlineSupport();
         }
     }
 
-    async firstTimeInstall() {
-        this.props.startFirstTimeInstall();
-        this.offlineSupport().then(() => {
-            this.props.finishFirstTimeInstall();
-        })
-            .catch((e) => {
-                this.props.failFirstTimeInstall(e);
-            });
-    }
-
     async offlineSupport() {
+        this.props.startInstall();
         // register service worker
         if ('serviceWorker' in navigator) {
             const wb = new Workbox('/service-worker.js');
 
             // not 100% sure about timing here. maybe we could register the event only if it has not yet
-            // been installed. But not 100% sure..better play safe here :S 
+            // been installed. But not 100% sure..better play safe here :S
             const installedPromise = new Promise((resolve, reject) => {
                 wb.addEventListener('installed', (event) => {
-                    this.props.setInstalled();
                     resolve();
                 });
             });
-            const result = await wb.register();
-            let waitInstalled;
-            if (result.installing === null) {
-                waitInstalled = Promise.resolve();
-            } else {
-                waitInstalled = installedPromise;
+
+            try {
+                const result = await wb.register();
+                let waitInstalled;
+                if (result.installing === null) {
+                    waitInstalled = Promise.resolve();
+                } else {
+                    waitInstalled = installedPromise;
+                }
+                await waitInstalled;
+                this.props.setInstalled();
+            } catch (e) {
+                this.props.failInstall(e);
+                throw e;
             }
-            return waitInstalled.then(() => this.props.setInstalled());
         } else {
             return Promise.reject();
         }
@@ -168,10 +165,9 @@ App.propTypes = {
     setUserId: PropTypes.func.isRequired,
     userId: PropTypes.string,
     redirectWelcome: PropTypes.func.isRequired,
-    installOnLoad: PropTypes.bool.isRequired,
-    startFirstTimeInstall: PropTypes.func.isRequired,
-    finishFirstTimeInstall: PropTypes.func.isRequired,
-    failFirstTimeInstall: PropTypes.func.isRequired,
+    offlineEnabled: PropTypes.bool.isRequired,
+    startInstall: PropTypes.func.isRequired,
+    failInstall: PropTypes.func.isRequired,
     setInstalled: PropTypes.func.isRequired,
 };
 
@@ -181,15 +177,14 @@ const ConnectedApp = connect(
         return {
             view: result.view || '',
             userId: state.scratchGui.project.userId,
-            installOnLoad: state.scratchGui.offline.installOnLoad,
+            offlineEnabled: state.scratchGui.offline.enabled,
         };
     },
     (dispatch) => ({
         setUserId: (id) => dispatch(setUserId(id)),
         redirectWelcome: () => dispatch(replace('/welcome')),
-        startFirstTimeInstall: () => dispatch(startFirstTimeInstall()),
-        finishFirstTimeInstall: () => dispatch(finishFirstTimeInstall()),
-        failFirstTimeInstall: () => dispatch(failFirstTimeInstall()),
+        startInstall: () => dispatch(startInstall()),
+        failInstall: () => dispatch(failInstall()),
         setInstalled: () => dispatch(setInstalled()),
     }),
 )(App);

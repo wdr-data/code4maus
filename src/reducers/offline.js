@@ -1,15 +1,13 @@
-const SET_INSTALL_ON_LOAD = 'scratch-gui/offline/SET_INSTALL_ON_LOAD';
-const START_FIRST_TIME_INSTALL = 'scratch-gui/offline/START_FIRST_TIME_INSTALL';
-const FAIL_FIRST_TIME_INSTALL = 'scratch-gui/offline/FAIL_FIRST_TIME_INSTALL';
-const FINISH_FIRST_TIME_INSTALL = 'scratch-gui/offline/FINISH_FIRST_TIME_INSTALL';
+const SET_ENABLED = 'scratch-gui/offline/SET_ENABLED';
+const START_INSTALL = 'scratch-gui/offline/START_INSTALL';
+const FAIL_INSTALL = 'scratch-gui/offline/FAIL_INSTALL';
 const SET_INSTALLED = 'scratch-gui/offline/SET_INSTALLED';
 
 const initialState = {
-    installOnLoad: !!localStorage.getItem('offline-install'),
-    firstTimeInstalling: false,
-    firstTimeInstallError: null,
+    enabled: !!localStorage.getItem('offline-install'),
+    installing: false,
+    installError: null,
     installed: false,
-    firstTimeInstalled: false,
 };
 
 const reducer = function(state, action) {
@@ -17,38 +15,33 @@ const reducer = function(state, action) {
         state = initialState;
     }
     switch (action.type) {
-    case SET_INSTALL_ON_LOAD:
-        localStorage.setItem('offline-install', true);
+    case SET_ENABLED:
+        localStorage.setItem('offline-install', action.value);
         return {
             ...state,
-            installOnLoad: true,
+            enabled: action.value,
         };
-    case START_FIRST_TIME_INSTALL:
+    case START_INSTALL:
         return {
             ...state,
-            firstTimeInstalling: true,
-            firstTimeInstallFinished: false,
-            firstTimeInstallError: null,
-            firstTimeInstalled: false,
+            installing: true,
+            installFinished: false,
+            installError: null,
+            installed: false,
         };
-    case FAIL_FIRST_TIME_INSTALL:
+    case FAIL_INSTALL:
         return {
             ...state,
-            firstTimeInstallError: action.error,
-            firstTimeInstalling: false,
-            firstTimeInstallFinished: false,
-            firstTimeInstalled: false,
-        };
-    case FINISH_FIRST_TIME_INSTALL:
-        return {
-            ...state,
-            firstTimeInstallError: null,
-            firstTimeInstalling: false,
-            firstTimeInstalled: true,
+            installing: false,
+            installFinished: false,
+            installError: action.error,
+            installed: false,
         };
     case SET_INSTALLED:
         return {
             ...state,
+            installError: null,
+            installing: false,
             installed: true,
         };
     default:
@@ -56,28 +49,23 @@ const reducer = function(state, action) {
     }
 };
 
-const setInstallOnLoad = function() {
+const setEnabled = function(value) {
     return {
-        type: SET_INSTALL_ON_LOAD,
+        type: SET_ENABLED,
+        value,
     };
 };
 
-const startFirstTimeInstall = function() {
+const startInstall = function() {
     return {
-        type: START_FIRST_TIME_INSTALL,
+        type: START_INSTALL,
     };
 };
 
-const finishFirstTimeInstall = function() {
+const failInstall = function(e) {
     return {
-        type: FINISH_FIRST_TIME_INSTALL,
-    };
-};
-
-const failFirstTimeInstall = function(error) {
-    return {
-        type: FAIL_FIRST_TIME_INSTALL,
-        error,
+        type: FAIL_INSTALL,
+        error: e.message,
     };
 };
 
@@ -90,9 +78,8 @@ const setInstalled = function() {
 export {
     reducer as default,
     initialState as offlineInitialState,
-    setInstallOnLoad,
+    setEnabled,
     setInstalled,
-    startFirstTimeInstall,
-    finishFirstTimeInstall,
-    failFirstTimeInstall,
+    startInstall,
+    failInstall,
 };
