@@ -64,35 +64,33 @@ class App extends Component {
     }
 
     async offlineSupport() {
+        if (!('serviceWorker' in navigator)) {
+            return;
+        }
+
         this.props.startInstall();
         // register service worker
-        if ('serviceWorker' in navigator) {
-            const wb = new Workbox('/service-worker.js');
+        const wb = new Workbox('/service-worker.js');
 
-            // not 100% sure about timing here. maybe we could register the event only if it has not yet
-            // been installed. But not 100% sure..better play safe here :S
-            const installedPromise = new Promise((resolve, reject) => {
-                wb.addEventListener('installed', (event) => {
-                    resolve();
-                });
+        // not 100% sure about timing here. maybe we could register the event only if it has not yet
+        // been installed. But not 100% sure..better play safe here :S
+        const installedPromise = new Promise((resolve, reject) => {
+            wb.addEventListener('installed', (event) => {
+                resolve();
             });
+        });
 
-            try {
-                const result = await wb.register();
-                let waitInstalled;
-                if (result.installing === null) {
-                    waitInstalled = Promise.resolve();
-                } else {
-                    waitInstalled = installedPromise;
-                }
-                await waitInstalled;
-                this.props.setInstalled();
-            } catch (e) {
-                this.props.failInstall(e);
-                throw e;
-            }
-        } else {
-            return Promise.reject();
+        try {
+            const result = await wb.register();
+            const installed = result.installing === null
+                ? Promise.resolve()
+                : installedPromise;
+
+            await installed;
+            this.props.setInstalled();
+        } catch (e) {
+            this.props.failInstall(e);
+            throw e;
         }
     }
 
