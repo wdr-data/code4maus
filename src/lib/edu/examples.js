@@ -6,7 +6,6 @@ import image06 from './beispiel06/assets/000.png';
 import image07 from './beispiel07/assets/000.png';
 import image08 from './beispiel08/assets/000.png';
 import image09 from './beispiel09/assets/000.png';
-import image10 from './beispiel10/assets/000.png';
 
 export default [
     {
@@ -57,10 +56,4 @@ export default [
         subtitle: 'Die Maus findet deine Zahl',
         image: image09,
     },
-    {
-        id: 'beispiel10',
-        name: '#MausArt',
-        subtitle: 'Lass Blumen sprechen',
-        image: image10,
-    }
 ];
