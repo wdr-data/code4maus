@@ -165,29 +165,54 @@ SharingImageModal.propTypes = {
     onRequestClose: PropTypes.func.isRequired,
 };
 
+const recordingInitialState = {
+    timeLeft: 10,
+    isRecording: false,
+};
+
+const recordingReducer = (state, action) => {
+    switch (action.type) {
+    case 'start':
+        return { ...recordingInitialState, isRecording: true };
+    case 'tick':
+        const timeLeft = state.timeLeft - 1; // eslint-disable-line no-case-declarations
+        if (timeLeft === 0) {
+            return recordingInitialState;
+        }
+        return { ...state, timeLeft };
+    case 'stop':
+        return recordingInitialState;
+    default:
+        return state;
+    }
+};
+
 const useRecording = (vm) => {
-    const [ isRecording, setRecording ] = useState(false);
-    const [ timeLeft, setTimeLeft ] = useState(10);
+    const [ { timeLeft, isRecording }, dispatch ] = useReducer(recordingReducer, recordingInitialState);
     const toggleRecording = useCallback(() => {
         if (isRecording) {
-            vm.stopAll();
-            setRecording(false);
+            dispatch({ type: 'stop' });
         } else {
-            setRecording(true);
-            vm.greenFlag();
+            dispatch({ type: 'start' });
         }
-    }, [ vm, setRecording, isRecording ]);
+    }, [ isRecording, dispatch ]);
     useEffect(() => {
         let interval = null;
         if (isRecording) {
-            interval = setInterval(() => console.warn('tick'), 1000);
+            interval = setInterval(() => dispatch({ type: 'tick' }), 1000);
         }
         return () => {
             if (interval) {
                 clearInterval(interval);
             }
         };
-    }, [ isRecording ]);
+    }, [ isRecording, dispatch ]);
+    useEffect(() => {
+        if (isRecording) {
+            vm.greenFlag();
+        }
+        return () => vm.stopAll();
+    }, [ vm, isRecording ]);
     return { timeLeft, toggleRecording, isRecording };
 };
 
