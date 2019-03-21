@@ -3,12 +3,12 @@
 slides:
   - asset: Mathefant.png
   - asset: 01.png
-    caption: "Ziel: Der Elefant stellt Mathe-Aufgaben."
+    caption: "Programmiere den Elefanten so, dass er dir Mathe-Aufgaben stellt."
   - asset: p1.png
     caption: "Beginne ein Programm"
   - asset: variablen_hand.png
     caption: "Klicke auf Variablen"
-  - asset: 02.png
+  - asset: v1.gif
     caption: "Füge zwei neue Variablen hinzu. Nenne sie 'Zahl 1' und 'Zahl 2'."
   - asset: x03.png
     caption: "Ziehe zwei Mal 'setze auf' rüber:"
@@ -34,8 +34,8 @@ slides:
     caption: "Ändere den Text zu '?':"
   - asset: start.png
     caption: "Teste dein Programm:"
-  - asset: y_03.png
-    caption: "Das Programm wartet, bis du die Lösung tippst und bestätigst."
+  - asset: v2.gif
+    caption: "Das Programm wartet, bis du die Lösung tippst."
   - asset: blitz.svg
     caption: "Aber wie weiß das Programm die Lösung?"
   - asset: steuerung.png
@@ -65,7 +65,7 @@ slides:
   - asset: start.png
     caption: "Teste noch einmal:"
   - asset: blitz.svg
-    caption: "Die Zahlen ändern sich nicht!"
+    caption: "Hast Du es gemerkt? Die Zahlen ändern sich nicht!"
   - asset: y_05.png
     caption: "Klicke auf Operatoren"
   - asset: y_013.png
@@ -75,6 +75,7 @@ slides:
   - asset: herz.png
     caption: "Das hast du super gemacht!"
 
+nextGame: '04_b'
 
 blocks:
   - category: looks
