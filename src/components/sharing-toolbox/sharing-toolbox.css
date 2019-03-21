@@ -103,4 +103,5 @@
 
 .disable-button {
     cursor: not-allowed;
+    background: none;
 }
