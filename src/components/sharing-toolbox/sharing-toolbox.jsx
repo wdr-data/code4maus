@@ -14,21 +14,24 @@ import { Spinner } from '../loader/loader.jsx';
 
 import gifIcon from '!raw-loader!../../../assets/icons/icon_gif.svg';
 import printIcon from '!raw-loader!../../../assets/icons/icon_print.svg';
-import mausImage from '../../../assets/img/head_logo.png';
 import printButton from '../../../assets/img/button_print.png';
 import printNowButton from '../../../assets/img/button_printnow.png';
 import shareButton from '../../../assets/img/button_share.png';
 
 const useScreenshotState = (vm, onImageReady) => {
     const [ image, setImage ] = useState('');
+    const [ isScreenshotLoading, setScreenshotLoading ] = useState(false);
     const takeScreenshot = useCallback(() => {
         const renderer = vm.runtime.renderer;
+        setScreenshotLoading(true);
+        setImage('');
+        onImageReady();
         renderer.requestSnapshot((image) => {
             setImage(image);
-            onImageReady();
+            setScreenshotLoading(false);
         });
     }, [ vm, onImageReady, setImage ]);
-    return { takeScreenshot, image };
+    return { takeScreenshot, image, isScreenshotLoading };
 };
 
 const usePrintScreenshot = (image, dispatch) => {
@@ -90,14 +93,15 @@ const reducer = (state, action) => {
     }
 };
 
-const SharingImageModal = ({ onRequestClose, image }) => {
+const SharingModal = ({ onRequestClose, image, isLoading, canPrint, title }) => {
     const [ state, dispatch ] = useReducer(reducer, initialState);
     const print = usePrintScreenshot(image, dispatch);
     const share = useSharingScreenshot(image, dispatch);
+    const pending = state.isLoading || isLoading;
     return (
         <Modal
             className={styles.modalContent}
-            contentLabel="Dein Foto"
+            contentLabel={title}
             onRequestClose={onRequestClose}
         >
             <Box className={styles.screenshotWrapper}>
@@ -107,7 +111,7 @@ const SharingImageModal = ({ onRequestClose, image }) => {
                         className={styles.screenshotStage}
                     />
                     {state.mode === 'print' && <div className={styles.printScreenshot}></div>}
-                    {state.isLoading && <div className={styles.spinnerWrapper}><Spinner /></div>}
+                    {pending && <div className={styles.spinnerWrapper}><Spinner /></div>}
                     {state.mode === 'share' && <div className={styles.sharingWrapper}>
                         <div className={styles.qrWrapper}>
                             <QRCode value={state.sharingUrl} renderAs="svg" />
@@ -119,8 +123,8 @@ const SharingImageModal = ({ onRequestClose, image }) => {
                     { state.mode === 'print'
                         ? (
                             <Button
-                                className={state.isLoading ? styles.disableButton : '' }
-                                // disabled={state.isLoading}
+                                className={pending ? styles.disableButton : '' }
+                                disabled={pending}
                                 onClick={print}
                             >
                                 <img
@@ -132,9 +136,9 @@ const SharingImageModal = ({ onRequestClose, image }) => {
                         )
                         : (
                             <React.Fragment>
-                                <Button
-                                    className={state.isLoading ? styles.disableButton : '' }
-                                    // disabled={state.isLoading}
+                                {canPrint && <Button
+                                    className={pending ? styles.disableButton : '' }
+                                    disabled={pending}
                                     onClick={() => dispatch({ type: actionPrintPreview })}
                                 >
                                     <img
@@ -142,10 +146,10 @@ const SharingImageModal = ({ onRequestClose, image }) => {
                                         draggable={false}
                                         src={printButton}
                                     />
-                                </Button>
+                                </Button>}
                                 <Button
-                                    className={(state.isLoading || state.mode === 'share') ? styles.disableButton : '' }
-                                    // disabled={state.isLoading || state.mode === 'share'}
+                                    className={(pending || state.mode === 'share') ? styles.disableButton : '' }
+                                    disabled={pending || state.mode === 'share'}
                                     onClick={share}>
                                     <img
                                         className={styles.buttonIcon}
@@ -161,9 +165,12 @@ const SharingImageModal = ({ onRequestClose, image }) => {
     );
 };
 
-SharingImageModal.propTypes = {
+SharingModal.propTypes = {
+    title: PropTypes.string.isRequired,
+    canPrint: PropTypes.bool,
     image: PropTypes.string,
     onRequestClose: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool,
 };
 
 const recordingInitialState = {
@@ -188,10 +195,10 @@ const recordingReducer = (state, action) => {
     }
 };
 
-const useRecording = (vm) => {
+const useRecording = (vm, onGifReady) => {
     const [ { timeLeft, isRecording }, dispatch ] = useReducer(recordingReducer, recordingInitialState);
     const [ gifImage, setGifImage ] = useState('');
-    const [ isGifReady, setGifReady ] = useState(false);
+    const [ isGifLoading, setIsGifLoading ] = useState(false);
     const imagesRef = useRef([]);
     const toggleRecording = useCallback(() => {
         if (isRecording) {
@@ -214,14 +221,21 @@ const useRecording = (vm) => {
         return () => {
             if (interval) {
                 clearInterval(interval);
-                console.log(imagesRef.current);
-                gifshot.createGIF({ images: imagesRef.current }, (obj) => {
+                setIsGifLoading(true);
+                setGifImage('');
+                onGifReady();
+                const canvas = renderer.canvas;
+                gifshot.createGIF({
+                    images: imagesRef.current,
+                    gifWidth: canvas.width,
+                    gifHeight: canvas.height,
+                }, (obj) => {
+                    setIsGifLoading(false);
                     if (obj.error) {
                         console.error(obj.error);
                         return;
                     }
                     setGifImage(obj.image);
-                    setGifReady(true);
                 });
                 imagesRef.current = [];
             }
@@ -233,14 +247,14 @@ const useRecording = (vm) => {
         }
         return () => vm.stopAll();
     }, [ vm, isRecording ]);
-    return { timeLeft, toggleRecording, isRecording, gifImage, isGifReady };
+    return { timeLeft, toggleRecording, isRecording, gifImage, isGifLoading };
 };
 
 const SharingToolboxComponent = ({ vm }) => {
     const [ isGifOpen, setGifOpen ] = useState(false);
     const [ isScreenshotOpen, setScreenshotOpen ] = useState(false);
-    const { image, takeScreenshot } = useScreenshotState(vm, () => setScreenshotOpen(true));
-    const { toggleRecording, isRecording, timeLeft, gifImage, isGifReady } = useRecording(vm);
+    const { image, takeScreenshot, isScreenshotLoading } = useScreenshotState(vm, () => setScreenshotOpen(true));
+    const { toggleRecording, isRecording, timeLeft, gifImage, isGifLoading } = useRecording(vm, () => setGifOpen(true));
 
     return (
         <React.Fragment>
@@ -259,28 +273,19 @@ const SharingToolboxComponent = ({ vm }) => {
                     />
                 </div>
             </div>
-            {isScreenshotOpen && <SharingImageModal
-                vm={vm}
+            {isScreenshotOpen && <SharingModal
+                isLoading={isScreenshotLoading}
                 image={image}
                 onRequestClose={() => setScreenshotOpen(false)}
+                title="Dein Bild"
+                canPrint
             />}
-            {isGifReady && <Modal
-                className={styles.modalContent}
-                contentLabel="Dein Gif"
+            {isGifOpen && <SharingModal
+                isLoading={isGifLoading}
+                title="Dein Gif"
+                image={gifImage}
                 onRequestClose={() => setGifOpen(false)}
-            >
-                <Box className={styles.screenshotWrapper}>
-                    <img
-                        src={gifImage}
-                        className={styles.screenshotStage}
-                    />
-                    <Box className={styles.buttonWrapper}>
-                        <Button style='primary'>
-                            Teilen
-                        </Button>
-                    </Box>
-                </Box>
-            </Modal>}
+            />}
         </React.Fragment>
     );
 };
