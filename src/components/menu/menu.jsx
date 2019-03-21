@@ -10,6 +10,7 @@ import Box from '../box/box.jsx';
 import MenuListing from '../menu-listing/menu-listing.jsx';
 import InlineSVG from '../inline-svg/inline-svg.jsx';
 import MenuButton from '../menu-button/menu-button.jsx';
+import OfflineSupport from '../offline-support/offline-support.jsx';
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/head_logo.png';
 import { SHAPE_PROJECT } from '../menu-listing/menu-listing.jsx';
@@ -59,6 +60,7 @@ export const MenuComponent = (props) => {
                     <Link href="/inhalte/impressum/" className={styles.copyright}>
                         <span>&#9400; WDR {(new Date().getFullYear())}</span>
                     </Link>
+                    <OfflineSupport/>
                 </Box>
             </Box>
             <Box className={styles.listingWrapper}>

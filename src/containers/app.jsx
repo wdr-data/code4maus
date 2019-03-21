@@ -14,6 +14,7 @@ import withTracking from '../lib/tracking-hoc.jsx';
 import localeDe from '../../translations/de.json';
 import storage, { s3userFile } from '../lib/storage';
 import { setUserId } from '../reducers/project';
+import { startFirstTimeInstall, failFirstTimeInstall, finishFirstTimeInstall, setInstalled } from '../reducers/offline';
 
 import Menu from './menu.jsx';
 import WelcomeScreen from './welcome-screen.jsx';
@@ -43,6 +44,9 @@ class App extends Component {
     }
 
     componentDidMount() {
+        if (this.props.installOnLoad) {
+            this.offlineSupport();
+        }
         this.ensureUserId();
         this.maybeRedirectWelcome();
     }
@@ -50,6 +54,42 @@ class App extends Component {
     componentDidUpdate(prevProps) {
         if (prevProps.userId !== this.props.userId) {
             storage.userId = this.props.userId;
+        }
+
+        if (prevProps.installOnLoad !== this.props.installOnLoad && this.props.installOnLoad) {
+            this.firstTimeInstall();
+        }
+    }
+
+    async firstTimeInstall() {
+        this.props.startFirstTimeInstall();
+        this.offlineSupport().then(() => {
+            this.props.finishFirstTimeInstall();
+        })
+            .catch((e) => {
+                this.props.failFirstTimeInstall(e);
+            });
+    }
+
+    async offlineSupport() {
+        // register service worker
+        if ('serviceWorker' in navigator) {
+            return navigator.serviceWorker.register('/service-worker.js')
+                .then((reg) => {
+                    return new Promise((resolve, reject) => {
+                        const checkLoop = () => {
+                            if (reg.installing === null) {
+                                this.props.setInstalled();
+                                resolve();
+                            } else {
+                                setTimeout(checkLoop, 500);
+                            }
+                        };
+                        checkLoop();
+                    });
+                });
+        } else {
+            return Promise.reject(false);
         }
     }
 
@@ -122,6 +162,11 @@ App.propTypes = {
     setUserId: PropTypes.func.isRequired,
     userId: PropTypes.string,
     redirectWelcome: PropTypes.func.isRequired,
+    installOnLoad: PropTypes.bool.isRequired,
+    startFirstTimeInstall: PropTypes.func.isRequired,
+    finishFirstTimeInstall: PropTypes.func.isRequired,
+    failFirstTimeInstall: PropTypes.func.isRequired,
+    setInstalled: PropTypes.func.isRequired,
 };
 
 const ConnectedApp = connect(
@@ -130,11 +175,16 @@ const ConnectedApp = connect(
         return {
             view: result.view || '',
             userId: state.scratchGui.project.userId,
+            installOnLoad: state.scratchGui.offline.installOnLoad,
         };
     },
     (dispatch) => ({
         setUserId: (id) => dispatch(setUserId(id)),
         redirectWelcome: () => dispatch(replace('/welcome')),
+        startFirstTimeInstall: () => dispatch(startFirstTimeInstall()),
+        finishFirstTimeInstall: () => dispatch(finishFirstTimeInstall()),
+        failFirstTimeInstall: () => dispatch(failFirstTimeInstall()),
+        setInstalled: () => dispatch(setInstalled()),
     }),
 )(App);
 
