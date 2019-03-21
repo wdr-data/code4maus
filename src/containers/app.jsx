@@ -23,6 +23,8 @@ import Content from './content.jsx';
 import MobileScreen from './mobile-screen.jsx';
 import Loader from '../components/loader/loader.jsx';
 
+import { Workbox } from 'workbox-window';
+
 addLocaleData(de);
 
 const lsKeyDeviceId = 'deviceId';
@@ -74,22 +76,26 @@ class App extends Component {
     async offlineSupport() {
         // register service worker
         if ('serviceWorker' in navigator) {
-            return navigator.serviceWorker.register('/service-worker.js')
-                .then((reg) => {
-                    return new Promise((resolve, reject) => {
-                        const checkLoop = () => {
-                            if (reg.installing === null) {
-                                this.props.setInstalled();
-                                resolve();
-                            } else {
-                                setTimeout(checkLoop, 500);
-                            }
-                        };
-                        checkLoop();
-                    });
+            const wb = new Workbox('/service-worker.js');
+
+            // not 100% sure about timing here. maybe we could register the event only if it has not yet
+            // been installed. But not 100% sure..better play safe here :S 
+            const installedPromise = new Promise((resolve, reject) => {
+                wb.addEventListener('installed', (event) => {
+                    this.props.setInstalled();
+                    resolve();
                 });
+            });
+            const result = await wb.register();
+            let waitInstalled;
+            if (result.installing === null) {
+                waitInstalled = Promise.resolve();
+            } else {
+                waitInstalled = installedPromise;
+            }
+            return waitInstalled.then(() => this.props.setInstalled());
         } else {
-            return Promise.reject(false);
+            return Promise.reject();
         }
     }
 
