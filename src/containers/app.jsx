@@ -90,7 +90,6 @@ class App extends Component {
             this.props.setInstalled();
         } catch (e) {
             this.props.failInstall(e);
-            throw e;
         }
     }
 
