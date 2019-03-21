@@ -104,62 +104,57 @@ const SharingModal = ({ onRequestClose, image, isLoading, canPrint, title }) => 
             contentLabel={title}
             onRequestClose={onRequestClose}
         >
-            <Box className={styles.screenshotWrapper}>
-                <div className={styles.imageWrapper}>
-                    <img
-                        src={image}
-                        className={styles.screenshotStage}
-                    />
-                    {state.mode === 'print' && <div className={styles.printScreenshot}></div>}
-                    {pending && <div className={styles.spinnerWrapper}><Spinner /></div>}
-                    {state.mode === 'share' && <div className={styles.sharingWrapper}>
-                        <div className={styles.qrWrapper}>
-                            <QRCode value={state.sharingUrl} renderAs="svg" />
-                            <span>{state.sharingUrl}</span>
-                        </div>
-                    </div>}
-                </div>
-                <Box className={styles.buttonWrapper}>
-                    { state.mode === 'print'
-                        ? (
-                            <Button
-                                className={pending ? styles.disableButton : '' }
+            <div className={styles.screenshotWrapper}>
+                <img
+                    src={image}
+                    className={styles.screenshot}
+                />
+                {state.mode === 'print' && <div className={styles.printScreenshot}></div>}
+                {pending && <div className={styles.spinnerWrapper}><Spinner /></div>}
+                {state.mode === 'share' && <div className={styles.sharingWrapper}>
+                    <div className={styles.qrWrapper}>
+                        <QRCode value={state.sharingUrl} renderAs="svg" />
+                        <span>{state.sharingUrl}</span>
+                    </div>
+                </div>}
+            </div>
+            <Box className={styles.buttonWrapper}>
+                { state.mode === 'print'
+                    ? (
+                        <Button
+                            disabled={pending}
+                            onClick={print}
+                        >
+                            <img
+                                className={styles.buttonIcon}
+                                draggable={false}
+                                src={printNowButton}
+                            />
+                        </Button>
+                    )
+                    : (
+                        <React.Fragment>
+                            {canPrint && <Button
                                 disabled={pending}
-                                onClick={print}
+                                onClick={() => dispatch({ type: actionPrintPreview })}
                             >
                                 <img
                                     className={styles.buttonIcon}
                                     draggable={false}
-                                    src={printNowButton}
+                                    src={printButton}
+                                />
+                            </Button>}
+                            <Button
+                                disabled={pending || state.mode === 'share'}
+                                onClick={share}>
+                                <img
+                                    className={styles.buttonIcon}
+                                    draggable={false}
+                                    src={shareButton}
                                 />
                             </Button>
-                        )
-                        : (
-                            <React.Fragment>
-                                {canPrint && <Button
-                                    className={pending ? styles.disableButton : '' }
-                                    disabled={pending}
-                                    onClick={() => dispatch({ type: actionPrintPreview })}
-                                >
-                                    <img
-                                        className={styles.buttonIcon}
-                                        draggable={false}
-                                        src={printButton}
-                                    />
-                                </Button>}
-                                <Button
-                                    className={(pending || state.mode === 'share') ? styles.disableButton : '' }
-                                    disabled={pending || state.mode === 'share'}
-                                    onClick={share}>
-                                    <img
-                                        className={styles.buttonIcon}
-                                        draggable={false}
-                                        src={shareButton}
-                                    />
-                                </Button>
-                            </React.Fragment>
-                        )}
-                </Box>
+                        </React.Fragment>
+                    )}
             </Box>
         </Modal>
     );
