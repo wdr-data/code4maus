@@ -24,6 +24,10 @@
     box-shadow: 0.125rem 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.5);
 }
 
+.modal-content {
+    width: 60vw;
+}
+
 .sharing-button {
     height: 5rem;
     cursor: pointer;
@@ -34,15 +38,16 @@
 }
 
 .screenshot-wrapper {
-    min-height: 40vh;
-    display: flex;
-    flex-direction: column;
+    height: 45vh;
+    width: auto;
+    align-self: center;
     position: relative;
 }
 
-.screenshot-wrapper img {
-    height: 50vh;
+.screenshot {
+    height: 45vh;
     width: auto;
+    align-self: center;
 }
 
 .print-screenshot {
@@ -53,8 +58,8 @@
     right:0;
     margin-left:auto;
     margin-right:auto;
-    height: 50vh;
-    width: 50vh;
+    height: 45vh;
+    width: 45vh;
     border: 3px dotted red;
     border-radius: 50%;
 }
@@ -96,12 +101,11 @@
     margin-top: 2rem;
 }
 
-.button-wrapper img {
-    height: 8rem;
+.button-icon {
+    height: 7rem;
     width: auto;
 }
 
-.disable-button {
-    cursor: not-allowed;
-    background: none;
+[disabled] .button-icon {
+    filter: grayscale(100%);
 }
