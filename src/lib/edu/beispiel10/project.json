@@ -10,7 +10,7 @@
                 ],
                 "b$,+brOV-9I-/S;HV^Fg": [
                     "Anzahl_Blätter",
-                    12
+                    11
                 ],
                 "-GrRo,Jm@Z7BL^Uv[d@G": [
                     "Größe",
@@ -118,8 +118,8 @@
                     "fields": {},
                     "shadow": false,
                     "topLevel": true,
-                    "x": 109,
-                    "y": 393
+                    "x": 120,
+                    "y": 366
                 },
                 "|I0EC7+M_6w?Bx3X8[/b": {
                     "opcode": "looks_hide",
@@ -148,72 +148,6 @@
                     "shadow": false,
                     "topLevel": false
                 },
-                "8Iy++pug0[wDW|dF0:gt": {
-                    "opcode": "data_setvariableto",
-                    "next": "d+,-V?[X=L^;pueci5mq",
-                    "parent": "oT)k0S[ERU;~/=)Ulk}X",
-                    "inputs": {
-                        "VALUE": [
-                            1,
-                            [
-                                10,
-                                "30"
-                            ]
-                        ]
-                    },
-                    "fields": {
-                        "VARIABLE": [
-                            "Größe",
-                            "-GrRo,Jm@Z7BL^Uv[d@G"
-                        ]
-                    },
-                    "shadow": false,
-                    "topLevel": false
-                },
-                "d+,-V?[X=L^;pueci5mq": {
-                    "opcode": "data_setvariableto",
-                    "next": "Z`VA6IT![Y;,{`F.NND[",
-                    "parent": "8Iy++pug0[wDW|dF0:gt",
-                    "inputs": {
-                        "VALUE": [
-                            1,
-                            [
-                                10,
-                                "80"
-                            ]
-                        ]
-                    },
-                    "fields": {
-                        "VARIABLE": [
-                            "Farbe",
-                            "2Nci!Xip8d~;)c^y(4l!"
-                        ]
-                    },
-                    "shadow": false,
-                    "topLevel": false
-                },
-                "Z`VA6IT![Y;,{`F.NND[": {
-                    "opcode": "data_setvariableto",
-                    "next": null,
-                    "parent": "d+,-V?[X=L^;pueci5mq",
-                    "inputs": {
-                        "VALUE": [
-                            1,
-                            [
-                                10,
-                                "12"
-                            ]
-                        ]
-                    },
-                    "fields": {
-                        "VARIABLE": [
-                            "Anzahl_Blätter",
-                            "b$,+brOV-9I-/S;HV^Fg"
-                        ]
-                    },
-                    "shadow": false,
-                    "topLevel": false
-                },
                 "dk%_[)xS-sn=jgwT-UvF": {
                     "opcode": "event_whenbroadcastreceived",
                     "next": "NAcNCq(?K:RWV?NS|YU#",
@@ -227,8 +161,8 @@
                     },
                     "shadow": false,
                     "topLevel": true,
-                    "x": 503,
-                    "y": 125
+                    "x": 443,
+                    "y": 185
                 },
                 "NAcNCq(?K:RWV?NS|YU#": {
                     "opcode": "motion_gotoxy",
@@ -556,8 +490,74 @@
                     "fields": {},
                     "shadow": false,
                     "topLevel": true,
-                    "x": 117,
-                    "y": 120
+                    "x": 124,
+                    "y": 123
+                },
+                "8Iy++pug0[wDW|dF0:gt": {
+                    "opcode": "data_setvariableto",
+                    "next": "d+,-V?[X=L^;pueci5mq",
+                    "parent": "oT)k0S[ERU;~/=)Ulk}X",
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                10,
+                                "30"
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Größe",
+                            "-GrRo,Jm@Z7BL^Uv[d@G"
+                        ]
+                    },
+                    "shadow": false,
+                    "topLevel": false
+                },
+                "d+,-V?[X=L^;pueci5mq": {
+                    "opcode": "data_setvariableto",
+                    "next": "Z`VA6IT![Y;,{`F.NND[",
+                    "parent": "8Iy++pug0[wDW|dF0:gt",
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                10,
+                                "80"
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Farbe",
+                            "2Nci!Xip8d~;)c^y(4l!"
+                        ]
+                    },
+                    "shadow": false,
+                    "topLevel": false
+                },
+                "Z`VA6IT![Y;,{`F.NND[": {
+                    "opcode": "data_setvariableto",
+                    "next": null,
+                    "parent": "d+,-V?[X=L^;pueci5mq",
+                    "inputs": {
+                        "VALUE": [
+                            1,
+                            [
+                                10,
+                                "12"
+                            ]
+                        ]
+                    },
+                    "fields": {
+                        "VARIABLE": [
+                            "Anzahl_Blätter",
+                            "b$,+brOV-9I-/S;HV^Fg"
+                        ]
+                    },
+                    "shadow": false,
+                    "topLevel": false
                 }
             },
             "comments": {},
@@ -1096,8 +1096,8 @@
             "visible": false,
             "x": -110,
             "y": 50,
-            "size": 24,
-            "direction": 142.66033966034135,
+            "size": 23,
+            "direction": 142.66033966034055,
             "draggable": false,
             "rotationStyle": "all around"
         },
@@ -1466,34 +1466,16 @@
                 }
             },
             "comments": {},
-            "currentCostume": 2,
+            "currentCostume": 0,
             "costumes": [
                 {
-                    "assetId": "c6824e69f8d1c3c8859666fcbe3e547c",
-                    "name": "Maus",
+                    "assetId": "3be9896385a22664f1738fb5b0c3e6ee",
+                    "name": "mausprobiert",
                     "bitmapResolution": 1,
-                    "md5ext": "c6824e69f8d1c3c8859666fcbe3e547c.svg",
+                    "md5ext": "3be9896385a22664f1738fb5b0c3e6ee.svg",
                     "dataFormat": "svg",
-                    "rotationCenterX": 27.599999999999937,
-                    "rotationCenterY": 40.91895160312336
-                },
-                {
-                    "assetId": "efad5888acac1c990ba3f270b6dfdf59",
-                    "name": "Blinzelt",
-                    "bitmapResolution": 1,
-                    "md5ext": "efad5888acac1c990ba3f270b6dfdf59.svg",
-                    "dataFormat": "svg",
-                    "rotationCenterX": 27.400000000000006,
-                    "rotationCenterY": 40.9375015258789
-                },
-                {
-                    "assetId": "ace329899b42d5c3a9cb1904d9beb6e0",
-                    "name": "Tanzt-2",
-                    "bitmapResolution": 1,
-                    "md5ext": "ace329899b42d5c3a9cb1904d9beb6e0.svg",
-                    "dataFormat": "svg",
-                    "rotationCenterX": 51.39987851471352,
-                    "rotationCenterY": 39.940949518606175
+                    "rotationCenterX": 96.13871500000002,
+                    "rotationCenterY": 152.86181500000015
                 }
             ],
             "sounds": [
@@ -1512,7 +1494,7 @@
             "visible": true,
             "x": 0,
             "y": 0,
-            "size": 200,
+            "size": 174.72580599292831,
             "direction": 90,
             "draggable": false,
             "rotationStyle": "all around"
