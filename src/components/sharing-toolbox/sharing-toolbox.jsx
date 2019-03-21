@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import VM from '@wdr-data/scratch-vm';
-import classnames from 'classnames';
 import QRCode from 'qrcode.react';
 
 import styles from './sharing-toolbox.css';
@@ -15,6 +14,9 @@ import { Spinner } from '../loader/loader.jsx';
 import gifIcon from '!raw-loader!../../../assets/icons/icon_gif.svg';
 import printIcon from '!raw-loader!../../../assets/icons/icon_print.svg';
 import mausImage from '../../../assets/img/head_logo.png';
+import printButton from '../../../assets/img/button_print.png';
+import printNowButton from '../../../assets/img/button_printnow.png';
+import shareButton from '../../../assets/img/button_share.png';
 
 const useScreenshotState = (vm, onImageReady) => {
     const [ image, setImage ] = useState('');
@@ -101,41 +103,54 @@ const SharingImageModal = ({ onRequestClose, image }) => {
                 <div className={styles.imageWrapper}>
                     <img
                         src={image}
-                        className={classnames(styles.screenshotStage, {
-                            [styles.printScreenshot]: state.mode === 'print',
-                        })}
+                        className={styles.screenshotStage}
                     />
+                    {state.mode === 'print' && <div className={styles.printScreenshot}></div>}
                     {state.isLoading && <div className={styles.spinnerWrapper}><Spinner /></div>}
                     {state.mode === 'share' && <div className={styles.sharingWrapper}>
-                        <QRCode value={state.sharingUrl} renderAs="svg" />
-                        <span>{state.sharingUrl}</span>
+                        <div className={styles.qrWrapper}>
+                            <QRCode value={state.sharingUrl} renderAs="svg" />
+                            <span>{state.sharingUrl}</span>
+                        </div>
                     </div>}
                 </div>
                 <Box className={styles.buttonWrapper}>
                     { state.mode === 'print'
                         ? (
                             <Button
-                                style='primary'
-                                disabled={state.isLoading}
+                                className={state.isLoading ? styles.disableButton : '' }
+                                // disabled={state.isLoading}
                                 onClick={print}
                             >
-                            Jetzt drucken
+                                <img
+                                    className={styles.buttonIcon}
+                                    draggable={false}
+                                    src={printNowButton}
+                                />
                             </Button>
                         )
                         : (
                             <React.Fragment>
                                 <Button
-                                    style='primary'
-                                    disabled={state.isLoading}
+                                    className={state.isLoading ? styles.disableButton : '' }
+                                    // disabled={state.isLoading}
                                     onClick={() => dispatch({ type: actionPrintPreview })}
                                 >
-                                Drucken
+                                    <img
+                                        className={styles.buttonIcon}
+                                        draggable={false}
+                                        src={printButton}
+                                    />
                                 </Button>
                                 <Button
-                                    style='primary'
-                                    disabled={state.isLoading || state.mode === 'share'}
+                                    className={(state.isLoading || state.mode === 'share') ? styles.disableButton : '' }
+                                    // disabled={state.isLoading || state.mode === 'share'}
                                     onClick={share}>
-                                Teilen
+                                    <img
+                                        className={styles.buttonIcon}
+                                        draggable={false}
+                                        src={shareButton}
+                                    />
                                 </Button>
                             </React.Fragment>
                         )}
