@@ -3,7 +3,7 @@
 slides:
   - asset: Mathefant.png
   - asset: 01.png
-    caption: "Programmiere den Elefanten so, dass er dir Mathe-Aufgaben stellt."
+    caption: "Programmiere den Elefanten so, dass er Mathe-Aufgaben stellt."
   - asset: p1.png
     caption: "Beginne ein Programm"
   - asset: variablen_hand.png
@@ -75,7 +75,7 @@ slides:
   - asset: herz.png
     caption: "Das hast du super gemacht!"
 
-nextGame: '04_b'
+nextGame: '04_a'
 
 blocks:
   - category: looks
