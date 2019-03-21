@@ -1,7 +1,7 @@
 ---
 
 slides:
-  - asset: Mathefant.svg
+  - asset: Mathefant.png
   - asset: 01.png
     caption: "Ziel: Der Elefant stellt Mathe-Aufgaben."
   - asset: p1.png

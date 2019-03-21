@@ -6,6 +6,8 @@ slides:
     caption: "Mache #MausArt"
   - asset: start_blume.png
     caption: "Lass die Blume wachsen:"
+  - asset: start.png
+    caption: "Starte ein paar Mal"
   - asset: 001.png
     caption: "Ändere die Zahlen für Größe, Farbe und Anzahl der Blätter:"
   - asset: drucken.png

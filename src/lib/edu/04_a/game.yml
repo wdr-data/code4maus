@@ -1,7 +1,7 @@
 ---
 
 slides:
-  - asset: StadtLandEnte.svg
+  - asset: StadtLandEnte.png
   - asset: 12.png
     caption: Programmiere ein Wörter-Abfrage-Spiel.
   - asset: 01.png
