@@ -7,11 +7,6 @@ import App from '../containers/app.jsx';
 
 import styles from '../css/index.css';
 
-// register service worker
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js');
-}
-
 const appTarget = document.createElement('div');
 appTarget.className = styles.app;
 document.body.appendChild(appTarget);

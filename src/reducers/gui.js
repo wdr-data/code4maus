@@ -20,6 +20,7 @@ import layoutModeReducer, { layoutModeInitialState } from './layout-mode';
 import projectReducer, { projectInitialState } from './project';
 import eduLayerReducer, { eduLayerInitialState } from './edu-layer';
 import projectChangedReducer, { projectChangedInitialState } from './project-changed';
+import offlineReducer, { offlineInitialState } from './offline';
 
 const guiMiddleware = compose(applyMiddleware(throttle(300, { leading: true, trailing: true })));
 
@@ -44,6 +45,7 @@ const guiInitialState = {
     project: projectInitialState,
     eduLayer: eduLayerInitialState,
     projectChanged: projectChangedInitialState,
+    offline: offlineInitialState,
 };
 
 const initPlayer = function(currentState) {
@@ -87,6 +89,7 @@ const guiReducer = combineReducers({
     project: projectReducer,
     eduLayer: eduLayerReducer,
     projectChanged: projectChangedReducer,
+    offline: offlineReducer,
 });
 
 export {
