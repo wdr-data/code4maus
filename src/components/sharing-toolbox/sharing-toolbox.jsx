@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useCallback, useReducer } from 'react';
+import React, { useState, useEffect, useCallback, useReducer, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import VM from '@wdr-data/scratch-vm';
 import QRCode from 'qrcode.react';
+import gifshot from 'gifshot';
 
 import styles from './sharing-toolbox.css';
 import InlineSvg from '../inline-svg/inline-svg.jsx';
@@ -189,6 +190,9 @@ const recordingReducer = (state, action) => {
 
 const useRecording = (vm) => {
     const [ { timeLeft, isRecording }, dispatch ] = useReducer(recordingReducer, recordingInitialState);
+    const [ gifImage, setGifImage ] = useState('');
+    const [ isGifReady, setGifReady ] = useState(false);
+    const imagesRef = useRef([]);
     const toggleRecording = useCallback(() => {
         if (isRecording) {
             dispatch({ type: 'stop' });
@@ -198,29 +202,45 @@ const useRecording = (vm) => {
     }, [ isRecording, dispatch ]);
     useEffect(() => {
         let interval = null;
+        const renderer = vm.runtime.renderer;
         if (isRecording) {
-            interval = setInterval(() => dispatch({ type: 'tick' }), 1000);
+            interval = setInterval(() => {
+                renderer.requestSnapshot((image) => {
+                    imagesRef.current.push(image);
+                });
+                dispatch({ type: 'tick' });
+            }, 1000);
         }
         return () => {
             if (interval) {
                 clearInterval(interval);
+                console.log(imagesRef.current);
+                gifshot.createGIF({ images: imagesRef.current }, (obj) => {
+                    if (obj.error) {
+                        console.error(obj.error);
+                        return;
+                    }
+                    setGifImage(obj.image);
+                    setGifReady(true);
+                });
+                imagesRef.current = [];
             }
         };
-    }, [ isRecording, dispatch ]);
+    }, [ isRecording, dispatch, vm ]);
     useEffect(() => {
         if (isRecording) {
             vm.greenFlag();
         }
         return () => vm.stopAll();
     }, [ vm, isRecording ]);
-    return { timeLeft, toggleRecording, isRecording };
+    return { timeLeft, toggleRecording, isRecording, gifImage, isGifReady };
 };
 
 const SharingToolboxComponent = ({ vm }) => {
     const [ isGifOpen, setGifOpen ] = useState(false);
     const [ isScreenshotOpen, setScreenshotOpen ] = useState(false);
     const { image, takeScreenshot } = useScreenshotState(vm, () => setScreenshotOpen(true));
-    const { toggleRecording, isRecording, timeLeft } = useRecording(vm);
+    const { toggleRecording, isRecording, timeLeft, gifImage, isGifReady } = useRecording(vm);
 
     return (
         <React.Fragment>
@@ -244,14 +264,14 @@ const SharingToolboxComponent = ({ vm }) => {
                 image={image}
                 onRequestClose={() => setScreenshotOpen(false)}
             />}
-            {isGifOpen && <Modal
+            {isGifReady && <Modal
                 className={styles.modalContent}
                 contentLabel="Dein Gif"
                 onRequestClose={() => setGifOpen(false)}
             >
                 <Box className={styles.screenshotWrapper}>
                     <img
-                        src={mausImage}
+                        src={gifImage}
                         className={styles.screenshotStage}
                     />
                     <Box className={styles.buttonWrapper}>

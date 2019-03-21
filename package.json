@@ -161,6 +161,7 @@
     }
   },
   "dependencies": {
+    "gifshot": "^0.4.5",
     "qrcode.react": "^0.9.3",
     "uuid": "^3.3.2",
     "zepto": "^1.2.0"

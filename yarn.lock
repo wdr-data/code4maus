@@ -6448,6 +6448,11 @@ gh-pages@^2.0.1:
     graceful-fs "^4.1.11"
     rimraf "^2.6.2"
 
+gifshot@^0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/gifshot/-/gifshot-0.4.5.tgz#e3cb570203a3b139ff3069d7578098a29c03b0f8"
+  integrity sha1-48tXAgOjsTn/MGnXV4CYopwDsPg=
+
 glob-base@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/glob-base/-/glob-base-0.3.0.tgz#dbb164f6221b1c0b1ccf82aea328b497df0ea3c4"
