@@ -60,7 +60,9 @@ export const MenuComponent = (props) => {
                     <Link href="/inhalte/impressum/" className={styles.copyright}>
                         <span>&#9400; WDR {(new Date().getFullYear())}</span>
                     </Link>
-                    <OfflineSupport/>
+                    <div style={{ margin: '20px' }}>
+                        <OfflineSupport/>
+                    </div>
                 </Box>
             </Box>
             <Box className={styles.listingWrapper}>
