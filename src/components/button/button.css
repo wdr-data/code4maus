@@ -19,6 +19,11 @@
 	background: url(../gui/bg_darkblue@1x.png) no-repeat;
 }
 
+.button.primary.disabled, .button.secondary.disabled {
+    background: url(./bg-grey.png) no-repeat;
+    color: #ccc;
+}
+
 .button.wiggle {
 	animation-name: wiggle;
     animation-duration: 1000ms;
@@ -64,18 +69,11 @@
 	border-left-color: white;
 }
 
-.disabled {
-    background: url(./bg-grey.png) no-repeat !important;
+.button.disabled {
     cursor: not-allowed;
-    color: #ccc;
 }
 
 .icon {
     margin-right: .5rem;
     height: 1.5rem;
-}
-
-.content {
-    white-space: nowrap;
-    font-weight: bold;
 }
