@@ -9,6 +9,8 @@ slides:
     caption: "Füge die Figur 'Ente' hinzu"
   - asset: 01_1.png
     caption: "Lösche die Figur 'Maus'"
+  - asset: variablen_hand.png
+    caption: Klicke auf 'Variablen'
   - asset: 02.png
     caption: "Erstelle eine neue Liste, nenne sie 'Wörter'"
   - asset: 03_1.png
@@ -22,15 +24,19 @@ slides:
   - asset: start.png
     caption: "Teste dein Spiel"
   - asset: x03.png
-    caption: Noch sind Wörter ohne 'E' und Doppelte möglich.
+    caption: Noch sind Wörter ohne 'E' und Doppelte möglich. 
+  - asset: steuerung.png
+    caption: "Klicke auf 'Steuerung'"
   - asset: 08.png
-    caption: "Um Doppelte auszuschließen:"
+    caption: "Nutze falls-dann für den Test auf Doppelte:"
+  - asset: operatoren.png
+    caption: "Klicke auf 'Operatoren'"
   - asset: 09.png
     caption: "Füge Operator 'nicht' ein"
   - asset: 10.png
-    caption: "Nur hinzufügen, wenn:"
+    caption: "Nicht hinzufügen, wenn ..."
   - asset: 11.png
-    caption: "'Antwort' nicht in 'Wörter' ist"
+    caption: "... 'Antwort' nicht in 'Wörter' ist"
   - asset: xx2.png
     caption: "Beim Start soll die Liste leer sein"
   - asset: start.png
@@ -40,8 +46,10 @@ slides:
   - asset: gut_gemacht.png
   - asset:  spannung.png
     caption: "Damit das Spiel spannender wird, füge einen Countdown dazu..."
+  - asset: variablen_hand.png
+    caption: Klicke auf 'Variablen'
   - asset: xx1.png
-    caption: "Erstelle die Variable 'Zeit'"
+    caption: "Klicke auf 'neue Variable', nenne sie 'Zeit'"
   - asset: 16.png
     caption: Schreibe das Zeit-Programm
   - asset: 14.png
@@ -58,8 +66,8 @@ slides:
     caption: Pro Sekunde wird die Rest-Zeit weniger 
   - asset: k1.png
     caption: "Klicke auf 'Ereignisse'"
-  - asset: k2.gif
-    caption: "Wenn die Zeit vorbei ist: 'Nachricht senden'"
+  - asset: c.png
+    caption: "Wenn die Zeit vorbei ist: 'sende Nachricht'"
   - asset: 20_2.png
     caption: "Füge den Ton 'Boing' hinzu"
   - asset: 21.png
@@ -69,53 +77,71 @@ slides:
   - asset: herz.png
     caption: Klasse!
   - asset: k3.png
-    caption: Am Ende soll gezeigt werden, wie viele Wörter gefunden wurden
+    caption: Am Ende soll gezeigt werden, wie viele Wörter gefunden wurden.
   - asset: 23.png
-    caption: Dafür noch ein 'Wenn Ende'-Programm
+    caption: Mache noch ein 'Wenn'-Programm
+  - asset: variablen_hand.png
+    caption: Klicke auf 'Variablen'
   - asset: 24.png
-    caption: "Bei Variablen: 'Länge von'"
+    caption: "'Länge von' zählt die Wörter"
   - asset: start.png
     caption: "Teste noch mal"
+  - asset: k3.png
+    caption: Schöner wäre ein Satz, nicht nur die Zahl
+  - asset: operatoren.png
+    caption: "Klicke auf 'Operatoren'"
   - asset: 25.png
-    caption: "'Verbinde'-Operator reinziehen"
+    caption: "Ziehe 'Verbinde' rein"
   - asset: 26.png
-    caption: "Text eingeben"
+    caption: "Gib den Text ein"
   - asset: 27.png
-    caption: "Komplett:"
+    caption: "So sieht das komplett aus:"
   - asset: start.png
     caption: "Teste noch mal"
   - asset: herz.png
-    caption: "Gut! Aber immer nur 'E'?"
+    caption: "Gut! Jetzt änderst Du, dass ein zufälliger Buchstabe statt 'E' gefragt wird."
+  - asset: variablen_hand.png
+    caption: Klicke auf 'Variablen'
   - asset: 28.png
-    caption: "Neue Variable 'A-Z'"
+    caption: "Drücke auf 'Neue Variable', nenne sie 'A-Z'"
   - asset: 29.png
-    caption: Im ersten Programm hinzufügen
+    caption: Füge 'A-Z' im ersten Programm hinzu
+  - asset: operatoren.png
+    caption: "Klicke auf 'Operatoren'"
   - asset: 30.png
-    caption: "Nutze 'Zeichen von'"
+    caption: "Ziehe 'Zeichen von' rein"
   - asset: 31.png
-    caption: Um zufällig auszuwählen ...
+    caption: Ziehe 'Zufallszahl' dazu
   - asset: 32.png
-    caption: ... ein Zeichen aus dem A-Z
+    caption: Gib alle Zeichen von A-Z ein und ändere die Zahl
   - asset: start.png
     caption: "Fast fertig."
   - asset: 12.png
-    caption: "Passe die Fragen an"
+    caption: "Passe noch dein Abfrage-Programm an"
   - asset: 33_1.png
     caption: "Ziehe 'verbinde' in 'frage':"
   - asset: 33_2.png
-    caption: "Ändere Text und ziehe 'A-Z' rein"
+    caption: "Ändere und ziehe 'A-Z' rein"
+  - asset: start.png
+    caption: "Teste die Abfrage"
+  - asset: beispiel-stern.jpg
+    caption: "Top. Jetzt noch testen, ob die Wörter mit dem richtigen Buchstaben anfangen."
   - asset: q1.gif
     caption: "Baue um zum 'und'-Operator:"
   - asset: 36.png
-    caption:  Prüfen auf Doppelte…
+    caption:  Du prüfst auf Doppelte und ...
   - asset: 37.png
     caption: "Nutze den '='-Operator"
   - asset: 38.png
     caption: "Und den 'Zeichen von'-Operator"
   - asset: 39.png
-    caption: Prüft den ersten Buchstaben
+    caption: Ziehe Antwort und A-Z rein
+  - asset: start.png
+    caption: "Jetzt kommen nur Wörter mit dem richtigen Anfangsbuchstaben in die Liste."  
   - asset: gut_gemacht.png
     caption: Geschafft, viel Spaß mit Stadt-Land-Ente!
+
+nextGame: '05'
 
 blocks:
   - category: motion
