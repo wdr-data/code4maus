@@ -18,7 +18,7 @@
     flex-direction: column;
     justify-content: center;
     background-color: white;
-    padding: 1rem;
+    padding: 1rem 0;
 
     -webkit-box-shadow: 0.125rem 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.5);
     box-shadow: 0.125rem 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.5);
@@ -108,4 +108,9 @@
 
 [disabled] .button-icon {
     filter: grayscale(100%);
+}
+
+.print-layout {
+    position: absolute;
+    left: 100vw;
 }

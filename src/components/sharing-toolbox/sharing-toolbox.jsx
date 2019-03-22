@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import VM from '@wdr-data/scratch-vm';
 import QRCode from 'qrcode.react';
 import gifshot from 'gifshot';
+import html2canvas from 'html2canvas';
+import JsPDF from 'jspdf';
 
 import styles from './sharing-toolbox.css';
 import InlineSvg from '../inline-svg/inline-svg.jsx';
@@ -17,6 +19,7 @@ import printIcon from '!raw-loader!../../../assets/icons/icon_print.svg';
 import printButton from '../../../assets/img/button_print.png';
 import printNowButton from '../../../assets/img/button_printnow.png';
 import shareButton from '../../../assets/img/button_share.png';
+import PrintLayout from './print.jsx';
 
 const useScreenshotState = (vm, onImageReady) => {
     const [ image, setImage ] = useState('');
@@ -34,15 +37,29 @@ const useScreenshotState = (vm, onImageReady) => {
     return { takeScreenshot, image, isScreenshotLoading };
 };
 
-const usePrintScreenshot = (image, dispatch) => {
+const usePrintScreenshot = (layoutRef, dispatch) => {
     const print = useCallback(
-        () => {
+        async () => {
+            if (layoutRef.current === null) {
+                return;
+            }
             dispatch({ type: actionPrintLoading });
             // to do: send to printer
-            setTimeout(() => {
-                dispatch({ type: actionPrintFinished });
-            }, 2000);
-        }, [ dispatch ]
+            const canvas = await html2canvas(layoutRef.current);
+            const doc = new JsPDF({
+                format: 'a4',
+                unit: 'mm',
+            });
+            doc.addImage({
+                imageData: canvas,
+                x: 20,
+                y: 20,
+                w: 73,
+                h: 73,
+            });
+            await doc.save('', { returnPromise: true });
+            dispatch({ type: actionPrintFinished });
+        }, [ layoutRef, dispatch ]
     );
     return print;
 };
@@ -95,7 +112,8 @@ const reducer = (state, action) => {
 
 const SharingModal = ({ onRequestClose, image, isLoading, canPrint, title }) => {
     const [ state, dispatch ] = useReducer(reducer, initialState);
-    const print = usePrintScreenshot(image, dispatch);
+    const layoutRef = useRef(null);
+    const print = usePrintScreenshot(layoutRef, dispatch);
     const share = useSharingScreenshot(image, dispatch);
     const pending = state.isLoading || isLoading;
     return (
@@ -156,6 +174,7 @@ const SharingModal = ({ onRequestClose, image, isLoading, canPrint, title }) => 
                         </React.Fragment>
                     )}
             </Box>
+            <div className={styles.printLayout}><PrintLayout stage={image} layoutRef={layoutRef} /></div>
         </Modal>
     );
 };
