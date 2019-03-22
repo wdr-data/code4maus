@@ -169,6 +169,8 @@
   },
   "dependencies": {
     "gifshot": "^0.4.5",
+    "html2canvas": "^1.0.0-alpha.12",
+    "jspdf": "^1.5.3",
     "qrcode.react": "^0.9.3",
     "uuid": "^3.3.2",
     "zepto": "^1.2.0"
