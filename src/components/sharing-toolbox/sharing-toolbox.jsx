@@ -274,12 +274,14 @@ const SharingToolboxComponent = ({ vm }) => {
         <React.Fragment>
             <div className={styles.toolboxWrapper}>
                 <div className={styles.toolboxBackground}>
-                    <InlineSvg
-                        svg={gifIcon}
-                        className={styles.sharingButton}
-                        onClick={toggleRecording}
-                    />
-                    {isRecording && <span>{timeLeft}</span>}
+                    <div className={styles.recordingButtonWrapper}>
+                        <InlineSvg
+                            svg={gifIcon}
+                            className={styles.sharingButton}
+                            onClick={toggleRecording}
+                        />
+                        {isRecording && <div className={styles.counter}>{timeLeft}s</div>}
+                    </div>
                     <InlineSvg
                         svg={printIcon}
                         className={styles.sharingButton}
