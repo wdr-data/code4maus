@@ -1,0 +1,35 @@
+/*
+    $buttonSizeInner: 697px;
+    $buttonSizeOuter: 862px;
+
+
+*/
+
+.print-layout {
+    width: 2480px;
+    height: 3508px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    position: relative;
+    height: 862px;
+    width: 862px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.stage {
+    height: 697px;
+    width: auto;
+}
+
+.button-border {
+    position: absolute;
+    height: 100%;
+}
+
