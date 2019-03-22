@@ -13,13 +13,14 @@ import Modal from '../modal/modal.jsx';
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
 import { Spinner } from '../loader/loader.jsx';
+import PrintLayout from './print.jsx';
 
 import gifIcon from '!raw-loader!../../../assets/icons/icon_gif.svg';
 import printIcon from '!raw-loader!../../../assets/icons/icon_print.svg';
 import printButton from '../../../assets/img/button_print.png';
 import printNowButton from '../../../assets/img/button_printnow.png';
 import shareButton from '../../../assets/img/button_share.png';
-import PrintLayout from './print.jsx';
+import buttonBorder from './button_preview.svg';
 
 const useScreenshotState = (vm, onImageReady) => {
     const [ image, setImage ] = useState('');
@@ -127,7 +128,7 @@ const SharingModal = ({ onRequestClose, image, isLoading, canPrint, title }) => 
                     src={image}
                     className={styles.screenshot}
                 />
-                {state.mode === 'print' && <div className={styles.printScreenshot}></div>}
+                {state.mode === 'print' && <img src={buttonBorder} className={styles.printScreenshot}></img>}
                 {pending && <div className={styles.spinnerWrapper}><Spinner /></div>}
                 {state.mode === 'share' && <div className={styles.sharingWrapper}>
                     <div className={styles.qrWrapper}>
