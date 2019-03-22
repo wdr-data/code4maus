@@ -2,8 +2,6 @@
 slides:
   - asset: L00.png
     caption: "Willkommen zu Programmieren mit der Maus. Klicke weiter."
-  - asset: 000.png
-    caption: "Mache #MausArt"
   - asset: start_blume.png
     caption: "Lass die Blume wachsen:"
   - asset: start.png
