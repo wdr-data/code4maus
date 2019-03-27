@@ -18,6 +18,7 @@
                 {
                     "assetId": "3a343d19f40be5196f5b1cad1c7d1e39",
                     "name": "Wiese",
+                    "bitmapResolution": 2,
                     "md5ext": "3a343d19f40be5196f5b1cad1c7d1e39.jpg",
                     "dataFormat": "jpg",
                     "rotationCenterX": 480,
@@ -26,6 +27,7 @@
                 {
                     "assetId": "a35419bc3c9a8888430c157960ef28b4",
                     "name": "Unterwasser",
+                    "bitmapResolution": 2,
                     "md5ext": "a35419bc3c9a8888430c157960ef28b4.jpg",
                     "dataFormat": "jpg",
                     "rotationCenterX": 480,
@@ -73,11 +75,12 @@
             "layerOrder": 0,
             "tempo": 60,
             "videoTransparency": 50,
-            "videoState": "off"
+            "videoState": "off",
+            "textToSpeechLanguage": null
         },
         {
             "isStage": false,
-            "name": "Maus",
+            "name": "Flattert",
             "variables": {},
             "lists": {},
             "broadcasts": {},
@@ -86,50 +89,69 @@
             "currentCostume": 0,
             "costumes": [
                 {
-                    "assetId": "a152bb912cab56d3d4407819fb5e28ea",
-                    "name": "Maus",
+                    "assetId": "b872a152f6463e699d6529445cba58fe",
+                    "name": "Flattert-1",
                     "bitmapResolution": 1,
-                    "md5ext": "a152bb912cab56d3d4407819fb5e28ea.svg",
+                    "md5ext": "b872a152f6463e699d6529445cba58fe.svg",
                     "dataFormat": "svg",
-                    "rotationCenterX": 84.5,
-                    "rotationCenterY": 79.375
+                    "rotationCenterX": 31.900000000000006,
+                    "rotationCenterY": 31.20000152587889
                 },
                 {
-                    "assetId": "d277d9a46f007cd05a758065463e09f8",
-                    "name": "Blinzelt",
+                    "assetId": "a6cefcfc735f75075a0d70290db07c90",
+                    "name": "Flattert-2",
                     "bitmapResolution": 1,
-                    "md5ext": "d277d9a46f007cd05a758065463e09f8.svg",
+                    "md5ext": "a6cefcfc735f75075a0d70290db07c90.svg",
                     "dataFormat": "svg",
-                    "rotationCenterX": 84.5,
-                    "rotationCenterY": 79.375
+                    "rotationCenterX": 28.900000000000006,
+                    "rotationCenterY": 30.775001525878878
+                },
+                {
+                    "assetId": "bd8953746128a73348e33c991e1b5c07",
+                    "name": "Flattert-3",
+                    "bitmapResolution": 1,
+                    "md5ext": "bd8953746128a73348e33c991e1b5c07.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 28.900000000000006,
+                    "rotationCenterY": 30.775001525878878
+                },
+                {
+                    "assetId": "f93723ad185a4760578de16f812d24fd",
+                    "name": "Flattert-4",
+                    "bitmapResolution": 1,
+                    "md5ext": "f93723ad185a4760578de16f812d24fd.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 31.69999999999999,
+                    "rotationCenterY": 30.675001525878884
                 }
             ],
             "sounds": [
                 {
-                    "assetId": "282fb24fedf9ed8f6b7dd08366a0f83c",
-                    "name": "Maus Klack",
+                    "assetId": "ffc769dfe1bc0beacf6d59993c68a865",
+                    "name": "Ente flattert",
                     "dataFormat": "mp3",
                     "format": "",
                     "rate": 44100,
-                    "sampleCount": 19719,
-                    "md5ext": "282fb24fedf9ed8f6b7dd08366a0f83c.mp3"
+                    "sampleCount": 38808,
+                    "md5ext": "ffc769dfe1bc0beacf6d59993c68a865.mp3"
                 }
             ],
             "volume": 100,
             "layerOrder": 1,
             "visible": true,
-            "x": 55,
-            "y": -45,
+            "x": 22.905109489051107,
+            "y": -39.27007299270072,
             "size": 100,
             "direction": 90,
             "draggable": false,
             "rotationStyle": "all around"
         }
     ],
+    "monitors": [],
     "extensions": [],
     "meta": {
         "semver": "3.0.0",
-        "vm": "0.2.0-minimal-1",
-        "agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
+        "vm": "0.2.0-minimal-4",
+        "agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36"
     }
 }
