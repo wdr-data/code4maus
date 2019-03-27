@@ -5,10 +5,6 @@ slides:
 
   - asset: 12.png
     caption: "Programmiere ein Stadt-Land-Fluss-Spiel."
-  - asset: 01.png
-    caption: "Füge die Figur 'Ente' hinzu"
-  - asset: 01_1.png
-    caption: "Lösche die Figur 'Maus'"
   - asset: variablen_hand.png
     caption: Klicke auf 'Variablen'
   - asset: 02.png
@@ -21,83 +17,10 @@ slides:
     caption: "Füge 'Antwort' hinzu"
   - asset: 05.png
     caption: "Ändere den Frage-Text"
-  - asset: start.png
-    caption: "Teste dein Spiel"
-  - asset: x03.png
-    caption: Noch sind Wörter ohne 'E' und Doppelte möglich. 
-  - asset: steuerung.png
-    caption: "Klicke auf 'Steuerung'"
-  - asset: 08.png
-    caption: "Nutze falls-dann für den Test auf Doppelte:"
-  - asset: operatoren.png
-    caption: "Klicke auf 'Operatoren'"
-  - asset: 09.png
-    caption: "Füge Operator 'nicht' ein"
-  - asset: 10.png
-    caption: "Nicht hinzufügen, wenn ..."
-  - asset: 11.png
-    caption: "... 'Antwort' nicht in 'Wörter' ist"
   - asset: xx2.png
     caption: "Beim Start soll die Liste leer sein"
   - asset: start.png
-    caption: "Teste noch mal"
-  - asset: 12.png
-    caption: "Keine Doppelten mehr möglich"
-  - asset: gut_gemacht.png
-  - asset:  spannung.png
-    caption: "Damit das Spiel spannender wird, füge einen Countdown dazu..."
-  - asset: variablen_hand.png
-    caption: Klicke auf 'Variablen'
-  - asset: xx1.png
-    caption: "Klicke auf 'neue Variable', nenne sie 'Zeit'"
-  - asset: 16.png
-    caption: Schreibe das Zeit-Programm
-  - asset: 14.png
-    caption: "Setze 'Zeit' auf 30"
-  - asset: XX3.png
-    caption: Wiederhole bis ...
-  - asset: XX4.png
-    caption: "Füge den '=' Operator hinzu"
-  - asset: 02.gif
-    caption: .... Zeit gleich...
-  - asset: 18.png
-    caption: ... null ist
-  - asset: 19.png
-    caption: Pro Sekunde wird die Rest-Zeit weniger 
-  - asset: k1.png
-    caption: "Klicke auf 'Ereignisse'"
-  - asset: c.png
-    caption: "Wenn die Zeit vorbei ist: 'sende Nachricht'"
-  - asset: 20_2.png
-    caption: "Füge den Ton 'Boing' hinzu"
-  - asset: 21.png
-    caption: "'Boing' wird gespielt, wenn die Zeit um ist"
-  - asset: start.png
-    caption: "Teste und schau auf die Zeit"
-  - asset: herz.png
-    caption: Klasse!
-  - asset: k3.png
-    caption: Am Ende soll gezeigt werden, wie viele Wörter gefunden wurden.
-  - asset: 23.png
-    caption: Mache noch ein 'Wenn'-Programm
-  - asset: variablen_hand.png
-    caption: Klicke auf 'Variablen'
-  - asset: 24.png
-    caption: "'Länge von' zählt die Wörter"
-  - asset: start.png
-    caption: "Teste noch mal"
-  - asset: k3.png
-    caption: Schöner wäre ein Satz, nicht nur die Zahl
-  - asset: operatoren.png
-    caption: "Klicke auf 'Operatoren'"
-  - asset: 25.png
-    caption: "Ziehe 'Verbinde' rein"
-  - asset: 26.png
-    caption: "Gib den Text ein"
-  - asset: 27.png
-    caption: "So sieht das komplett aus:"
-  - asset: start.png
-    caption: "Teste noch mal"
+    caption: "Teste dein Spiel"
   - asset: herz.png
     caption: "Gut! Jetzt änderst Du, dass ein zufälliger Buchstabe statt 'E' gefragt wird."
   - asset: variablen_hand.png
@@ -117,27 +40,13 @@ slides:
   - asset: start.png
     caption: "Fast fertig."
   - asset: 12.png
-    caption: "Passe noch dein Abfrage-Programm an"
+    caption: "Passe deine Frage an"
   - asset: 33_1.png
     caption: "Ziehe 'verbinde' in 'frage':"
   - asset: 33_2.png
     caption: "Ändere und ziehe 'A-Z' rein"
   - asset: start.png
-    caption: "Teste die Abfrage"
-  - asset: beispiel-stern.jpg
-    caption: "Top. Jetzt noch testen, ob die Wörter mit dem richtigen Buchstaben anfangen."
-  - asset: q1.gif
-    caption: "Baue um zum 'und'-Operator:"
-  - asset: 36.png
-    caption:  Du prüfst auf Doppelte und ...
-  - asset: 37.png
-    caption: "Nutze den '='-Operator"
-  - asset: 38.png
-    caption: "Und den 'Zeichen von'-Operator"
-  - asset: 39.png
-    caption: Ziehe Antwort und A-Z rein
-  - asset: start.png
-    caption: "Jetzt kommen nur Wörter mit dem richtigen Anfangsbuchstaben in die Liste."  
+    caption: "Teste die Frage"  
   - asset: gut_gemacht.png
     caption: Geschafft, viel Spaß mit Stadt-Land-Ente!
 
