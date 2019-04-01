@@ -21,6 +21,7 @@ export const handler = async (event, context, callback) => {
     const params = {
         Bucket: process.env.STORAGE_BUCKET || process.env.S3_BUCKET_PROJECTS,
         Key: `data/assets/${filename}`,
+        ACL: 'public-read',
     };
 
     // check for existence of asset

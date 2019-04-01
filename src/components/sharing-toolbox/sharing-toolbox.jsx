@@ -65,17 +65,43 @@ const usePrintScreenshot = (layoutRef, dispatch) => {
     return print;
 };
 
-const useSharingScreenshot = (image, dispatch) => {
-    const share = useCallback(
-        () => {
-            dispatch({ type: actionShareLoading });
-            // to do: generate url for sharing
-            setTimeout(() => {
-                dispatch({ type: actionSharePreview, payload: 'adfbvba.com' });
-            }, 2000);
-        }, [ dispatch ]
+const parseDataUri = (dataUri) => {
+    const matches = dataUri.match(/^data:([^;]+);base64,(.*)/);
+    if (!matches) {
+        throw new Error('Invalid DataUri: ' + dataUri);
+    }
+    console.log(matches[2].length, atob(matches[2]).length);
+    return [
+        matches[1],
+        Uint8Array.from(atob(matches[2]), (c) => c.charCodeAt(0)),
+    ];
+};
+
+const useSaveResult = (image, dispatch) => {
+    const saveResult = useCallback(
+        async () => {
+            const [ contentType, data ] = parseDataUri(image);
+            dispatch({ type: actionShareStart });
+            const res = await fetch('/api/prepareShareResult', {
+                method: 'POST',
+                body: data,
+            });
+            if (!res.ok) {
+                throw new Error(`uploading result failed`);
+            }
+
+            const body = await res.json();
+            await fetch(body.uploadUrl, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': contentType,
+                },
+                body: data,
+            });
+            dispatch({ type: actionSharePreview, payload: body.publicUrl });
+        }, [ dispatch, image ]
     );
-    return share;
+    return saveResult;
 };
 
 const initialState = {
@@ -87,8 +113,8 @@ const initialState = {
 const actionPrintPreview = 'printPreview';
 const actionPrintFinished = 'printFinished';
 const actionPrintLoading = 'printLoading';
-const actionShareLoading = 'shareLoading';
 const actionSharePreview = 'sharePreview';
+const actionShareStart = 'shareStart';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -97,7 +123,6 @@ const reducer = (state, action) => {
     case actionPrintFinished:
         return { ...state, mode: 'default', isLoading: false };
     case actionPrintLoading:
-    case actionShareLoading:
         return { ...state, isLoading: true };
     case actionSharePreview:
         return {
@@ -105,6 +130,11 @@ const reducer = (state, action) => {
             isLoading: false,
             mode: 'share',
             sharingUrl: action.payload,
+        };
+    case actionShareStart:
+        return {
+            ...state,
+            isLoading: true,
         };
     default:
         return state;
@@ -115,8 +145,9 @@ const SharingModal = ({ onRequestClose, image, isLoading, canPrint, title }) => 
     const [ state, dispatch ] = useReducer(reducer, initialState);
     const layoutRef = useRef(null);
     const print = usePrintScreenshot(layoutRef, dispatch);
-    const share = useSharingScreenshot(image, dispatch);
     const pending = state.isLoading || isLoading;
+    const saveResult = useSaveResult(image, dispatch);
+
     return (
         <Modal
             className={styles.modalContent}
@@ -165,7 +196,7 @@ const SharingModal = ({ onRequestClose, image, isLoading, canPrint, title }) => 
                             </Button>}
                             <Button
                                 disabled={pending || state.mode === 'share'}
-                                onClick={share}>
+                                onClick={saveResult}>
                                 <img
                                     className={styles.buttonIcon}
                                     draggable={false}
