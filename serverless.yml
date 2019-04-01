@@ -25,10 +25,10 @@ functions:
           method: POST
   
   saveShareResult:
-    handler: src/backend/saveShareResult.handler
+    handler: src/backend/prepareShareResult.handler
     events:
       - http:
-          path: api/saveShareResult
+          path: api/prepareShareResult
           method: POST
 
 resources:
