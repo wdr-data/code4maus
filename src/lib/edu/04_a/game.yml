@@ -18,7 +18,7 @@ slides:
   - asset: 05.png
     caption: "Ändere den Frage-Text"
   - asset: xx2.png
-    caption: "Beim Start soll die Liste leer sein"
+    caption: "Füge 'lösche alles aus' hinzu"
   - asset: start.png
     caption: "Teste dein Spiel"
   - asset: herz.png
@@ -28,7 +28,7 @@ slides:
   - asset: 28.png
     caption: "Drücke auf 'Neue Variable', nenne sie 'A-Z'"
   - asset: 29.png
-    caption: Füge 'A-Z' im ersten Programm hinzu
+    caption: Füge 'setze A-Z' hinzu
   - asset: operatoren.png
     caption: "Klicke auf 'Operatoren'"
   - asset: 30.png
@@ -39,12 +39,10 @@ slides:
     caption: Gib alle Zeichen von A-Z ein und ändere die Zahl
   - asset: start.png
     caption: "Fast fertig."
-  - asset: 12.png
-    caption: "Passe deine Frage an"
   - asset: 33_1.png
     caption: "Ziehe 'verbinde' in 'frage':"
   - asset: 33_2.png
-    caption: "Ändere und ziehe 'A-Z' rein"
+    caption: "Ersetze und ziehe 'A-Z' rein:"
   - asset: start.png
     caption: "Teste die Frage"  
   - asset: gut_gemacht.png
