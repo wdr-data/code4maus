@@ -24,6 +24,8 @@ slides:
     caption: "Ziehe vier mal 'denke' dazu:"
   - asset: x01_2.png
     caption: "Ändere Texte und Sekunden so:"
+  - asset: variablen_hand.png
+    caption: "Klicke auf Variablen"
   - asset: 03.gif
     caption: "Ziehe 'Zahl 1' und 'Zahl 2' rein:"
   - asset: y_02.png
@@ -41,7 +43,7 @@ slides:
   - asset: steuerung.png
     caption: "Klicke auf 'Steuerung'"
   - asset: y_04.png
-    caption: "Du brauchst 'falls-dann-sonst':"
+    caption: "Ziehe 'falls-dann-sonst' unter 'warte':"
   - asset: y_05.png
     caption: "Klicke auf Operatoren"
   - asset: y_06.png
@@ -65,7 +67,7 @@ slides:
   - asset: start.png
     caption: "Teste noch einmal:"
   - asset: blitz.svg
-    caption: "Hast Du es gemerkt? Die Zahlen ändern sich nicht!"
+    caption: "Die Aufgabe bleibt immer gleich."
   - asset: y_05.png
     caption: "Klicke auf Operatoren"
   - asset: y_013.png
