@@ -23,6 +23,13 @@ functions:
       - http:
           path: api/saveProject
           method: POST
+  
+  saveShareResult:
+    handler: src/backend/saveShareResult.handler
+    events:
+      - http:
+          path: api/saveShareResult
+          method: POST
 
 resources:
   Resources:
