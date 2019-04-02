@@ -18,7 +18,8 @@ const { baseDomain } = require('./scripts/env');
 require('dotenv').config();
 const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH;
 const bucketSuffix = branch === 'production' ? 'prod' : 'staging';
-const bucketUrl = `https://${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}.s3.dualstack.${process.env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION}.amazonaws.com`;
+const bucketUrl = `https://${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}.s3.dualstack.${process
+    .env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION}.amazonaws.com`;
 
 // fix for Netlify, where we cannot define AWS_REGION in the environment
 if ('FUNCTIONS_AWS_REGION' in process.env) {
@@ -42,13 +43,17 @@ module.exports = {
             },
         },
         historyApiFallback: true,
-        watchOptions: process.env.DOCKER_WATCH === 1 ? {
-            aggregateTimeout: 300,
-            poll: 1000,
-        } : {},
+        watchOptions:
+            process.env.DOCKER_WATCH === 1
+                ? {
+                    aggregateTimeout: 300,
+                    poll: 1000,
+                }
+                : {},
     },
     entry: {
-        'app': './src/playground/index.jsx',
+        app: './src/playground/index.jsx',
+        sharingpage: './src/sharingpage/index.jsx',
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -60,7 +65,10 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
-                include: [ path.resolve(__dirname, 'src'), /node_modules[\\/](@wdr-data[\\/])?scratch-[^\\/]+[\\/]src/ ],
+                include: [
+                    path.resolve(__dirname, 'src'),
+                    /node_modules[\\/](@wdr-data[\\/])?scratch-[^\\/]+[\\/]src/,
+                ],
                 options: {
                     // Explicitly disable babelrc so we don't catch various config
                     // in much lower dependencies.
@@ -72,7 +80,8 @@ module.exports = {
                 use: [
                     {
                         loader: 'style-loader',
-                    }, {
+                    },
+                    {
                         loader: 'css-loader',
                         options: {
                             modules: true,
@@ -80,7 +89,8 @@ module.exports = {
                             localIdentName: '[name]_[local]_[hash:base64:5]',
                             camelCase: true,
                         },
-                    }, {
+                    },
+                    {
                         loader: 'postcss-loader',
                         options: {
                             ident: 'postcss',
@@ -134,9 +144,17 @@ module.exports = {
             'process.env.ENABLE_TRACKING': JSON.stringify(Boolean(branch === 'production')),
         }),
         new HtmlWebpackPlugin({
-            chunks: 'gui',
-            template: 'src/playground/index.ejs',
+            excludeChunks: [ 'sharing', 'vendors~sharingpage' ],
+            filename: 'index.html',
+            template: 'src/pagelayout/index.ejs',
             baseUrl: process.env.DEPLOY_PRIME_URL || `https://${baseDomain()}`,
+            title: 'Programmieren mit der Maus',
+        }),
+        new HtmlWebpackPlugin({
+            excludeChunks: [ 'app', 'vendors~app' ],
+            filename: 'teilen.html',
+            template: 'src/pagelayout/index.ejs',
+            baseUrl: (process.env.DEPLOY_PRIME_URL || `https://${baseDomain()}`) + '/teilen.html',
             title: 'Programmieren mit der Maus',
         }),
         new CopyWebpackPlugin([
@@ -149,7 +167,8 @@ module.exports = {
             {
                 from: 'node_modules/@wdr-data/scratch-blocks/media',
                 to: 'static/blocks-media',
-            }, {
+            },
+            {
                 from: 'assets/blocks-media',
                 to: 'static/blocks-media',
             },
@@ -170,7 +189,8 @@ module.exports = {
             {
                 from: 'static',
                 to: 'static',
-            }, {
+            },
+            {
                 from: 'assets/icons',
                 to: 'static/icons',
             },
