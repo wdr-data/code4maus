@@ -18,7 +18,8 @@ const customHtmlPlugin = require('./scripts/custom-html-plugin');
 require('dotenv').config();
 const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH;
 const bucketSuffix = branch === 'production' ? 'prod' : 'staging';
-const bucketUrl = `https://${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}.s3.dualstack.${process.env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION}.amazonaws.com`;
+const bucketUrl = `https://${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}.s3.dualstack.${process
+    .env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION}.amazonaws.com`;
 
 // fix for Netlify, where we cannot define AWS_REGION in the environment
 if ('FUNCTIONS_AWS_REGION' in process.env) {
@@ -42,13 +43,17 @@ module.exports = {
             },
         },
         historyApiFallback: true,
-        watchOptions: process.env.DOCKER_WATCH === 1 ? {
-            aggregateTimeout: 300,
-            poll: 1000,
-        } : {},
+        watchOptions:
+            process.env.DOCKER_WATCH === 1
+                ? {
+                    aggregateTimeout: 300,
+                    poll: 1000,
+                }
+                : {},
     },
     entry: {
-        'app': './src/entrypoints/index.jsx',
+        app: './src/entrypoints/index.jsx',
+        sharingpage: './src/sharingpage/index.jsx',
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -60,7 +65,10 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
-                include: [ path.resolve(__dirname, 'src'), /node_modules[\\/](@wdr-data[\\/])?scratch-[^\\/]+[\\/]src/ ],
+                include: [
+                    path.resolve(__dirname, 'src'),
+                    /node_modules[\\/](@wdr-data[\\/])?scratch-[^\\/]+[\\/]src/,
+                ],
                 options: {
                     // Explicitly disable babelrc so we don't catch various config
                     // in much lower dependencies.
@@ -72,7 +80,8 @@ module.exports = {
                 use: [
                     {
                         loader: 'style-loader',
-                    }, {
+                    },
+                    {
                         loader: 'css-loader',
                         options: {
                             modules: true,
@@ -80,7 +89,8 @@ module.exports = {
                             localIdentName: '[name]_[local]_[hash:base64:5]',
                             camelCase: true,
                         },
-                    }, {
+                    },
+                    {
                         loader: 'postcss-loader',
                         options: {
                             ident: 'postcss',
@@ -135,6 +145,11 @@ module.exports = {
         }),
         customHtmlPlugin({
             entrypoint: 'app',
+            title: 'Programmieren mit der Maus',
+        }),
+        customHtmlPlugin({
+            entrypoint: 'sharingpage',
+            filename: 'teilen.html',
             title: 'Programmieren mit der Maus',
         }),
         new CopyWebpackPlugin([

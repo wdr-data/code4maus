@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useCallback, useReducer, useRef } from 'react';
+import React, {
+    useState,
+    useEffect,
+    useCallback,
+    useReducer,
+    useRef,
+} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import VM from '@wdr-data/scratch-vm';
@@ -39,29 +45,27 @@ const useScreenshotState = (vm, onImageReady) => {
 };
 
 const usePrintScreenshot = (layoutRef, dispatch) => {
-    const print = useCallback(
-        async () => {
-            if (layoutRef.current === null) {
-                return;
-            }
-            dispatch({ type: actionPrintLoading });
-            // to do: send to printer
-            const canvas = await html2canvas(layoutRef.current);
-            const doc = new JsPDF({
-                format: 'a4',
-                unit: 'mm',
-            });
-            doc.addImage({
-                imageData: canvas,
-                x: 20,
-                y: 20,
-                w: 73,
-                h: 73,
-            });
-            await doc.save('', { returnPromise: true });
-            dispatch({ type: actionPrintFinished });
-        }, [ layoutRef, dispatch ]
-    );
+    const print = useCallback(async () => {
+        if (layoutRef.current === null) {
+            return;
+        }
+        dispatch({ type: actionPrintLoading });
+        // to do: send to printer
+        const canvas = await html2canvas(layoutRef.current);
+        const doc = new JsPDF({
+            format: 'a4',
+            unit: 'mm',
+        });
+        doc.addImage({
+            imageData: canvas,
+            x: 20,
+            y: 20,
+            w: 73,
+            h: 73,
+        });
+        await doc.save('', { returnPromise: true });
+        dispatch({ type: actionPrintFinished });
+    }, [ layoutRef, dispatch ]);
     return print;
 };
 
@@ -77,36 +81,34 @@ const parseDataUri = (dataUri) => {
 };
 
 const useSaveResult = (image, dispatch) => {
-    const saveResult = useCallback(
-        async () => {
-            const [ contentType, data ] = parseDataUri(image);
-            dispatch({ type: actionShareStart });
-            const res = await fetch('/api/prepareShareResult', {
-                method: 'POST',
-                body: data,
-            });
-            if (!res.ok) {
-                throw new Error(`uploading result failed`);
-            }
+    const saveResult = useCallback(async () => {
+        const [ contentType, data ] = parseDataUri(image);
+        dispatch({ type: actionShareStart });
+        const res = await fetch('/api/prepareShareResult', {
+            method: 'POST',
+            body: data,
+        });
+        if (!res.ok) {
+            throw new Error(`uploading result failed`);
+        }
 
-            const body = await res.json();
-            await fetch(body.uploadUrl, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': contentType,
-                },
-                body: data,
-            });
-            dispatch({ type: actionSharePreview, payload: body.publicUrl });
-        }, [ dispatch, image ]
-    );
+        const body = await res.json();
+        await fetch(body.uploadUrl, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': contentType,
+            },
+            body: data,
+        });
+        dispatch({ type: actionSharePreview, payload: body.sharingKey });
+    }, [ dispatch, image ]);
     return saveResult;
 };
 
 const initialState = {
     mode: 'default',
     isLoading: false,
-    sharingUrl: '',
+    sharingKey: '',
 };
 
 const actionPrintPreview = 'printPreview';
@@ -128,7 +130,7 @@ const reducer = (state, action) => {
             ...state,
             isLoading: false,
             mode: 'share',
-            sharingUrl: action.payload,
+            sharingKey: action.payload,
         };
     case actionShareStart:
         return {
@@ -140,7 +142,13 @@ const reducer = (state, action) => {
     }
 };
 
-const SharingModal = ({ onRequestClose, image, isLoading, canPrint, title }) => {
+const SharingModal = ({
+    onRequestClose,
+    image,
+    isLoading,
+    canPrint,
+    title,
+}) => {
     const [ state, dispatch ] = useReducer(reducer, initialState);
     const layoutRef = useRef(null);
     const print = usePrintScreenshot(layoutRef, dispatch);
@@ -154,57 +162,72 @@ const SharingModal = ({ onRequestClose, image, isLoading, canPrint, title }) => 
             onRequestClose={onRequestClose}
         >
             <div className={styles.screenshotWrapper}>
-                <img
-                    src={image}
-                    className={styles.screenshot}
-                />
-                {state.mode === 'print' && <img src={buttonBorder} className={styles.printScreenshot}></img>}
-                {pending && <div className={styles.spinnerWrapper}><Spinner /></div>}
-                {state.mode === 'share' && <div className={styles.sharingWrapper}>
-                    <div className={styles.qrWrapper}>
-                        <QRCode value={state.sharingUrl} renderAs="svg" />
+                <img src={image} className={styles.screenshot} />
+                {state.mode === 'print' && (
+                    <img
+                        src={buttonBorder}
+                        className={styles.printScreenshot}
+                    />
+                )}
+                {pending && (
+                    <div className={styles.spinnerWrapper}>
+                        <Spinner />
                     </div>
-                </div>}
+                )}
+                {state.mode === 'share' && (
+                    <div className={styles.sharingWrapper}>
+                        <div className={styles.qrWrapper}>
+                            <QRCode
+                                value={`${location.origin}/teilen.html?${
+                                    state.sharingKey
+                                }`}
+                                renderAs="svg"
+                            />
+                        </div>
+                    </div>
+                )}
             </div>
             <Box className={styles.buttonWrapper}>
-                { state.mode === 'print'
-                    ? (
-                        <Button
-                            disabled={pending}
-                            onClick={print}
-                        >
-                            <img
-                                className={styles.buttonIcon}
-                                draggable={false}
-                                src={printNowButton}
-                            />
-                        </Button>
-                    )
-                    : (
-                        <React.Fragment>
-                            {canPrint && <Button
+                {state.mode === 'print' ? (
+                    <Button disabled={pending} onClick={print}>
+                        <img
+                            className={styles.buttonIcon}
+                            draggable={false}
+                            src={printNowButton}
+                        />
+                    </Button>
+                ) : (
+                    <React.Fragment>
+                        {canPrint && (
+                            <Button
                                 disabled={pending}
-                                onClick={() => dispatch({ type: actionPrintPreview })}
+                                onClick={() =>
+                                    dispatch({ type: actionPrintPreview })
+                                }
                             >
                                 <img
                                     className={styles.buttonIcon}
                                     draggable={false}
                                     src={printButton}
                                 />
-                            </Button>}
-                            <Button
-                                disabled={pending || state.mode === 'share'}
-                                onClick={saveResult}>
-                                <img
-                                    className={styles.buttonIcon}
-                                    draggable={false}
-                                    src={shareButton}
-                                />
                             </Button>
-                        </React.Fragment>
-                    )}
+                        )}
+                        <Button
+                            disabled={pending || state.mode === 'share'}
+                            onClick={saveResult}
+                        >
+                            <img
+                                className={styles.buttonIcon}
+                                draggable={false}
+                                src={shareButton}
+                            />
+                        </Button>
+                    </React.Fragment>
+                )}
             </Box>
-            <div className={styles.printLayout}><PrintLayout stage={image} layoutRef={layoutRef} /></div>
+            <div className={styles.printLayout}>
+                <PrintLayout stage={image} layoutRef={layoutRef} />
+            </div>
         </Modal>
     );
 };
@@ -240,7 +263,10 @@ const recordingReducer = (state, action) => {
 };
 
 const useRecording = (vm, onGifReady) => {
-    const [ { timeLeft, isRecording }, dispatch ] = useReducer(recordingReducer, recordingInitialState);
+    const [ { timeLeft, isRecording }, dispatch ] = useReducer(
+        recordingReducer,
+        recordingInitialState
+    );
     const [ gifImage, setGifImage ] = useState('');
     const [ isGifLoading, setIsGifLoading ] = useState(false);
     const imagesRef = useRef([]);
@@ -269,18 +295,21 @@ const useRecording = (vm, onGifReady) => {
                 setGifImage('');
                 onGifReady();
                 const canvas = renderer.canvas;
-                gifshot.createGIF({
-                    images: imagesRef.current,
-                    gifWidth: canvas.width,
-                    gifHeight: canvas.height,
-                }, (obj) => {
-                    setIsGifLoading(false);
-                    if (obj.error) {
-                        console.error(obj.error);
-                        return;
+                gifshot.createGIF(
+                    {
+                        images: imagesRef.current,
+                        gifWidth: canvas.width,
+                        gifHeight: canvas.height,
+                    },
+                    (obj) => {
+                        setIsGifLoading(false);
+                        if (obj.error) {
+                            console.error(obj.error);
+                            return;
+                        }
+                        setGifImage(obj.image);
                     }
-                    setGifImage(obj.image);
-                });
+                );
                 imagesRef.current = [];
             }
         };
@@ -297,8 +326,17 @@ const useRecording = (vm, onGifReady) => {
 const SharingToolboxComponent = ({ vm }) => {
     const [ isGifOpen, setGifOpen ] = useState(false);
     const [ isScreenshotOpen, setScreenshotOpen ] = useState(false);
-    const { image, takeScreenshot, isScreenshotLoading } = useScreenshotState(vm, () => setScreenshotOpen(true));
-    const { toggleRecording, isRecording, timeLeft, gifImage, isGifLoading } = useRecording(vm, () => setGifOpen(true));
+    const { image, takeScreenshot, isScreenshotLoading } = useScreenshotState(
+        vm,
+        () => setScreenshotOpen(true)
+    );
+    const {
+        toggleRecording,
+        isRecording,
+        timeLeft,
+        gifImage,
+        isGifLoading,
+    } = useRecording(vm, () => setGifOpen(true));
 
     return (
         <React.Fragment>
@@ -310,7 +348,9 @@ const SharingToolboxComponent = ({ vm }) => {
                             className={styles.sharingButton}
                             onClick={toggleRecording}
                         />
-                        {isRecording && <div className={styles.counter}>{timeLeft}s</div>}
+                        {isRecording && (
+                            <div className={styles.counter}>{timeLeft}s</div>
+                        )}
                     </div>
                     <InlineSvg
                         svg={printIcon}
@@ -319,19 +359,23 @@ const SharingToolboxComponent = ({ vm }) => {
                     />
                 </div>
             </div>
-            {isScreenshotOpen && <SharingModal
-                isLoading={isScreenshotLoading}
-                image={image}
-                onRequestClose={() => setScreenshotOpen(false)}
-                title="Dein Bild"
-                canPrint
-            />}
-            {isGifOpen && <SharingModal
-                isLoading={isGifLoading}
-                title="Dein Gif"
-                image={gifImage}
-                onRequestClose={() => setGifOpen(false)}
-            />}
+            {isScreenshotOpen && (
+                <SharingModal
+                    isLoading={isScreenshotLoading}
+                    image={image}
+                    onRequestClose={() => setScreenshotOpen(false)}
+                    title="Dein Bild"
+                    canPrint
+                />
+            )}
+            {isGifOpen && (
+                <SharingModal
+                    isLoading={isGifLoading}
+                    title="Dein Gif"
+                    image={gifImage}
+                    onRequestClose={() => setGifOpen(false)}
+                />
+            )}
         </React.Fragment>
     );
 };
@@ -344,4 +388,7 @@ const mapStateToProps = (state) => ({
     vm: state.scratchGui.vm,
 });
 
-export default connect(mapStateToProps, null)(SharingToolboxComponent);
+export default connect(
+    mapStateToProps,
+    null
+)(SharingToolboxComponent);

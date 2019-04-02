@@ -22,7 +22,7 @@ export const handler = async (event, context, callback) => {
         },
         body: JSON.stringify({
             uploadUrl: presignedUrl,
-            publicUrl: `https://s3.eu-central-1.amazonaws.com/${bucket}/${key}`,
+            sharingKey: id,
         }),
     });
 };
