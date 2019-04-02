@@ -70,7 +70,6 @@ const parseDataUri = (dataUri) => {
     if (!matches) {
         throw new Error('Invalid DataUri: ' + dataUri);
     }
-    console.log(matches[2].length, atob(matches[2]).length);
     return [
         matches[1],
         Uint8Array.from(atob(matches[2]), (c) => c.charCodeAt(0)),
@@ -164,7 +163,6 @@ const SharingModal = ({ onRequestClose, image, isLoading, canPrint, title }) => 
                 {state.mode === 'share' && <div className={styles.sharingWrapper}>
                     <div className={styles.qrWrapper}>
                         <QRCode value={state.sharingUrl} renderAs="svg" />
-                        <span>{state.sharingUrl}</span>
                     </div>
                 </div>}
             </div>
