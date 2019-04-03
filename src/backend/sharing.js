@@ -46,6 +46,7 @@ const landingPage = async (host, id) => {
 };
 
 export const handler = async (event, context, callback) => {
+    console.log(event);
     const hostHeaderName = Object.keys(event.headers).find(
         (header) => header.toLowerCase() === 'host'
     );
