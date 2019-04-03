@@ -22,9 +22,7 @@ const bucketUrl = `https://${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}.s3.du
     .env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION}.amazonaws.com`;
 
 const { GenerateSW } = require('workbox-webpack-plugin');
-const { InjectManifest } = require('workbox-webpack-plugin');
-
-const GenerateS3SWPrecachePlugin = require('./plugins/generate-s3-sw-precache-plugin');
+const GenerateS3SWPrecachePlugin = require('./scripts/generate-s3-sw-precache-plugin');
 
 // fix for Netlify, where we cannot define AWS_REGION in the environment
 if ('FUNCTIONS_AWS_REGION' in process.env) {

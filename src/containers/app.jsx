@@ -75,7 +75,7 @@ class App extends Component {
         // not 100% sure about timing here. maybe we could register the event only if it has not yet
         // been installed. But not 100% sure..better play safe here :S
         const installedPromise = new Promise((resolve, reject) => {
-            wb.addEventListener('installed', (event) => {
+            wb.addEventListener('installed', () => {
                 resolve();
             });
         });
@@ -181,7 +181,7 @@ const ConnectedApp = connect(
         setUserId: (id) => dispatch(setUserId(id)),
         redirectWelcome: () => dispatch(replace('/welcome')),
         startInstall: () => dispatch(startInstall()),
-        failInstall: () => dispatch(failInstall()),
+        failInstall: (e) => dispatch(failInstall(e)),
         setInstalled: () => dispatch(setInstalled()),
     }),
 )(App);
