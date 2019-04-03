@@ -15,12 +15,14 @@ export default [
         name: '#MausArt',
         subtitle: 'Kunst mit Maus und Code',
         image: image06,
+        republicaOnly: true,
     },
     {
         id: '04_c',
         name: '#Mausprobiert',
         subtitle: 'Dein Kunstwerk',
         image: image07,
+        republicaOnly: true,
     },
     {
         id: '00',
@@ -57,12 +59,14 @@ export default [
         name: 'Mathefant',
         subtitle: 'Verzweigungen',
         image: image04b,
+        republicaOnly: true,
     },
     {
         id: '04_a',
         name: 'Stadt-Land-Ente',
         subtitle: 'Listen & Abfrage',
         image: image04a,
+        republicaOnly: true,
     },
     {
         id: '05',
