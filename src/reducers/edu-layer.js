@@ -2,6 +2,7 @@ const NEXT_SLIDE = 'scratch-gui/edu-layer/NEXT_SLIDE';
 const PREVIOUS_SLIDE = 'scratch-gui/edu-layer/PREVIOUS_SLIDE';
 const TOGGLE_FULLSCREEN = 'scratch-gui/edu-layer/TOGGLE_FULLSCREEN';
 export const LOAD_GAME = 'scratch-gui/edu-layer/LOAD_GAME';
+const ENABLE_REPUBLICA_GAMES = 'scratch-gui/edu-layer/ENABLE_REPUBLICA_GAMES';
 
 const initialState = {
     size: 0,
@@ -10,6 +11,7 @@ const initialState = {
     enabled: false,
     gameId: null,
     gameSpec: null,
+    republicaGamesPreview: false,
 };
 
 export default function(state = initialState, action) {
@@ -44,6 +46,11 @@ export default function(state = initialState, action) {
             gameId: action.gameId,
             gameSpec: action.gameSpec,
         };
+    case ENABLE_REPUBLICA_GAMES:
+        return {
+            ...state,
+            republicaGamesPreview: true,
+        };
     default:
         return state;
     }
@@ -74,5 +81,11 @@ export function loadGame(gameId, gameSpec) {
         type: LOAD_GAME,
         gameId,
         gameSpec,
+    };
+}
+
+export function enableRepublicaGames() {
+    return {
+        type: ENABLE_REPUBLICA_GAMES,
     };
 }
