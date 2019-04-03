@@ -178,12 +178,12 @@ const SharingModal = ({
                     <div className={styles.sharingWrapper}>
                         <div className={styles.qrWrapper}>
                             <QRCode
-                                value={`${location.origin}/teilen.html?${
+                                value={`${location.origin}/teilen?${
                                     state.sharingKey
                                 }`}
                                 renderAs="svg"
                             />
-                            <div>{`${location.origin}/teilen.html?${
+                            <div>{`${location.origin}/teilen?${
                                 state.sharingKey
                             }`}</div>
                         </div>
