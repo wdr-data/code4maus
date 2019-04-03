@@ -8,6 +8,7 @@ provider:
     stage: ${file(scripts/env.js):stage}
     environment:
         S3_BUCKET_PROJECTS: ${self:custom.projectBucketName}
+        ASSET_BASEURL: ${self:custom.baseUrl}
 
 functions:
     prepareAssetUpload:
@@ -30,6 +31,13 @@ functions:
             - http:
                   path: api/prepareShareResult
                   method: POST
+
+    sharing:
+        handler: src/backend/sharing.handler
+        events:
+            - http:
+                  path: /teilen
+                  method: GET
 
 resources:
     Resources:
@@ -170,6 +178,7 @@ plugins:
 custom:
     appBucketName: ${self:service}-app-${file(scripts/env.js):stage}
     projectBucketName: ${self:service}-projects-${file(scripts/env.js):bucketSuffix}
+    baseUrl: https://${file(scripts/env.js):baseDomain}
     dotenv:
         path: .env.backend
     webpack:

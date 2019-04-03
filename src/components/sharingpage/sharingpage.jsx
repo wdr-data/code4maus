@@ -1,17 +1,17 @@
 import React from 'react';
 
+import qs from 'qs';
 import styles from './sharingpage.css';
 import printIcon from '../../../assets/icons/header_save.svg';
 
 const SharingPage = () => {
-    const search = location.search;
-    if (search.length === 0) {
-        return null;
-        // return <ErrorPage />;
-    }
-    const imageId = location.search.substr(1);
+    const { id } = qs.parse(location.search.substr(1));
 
-    const key = `data/sharing/${imageId}`;
+    if (!id) {
+        return null;
+    }
+
+    const key = `/data/sharing/${id}`;
     const url = `${key}`;
 
     return (

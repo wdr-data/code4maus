@@ -6,6 +6,7 @@ const envsub = require('envsubstr');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 // PostCss
 const autoprefixer = require('autoprefixer');
@@ -146,15 +147,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             excludeChunks: [ 'sharing', 'vendors~sharingpage' ],
             filename: 'index.html',
-            template: 'src/pagelayout/index.ejs',
+            template: 'src/playground/index.ejs',
             baseUrl: process.env.DEPLOY_PRIME_URL || `https://${baseDomain()}`,
-            title: 'Programmieren mit der Maus',
-        }),
-        new HtmlWebpackPlugin({
-            excludeChunks: [ 'app', 'vendors~app' ],
-            filename: 'teilen.html',
-            template: 'src/pagelayout/index.ejs',
-            baseUrl: (process.env.DEPLOY_PRIME_URL || `https://${baseDomain()}`) + '/teilen.html',
             title: 'Programmieren mit der Maus',
         }),
         new CopyWebpackPlugin([
@@ -198,5 +192,6 @@ module.exports = {
         new Visualizer({
             filename: 'statistics.html',
         }),
+        new ManifestPlugin(),
     ],
 };

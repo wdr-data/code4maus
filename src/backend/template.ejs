@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base href="http://localhost:8601" />
+    </head>
+    <body>
+        <% scripts.forEach((script) => { %>
+        <script src="<%= baseUrl %><%= script %>"></script>
+        <% }) %>
+    </body>
+</html>

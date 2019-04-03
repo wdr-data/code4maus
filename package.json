@@ -50,8 +50,8 @@
     "@storybook/addons": "^5.0.3",
     "@storybook/react": "^5.0.3",
     "@types/node": "^11.11.3",
-    "@wdr-data/scratch-blocks": "^0.1.7",
     "@wdr-data/scratch-audio": "0.1.0-prerelease.20190320154358",
+    "@wdr-data/scratch-blocks": "^0.1.7",
     "@wdr-data/scratch-vm": "0.2.0-minimal-4",
     "arraybuffer-loader": "^1.0.3",
     "autoprefixer": "^9.5.0",
@@ -168,11 +168,13 @@
     }
   },
   "dependencies": {
+    "ejs-loader": "^0.3.3",
     "gifshot": "^0.4.5",
     "html2canvas": "^1.0.0-alpha.12",
     "jspdf": "^1.5.3",
     "qrcode.react": "^0.9.3",
     "uuid": "^3.3.2",
+    "webpack-manifest-plugin": "^2.0.4",
     "zepto": "^1.2.0"
   },
   "resolutions": {
