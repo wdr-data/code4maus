@@ -1,4 +1,4 @@
 /api/*    /.netlify/functions/:splat    200!
-/teilen   /.netlify/functions/sharing   200!
+/teilen*  /.netlify/functions/sharing:splat   200!
 /data/*   https://${S3_BUCKET_PREFIX}-staging.s3.dualstack.${AWS_REGION}.amazonaws.com/data/:splat 200!
 /*        /index.html                    200
