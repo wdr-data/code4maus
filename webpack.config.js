@@ -5,6 +5,7 @@ const envsub = require('envsubstr');
 // Plugins
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 // PostCss
 const autoprefixer = require('autoprefixer');
@@ -147,11 +148,6 @@ module.exports = {
             entrypoint: 'app',
             title: 'Programmieren mit der Maus',
         }),
-        customHtmlPlugin({
-            entrypoint: 'sharingpage',
-            filename: 'teilen.html',
-            title: 'Programmieren mit der Maus',
-        }),
         new CopyWebpackPlugin([
             {
                 from: 'assets/img/favicon.png',
@@ -187,5 +183,6 @@ module.exports = {
         new Visualizer({
             filename: 'statistics.html',
         }),
+        new ManifestPlugin(),
     ],
 };
