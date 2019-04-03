@@ -2,12 +2,30 @@
 
 .inner-wrapper {
     max-width: 50rem;
-    padding: 1.5rem;
+    padding: 0 1rem;
     background-color: white;
     box-shadow: 0 0 0.8rem 1px rgba(0, 0, 0, .5);
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 1rem;
+}
+
+.first-wrapper {
+    margin-top: 4rem;
+    padding-top: 1rem;
+}
+
+.second-wrapper {
+    margin-top: 4rem;
+    padding-top: 1rem;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.third-wrapper {
+    margin-top: 4rem;
+    padding-top: 0.5rem;
 }
 
 .inner-wrapper strong {
@@ -16,6 +34,7 @@
 
 .maus-question {
     height: 60vw;
+    padding: 1rem 0;
 }
 
 .page-wrapper {
@@ -24,11 +43,77 @@
     align-items: center;
     justify-content: space-between;
     background: url(../gui/bg_header@1x.png);
-    padding: 2rem;
-    height: 100%;
-    min-height: 600px;
+    background-size: cover;
+    padding: 1rem;
+    height: auto;
+}
+
+.link {
+    text-decoration: underline;
+    color: black;
+    font-weight: bold;
 }
 
 .info-button {
     display: inline-block;
+}
+
+.bold-orange {
+    color: $ui-orange;
+    font-weight: bold;
+}
+
+.logo-center {
+    height: 6rem;
+    display: block;
+    margin: 0 auto;
+}
+
+.logo-wdr {
+    height: 1rem;
+    margin: 0 0.2rem 0.2rem 1.5rem;
+}
+
+.logo-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    width: 100vw;
+}
+
+.content {
+    width: 100%;
+    margin: 1rem;
+    height: auto;
+}
+
+.block-wrapper {
+    position: relative;
+    margin-top: 1rem; 
+}
+
+.block1 {
+    position: absolute;
+    width: 85vw;
+    height: auto; 
+}
+
+.block2 {
+    position: absolute;
+    width: 85vw;
+    height: auto; 
+    z-index: 10;
+}
+
+.fant {
+    position: absolute;
+    width: 35vw;
+    height: auto; 
+    right: 0;
+    bottom: 0;
+}
+
+.screenshot-editor {
+    width: 17rem;
+    height: auto;
+    margin: 0 auto 0 0;
 }
