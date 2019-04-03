@@ -11,11 +11,10 @@ export const handler = async (event, context, callback) => {
     const params = {
         Bucket: bucket,
         Key: key,
-        ACL: 'public-read',
     };
 
     const presignedUrl = s3.getSignedUrl('putObject', params);
-    callback(null, {
+    return {
         statusCode: 200,
         headers: {
             'content-type': 'application/json',
@@ -24,5 +23,5 @@ export const handler = async (event, context, callback) => {
             uploadUrl: presignedUrl,
             sharingKey: id,
         }),
-    });
+    };
 };
