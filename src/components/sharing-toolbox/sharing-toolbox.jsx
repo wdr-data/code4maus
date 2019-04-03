@@ -183,6 +183,9 @@ const SharingModal = ({
                                 }`}
                                 renderAs="svg"
                             />
+                            <div>{`${location.origin}/teilen.html?${
+                                state.sharingKey
+                            }`}</div>
                         </div>
                     </div>
                 )}
