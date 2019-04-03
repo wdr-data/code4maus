@@ -11,8 +11,7 @@ const SharingPage = () => {
         return null;
     }
 
-    const key = `/data/sharing/${id}`;
-    const url = `${key}`;
+    const url = `/data/sharing/${id}`;
 
     return (
         <div className={styles.container}>

@@ -1,7 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <base href="http://localhost:8601" />
+        <meta name="twitter:card" content="player" />
+        <meta name="twitter:creator" content="@DieMaus" />
+        <meta name="twitter:site" content="@DieMaus" />
+        <meta
+            name="twitter:player"
+            content="https://giphy.com/embed/3o6MbhrJ1PTKKcpUAM/twitter/iframe"
+        />
+
+        <meta
+            name="twitter:image:src"
+            content="<%= baseUrl %><%= imageUrl %>"
+        />
+        <meta name="twitter:image" content="<%= baseUrl %><%= imageUrl %>" />
+        <meta name="twitter:player:width" content="435" />
+        <meta name="twitter:player:height" content="331" />
+        <base href="<%= baseUrl %>" />
     </head>
     <body>
         <% scripts.forEach((script) => { %>
