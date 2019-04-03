@@ -46,19 +46,28 @@ const landingPage = async (host, id) => {
 };
 
 export const handler = async (event, context, callback) => {
-    const { Host } = event.headers;
+    const hostHeaderName = Object.keys(event.headers).find(
+        (header) => header.toLowerCase() === 'host'
+    );
+    const host = event.headers[hostHeaderName];
+    if (!host) {
+        return {
+            statusCode: 400,
+            body: 'Host missing',
+        };
+    }
     const { id, frame } = event.queryStringParameters;
 
     if (!id) {
         return {
             statusCode: 400,
-            body: 'Invalid request',
+            body: 'Parameter missing',
         };
     }
 
     if (frame !== undefined) {
         return playerFrame(id);
     } else {
-        return landingPage(Host, id);
+        return landingPage(host, id);
     }
 };
