@@ -78,6 +78,14 @@ class App extends Component {
             wb.addEventListener('installed', () => {
                 resolve();
             });
+            let isQuotaError = false;
+            wb.messageSW({ type: 'GET_QUOTA_ERRORS' }).then(() => isQuotaError = true);
+            wb.addEventListener('redundant', () => {
+                reject(isQuotaError
+                    ? new Error('Quota exceeded')
+                    : new Error('Service worker redundant')
+                );
+            });
         });
 
         try {
