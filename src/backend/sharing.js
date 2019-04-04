@@ -39,7 +39,7 @@ const playerFrame = async (id) => {
     return {
         statusCode: 200,
         headers: {
-            'content-type': 'text/html',
+            'content-type': 'text/html; charset=utf-8',
         },
         body: content,
     };
@@ -85,7 +85,7 @@ const landingPage = async (id) => {
     return {
         statusCode: 200,
         headers: {
-            'content-type': 'text/html',
+            'content-type': 'text/html; charset=utf-8',
         },
         body: content,
     };
