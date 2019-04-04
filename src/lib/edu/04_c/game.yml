@@ -3,31 +3,31 @@
 slides:
   - asset: L007.png
     caption: "Mehr Kunst mit Maus und Code"
-  - asset: start.png
+  - asset: start.jpg
     caption: "Drücke zum Testen"
   - asset: stop.png
     caption: "Zum Stoppen"
-  - asset: steuerung.png
+  - asset: steuerung.jpg
     caption: "Klicke auf Steuerung"
-  - asset: z08.png
+  - asset: z08.jpg
     caption: "Füge ein Programm hinzu"
-  - asset: z01.png
+  - asset: z01.jpg
     caption: "Dazu 'für immer' und 'gehe'"
-  - asset: z02.png
+  - asset: z02.jpg
     caption: "Ändere Schritte zu 1"
-  - asset: start.png
+  - asset: start.jpg
     caption: "Was passiert?"
-  - asset: z03.png
+  - asset: z03.jpg
     caption: "Ziehe 'ändere Effekt' dazu"
-  - asset: start.png
+  - asset: start.jpg
     caption: "Wie sieht's aus?" 
-  - asset: z05.png
+  - asset: z05.jpg
     caption: "Spiele mit den Effekten..."
-  - asset: z06.png
+  - asset: z06.jpg
     caption: "Ändere die Größe..."
-  - asset: v01.png
+  - asset: v01.jpg
     caption: "Elefant, Ente? Klicke links auf 'nächstes Kostüm'"
-  - asset: drucken_lsd.png
+  - asset: drucken_lsd.jpg
     caption: "Drucke oder teile dein Werk!"
 
 nextGame: '01'
@@ -41,9 +41,14 @@ blocks:
       - gotoxy
   - category: looks
     blocks:
+      - setsizeto
       - nextcostume
       - changeeffectby
       - changesizeby
+      - seteffectto
+      - cleargraphiceffects
+      - show
+      - hide
   - category: events
     blocks:
       - whenflagclicked
