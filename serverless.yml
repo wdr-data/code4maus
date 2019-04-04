@@ -111,7 +111,7 @@ resources:
                           ForwardedValues:
                               QueryString: false
                         - TargetOriginId: Custom-hackingstudio-code4maus-api-${file(scripts/env.js):stage}
-                          PathPattern: teilen*
+                          PathPattern: teilen
                           ViewerProtocolPolicy: redirect-to-https
                           MinTTL: 0
                           AllowedMethods:
@@ -126,7 +126,7 @@ resources:
                               - HEAD
                               - GET
                           ForwardedValues:
-                              QueryString: false
+                              QueryString: true
                     DefaultCacheBehavior:
                         TargetOriginId: S3-${self:custom.appBucketName}
                         ViewerProtocolPolicy: redirect-to-https
