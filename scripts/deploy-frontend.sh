@@ -5,8 +5,10 @@ BUCKET="hackingstudio-code4maus-app"
 
 if [ "$TRAVIS_BRANCH" == "production" ]; then
     BUCKET="${BUCKET}-prod"
-else
+elif [ "$TRAVIS_BRANCH" == "develop" ]; then
     BUCKET="${BUCKET}-staging"
+else
+    BUCKET="${BUCKET}-dev"
 fi
 
 aws s3 sync build s3://${BUCKET} --delete --acl public-read
