@@ -61,7 +61,7 @@ export const handler = async (event, context, callback) => {
         };
     }
 
-    if (frame !== undefined) {
+    if (frame === 'yes') {
         return playerFrame(id);
     } else {
         return landingPage(id);
