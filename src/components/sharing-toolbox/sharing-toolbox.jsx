@@ -84,7 +84,8 @@ const useSaveResult = (image, dispatch) => {
     const saveResult = useCallback(async () => {
         const [ contentType, data ] = parseDataUri(image);
         dispatch({ type: actionShareStart });
-        const res = await fetch('/api/prepareShareResult', {
+        const ext = contentType.split('/')[1];
+        const res = await fetch(`/api/prepareShareResult?type=${ext}`, {
             method: 'POST',
             body: data,
         });
