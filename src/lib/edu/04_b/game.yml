@@ -2,77 +2,77 @@
 
 slides:
   - asset: Mathefant.png
-  - asset: 01.png
+  - asset: 01.jpg
     caption: "Programmiere den Elefanten so, dass er Mathe-Aufgaben stellt."
-  - asset: p1.png
+  - asset: p1.jpg
     caption: "Beginne ein Programm"
-  - asset: variablen_hand.png
+  - asset: variablen_hand.jpg
     caption: "Klicke auf Variablen"
-  - asset: v1.gif
+  - asset: v1.mp4
     caption: "Füge zwei neue Variablen hinzu. Nenne sie 'Zahl 1' und 'Zahl 2'."
-  - asset: x03.png
+  - asset: x03.jpg
     caption: "Ziehe zwei Mal 'setze auf' rüber:"
-  - asset: 01.gif
+  - asset: 01.mp4
     caption: "Ändere die 1. Variable zu 'Zahl 1'"
-  - asset: 02.gif
+  - asset: 02.mp4
     caption: "Ändere die 2. Variable zu 'Zahl 2'"
-  - asset: x05.png
+  - asset: x05.jpg
     caption: "Ändere die Zahlenwerte:"
-  - asset: y_01.png
+  - asset: y_01.jpg
     caption: "Klicke auf 'Aussehen'"
-  - asset: x01_1.png
+  - asset: x01_1.jpg
     caption: "Ziehe vier mal 'denke' dazu:"
-  - asset: x01_2.png
+  - asset: x01_2.jpg
     caption: "Ändere Texte und Sekunden so:"
-  - asset: variablen_hand.png
+  - asset: variablen_hand.jpg
     caption: "Klicke auf Variablen"
-  - asset: 03.gif
+  - asset: 03.mp4
     caption: "Ziehe 'Zahl 1' und 'Zahl 2' rein:"
-  - asset: y_02.png
+  - asset: y_02.jpg
     caption: "Klicke auf 'Fühlen'"
-  - asset: 06_2.gif
+  - asset: 06_2.mp4
     caption: "Ziehe 'frage' ans Ende:"
-  - asset: 07.png
+  - asset: 07.jpg
     caption: "Ändere den Text zu '?':"
-  - asset: start.png
+  - asset: start.jpg
     caption: "Teste dein Programm:"
-  - asset: v2.gif
+  - asset: v2.mp4
     caption: "Das Programm wartet, bis du die Lösung tippst."
   - asset: blitz.svg
     caption: "Aber wie weiß das Programm die Lösung?"
-  - asset: steuerung.png
+  - asset: steuerung.jpg
     caption: "Klicke auf 'Steuerung'"
-  - asset: y_04.png
+  - asset: y_04.jpg
     caption: "Ziehe 'falls-dann-sonst' unter 'warte':"
-  - asset: y_05.png
+  - asset: y_05.jpg
     caption: "Klicke auf Operatoren"
-  - asset: y_06.png
+  - asset: y_06.jpg
     caption: "Ziehe ' = 100' rein:"
-  - asset: y_02.png
+  - asset: y_02.jpg
     caption: "Klicke auf 'Fühlen'"
-  - asset: y_07.png
+  - asset: y_07.jpg
     caption: "Ziehe 'Antwort' rein:"
-  - asset: y_08.png
+  - asset: y_08.jpg
     caption: "Ziehe den Operator '+' dazu:"
-  - asset: variablen_hand.png
+  - asset: variablen_hand.jpg
     caption: "Klicke auf Variablen"
-  - asset: y_09.png
+  - asset: y_09.jpg
     caption: "Ziehe die Zahlen dazu:"
-  - asset: y_011.png
+  - asset: y_011.jpg
     caption: "Wenn die Antwort richtig ist:"
-  - asset: y_012.png
+  - asset: y_012.jpg
     caption: "Wenn die Antwort falsch ist:"
-  - asset: 04.gif
+  - asset: 04.mp4
     caption: "Füge “Für immer” ein:"
-  - asset: start.png
+  - asset: start.jpg
     caption: "Teste noch einmal:"
   - asset: blitz.svg
     caption: "Die Aufgabe bleibt immer gleich."
-  - asset: y_05.png
+  - asset: y_05.jpg
     caption: "Klicke auf Operatoren"
-  - asset: y_013.png
+  - asset: y_013.jpg
     caption: "Füge Zufallszahlen ein:"
-  - asset: start.png
+  - asset: start.jpg
     caption: "Spiele dein Mathe-Spiel:"
   - asset: herz.png
     caption: "Das hast du super gemacht!"
@@ -83,6 +83,8 @@ blocks:
   - category: looks
     blocks:
       - thinkforsecs
+      - switchcostumeto
+      - nextcostume
   - category: events
     blocks:
       - whenflagclicked
