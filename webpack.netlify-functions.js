@@ -24,6 +24,7 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env.S3_BUCKET_PROJECTS': JSON.stringify(bucket),
             'process.env.ASSET_BASEURL': JSON.stringify(process.env.DEPLOY_PRIME_URL),
+            'process.env.API_HOST': JSON.stringify(process.env.DEPLOY_PRIME_URL),
         }),
     ],
     externals: 'aws-sdk',

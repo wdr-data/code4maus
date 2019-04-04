@@ -9,6 +9,7 @@ provider:
     environment:
         S3_BUCKET_PROJECTS: ${self:custom.projectBucketName}
         ASSET_BASEURL: ${self:custom.baseUrl}
+        API_HOST: ${self:custom.baseUrl}
 
 functions:
     prepareAssetUpload:

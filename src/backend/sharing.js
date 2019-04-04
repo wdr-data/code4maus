@@ -3,11 +3,17 @@ import landingTemplate from './landingTemplate.ejs';
 import playerTamplate from './playerTemplate.ejs';
 
 const baseUrl = process.env.ASSET_BASEURL;
+const apiHost = process.env.API_HOST;
 
 const imageUrl = (id) => `/data/sharing/${id}`;
 
 const playerFrame = (id) => {
-    const content = playerTamplate({ baseUrl, id, imageUrl: imageUrl(id) });
+    const content = playerTamplate({
+        baseUrl,
+        apiHost,
+        id,
+        imageUrl: imageUrl(id),
+    });
 
     return {
         statusCode: 200,
@@ -18,7 +24,7 @@ const playerFrame = (id) => {
     };
 };
 
-const landingPage = async (host, id) => {
+const landingPage = async (id) => {
     const response = await fetch(baseUrl + '/manifest.json');
     const manifest = await response.json();
 
@@ -31,8 +37,8 @@ const landingPage = async (host, id) => {
     const content = landingTemplate({
         scripts,
         baseUrl,
+        apiHost,
         id,
-        host,
         imageUrl: imageUrl(id),
     });
 
@@ -46,17 +52,6 @@ const landingPage = async (host, id) => {
 };
 
 export const handler = async (event, context, callback) => {
-    console.log(event);
-    const hostHeaderName = Object.keys(event.headers).find(
-        (header) => header.toLowerCase() === 'host'
-    );
-    const host = event.headers[hostHeaderName];
-    if (!host) {
-        return {
-            statusCode: 400,
-            body: 'Host missing',
-        };
-    }
     const { id, frame } = event.queryStringParameters;
 
     if (!id) {
@@ -69,6 +64,6 @@ export const handler = async (event, context, callback) => {
     if (frame !== undefined) {
         return playerFrame(id);
     } else {
-        return landingPage(host, id);
+        return landingPage(id);
     }
 };
