@@ -1,14 +1,12 @@
 ---
 slides:
-  - asset: spass.mp4
-    caption: 'Text'
   - asset: L00.png
     caption: ➡️ Hier geht's los!
     dim: true
   - caption: "Hier in diesem Kasten lernst du Schritt für Schritt, wie das hier geht. Drücke nach jedem Schritt 'Weiter' ⬇️:"
-  - asset: a.gif
+  - asset: a.mp4
     caption: "Starte mit:"
-  - asset: b.gif
+  - asset: b.mp4
     caption: "Stoppe mit:"
   - asset: gut_gemacht.png
 
