@@ -138,6 +138,8 @@ resources:
           CustomErrorResponses:
             - ErrorCachingMinTTL: 0
               ErrorCode: 404
+              ResponseCode: 200
+              ResponsePagePath: /
     EntrypointDNSRecord:
       Type: AWS::Route53::RecordSet
       Properties:
