@@ -23,7 +23,11 @@
     justify-content: center;
 }
 
-.button-wrapper img {
+.brand-icon {
     height: 2rem;
     width: auto;
+}
+
+.brand-icon svg path {
+    fill: currentColor;
 }

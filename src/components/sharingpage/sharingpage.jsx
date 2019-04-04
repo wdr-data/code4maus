@@ -1,11 +1,12 @@
 import React from 'react';
-
 import qs from 'qs';
-import styles from './sharingpage.css';
+import fbIcon from 'simple-icons/icons/facebook';
+import twitterIcon from 'simple-icons/icons/twitter';
+import whatsappIcon from 'simple-icons/icons/whatsapp';
+
+import InlineSVG from '../inline-svg/inline-svg.jsx';
 import printIcon from '../../../assets/icons/header_save.svg';
-import fbIcon from './fb.svg';
-import twitterIcon from './twitter.svg';
-import whatsappIcon from './whatsapp.svg';
+import styles from './sharingpage.css';
 
 const SharingPage = () => {
     const { id } = qs.parse(location.search.substr(1));
@@ -28,13 +29,13 @@ const SharingPage = () => {
                         <img src={printIcon} />
                     </a>
                     <a href={fbUrl} rel="noopener noreferrer" target="_blank">
-                        <img src={fbIcon} />
+                        <InlineSVG className={styles.brandIcon} svg={fbIcon.svg} color={`#${fbIcon.hex}`} />
                     </a>
                     <a href={twitterUrl} rel="noopener noreferrer" target="_blank">
-                        <img src={twitterIcon} />
+                        <InlineSVG className={styles.brandIcon} svg={twitterIcon.svg} color={`#${twitterIcon.hex}`} />
                     </a>
                     <a href={whatsappUrl} rel="noopener noreferrer" target="_blank">
-                        <img src={whatsappIcon} />
+                        <InlineSVG className={styles.brandIcon} svg={whatsappIcon.svg} color={`#${whatsappIcon.hex}`} />
                     </a>
                 </div>
             </div>
