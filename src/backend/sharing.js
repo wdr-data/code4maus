@@ -69,7 +69,7 @@ const landingPage = async (id) => {
         manifest['vendors~app~sharingpage.js'],
         manifest['vendors~sharingpage.js'],
         manifest['sharingpage.js'],
-    ];
+    ].filter((script) => script); // vendors-sharingpage might not be there
 
     const type = await getImageType(id);
 
