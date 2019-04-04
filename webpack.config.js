@@ -143,6 +143,7 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
             'process.env.DEBUG': Boolean(process.env.DEBUG),
             'process.env.ENABLE_TRACKING': Boolean(branch === 'production'),
+            'process.env.FB_APP_ID': JSON.stringify(process.env.FB_APP_ID),
         }),
         customHtmlPlugin({
             entrypoint: 'app',

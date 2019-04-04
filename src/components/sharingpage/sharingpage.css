@@ -22,3 +22,8 @@
     flex-direction: row;
     justify-content: center;
 }
+
+.button-wrapper img {
+    height: 2rem;
+    width: auto;
+}
