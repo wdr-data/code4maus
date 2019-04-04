@@ -109,7 +109,7 @@ resources:
                               - HEAD
                               - GET
                           ForwardedValues:
-                              QueryString: false
+                              QueryString: true
                         - TargetOriginId: Custom-hackingstudio-code4maus-api-${file(scripts/env.js):stage}
                           PathPattern: teilen
                           ViewerProtocolPolicy: redirect-to-https
