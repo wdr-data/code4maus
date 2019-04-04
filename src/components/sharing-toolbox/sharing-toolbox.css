@@ -81,19 +81,21 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: white;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .qr-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: white;
+    padding: 1rem;
 }
 
 .button-wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .button-icon {
@@ -113,10 +115,14 @@
     position: absolute;
     top: 0;
     right: 100%;
+    margin-top: .5rem;
     padding: .5rem;
     background-color: white;
     font-size: 1.5rem;
     font-weight: bold;
+    -webkit-box-shadow: -3px 5px 9px -2px rgba(153,153,153,1);
+    -moz-box-shadow: -3px 5px 9px -2px rgba(153,153,153,1);
+    box-shadow: -3px 5px 9px -2px rgba(153,153,153,1);
 }
 
 .print-layout {
