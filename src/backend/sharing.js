@@ -102,7 +102,7 @@ export const handler = async (event, context, callback) => {
     }
 
     // to prevent "../shadow"
-    if (!id.match(/^[A-Za-z0-9_-]+$/)) {
+    if (!id.match(/^[A-Za-z0-9_-]+\.(gif|png)$/)) {
         return {
             statusCode: 400,
             body: 'Parameter invalid',
