@@ -20,7 +20,7 @@
 .modal-wrapper {
     margin: 100px auto;
     outline: none;
-    user-select: none;
+    user-select: text;
 
     display: flex;
     flex-direction: column;
