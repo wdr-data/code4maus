@@ -143,6 +143,7 @@ module.exports = {
             'process.env.NODE_ENV': '"' + process.env.NODE_ENV + '"',
             'process.env.DEBUG': Boolean(process.env.DEBUG),
             'process.env.ENABLE_TRACKING': JSON.stringify(Boolean(branch === 'production')),
+            'process.env.FB_APP_ID': JSON.stringify(process.env.FB_APP_ID),
         }),
         new HtmlWebpackPlugin({
             excludeChunks: [ 'sharing', 'vendors~sharingpage' ],
