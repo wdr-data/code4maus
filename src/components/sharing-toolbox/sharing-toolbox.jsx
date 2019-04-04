@@ -85,8 +85,14 @@ const useSaveResult = (image, dispatch) => {
         const [ contentType, data ] = parseDataUri(image);
         dispatch({ type: actionShareStart });
         const ext = contentType.split('/')[1];
-        const res = await fetch(`/api/prepareShareResult?type=${ext}`, {
+        const res = await fetch(`/api/prepareShareResult`, {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                type: ext,
+            }),
         });
         if (!res.ok) {
             throw new Error(`uploading result failed`);

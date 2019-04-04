@@ -4,7 +4,7 @@ import nanoid from 'nanoid';
 const s3 = initS3();
 
 export const handler = async (event, context, callback) => {
-    const { type } = event.queryStringParameters;
+    const { type } = JSON.parse(event.body);
 
     if (!type) {
         return {
@@ -12,7 +12,6 @@ export const handler = async (event, context, callback) => {
             body: 'Parameter missing',
         };
     }
-
     const id = nanoid();
     const sharingKey = `${id}.${encodeURIComponent(type)}`;
 
