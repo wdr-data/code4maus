@@ -3,72 +3,72 @@
 
 slides:
   - asset: L05.png
-  - asset: x11.png
+  - asset: x11.jpg
     caption: "Ziel: Fange mit dem Fisch die Äpfel."
-  - asset: 000.png
+  - asset: 000.jpg
     caption: "Hintergrund: Unterwasser"
-  - asset: 001.png
+  - asset: 001.jpg
     caption: "Füge Figur 'Fisch' hinzu:"
-  - asset: 002.png
+  - asset: 002.jpg
     caption: "Noch eine Figur: 'Apfel'"
-  - asset: 003.png
+  - asset: 003.jpg
     caption: "Lösche die Maus:"
-  - asset: 05_01.png
+  - asset: 05_01.jpg
     caption: "Los geht's beim Apfel:"
-  - asset: x01.png
+  - asset: x01.jpg
     caption: "1. Block für den Apfel:"
-  - asset: x02.png
+  - asset: x02.jpg
     caption: "2. Block für den Apfel:"
-  - asset: 09.gif
+  - asset: 09.mp4
     caption: "Zufallszahlen hinzufügen"
-  - asset: x09.png
+  - asset: x09.jpg
     caption: "Zahlen ändern"
-  - asset: x03.png
+  - asset: x03.jpg
     caption: "3. Block für den Apfel:"
-  - asset: start.png
+  - asset: start.jpg
     caption: "Teste dein Programm:"
   - asset: super.png
-  - asset: 004.png
+  - asset: 004.jpg
     caption: "Nun zum Fisch:"
-  - asset: 01.png
+  - asset: 01.jpg
     caption: "Code für den Fisch Teil 1:"
-  - asset: 02.png
+  - asset: 02.jpg
     caption: "Wenn der Apfel berührt wird ...:"
-  - asset: 03.png
+  - asset: 03.jpg
     caption: "Nachricht, Ton, Bewegung"
-  - asset: start.png
+  - asset: start.jpg
     caption: "Teste dein Programm wieder:"
-  - asset: 005.png
+  - asset: 005.jpg
     caption: "Füge 2 mal Figur 'Pfeil' hinzu:"
-  - asset: 006.png
+  - asset: 006.jpg
     caption: "Wähle bei 'Pfeil': Kostüm 'links'"
-  - asset: 007.png
+  - asset: 007.jpg
     caption: "Bei 'Pfeil2': Kostüm 'rechts'"
-  - asset: 008.png
+  - asset: 008.jpg
     caption: "So sollen die Figuren aussehen:"
-  - asset: x10.png
+  - asset: x10.jpg
     caption: "Ziehe die Figuren an ihren Platz:"
-  - asset: x05.png
+  - asset: x05.jpg
     caption: "Code für 'Pfeil' links:"
-  - asset: x06.png
+  - asset: x06.jpg
     caption: "Wähle 'Neue Nachricht'"
-  - asset: x07.png
+  - asset: x07.jpg
     caption: "Gib 'links' ein:"
   - asset: herz.png
     caption: "Kannst du rechts alleine?"
-  - asset: x08.png
+  - asset: x08.jpg
     caption: "Code für 'Pfeil2' rechts:"
-  - asset: 009.png
+  - asset: 009.jpg
     caption: "Zurück zum Fisch:"
-  - asset: xx09.png
+  - asset: xx09.jpg
     caption: "Um den Fisch zu steuern:"
-  - asset: start.png
+  - asset: start.jpg
     caption: "Teste dein Spiel"
   - asset: super.png
     caption: "Fertig. Du hast alle Lernspiele geschafft."
-  - asset: neu.png
+  - asset: neu.jpg
     caption: "Mache dein eigenes Spiel mit +"
-  - asset: 04.png
+  - asset: 04.jpg
     caption: "Ideen findest du unter 'Beispiele'."
 
 blocks:
