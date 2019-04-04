@@ -1,5 +1,7 @@
 ---
 slides:
+  - asset: spass.mp4
+    caption: 'Text'
   - asset: L00.png
     caption: ➡️ Hier geht's los!
     dim: true
