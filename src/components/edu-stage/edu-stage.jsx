@@ -37,8 +37,12 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
             </Box>
             <Box
                 className={styles.eduSlides}
-                style={{ backgroundImage: `url(/edu/${props.gameId}/assets/${props.imageSrc})` }}
-            />
+            >
+                <img
+                    className={styles.images}
+                    src={`/edu/${props.gameId}/assets/${props.imageSrc}`}
+                />
+            </Box>
             <Box className={styles.eduFooter}>
                 <Button
                     arrowLeft style='primary' disabled={props.slideIndex === 0}
