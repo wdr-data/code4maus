@@ -87,7 +87,6 @@ const useSaveResult = (image, dispatch) => {
         const ext = contentType.split('/')[1];
         const res = await fetch(`/api/prepareShareResult?type=${ext}`, {
             method: 'POST',
-            body: data,
         });
         if (!res.ok) {
             throw new Error(`uploading result failed`);
