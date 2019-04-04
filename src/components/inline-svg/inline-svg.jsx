@@ -8,8 +8,16 @@ const InlineSVG = (props) => {
     const {
         svg,
         className,
+        color,
         ...componentProps
     } = props;
+
+    if (color !== '') {
+        componentProps.style = {
+            color,
+        };
+    }
+
     return (
         <span
             dangerouslySetInnerHTML={{ __html: svg }}
@@ -22,10 +30,12 @@ const InlineSVG = (props) => {
 InlineSVG.propTypes = {
     svg: PropTypes.string.isRequired,
     className: PropTypes.string,
+    color: PropTypes.string,
 };
 
 InlineSVG.defaultProps = {
     className: '',
+    color: '',
 };
 
 export default InlineSVG;
