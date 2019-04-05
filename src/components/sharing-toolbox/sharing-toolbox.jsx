@@ -5,6 +5,7 @@ import React, {
     useReducer,
     useRef,
 } from 'react';
+import url from 'url';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import VM from '@wdr-data/scratch-vm';
@@ -12,6 +13,7 @@ import QRCode from 'qrcode.react';
 import gifshot from 'gifshot';
 import html2canvas from 'html2canvas';
 import JsPDF from 'jspdf';
+import ippEncoder, { CONSTANTS as IPPCONSTANTS } from 'ipp-encoder';
 
 import styles from './sharing-toolbox.css';
 import InlineSvg from '../inline-svg/inline-svg.jsx';
@@ -53,7 +55,7 @@ const usePrintScreenshot = (layoutRef, dispatch) => {
         // to do: send to printer
         const canvas = await html2canvas(layoutRef.current);
         const doc = new JsPDF({
-            format: 'a4',
+            format: 'a5',
             unit: 'mm',
         });
         doc.addImage({
@@ -63,7 +65,15 @@ const usePrintScreenshot = (layoutRef, dispatch) => {
             w: 73,
             h: 73,
         });
-        await doc.save('', { returnPromise: true });
+        doc.addImage({
+            imageData: canvas,
+            x: 20,
+            y: 115,
+            w: 73,
+            h: 73,
+        });
+        const pdf = doc.output('blob');
+        await printPdf(pdf);
         dispatch({ type: actionPrintFinished });
     }, [ layoutRef, dispatch ]);
     return print;
@@ -109,6 +119,65 @@ const useSaveResult = (image, dispatch) => {
         dispatch({ type: actionSharePreview, payload: body.sharingKey });
     }, [ dispatch, image ]);
     return saveResult;
+};
+
+const printPdf = async (buffer) => {
+    const headers = {
+        operationId: IPPCONSTANTS.PRINT_JOB,
+        requestId: 1,
+        groups: [
+            {
+                tag: IPPCONSTANTS.OPERATION_ATTRIBUTES_TAG,
+                attributes: [
+                    {
+                        tag: IPPCONSTANTS.CHARSET,
+                        name: 'attributes-charset',
+                        value: [ 'utf-8' ],
+                    },
+                    {
+                        tag: IPPCONSTANTS.NATURAL_LANG,
+                        name: 'attributes-natural-language',
+                        value: [ 'de' ],
+                    },
+                    {
+                        tag: IPPCONSTANTS.URI,
+                        name: 'printer-uri',
+                        value: [ process.env.PRINTER_URL ],
+                    },
+                    {
+                        tag: IPPCONSTANTS.MIME_MEDIA_TYPE,
+                        name: 'document-format',
+                        value: 'application/octet-stream',
+                    },
+                ],
+            },
+            {
+                tag: IPPCONSTANTS.JOB_ATTRIBUTES_TAG,
+                attributes: [
+                    { tag: IPPCONSTANTS.INTEGER, name: 'copies', value: [ 1 ] },
+                    {
+                        tag: IPPCONSTANTS.KEYWORD,
+                        name: 'media',
+                        value: [ 'iso-a5' ],
+                    },
+                ],
+            },
+        ],
+    };
+
+    const header = ippEncoder.request.encode(headers);
+
+    const ippRequest = new Blob([ header, buffer ]);
+
+    const proxied =
+        process.env.PRINTER_PROXY + url.parse(process.env.PRINTER_URL).pathname;
+    return fetch(proxied, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/ipp',
+        },
+        body: ippRequest,
+    });
 };
 
 const initialState = {
