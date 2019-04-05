@@ -11,6 +11,7 @@ import unFullScreenIcon from '../../../assets/blocks-media/zoom-out.svg';
 import { connect } from 'react-redux';
 import { nextSlide, previousSlide, toggleFullscreen } from '../../reducers/edu-layer.js';
 import { eduUrl } from '../../lib/routing';
+import { gamesKeyed } from '../../lib/edu/';
 
 const EduStageComponent = (props) => !props.isEnabled ? null :
     <React.Fragment>
@@ -30,7 +31,7 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
                     <img
                         className={styles.fullscreenButtonIcon}
                         draggable={false}
-                        src= {props.isFullscreen ? unFullScreenIcon : fullScreenIcon}
+                        src={props.isFullscreen ? unFullScreenIcon : fullScreenIcon}
                         title={props.isFullscreen ? 'Verkleinern' : 'Vergrößern'}
                     />
                 </Button>
@@ -41,14 +42,14 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
                 {props.imageSrc && ((props.imageSrc.split('.').pop() === 'mp4') ?
                     <video
                         className={styles.images}
-                        src={`/edu/${props.gameId}/assets/${props.imageSrc}`}
+                        src={props.imageSrc}
                         autoPlay
                         loop
                     />
                     :
                     <img
                         className={styles.images}
-                        src={`/edu/${props.gameId}/assets/${props.imageSrc}`}
+                        src={props.imageSrc}
                     />
                 )}
             </Box>
@@ -69,7 +70,7 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
             </Box>
         </Box>
     </React.Fragment>
-;
+    ;
 
 EduStageComponent.propTypes = {
     caption: PropTypes.string,
@@ -97,7 +98,7 @@ const mapStateToProps = (state) => {
         caption: '',
     };
 
-    const spec = state.scratchGui.eduLayer.gameSpec;
+    const spec = gamesKeyed[base.gameId];
     if (!base.isEnabled || base.slideIndex >= spec.slides.length) {
         return base;
     }
@@ -108,7 +109,7 @@ const mapStateToProps = (state) => {
         imageSrc: slide.asset,
         caption: slide.caption || '',
         isDimmed: !!slide.dim,
-        linkNextGame: spec.nextGame && base.slideIndex >= base.slideCount-1,
+        linkNextGame: spec.nextGame && base.slideIndex >= base.slideCount - 1,
         nextGame: spec.nextGame || '',
     };
 };

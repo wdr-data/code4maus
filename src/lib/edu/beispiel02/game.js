@@ -1,10 +1,14 @@
 import a000 from './assets/000.png';
 
 export default {
-    "slides": [
+    id: 'beispiel02',
+    name: 'Maus-Alarm',
+    subtitle: 'Füttere den Elefanten',
+    image: a000,
+    'slides': [
         {
-            "asset": a000,
-            "caption": "Bewege die Maus mit den Pfeilen, fange das Obst und füttere den Elefanten."
-        }
-    ]
-}
+            'asset': a000,
+            'caption': 'Bewege die Maus mit den Pfeilen, fange das Obst und füttere den Elefanten.',
+        },
+    ],
+};

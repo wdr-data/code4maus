@@ -1,6 +1,10 @@
 import a000 from './assets/000.png';
 
 export default {
+    id: 'beispiel09',
+    name: 'Schlaue Maus',
+    subtitle: 'Die Maus findet deine Zahl',
+    image: a000,
     'slides': [
         {
             'asset': a000,

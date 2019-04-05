@@ -99,13 +99,13 @@ module.exports = {
                         loader: 'postcss-loader',
                         options: {
                             ident: 'postcss',
-                            plugins: function() {
+                            plugins: function () {
                                 return [
                                     postcssMixins,
                                     postcssImport,
                                     postcssVars,
                                     autoprefixer({
-                                        browsers: [ 'last 3 versions', 'Safari >= 8', 'iOS >= 8' ],
+                                        browsers: ['last 3 versions', 'Safari >= 8', 'iOS >= 8'],
                                     }),
                                 ];
                             },
@@ -114,7 +114,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(svg|png|wav|gif|jpg)$/,
+                test: /\.(svg|png|wav|gif|jpg|mp4)$/,
                 loader: 'file-loader',
                 options: {
                     outputPath: 'static/assets/',
