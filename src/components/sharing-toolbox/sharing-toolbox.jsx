@@ -320,8 +320,9 @@ SharingModal.propTypes = {
     isLoading: PropTypes.bool,
 };
 
+const recInterval = 100;
 const recordingInitialState = {
-    timeLeft: 10,
+    timeLeft: 10, // seconds (float)
     isRecording: false,
 };
 
@@ -330,7 +331,7 @@ const recordingReducer = (state, action) => {
     case 'start':
         return { ...recordingInitialState, isRecording: true };
     case 'tick':
-        const timeLeft = state.timeLeft - 1; // eslint-disable-line no-case-declarations
+        const timeLeft = state.timeLeft - (recInterval / 1000); // eslint-disable-line no-case-declarations
         if (timeLeft === 0) {
             return recordingInitialState;
         }
@@ -366,7 +367,7 @@ const useRecording = (vm, onGifReady) => {
                     imagesRef.current.push(image);
                 });
                 dispatch({ type: 'tick' });
-            }, 1000);
+            }, recInterval);
         }
         return () => {
             if (interval) {
@@ -429,7 +430,7 @@ const SharingToolboxComponent = ({ vm }) => {
                             onClick={toggleRecording}
                         />
                         {isRecording && (
-                            <div className={styles.counter}>{timeLeft}s</div>
+                            <div className={styles.counter}>{timeLeft.toFixed(1)}s</div>
                         )}
                     </div>
                     <InlineSvg
