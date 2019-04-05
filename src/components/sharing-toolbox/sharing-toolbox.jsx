@@ -189,6 +189,8 @@ const SharingModal = ({
                                 }`}
                                 renderAs="svg"
                             />
+                        </div>
+                        <div className={styles.sharingkeyWrapper}>
                             <div>{`${location.origin}/teilen?id=${
                                 state.sharingKey
                             }`}</div>
