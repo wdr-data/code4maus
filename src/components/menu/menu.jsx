@@ -121,19 +121,19 @@ export const MenuComponent = (props) => {
                 </Tabs>
             </Box>
             <Box className={styles.buttonRow}>
-                <MenuButton iconSvg={buttonIconLehrerinnen} linkTo="/inhalte/lehrkraefte">
+                <MenuButton iconSvg={buttonIconLehrerinnen} linkTo="/lehrkraefte">
                     Lehrkräfte
                 </MenuButton>
-                <MenuButton iconSvg={buttonIconInfo} linkTo="/inhalte/eltern">
+                <MenuButton iconSvg={buttonIconInfo} linkTo="/eltern">
                     Eltern-Info
                 </MenuButton>
                 <MenuButton iconSvg={buttonIconMausseite} external linkTo="https://www.wdrmaus.de/">
                     Zur Maus-Seite
                 </MenuButton>
-                <MenuButton iconSvg={buttonIconDatenschutz} linkTo="/inhalte/datenschutz">
+                <MenuButton iconSvg={buttonIconDatenschutz} linkTo="/datenschutz">
                     Datenschutz
                 </MenuButton>
-                <MenuButton iconSvg={buttonIconImpressum} linkTo="/inhalte/impressum">
+                <MenuButton iconSvg={buttonIconImpressum} linkTo="/impressum">
                     Impressum
                 </MenuButton>
             </Box>
