@@ -25,7 +25,8 @@
 }
 
 .modal-content {
-    width: 60vw;
+    min-width: 60vw;
+    margin: auto;
 }
 
 .sharing-button {
@@ -90,6 +91,13 @@
     align-items: center;
     background: white;
     padding: 1rem;
+}
+
+.sharingkey-wrapper {
+    background: white;
+    padding: 1rem;
+    margin-top: 4rem;
+    text-align: center;
 }
 
 .button-wrapper {
