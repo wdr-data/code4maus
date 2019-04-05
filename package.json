@@ -164,6 +164,7 @@
     "ejs-loader": "^0.3.3",
     "gifshot": "^0.4.5",
     "html2canvas": "^1.0.0-alpha.12",
+    "ipp-encoder": "^5.0.0",
     "jspdf": "^1.5.3",
     "qrcode.react": "^0.9.3",
     "simple-icons": "^1.9.24",
