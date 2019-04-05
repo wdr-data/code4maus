@@ -1,10 +1,56 @@
+@import "../../css/colors.css";
+
+body {
+    overflow-x: hidden;
+}
+
 .container {
+    font-family: 'Titillium Web';
     background-image: url(../menu/bg_blue@1x.png);
     background-size: cover;
-    height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
+    width: 100vw;
+}
+
+.second-column a {
+    color: #00345f;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.orange, a {
+    color: $ui-orange;
+}
+
+h2 {
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 90vw;
+}
+
+.logo-center {
+    height: 8rem;
+    width: auto;
+}
+
+.logo {
+    width: 4rem;
+    height: auto;
 }
 
 .wrapper {
@@ -13,14 +59,36 @@
     justify-content: center;
     align-items: center;
     background-color: white;
-    min-width: 40vw;
-    min-height: 40vh;
+    padding: 1rem;
+    margin: 2rem 1rem 0;
+    width: 80%;
+    max-width: 70rem;
+}
+
+.wrapper:last-child {
+    margin-bottom: 2rem;
+    max-width: 70rem;
+}
+
+.image {
+    width: 80vw;
+    max-width: 60rem;
+    height: auto;
 }
 
 .button-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding: 1rem 1rem 0;
+}
+
+.button-wrapper > *{
+    padding-right: 1rem;
+}
+
+.button-wrapper > *:last-child{
+    padding-right: 0;
 }
 
 .brand-icon {
