@@ -20,212 +20,215 @@ import a33_2 from './assets/33_2.png';
 import agut_gemacht from '../shared_assets/gut_gemacht.png';
 
 export default {
-    "slides": [
+    id: '04_a',
+    name: 'Stadt-Land-Ente',
+    subtitle: 'Listen & Abfrage',
+    image: aStadtLandEnte,
+    hidden: true,
+    'slides': [
         {
-            "asset": aStadtLandEnte
+            'asset': aStadtLandEnte,
         },
         {
-            "asset": a12,
-            "caption": "Programmiere ein Stadt-Land-Fluss-Spiel."
+            'asset': a12,
+            'caption': 'Programmiere ein Stadt-Land-Fluss-Spiel.',
         },
         {
-            "asset": avariablen_hand,
-            "caption": "Klicke auf 'Variablen'"
+            'asset': avariablen_hand,
+            'caption': "Klicke auf 'Variablen'",
         },
         {
-            "asset": a02,
-            "caption": "Erstelle eine neue Liste, nenne sie 'Wörter'"
+            'asset': a02,
+            'caption': "Erstelle eine neue Liste, nenne sie 'Wörter'",
         },
         {
-            "asset": a03_1,
-            "caption": "Schreibe ein Programm für die Abfrage:"
+            'asset': a03_1,
+            'caption': 'Schreibe ein Programm für die Abfrage:',
         },
         {
-            "asset": a03_02,
-            "caption": "Verlängere dein Programm: "
+            'asset': a03_02,
+            'caption': 'Verlängere dein Programm: ',
         },
         {
-            "asset": a01,
-            "caption": "Füge 'Antwort' hinzu"
+            'asset': a01,
+            'caption': "Füge 'Antwort' hinzu",
         },
         {
-            "asset": a05,
-            "caption": "Ändere den Frage-Text"
+            'asset': a05,
+            'caption': 'Ändere den Frage-Text',
         },
         {
-            "asset": axx2,
-            "caption": "Füge 'lösche alles aus' hinzu"
+            'asset': axx2,
+            'caption': "Füge 'lösche alles aus' hinzu",
         },
         {
-            "asset": astart,
-            "caption": "Teste dein Spiel"
+            'asset': astart,
+            'caption': 'Teste dein Spiel',
         },
         {
-            "asset": aherz,
-            "caption": "Gut! Jetzt änderst Du, dass ein zufälliger Buchstabe statt 'E' gefragt wird."
+            'asset': aherz,
+            'caption': "Gut! Jetzt änderst Du, dass ein zufälliger Buchstabe statt 'E' gefragt wird.",
         },
         {
-            "asset": avariablen_hand,
-            "caption": "Klicke auf 'Variablen'"
+            'asset': avariablen_hand,
+            'caption': "Klicke auf 'Variablen'",
         },
         {
-            "asset": a28,
-            "caption": "Drücke auf 'Neue Variable', nenne sie 'A-Z'"
+            'asset': a28,
+            'caption': "Drücke auf 'Neue Variable', nenne sie 'A-Z'",
         },
         {
-            "asset": a29,
-            "caption": "Füge 'setze A-Z' hinzu"
+            'asset': a29,
+            'caption': "Füge 'setze A-Z' hinzu",
         },
         {
-            "asset": aoperatoren,
-            "caption": "Klicke auf 'Operatoren'"
+            'asset': aoperatoren,
+            'caption': "Klicke auf 'Operatoren'",
         },
         {
-            "asset": a30,
-            "caption": "Ziehe 'Zeichen von' rein"
+            'asset': a30,
+            'caption': "Ziehe 'Zeichen von' rein",
         },
         {
-            "asset": a31,
-            "caption": "Ziehe 'Zufallszahl' dazu"
+            'asset': a31,
+            'caption': "Ziehe 'Zufallszahl' dazu",
         },
         {
-            "asset": a32,
-            "caption": "Gib alle Zeichen von A-Z ein und ändere die Zahl"
+            'asset': a32,
+            'caption': 'Gib alle Zeichen von A-Z ein und ändere die Zahl',
         },
         {
-            "asset": astart,
-            "caption": "Fast fertig."
+            'asset': astart,
+            'caption': 'Fast fertig.',
         },
         {
-            "asset": a33_1,
-            "caption": "Ziehe 'verbinde' in 'frage':"
+            'asset': a33_1,
+            'caption': "Ziehe 'verbinde' in 'frage':",
         },
         {
-            "asset": a33_2,
-            "caption": "Ersetze und ziehe 'A-Z' rein:"
+            'asset': a33_2,
+            'caption': "Ersetze und ziehe 'A-Z' rein:",
         },
         {
-            "asset": astart,
-            "caption": "Teste die Frage"
+            'asset': astart,
+            'caption': 'Teste die Frage',
         },
         {
-            "asset": agut_gemacht,
-            "caption": "Geschafft, viel Spaß mit Stadt-Land-Ente!"
-        }
+            'asset': agut_gemacht,
+            'caption': 'Geschafft, viel Spaß mit Stadt-Land-Ente!',
+        },
     ],
-    "nextGame": "05",
-    "blocks": [
+    'nextGame': '05',
+    'blocks': [
         {
-            "category": "motion",
-            "blocks": [
-                "movesteps",
-                "turnright",
-                "turnleft",
-                "--",
-                "goto",
-                "gotoxy",
-                "glideto",
-                "glidesecstoxy",
-                "--",
-                "changexby",
-                "setx",
-                "changeyby",
-                "sety"
-            ]
+            'category': 'motion',
+            'blocks': [
+                'movesteps',
+                'turnright',
+                'turnleft',
+                '--',
+                'goto',
+                'gotoxy',
+                'glideto',
+                'glidesecstoxy',
+                '--',
+                'changexby',
+                'setx',
+                'changeyby',
+                'sety',
+            ],
         },
         {
-            "category": "looks",
-            "blocks": [
-                "sayforsecs",
-                "say",
-                "thinkforsecs",
-                "think",
-                "switchcostumeto",
-                "nextcostume",
-                "--",
-                "changesizeby",
-                "setsizeto",
-                "--",
-                "show",
-                "hide",
-                "--",
-                "size"
-            ]
+            'category': 'looks',
+            'blocks': [
+                'sayforsecs',
+                'say',
+                'thinkforsecs',
+                'think',
+                'switchcostumeto',
+                'nextcostume',
+                '--',
+                'changesizeby',
+                'setsizeto',
+                '--',
+                'show',
+                'hide',
+                '--',
+                'size',
+            ],
         },
         {
-            "category": "sound",
-            "blocks": [
-                "playuntildone"
-            ]
+            'category': 'sound',
+            'blocks': ['playuntildone'],
         },
         {
-            "category": "events",
-            "blocks": [
-                "whenflagclicked",
-                "whenthisspriteclicked",
-                "--",
-                "whenbroadcastreceived",
-                "broadcast",
-                "broadcastandwait"
-            ]
+            'category': 'events',
+            'blocks': [
+                'whenflagclicked',
+                'whenthisspriteclicked',
+                '--',
+                'whenbroadcastreceived',
+                'broadcast',
+                'broadcastandwait',
+            ],
         },
         {
-            "category": "control",
-            "blocks": [
-                "wait",
-                "repeat",
-                "forever",
-                "--",
-                "if",
-                "if_else",
-                "wait_until",
-                "repeat_until",
-                "--",
-                "stop",
-                "--",
-                "start_as_clone",
-                "create_clone_of",
-                "delete_this_clone"
-            ]
+            'category': 'control',
+            'blocks': [
+                'wait',
+                'repeat',
+                'forever',
+                '--',
+                'if',
+                'if_else',
+                'wait_until',
+                'repeat_until',
+                '--',
+                'stop',
+                '--',
+                'start_as_clone',
+                'create_clone_of',
+                'delete_this_clone',
+            ],
         },
         {
-            "category": "sensing",
-            "blocks": [
-                "touchingobject",
-                "askandwait",
-                "answer",
-                "--",
-                "mousedown",
-                "mousex",
-                "mousey",
-                "setdragmode",
-                "--",
-                "timer",
-                "resettimer",
-                "--",
-                "of",
-                "--",
-                "current"
-            ]
+            'category': 'sensing',
+            'blocks': [
+                'touchingobject',
+                'askandwait',
+                'answer',
+                '--',
+                'mousedown',
+                'mousex',
+                'mousey',
+                'setdragmode',
+                '--',
+                'timer',
+                'resettimer',
+                '--',
+                'of',
+                '--',
+                'current',
+            ],
         },
         {
-            "category": "operators",
-            "blocks": [
-                "random",
-                "--",
-                "gt",
-                "lt",
-                "equals",
-                "--",
-                "and",
-                "or",
-                "not",
-                "join",
-                "letter_of"
-            ]
+            'category': 'operators',
+            'blocks': [
+                'random',
+                '--',
+                'gt',
+                'lt',
+                'equals',
+                '--',
+                'and',
+                'or',
+                'not',
+                'join',
+                'letter_of',
+            ],
         },
         {
-            "category": "variables"
-        }
-    ]
-}
+            'category': 'variables',
+        },
+    ],
+};

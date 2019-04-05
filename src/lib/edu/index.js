@@ -1,75 +1,36 @@
-import image00 from './00/thumb.png';
-import image01 from './01/thumb.png';
-import image02 from './02/thumb.png';
-import image03 from './03/thumb.png';
-import image04 from './04/thumb.png';
-import image04b from './04_b/assets/Mathefant.png';
-import image04a from './04_a/assets/StadtLandEnte.png';
-import image05 from './05/thumb.png';
-import image06 from './06/assets/000.png';
-import image07 from './04_c/assets/L007.png';
+import game06 from './06/game.js';
+import game04_c from './04_c/game.js';
+import game00 from './00/game.js';
+import game01 from './01/game.js';
+import game02 from './02/game.js';
+import game03 from './03/game.js';
+import game04 from './04/game.js';
+import game04_b from './04_b/game.js';
+import game04_a from './04_a/game.js';
+import game05 from './05/game.js';
+import examples from './examples.js';
 
-export default [
-    {
-        id: '06',
-        name: '#MausArt',
-        subtitle: 'Kunst mit Maus und Code',
-        image: image06,
-    },
-    {
-        id: '04_c',
-        name: '#Mausprobiert',
-        subtitle: 'Dein Kunstwerk',
-        image: image07,
-    },
-    {
-        id: '00',
-        name: 'Hallo Welt',
-        subtitle: 'Erste Schritte',
-        image: image00,
-    },
-    {
-        id: '01',
-        name: 'Die Weltraum-Maus',
-        subtitle: 'Bewegung',
-        image: image01,
-    },
-    {
-        id: '02',
-        name: 'Die Maus blinzelt',
-        subtitle: 'Trickfilm',
-        image: image02,
-    },
-    {
-        id: '03',
-        name: 'Die Maus tanzt!',
-        subtitle: 'Schleifen',
-        image: image03,
-    },
-    {
-        id: '04',
-        name: 'Wimmelbild',
-        subtitle: 'Mehr Figuren',
-        image: image04,
-    },
-    {
-        id: '04_b',
-        name: 'Mathefant',
-        subtitle: 'Verzweigungen',
-        image: image04b,
-        hidden: true,
-    },
-    {
-        id: '04_a',
-        name: 'Stadt-Land-Ente',
-        subtitle: 'Listen & Abfrage',
-        image: image04a,
-        hidden: true,
-    },
-    {
-        id: '05',
-        name: 'Kugelfisch-Spiel',
-        subtitle: 'Spiel',
-        image: image05,
-    },
+const games = [
+    game06,
+    game04_c,
+    game00,
+    game01,
+    game02,
+    game03,
+    game04,
+    game04_b,
+    game04_a,
+    game05,
 ];
+
+export const gamesKeyed = {};
+
+for (const game of games) {
+    gamesKeyed[game.id] = game;
+}
+
+for (const example of examples) {
+    gamesKeyed[example.id] = example;
+}
+
+export default games;

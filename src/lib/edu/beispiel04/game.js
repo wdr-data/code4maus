@@ -1,10 +1,14 @@
 import a000 from './assets/000.png';
 
 export default {
-    "slides": [
+    id: 'beispiel04',
+    name: 'Weltraum-Abenteuer',
+    subtitle: 'Fange den Elefanten ein',
+    image: a000,
+    'slides': [
         {
-            "asset": a000,
-            "caption": "Das Raumschiff des Elefanten ist außer Kontrolle. Kannst du ihn einfangen?"
-        }
-    ]
-}
+            'asset': a000,
+            'caption': 'Das Raumschiff des Elefanten ist außer Kontrolle. Kannst du ihn einfangen?',
+        },
+    ],
+};

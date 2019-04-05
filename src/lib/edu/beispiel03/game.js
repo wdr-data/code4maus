@@ -1,10 +1,14 @@
 import a000 from './assets/000.png';
 
 export default {
-    "slides": [
+    id: 'beispiel03',
+    name: 'Suchspiel',
+    subtitle: 'Hilfe! Die Ente ist weg',
+    image: a000,
+    'slides': [
         {
-            "asset": a000,
-            "caption": "Bewege die Maus mit den Pfeilen und suche Elefant und Ente."
-        }
-    ]
-}
+            'asset': a000,
+            'caption': 'Bewege die Maus mit den Pfeilen und suche Elefant und Ente.',
+        },
+    ],
+};
