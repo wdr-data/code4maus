@@ -100,7 +100,7 @@ const MobileScreenComponent = () => (
             </p>
         </div>
         <div className={styles.blockWrapper}>
-            <Link className={styles.link} href="/inhalte/eltern">
+            <Link className={styles.link} href="/lehrkraefte">
                 <img
                     role="Lerkräfte-Blog"
                     alt="Link zur Lehrkräfte-Seite"
