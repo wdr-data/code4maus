@@ -12,7 +12,6 @@ import screenshotEditor from '../../../assets/img/screenshot_editor.png';
 
 import Box from '../box/box.jsx';
 import InlineSVG from '../inline-svg/inline-svg.jsx';
-import Button from '../button/button.jsx';
 
 import mausQuestion from '!raw-loader!../../../assets/img/maus_question.svg';
 
@@ -98,7 +97,7 @@ const MobileScreenComponent = () => (
                 <span className={styles.boldOrange}>Programmieren mit der Maus </span> ist eine Anwendung für Desktop und iPad. Ab Mai 2019 gibt
                 es begleitendes Material für alle, die mit Kindern programmieren wollen: Lehrer*innen, AGs im
                 offenen Ganztag oder interessierte Erwachsene, die zum Beispiel einen Programmiertag organisieren möchten.
-                </p>
+            </p>
         </div>
         <div className={styles.blockWrapper}>
             <Link className={styles.link} href="/inhalte/eltern">
