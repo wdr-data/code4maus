@@ -1,10 +1,14 @@
 import a000 from './assets/000.png';
 
 export default {
-    "slides": [
+    id: 'beispiel08',
+    name: '1 x 1',
+    subtitle: 'Übe das Einmaleins',
+    image: a000,
+    'slides': [
         {
-            "asset": a000,
-            "caption": "Übe das Einmaleins"
-        }
-    ]
-}
+            'asset': a000,
+            'caption': 'Übe das Einmaleins',
+        },
+    ],
+};
