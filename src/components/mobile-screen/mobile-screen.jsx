@@ -41,8 +41,9 @@ const MobileScreenComponent = () => (
 
             <div className={classNames(styles.innerWrapper, styles.firstWrapper)}>
                 <p>
-                    Kinder ab acht Jahren lernen spielerisch erstes Programmieren. Begleitet werden sie dabei
-                von den Figuren und Sounds aus der <span className={styles.boldOrange}>Sendung mit der Maus</span>. Schritt für Schritt werden sie
+                    Sie befinden sich auf der mobilen Seite von Programmieren mit der Maus. Die eigentliche Anwendung können sie auf dem Desktop oder auf dem Tablet nutzen.
+                    Bei Programmieren mit der Maus lernen Kinder ab acht Jahren spielerisch erstes Programmieren. Begleitet werden sie dabei
+                    von den Figuren und Sounds aus der <span className={styles.boldOrange}>Sendung mit der Maus</span>. Schritt für Schritt werden sie
                                                                                                                             an Variablen, Schleifen und Verzweigungen herangeführt und programmieren erste Animationen und Spiele selbst.
                 </p>
             </div>
