@@ -22,11 +22,6 @@
     "assets:upload": "aws s3 sync --exclude .gitkeep --exclude .DS_Store assets s3://code4maus-assets",
     "start": "webpack-dev-server",
     "start:backend": "serverless offline",
-    "test": "npm run test:lint && npm run test:unit && npm run build && npm run test:integration",
-    "test:integration": "jest --runInBand test[\\\\/]integration",
-    "test:lint": "eslint . --ext .js,.jsx",
-    "test:unit": "jest test[\\\\/]unit",
-    "test:smoke": "jest --runInBand test[\\\\/]smoke",
     "storybook": "start-storybook -p 6006"
   },
   "author": "Massachusetts Institute of Technology",
