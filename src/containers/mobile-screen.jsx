@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import MobileScreenComponent from '../components/mobile-screen/mobile-screen.jsx';
-import indexStyles from '../playground/index.css';
+import indexStyles from '../css/index.css';
 
 class MobileScreen extends React.Component {
     constructor(props) {
