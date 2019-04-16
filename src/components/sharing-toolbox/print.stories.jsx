@@ -10,6 +10,6 @@ storiesOf('PrintLayout', module)
             display: 'inline-block',
             background: 'white',
         }}>
-            <PrintLayout stage={stageDummy} />
+            <PrintLayout stage={stageDummy} userHandle={'Hallo Welt'} />
         </div>;
     });
