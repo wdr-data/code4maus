@@ -33,13 +33,6 @@ functions:
                   path: api/prepareShareResult
                   method: POST
 
-    sharing:
-        handler: src/backend/sharing.handler
-        events:
-            - http:
-                  path: /teilen
-                  method: GET
-
 resources:
     Resources:
         AppBucket:
@@ -95,23 +88,6 @@ resources:
                           Compress: true
                         - TargetOriginId: Custom-hackingstudio-code4maus-api-${file(scripts/env.js):stage}
                           PathPattern: api/*
-                          ViewerProtocolPolicy: redirect-to-https
-                          MinTTL: 0
-                          AllowedMethods:
-                              - HEAD
-                              - DELETE
-                              - POST
-                              - GET
-                              - OPTIONS
-                              - PUT
-                              - PATCH
-                          CachedMethods:
-                              - HEAD
-                              - GET
-                          ForwardedValues:
-                              QueryString: true
-                        - TargetOriginId: Custom-hackingstudio-code4maus-api-${file(scripts/env.js):stage}
-                          PathPattern: teilen
                           ViewerProtocolPolicy: redirect-to-https
                           MinTTL: 0
                           AllowedMethods:

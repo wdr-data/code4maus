@@ -1,5 +1,3 @@
 /api/*    /.netlify/functions/:splat    200!
-/teilen id=:id frame=:frame  /.netlify/functions/sharing?id=:id&frame=:frame   200!
-/teilen id=:id  /.netlify/functions/sharing?id=:id   200!
 /data/*   https://${S3_BUCKET_PREFIX}-staging.s3.dualstack.${AWS_REGION}.amazonaws.com/data/:splat 200!
 /*        /index.html                    200

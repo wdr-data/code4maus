@@ -3,7 +3,7 @@ import 'es6-object-assign/auto';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import styles from './index.css';
+import styles from '../css/sharingpage.css';
 
 import App from '../components/sharingpage/sharingpage.jsx';
 
