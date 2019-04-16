@@ -4,7 +4,6 @@ const envsub = require('envsubstr');
 
 // Plugins
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
 
 // PostCss
@@ -13,7 +12,8 @@ const postcssVars = require('postcss-simple-vars');
 const postcssImport = require('postcss-import');
 const postcssMixins = require('postcss-mixins');
 
-const { baseDomain } = require('./scripts/env');
+// Custom Plugins
+const customHtmlPlugin = require('./scripts/custom-html-plugin');
 
 require('dotenv').config();
 const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH;
@@ -48,7 +48,7 @@ module.exports = {
         } : {},
     },
     entry: {
-        'app': './src/playground/index.jsx',
+        'app': './src/entrypoints/index.jsx',
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -133,10 +133,8 @@ module.exports = {
             'process.env.DEBUG': Boolean(process.env.DEBUG),
             'process.env.ENABLE_TRACKING': JSON.stringify(Boolean(branch === 'production')),
         }),
-        new HtmlWebpackPlugin({
-            chunks: 'gui',
-            template: 'src/playground/index.ejs',
-            baseUrl: process.env.DEPLOY_PRIME_URL || `https://${baseDomain()}`,
+        customHtmlPlugin({
+            entrypoint: 'app',
             title: 'Programmieren mit der Maus',
         }),
         new CopyWebpackPlugin([
