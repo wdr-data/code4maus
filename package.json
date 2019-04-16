@@ -7,6 +7,7 @@
     "build": "webpack --colors --bail",
     "build:backend:netlify": "netlify-lambda build src/backend -c webpack.netlify-functions.js",
     "build:netlify": "yarn assets:netlify && yarn build && yarn build:backend:netlify",
+    "build:patternlib": "build-storybook -o .patternlib",
     "clean": "rimraf ./build && mkdirp build && rimraf ./dist && mkdirp dist",
     "deploy:build": "serverless package",
     "deploy:apply": "serverless deploy -p .serverless",
@@ -27,9 +28,7 @@
     "test:lint": "eslint . --ext .js,.jsx",
     "test:unit": "jest test[\\\\/]unit",
     "test:smoke": "jest --runInBand test[\\\\/]smoke",
-    "watch": "webpack --progress --colors --watch",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -p 6006"
   },
   "author": "Massachusetts Institute of Technology",
   "license": "BSD-3-Clause",
