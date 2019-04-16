@@ -2,7 +2,6 @@
 
 slides:
   - asset: StadtLandEnte.png
-
   - asset: 12.png
     caption: "Programmiere ein Stadt-Land-Fluss-Spiel."
   - asset: 01.png
@@ -24,7 +23,7 @@ slides:
   - asset: start.png
     caption: "Teste dein Spiel"
   - asset: x03.png
-    caption: Noch sind Wörter ohne 'E' und Doppelte möglich. 
+    caption: Noch sind Wörter ohne 'E' und Doppelte möglich.
   - asset: steuerung.png
     caption: "Klicke auf 'Steuerung'"
   - asset: 08.png
@@ -63,7 +62,7 @@ slides:
   - asset: 18.png
     caption: ... null ist
   - asset: 19.png
-    caption: Pro Sekunde wird die Rest-Zeit weniger 
+    caption: Pro Sekunde wird die Rest-Zeit weniger
   - asset: k1.png
     caption: "Klicke auf 'Ereignisse'"
   - asset: c.png
@@ -137,7 +136,7 @@ slides:
   - asset: 39.png
     caption: Ziehe Antwort und A-Z rein
   - asset: start.png
-    caption: "Jetzt kommen nur Wörter mit dem richtigen Anfangsbuchstaben in die Liste."  
+    caption: "Jetzt kommen nur Wörter mit dem richtigen Anfangsbuchstaben in die Liste."
   - asset: gut_gemacht.png
     caption: Geschafft, viel Spaß mit Stadt-Land-Ente!
 
