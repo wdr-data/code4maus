@@ -6,9 +6,9 @@ import game02 from './02/game.js';
 import game03 from './03/game.js';
 import game04 from './04/game.js';
 import game04_b from './04_b/game.js';
-import game04_a from './04_a/game.js';
-import game05 from './05/game.js';
 import game07 from './07/game.js';
+import game05 from './05/game.js';
+import game08 from './08/game.js';
 import examples from './examples.js';
 
 const games = [
@@ -21,8 +21,8 @@ const games = [
     game04,
     game04_b,
     game07,
-    game04_a,
     game05,
+    game08,
 ];
 
 export const gamesKeyed = {};
