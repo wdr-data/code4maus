@@ -20,6 +20,7 @@ import InlineSvg from '../inline-svg/inline-svg.jsx';
 import Modal from '../modal/modal.jsx';
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
+import Input from '../forms/input.jsx';
 import { Spinner } from '../loader/loader.jsx';
 import PrintLayout from './print.jsx';
 
@@ -77,6 +78,12 @@ const usePrintScreenshot = (layoutRef, dispatch) => {
         dispatch({ type: actionPrintFinished });
     }, [ layoutRef, dispatch ]);
     return print;
+};
+
+const useSaveName = () => {
+    const [ userHandle, setUserHandle ] = useState('');
+    const onChangeUserHandle = useCallback((event) => setUserHandle(event.target.value), [ setUserHandle ]);
+    return { onChangeUserHandle, userHandle };
 };
 
 const parseDataUri = (dataUri) => {
@@ -229,6 +236,7 @@ const SharingModal = ({
     const print = usePrintScreenshot(layoutRef, dispatch);
     const pending = state.isLoading || isLoading;
     const saveResult = useSaveResult(image, dispatch);
+    const { onChangeUserHandle, userHandle } = useSaveName();
 
     return (
         <Modal
@@ -239,10 +247,17 @@ const SharingModal = ({
             <div className={styles.screenshotWrapper}>
                 <img src={image} className={styles.screenshot} />
                 {state.mode === 'print' && (
-                    <img
-                        src={buttonBorder}
-                        className={styles.printScreenshot}
-                    />
+                    <div className={styles.printWrapper}>
+                        <img
+                            src={buttonBorder}
+                            className={styles.printScreenshot}
+                        />
+                        <div className={styles.textWrapper}>
+                            <div className={styles.userHandle}>
+                                {userHandle}
+                            </div>
+                        </div>
+                    </div>
                 )}
                 {pending && (
                     <div className={styles.spinnerWrapper}>
@@ -269,13 +284,22 @@ const SharingModal = ({
             </div>
             <Box className={styles.buttonWrapper}>
                 {state.mode === 'print' ? (
-                    <Button disabled={pending} onClick={print}>
-                        <img
-                            className={styles.buttonIcon}
-                            draggable={false}
-                            src={printNowButton}
+                    <div className={styles.inputWrapper}>
+                        <Input
+                            onChange={onChangeUserHandle}
+                            className={styles.nameInput}
+                            placeholder="Dein Name oder Twitter Name"
+                            value={userHandle}
+                            maxlength={20}
                         />
-                    </Button>
+                        <Button disabled={pending} onClick={print}>
+                            <img
+                                className={styles.buttonIcon}
+                                draggable={false}
+                                src={printNowButton}
+                            />
+                        </Button>
+                    </div>
                 ) : (
                     <React.Fragment>
                         {canPrint && (
@@ -306,7 +330,7 @@ const SharingModal = ({
                 )}
             </Box>
             <div className={styles.printLayout}>
-                <PrintLayout stage={image} layoutRef={layoutRef} />
+                <PrintLayout stage={image} layoutRef={layoutRef} userHandle={userHandle} />
             </div>
         </Modal>
     );
@@ -316,6 +340,7 @@ SharingModal.propTypes = {
     title: PropTypes.string.isRequired,
     canPrint: PropTypes.bool,
     image: PropTypes.string,
+    userHandle: PropTypes.string,
     onRequestClose: PropTypes.func.isRequired,
     isLoading: PropTypes.bool,
 };

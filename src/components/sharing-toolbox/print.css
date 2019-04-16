@@ -25,3 +25,23 @@
     height: 100%;
 }
 
+.text-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 25%;
+    left:0;
+    right:0;
+    margin: auto;
+    width: 30vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: black;
+}
+
+.user-handle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+
