@@ -5,7 +5,6 @@ const envsub = require('envsubstr');
 // Plugins
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
 
 // PostCss
 const autoprefixer = require('autoprefixer');
@@ -54,7 +53,7 @@ module.exports = {
     },
     entry: {
         app: './src/entrypoints/index.jsx',
-        sharingpage: './src/sharingpage/index.jsx',
+        sharingpage: './src/entrypoints/sharingpage.jsx',
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -143,12 +142,16 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
             'process.env.DEBUG': Boolean(process.env.DEBUG),
             'process.env.ENABLE_TRACKING': Boolean(branch === 'production'),
-            'process.env.FB_APP_ID': JSON.stringify(process.env.FB_APP_ID),
             'process.env.PRINTER_PROXY': JSON.stringify(process.env.PRINTER_PROXY),
             'process.env.PRINTER_URL': JSON.stringify(process.env.PRINTER_URL),
         }),
         customHtmlPlugin({
             entrypoint: 'app',
+            title: 'Programmieren mit der Maus',
+        }),
+        customHtmlPlugin({
+            entrypoint: 'sharingpage',
+            filename: 'teilen/index.html',
             title: 'Programmieren mit der Maus',
         }),
         new CopyWebpackPlugin([
@@ -186,6 +189,5 @@ module.exports = {
         new Visualizer({
             filename: 'statistics.html',
         }),
-        new ManifestPlugin(),
     ],
 };

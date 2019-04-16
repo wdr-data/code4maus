@@ -14,7 +14,7 @@ module.exports = ({ entrypoint, ...options }) =>
                 files,
                 options,
                 baseUrl,
-                pageUrl: `${baseUrl}/${options.filename || ''}`,
+                pageUrl: `${baseUrl}/${(options.filename || '').replace(/index\.html$/, '')}`,
             };
         },
         ...options,

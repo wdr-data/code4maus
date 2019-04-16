@@ -167,9 +167,7 @@
     "ipp-encoder": "^5.0.0",
     "jspdf": "^1.5.3",
     "qrcode.react": "^0.9.3",
-    "simple-icons": "^1.9.24",
     "uuid": "^3.3.2",
-    "webpack-manifest-plugin": "^2.0.4",
     "zepto": "^1.2.0"
   },
   "resolutions": {
