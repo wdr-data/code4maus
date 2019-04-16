@@ -129,9 +129,9 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': '"' + process.env.NODE_ENV + '"',
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
             'process.env.DEBUG': Boolean(process.env.DEBUG),
-            'process.env.ENABLE_TRACKING': JSON.stringify(Boolean(branch === 'production')),
+            'process.env.ENABLE_TRACKING': Boolean(branch === 'production'),
         }),
         customHtmlPlugin({
             entrypoint: 'app',
@@ -142,35 +142,31 @@ module.exports = {
                 from: 'assets/img/favicon.png',
                 to: '',
             },
-        ]),
-        new CopyWebpackPlugin([
             {
                 from: 'node_modules/@wdr-data/scratch-blocks/media',
                 to: 'static/blocks-media',
-            }, {
+            },
+            {
                 from: 'assets/blocks-media',
                 to: 'static/blocks-media',
+            },
+            {
+                from: 'edu/**/*',
+                context: 'src/lib/',
+            },
+            {
+                from: 'static',
+                to: 'static',
+            },
+            {
+                from: 'assets/icons',
+                to: 'static/icons',
             },
         ]),
         new CopyWebpackPlugin([
             {
                 from: '_redirects',
                 transform: (content) => envsub(content.toString()),
-            },
-        ]),
-        new CopyWebpackPlugin([
-            {
-                from: 'edu/**/*',
-                context: 'src/lib/',
-            },
-        ]),
-        new CopyWebpackPlugin([
-            {
-                from: 'static',
-                to: 'static',
-            }, {
-                from: 'assets/icons',
-                to: 'static/icons',
             },
         ]),
         new Visualizer({
