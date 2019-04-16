@@ -2,7 +2,7 @@
 
 # Build
 
-yarn build-storybook -o .patternlib
+yarn build:patternlib
 
 
 # Deploy
