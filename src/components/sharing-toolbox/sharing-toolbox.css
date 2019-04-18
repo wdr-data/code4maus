@@ -90,19 +90,7 @@
     font-size: 2vh;
 }
 
-.spinner-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-}
-
-.sharing-wrapper {
+.overlay {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,6 +101,11 @@
     bottom: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.7);
+}
+
+.error-message {
+    color: white;
+    padding: 1rem;
 }
 
 .qr-wrapper {

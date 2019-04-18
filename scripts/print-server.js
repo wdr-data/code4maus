@@ -11,7 +11,6 @@ const upload = multer({ storage: fileStorage });
 app.use(cors());
 
 app.post('/', upload.single('button'), (req, res) => {
-    console.log(req.file.buffer);
     printer.printDirect({
         data: req.file.buffer,
         type: 'PDF',
