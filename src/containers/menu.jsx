@@ -7,7 +7,6 @@ import MenuComponent from '../components/menu/menu.jsx';
 import { MenuTabs } from '../lib/routing';
 import eduGameData from '../lib/edu';
 import exampleGameData from '../lib/edu/examples';
-import { enableRepublicaGames } from '../reducers/edu-layer';
 
 const tabIdToTab = {
     0: MenuTabs.edugames,
@@ -23,6 +22,7 @@ class Menu extends React.Component {
             note: game.subtitle,
             linkTo: `/lernspiel/${game.id}`,
             image: game.image,
+            hidden: game.hidden,
         };
     }
 
@@ -30,27 +30,13 @@ class Menu extends React.Component {
         super(props);
 
         this.state = {
-            eduGames: [],
-            examples: [],
+            eduGames: eduGameData.map(Menu.mapGameData),
+            examples: exampleGameData.map(Menu.mapGameData),
             projects: [],
         };
     }
     componentDidMount() {
-        this.loadGames();
         this.loadUserProjects();
-        this.checkRepublicaPreview();
-    }
-    componentDidUpdate(prevProps) {
-        if (prevProps.republicaGamesPreview !== this.props.republicaGamesPreview) {
-            this.loadGames();
-        }
-    }
-    loadGames() {
-        const eduGames = eduGameData
-            .filter((g) => this.props.republicaGamesPreview || !g.republicaOnly)
-            .map(Menu.mapGameData);
-        const examples = exampleGameData.map(Menu.mapGameData);
-        this.setState({ eduGames, examples });
     }
     async loadUserProjects() {
         const userProjects = await (await fetch(`/data/projects/${this.props.userId}/index.json`)).json();
@@ -71,15 +57,6 @@ class Menu extends React.Component {
             return 0;
         }
         return parseInt(tabEntry[0]);
-    }
-    checkRepublicaPreview() {
-        // todo: Move into feature flag component
-        if (
-            localStorage.getItem('enable-republica-games') === 'yes' ||
-            this.props.urlRepublicaEnabled
-        ) {
-            this.props.enableRepublicaGames();
-        }
     }
     render() {
         /* eslint-disable no-unused-vars */
@@ -105,21 +82,15 @@ class Menu extends React.Component {
 Menu.propTypes = {
     tab: PropTypes.number.isRequired,
     userId: PropTypes.string.isRequired,
-    republicaGamesPreview: PropTypes.bool,
-    enableRepublicaGames: PropTypes.func.isRequired,
-    urlRepublicaEnabled: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => ({
     tab: Menu.getTabId((state.router.result || {}).tab),
     userId: state.scratchGui.project.userId,
-    republicaGamesPreview: state.scratchGui.eduLayer.republicaGamesPreview,
-    urlRepublicaEnabled: 'enableRepublicaPreview' in state.router.query,
 });
 
 const mapDispatchToProps = (dispatch) => ({
     handleTabSelected: (tabId) => dispatch(push(`/${tabIdToTab[tabId]}`)),
-    enableRepublicaGames: () => dispatch(enableRepublicaGames()),
 });
 
 export default connect(
