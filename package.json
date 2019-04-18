@@ -22,6 +22,7 @@
     "assets:upload": "aws s3 sync --exclude .gitkeep --exclude .DS_Store assets s3://code4maus-assets",
     "start": "webpack-dev-server",
     "start:backend": "serverless offline",
+    "start:printer": "node scripts/print-server.js",
     "storybook": "start-storybook -p 6006"
   },
   "author": "Massachusetts Institute of Technology",
@@ -161,11 +162,15 @@
     }
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "ejs-loader": "^0.3.3",
+    "express": "^4.16.4",
     "gifshot": "^0.4.5",
     "html2canvas": "^1.0.0-alpha.12",
     "ipp-encoder": "^5.0.0",
     "jspdf": "^1.5.3",
+    "multer": "^1.4.1",
+    "printer": "^0.2.2",
     "qrcode.react": "^0.9.3",
     "uuid": "^3.3.2",
     "zepto": "^1.2.0"
