@@ -74,7 +74,11 @@ const usePrintScreenshot = (layoutRef, dispatch) => {
             h: 73,
         });
         const pdf = doc.output('blob');
-        await printPdf(pdf);
+        try {
+            await printPdf(pdf);
+        } catch (e) {
+            alert(e);
+        }
         dispatch({ type: actionPrintFinished });
     }, [ layoutRef, dispatch ]);
     return print;
@@ -129,62 +133,16 @@ const useSaveResult = (image, dispatch) => {
 };
 
 const printPdf = async (buffer) => {
-    const headers = {
-        operationId: IPPCONSTANTS.PRINT_JOB,
-        requestId: 1,
-        groups: [
-            {
-                tag: IPPCONSTANTS.OPERATION_ATTRIBUTES_TAG,
-                attributes: [
-                    {
-                        tag: IPPCONSTANTS.CHARSET,
-                        name: 'attributes-charset',
-                        value: [ 'utf-8' ],
-                    },
-                    {
-                        tag: IPPCONSTANTS.NATURAL_LANG,
-                        name: 'attributes-natural-language',
-                        value: [ 'de' ],
-                    },
-                    {
-                        tag: IPPCONSTANTS.URI,
-                        name: 'printer-uri',
-                        value: [ process.env.PRINTER_URL ],
-                    },
-                    {
-                        tag: IPPCONSTANTS.MIME_MEDIA_TYPE,
-                        name: 'document-format',
-                        value: 'application/octet-stream',
-                    },
-                ],
-            },
-            {
-                tag: IPPCONSTANTS.JOB_ATTRIBUTES_TAG,
-                attributes: [
-                    { tag: IPPCONSTANTS.INTEGER, name: 'copies', value: [ 1 ] },
-                    {
-                        tag: IPPCONSTANTS.KEYWORD,
-                        name: 'media',
-                        value: [ 'iso-a5' ],
-                    },
-                ],
-            },
-        ],
-    };
-
-    const header = ippEncoder.request.encode(headers);
-
-    const ippRequest = new Blob([ header, buffer ]);
-
-    const proxied =
-        process.env.PRINTER_PROXY + url.parse(process.env.PRINTER_URL).pathname;
-    return fetch(proxied, {
+    const url = 'http://localhost:8602';
+    const formData = new FormData();
+    formData.append('button', buffer);
+    const response = await fetch(url, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/ipp',
-        },
-        body: ippRequest,
+        body: formData,
     });
+    if (!response.ok) {
+        throw new Error(await response.text());
+    }
 };
 
 const initialState = {
