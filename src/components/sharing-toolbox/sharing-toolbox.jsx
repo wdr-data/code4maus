@@ -76,10 +76,10 @@ const usePrintScreenshot = (layoutRef, dispatch) => {
         const pdf = doc.output('blob');
         try {
             await printPdf(pdf);
+            dispatch({ type: actionPrintFinished });
         } catch (e) {
-            alert(e);
+            dispatch({ type: actionError, payload: e.message });
         }
-        dispatch({ type: actionPrintFinished });
     }, [ layoutRef, dispatch ]);
     return print;
 };
@@ -106,28 +106,32 @@ const useSaveResult = (image, dispatch) => {
         const [ contentType, data ] = parseDataUri(image);
         dispatch({ type: actionShareStart });
         const ext = contentType.split('/')[1];
-        const res = await fetch(`/api/prepareShareResult`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                type: ext,
-            }),
-        });
-        if (!res.ok) {
-            throw new Error(`uploading result failed`);
-        }
+        try {
+            const res = await fetch(`/api/prepareShareResult`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    type: ext,
+                }),
+            });
+            if (!res.ok) {
+                throw new Error(`uploading result failed`);
+            }
 
-        const body = await res.json();
-        await fetch(body.uploadUrl, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': contentType,
-            },
-            body: data,
-        });
-        dispatch({ type: actionSharePreview, payload: body.sharingKey });
+            const body = await res.json();
+            await fetch(body.uploadUrl, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': contentType,
+                },
+                body: data,
+            });
+            dispatch({ type: actionSharePreview, payload: body.sharingKey });
+        } catch (e) {
+            dispatch({ type: actionError, payload: e.message });
+        }
     }, [ dispatch, image ]);
     return saveResult;
 };
@@ -149,6 +153,7 @@ const initialState = {
     mode: 'default',
     isLoading: false,
     sharingKey: '',
+    errorMessage: '',
 };
 
 const actionPrintPreview = 'printPreview';
@@ -156,13 +161,14 @@ const actionPrintFinished = 'printFinished';
 const actionPrintLoading = 'printLoading';
 const actionSharePreview = 'sharePreview';
 const actionShareStart = 'shareStart';
+const actionError = 'error';
 
 const reducer = (state, action) => {
     switch (action.type) {
     case actionPrintPreview:
-        return { ...state, mode: 'print' };
+        return { ...initialState, mode: 'print' };
     case actionPrintFinished:
-        return { ...state, mode: 'default', isLoading: false };
+        return { ...initialState };
     case actionPrintLoading:
         return { ...state, isLoading: true };
     case actionSharePreview:
@@ -174,8 +180,15 @@ const reducer = (state, action) => {
         };
     case actionShareStart:
         return {
-            ...state,
+            ...initialState,
             isLoading: true,
+        };
+    case actionError:
+        return {
+            ...state,
+            errorMessage: action.payload,
+            isLoading: false,
+            mode: 'default',
         };
     default:
         return state;
@@ -218,12 +231,17 @@ const SharingModal = ({
                     </div>
                 )}
                 {pending && (
-                    <div className={styles.spinnerWrapper}>
+                    <div className={styles.overlay}>
                         <Spinner />
                     </div>
                 )}
+                {state.errorMessage && (
+                    <div className={styles.overlay}>
+                        <p className={styles.errorMessage}>{state.errorMessage}</p>
+                    </div>
+                )}
                 {state.mode === 'share' && (
-                    <div className={styles.sharingWrapper}>
+                    <div className={styles.overlay}>
                         <div className={styles.qrWrapper}>
                             <QRCode
                                 value={`${location.origin}/teilen/?id=${
