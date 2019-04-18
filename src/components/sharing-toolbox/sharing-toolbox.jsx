@@ -14,6 +14,8 @@ import gifshot from 'gifshot';
 import html2canvas from 'html2canvas';
 import JsPDF from 'jspdf';
 import ippEncoder, { CONSTANTS as IPPCONSTANTS } from 'ipp-encoder';
+import { useFeatureFlag, FEATURE_PRINTING } from '../../lib/feature-flags.js';
+
 
 import styles from './sharing-toolbox.css';
 import InlineSvg from '../inline-svg/inline-svg.jsx';
@@ -208,6 +210,7 @@ const SharingModal = ({
     const pending = state.isLoading || isLoading;
     const saveResult = useSaveResult(image, dispatch);
     const { onChangeUserHandle, userHandle } = useSaveName();
+    const showPrinting = useFeatureFlag(FEATURE_PRINTING);
 
     return (
         <Modal
@@ -278,7 +281,7 @@ const SharingModal = ({
                     </div>
                 ) : (
                     <React.Fragment>
-                        {canPrint && (
+                        {canPrint && showPrinting &&
                             <Button
                                 disabled={pending}
                                 onClick={() =>
@@ -291,7 +294,7 @@ const SharingModal = ({
                                     src={printButton}
                                 />
                             </Button>
-                        )}
+                        }
                         <Button
                             disabled={pending || state.mode === 'share'}
                             onClick={saveResult}
