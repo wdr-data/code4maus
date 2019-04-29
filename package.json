@@ -170,10 +170,12 @@
     "ipp-encoder": "^5.0.0",
     "jspdf": "^1.5.3",
     "multer": "^1.4.1",
-    "printer": "^0.2.2",
     "qrcode.react": "^0.9.3",
     "uuid": "^3.3.2",
     "zepto": "^1.2.0"
+  },
+  "optionalDependencies": {
+    "printer": "^0.2.2"
   },
   "resolutions": {
     "history": "4.7.2"
