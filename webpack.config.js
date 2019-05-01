@@ -58,6 +58,7 @@ module.exports = {
     entry: {
         app: './src/entrypoints/index.jsx',
         sharingpage: './src/entrypoints/sharingpage.jsx',
+        settings: './src/entrypoints/settings.jsx',
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -155,6 +156,11 @@ module.exports = {
             entrypoint: 'sharingpage',
             filename: 'teilen/index.html',
             title: 'Programmieren mit der Maus',
+        }),
+        customHtmlPlugin({
+            entrypoint: 'settings',
+            filename: 'settings/index.html',
+            title: 'Einstellungen | Programmieren mit der Maus',
         }),
         new CopyWebpackPlugin([
             {
