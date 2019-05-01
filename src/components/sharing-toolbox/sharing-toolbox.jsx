@@ -326,7 +326,7 @@ SharingModal.propTypes = {
 
 const recInterval = 100;
 const recordingInitialState = {
-    timeLeft: 10, // seconds (float)
+    timeLeft: 3, // seconds (float)
     isRecording: false,
 };
 
@@ -336,7 +336,7 @@ const recordingReducer = (state, action) => {
         return { ...recordingInitialState, isRecording: true };
     case 'tick':
         const timeLeft = state.timeLeft - (recInterval / 1000); // eslint-disable-line no-case-declarations
-        if (timeLeft === 0) {
+        if (timeLeft <= 0.1) {
             return recordingInitialState;
         }
         return { ...state, timeLeft };
