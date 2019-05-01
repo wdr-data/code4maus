@@ -5,7 +5,6 @@ import React, {
     useReducer,
     useRef,
 } from 'react';
-import url from 'url';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import VM from '@wdr-data/scratch-vm';
@@ -13,7 +12,6 @@ import QRCode from 'qrcode.react';
 import gifshot from 'gifshot';
 import html2canvas from 'html2canvas';
 import JsPDF from 'jspdf';
-import ippEncoder, { CONSTANTS as IPPCONSTANTS } from 'ipp-encoder';
 import { useFeatureFlag, FEATURE_PRINTING } from '../../lib/feature-flags.js';
 
 
