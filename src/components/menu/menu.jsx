@@ -26,6 +26,7 @@ import buttonIconDatenschutz from '!raw-loader!../../../assets/icons/icon_hilfe.
 import buttonIconImpressum from '!raw-loader!../../../assets/icons/menu_impressum.svg';
 
 import styles from './menu.css';
+import { useFeatureFlag, FEATURE_OFFLINE } from '../../lib/feature-flags.js';
 
 export const MenuComponent = (props) => {
     const tabClassNames = {
@@ -60,7 +61,7 @@ export const MenuComponent = (props) => {
                     <Link href="/inhalte/impressum/" className={styles.copyright}>
                         <span>&#9400; WDR {(new Date().getFullYear())}</span>
                     </Link>
-                    <OfflineSupport/>
+                    {useFeatureFlag(FEATURE_OFFLINE) && <OfflineSupport/>}
                 </Box>
             </Box>
             <Box className={styles.listingWrapper}>
