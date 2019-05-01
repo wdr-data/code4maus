@@ -26,7 +26,7 @@ const OfflineSupport = (props) => {
 
     if (!props.enabled) {
         return (
-            <ButtonComponent style="primary" onClick={() => props.setEnabled(true)}>Offlinemodus aktivieren</ButtonComponent>
+            <ButtonComponent style="link" onClick={() => props.setEnabled(true)}>Offlinemodus aktivieren</ButtonComponent>
         );
     }
 

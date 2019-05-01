@@ -1,3 +1,5 @@
+@import "../../css/colors.css";
+
 .button {
     display: flex;
     align-items: center;
@@ -29,6 +31,12 @@
     animation-duration: 1000ms;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
+}
+
+.button.link {
+    color: $ui-wdr-blue;
+    text-decoration: underline;
+    padding: 0;
 }
 
 @keyframes wiggle {
