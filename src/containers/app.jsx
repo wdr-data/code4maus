@@ -33,12 +33,11 @@ const lsKeyVisited = 'hasVisited';
 class App extends Component {
     static async userIdExists(userId) {
         try {
-            const res = await fetch(s3userFile(userId, 'index.json'), {
-                method: 'HEAD',
-            });
+            const res = await fetch(s3userFile(userId, 'index.json'));
             if (res.status >= 400) {
                 return false;
             }
+            await res.json();
             return true;
         } catch (e) {
             return false;
