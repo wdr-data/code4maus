@@ -34,16 +34,14 @@ try {
     console.error(`Acrobat Reader is required at ${binPath}!`, 'Failed with:', err);
 }
 
-const printWin = async (filepath) => new Promise((res, rej) => child_process.exec(
-    `"${binPath}" /t "${path.join(process.cwd(), filepath)}"`,
-    (err, stdout, stderr) => {
-        if (err) {
-            console.error('failed:', err, stderr);
-            return rej(err);
-        }
-        res(stdout);
-    }
-));
+const printWin = async (filepath) => new Promise((res) => {
+    const child = child_process.spawn(binPath, [ '/t', path.join(process.cwd(), filepath) ]);
+    const childTimeout = setTimeout(() => child.killed || child.kill(), 2000);
+    child.on('exit', () => {
+        clearTimeout(childTimeout);
+        res();
+    });
+});
 
 app.post('/', upload.single('button'), async (req, res) => {
     try {
