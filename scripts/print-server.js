@@ -39,26 +39,34 @@ try {
 }
 
 const printWin = async (filepath) => new Promise((res, rej) => {
-    const child = child_process.spawn(binPath, [ '/t', path.join(process.cwd(), filepath) ]);
-    const childTimeout = setTimeout(() => child.killed || child.kill(), 2000);
+    const args = [ '/t', path.join(process.cwd(), filepath) ];
+    console.log('Executing binary:', binPath, args);
+    const child = child_process.spawn(binPath, args);
+    const childTimeout = setTimeout(() => {
+        console.log('Killing with timeout');
+        child.killed || child.kill();
+    }, 2000);
     child.on('exit', () => {
+        console.log('Exited.');
         clearTimeout(childTimeout);
         res();
     });
     child.on('error', (err) => {
+        console.error('Errored:', err);
         rej(err);
     });
 });
 
 app.post('/', upload.single('button'), async (req, res) => {
     try {
-        let printId;
+        console.log('Got print job:', req.file.path);
         if (process.platform !== 'win32') {
-            printId = await printDefault(req.file.buffer);
+            const printId = await printDefault(req.file.buffer);
+            console.log('Printed with ID:', printId);
         } else {
-            printId = await printWin(req.file.path);
+            await printWin(req.file.path);
         }
-        res.send(`Printed with id: ${printId}`);
+        res.send('Printed.');
     } catch (err) {
         res.status(500).send(`error on printing: ${err}`);
     }
