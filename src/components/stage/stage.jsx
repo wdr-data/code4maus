@@ -10,8 +10,8 @@ import Question from '../../containers/question.jsx';
 import { getStageSize } from '../../lib/screen-utils.js';
 import styles from './stage.css';
 import Fullscreen from '../../containers/fullscreen.jsx';
-import SharingToolbox from '../sharing-toolbox/sharing-toolbox.jsx';
 import { useFeatureFlag, FEATURE_SHARING } from '../../lib/feature-flags.js';
+import LazyRender from '../../containers/lazy-render.jsx';
 
 const StageComponent = (props) => {
     const {
@@ -43,7 +43,9 @@ const StageComponent = (props) => {
                 })}
                 onDoubleClick={onDoubleClick}
             >
-                {isFullScreen && showSharingToolbox && <SharingToolbox />}
+                {isFullScreen && showSharingToolbox &&
+                    <LazyRender promise={import('../sharing-toolbox/sharing-toolbox.jsx')} />
+                }
                 <DOMElementRenderer
                     className={classNames(
                         styles.stage,
