@@ -38,7 +38,7 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
             <Box
                 className={styles.eduSlides}
             >
-                {(props.imageSrc.split('.').pop() === 'mp4') ?
+                {props.imageSrc && ((props.imageSrc.split('.').pop() === 'mp4') ?
                     <video
                         className={styles.images}
                         src={`/edu/${props.gameId}/assets/${props.imageSrc}`}
@@ -50,7 +50,7 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
                         className={styles.images}
                         src={`/edu/${props.gameId}/assets/${props.imageSrc}`}
                     />
-                }
+                )}
             </Box>
             <Box className={styles.eduFooter}>
                 <Button
