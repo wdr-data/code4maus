@@ -1,18 +1,35 @@
 import initS3 from './lib/s3';
-import nanoid from 'nanoid';
+import shortid from 'shortid';
 
 const s3 = initS3();
 
 export const handler = async (event, context, callback) => {
-    const id = nanoid();
-    const sharingKey = `${id}`;
-
     const bucket = process.env.STORAGE_BUCKET || process.env.S3_BUCKET_PROJECTS;
-    const key = `data/sharing/${sharingKey}`;
-    const params = {
-        Bucket: bucket,
-        Key: key,
-    };
+
+    let unique = false;
+    let params;
+    let sharingKey;
+    for (let i = 0; i < 3; i++) {
+        try {
+            sharingKey = shortid.generate();
+            params = {
+                Bucket: bucket,
+                Key: `data/sharing/${sharingKey}`,
+            };
+            await s3.headObject(params).promise();
+        } catch (err) {
+            unique = true;
+        }
+        if (unique) {
+            break;
+        }
+    }
+    if (!unique) {
+        return {
+            statusCode: 500,
+            body: 'unable to find unique id for shared object',
+        };
+    }
 
     const presignedUrl = s3.getSignedUrl('putObject', params);
     return {
