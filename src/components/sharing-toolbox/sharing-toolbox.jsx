@@ -12,6 +12,7 @@ import VM from '@wdr-data/scratch-vm';
 import QRCode from 'qrcode.react';
 import html2canvas from 'html2canvas';
 import JsPDF from 'jspdf';
+import ffmpegWorkerPath from 'file-loader!ffmpeg.js/ffmpeg-worker-mp4';
 
 import InlineSvg from '../inline-svg/inline-svg.jsx';
 import Modal from '../modal/modal.jsx';
@@ -355,7 +356,7 @@ const useRecording = (vm, onVideoProcessing) => {
             const tickInterval = 100; // 100 ms tick interval
             interval = setInterval(() => dispatch({ type: 'tick', payload: tickInterval }), tickInterval);
         }
-        return () => {
+        return async () => {
             if (isRecording) {
                 onVideoProcessing();
                 setIsVideoLoading(true);
@@ -365,8 +366,46 @@ const useRecording = (vm, onVideoProcessing) => {
                     clearInterval(interval);
                 }
 
-                setVideoData(blob);
-                setIsVideoLoading(false);
+                const inBuf = await new Promise((res) => {
+                    const reader = new FileReader();
+                    reader.addEventListener('load', ({ target }) => {
+                        res(target.result);
+                    });
+                    reader.readAsArrayBuffer(blob);
+                });
+
+                const conv = new Worker(ffmpegWorkerPath);
+                let stdout = '';
+                let stderr = '';
+                conv.addEventListener('message', async ({ data: msg }) => {
+                    switch (msg.type) {
+                    case 'ready':
+                        conv.postMessage({ type: 'run',
+                            MEMFS: [ { name: 'in.webm', data: inBuf } ],
+                            TOTAL_MEMORY: 128 * 1024 * 1024,
+                            arguments: [ '-i', 'in.webm', '-c:v', 'copy', '-an', 'out.mp4' ],
+                        });
+                        console.log('ffmpeg is ready');
+                        break;
+                    case 'stdout':
+                        stdout += msg.data + '\n';
+                        break;
+                    case 'stderr':
+                        stderr += msg.data + '\n';
+                        break;
+                    case 'exit':
+                        console.log('ffmpeg exited with:', msg.data);
+                        console.log('stdout:', stdout);
+                        console.log('stderr:', stderr);
+                        break;
+                    case 'done':
+                        const outFile = msg.data.MEMFS[0];
+                        const outBlob = new Blob([ outFile.data ], { type: 'video/mp4' });
+                        setVideoData(outBlob);
+                        setIsVideoLoading(false);
+                        break;
+                    }
+                });
             }
         };
     }, [ isRecording, dispatch ]);

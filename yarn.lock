@@ -6016,6 +6016,11 @@ fd-slicer@~1.1.0:
   dependencies:
     pend "~1.2.0"
 
+ffmpeg.js@^3.1.9001:
+  version "3.1.9001"
+  resolved "https://registry.yarnpkg.com/ffmpeg.js/-/ffmpeg.js-3.1.9001.tgz#3569b993027667feea22a2a6dc2b1350fbb9f9c1"
+  integrity sha1-NWm5kwJ2Z/7qIqKm3CsTUPu5+cE=
+
 figgy-pudding@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"

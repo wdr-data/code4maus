@@ -1,6 +1,6 @@
 import { useMemo, useCallback, useRef } from 'react';
 
-const mimeType = 'video/webm;codecs=vp8'; // used for recorder
+const mimeType = 'video/webm;codecs=h264'; // used for recorder
 const mimeTypeShort = 'video/webm'; // used for blob
 export const supported = MediaRecorder.isTypeSupported(mimeType);
 
