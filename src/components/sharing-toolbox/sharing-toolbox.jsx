@@ -4,12 +4,12 @@ import React, {
     useCallback,
     useReducer,
     useRef,
+    useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import VM from '@wdr-data/scratch-vm';
 import QRCode from 'qrcode.react';
-import gifshot from 'gifshot';
 import html2canvas from 'html2canvas';
 import JsPDF from 'jspdf';
 
@@ -19,6 +19,7 @@ import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
 import Input from '../forms/input.jsx';
 import { Spinner } from '../loader/loader.jsx';
+import useRecordCanvas from '../../lib/record-canvas.js';
 import { useFeatureFlag, FEATURE_PRINTING } from '../../lib/feature-flags.js';
 
 import gifIcon from '!raw-loader!../../../assets/icons/icon_gif.svg';
@@ -32,17 +33,17 @@ import PrintLayout from './print.jsx';
 import styles from './sharing-toolbox.css';
 
 const useScreenshotState = (vm, onImageReady) => {
-    const [ image, setImage ] = useState('');
+    const [ image, setImage ] = useState(null);
     const [ isScreenshotLoading, setScreenshotLoading ] = useState(false);
     const takeScreenshot = useCallback(() => {
         const renderer = vm.runtime.renderer;
         setScreenshotLoading(true);
-        setImage('');
+        setImage(null);
         onImageReady();
-        renderer.requestSnapshot((image) => {
-            setImage(image);
+        renderer.requestSnapshot(() => renderer.gl.canvas.toBlob((blob) => {
+            setImage(blob);
             setScreenshotLoading(false);
-        });
+        }));
     }, [ vm, onImageReady, setImage ]);
     return { takeScreenshot, image, isScreenshotLoading };
 };
@@ -90,51 +91,28 @@ const useSaveName = () => {
     return { onChangeUserHandle, userHandle };
 };
 
-const parseDataUri = (dataUri) => {
-    const matches = dataUri.match(/^data:([^;]+);base64,(.*)/);
-    if (!matches) {
-        throw new Error('Invalid DataUri: ' + dataUri);
+const useSaveResult = (asset, dispatch) => useCallback(async () => {
+    if (!asset || asset.isClosed) {
+        return;
     }
-    return [
-        matches[1],
-        Uint8Array.from(atob(matches[2]), (c) => c.charCodeAt(0)),
-    ];
-};
 
-const useSaveResult = (image, dispatch) => {
-    const saveResult = useCallback(async () => {
-        const [ contentType, data ] = parseDataUri(image);
-        dispatch({ type: actionShareStart });
-        const ext = contentType.split('/')[1];
-        try {
-            const res = await fetch(`/api/prepareShareResult`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    type: ext,
-                }),
-            });
-            if (!res.ok) {
-                throw new Error(`uploading result failed`);
-            }
-
-            const body = await res.json();
-            await fetch(body.uploadUrl, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': contentType,
-                },
-                body: data,
-            });
-            dispatch({ type: actionSharePreview, payload: body.sharingKey });
-        } catch (e) {
-            dispatch({ type: actionError, payload: e.message });
+    dispatch({ type: actionShareStart });
+    try {
+        const res = await fetch(`/api/prepareShareResult`, { method: 'POST' });
+        if (!res.ok) {
+            throw new Error(`uploading result failed`);
         }
-    }, [ dispatch, image ]);
-    return saveResult;
-};
+
+        const body = await res.json();
+        await fetch(body.uploadUrl, {
+            method: 'PUT',
+            body: asset,
+        });
+        dispatch({ type: actionSharePreview, payload: body.sharingKey });
+    } catch (e) {
+        dispatch({ type: actionError, payload: e.message });
+    }
+}, [ dispatch, asset ]);
 
 const printPdf = async (buffer) => {
     const url = 'http://localhost:8602';
@@ -197,7 +175,7 @@ const reducer = (state, action) => {
 
 const SharingModal = ({
     onRequestClose,
-    image,
+    asset,
     isLoading,
     canPrint,
     title,
@@ -206,9 +184,22 @@ const SharingModal = ({
     const layoutRef = useRef(null);
     const print = usePrintScreenshot(layoutRef, dispatch);
     const pending = state.isLoading || isLoading;
-    const saveResult = useSaveResult(image, dispatch);
+    const saveResult = useSaveResult(asset, dispatch);
     const { onChangeUserHandle, userHandle } = useSaveName();
     const showPrinting = useFeatureFlag(FEATURE_PRINTING);
+
+    const isImage = asset && asset.type.startsWith('image/');
+    const isVideo = asset && asset.type.startsWith('video/');
+    useEffect(() => {
+        if (asset && !isImage && !isVideo) {
+            dispatch({ type: actionError, payload: 'Unsupported media type' });
+        }
+    }, [ asset, isImage, isVideo, dispatch ]);
+
+    const assetURL = useMemo(() => asset ? URL.createObjectURL(asset) : '', [ asset ]);
+    useEffect(() => () => assetURL && URL.revokeObjectURL(assetURL), [ assetURL ]);
+
+    const shareURL = asset && state.sharingKey ? `${location.origin}/teilen/?id=${state.sharingKey}&type=${asset.type.split('/')[0]}`: '';
 
     return (
         <Modal
@@ -217,7 +208,8 @@ const SharingModal = ({
             onRequestClose={onRequestClose}
         >
             <div className={styles.screenshotWrapper}>
-                <img src={image} className={styles.screenshot} />
+                {isImage && <img src={assetURL} className={styles.screenshot} />}
+                {isVideo && <video src={assetURL} autoPlay loop className={styles.screenshot} />}
                 {state.mode === 'print' && (
                     <div className={styles.printWrapper}>
                         <img
@@ -245,16 +237,12 @@ const SharingModal = ({
                     <div className={styles.overlay}>
                         <div className={styles.qrWrapper}>
                             <QRCode
-                                value={`${location.origin}/teilen/?id=${
-                                    state.sharingKey
-                                }`}
+                                value={shareURL}
                                 renderAs="svg"
                             />
                         </div>
                         <div className={styles.sharingkeyWrapper}>
-                            <div>{`${location.origin}/teilen/?id=${
-                                state.sharingKey
-                            }`}</div>
+                            <div>{shareURL}</div>
                         </div>
                     </div>
                 )}
@@ -306,9 +294,9 @@ const SharingModal = ({
                     </React.Fragment>
                 )}
             </Box>
-            <div className={styles.printLayout}>
-                <PrintLayout stage={image} layoutRef={layoutRef} userHandle={userHandle} />
-            </div>
+            {isImage && <div className={styles.printLayout}>
+                <PrintLayout stage={assetURL} layoutRef={layoutRef} userHandle={userHandle} />
+            </div>}
         </Modal>
     );
 };
@@ -316,15 +304,14 @@ const SharingModal = ({
 SharingModal.propTypes = {
     title: PropTypes.string.isRequired,
     canPrint: PropTypes.bool,
-    image: PropTypes.string,
+    asset: PropTypes.instanceOf(Blob),
     userHandle: PropTypes.string,
     onRequestClose: PropTypes.func.isRequired,
     isLoading: PropTypes.bool,
 };
 
-const recInterval = 100;
 const recordingInitialState = {
-    timeLeft: 3, // seconds (float)
+    timeLeft: 10, // seconds (float)
     isRecording: false,
 };
 
@@ -333,7 +320,7 @@ const recordingReducer = (state, action) => {
     case 'start':
         return { ...recordingInitialState, isRecording: true };
     case 'tick':
-        const timeLeft = state.timeLeft - (recInterval / 1000); // eslint-disable-line no-case-declarations
+        const timeLeft = state.timeLeft - (action.payload / 1000); // eslint-disable-line no-case-declarations
         if (timeLeft <= 0.1) {
             return recordingInitialState;
         }
@@ -345,14 +332,14 @@ const recordingReducer = (state, action) => {
     }
 };
 
-const useRecording = (vm, onGifReady) => {
+const useRecording = (vm, onVideoProcessing) => {
     const [ { timeLeft, isRecording }, dispatch ] = useReducer(
         recordingReducer,
         recordingInitialState
     );
-    const [ gifImage, setGifImage ] = useState('');
-    const [ isGifLoading, setIsGifLoading ] = useState(false);
-    const imagesRef = useRef([]);
+    const { startRecording, stopRecording } = useRecordCanvas(vm.runtime.renderer.canvas);
+    const [ videoData, setVideoData ] = useState(null);
+    const [ isVideoLoading, setIsVideoLoading ] = useState(false);
     const toggleRecording = useCallback(() => {
         if (isRecording) {
             dispatch({ type: 'stop' });
@@ -362,48 +349,33 @@ const useRecording = (vm, onGifReady) => {
     }, [ isRecording, dispatch ]);
     useEffect(() => {
         let interval = null;
-        const renderer = vm.runtime.renderer;
         if (isRecording) {
-            interval = setInterval(() => {
-                renderer.requestSnapshot((image) => {
-                    imagesRef.current.push(image);
-                });
-                dispatch({ type: 'tick' });
-            }, recInterval);
+            startRecording();
+            const tickInterval = 100; // 100 ms tick interval
+            interval = setInterval(() => dispatch({ type: 'tick', payload: tickInterval }), tickInterval);
         }
         return () => {
-            if (interval) {
-                clearInterval(interval);
-                setIsGifLoading(true);
-                setGifImage('');
-                onGifReady();
-                const canvas = renderer.canvas;
-                gifshot.createGIF(
-                    {
-                        images: imagesRef.current,
-                        gifWidth: canvas.width,
-                        gifHeight: canvas.height,
-                    },
-                    (obj) => {
-                        setIsGifLoading(false);
-                        if (obj.error) {
-                            console.error(obj.error);
-                            return;
-                        }
-                        setGifImage(obj.image);
-                    }
-                );
-                imagesRef.current = [];
+            if (isRecording) {
+                onVideoProcessing();
+                setIsVideoLoading(true);
+
+                const blob = stopRecording();
+                if (interval) {
+                    clearInterval(interval);
+                }
+
+                setVideoData(blob);
+                setIsVideoLoading(false);
             }
         };
-    }, [ isRecording, dispatch, vm ]);
+    }, [ isRecording, dispatch ]);
     useEffect(() => {
         if (isRecording) {
             vm.greenFlag();
         }
         return () => vm.stopAll();
     }, [ vm, isRecording ]);
-    return { timeLeft, toggleRecording, isRecording, gifImage, isGifLoading };
+    return { timeLeft, toggleRecording, isRecording, videoData, isVideoLoading };
 };
 
 const SharingToolboxComponent = ({ vm }) => {
@@ -417,8 +389,8 @@ const SharingToolboxComponent = ({ vm }) => {
         toggleRecording,
         isRecording,
         timeLeft,
-        gifImage,
-        isGifLoading,
+        videoData,
+        isVideoLoading,
     } = useRecording(vm, () => setGifOpen(true));
 
     return (
@@ -445,17 +417,17 @@ const SharingToolboxComponent = ({ vm }) => {
             {isScreenshotOpen && (
                 <SharingModal
                     isLoading={isScreenshotLoading}
-                    image={image}
-                    onRequestClose={() => setScreenshotOpen(false)}
                     title="Dein Bild"
+                    asset={image}
+                    onRequestClose={() => setScreenshotOpen(false)}
                     canPrint
                 />
             )}
             {isGifOpen && (
                 <SharingModal
-                    isLoading={isGifLoading}
+                    isLoading={isVideoLoading}
                     title="Dein Gif"
-                    image={gifImage}
+                    asset={videoData}
                     onRequestClose={() => setGifOpen(false)}
                 />
             )}

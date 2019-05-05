@@ -7,10 +7,16 @@ import headLogo from '../../../assets/img/head_logo.png';
 import styles from './sharingpage.css';
 
 const SharingPage = () => {
-    const { id } = qs.parse(location.search.substr(1));
+    const { id, type } = qs.parse(location.search.substr(1));
 
     if (!id) {
         return null;
+    }
+
+    const isImage = type === 'image';
+    const isVideo = type === 'video';
+    if (!isImage && !isVideo) {
+        return 'Invalid type';
     }
 
     const url = `/data/sharing/${id}`;
@@ -41,7 +47,8 @@ const SharingPage = () => {
                 />
             </div>
             <div className={styles.wrapper}>
-                <img className={styles.image} src={url} />
+                {isImage && <img className={styles.image} src={url} />}
+                {isVideo && <video className={styles.image} src={url} loop autoPlay />}
                 <div className={styles.buttonWrapper}>
                     <a href={url} download>
                         <img src={printIcon} />
