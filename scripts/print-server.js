@@ -21,10 +21,14 @@ const printDefault = (buffer, format = 'PDF') => {
     }));
 };
 
-const binPath = path.join(
+let binPath = path.join(
     'C:', 'Program Files (x86)',
-    'Adobe', 'Reader 11.0', 'Reader', 'AcroRd32.exe'
+    'Adobe', 'Adobe Reader DC', 'Reader', 'AcroRd32.exe'
 );
+if (process.argv.length > 2 && process.argv[2] !== '') {
+    binPath = process.argv[2];
+}
+
 try {
     const binStat = fs.statSync(binPath);
     if (!binStat.isFile) {
@@ -34,12 +38,15 @@ try {
     console.error(`Acrobat Reader is required at ${binPath}!`, 'Failed with:', err);
 }
 
-const printWin = async (filepath) => new Promise((res) => {
+const printWin = async (filepath) => new Promise((res, rej) => {
     const child = child_process.spawn(binPath, [ '/t', path.join(process.cwd(), filepath) ]);
     const childTimeout = setTimeout(() => child.killed || child.kill(), 2000);
     child.on('exit', () => {
         clearTimeout(childTimeout);
         res();
+    });
+    child.on('error', (err) => {
+        rej(err);
     });
 });
 
