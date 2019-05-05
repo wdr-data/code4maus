@@ -199,7 +199,8 @@ const SharingModal = ({
     const assetURL = useMemo(() => asset ? URL.createObjectURL(asset) : '', [ asset ]);
     useEffect(() => () => assetURL && URL.revokeObjectURL(assetURL), [ assetURL ]);
 
-    const shareURL = asset && state.sharingKey ? `${location.origin}/teilen/?id=${state.sharingKey}&type=${asset.type.split('/')[0]}`: '';
+    const typeIndicator = asset && asset.type.split('/')[0][0];
+    const shareURL = state.sharingKey ? `https://code4maus.de/${typeIndicator}/${state.sharingKey}`: '';
 
     return (
         <Modal
