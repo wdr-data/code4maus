@@ -14,7 +14,6 @@
     "deploy:apply": "serverless deploy -p .serverless",
     "deploy:frontend": "./scripts/deploy-frontend.sh",
     "deploy": "yarn deploy:build && yarn deploy:apply && yarn deploy:frontend",
-    "deploy:patternlib": "./scripts/deploy-patternlib.sh",
     "cache-assets": "AWS_REGION=eu-central-1 ASSET_BUCKET=hackingstudio-code4maus-projects-prod node scripts/extract-assets.js",
     "i18n:src": "babel src > tmp.js && rimraf tmp.js && build-i18n-src ./translations/messages/ ./translations/",
     "import-sprites": "ts-node scripts/import-sprites.ts",
