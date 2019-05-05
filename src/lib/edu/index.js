@@ -15,14 +15,12 @@ export default [
         name: '#MausArt',
         subtitle: 'Kunst mit Maus und Code',
         image: image06,
-        hidden: true,
     },
     {
         id: '04_c',
         name: '#Mausprobiert',
         subtitle: 'Dein Kunstwerk',
         image: image07,
-        hidden: true,
     },
     {
         id: '00',
