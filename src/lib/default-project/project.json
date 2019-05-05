@@ -96,6 +96,15 @@
                     "dataFormat": "svg",
                     "rotationCenterX": 27.599999999999937,
                     "rotationCenterY": 40.91895160312336
+                },
+                {
+                    "assetId": "d277d9a46f007cd05a758065463e09f8",
+                    "name": "Blinzelt",
+                    "bitmapResolution": 1,
+                    "md5ext": "d277d9a46f007cd05a758065463e09f8.svg",
+                    "dataFormat": "svg",
+                    "rotationCenterX": 27.400000000000006,
+                    "rotationCenterY": 40.9375015258789
                 }
             ],
             "sounds": [
