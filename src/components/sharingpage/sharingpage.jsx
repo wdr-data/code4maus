@@ -6,9 +6,9 @@ import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/head_logo.png';
 import styles from './sharingpage.css';
 
-const SharingPage = () => {
-    const { id, type } = qs.parse(location.search.substr(1));
+const { id, type } = qs.parse(location.search.substr(1));
 
+const SharingPage = () => {
     if (!id) {
         return null;
     }
@@ -48,7 +48,7 @@ const SharingPage = () => {
             </div>
             <div className={styles.wrapper}>
                 {isImage && <img className={styles.image} src={url} />}
-                {isVideo && <video className={styles.image} src={url} loop autoPlay />}
+                {isVideo && <video className={styles.image} src={url} loop autoPlay mute />}
                 <div className={styles.buttonWrapper}>
                     <a href={url} download>
                         <img src={printIcon} />
