@@ -11,7 +11,7 @@ export const handler = async (event, context, callback) => {
     let sharingKey;
     for (let i = 0; i < 3; i++) {
         try {
-            sharingKey = shortid.generate();
+            sharingKey = shortid.generate().substr(0, 5).toLowerCase();
             params = {
                 Bucket: bucket,
                 Key: `data/sharing/${sharingKey}`,
