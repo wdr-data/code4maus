@@ -12,24 +12,24 @@ import QRCode from 'qrcode.react';
 import gifshot from 'gifshot';
 import html2canvas from 'html2canvas';
 import JsPDF from 'jspdf';
-import { useFeatureFlag, FEATURE_PRINTING } from '../../lib/feature-flags.js';
 
-
-import styles from './sharing-toolbox.css';
 import InlineSvg from '../inline-svg/inline-svg.jsx';
 import Modal from '../modal/modal.jsx';
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
 import Input from '../forms/input.jsx';
 import { Spinner } from '../loader/loader.jsx';
-import PrintLayout from './print.jsx';
+import { useFeatureFlag, FEATURE_PRINTING } from '../../lib/feature-flags.js';
 
 import gifIcon from '!raw-loader!../../../assets/icons/icon_gif.svg';
 import printIcon from '!raw-loader!../../../assets/icons/icon_print.svg';
 import printButton from '../../../assets/img/button_print.png';
 import printNowButton from '../../../assets/img/button_printnow.png';
 import shareButton from '../../../assets/img/button_share.png';
+
 import buttonBorder from './button_preview.svg';
+import PrintLayout from './print.jsx';
+import styles from './sharing-toolbox.css';
 
 const useScreenshotState = (vm, onImageReady) => {
     const [ image, setImage ] = useState('');
