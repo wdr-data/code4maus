@@ -48,7 +48,7 @@ const SharingPage = () => {
             </div>
             <div className={styles.wrapper}>
                 {isImage && <img className={styles.image} src={url} />}
-                {isVideo && <video className={styles.image} src={url} loop autoPlay mute />}
+                {isVideo && <video className={styles.image} src={url} loop autoPlay muted />}
                 <div className={styles.buttonWrapper}>
                     <a href={url} download>
                         <img src={printIcon} />
