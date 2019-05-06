@@ -38,7 +38,7 @@ export const StageSizeProviderHOC = (WrappedComponent) => {
 
         handleScreenSizeChanged() {
             if (showSharingToolbox && this.props.isFullScreen) {
-                this.setState({ width: 600, height: 450 });
+                this.setState({ width: 400, height: 300 });
                 return;
             }
 

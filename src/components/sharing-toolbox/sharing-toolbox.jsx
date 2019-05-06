@@ -383,7 +383,7 @@ const useRecording = (vm, onVideoProcessing) => {
                         conv.postMessage({ type: 'run',
                             MEMFS: [ { name: 'in.webm', data: inBuf } ],
                             TOTAL_MEMORY: 128 * 1024 * 1024,
-                            arguments: [ '-i', 'in.webm', '-vf', 'scale=600:450', '-r', '30', '-c:v', 'libx264', '-an', 'out.mp4' ],
+                            arguments: [ '-i', 'in.webm', '-vf', 'scale=400:300', '-r', '30', '-c:v', 'libx264', '-preset', 'ultrafast', '-an', 'out.mp4' ],
                         });
                         console.log('ffmpeg is ready');
                         break;
