@@ -19,7 +19,7 @@ export const features = {
     },
 };
 
-const localStorageKey = (id) => `feature/${id}`;
+export const localStorageKey = (id) => `feature/${id}`;
 
 export const useFeatureState = () => {
     const [ featureState, setFeatureState ] = useState({});

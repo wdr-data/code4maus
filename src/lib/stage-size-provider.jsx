@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
-
-import { getStageSize } from './screen-utils';
 import { connect } from 'react-redux';
+
+import { FEATURE_SHARING, localStorageKey } from './feature-flags.js';
+import { getStageSize } from './screen-utils';
 
 const initialStageSize = getStageSize();
 const StageSizeContext = React.createContext(initialStageSize);
+const showSharingToolbox = localStorage.getItem(localStorageKey(FEATURE_SHARING)) === 'true';
 
 export const StageSizeProviderHOC = (WrappedComponent) => {
     class StageSizeState extends React.Component {
@@ -28,7 +30,18 @@ export const StageSizeProviderHOC = (WrappedComponent) => {
             window.removeEventListener('resize', this.handleScreenSizeChanged);
         }
 
+        componentDidUpdate(prevProps) {
+            if (prevProps.isFullScreen !== this.props.isFullScreen) {
+                this.handleScreenSizeChanged();
+            }
+        }
+
         handleScreenSizeChanged() {
+            if (showSharingToolbox && this.props.isFullScreen) {
+                this.setState({ width: 600, height: 450 });
+                return;
+            }
+
             const { height, width } = getStageSize(this.props.isFullScreen);
             this.setState({ height, width });
         }
