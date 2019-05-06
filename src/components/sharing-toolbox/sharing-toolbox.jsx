@@ -32,6 +32,7 @@ import shareButton from '../../../assets/img/button_share.png';
 import buttonBorder from './button_preview.svg';
 import PrintLayout from './print.jsx';
 import styles from './sharing-toolbox.css';
+import { StageSizeRequester } from '../../lib/stage-size-provider.jsx';
 
 const useScreenshotState = (vm, onImageReady) => {
     const [ image, setImage ] = useState(null);
@@ -334,7 +335,7 @@ const recordingReducer = (state, action) => {
     }
 };
 
-const useRecording = (vm, onVideoProcessing) => {
+const useRecording = (vm, onVideoProcessing, requestStageSize) => {
     const [ { timeLeft, isRecording }, dispatch ] = useReducer(
         recordingReducer,
         recordingInitialState
@@ -352,9 +353,11 @@ const useRecording = (vm, onVideoProcessing) => {
     useEffect(() => {
         let interval = null;
         if (isRecording) {
-            startRecording();
-            const tickInterval = 100; // 100 ms tick interval
-            interval = setInterval(() => dispatch({ type: 'tick', payload: tickInterval }), tickInterval);
+            requestStageSize({ width: 400, height: 300 }).then(() => {
+                startRecording();
+                const tickInterval = 100; // 100 ms tick interval
+                interval = setInterval(() => dispatch({ type: 'tick', payload: tickInterval }), tickInterval);
+            });
         }
         return async () => {
             if (isRecording) {
@@ -365,6 +368,7 @@ const useRecording = (vm, onVideoProcessing) => {
                 if (interval) {
                     clearInterval(interval);
                 }
+                requestStageSize();
 
                 const inBuf = await new Promise((res) => {
                     const reader = new FileReader();
@@ -416,14 +420,13 @@ const useRecording = (vm, onVideoProcessing) => {
         return () => vm.stopAll();
     }, [ vm, isRecording ]);
     const reset = useCallback(() => {
-        setVideoPreview(null);
         setVideoData(null);
         setIsVideoLoading(false);
     });
     return { timeLeft, toggleRecording, isRecording, videoData, isVideoLoading, reset };
 };
 
-const SharingToolboxComponent = ({ vm }) => {
+const SharingToolboxComponent = ({ vm, requestStageSize }) => {
     const [ isGifOpen, setGifOpen ] = useState(false);
     const [ isScreenshotOpen, setScreenshotOpen ] = useState(false);
     const { image, takeScreenshot, isScreenshotLoading } = useScreenshotState(
@@ -437,7 +440,7 @@ const SharingToolboxComponent = ({ vm }) => {
         videoData,
         isVideoLoading,
         reset: resetVideo,
-    } = useRecording(vm, () => setGifOpen(true));
+    } = useRecording(vm, () => setGifOpen(true), requestStageSize);
 
     return (
         <React.Fragment>
@@ -486,13 +489,22 @@ const SharingToolboxComponent = ({ vm }) => {
 
 SharingToolboxComponent.propTypes = {
     vm: PropTypes.instanceOf(VM).isRequired,
+    requestStageSize: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     vm: state.scratchGui.vm,
 });
 
-export default connect(
+const ConnectedSharingToolbox = connect(
     mapStateToProps,
     null
 )(SharingToolboxComponent);
+
+const SharingToolboxTop = () => (
+    <StageSizeRequester>{(requestStageSize) => (
+        <ConnectedSharingToolbox requestStageSize={requestStageSize} />
+    )}</StageSizeRequester>
+);
+
+export default SharingToolboxTop;
