@@ -415,7 +415,12 @@ const useRecording = (vm, onVideoProcessing) => {
         }
         return () => vm.stopAll();
     }, [ vm, isRecording ]);
-    return { timeLeft, toggleRecording, isRecording, videoData, isVideoLoading };
+    const reset = useCallback(() => {
+        setVideoPreview(null);
+        setVideoData(null);
+        setIsVideoLoading(false);
+    });
+    return { timeLeft, toggleRecording, isRecording, videoData, isVideoLoading, reset };
 };
 
 const SharingToolboxComponent = ({ vm }) => {
@@ -431,6 +436,7 @@ const SharingToolboxComponent = ({ vm }) => {
         timeLeft,
         videoData,
         isVideoLoading,
+        reset: resetVideo,
     } = useRecording(vm, () => setGifOpen(true));
 
     return (
@@ -468,7 +474,10 @@ const SharingToolboxComponent = ({ vm }) => {
                     isLoading={isVideoLoading}
                     title="Dein Gif"
                     asset={videoData}
-                    onRequestClose={() => setGifOpen(false)}
+                    onRequestClose={() => {
+                        setGifOpen(false);
+                        resetVideo();
+                    }}
                 />
             )}
         </React.Fragment>
