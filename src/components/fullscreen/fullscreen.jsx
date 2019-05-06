@@ -1,16 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
 import { defineMessages, injectIntl, intlShape } from 'react-intl';
 
-import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
-import { getStageSize } from '../../lib/screen-utils.js';
 import styles from './fullscreen.css';
 
 import fullScreenIcon from '../../../assets/blocks-media/zoom-in.svg';
-import largeStageIcon from './icon--large-stage.svg';
-import smallStageIcon from './icon--small-stage.svg';
 import unFullScreenIcon from '../../../assets/blocks-media/zoom-out.svg';
 
 const messages = defineMessages({
