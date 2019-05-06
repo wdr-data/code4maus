@@ -318,6 +318,43 @@ const recordingInitialState = {
     isRecording: false,
 };
 
+const convertVideo = (inBuf) => new Promise((res, rej) => {
+    const start = Date.now();
+    const conv = new Worker(ffmpegWorkerPath);
+    let stdout = '';
+    let stderr = '';
+    conv.addEventListener('message', async ({ data: msg }) => {
+        switch (msg.type) {
+        case 'ready':
+            conv.postMessage({ type: 'run',
+                MEMFS: [ { name: 'in.webm', data: inBuf } ],
+                TOTAL_MEMORY: 128 * 1024 * 1024,
+                arguments: [ '-i', 'in.webm', '-vf', 'scale=400:300', '-r', '30', '-c:v', 'libx264', '-preset', 'ultrafast', '-an', 'out.mp4' ],
+            });
+            console.log('ffmpeg is ready');
+            break;
+        case 'stdout':
+            stdout += msg.data + '\n';
+            break;
+        case 'stderr':
+            stderr += msg.data + '\n';
+            break;
+        case 'exit':
+            console.log('ffmpeg exited with:', msg.data);
+            console.log('stdout:', stdout);
+            console.log('stderr:', stderr);
+            break;
+        case 'done':
+            console.log(`conversion took: ${((Date.now()-start)/1000).toFixed(3)}s`);
+            res(msg.data.MEMFS[0].data);
+            break;
+        case 'error':
+            rej(msg.data);
+            break;
+        }
+    });
+});
+
 const recordingReducer = (state, action) => {
     switch (action.type) {
     case 'start':
@@ -377,39 +414,10 @@ const useRecording = (vm, onVideoProcessing, requestStageSize) => {
                     });
                     reader.readAsArrayBuffer(blob);
                 });
-
-                const conv = new Worker(ffmpegWorkerPath);
-                let stdout = '';
-                let stderr = '';
-                conv.addEventListener('message', async ({ data: msg }) => {
-                    switch (msg.type) {
-                    case 'ready':
-                        conv.postMessage({ type: 'run',
-                            MEMFS: [ { name: 'in.webm', data: inBuf } ],
-                            TOTAL_MEMORY: 128 * 1024 * 1024,
-                            arguments: [ '-i', 'in.webm', '-vf', 'scale=400:300', '-r', '30', '-c:v', 'libx264', '-preset', 'ultrafast', '-an', 'out.mp4' ],
-                        });
-                        console.log('ffmpeg is ready');
-                        break;
-                    case 'stdout':
-                        stdout += msg.data + '\n';
-                        break;
-                    case 'stderr':
-                        stderr += msg.data + '\n';
-                        break;
-                    case 'exit':
-                        console.log('ffmpeg exited with:', msg.data);
-                        console.log('stdout:', stdout);
-                        console.log('stderr:', stderr);
-                        break;
-                    case 'done':
-                        const outFile = msg.data.MEMFS[0];
-                        const outBlob = new Blob([ outFile.data ], { type: 'video/mp4' });
-                        setVideoData(outBlob);
-                        setIsVideoLoading(false);
-                        break;
-                    }
-                });
+                const videoData = await convertVideo(inBuf);
+                const outBlob = new Blob([ videoData ], { type: 'video/mp4' });
+                setVideoData(outBlob);
+                setIsVideoLoading(false);
             }
         };
     }, [ isRecording, dispatch ]);
