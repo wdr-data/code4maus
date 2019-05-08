@@ -14,6 +14,7 @@ import withTracking from '../lib/tracking-hoc.jsx';
 import localeDe from '../../translations/de.json';
 import storage, { s3userFile } from '../lib/storage';
 import { setUserId } from '../reducers/project';
+import { startInstall, failInstall, setInstalled } from '../reducers/offline';
 
 import Menu from './menu.jsx';
 import WelcomeScreen from './welcome-screen.jsx';
@@ -21,6 +22,8 @@ import LazyRender from './lazy-render.jsx';
 import Content from './content.jsx';
 import MobileScreen from './mobile-screen.jsx';
 import Loader from '../components/loader/loader.jsx';
+
+import { Workbox } from 'workbox-window';
 
 addLocaleData(de);
 
@@ -30,12 +33,11 @@ const lsKeyVisited = 'hasVisited';
 class App extends Component {
     static async userIdExists(userId) {
         try {
-            const res = await fetch(s3userFile(userId, 'index.json'), {
-                method: 'HEAD',
-            });
+            const res = await fetch(s3userFile(userId, 'index.json'));
             if (res.status >= 400) {
                 return false;
             }
+            await res.json();
             return true;
         } catch (e) {
             return false;
@@ -43,6 +45,9 @@ class App extends Component {
     }
 
     componentDidMount() {
+        if (this.props.offlineEnabled) {
+            this.offlineSupport();
+        }
         this.ensureUserId();
         this.maybeRedirectWelcome();
     }
@@ -50,6 +55,48 @@ class App extends Component {
     componentDidUpdate(prevProps) {
         if (prevProps.userId !== this.props.userId) {
             storage.userId = this.props.userId;
+        }
+
+        if (prevProps.offlineEnabled !== this.props.offlineEnabled && this.props.offlineEnabled) {
+            this.offlineSupport();
+        }
+    }
+
+    async offlineSupport() {
+        if (!('serviceWorker' in navigator)) {
+            return;
+        }
+
+        this.props.startInstall();
+        // register service worker
+        const wb = new Workbox('/service-worker.js');
+
+        // not 100% sure about timing here. maybe we could register the event only if it has not yet
+        // been installed. But not 100% sure..better play safe here :S
+        const installedPromise = new Promise((resolve, reject) => {
+            wb.addEventListener('installed', () => {
+                resolve();
+            });
+            let isQuotaError = false;
+            wb.messageSW({ type: 'GET_QUOTA_ERRORS' }).then(() => isQuotaError = true);
+            wb.addEventListener('redundant', () => {
+                reject(isQuotaError
+                    ? new Error('Quota exceeded')
+                    : new Error('Service worker redundant')
+                );
+            });
+        });
+
+        try {
+            const result = await wb.register();
+            const installed = result.installing === null
+                ? Promise.resolve()
+                : installedPromise;
+
+            await installed;
+            this.props.setInstalled();
+        } catch (e) {
+            this.props.failInstall(e);
         }
     }
 
@@ -122,6 +169,10 @@ App.propTypes = {
     setUserId: PropTypes.func.isRequired,
     userId: PropTypes.string,
     redirectWelcome: PropTypes.func.isRequired,
+    offlineEnabled: PropTypes.bool.isRequired,
+    startInstall: PropTypes.func.isRequired,
+    failInstall: PropTypes.func.isRequired,
+    setInstalled: PropTypes.func.isRequired,
 };
 
 const ConnectedApp = connect(
@@ -130,11 +181,15 @@ const ConnectedApp = connect(
         return {
             view: result.view || '',
             userId: state.scratchGui.project.userId,
+            offlineEnabled: state.scratchGui.offline.enabled,
         };
     },
     (dispatch) => ({
         setUserId: (id) => dispatch(setUserId(id)),
         redirectWelcome: () => dispatch(replace('/welcome')),
+        startInstall: () => dispatch(startInstall()),
+        failInstall: (e) => dispatch(failInstall(e)),
+        setInstalled: () => dispatch(setInstalled()),
     }),
 )(App);
 

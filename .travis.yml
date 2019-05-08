@@ -22,7 +22,7 @@ addons:
     update: true
 
 before_install:
-  - sudo apt-get install -y python3-pip
+  - sudo apt-get install -y python3-pip libcups2-dev
   - pip3 install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
 
@@ -31,6 +31,8 @@ before_script:
 
 script:
   - NODE_ENV=production yarn build
+  - yarn build:patternlib
+  - yarn build:printserver:win
 
 deploy:
   - provider: script
@@ -45,7 +47,12 @@ deploy:
       branch: production
   - provider: script
     skip-cleanup: true
-    script: yarn deploy:patternlib
+    script: ./scripts/deploy-gh-pages.sh .patternlib components
+    on:
+      branch: develop
+  - provider: script
+    skip-cleanup: true
+    script: ./scripts/deploy-gh-pages.sh dist dist
     on:
       branch: develop
 

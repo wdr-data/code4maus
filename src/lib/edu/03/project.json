@@ -18,6 +18,7 @@
                 {
                     "assetId": "3a343d19f40be5196f5b1cad1c7d1e39",
                     "name": "Wiese",
+                    "bitmapResolution": 2,
                     "md5ext": "3a343d19f40be5196f5b1cad1c7d1e39.jpg",
                     "dataFormat": "jpg",
                     "rotationCenterX": 480,
@@ -26,6 +27,7 @@
                 {
                     "assetId": "a35419bc3c9a8888430c157960ef28b4",
                     "name": "Unterwasser",
+                    "bitmapResolution": 2,
                     "md5ext": "a35419bc3c9a8888430c157960ef28b4.jpg",
                     "dataFormat": "jpg",
                     "rotationCenterX": 480,
@@ -73,7 +75,8 @@
             "layerOrder": 0,
             "tempo": 60,
             "videoTransparency": 50,
-            "videoState": "off"
+            "videoState": "off",
+            "textToSpeechLanguage": null
         },
         {
             "isStage": false,
@@ -86,13 +89,13 @@
             "currentCostume": 0,
             "costumes": [
                 {
-                    "assetId": "a152bb912cab56d3d4407819fb5e28ea",
+                    "assetId": "c6824e69f8d1c3c8859666fcbe3e547c",
                     "name": "Maus",
                     "bitmapResolution": 1,
-                    "md5ext": "a152bb912cab56d3d4407819fb5e28ea.svg",
+                    "md5ext": "c6824e69f8d1c3c8859666fcbe3e547c.svg",
                     "dataFormat": "svg",
-                    "rotationCenterX": 84.5,
-                    "rotationCenterY": 79.375
+                    "rotationCenterX": 27.599999999999937,
+                    "rotationCenterY": 40.91895160312336
                 },
                 {
                     "assetId": "d277d9a46f007cd05a758065463e09f8",
@@ -100,8 +103,8 @@
                     "bitmapResolution": 1,
                     "md5ext": "d277d9a46f007cd05a758065463e09f8.svg",
                     "dataFormat": "svg",
-                    "rotationCenterX": 84.5,
-                    "rotationCenterY": 79.375
+                    "rotationCenterX": 27.400000000000006,
+                    "rotationCenterY": 40.9375015258789
                 }
             ],
             "sounds": [
@@ -118,18 +121,19 @@
             "volume": 100,
             "layerOrder": 1,
             "visible": true,
-            "x": 55,
-            "y": -45,
+            "x": -5.9999999999999885,
+            "y": -9.688311688311682,
             "size": 100,
             "direction": 90,
             "draggable": false,
             "rotationStyle": "all around"
         }
     ],
+    "monitors": [],
     "extensions": [],
     "meta": {
         "semver": "3.0.0",
-        "vm": "0.2.0-minimal-1",
-        "agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
+        "vm": "0.2.0-minimal-4",
+        "agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36"
     }
 }

@@ -1,24 +1,16 @@
 ---
 
 slides:
-  - asset: L00.png
-    caption: "Willkommen zu Programmieren mit der Maus. Klicke weiter."
-  - asset: e.png
-    caption: "Mache Kunst mit Maus, Elefant und Ente."
-  - asset: y01.png
-    caption: Die Blöcke steuern die Maus
+  - asset: L007.png
+    caption: "Mehr Kunst mit Maus und Code"
   - asset: start.png
     caption: "Drücke zum Testen"
   - asset: stop.png
     caption: "Zum Stoppen"
-  - asset: y01.gif
-    caption: "Ziehe 'erzeuge Klon' dazu"
-  - asset: start.png
-    caption: "Teste noch mal"
-  - asset: stop.png
-    caption: Stoppen
+  - asset: steuerung.png
+    caption: "Klicke auf Steuerung"
   - asset: z08.png
-    caption: "Füge ein 2. Programm hinzu"
+    caption: "Füge ein Programm hinzu"
   - asset: z01.png
     caption: "Dazu 'für immer' und 'gehe'"
   - asset: z02.png
@@ -27,21 +19,18 @@ slides:
     caption: "Was passiert?"
   - asset: z03.png
     caption: "Ziehe 'ändere Effekt' dazu"
-  - asset: z04.png
-    caption: "Ändere zu 'um 5'"
   - asset: start.png
     caption: "Wie sieht's aus?" 
   - asset: z05.png
     caption: "Spiele mit den Effekten..."
   - asset: z06.png
-    caption: "Oder ändere die Größe"
+    caption: "Ändere die Größe..."
   - asset: v01.png
-    caption: "Elefant, Ente? Klicke nächstes Kostüm"
-  - asset: stern.svg
-    caption: "Mach dein eigenes Kunstwerk!"
-  - asset: daumen-hoch.svg
+    caption: "Elefant, Ente? Klicke links auf 'nächstes Kostüm'"
+  - asset: drucken_lsd.png
     caption: "Drucke oder teile dein Werk!"
 
+nextGame: '01'
 
 blocks:
   - category: motion
@@ -62,5 +51,10 @@ blocks:
     blocks:
       - forever
       - wait
+      - if
       - create_clone_of
       - start_as_clone
+      - delete_this_clone
+  - category: sensing
+    blocks:
+      - touchingobject

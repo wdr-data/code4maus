@@ -10,6 +10,7 @@ import Box from '../box/box.jsx';
 import MenuListing from '../menu-listing/menu-listing.jsx';
 import InlineSVG from '../inline-svg/inline-svg.jsx';
 import MenuButton from '../menu-button/menu-button.jsx';
+import OfflineSupport from '../offline-support/offline-support.jsx';
 import wdrLogo from '../../../assets/img/wdr_logo.svg';
 import headLogo from '../../../assets/img/head_logo.png';
 import { SHAPE_PROJECT } from '../menu-listing/menu-listing.jsx';
@@ -18,12 +19,14 @@ import buttonNew from '!raw-loader!../../../assets/icons/menu_plus.svg';
 import tabIconEdugames from '!raw-loader!../../../assets/icons/menu_edugames.svg';
 import tabIconProjects from '!raw-loader!../../../assets/icons/menu_projects.svg';
 import tabIconExamples from '!raw-loader!../../../assets/icons/menu_examples.svg';
+import buttonIconLehrerinnen from '!raw-loader!../../../assets/icons/menu_lehrer.svg';
 import buttonIconInfo from '!raw-loader!../../../assets/icons/menu_eltern-info.svg';
 import buttonIconMausseite from '!raw-loader!../../../assets/icons/menu_mausseite.svg';
 import buttonIconDatenschutz from '!raw-loader!../../../assets/icons/icon_hilfe.svg';
 import buttonIconImpressum from '!raw-loader!../../../assets/icons/menu_impressum.svg';
 
 import styles from './menu.css';
+import { useFeatureFlag, FEATURE_OFFLINE } from '../../lib/feature-flags.js';
 
 export const MenuComponent = (props) => {
     const tabClassNames = {
@@ -58,6 +61,7 @@ export const MenuComponent = (props) => {
                     <Link href="/inhalte/impressum/" className={styles.copyright}>
                         <span>&#9400; WDR {(new Date().getFullYear())}</span>
                     </Link>
+                    {useFeatureFlag(FEATURE_OFFLINE) && <OfflineSupport/>}
                 </Box>
             </Box>
             <Box className={styles.listingWrapper}>
@@ -120,16 +124,19 @@ export const MenuComponent = (props) => {
                 </Tabs>
             </Box>
             <Box className={styles.buttonRow}>
-                <MenuButton iconSvg={buttonIconInfo} linkTo="/inhalte/eltern">
+                <MenuButton iconSvg={buttonIconLehrerinnen} linkTo="/lehrkraefte">
+                    Lehrkräfte
+                </MenuButton>
+                <MenuButton iconSvg={buttonIconInfo} linkTo="/eltern">
                     Eltern-Info
                 </MenuButton>
                 <MenuButton iconSvg={buttonIconMausseite} external linkTo="https://www.wdrmaus.de/">
                     Zur Maus-Seite
                 </MenuButton>
-                <MenuButton iconSvg={buttonIconDatenschutz} linkTo="/inhalte/datenschutz">
+                <MenuButton iconSvg={buttonIconDatenschutz} linkTo="/datenschutz">
                     Datenschutz
                 </MenuButton>
-                <MenuButton iconSvg={buttonIconImpressum} linkTo="/inhalte/impressum">
+                <MenuButton iconSvg={buttonIconImpressum} linkTo="/impressum">
                     Impressum
                 </MenuButton>
             </Box>

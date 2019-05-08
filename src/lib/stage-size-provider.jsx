@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
+import { connect } from 'react-redux';
 
 import { getStageSize } from './screen-utils';
-import { connect } from 'react-redux';
 
 const initialStageSize = getStageSize();
 const StageSizeContext = React.createContext(initialStageSize);
+const StageSizeRequest = React.createContext(() => {});
 
 export const StageSizeProviderHOC = (WrappedComponent) => {
     class StageSizeState extends React.Component {
@@ -16,21 +17,44 @@ export const StageSizeProviderHOC = (WrappedComponent) => {
             this.state = {
                 height: initialStageSize.height,
                 width: initialStageSize.width,
+                forced: false,
             };
-            this.handleScreenSizeChanged = debounce(this.handleScreenSizeChanged.bind(this), 300);
+            this.handleScreenSizeChanged = this.handleScreenSizeChanged.bind(this);
+            this.handleScreenSizeChangedDebounced = debounce(this.handleScreenSizeChanged, 300);
+            this.requestStageSize = this.requestStageSize.bind(this);
         }
 
         componentDidMount() {
-            window.addEventListener('resize', this.handleScreenSizeChanged);
+            window.addEventListener('resize', this.handleScreenSizeChangedDebounced);
         }
 
         componentWillUnmount() {
-            window.removeEventListener('resize', this.handleScreenSizeChanged);
+            window.removeEventListener('resize', this.handleScreenSizeChangedDebounced);
         }
 
-        handleScreenSizeChanged() {
+        componentDidUpdate(prevProps) {
+            if (prevProps.isFullScreen !== this.props.isFullScreen) {
+                this.handleScreenSizeChanged();
+            }
+        }
+
+        handleScreenSizeChanged(e) {
+            if (this.state.forced) {
+                return;
+            }
             const { height, width } = getStageSize(this.props.isFullScreen);
             this.setState({ height, width });
+        }
+
+        requestStageSize({ width, height } = {}) {
+            return new Promise((res) => {
+                if (!width && !height) {
+                    const { height, width } = getStageSize(this.props.isFullScreen);
+                    this.setState({ height, width, forced: false }, res);
+                    return;
+                }
+                this.setState({ width, height, forced: true }, res);
+            });
         }
 
         render() {
@@ -42,7 +66,9 @@ export const StageSizeProviderHOC = (WrappedComponent) => {
 
             return (
                 <StageSizeContext.Provider value={this.state}>
-                    <WrappedComponent {...componentProps} />
+                    <StageSizeRequest.Provider value={this.requestStageSize}>
+                        <WrappedComponent {...componentProps} />
+                    </StageSizeRequest.Provider>
                 </StageSizeContext.Provider>
             );
         }
@@ -61,3 +87,4 @@ export const StageSizeProviderHOC = (WrappedComponent) => {
 };
 
 export const StageSizeConsumer = StageSizeContext.Consumer;
+export const StageSizeRequester = StageSizeRequest.Consumer;

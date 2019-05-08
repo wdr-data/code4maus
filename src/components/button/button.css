@@ -1,3 +1,5 @@
+@import "../../css/colors.css";
+
 .button {
     display: flex;
     align-items: center;
@@ -19,11 +21,22 @@
 	background: url(../gui/bg_darkblue@1x.png) no-repeat;
 }
 
+.button.primary.disabled, .button.secondary.disabled {
+    background: url(./bg-grey.png) no-repeat;
+    color: #ccc;
+}
+
 .button.wiggle {
 	animation-name: wiggle;
     animation-duration: 1000ms;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
+}
+
+.button.link {
+    color: $ui-wdr-blue;
+    text-decoration: underline;
+    padding: 0;
 }
 
 @keyframes wiggle {
@@ -64,18 +77,11 @@
 	border-left-color: white;
 }
 
-.disabled {
-    background: url(./bg-grey.png) no-repeat !important;
+.button.disabled {
     cursor: not-allowed;
-    color: #ccc;
 }
 
 .icon {
     margin-right: .5rem;
     height: 1.5rem;
-}
-
-.content {
-    white-space: nowrap;
-    font-weight: bold;
 }

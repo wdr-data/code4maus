@@ -22,18 +22,16 @@ class Menu extends React.Component {
             note: game.subtitle,
             linkTo: `/lernspiel/${game.id}`,
             image: game.image,
+            hidden: game.hidden,
         };
     }
 
     constructor(props) {
         super(props);
 
-        const eduGames = eduGameData.map(Menu.mapGameData);
-        const examples = exampleGameData.map(Menu.mapGameData);
-
         this.state = {
-            eduGames,
-            examples,
+            eduGames: eduGameData.map(Menu.mapGameData),
+            examples: exampleGameData.map(Menu.mapGameData),
             projects: [],
         };
     }

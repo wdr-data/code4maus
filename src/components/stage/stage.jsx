@@ -7,9 +7,10 @@ import DOMElementRenderer from '../../containers/dom-element-renderer.jsx';
 import Loupe from '../loupe/loupe.jsx';
 import MonitorList from '../../containers/monitor-list.jsx';
 import Question from '../../containers/question.jsx';
-import { getStageSize } from '../../lib/screen-utils.js';
 import styles from './stage.css';
 import Fullscreen from '../../containers/fullscreen.jsx';
+import { useFeatureFlag, FEATURE_SHARING } from '../../lib/feature-flags.js';
+import LazyRender from '../../containers/lazy-render.jsx';
 
 const StageComponent = (props) => {
     const {
@@ -28,7 +29,7 @@ const StageComponent = (props) => {
         ...boxProps
     } = props;
 
-    const stageDimensions = getStageSize(isFullScreen, height, width);
+    const showSharingToolbox = useFeatureFlag(FEATURE_SHARING);
 
     return (
         <div>
@@ -40,14 +41,17 @@ const StageComponent = (props) => {
                 })}
                 onDoubleClick={onDoubleClick}
             >
+                {isFullScreen && showSharingToolbox &&
+                    <LazyRender promise={import('../sharing-toolbox/sharing-toolbox.jsx')} />
+                }
                 <DOMElementRenderer
                     className={classNames(
                         styles.stage,
                         { [styles.stageOverlayContent]: isFullScreen }
                     )}
                     domElement={canvas}
-                    height={stageDimensions.height}
-                    width={stageDimensions.width}
+                    height={height}
+                    width={width}
                     {...boxProps}
                 />
                 {isFullScreen ? null :
@@ -56,7 +60,7 @@ const StageComponent = (props) => {
                 <Box className={styles.monitorWrapper}>
                     <MonitorList
                         draggable={useEditorDragStyle}
-                        stageSize={stageDimensions}
+                        stageSize={{ height, width }}
                     />
                 </Box>
                 {isColorPicking && colorInfo ?
@@ -73,7 +77,7 @@ const StageComponent = (props) => {
                     >
                         <div
                             className={styles.questionWrapper}
-                            style={{ width: stageDimensions.width }}
+                            style={{ width }}
                         >
                             <Question
                                 question={question}

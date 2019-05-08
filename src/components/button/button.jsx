@@ -39,6 +39,7 @@ const ButtonComponent = ({
                 [styles.primary]: style === 'primary',
                 [styles.secondary]: style === 'secondary',
                 [styles.wiggle]: wiggle,
+                [styles.link]: style === 'link',
             },
             className,
         )}

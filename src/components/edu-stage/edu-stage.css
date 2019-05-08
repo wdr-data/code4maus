@@ -8,7 +8,7 @@
 .caption {
     flex-grow: 1;
     padding: .5rem 1rem;
-    font-size: 3.5vh;
+    font-size: 3vh;
     font-weight: bold;
 }
 
@@ -65,9 +65,7 @@
 .eduSlides {
     display: flex;
     flex-grow: 1;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    position: relative;
 }
 
 .edu-footer {
@@ -76,4 +74,15 @@
     align-items: center;
     justify-content: space-between;
     padding: .5rem 1rem;
+}
+
+.images {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    max-width: 95%;
+    max-height: 95%;
 }

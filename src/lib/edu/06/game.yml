@@ -1,0 +1,14 @@
+---
+slides:
+  - asset: L00.png
+    caption: "Willkommen zu Programmieren mit der Maus. Klicke weiter."
+  - asset: start_blume.png
+    caption: "Lass die Blume wachsen:"
+  - asset: start.png
+    caption: "Starte ein paar Mal"
+  - asset: 001.png
+    caption: "Ändere die Zahlen für Größe, Farbe und Anzahl der Blätter:"
+  - asset: drucken.png
+    caption: "Drucke oder teile dein Werk!"
+
+nextGame: '04_c'

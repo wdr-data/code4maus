@@ -48,7 +48,7 @@ const routes = {
             view: Views.project,
         },
     },
-    '/inhalte/:page': {
+    '/:page': {
         view: Views.content,
     },
 };

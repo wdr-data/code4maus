@@ -1,12 +1,18 @@
 ---
-title: Lehrerinnen
+title: Lehrkräfte
 splitSections: true
 ---
 
-Begleitend zu Programmieren mit der Maus gibt es ab Mai 2019 Material für alle, die mit Kindern programmieren wollen: Für Lehrerinnen, AGs im offenen Ganztag oder für interessierte Erwachsene, die einen Programmiertag an einer Grundschule organisieren möchten. [programmieren.wdrmaus.de/lehrerinnen]
+Begleitend zu Programmieren mit der Maus gibt es ab Mai 2019 Material für alle, die mit Kindern programmieren wollen: Für Lehrer*innen, AGs im offenen Ganztag oder für interessierte Erwachsene, die einen Programmiertag an einer Grundschule organisieren möchten.
 
-## Spielerisch programmieren lernen
-Kinder ab 8 lernen erstes programmieren - mit Blöcken, die sich stapeln lassen wie Bauklötze. Dabei werden sie von den Figuren und Tönen aus der Sendung mit der Maus begleitet. Schritt für Schritt lernen sie so Schleifen, Verzweigungen und Variablen kennen und programmieren Animationen und erste Spiele.
+## Spielerisch Programmieren erlernen
+Mit Programmieren mit der Maus lassen sich bereits Grundschulkinder spielerisch ans Programmieren heranführen. Das Angebot basiert auf Scratch, einer Open Source Software für Kinder und Jugendliche. In dem Angebot werden die Kinder zunächst durch mehrere Lernspiele geführt. Dort werden sie an sie grundlegende Programmierkonzepte wie Variablen, Schleifen und Verzweigungen herangeführt. Anschließend können sie eigene kleine Programme gestalten.
 
-## Spaß mit Scratch und Maus
-Das Ganze beruht auf der graphischen Programmiersprache Scratch, die am MIT entwickelt und von Kindern auf der ganzen Welt genutzt wird. Wie Scratch ist auch Programmieren mit der Maus OpenSource. [github.com/wdr-data/code4maus] Programmieren mit der Maus läuft auf Desktops und iPads, aber nicht auf Smartphones.
+## Geeignet ab Klassenstufe 3
+Mit Programmieren mit der Maus erwerben die Schülerinnen und Schüler umfassende Kompetenzen, die die Kultusministerkonferenz unter dem Titel „Bildung in der digitalen Welt“ für den Unterricht einfordert: Sie lernen in altersgemäßer Weise, Probleme formalisiert zu beschreiben, Problemlösestrategien zu entwickeln, dazu eine strukturierte algorithmische Sequenz zu planen und diese anschließend umzusetzen. Kernzielgruppe des Angebots sind Schülerinnen und Schüler der Klassenstufen 3 und 4.
+
+## Auch für Lehrkräfte ohne Vorerfahrung
+Zum Einsatz von Programmieren mit der Maus im Grundschul-Unterricht entwickelt Planet Schule Begleitmaterial und Handreichungen. So können auch Lehrkräfte ohne eigene Vorerfahrung im Programmieren das Angebot nutzen. Sie bekommen dafür eine Schritt-für-Schritt-Anleitung, die durch die Anwendung führt. Darin wird erläutert, welche technischen Voraussetzungen an der Schule gegeben sein müssen, um das Angebot nutzen zu können. Vor allem aber gibt es praktische Tipps, wie die Lehrkraft mit den Kindern differenziert damit arbeiten kann.
+
+## Programmieren ohne Strom zum Einstieg
+Planet Schule hält auf Aufgabenkarten in drei Niveaustufen sowohl Anregungen für interessierte und schnelle Schülerinnen und Schüler als auch Unterstützung für schwächere Kinder bereit. Ein downloadbares Spiel auf Papier vermittelt grundlegendes Wissen über das Programmieren. Dieses Spiel kann zum Einstieg in die Lerneinheit genutzt werden.

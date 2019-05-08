@@ -15,7 +15,7 @@ import mailIcon from '!raw-loader!../../../assets/icons/menu_impressum.svg';
 import styles from './stage-header.css';
 import { StageSizeConsumer } from '../../lib/stage-size-provider.jsx';
 
-const StageHeaderComponent = function(props) {
+const StageHeaderComponent = function (props) {
     const {
         isFullScreen,
         onSaveProject,
@@ -57,6 +57,7 @@ const StageHeaderComponent = function(props) {
                                     </MenuButton>
                                     <MenuButton
                                         orientation='vertical'
+                                        id="save"
                                         iconSvg={saveIcon}
                                         onClick={onSaveProject}
                                     >

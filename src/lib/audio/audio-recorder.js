@@ -1,11 +1,11 @@
 import 'get-float-time-domain-data';
 import getUserMedia from 'get-user-media-promise';
-import SharedAudioContext from './shared-audio-context.js';
+import sharedAudioContext from './shared-audio-context.js';
 import { computeRMS } from './audio-util.js';
 
 class AudioRecorder {
     constructor() {
-        this.audioContext = new SharedAudioContext();
+        this.audioContext = sharedAudioContext();
         this.bufferLength = 1024;
 
         this.userMediaStream = null;

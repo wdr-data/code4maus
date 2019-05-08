@@ -39,6 +39,14 @@
     padding: .5rem 0 .04rem 0;
 }
 
+.third-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 1rem;
+}
+
 .logo {
     height:  1.6rem;
     display: block;
@@ -248,8 +256,7 @@
 
 .copyright {
     display: inline-block;
-    color: #00345f;
+    color: $ui-wdr-blue;
     font-weight: bold;
     text-decoration: none;
-    padding: 1rem;
 }
