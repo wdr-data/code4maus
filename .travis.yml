@@ -32,7 +32,6 @@ before_script:
 script:
   - NODE_ENV=production yarn build
   - yarn build:patternlib
-  - yarn build:printserver:win
 
 deploy:
   - provider: script
@@ -48,11 +47,6 @@ deploy:
   - provider: script
     skip-cleanup: true
     script: ./scripts/deploy-gh-pages.sh .patternlib components
-    on:
-      branch: develop
-  - provider: script
-    skip-cleanup: true
-    script: ./scripts/deploy-gh-pages.sh dist dist
     on:
       branch: develop
 
