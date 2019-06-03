@@ -42,3 +42,5 @@ yarn-error.log
 # VS-Code
 .vscode/
 
+# Jupyter Checkpoints
+.ipynb_checkpoints/
