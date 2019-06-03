@@ -9,6 +9,7 @@ export default {
     name: 'Hallo Welt',
     subtitle: 'Erste Schritte',
     image: aL00,
+    fetchProject: () => import('./project.json'),
     'slides': [
         {
             'asset': aL00,

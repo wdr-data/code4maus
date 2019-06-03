@@ -5,6 +5,7 @@ export default {
     name: '1 x 1',
     subtitle: 'Übe das Einmaleins',
     image: a000,
+    fetchProject: () => import('./project.json'),
     'slides': [
         {
             'asset': a000,

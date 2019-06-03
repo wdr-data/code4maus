@@ -1,6 +1,7 @@
 import ScratchStorage from 'scratch-storage';
 
 import defaultProjectAssets from './default-project';
+import { gamesKeyed } from './edu/';
 
 export const s3assets = (filename) => `/data/assets/${filename}`;
 export const s3userFile = (userId, path) => `/data/projects/${userId}/${path}`;
@@ -14,24 +15,8 @@ class Storage extends ScratchStorage {
         super();
         this.userId = null;
 
-        this.setupEduSource();
         this.setupS3Source();
-
         this.cacheDefaultProject();
-    }
-
-    setupEduSource() {
-        this.addWebStore(
-            [ this.AssetType.Project ],
-            (project) => {
-                const [ cat, projectId ] = String(project.assetId).split('/');
-                if (cat !== 'edu') {
-                    console.log('Not edu project');
-                    return false;
-                }
-                return `/edu/${projectId}/project.${project.dataFormat}`;
-            }
-        );
     }
 
     setupS3Source() {
@@ -62,5 +47,30 @@ class Storage extends ScratchStorage {
 }
 
 const storage = new Storage();
+
+class EduHelper {
+    async load(assetType, assetId, dataFormat) {
+        if (assetType !== storage.AssetType.Project) {
+            return null;
+        }
+
+        const [ cat, gameId ] = String(assetId).split('/');
+        if (cat !== 'edu' || !(gameId in gamesKeyed)) {
+            return null;
+        }
+
+        const spec = gamesKeyed[gameId];
+        if (!('fetchProject' in spec)) {
+            throw new Error('No project file found!');
+        }
+
+        const project = await spec.fetchProject();
+        const asset = new storage.Asset(assetType, assetId, dataFormat, JSON.stringify(project));
+        return asset;
+    }
+}
+
+const eduHelper = new EduHelper();
+storage.addHelper(eduHelper);
 
 export default storage;

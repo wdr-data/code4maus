@@ -16,6 +16,7 @@ export default {
     name: '#Mausprobiert',
     subtitle: 'Dein Kunstwerk',
     image: aL007,
+    fetchProject: () => import('./project.json'),
     'slides': [
         {
             'asset': aL007,

@@ -5,6 +5,7 @@ export default {
     name: 'Kühlschrank-Memo',
     subtitle: 'Merke dir das Essen',
     image: a000,
+    fetchProject: () => import('./project.json'),
     'slides': [
         {
             'asset': a000,

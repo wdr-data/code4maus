@@ -24,6 +24,7 @@ export default {
     name: 'Die Maus tanzt!',
     subtitle: 'Schleifen',
     image: aL03,
+    fetchProject: () => import('./project.json'),
     "slides": [
         {
             'asset': aL03,

@@ -15,6 +15,7 @@ export default {
     name: 'Die Maus blinzelt',
     subtitle: 'Trickfilm',
     image: aL02,
+    fetchProject: () => import('./project.json'),
     "slides": [
         {
             'asset': aL02,
