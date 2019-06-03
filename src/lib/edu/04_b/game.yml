@@ -19,7 +19,7 @@ slides:
   - asset: x05.png
     caption: "Ändere die Zahlenwerte:"
   - asset: y_01.png
-    caption: "Klicke auf 'Aussehen'" 
+    caption: "Klicke auf 'Aussehen'"
   - asset: x01_1.png
     caption: "Ziehe vier mal 'denke' dazu:"
   - asset: x01_2.png
@@ -97,6 +97,9 @@ blocks:
   - category: operators
     blocks:
       - add
+      - subtract
+      - multiply
+      - divide
       - random
       - equals
   - category: variables
