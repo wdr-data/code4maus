@@ -22,7 +22,7 @@ import asuper from '../shared_assets/super.png';
 export default {
     id: '03',
     name: 'Die Maus tanzt!',
-    subtitle: '03 Schleifen',
+    subtitle: 'Schleifen',
     image: aL03,
     "slides": [
         {
@@ -135,7 +135,7 @@ export default {
         },
         {
             'category': 'sound',
-            'blocks': [ 'playuntildone' ],
+            'blocks': ['playuntildone'],
         },
         {
             'category': 'events',
