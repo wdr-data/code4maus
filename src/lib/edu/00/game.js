@@ -7,7 +7,7 @@ import agut_gemacht from '../shared_assets/gut_gemacht.png';
 export default {
     id: '00',
     name: 'Hallo Welt',
-    subtitle: '00 Erste Schritte',
+    subtitle: 'Erste Schritte',
     image: aL00,
     'slides': [
         {
@@ -44,7 +44,7 @@ export default {
         },
         {
             'category': 'events',
-            'blocks': [ 'whenflagclicked' ],
+            'blocks': ['whenflagclicked'],
         },
         {
             'category': 'control',

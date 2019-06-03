@@ -24,7 +24,7 @@ import asuper from '../shared_assets/super.png';
 export default {
     id: '04',
     name: 'Wimmelbild',
-    subtitle: '04 Mehr Figuren',
+    subtitle: 'Mehr Figuren',
     image: aL04,
     "slides": [
         {
@@ -136,11 +136,11 @@ export default {
         },
         {
             'category': 'looks',
-            'blocks': [ 'nextcostume' ],
+            'blocks': ['nextcostume'],
         },
         {
             'category': 'sound',
-            'blocks': [ 'playuntildone' ],
+            'blocks': ['playuntildone'],
         },
         {
             'category': 'events',
