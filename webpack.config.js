@@ -176,10 +176,6 @@ module.exports = {
                 to: 'static/blocks-media',
             },
             {
-                from: 'edu/**/*',
-                context: 'src/lib/',
-            },
-            {
                 from: 'static',
                 to: 'static',
             },
