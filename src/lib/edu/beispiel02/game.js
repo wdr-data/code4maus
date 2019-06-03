@@ -5,6 +5,7 @@ export default {
     name: 'Maus-Alarm',
     subtitle: 'Füttere den Elefanten',
     image: a000,
+    fetchProject: () => import('./project.json'),
     'slides': [
         {
             'asset': a000,

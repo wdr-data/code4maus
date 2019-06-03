@@ -5,6 +5,7 @@ export default {
     name: 'Luftballon-Spiel',
     subtitle: 'Lauf vor der Ente weg',
     image: a000,
+    fetchProject: () => import('./project.json'),
     'slides': [
         {
             'asset': a000,
