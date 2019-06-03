@@ -5,6 +5,7 @@ export default {
     name: 'Weltraum-Abenteuer',
     subtitle: 'Fange den Elefanten ein',
     image: a000,
+    fetchProject: () => import('./project.json'),
     'slides': [
         {
             'asset': a000,

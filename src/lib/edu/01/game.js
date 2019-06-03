@@ -25,6 +25,7 @@ export default {
     name: 'Die Weltraum-Maus',
     subtitle: 'Bewegung',
     image: aL01,
+    fetchProject: () => import('./project.json'),
     "slides": [
         {
             'asset': aL01,

@@ -5,6 +5,7 @@ export default {
     name: 'Zahlen raten',
     subtitle: 'Errate die geheime Zahl',
     image: a000,
+    fetchProject: () => import('./project.json'),
     'slides': [
         {
             'asset': a000,

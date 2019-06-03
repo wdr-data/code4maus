@@ -36,6 +36,7 @@ export default {
     name: 'Kugelfisch-Spiel',
     subtitle: 'Spiel',
     image: aL05,
+    fetchProject: () => import('./project.json'),
     'slides': [
         {
             'asset': aL05,

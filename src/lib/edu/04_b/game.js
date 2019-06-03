@@ -35,6 +35,7 @@ export default {
     subtitle: 'Verzweigungen',
     image: aMathefant,
     hidden: true,
+    fetchProject: () => import('./project.json'),
     'slides': [
         {
             'asset': aMathefant,

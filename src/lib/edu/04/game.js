@@ -26,6 +26,7 @@ export default {
     name: 'Wimmelbild',
     subtitle: 'Mehr Figuren',
     image: aL04,
+    fetchProject: () => import('./project.json'),
     "slides": [
         {
             'asset': aL04,

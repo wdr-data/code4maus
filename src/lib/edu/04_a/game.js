@@ -25,6 +25,7 @@ export default {
     subtitle: 'Listen & Abfrage',
     image: aStadtLandEnte,
     hidden: true,
+    fetchProject: () => import('./project.json'),
     'slides': [
         {
             'asset': aStadtLandEnte,
