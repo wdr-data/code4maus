@@ -32,6 +32,9 @@ import a20 from './assets/20.jpg';
 import a17 from './assets/17.mp4';
 
 export default {
+    id: '07',
+    hidden: true,
+    fetchProject: () => import('./project.json'),
     'slides': [
         {
             'caption': 'Tiere raten',
