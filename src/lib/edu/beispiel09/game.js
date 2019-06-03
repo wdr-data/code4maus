@@ -5,6 +5,7 @@ export default {
     name: 'Schlaue Maus',
     subtitle: 'Die Maus findet deine Zahl',
     image: a000,
+    fetchProject: () => import('./project.json'),
     'slides': [
         {
             'asset': a000,

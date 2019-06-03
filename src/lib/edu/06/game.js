@@ -9,6 +9,7 @@ export default {
     name: '#MausArt',
     subtitle: 'Kunst mit Maus und Code',
     image: aL00,
+    fetchProject: () => import('./project.json'),
     'slides': [
         {
             'asset': aL00,
