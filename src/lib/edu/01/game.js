@@ -23,7 +23,7 @@ import a004 from './assets/004.jpg';
 export default {
     id: '01',
     name: 'Die Weltraum-Maus',
-    subtitle: '01 Bewegung',
+    subtitle: 'Bewegung',
     image: aL01,
     "slides": [
         {
@@ -145,7 +145,7 @@ export default {
         },
         {
             'category': 'events',
-            'blocks': [ 'whenflagclicked' ],
+            'blocks': ['whenflagclicked'],
         },
         {
             'category': 'control',

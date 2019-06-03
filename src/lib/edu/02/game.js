@@ -13,7 +13,7 @@ import asuper from '../shared_assets/super.png';
 export default {
     id: '02',
     name: 'Die Maus blinzelt',
-    subtitle: '02 Trickfilm',
+    subtitle: 'Trickfilm',
     image: aL02,
     "slides": [
         {
@@ -77,15 +77,15 @@ export default {
         },
         {
             'category': 'looks',
-            'blocks': [ 'nextcostume' ],
+            'blocks': ['nextcostume'],
         },
         {
             'category': 'sound',
-            'blocks': [ 'playuntildone' ],
+            'blocks': ['playuntildone'],
         },
         {
             'category': 'events',
-            'blocks': [ 'whenflagclicked' ],
+            'blocks': ['whenflagclicked'],
         },
         {
             'category': 'control',
