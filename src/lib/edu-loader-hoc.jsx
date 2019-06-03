@@ -21,12 +21,10 @@ const EduLoaderHOC = (WrappedComponent) => {
             }
         }
         componentWillUnmount() {
-            this.props.dispatch(loadGame(null, null));
+            this.props.dispatch(loadGame(null));
         }
         async loadGame(id) {
-            const gameText = await (await fetch(`/edu/${id}/game.yml`)).text();
-            const game = yaml.safeLoad(gameText);
-            this.props.dispatch(loadGame(id, game));
+            this.props.dispatch(loadGame(id));
         }
         render() {
             const {
@@ -50,7 +48,7 @@ const EduLoaderHOC = (WrappedComponent) => {
         enabled: state.scratchGui.eduLayer.enabled,
         router: {
             view: state.router.result ? state.router.result.view : '',
-            params: state.router.params || {},
+            params: state.router.params || {},
         },
     }))(EduLoaderComponent);
 };

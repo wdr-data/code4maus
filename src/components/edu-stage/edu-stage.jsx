@@ -62,8 +62,9 @@ const EduStageComponent = (props) => !props.isEnabled ? null :
                 </Button>
                 <p>{props.slideIndex + 1}/{props.slideCount}</p>
                 <Button
-                    arrowRight style='primary' wiggle={props.slideIndex === 0}
+                    arrowRight style='primary' wiggle={props.slideIndex === 0 && !props.finished}
                     onClick={props.nextSlide}
+                    disabled={props.finished}
                 >
                     {!props.linkNextGame ? 'Weiter' : 'Nächstes Lernspiel'}
                 </Button>
@@ -85,12 +86,13 @@ EduStageComponent.propTypes = {
     slideCount: PropTypes.number,
     slideIndex: PropTypes.number,
     toggleFullscreen: PropTypes.func.isRequired,
+    finished: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => {
     const base = {
         slideIndex: state.scratchGui.eduLayer.index,
-        slideCount: state.scratchGui.eduLayer.size,
+        slideCount: 0,
         isFullscreen: state.scratchGui.eduLayer.isFullscreen,
         isEnabled: state.scratchGui.eduLayer.enabled,
         imageSrc: '',
@@ -107,10 +109,12 @@ const mapStateToProps = (state) => {
     return {
         ...base,
         imageSrc: slide.asset,
+        slideCount: spec.slides.length,
         caption: slide.caption || '',
         isDimmed: !!slide.dim,
-        linkNextGame: spec.nextGame && base.slideIndex >= base.slideCount - 1,
+        linkNextGame: spec.nextGame && base.slideIndex >= spec.slides.length - 1,
         nextGame: spec.nextGame || '',
+        finished: !spec.nextGame && base.slideIndex >= spec.slides.length - 1,
     };
 };
 
