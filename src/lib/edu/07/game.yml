@@ -1,0 +1,86 @@
+# Tiere raten
+
+---
+
+slides:
+  - asset:
+    caption:
+  - asset: 00.png
+    caption: "Ein Kind denkt sich 3 Tiere aus..."
+  - asset: 001.png
+    caption: "... und ein zweites muss sie erraten."
+  - asset: 1.png
+    caption: "Klicke auf Variablen."
+  - asset: 1.mp4
+    caption: "Erstelle zwei neue Listen. Nenne sie 'Wörter'..."
+  - asset: 2.mp4
+    caption: "und 'Geraten'."
+  - asset: 3.mp4
+    caption: "Füge eine neue Variable hinzu. Nenne sie 'A-Z'."
+  - asset: 2.png
+    caption: "Baue diesen Block."
+  - asset: 3.png
+    caption: "Klicke auf Operatoren."
+  - asset: 3.1.mp4
+    caption: "Ändere 'meine Variable zu 'A-Z' und füge den Block 'Zwischen ... und ...' hinzu'."
+  - asset: 5.1.png
+    caption: "Diese Buchstaben können vorkommen."
+  - asset: 5.2.png
+    caption: "Der Buchstabe wird zufällig ausgewählt, ändere die Zahl 10 zu 6."
+  - asset: 6.1.png
+    caption: "Wiederhole bis..."
+  - asset: 4.1.mp4
+    caption: "... die Liste der Wörter gleich 3 ist."
+  - asset: 6.2.png
+    caption: "Bei 'Fühlen': 'Frage ... und warte'"
+  - asset: 6.4.png
+    caption: "Verbinde 'Ein Tier mit ' und die Variable 'A-Z'."
+  - asset: 6.5.png
+    caption: "Füge 'Ding' zu 'Geraten' hinzu."
+  - asset: 6.6.png
+    caption: "Ersetze 'Ding' durch 'Antwort'."
+  - asset:
+    caption: "Probier mal!"
+  - asset: 7.png
+    caption: "Baue ein zweites Programm,"
+  - asset: 9.1.png
+    caption: "... damit das zweite Kind raten kann."
+  - asset: 10.1.mp4
+    caption: "So soll die Frage aussehen."
+  - asset: 10.2.mp4
+    caption: "Für die Antwort: Ziehe 'Enthält' rein."
+  - asset: 10.3.mp4
+    caption: "Und 'Antwort' aus der Kategorie 'Fühlen'"
+  - asset: 11.mp4
+    caption: "Wurde richtig geraten? Wenn ja:"
+  - asset: 12.png
+    caption: "Die Antwort wird in die 'Geraten' Liste geschrieben."
+  - asset: 13.png
+    caption: "Wenn die Antwort falsch ist:"
+  - asset: 14.png
+    caption: "Teste dein Programm."
+  - asset:
+    caption: "Man kann nur einmal raten!"
+  - asset: 15.1.mp4
+    caption: "Benutze 'Wiederhole bis'"
+  - asset: 15.2.png
+    caption: "Ziehe den 'x = 100' Operator rein."
+  - asset: 16.png
+    caption: "Ziehe 2 mal 'Länge von' dazu."
+  - asset: 15.3.mp4
+    caption: "So werden die Listen verglichen."
+  - asset: 17.1.mp4
+    caption: "Ziehe 'sage' ganz nach unten."
+  - asset: 17.2.png
+    caption: "Ändere den Text."
+  - asset: 19.png
+    caption: "Ziehe 'zeige' und 'verstecke' in dein Programm."
+  - asset: 20.png
+    caption: "Ziehe 2 mal 'lösche alles' rein."
+  - caption: "So könnt ihr immer wieder spielen."
+  - asset: 16.mp4
+    caption: "Spieler 1 klickt auf > und schreibt 3 Tiere in die Liste."
+  - asset: 17.mp4
+    caption: "Spieler 2 klickt auf die Ente und muss raten."
+  - asset:
+    caption: "Viel Spaß beim Spielen!"
