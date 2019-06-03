@@ -29,13 +29,15 @@ if (process.argv.length > 2 && process.argv[2] !== '') {
     binPath = process.argv[2];
 }
 
-try {
-    const binStat = fs.statSync(binPath);
-    if (!binStat.isFile) {
-        throw new Error('Acrobat Reader executable is not a file!');
+if (process.platform === 'win32') {
+    try {
+        const binStat = fs.statSync(binPath);
+        if (!binStat.isFile) {
+            throw new Error('Acrobat Reader executable is not a file!');
+        }
+    } catch (err) {
+        console.error(`Acrobat Reader is required at ${binPath}!`, 'Failed with:', err);
     }
-} catch (err) {
-    console.error(`Acrobat Reader is required at ${binPath}!`, 'Failed with:', err);
 }
 
 const printWin = async (filepath) => new Promise((res, rej) => {
