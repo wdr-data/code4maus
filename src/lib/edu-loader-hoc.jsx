@@ -2,8 +2,6 @@ import { Views } from './routing';
 import { connect } from 'react-redux';
 import React from 'react';
 import { loadGame } from '../reducers/edu-layer';
-import { setProjectId } from '../reducers/project';
-import yaml from 'js-yaml';
 
 const EduLoaderHOC = (WrappedComponent) => {
     class EduLoaderComponent extends React.Component {
