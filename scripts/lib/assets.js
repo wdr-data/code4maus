@@ -62,8 +62,9 @@ const getProjectContent = function() {
             (projectPath) => extractAssetsFromProject(projectPath)
         )))
         .then((projectResults) => projectResults.reduce(
-            (prev, current) => prev.concat(current), [])
-        );
+            (prev, current) => prev.concat(current),
+            [],
+        ));
 };
 
 function getAllAssets() {
