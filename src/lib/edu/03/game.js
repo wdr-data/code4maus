@@ -1,7 +1,7 @@
 import aL03 from './assets/L03.png';
-import a001 from '../shared_assets/start.jpg';
+import a001 from './assets/001.jpg';
 import ax001 from './assets/x001.jpg';
-import a003 from '../shared_assets/start.jpg';
+import a003 from './assets/003.jpg';
 import astart from '../shared_assets/start.jpg';
 import astop from '../shared_assets/stop.png';
 import a004 from './assets/004.jpg';
@@ -15,7 +15,7 @@ import ax004 from './assets/x004.jpg';
 import ax005 from './assets/x005.jpg';
 import ax007 from './assets/x007.jpg';
 import ax14 from './assets/x14.jpg';
-import agut_gemacht from './assets/gut_gemacht.jpg';
+import agut_gemacht from '../shared_assets/gut_gemacht.png';
 import aspeichern from '../shared_assets/speichern.jpg';
 import asuper from '../shared_assets/super.png';
 
