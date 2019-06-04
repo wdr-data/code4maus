@@ -42,7 +42,9 @@ class MobileScreen extends React.Component {
         }
 
         return ReactDOM.createPortal(
-            <LazyRender promise={import('../components/mobile-screen/mobile-screen.jsx')} />,
+            <LazyRender promise={
+                import('../components/mobile-screen/mobile-screen.jsx' /* webpackChunkName: "mobile-screen" */)
+            } />,
             this.el,
         );
     }
