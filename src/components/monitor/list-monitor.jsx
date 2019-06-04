@@ -32,7 +32,7 @@ const ListMonitor = ({ draggable, label, width, height, value, onResizeMouseDown
                 {'+' /* TODO waiting on asset */}
             </div>
             <div className={styles.footerLength}>
-                {`length ${value.length}`}
+                {`Länge ${value.length}`}
             </div>
             <div
                 className={classNames(styles.resizeHandle, 'no-drag')}
