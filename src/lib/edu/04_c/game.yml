@@ -10,7 +10,7 @@ slides:
   - asset: steuerung.png
     caption: "Klicke auf Steuerung"
   - asset: z08.png
-    caption: "Füge ein Programm hinzu"
+    caption: "Füge ein drittes Programm hinzu"
   - asset: z01.png
     caption: "Dazu 'für immer' und 'gehe'"
   - asset: z02.png
@@ -27,8 +27,6 @@ slides:
     caption: "Ändere die Größe..."
   - asset: v01.png
     caption: "Elefant, Ente? Klicke links auf 'nächstes Kostüm'"
-  - asset: drucken_lsd.png
-    caption: "Drucke oder teile dein Werk!"
 
 nextGame: '01'
 
