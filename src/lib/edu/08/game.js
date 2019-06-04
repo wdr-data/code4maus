@@ -3,7 +3,7 @@ import a12 from './assets/12.png';
 import a01 from './assets/01.png';
 import a01_1 from './assets/01_1.png';
 import avariablen_hand from './assets/variablen_hand.png';
-import a02 from './assets/02.png';
+import a02 from '../shared_assets/variablen_hand.png';
 import a03_1 from './assets/03_1.png';
 import a03_02 from './assets/03_02.png';
 import a05 from './assets/05.png';
@@ -48,6 +48,7 @@ import a36 from './assets/36.png';
 import a37 from './assets/37.png';
 import a38 from './assets/38.png';
 import a39 from './assets/39.png';
+import aStern from '../shared_assets/super.png';
 
 export default {
     id: '08',
@@ -172,11 +173,11 @@ export default {
         },
         {
             'asset': a02,
-            'caption': '.... Zeit gleich...',
+            'caption': 'Klicke auf Variablen',
         },
         {
             'asset': a18,
-            'caption': '... null ist',
+            'caption': 'Ziehe "Zeit" rein und ändere zu "= 0"',
         },
         {
             'asset': a19,
@@ -303,7 +304,7 @@ export default {
             'caption': 'Teste die Abfrage',
         },
         {
-            'asset': 'abeispiel-stern',
+            'asset': aStern,
             'caption': 'Top. Jetzt noch testen, ob die Wörter mit dem richtigen Buchstaben anfangen.',
         },
         {
