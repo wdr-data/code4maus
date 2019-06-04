@@ -53,7 +53,7 @@ import aStern from '../shared_assets/super.png';
 export default {
     id: '08',
     name: 'Stadt-Land-Ente',
-    subtitle: '',
+    subtitle: 'Wort-Spiel',
     image: aStadtLandEnte,
     fetchProject: () => import('./project.json'),
     'slides': [
