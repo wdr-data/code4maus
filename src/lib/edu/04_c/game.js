@@ -1,4 +1,4 @@
-import aL007 from './assets/L007.png';
+import aL007 from './assets/L007.jpg';
 import astart from '../shared_assets/start.jpg';
 import astop from '../shared_assets/stop.png';
 import asteuerung from '../shared_assets/steuerung.jpg';
@@ -9,7 +9,6 @@ import az03 from './assets/z03.jpg';
 import az05 from './assets/z05.jpg';
 import az06 from './assets/z06.jpg';
 import av01 from './assets/v01.jpg';
-import adrucken_lsd from './assets/drucken_lsd.jpg';
 
 export default {
     id: '04_c',
@@ -36,7 +35,7 @@ export default {
         },
         {
             'asset': az08,
-            'caption': 'Füge ein Programm hinzu',
+            'caption': 'Füge ein drittes Programm hinzu',
         },
         {
             'asset': az01,
@@ -70,10 +69,6 @@ export default {
             'asset': av01,
             'caption': "Elefant, Ente? Klicke links auf 'nächstes Kostüm'",
         },
-        {
-            'asset': adrucken_lsd,
-            'caption': 'Drucke oder teile dein Werk!',
-        },
     ],
     'nextGame': '01',
     'blocks': [
@@ -101,7 +96,7 @@ export default {
         },
         {
             'category': 'events',
-            'blocks': ['whenflagclicked'],
+            'blocks': [ 'whenflagclicked' ],
         },
         {
             'category': 'control',
@@ -116,7 +111,7 @@ export default {
         },
         {
             'category': 'sensing',
-            'blocks': ['touchingobject'],
+            'blocks': [ 'touchingobject' ],
         },
     ],
 };
