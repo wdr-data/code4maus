@@ -1,18 +1,17 @@
-import aL00 from '../shared_assets/L00.png';
+import title from './assets/000.png';
 import astart_blume from './assets/start_blume.jpg';
 import astart from '../shared_assets/start.jpg';
 import a001 from './assets/001.jpg';
-import adrucken from './assets/drucken.jpg';
 
 export default {
     id: '06',
     name: '#MausArt',
     subtitle: 'Kunst mit Maus und Code',
-    image: aL00,
+    image: title,
     fetchProject: () => import('./project.json'),
     'slides': [
         {
-            'asset': aL00,
+            'asset': title,
             'caption': 'Willkommen zu Programmieren mit der Maus. Klicke weiter.',
         },
         {
