@@ -57,7 +57,7 @@
 }
 
 .wrapper :global(.source)  {
-    color: transparent;
+    display: none;
 }
 
 .wrapper :global(.run) img {
@@ -67,5 +67,6 @@
 
 .wrapper :global(.logo-row) {
     display: flex;
-    align-items: center
+    align-items: center;
+    margin-bottom: 3rem;
 }
