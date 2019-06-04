@@ -1,6 +1,6 @@
 import aL02 from './assets/L02.png';
 import aa from './assets/a.mp4';
-import a001 from '../shared_assets/start.jpg';
+import a001 from './assets/001.jpg';
 import afrage from '../shared_assets/frage.jpg';
 import ad from './assets/d.mp4';
 import ax002 from './assets/x002.jpg';
