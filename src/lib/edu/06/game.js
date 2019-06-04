@@ -27,10 +27,6 @@ export default {
             'asset': a001,
             'caption': 'Ändere die Zahlen für Größe, Farbe und Anzahl der Blätter:',
         },
-        {
-            'asset': adrucken,
-            'caption': 'Drucke oder teile dein Werk!',
-        },
     ],
     'nextGame': '04_c',
 };
