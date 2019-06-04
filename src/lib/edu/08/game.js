@@ -51,7 +51,9 @@ import a39 from './assets/39.png';
 
 export default {
     id: '08',
-    title: 'Stadt-Land-Ente',
+    name: 'Stadt-Land-Ente',
+    subtitle: '',
+    image: aStadtLandEnte,
     fetchProject: () => import('./project.json'),
     'slides': [
         {
