@@ -21,7 +21,7 @@ class ListMonitorScroller extends React.Component {
     noRowsRenderer() {
         return (
             <div className={classNames(styles.listRow, styles.listEmpty)}>
-                {'(leer)' /* TODO waiting for design before translation */}
+                (leer)
             </div>
         );
     }
