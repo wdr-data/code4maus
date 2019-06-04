@@ -213,6 +213,7 @@ module.exports = {
             exclude: [ /\.map$/, /^manifest.*\.js$/, /_redirects$/, /data\/projects\/[^/]+\/index\.json$/, /\/1x1\.gif$/ ],
             clientsClaim: true,
             importScripts: [ 's3-manifest.[hash].js', '/static/sw-helper.js' ],
+            cleanupOutdatedCaches: true,
         }),
         new GenerateS3SWPrecachePlugin({
             filename: 's3-manifest.[hash].js',
