@@ -61,7 +61,11 @@
 }
 
 .wrapper :global(.run) img {
-    width: 30vw;
     padding: 2rem;
-    background-color: white;
+    width: 50%;
+}
+
+.wrapper :global(.logo-row) {
+    display: flex;
+    align-items: center
 }

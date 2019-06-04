@@ -8,7 +8,7 @@ splitSections: true
 ---
 
 ```render html
-<p><img src={planetschule} /><img src={maus} /></p>
+<p className='logo-row'><img src={planetschule} /><img src={maus} /></p>
 ```
 
 Begleitend zu Programmieren mit der Maus gibt es ab Mai 2019 Material von [Planet Schule](https://www.planet-schule.de/) für alle, die mit Kindern programmieren wollen: Für Lehrer*innen, AGs im offenen Ganztag oder für interessierte Erwachsene, die einen Programmiertag an einer Grundschule organisieren möchten.
