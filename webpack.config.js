@@ -214,6 +214,7 @@ module.exports = {
             clientsClaim: true,
             importScripts: [ 's3-manifest.[hash].js', '/static/sw-helper.js' ],
             cleanupOutdatedCaches: true,
+            excludeChunks: [ 'settings', 'sharingpage', 'mobile-screen' ],
         }),
         new GenerateS3SWPrecachePlugin({
             filename: 's3-manifest.[hash].js',
