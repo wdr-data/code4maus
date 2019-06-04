@@ -49,11 +49,11 @@ export default {
         },
         {
             'asset': a1,
-            'caption': 'Klicke auf Variablen.',
+            'caption': 'Klickt auf Variablen.',
         },
         {
             'asset': a1,
-            'caption': "Erstelle zwei neue Listen. Nenne sie 'Wörter'...",
+            'caption': "Erstellt zwei neue Listen. Nennt sie 'Wörter'...",
         },
         {
             'asset': a2,
@@ -61,19 +61,19 @@ export default {
         },
         {
             'asset': a3,
-            'caption': "Füge eine neue Variable hinzu. Nenne sie 'A-Z'.",
+            'caption': "Fügt eine neue Variable hinzu. Nennt sie 'A-Z'.",
         },
         {
             'asset': a2,
-            'caption': 'Baue diesen Block.',
+            'caption': 'Baut diesen Block.',
         },
         {
             'asset': a3,
-            'caption': 'Klicke auf Operatoren.',
+            'caption': 'Klickt auf Operatoren.',
         },
         {
             'asset': a3_1,
-            'caption': "Ändere 'meine Variable zu 'A-Z' und füge den Block 'Zwischen ... und ...' hinzu'.",
+            'caption': "Ändert 'meine Variable zu 'A-Z' und fügt den Block 'Zwischen ... und ...' hinzu'.",
         },
         {
             'asset': a5_1,
@@ -81,11 +81,11 @@ export default {
         },
         {
             'asset': a5_2,
-            'caption': 'Der Buchstabe wird zufällig ausgewählt, ändere die Zahl 10 zu 6.',
+            'caption': 'Der Buchstabe wird zufällig ausgewählt, ändert die Zahl 10 zu 6.',
         },
         {
             'asset': a6_1,
-            'caption': 'Wiederhole bis...',
+            'caption': 'Wiederholt bis...',
         },
         {
             'asset': a4_1,
@@ -97,22 +97,22 @@ export default {
         },
         {
             'asset': a6_4,
-            'caption': "Verbinde 'Ein Tier mit ' und die Variable 'A-Z'.",
+            'caption': "Verbindt 'Ein Tier mit ' und die Variable 'A-Z'.",
         },
         {
             'asset': a6_5,
-            'caption': "Füge 'Ding' zu 'Geraten' hinzu.",
+            'caption': "Fügt 'Ding' zu 'Geraten' hinzu.",
         },
         {
             'asset': a6_6,
-            'caption': "Ersetze 'Ding' durch 'Antwort'.",
+            'caption': "Ersetzt 'Ding' durch 'Antwort'.",
         },
         {
-            'caption': 'Probier mal!',
+            'caption': 'Probiert mal!',
         },
         {
             'asset': a7,
-            'caption': 'Baue ein zweites Programm,',
+            'caption': 'Baut ein zweites Programm,',
         },
         {
             'asset': a9_1,
@@ -124,7 +124,7 @@ export default {
         },
         {
             'asset': a10_2,
-            'caption': "Für die Antwort: Ziehe 'Enthält' rein.",
+            'caption': "Für die Antwort: Zieht 'Enthält' rein.",
         },
         {
             'asset': a10_3,
@@ -144,22 +144,22 @@ export default {
         },
         {
             'asset': a14,
-            'caption': 'Teste dein Programm.',
+            'caption': 'Testet euer Programm.',
         },
         {
             'caption': 'Man kann nur einmal raten!',
         },
         {
             'asset': a15_1,
-            'caption': "Benutze 'Wiederhole bis'",
+            'caption': "Benutzt 'Wiederhole bis'",
         },
         {
             'asset': a15_2,
-            'caption': "Ziehe den 'x = 100' Operator rein.",
+            'caption': "Zieht den 'x = 100' Operator rein.",
         },
         {
             'asset': a16,
-            'caption': "Ziehe 2 mal 'Länge von' dazu.",
+            'caption': "Zieht 2 mal 'Länge von' dazu.",
         },
         {
             'asset': a15_3,
@@ -167,19 +167,19 @@ export default {
         },
         {
             'asset': a17_1,
-            'caption': "Ziehe 'sage' ganz nach unten.",
+            'caption': "Zieht 'sage' ganz nach unten.",
         },
         {
             'asset': a17_2,
-            'caption': 'Ändere den Text.',
+            'caption': 'Ändert den Text.',
         },
         {
             'asset': a19,
-            'caption': "Ziehe 'zeige' und 'verstecke' in dein Programm.",
+            'caption': "Zieht 'zeige' und 'verstecke' in euer Programm.",
         },
         {
             'asset': a20,
-            'caption': "Ziehe 2 mal 'lösche alles' rein.",
+            'caption': "Zieht 2 mal 'lösche alles' rein.",
         },
         {
             'caption': 'So könnt ihr immer wieder spielen.',
