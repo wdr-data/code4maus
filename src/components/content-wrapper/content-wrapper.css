@@ -56,11 +56,11 @@
     padding-top: 0;
 }
 
-.wrapper :global(code)  {
+.wrapper :global(.source)  {
     color: transparent;
 }
 
-.wrapper img {
+.wrapper :global(.run) img {
     width: 30vw;
     padding: 2rem;
     background-color: white;
