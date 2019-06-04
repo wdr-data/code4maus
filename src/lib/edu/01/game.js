@@ -16,7 +16,7 @@ import apeek from './assets/peek.mp4';
 import avergroessern from './assets/vergroessern.jpg';
 import agut_gemacht from '../shared_assets/gut_gemacht.png';
 import an008 from './assets/n008.mp4';
-import a003 from '../shared_assets/start.jpg';
+import a003 from './assets/003.jpg';
 import an009 from './assets/n009.mp4';
 import a004 from './assets/004.jpg';
 

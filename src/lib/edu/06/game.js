@@ -1,7 +1,7 @@
 import aL00 from '../shared_assets/L00.png';
 import astart_blume from './assets/start_blume.jpg';
 import astart from '../shared_assets/start.jpg';
-import a001 from '../shared_assets/start.jpg';
+import a001 from './assets/001.jpg';
 import adrucken from './assets/drucken.jpg';
 
 export default {
