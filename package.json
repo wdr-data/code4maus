@@ -47,7 +47,7 @@
     "@types/node": "^11.11.3",
     "@wdr-data/scratch-audio": "0.1.0-prerelease.20190320154358",
     "@wdr-data/scratch-blocks": "^0.1.8",
-    "@wdr-data/scratch-vm": "0.2.0-minimal-4",
+    "@wdr-data/scratch-vm": "0.2.0-minimal-5",
     "arraybuffer-loader": "^1.0.3",
     "autoprefixer": "^9.5.0",
     "aws-sdk": "^2.423.0",
