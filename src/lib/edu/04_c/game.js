@@ -5,9 +5,9 @@ import asteuerung from '../shared_assets/steuerung.jpg';
 import az08 from './assets/z08.jpg';
 import az01 from './assets/z01.jpg';
 import az02 from './assets/z02.jpg';
-import az03 from './assets/z03.jpg';
-import az05 from './assets/z05.jpg';
-import az06 from './assets/z06.jpg';
+import az03 from './assets/z03.png';
+import az05 from './assets/z05.png';
+import az06 from './assets/z06.png';
 import av01 from './assets/v01.jpg';
 
 export default {
