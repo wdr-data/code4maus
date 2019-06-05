@@ -199,10 +199,6 @@ module.exports = {
                 from: 'static',
                 to: 'static',
             },
-            {
-                from: 'assets/icons',
-                to: 'static/icons',
-            },
         ]),
         new CopyWebpackPlugin([
             {
