@@ -62,7 +62,7 @@ export default {
             'caption': "Ziehe zwei Mal 'setze auf' rüber:",
         },
         {
-            'asset': a01,
+            'asset': b01,
             'caption': "Ändere die 1. Variable zu 'Zahl 1'",
         },
         {
