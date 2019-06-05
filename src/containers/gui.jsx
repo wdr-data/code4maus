@@ -123,7 +123,6 @@ GUI.defaultProps = GUIComponent.defaultProps;
 const mapStateToProps = (state) => ({
     activeTabIndex: state.scratchGui.editorTab.activeTabIndex,
     blocksTabVisible: state.scratchGui.editorTab.activeTabIndex === BLOCKS_TAB_INDEX,
-    cardsVisible: state.scratchGui.cards.visible,
     costumesTabVisible: state.scratchGui.editorTab.activeTabIndex === COSTUMES_TAB_INDEX,
     importInfoVisible: state.scratchGui.modals.importInfo,
     loadingStateVisible: state.scratchGui.modals.loadingProject,
