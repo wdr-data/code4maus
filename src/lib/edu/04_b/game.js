@@ -47,11 +47,11 @@ export default {
         },
         {
             'asset': ap1,
-            'caption': 'Beginne ein Programm',
+            'caption': 'Beginne ein Programm.',
         },
         {
             'asset': avariablen_hand,
-            'caption': 'Klicke auf Variablen',
+            'caption': 'Klicke auf Variablen.',
         },
         {
             'asset': av1,
@@ -63,7 +63,7 @@ export default {
         },
         {
             'asset': b01,
-            'caption': "Ändere die 1. Variable zu 'Zahl 1'",
+            'caption': "Ändere die 1. Variable zu 'Zahl 1'.",
         },
         {
             'asset': a02,
@@ -75,7 +75,7 @@ export default {
         },
         {
             'asset': ay_01,
-            'caption': "Klicke auf 'Aussehen'",
+            'caption': "Klicke auf 'Aussehen'.",
         },
         {
             'asset': ax01_1,
@@ -87,7 +87,7 @@ export default {
         },
         {
             'asset': avariablen_hand,
-            'caption': 'Klicke auf Variablen',
+            'caption': 'Klicke auf Variablen.',
         },
         {
             'asset': a03,
@@ -95,7 +95,7 @@ export default {
         },
         {
             'asset': ay_02,
-            'caption': "Klicke auf 'Fühlen'",
+            'caption': "Klicke auf 'Fühlen'.",
         },
         {
             'asset': a06_2,
@@ -119,7 +119,7 @@ export default {
         },
         {
             'asset': asteuerung,
-            'caption': "Klicke auf 'Steuerung'",
+            'caption': "Klicke auf 'Steuerung'.",
         },
         {
             'asset': ay_04,
@@ -127,7 +127,7 @@ export default {
         },
         {
             'asset': ay_05,
-            'caption': 'Klicke auf Operatoren',
+            'caption': 'Klicke auf Operatoren.',
         },
         {
             'asset': ay_06,
@@ -135,7 +135,7 @@ export default {
         },
         {
             'asset': ay_02,
-            'caption': "Klicke auf 'Fühlen'",
+            'caption': "Klicke auf 'Fühlen'.",
         },
         {
             'asset': ay_07,
@@ -147,7 +147,7 @@ export default {
         },
         {
             'asset': avariablen_hand,
-            'caption': 'Klicke auf Variablen',
+            'caption': 'Klicke auf Variablen.',
         },
         {
             'asset': ay_09,
@@ -175,7 +175,7 @@ export default {
         },
         {
             'asset': ay_05,
-            'caption': 'Klicke auf Operatoren',
+            'caption': 'Klicke auf Operatoren.',
         },
         {
             'asset': ay_013,
