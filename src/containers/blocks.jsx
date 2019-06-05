@@ -18,6 +18,7 @@ import { updateToolbox } from '../reducers/toolbox';
 import { activateColorPicker } from '../reducers/color-picker';
 import { closeExtensionLibrary } from '../reducers/modals';
 import { activateCustomProcedures, deactivateCustomProcedures } from '../reducers/custom-procedures';
+import { gamesKeyed } from '../lib/edu';
 
 const addFunctionListener = (object, property, callback) => {
     const oldFn = object[property];
@@ -115,7 +116,7 @@ class Blocks extends React.Component {
             });
         }
 
-        if (prevProps.customBlocks !== this.props.customBlocks) {
+        if (prevProps.gameId !== this.props.gameId) {
             const target = this.props.vm.editingTarget;
             this.updateToolboxXml(target);
         }
@@ -224,7 +225,11 @@ class Blocks extends React.Component {
 
     updateToolboxXml(target) {
         const dynamicBlocksXML = this.props.vm.runtime.getBlocksXML();
-        const toolboxXML = makeToolboxXML(target.isStage, target.id, dynamicBlocksXML, this.props.customBlocks);
+        let customBlocks = null;
+        if (this.props.gameId && this.props.gameId in gamesKeyed) {
+            customBlocks = gamesKeyed[this.props.gameId].blocks;
+        }
+        const toolboxXML = makeToolboxXML(target.isStage, target.id, dynamicBlocksXML, customBlocks);
         this.props.updateToolboxState(toolboxXML);
     }
 
@@ -362,7 +367,7 @@ class Blocks extends React.Component {
             onRequestCloseCustomProcedures,
             layoutMode,
             toolboxXML,
-            customBlocks,
+            gameId,
             ...props
         } = this.props;
         /* eslint-enable no-unused-vars */
@@ -439,10 +444,7 @@ Blocks.propTypes = {
     toolboxXML: PropTypes.string,
     updateToolboxState: PropTypes.func,
     vm: PropTypes.instanceOf(VM).isRequired,
-    customBlocks: PropTypes.arrayOf(PropTypes.shape({
-        category: PropTypes.string.isRequired,
-        blocks: PropTypes.arrayOf(PropTypes.string).isRequired,
-    })),
+    gameId: PropTypes.string,
 };
 
 Blocks.defaultOptions = {
@@ -488,7 +490,7 @@ const mapStateToProps = (state) => ({
     toolboxXML: state.scratchGui.toolbox.toolboxXML,
     customProceduresVisible: state.scratchGui.customProcedures.active,
     layoutMode: state.scratchGui.layoutMode,
-    customBlocks: state.scratchGui.project.customBlocks,
+    gameId: state.scratchGui.eduLayer.gameId,
 });
 
 const mapDispatchToProps = (dispatch) => ({
