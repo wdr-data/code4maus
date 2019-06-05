@@ -7,7 +7,7 @@ import agut_gemacht from '../shared_assets/gut_gemacht.jpg';
 export default {
     id: '00',
     name: 'Hallo Welt',
-    subtitle: 'Erste Schritte',
+    subtitle: 'Video: Erste Schritte',
     image: aL00,
     fetchProject: () => import('./project.json'),
     'slides': [
