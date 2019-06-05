@@ -1,3 +1,4 @@
+import beispiel00 from './beispiel00/game.js';
 import beispiel01 from './beispiel01/game.js';
 import beispiel02 from './beispiel02/game.js';
 import beispiel07 from './beispiel07/game.js';
@@ -8,6 +9,7 @@ import beispiel04 from './beispiel04/game.js';
 import beispiel09 from './beispiel09/game.js';
 
 const examples = [
+    beispiel00,
     beispiel01,
     beispiel02,
     beispiel07,
