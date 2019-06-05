@@ -1,7 +1,7 @@
 import aStadtLandEnte from './assets/StadtLandEnte.png';
 import a12 from './assets/12.jpg';
 import a02 from '../shared_assets/variablen_hand.png';
-import b02 from './assets/02.jpg'
+import b02 from './assets/02.jpg';
 import a03_1 from './assets/03_1.jpg';
 import a03_02 from './assets/03_02.jpg';
 import a03 from './assets/03.jpg';
@@ -42,7 +42,7 @@ import a31 from './assets/31.jpg';
 import a32 from './assets/32.jpg';
 import a33_1 from './assets/33_1.jpg';
 import a33_2 from './assets/33_2.jpg';
-import aq1 from './assets/q1.gif';
+import aq1 from './assets/q1.mp4';
 import a36 from './assets/36.jpg';
 import a37 from './assets/37.jpg';
 import a38 from './assets/38.jpg';
