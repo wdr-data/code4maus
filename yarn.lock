@@ -1742,10 +1742,10 @@
     minilog "^3.0.1"
     startaudiocontext "1.2.1"
 
-"@wdr-data/scratch-blocks@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-blocks/-/scratch-blocks-0.1.7.tgz#9c25105d34102b240dfa79853ec62590cb87c90e"
-  integrity sha512-9sAS+S+frS0LPOD4I1/6Wv/RIjdbdpePiqCBSdfb77Jlz9gjy+o+PmNfHkXlVlZG44143KREVI9T721ne/EmAQ==
+"@wdr-data/scratch-blocks@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-blocks/-/scratch-blocks-0.1.8.tgz#32bf2528a4f76c72ad89cfe807035e12bcbde676"
+  integrity sha512-lBGBz4SfikYVNWA0w6fAWDngoAj48YqlOIKmKn5m9zIn8oHVSOuRItMDDBEfl5Ns9TmjaCIj4lCF0lXRzWD8lg==
   dependencies:
     exports-loader "0.6.3"
     imports-loader "0.6.5"
