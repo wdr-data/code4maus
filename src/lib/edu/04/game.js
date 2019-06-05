@@ -11,15 +11,15 @@ import ablitz from './assets/blitz.png';
 import an01 from './assets/n01.jpg';
 import ax01 from './assets/x01.jpg';
 import a19 from './assets/19.mp4';
-import aherz from '../shared_assets/herz.png';
+import aherz from '../shared_assets/herz.jpg';
 import ax02 from './assets/x02.jpg';
 import ax03 from './assets/x03.jpg';
 import a007 from './assets/007.jpg';
 import ax04 from './assets/x04.jpg';
-import agut_gemacht from '../shared_assets/gut_gemacht.png';
+import agut_gemacht from '../shared_assets/gut_gemacht.jpg';
 import ax05 from './assets/x05.jpg';
 import aspeichern from '../shared_assets/speichern.jpg';
-import asuper from '../shared_assets/super.png';
+import asuper from '../shared_assets/super.jpg';
 
 export default {
     id: '04',

@@ -28,7 +28,7 @@ import ay_011 from './assets/y_011.jpg';
 import ay_012 from './assets/y_012.jpg';
 import a04 from './assets/04.mp4';
 import ay_013 from './assets/y_013.jpg';
-import aherz from '../shared_assets/herz.png';
+import aherz from '../shared_assets/herz.jpg';
 
 export default {
     id: '04_b',
