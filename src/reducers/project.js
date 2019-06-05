@@ -37,16 +37,6 @@ export default function(state = initialState, action) {
             ...state,
             customBlocks: action.blocks,
         };
-    case LOAD_GAME:
-        if (action.gameId === null ||
-            action.gameSpec === null ||
-            typeof action.gameSpec !== 'object') {
-            return state;
-        }
-        return {
-            ...state,
-            customBlocks: action.gameSpec.blocks || null,
-        };
     case LOCATION_CHANGED:
         if (action.payload.result && action.payload.result.view === Views.edu) {
             return {
