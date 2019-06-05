@@ -29,7 +29,7 @@ import ac from './assets/c.jpg';
 import a20_2 from './assets/20_2.png';
 import a21 from './assets/21.jpg';
 import aherz from '../shared_assets/herz.png';
-import ak3 from './assets/k3.png';
+import ak3 from './assets/k3.jpg';
 import a23 from './assets/23.jpg';
 import a24 from './assets/24.jpg';
 import a25 from './assets/25.jpg';
