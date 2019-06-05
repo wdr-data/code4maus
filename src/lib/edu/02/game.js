@@ -8,7 +8,7 @@ import ax003 from './assets/x003.jpg';
 import a003 from '../shared_assets/start.jpg';
 import ax004 from './assets/x004.jpg';
 import ax005 from './assets/x005.jpg';
-import asuper from '../shared_assets/super.png';
+import asuper from '../shared_assets/super.jpg';
 
 export default {
     id: '02',
