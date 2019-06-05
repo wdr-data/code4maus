@@ -1,5 +1,6 @@
 import aMathefant from './assets/Mathefant.png';
 import a01 from './assets/01.jpg';
+import b01 from './assets/01.mp4';
 import ap1 from './assets/p1.jpg';
 import avariablen_hand from './assets/variablen_hand.jpg';
 import av1 from './assets/v1.mp4';
