@@ -117,6 +117,13 @@ module.exports = {
                 test: /\.(png|wav|gif|jpg|mp4)$/,
                 loader: 'file-loader',
                 options: {
+                    name: (file) => {
+                        const matches = file.match(/\/src\/lib\/edu\/([a-zA-Z0-9]+)\//);
+                        if (matches !== null) {
+                            return `edu/${matches[1]}/[hash].[ext]`;
+                        }
+                        return '[hash].[ext]';
+                    },
                     outputPath: 'static/assets/',
                 },
             },
@@ -211,7 +218,14 @@ module.exports = {
             importWorkboxFrom: 'local',
             navigateFallback: '/index.html',
             navigateFallbackBlacklist: [ /^\/data\// ],
-            exclude: [ /\.map$/, /^manifest.*\.js$/, /_redirects$/, /data\/projects\/[^/]+\/index\.json$/, /\/1x1\.gif$/ ],
+            exclude: [
+                /\.map$/,
+                /^manifest.*\.js$/,
+                /_redirects$/,
+                /data\/projects\/[^/]+\/index\.json$/,
+                /\/1x1\.gif$/,
+                /^static\/assets\/edu\/beispiel/,
+            ],
             clientsClaim: true,
             importScripts: [ 's3-manifest.[hash].js', '/static/sw-helper.js' ],
             cleanupOutdatedCaches: true,
