@@ -1,8 +1,8 @@
-import aL00 from '../shared_assets/L00.png';
+import aL00 from '../shared_assets/L00.jpg';
 import ahand from './assets/hand.jpg';
 import aa from './assets/a.mp4';
 import ab from './assets/b.mp4';
-import agut_gemacht from '../shared_assets/gut_gemacht.png';
+import agut_gemacht from '../shared_assets/gut_gemacht.jpg';
 
 export default {
     id: '00',
