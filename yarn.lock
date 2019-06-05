@@ -1750,10 +1750,10 @@
     exports-loader "0.6.3"
     imports-loader "0.6.5"
 
-"@wdr-data/scratch-vm@0.2.0-minimal-4":
-  version "0.2.0-minimal-4"
-  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-vm/-/scratch-vm-0.2.0-minimal-4.tgz#6a9546294c133999a7d09169bed46830b71d305a"
-  integrity sha512-eprG2A60i0OKZNST8LPPJYTytTW6hMM+VEi94Pewda42ClwZxtNW8Fu+5Wg7ZsfiaIOugTPVxJwO+tB2ZyYN4A==
+"@wdr-data/scratch-vm@0.2.0-minimal-5":
+  version "0.2.0-minimal-5"
+  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-vm/-/scratch-vm-0.2.0-minimal-5.tgz#80efe2fd21e79f5f3024a9f81de239b6218a98dd"
+  integrity sha512-3sGOWKDIiPRpwAps58kXiaMVDNj9N2DRyucbwxjnBeJRSjvQVakirkDbbMB9auEqjDVQvEVlruky10pMWINbZg==
   dependencies:
     "@vernier/godirect" "1.4.1"
     arraybuffer-loader "^1.0.6"
@@ -1770,7 +1770,6 @@
     minilog "3.1.0"
     nets "3.2.0"
     scratch-parser "4.3.3"
-    scratch-sb1-converter "0.2.5"
     scratch-translate-extension-languages "0.0.20181205140428"
     socket.io-client "2.0.4"
     text-encoding "0.6.4"
@@ -12592,15 +12591,6 @@ scratch-render@0.1.0-prerelease.20181102130522:
     scratch-svg-renderer "0.2.0-prerelease.20181024192149"
     twgl.js "4.4.0"
 
-scratch-sb1-converter@0.2.5:
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/scratch-sb1-converter/-/scratch-sb1-converter-0.2.5.tgz#fbc06b092e1474d5c7d080915e994e455325700a"
-  integrity sha512-3eNmpCu/3Z0trg5A8WE9hohtdmJif44ihOi3nMfp5NQ4RnTXHobtBWWTV2HSvMSm8f54vfp04Us5zSNu+kmO9A==
-  dependencies:
-    js-md5 "0.7.3"
-    minilog "3.1.0"
-    text-encoding "^0.6.4"
-
 scratch-storage@1.2.2, scratch-storage@^1.0.0:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/scratch-storage/-/scratch-storage-1.2.2.tgz#65f2fec049b6fe1106ff86fcfd51f71c105e7356"
@@ -13888,7 +13878,7 @@ test-exclude@^5.0.0:
     read-pkg-up "^4.0.0"
     require-main-filename "^1.0.1"
 
-text-encoding@0.6.4, text-encoding@^0.6.4:
+text-encoding@0.6.4:
   version "0.6.4"
   resolved "https://registry.yarnpkg.com/text-encoding/-/text-encoding-0.6.4.tgz#e399a982257a276dae428bb92845cb71bdc26d19"
   integrity sha1-45mpgiV6J22uQou5KEXLcb3CbRk=
