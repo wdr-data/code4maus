@@ -43,7 +43,7 @@ import a31 from './assets/31.png';
 import a32 from './assets/32.png';
 import a33_1 from './assets/33_1.png';
 import a33_2 from './assets/33_2.png';
-import aq1 from './assets/q1.gif';
+import aq1 from './assets/q1.mp4';
 import a36 from './assets/36.png';
 import a37 from './assets/37.png';
 import a38 from './assets/38.png';
