@@ -2,12 +2,15 @@ const SET_ENABLED = 'scratch-gui/offline/SET_ENABLED';
 const START_INSTALL = 'scratch-gui/offline/START_INSTALL';
 const FAIL_INSTALL = 'scratch-gui/offline/FAIL_INSTALL';
 const SET_INSTALLED = 'scratch-gui/offline/SET_INSTALLED';
+const SET_ONLINE = 'scratch-gui/offline/SET_ONLINE';
+const SET_OFFLINE = 'scratch-gui/offline/SET_OFFLINE';
 
 const initialState = {
     enabled: !!localStorage.getItem('offline-install'),
     installing: false,
     installError: null,
     installed: false,
+    online: 'onLine' in navigator ? navigator.onLine : true,
 };
 
 const reducer = function(state, action) {
@@ -44,6 +47,16 @@ const reducer = function(state, action) {
             installing: false,
             installed: true,
         };
+    case SET_ONLINE:
+        return {
+            ...state,
+            online: true,
+        };
+    case SET_OFFLINE:
+        return {
+            ...state,
+            online: false,
+        };
     default:
         return state;
     }
@@ -75,6 +88,18 @@ const setInstalled = function() {
     };
 };
 
+const setOnline = function() {
+    return {
+        type: SET_ONLINE,
+    };
+};
+
+const setOffline = function() {
+    return {
+        type: SET_OFFLINE,
+    };
+};
+
 export {
     reducer as default,
     initialState as offlineInitialState,
@@ -82,4 +107,6 @@ export {
     setInstalled,
     startInstall,
     failInstall,
+    setOnline,
+    setOffline,
 };

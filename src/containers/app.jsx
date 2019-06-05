@@ -14,7 +14,7 @@ import withTracking from '../lib/tracking-hoc.jsx';
 import localeDe from '../../translations/de.json';
 import storage, { s3userFile } from '../lib/storage';
 import { setUserId } from '../reducers/project';
-import { startInstall, failInstall, setInstalled } from '../reducers/offline';
+import { startInstall, failInstall, setInstalled, setOnline, setOffline } from '../reducers/offline';
 
 import Menu from './menu.jsx';
 import WelcomeScreen from './welcome-screen.jsx';
@@ -50,6 +50,14 @@ class App extends Component {
         }
         this.ensureUserId();
         this.maybeRedirectWelcome();
+
+        window.addEventListener('online', this.props.setOnline, false);
+        window.addEventListener('offline', this.props.setOffline, false);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('online', this.props.setOnline, false);
+        window.removeEventListener('offline', this.props.setOffline, false);
     }
 
     componentDidUpdate(prevProps) {
@@ -173,6 +181,8 @@ App.propTypes = {
     startInstall: PropTypes.func.isRequired,
     failInstall: PropTypes.func.isRequired,
     setInstalled: PropTypes.func.isRequired,
+    setOnline: PropTypes.func.isRequired,
+    setOffline: PropTypes.func.isRequired,
 };
 
 const ConnectedApp = connect(
@@ -190,6 +200,8 @@ const ConnectedApp = connect(
         startInstall: () => dispatch(startInstall()),
         failInstall: (e) => dispatch(failInstall(e)),
         setInstalled: () => dispatch(setInstalled()),
+        setOnline: () => dispatch(setOnline()),
+        setOffline: () => dispatch(setOffline()),
     }),
 )(App);
 

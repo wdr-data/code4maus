@@ -87,6 +87,7 @@ Menu.propTypes = {
 const mapStateToProps = (state) => ({
     tab: Menu.getTabId((state.router.result || {}).tab),
     userId: state.scratchGui.project.userId,
+    isOnline: state.scratchGui.offline.online,
 });
 
 const mapDispatchToProps = (dispatch) => ({
