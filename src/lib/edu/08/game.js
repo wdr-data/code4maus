@@ -1,12 +1,12 @@
 import aStadtLandEnte from './assets/StadtLandEnte.png';
 import a12 from './assets/12.jpg';
-import a02 from '../shared_assets/variablen_hand.png';
+import a02 from '../shared_assets/variablen_hand.jpg';
 import b02 from './assets/02.jpg';
 import a03_1 from './assets/03_1.jpg';
 import a03_02 from './assets/03_02.jpg';
 import a03 from './assets/03.jpg';
 import a05 from './assets/05.jpg';
-import astart from '../shared_assets/start.png';
+import astart from '../shared_assets/start.jpg';
 import ax03 from './assets/x03.jpg';
 import asteuerung from '../shared_assets/steuerung.jpg';
 import a08 from './assets/08.jpg';
@@ -15,7 +15,7 @@ import a09 from './assets/09.jpg';
 import a10 from './assets/10.jpg';
 import a11 from './assets/11.jpg';
 import axx2 from './assets/xx2.jpg';
-import agut_gemacht from '../shared_assets/gut_gemacht.png';
+import agut_gemacht from '../shared_assets/gut_gemacht.jpg';
 import aspannung from './assets/spannung.jpg';
 import axx1 from './assets/xx1.jpg';
 import a16 from './assets/16.jpg';
@@ -28,7 +28,7 @@ import ak1 from './assets/k1.jpg';
 import ac from './assets/c.jpg';
 import a20_2 from './assets/20_2.png';
 import a21 from './assets/21.jpg';
-import aherz from '../shared_assets/herz.png';
+import aherz from '../shared_assets/herz.jpg';
 import ak3 from './assets/k3.jpg';
 import a23 from './assets/23.jpg';
 import a24 from './assets/24.jpg';
@@ -47,7 +47,7 @@ import a36 from './assets/36.jpg';
 import a37 from './assets/37.jpg';
 import a38 from './assets/38.jpg';
 import a39 from './assets/39.jpg';
-import aStern from '../shared_assets/super.png';
+import aStern from '../shared_assets/super.jpg';
 
 export default {
     id: '08',

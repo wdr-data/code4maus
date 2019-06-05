@@ -1,6 +1,6 @@
 import aL007 from './assets/L007.jpg';
 import astart from '../shared_assets/start.jpg';
-import astop from '../shared_assets/stop.png';
+import astop from '../shared_assets/stop.jpg';
 import asteuerung from '../shared_assets/steuerung.jpg';
 import az08 from './assets/z08.jpg';
 import az01 from './assets/z01.jpg';
