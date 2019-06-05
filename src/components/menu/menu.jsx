@@ -118,7 +118,10 @@ export const MenuComponent = (props) => {
                     </TabPanel>
                     <TabPanel className={tabClassNames.tabPanel}>
                         <Box className={styles.sectionBody}>
-                            <MenuListing projects={props.examples} />
+                            {props.isOnline
+                                ? <MenuListing projects={props.examples} />
+                                : <p className={styles.offlineWarning}>Beispiele sind offline leider nicht verfügbar.</p>
+                            }
                         </Box>
                     </TabPanel>
                 </Tabs>
@@ -150,6 +153,7 @@ MenuComponent.propTypes = {
     projects: PropTypes.arrayOf(PropTypes.shape(SHAPE_PROJECT)),
     selectedTab: PropTypes.number.isRequired,
     handleTabSelected: PropTypes.func.isRequired,
+    isOnline: PropTypes.bool,
 };
 
 export default MenuComponent;
