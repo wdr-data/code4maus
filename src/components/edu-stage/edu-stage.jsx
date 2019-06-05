@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import { push } from 'redux-little-router';
 
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
+import Modal from '../modal/modal.jsx';
 import styles from './edu-stage.css';
 import fullScreenIcon from '../../../assets/blocks-media/zoom-in.svg';
 import unFullScreenIcon from '../../../assets/blocks-media/zoom-out.svg';
@@ -13,65 +14,75 @@ import { nextSlide, previousSlide, toggleFullscreen } from '../../reducers/edu-l
 import { eduUrl } from '../../lib/routing';
 import { gamesKeyed } from '../../lib/edu/';
 
-const EduStageComponent = (props) => !props.isEnabled ? null :
-    <React.Fragment>
-        {props.isDimmed && <div className={styles.dim} />}
-        <Box
-            aria-label="Lernspiel"
-            className={classNames(styles.eduWrapper, { [styles.fullscreen]: props.isFullscreen })}
-        >
-            <Box className={styles.eduHeader}>
-                <Box className={styles.caption}>
-                    {props.caption}
-                </Box>
-                <Button
-                    className={styles.fullscreenButton}
-                    onClick={props.toggleFullscreen}
-                >
-                    <img
-                        className={styles.fullscreenButtonIcon}
-                        draggable={false}
-                        src={props.isFullscreen ? unFullScreenIcon : fullScreenIcon}
-                        title={props.isFullscreen ? 'Verkleinern' : 'Vergrößern'}
-                    />
-                </Button>
-            </Box>
-            <Box
-                className={styles.eduSlides}
+const EduStageComponent = (props) => {
+    const [ isVideoModalOpen, setVideoModalOpen ] = useState(true);
+    return !props.isEnabled ? null :
+        <React.Fragment>
+            {isVideoModalOpen && <Modal
+                fullscreen
+                contentLabel={'Erklärvideo'}
+                onRequestClose={() => setVideoModalOpen(false)}
             >
-                {props.imageSrc && ((props.imageSrc.split('.').pop() === 'mp4') ?
-                    <video
-                        className={styles.images}
-                        src={props.imageSrc}
-                        autoPlay
-                        loop
-                    />
-                    :
-                    <img
-                        className={styles.images}
-                        src={props.imageSrc}
-                    />
-                )}
-            </Box>
-            <Box className={styles.eduFooter}>
-                <Button
-                    arrowLeft style='primary' disabled={props.slideIndex === 0}
-                    onClick={props.previousSlide}
+                <div className={styles.content}>
+                    <iframe height="396" width="704" src="https://www.planet-schule.de/sf/embed.php?source=clip:3602" allowFullscreen></iframe>                </div>
+            </Modal>}
+            {props.isDimmed && <div className={styles.dim} />}
+            <Box
+                aria-label="Lernspiel"
+                className={classNames(styles.eduWrapper, { [styles.fullscreen]: props.isFullscreen })}
+            >
+                <Box className={styles.eduHeader}>
+                    <Box className={styles.caption}>
+                        {props.caption}
+                    </Box>
+                    <Button
+                        className={styles.fullscreenButton}
+                        onClick={props.toggleFullscreen}
+                    >
+                        <img
+                            className={styles.fullscreenButtonIcon}
+                            draggable={false}
+                            src={props.isFullscreen ? unFullScreenIcon : fullScreenIcon}
+                            title={props.isFullscreen ? 'Verkleinern' : 'Vergrößern'}
+                        />
+                    </Button>
+                </Box>
+                <Box
+                    className={styles.eduSlides}
                 >
+                    {props.imageSrc && ((props.imageSrc.split('.').pop() === 'mp4') ?
+                        <video
+                            className={styles.images}
+                            src={props.imageSrc}
+                            autoPlay
+                            loop
+                        />
+                        :
+                        <img
+                            className={styles.images}
+                            src={props.imageSrc}
+                        />
+                    )}
+                </Box>
+                <Box className={styles.eduFooter}>
+                    <Button
+                        arrowLeft style='primary' disabled={props.slideIndex === 0}
+                        onClick={props.previousSlide}
+                    >
                     Zurück
-                </Button>
-                <p>{props.slideIndex + 1}/{props.slideCount}</p>
-                <Button
-                    arrowRight style='primary' wiggle={props.slideIndex === 0 && !props.finished}
-                    onClick={props.nextSlide}
-                    disabled={props.finished}
-                >
-                    {!props.linkNextGame ? 'Weiter' : 'Nächstes Lernspiel'}
-                </Button>
+                    </Button>
+                    <p>{props.slideIndex + 1}/{props.slideCount}</p>
+                    <Button
+                        arrowRight style='primary' wiggle={props.slideIndex === 0 && !props.finished}
+                        onClick={props.nextSlide}
+                        disabled={props.finished}
+                    >
+                        {!props.linkNextGame ? 'Weiter' : 'Nächstes Lernspiel'}
+                    </Button>
+                </Box>
             </Box>
-        </Box>
-    </React.Fragment>
-    ;
+        </React.Fragment>;
+};
 
 EduStageComponent.propTypes = {
     caption: PropTypes.string,
