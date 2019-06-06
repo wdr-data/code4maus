@@ -52,7 +52,6 @@ export const useFeatureState = () => {
     }), [ featureState, setFeatureState ]);
 };
 
-export const useFeatureFlag = (feature) => {
-    const enabled = useMemo(() => localStorage.getItem(localStorageKey(feature)), [ feature ]);
-    return enabled;
-};
+export const isFeatureEnabled = (feature) => localStorage.getItem(localStorageKey(feature));
+
+export const useFeatureFlag = (feature) => useMemo(() => isFeatureEnabled(feature), [ feature ]);
