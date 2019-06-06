@@ -2,6 +2,8 @@ import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
+import '../src/css/defaults.css';
+import '../src/css/typography.css';
 
 const req = require.context('../src/components', true, /\.stories\.jsx?$/);
 
