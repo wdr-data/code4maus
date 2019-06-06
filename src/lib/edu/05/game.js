@@ -177,6 +177,7 @@ export default {
             'caption': "Ideen findest du unter 'Beispiele'.",
         },
     ],
+    'nextGame': '08',
     'blocks': [
         {
             'category': 'motion',

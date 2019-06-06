@@ -70,7 +70,7 @@ export default {
             'caption': "Elefant, Ente? Klicke links auf 'nächstes Kostüm'",
         },
     ],
-    'nextGame': '01',
+    'nextGame': '05',
     'blocks': [
         {
             'category': 'motion',

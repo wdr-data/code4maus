@@ -323,7 +323,6 @@ export default {
             'caption': 'Geschafft, viel Spaß mit Stadt-Land-Ente!',
         },
     ],
-    'nextGame': '05',
     'blocks': [
         {
             'category': 'motion',
