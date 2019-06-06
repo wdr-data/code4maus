@@ -6,7 +6,7 @@ const SET_ONLINE = 'scratch-gui/offline/SET_ONLINE';
 const SET_OFFLINE = 'scratch-gui/offline/SET_OFFLINE';
 
 const initialState = {
-    enabled: !!localStorage.getItem('offline-install'),
+    enabled: localStorage.getItem('offline-install') === 'true',
     installing: false,
     installError: null,
     installed: false,
