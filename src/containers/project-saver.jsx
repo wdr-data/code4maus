@@ -31,7 +31,7 @@ class ProjectSaver extends React.Component {
             // File name: project-DATE-TIME
             const date = new Date();
             const timestamp = `${date.toLocaleDateString()}-${date.toLocaleTimeString()}`;
-            const filename = `untitled-project-${timestamp}.sb3`;
+            const filename = `${this.props.name}-${timestamp}.sb3`;
 
             // Use special ms version if available to get it working on Edge.
             if (navigator.msSaveOrOpenBlob) {
@@ -64,6 +64,7 @@ ProjectSaver.propTypes = {
     vm: PropTypes.shape({
         saveProjectSb3: PropTypes.func,
     }),
+    name: PropTypes.string,
 };
 
 const mapStateToProps = (state) => ({
