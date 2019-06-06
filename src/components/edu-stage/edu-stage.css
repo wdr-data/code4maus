@@ -86,3 +86,10 @@
     max-width: 95%;
     max-height: 95%;
 }
+
+.content {
+    width: 70vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
