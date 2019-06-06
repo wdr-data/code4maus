@@ -19,13 +19,13 @@ const EduStageComponent = (props) => {
     const [ isVideoModalOpen, setVideoModalOpen ] = useState(true);
     return !props.isEnabled ? null :
         <React.Fragment>
-            {props.gameId === '00' && isVideoModalOpen && <Modal
+            {props.preVideo && isVideoModalOpen && <Modal
                 fullscreen
                 contentLabel={'Erklärvideo'}
                 onRequestClose={() => setVideoModalOpen(false)}
             >
                 <div className={styles.content}>
-                    <VideoPlayer src='https://swrplanetschule-vh.akamaihd.net/i/schulfernsehen/programmieren_mit_der_maus/Programmieren-mit-der-Maus.mp4/master.m3u8' />
+                    <VideoPlayer src={props.preVideo} />
                 </div>
             </Modal>}
             {props.isDimmed && <div className={styles.dim} />}
@@ -100,6 +100,7 @@ EduStageComponent.propTypes = {
     slideIndex: PropTypes.number,
     toggleFullscreen: PropTypes.func.isRequired,
     finished: PropTypes.bool,
+    preVideo: PropTypes.string,
 };
 
 const mapStateToProps = (state) => {
@@ -128,6 +129,7 @@ const mapStateToProps = (state) => {
         linkNextGame: spec.nextGame && base.slideIndex >= spec.slides.length - 1,
         nextGame: spec.nextGame || '',
         finished: !spec.nextGame && base.slideIndex >= spec.slides.length - 1,
+        preVideo: spec.preVideo || '',
     };
 };
 
