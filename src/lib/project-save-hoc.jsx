@@ -68,7 +68,6 @@ const ProjectSaveHOC = (WrappedComponent) => {
             try {
                 await this.saveAssets();
                 await this.saveMeta();
-                this.props.dispatch(setProjectUnchanged());
             } catch (e) {
                 console.error(e);
                 if (!this.requestCancelSave) {
@@ -156,6 +155,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
                 return;
             }
 
+            this.props.dispatch(setProjectUnchanged());
             this.props.dispatch(setProjectName(this.state.nameInput));
             if (this.props.routeProject !== resObj.id) {
                 this.props.dispatch(setProjectId(resObj.id));
