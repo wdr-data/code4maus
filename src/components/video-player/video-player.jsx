@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Hls from 'hls.js';
+import styles from './video-player.css';
 
 const VideoPlayer = (props) => {
     const videoRef = useRef(null);
@@ -28,7 +29,7 @@ const VideoPlayer = (props) => {
             });
         }
     }, [ videoRef, props.src ]);
-    return <video controls ref={videoRef} />;
+    return <video className={styles.video} controls ref={videoRef} />;
 };
 
 VideoPlayer.propTypes = {
