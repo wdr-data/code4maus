@@ -27,5 +27,4 @@ export default {
             'caption': 'Ändere die Zahlen für Größe, Farbe und Anzahl der Blätter:',
         },
     ],
-    'nextGame': '04_c',
 };
