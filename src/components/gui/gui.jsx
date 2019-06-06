@@ -129,7 +129,7 @@ const GUIComponent = (props) => {
                         </Box>
                     }
                     <Box direction="row" justifyContent="center" style={{ display: 'flex' }}>
-                        <ProjectSaver>{(downloadProject) =>
+                        <ProjectSaver name={projectName}>{(downloadProject) =>
                             <Button
                                 style='secondary'
                                 className={styles.saveModalDownload}
