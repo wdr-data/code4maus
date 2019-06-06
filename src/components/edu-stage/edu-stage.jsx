@@ -13,6 +13,7 @@ import { connect } from 'react-redux';
 import { nextSlide, previousSlide, toggleFullscreen } from '../../reducers/edu-layer.js';
 import { eduUrl } from '../../lib/routing';
 import { gamesKeyed } from '../../lib/edu/';
+import VideoPlayer from '../video-player/video-player.jsx';
 
 const EduStageComponent = (props) => {
     const [ isVideoModalOpen, setVideoModalOpen ] = useState(true);
@@ -24,7 +25,7 @@ const EduStageComponent = (props) => {
                 onRequestClose={() => setVideoModalOpen(false)}
             >
                 <div className={styles.content}>
-                    <iframe height="396" width="704" src="https://www.planet-schule.de/sf/embed.php?source=clip:3602" allowFullscreen></iframe>
+                    <VideoPlayer src='https://swrplanetschule-vh.akamaihd.net/i/schulfernsehen/programmieren_mit_der_maus/Programmieren-mit-der-Maus.mp4/master.m3u8' />
                 </div>
             </Modal>}
             {props.isDimmed && <div className={styles.dim} />}
