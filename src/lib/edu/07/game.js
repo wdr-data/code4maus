@@ -1,5 +1,9 @@
+import maus01 from './assets/Maus_TiereRaten.svg';
 import a00 from './assets/00.jpg';
 import a001 from './assets/001.jpg';
+import a002 from './assets/n10.jpg';
+import a003 from '../shared_assets/frage.jpg';
+import a004 from './assets/ausrufezeichen.svg';
 import a1 from './assets/1.jpg';
 import a2 from './assets/1.mp4';
 import a3 from './assets/2.mp4';
@@ -32,17 +36,25 @@ import a29 from './assets/17.1.mp4';
 import a30 from './assets/17.2.jpg';
 import a31 from './assets/19.jpg';
 import a32 from './assets/20.jpg';
-import a33 from '../shared_assets/herz.png';
+import a33 from '../shared_assets/herz.jpg';
 import a34 from './assets/n9.mp4';
-import a35 from '../shared_assets/gut_gemacht.png';
+import a35 from '../shared_assets/gut_gemacht.jpg';
 
 export default {
     id: '07',
-    hidden: true,
+    name: 'Tiere raten',
+    subtitle: 'Listen & Variablen',
+    //hidden: true,
+    image: maus01,
     fetchProject: () => import('./project.json'),
     'slides': [
         {
+            'asset': maus01,
             'caption': 'Tiere raten',
+        },
+        {
+            'asset': a002,
+            'caption': 'Programmiere ein Ratespiel für zwei!',
         },
         {
             'asset': a00,
@@ -53,12 +65,16 @@ export default {
             'caption': '... und ein zweites muss sie erraten.',
         },
         {
+            'asset': a003,
+            'caption': 'Zuerst baust du ein Programm für die Rate-Wörter mit einer Liste.',
+        },
+        {
             'asset': a1,
-            'caption': 'Klickt auf Variablen.',
+            'caption': 'Klicke auf Variablen.',
         },
         {
             'asset': a2,
-            'caption': "Erstellt zwei neue Listen. Nennt sie 'Wörter'...",
+            'caption': "Erstelle zwei neue Listen. Nenne sie 'Wörter' ...",
         },
         {
             'asset': a3,
@@ -66,19 +82,19 @@ export default {
         },
         {
             'asset': a4,
-            'caption': "Fügt eine neue Variable hinzu. Nennt sie 'A-Z'.",
+            'caption': "Füge eine neue Variable hinzu. Nenne sie 'A-Z'.",
         },
         {
             'asset': a5,
-            'caption': 'Baut dieses Programm.',
+            'caption': 'Baue dieses Programm.',
         },
         {
             'asset': a6,
-            'caption': 'Klickt auf Operatoren.',
+            'caption': 'Klicke auf Operatoren.',
         },
         {
             'asset': a7,
-            'caption': "Zieht 'Zeichen von' rein.",
+            'caption': "Ziehe 'Zeichen von' rein.",
         },
         {
             'asset': a8,
@@ -90,11 +106,11 @@ export default {
         },
         {
             'asset': a10,
-            'caption': 'Ändert die Zahl.',
+            'caption': 'Ändere die Zahl.',
         },
         {
             'asset': a11,
-            'caption': "Zieht 'Verbinde' rein.",
+            'caption': "Ziehe 'verbinde' rein.",
         },
         {
             'asset': a12,
@@ -102,19 +118,27 @@ export default {
         },
         {
             'asset': a13,
-            'caption': 'Testet euer Programm.',
+            'caption': 'Teste dein Programm.',
         },
         {
             'asset': a14,
-            'caption': 'Schreibt 3 Tiere in die Liste.',
+            'caption': 'Schreibe 3 Tiere in die Liste.',
+        },
+        {
+            'asset': a004,
+            'caption': 'Klicke auf den freien Platz unter den Wörtern.',
+        },
+        {
+            'asset': a003,
+            'caption': 'Programmiere jetzt das Raten.',
         },
         {
             'asset': a15,
-            'caption': 'Baut ein zweites Programm,',
+            'caption': 'Baue ein zweites Programm,',
         },
         {
             'asset': a16,
-            'caption': '... damit das zweite Kind raten kann.',
+            'caption': 'damit später ein zweites Kind raten kann.',
         },
         {
             'asset': a17,
@@ -122,11 +146,11 @@ export default {
         },
         {
             'asset': a18,
-            'caption': "Für die Antwort: Zieht 'Enthält' rein.",
+            'caption': "Für die Antwort: Ziehe 'Enthält' rein.",
         },
         {
             'asset': a19,
-            'caption': "Und 'Antwort' aus der Kategorie 'Fühlen'",
+            'caption': "...und 'Antwort' aus der Kategorie 'Fühlen'.",
         },
         {
             'asset': a20,
@@ -142,7 +166,7 @@ export default {
         },
         {
             'asset': a23,
-            'caption': 'Testet euer Programm.',
+            'caption': 'Teste dein Programm.',
         },
         {
             'asset': a24,
@@ -150,15 +174,15 @@ export default {
         },
         {
             'asset': a25,
-            'caption': "Benutzt 'Wiederhole bis'",
+            'caption': "Benutze 'Wiederhole bis'",
         },
         {
             'asset': a26,
-            'caption': "Zieht den 'x = 100' Operator rein.",
+            'caption': "Ziehe den 'x = 100' Operator rein.",
         },
         {
             'asset': a27,
-            'caption': "Zieht 2 mal 'Länge von' dazu.",
+            'caption': "Ziehe 2 mal 'Länge von' dazu.",
         },
         {
             'asset': a28,
@@ -166,31 +190,31 @@ export default {
         },
         {
             'asset': a29,
-            'caption': "Zieht 'sage' ganz nach unten.",
+            'caption': "Ziehe 'sage' ganz nach unten.",
         },
         {
             'asset': a30,
-            'caption': 'Ändert den Text.',
+            'caption': 'Ändere den Text.',
         },
         {
             'asset': a31,
-            'caption': "Zieht 'zeige' und 'verstecke' in eure Programme.",
+            'caption': "Ziehe 'zeige' und 'verstecke' in deine Programme.",
         },
         {
             'asset': a32,
-            'caption': "Zieht 2 mal 'lösche alles' rein.",
+            'caption': "Ziehe 2 mal 'lösche alles' rein.",
         },
         {
             'asset': a33,
-            'caption': 'So könnt ihr immer wieder spielen.',
+            'caption': 'Jetzt kanst du mit einem 2. Kind spielen!',
         },
         {
             'asset': a14,
-            'caption': 'Spieler 1 klickt auf > und schreibt 3 Tiere in die Liste.',
+            'caption': 'Kind 1 klickt auf > und schreibt 3 Tiere in die Liste.',
         },
         {
             'asset': a34,
-            'caption': 'Spieler 2 klickt auf die Ente und muss raten.',
+            'caption': 'Kind 2 klickt auf die Ente und muss raten.',
         },
         {
             'asset': a35,
