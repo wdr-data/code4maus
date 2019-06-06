@@ -6,7 +6,6 @@ const VideoPlayer = (props) => {
     const videoRef = useRef(null);
     useEffect(() => {
         const video = videoRef.current;
-        console.log(video);
         if (video === null) {
             return;
         }
