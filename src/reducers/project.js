@@ -1,7 +1,6 @@
-import { LOCATION_CHANGED } from "redux-little-router";
+import { LOCATION_CHANGED } from 'redux-little-router';
 
-import { LOAD_GAME } from "./edu-layer";
-import { Views } from "../lib/routing";
+import { Views } from '../lib/routing';
 
 const SET_PROJECT_NAME = 'scratch-gui/project/SET_PROJECT_NAME';
 const SET_PROJECT_ID = 'scratch-gui/project/SET_PROJECT_ID';
