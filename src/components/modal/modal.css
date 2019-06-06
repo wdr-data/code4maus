@@ -10,7 +10,12 @@
     bottom: 0;
     z-index: 1000;
     background-color: $ui-modal-overlay;
+
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .modal-wrapper * {
@@ -18,12 +23,14 @@
 }
 
 .modal-wrapper {
-    margin: 100px auto;
+    margin: 3rem 0;
     outline: none;
     user-select: text;
 
+    position: absolute;
     display: flex;
     flex-direction: column;
+    max-width: calc(100% - 2rem);
 
     font-family: 'Titillium Web';
     color: $text-primary;
@@ -36,6 +43,7 @@
     display: flex;
     height: 100%;
     width: 100%;
+    max-width: 100%;
 
     overflow-y: auto;
     -webkit-overflow-scrolling: 'touch';
@@ -130,7 +138,6 @@ $sides: 20rem;
     padding: 2rem;
 
     background-image: url('../menu/bg_blue@1x.png');
-    background-attachment: fixed;
 
     display: flex;
     flex-direction: column;
