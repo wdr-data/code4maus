@@ -19,7 +19,7 @@ export default {
     'slides': [
         {
             'asset': aL007,
-            'caption': 'Mehr Kunst mit Maus und Code',
+            'caption': 'Kunst mit Maus und Code',
         },
         {
             'asset': astart,
