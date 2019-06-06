@@ -2,11 +2,10 @@
 @import "../../css/colors.css";
 
 .input-form {
-    height: 2rem;
-    padding: 0 0.75rem;
+    padding: 0.5rem 0.75rem;
     margin-bottom: 1rem;
     font-family: 'Titillium Web';
-    font-size: 0.625rem;
+    font-size: inherit;
     font-weight: bold;
     color: $text-primary;
 
