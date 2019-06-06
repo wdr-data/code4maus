@@ -2,6 +2,7 @@ import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import slug from 'slugg';
 
 /**
  * Project saver component passes a saveProject function to its child.
@@ -31,7 +32,7 @@ class ProjectSaver extends React.Component {
             // File name: project-DATE-TIME
             const date = new Date();
             const timestamp = `${date.toLocaleDateString()}-${date.toLocaleTimeString()}`;
-            const filename = `${this.props.name}-${timestamp}.sb3`;
+            const filename = `${slug(this.props.name)}-${timestamp}.sb3`;
 
             // Use special ms version if available to get it working on Edge.
             if (navigator.msSaveOrOpenBlob) {
