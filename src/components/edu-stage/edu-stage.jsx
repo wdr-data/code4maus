@@ -18,13 +18,14 @@ const EduStageComponent = (props) => {
     const [ isVideoModalOpen, setVideoModalOpen ] = useState(true);
     return !props.isEnabled ? null :
         <React.Fragment>
-            {isVideoModalOpen && <Modal
+            {props.gameId === '00' && isVideoModalOpen && <Modal
                 fullscreen
                 contentLabel={'Erklärvideo'}
                 onRequestClose={() => setVideoModalOpen(false)}
             >
                 <div className={styles.content}>
-                    <iframe height="396" width="704" src="https://www.planet-schule.de/sf/embed.php?source=clip:3602" allowFullscreen></iframe>                </div>
+                    <iframe height="396" width="704" src="https://www.planet-schule.de/sf/embed.php?source=clip:3602" allowFullscreen></iframe>
+                </div>
             </Modal>}
             {props.isDimmed && <div className={styles.dim} />}
             <Box
