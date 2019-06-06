@@ -223,6 +223,7 @@ module.exports = {
                 /^static\/assets\/edu\/beispiel/,
             ],
             clientsClaim: true,
+            skipWaiting: true,
             importScripts: [ 's3-manifest.[hash].js', '/static/sw-helper.js' ],
             cleanupOutdatedCaches: true,
             excludeChunks: [ 'settings', 'sharingpage', 'mobile-screen' ],
