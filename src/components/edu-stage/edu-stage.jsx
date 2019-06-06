@@ -16,16 +16,26 @@ import { gamesKeyed } from '../../lib/edu/';
 import VideoPlayer from '../video-player/video-player.jsx';
 
 const EduStageComponent = (props) => {
-    const [ isVideoModalOpen, setVideoModalOpen ] = useState(true);
+    const [ isPreVideoModalOpen, setPreVideoModalOpen ] = useState(true);
+    const [ isPostVideoModalOpen, setPostVideoModalOpen ] = useState(true);
     return !props.isEnabled ? null :
         <React.Fragment>
-            {props.preVideo && isVideoModalOpen && <Modal
+            {props.preVideo && isPreVideoModalOpen && <Modal
                 fullscreen
                 contentLabel={'Erklärvideo'}
-                onRequestClose={() => setVideoModalOpen(false)}
+                onRequestClose={() => setPreVideoModalOpen(false)}
             >
                 <div className={styles.content}>
                     <VideoPlayer src={props.preVideo} />
+                </div>
+            </Modal>}
+            {props.postVideo && props.slideIndex >= props.slideCount - 1 && isPostVideoModalOpen && <Modal
+                fullscreen
+                contentLabel={'Video'}
+                onRequestClose={() => setPostVideoModalOpen(false)}
+            >
+                <div className={styles.content}>
+                    <VideoPlayer src={props.postVideo} />
                 </div>
             </Modal>}
             {props.isDimmed && <div className={styles.dim} />}
@@ -101,6 +111,7 @@ EduStageComponent.propTypes = {
     toggleFullscreen: PropTypes.func.isRequired,
     finished: PropTypes.bool,
     preVideo: PropTypes.string,
+    postVideo: PropTypes.string,
 };
 
 const mapStateToProps = (state) => {
@@ -130,6 +141,7 @@ const mapStateToProps = (state) => {
         nextGame: spec.nextGame || '',
         finished: !spec.nextGame && base.slideIndex >= spec.slides.length - 1,
         preVideo: spec.preVideo || '',
+        postVideo: spec.postVideo || '',
     };
 };
 
