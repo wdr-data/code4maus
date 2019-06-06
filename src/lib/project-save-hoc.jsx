@@ -29,7 +29,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
             super(props);
 
             this.state = {
-                nameInput: '',
+                nameInput: props.projectName,
                 error: '',
                 isSaving: false,
             };
@@ -43,7 +43,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
             this.cancelSave = this.cancelSave.bind(this);
         }
         componentDidUpdate(prevProps) {
-            if (this.state.nameInput === '' && prevProps.projectName !== this.props.projectName) {
+            if (prevProps.projectName !== this.props.projectName) {
                 this.setState({ nameInput: this.props.projectName });
             }
         }
