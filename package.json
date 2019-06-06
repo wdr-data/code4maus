@@ -168,6 +168,7 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "detect-browser": "^4.5.0",
     "ejs-loader": "^0.3.3",
     "express": "^4.16.4",
     "ffmpeg.js": "^3.1.9001",

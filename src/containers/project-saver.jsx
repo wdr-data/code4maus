@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import slug from 'slugg';
+import { detect } from 'detect-browser';
 
 /**
  * Project saver component passes a saveProject function to its child.
@@ -24,6 +25,8 @@ class ProjectSaver extends React.Component {
         bindAll(this, [ 'saveProject' ]);
     }
     saveProject() {
+        const browser = detect();
+
         const saveLink = document.createElement('a');
         document.body.appendChild(saveLink);
 
@@ -38,6 +41,23 @@ class ProjectSaver extends React.Component {
             if (navigator.msSaveOrOpenBlob) {
                 navigator.msSaveOrOpenBlob(content, filename);
                 return;
+            }
+
+            // Use special handling for mobile Safari
+            if (browser && browser.name === 'ios') {
+                console.log('detected mobile safari');
+                const reader = new FileReader();
+                return new Promise((resolve, reject) => {
+                    reader.addEventListener('load', () => {
+                        console.log('opening data url:', reader.result);
+                        window.open(reader.result);
+                        resolve();
+                    }, false);
+                    reader.addEventListener('abort', () => reject(new Error('Aborted.')));
+                    reader.addEventListener('error', () => reject(reader.error));
+                    console.log('loading blob as data url:', content);
+                    reader.readAsDataURL(content);
+                });
             }
 
             const url = window.URL.createObjectURL(content);
