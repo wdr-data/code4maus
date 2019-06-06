@@ -10,4 +10,19 @@ storiesOf('Modal', module)
         >
             <Input />
         </Modal>
+    ))
+    .add('large content', () => (
+        <Modal contentLabel="so much content">
+            <div style={{
+                width: '100vw',
+                height: '120vh',
+            }}>
+                abc
+            </div>
+        </Modal>
+    ))
+    .add('fullscreen', () => (
+        <Modal fullScreen contentLabel="Library View">
+            Hallo Welt!
+        </Modal>
     ));
