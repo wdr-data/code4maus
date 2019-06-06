@@ -1,0 +1,21 @@
+{
+    "short_name": "Code4Maus",
+    "name": "Programmieren mit der Maus",
+    "icons": [
+      {
+        "src": "/static/img/favicon-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/static/img/favicon-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "http://localhost:8601/",
+    "background_color": "#E85E38",
+    "display": "standalone",
+    "orientation": "landscape",
+    "theme_color": "#E85E38"
+  }
