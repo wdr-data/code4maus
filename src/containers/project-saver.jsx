@@ -24,49 +24,45 @@ class ProjectSaver extends React.Component {
         super(props);
         bindAll(this, [ 'saveProject' ]);
     }
-    saveProject() {
-        const browser = detect();
+    async saveProject() {
+        const content = await this.props.vm.saveProjectSb3();
+
+        const date = new Date();
+        const timestamp = `${date.toLocaleDateString()}-${date.toLocaleTimeString()}`;
+        const filename = `${slug(this.props.name)}-${timestamp}.sb3`;
 
         const saveLink = document.createElement('a');
         document.body.appendChild(saveLink);
+        saveLink.download = filename;
 
-        this.props.vm.saveProjectSb3().then((content) => {
-            // TODO user-friendly project name
-            // File name: project-DATE-TIME
-            const date = new Date();
-            const timestamp = `${date.toLocaleDateString()}-${date.toLocaleTimeString()}`;
-            const filename = `${slug(this.props.name)}-${timestamp}.sb3`;
+        // Use special ms version if available to get it working on Edge.
+        if (navigator.msSaveOrOpenBlob) {
+            navigator.msSaveOrOpenBlob(content, filename);
+            return;
+        }
 
-            // Use special ms version if available to get it working on Edge.
-            if (navigator.msSaveOrOpenBlob) {
-                navigator.msSaveOrOpenBlob(content, filename);
-                return;
-            }
-
-            // Use special handling for mobile Safari
-            if (browser && browser.name === 'ios') {
-                console.log('detected mobile safari');
-                const reader = new FileReader();
-                return new Promise((resolve, reject) => {
-                    reader.addEventListener('load', () => {
-                        console.log('opening data url:', reader.result);
-                        window.open(reader.result);
-                        resolve();
-                    }, false);
-                    reader.addEventListener('abort', () => reject(new Error('Aborted.')));
-                    reader.addEventListener('error', () => reject(reader.error));
-                    console.log('loading blob as data url:', content);
-                    reader.readAsDataURL(content);
-                });
-            }
-
+        const browser = detect();
+        // Use special handling for mobile Safari
+        if (browser && browser.name === 'ios') {
+            const reader = new FileReader();
+            await new Promise((resolve, reject) => {
+                reader.addEventListener('load', () => {
+                    saveLink.href = reader.result;
+                    resolve();
+                }, false);
+                reader.addEventListener('abort', () => reject(new Error('Aborted.')));
+                reader.addEventListener('error', () => reject(reader.error));
+                reader.readAsDataURL(content);
+            });
+            saveLink.click();
+        } else {
             const url = window.URL.createObjectURL(content);
             saveLink.href = url;
-            saveLink.download = filename;
             saveLink.click();
             window.URL.revokeObjectURL(url);
-            document.body.removeChild(saveLink);
-        });
+        }
+
+        document.body.removeChild(saveLink);
     }
     render() {
         const {
