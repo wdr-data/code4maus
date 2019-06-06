@@ -14,7 +14,7 @@ import withTracking from '../lib/tracking-hoc.jsx';
 import localeDe from '../../translations/de.json';
 import storage, { s3userFile } from '../lib/storage';
 import { setUserId } from '../reducers/project';
-import { startInstall, failInstall, setInstalled, setOnline, setOffline } from '../reducers/offline';
+import { startInstall, failInstall, setEnabled, setInstalled, setOnline, setOffline } from '../reducers/offline';
 
 import Menu from './menu.jsx';
 import WelcomeScreen from './welcome-screen.jsx';
@@ -24,11 +24,14 @@ import MobileScreen from './mobile-screen.jsx';
 import Loader from '../components/loader/loader.jsx';
 
 import { Workbox } from 'workbox-window';
+import { isFeatureEnabled, FEATURE_OFFLINE } from '../lib/feature-flags';
 
 addLocaleData(de);
 
 const lsKeyDeviceId = 'deviceId';
 const lsKeyVisited = 'hasVisited';
+
+const swScriptURL = '/service-worker.js';
 
 class App extends Component {
     static async userIdExists(userId) {
@@ -75,9 +78,20 @@ class App extends Component {
             return;
         }
 
+        if (!isFeatureEnabled(FEATURE_OFFLINE)) {
+            const regs = await navigator.serviceWorker.getRegistrations();
+            for (const reg of regs) {
+                if (new URL(reg.active.scriptURL).pathname === swScriptURL) {
+                    reg.unregister();
+                }
+            }
+            this.props.setEnabled(false);
+            return;
+        }
+
         this.props.startInstall();
         // register service worker
-        const wb = new Workbox('/service-worker.js');
+        const wb = new Workbox(swScriptURL);
 
         // not 100% sure about timing here. maybe we could register the event only if it has not yet
         // been installed. But not 100% sure..better play safe here :S
@@ -180,6 +194,7 @@ App.propTypes = {
     offlineEnabled: PropTypes.bool.isRequired,
     startInstall: PropTypes.func.isRequired,
     failInstall: PropTypes.func.isRequired,
+    setEnabled: PropTypes.func.isRequired,
     setInstalled: PropTypes.func.isRequired,
     setOnline: PropTypes.func.isRequired,
     setOffline: PropTypes.func.isRequired,
@@ -200,6 +215,7 @@ const ConnectedApp = connect(
         startInstall: () => dispatch(startInstall()),
         failInstall: (e) => dispatch(failInstall(e)),
         setInstalled: () => dispatch(setInstalled()),
+        setEnabled: (enabled) => dispatch(setEnabled(enabled)),
         setOnline: () => dispatch(setOnline()),
         setOffline: () => dispatch(setOffline()),
     }),
