@@ -158,7 +158,7 @@ export default {
         },
         {
             'asset': a21,
-            'caption': "Die Antwort wird in die 'Geraten' Liste geschrieben.",
+            'caption': "Die Antwort soll in die 'Geraten' Liste geschrieben werden.",
         },
         {
             'asset': a22,
@@ -210,11 +210,11 @@ export default {
         },
         {
             'asset': a14,
-            'caption': 'Kind 1 klickt auf > und schreibt 3 Tiere in die Liste.',
+            'caption': 'Kind 1 klickt auf > und schreibt 3 Tiere in die Liste und klickt auf die Ente.',
         },
         {
             'asset': a34,
-            'caption': 'Kind 2 klickt auf die Ente und muss raten.',
+            'caption': 'Kind 2 darf jetzt schauen und muss raten.',
         },
         {
             'asset': a35,
