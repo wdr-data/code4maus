@@ -43,7 +43,7 @@ import a35 from '../shared_assets/gut_gemacht.jpg';
 export default {
     id: '07',
     name: 'Tiere raten',
-    subtitle: 'Listen & Variablen',
+    subtitle: '06 Listen & Variablen',
     //hidden: true,
     image: maus01,
     fetchProject: () => import('./project.json'),
