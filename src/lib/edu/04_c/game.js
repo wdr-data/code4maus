@@ -13,7 +13,7 @@ import av01 from './assets/v01.jpg';
 export default {
     id: '04_c',
     name: '#Mausprobiert',
-    subtitle: 'Dein Kunstwerk',
+    subtitle: '07 MausKunst',
     image: aL007,
     fetchProject: () => import('./project.json'),
     'slides': [
