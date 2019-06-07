@@ -24,7 +24,7 @@ import asuper from '../shared_assets/super.jpg';
 export default {
     id: '04',
     name: 'Wimmelbild',
-    subtitle: 'Mehr Figuren',
+    subtitle: '04 Mehr Figuren',
     image: aL04,
     fetchProject: () => import('./project.json'),
     "slides": [

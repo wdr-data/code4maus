@@ -13,7 +13,7 @@ import asuper from '../shared_assets/super.jpg';
 export default {
     id: '02',
     name: 'Die Maus blinzelt',
-    subtitle: 'Trickfilm',
+    subtitle: '02 Trickfilm',
     image: aL02,
     fetchProject: () => import('./project.json'),
     "slides": [

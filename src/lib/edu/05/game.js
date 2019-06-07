@@ -34,7 +34,7 @@ import a04 from './assets/04.jpg';
 export default {
     id: '05',
     name: 'Kugelfisch-Spiel',
-    subtitle: 'Spiel',
+    subtitle: '08 Dein Spiel',
     image: aL05,
     fetchProject: () => import('./project.json'),
     'slides': [

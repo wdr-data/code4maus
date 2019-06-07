@@ -33,7 +33,7 @@ import aherz from '../shared_assets/herz.jpg';
 export default {
     id: '04_b',
     name: 'Mathefant',
-    subtitle: 'Verzweigungen',
+    subtitle: '05 Verzweigungen',
     image: aMathefant,
     hidden: true,
     fetchProject: () => import('./project.json'),
