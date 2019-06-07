@@ -22,7 +22,7 @@ import asuper from '../shared_assets/super.jpg';
 export default {
     id: '03',
     name: 'Die Maus tanzt!',
-    subtitle: 'Schleifen',
+    subtitle: '03 Schleifen',
     image: aL03,
     fetchProject: () => import('./project.json'),
     "slides": [
