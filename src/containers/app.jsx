@@ -78,7 +78,7 @@ class App extends Component {
             return;
         }
 
-        if (!isFeatureEnabled(FEATURE_OFFLINE)) {
+        if (!this.props.offlineEnabled) {
             const regs = await navigator.serviceWorker.getRegistrations();
             for (const reg of regs) {
                 if (new URL(reg.active.scriptURL).pathname === swScriptURL) {

@@ -1,0 +1,14 @@
+.offline-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.offline-status >* {
+    margin-left: 0.5rem;
+}
+
+.offline-status span {
+    font-weight: bold;
+}

@@ -33,10 +33,12 @@
 
 .first-column {
     padding: 1rem 0 .04rem 1.2rem;
+    flex-grow: 1;
 }
 
 .second-column {
     padding: .5rem 0 .04rem 0;
+    flex-grow: 2;
 }
 
 .third-column {
@@ -45,6 +47,7 @@
     justify-content: flex-start;
     align-items: flex-end;
     padding: 1rem;
+    flex-grow: 1;
 }
 
 .logo {
@@ -267,3 +270,4 @@
     font-size: 2rem;
     width: 100%;
 }
+

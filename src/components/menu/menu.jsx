@@ -35,7 +35,7 @@ export const MenuComponent = (props) => {
         tabList: classNames(tabStyles.reactTabsTabList, styles.tabList),
         tabPanel: classNames(tabStyles.reactTabsTabPanel, styles.tabPanel),
         tabPanelSelected: classNames(tabStyles.reactTabsTabPanelSelected, styles.isSelected),
-        tabSelected: classNames(tabStyles.reactTabsTabSelected, styles.isSelected)
+        tabSelected: classNames(tabStyles.reactTabsTabSelected, styles.isSelected),
     };
 
     return (
@@ -61,7 +61,7 @@ export const MenuComponent = (props) => {
                     <Link href="/inhalte/impressum/" className={styles.copyright}>
                         <span>&#9400; WDR {(new Date().getFullYear())}</span>
                     </Link>
-                    {useFeatureFlag(FEATURE_OFFLINE) && <OfflineSupport/>}
+                    <OfflineSupport/>
                 </Box>
             </Box>
             <Box className={styles.listingWrapper}>
