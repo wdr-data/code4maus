@@ -1,0 +1,38 @@
+@import "../../css/typography.css";
+
+.content {
+    background-color: white;
+    padding: 1rem;
+}
+
+.description {
+    max-width: 30rem;
+}
+
+.description p {
+    margin: 0.25rem 0;
+}
+
+.actions {
+    margin-top: 1rem;
+}
+
+.actions span {
+    font-weight: bold;
+}
+
+.actionsButton {
+    margin-top: 0.5rem;
+    display: flex;
+}
+
+.actionsButton >* {
+    margin-right: 1rem;
+}
+
+.actionsSpinner {
+    display: flex;
+    justify-content: center;
+}
+
+
