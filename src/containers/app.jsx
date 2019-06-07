@@ -48,9 +48,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        if (this.props.offlineEnabled) {
-            this.offlineSupport();
-        }
+        this.offlineSupport();
         this.ensureUserId();
         this.maybeRedirectWelcome();
 
@@ -68,7 +66,7 @@ class App extends Component {
             storage.userId = this.props.userId;
         }
 
-        if (prevProps.offlineEnabled !== this.props.offlineEnabled && this.props.offlineEnabled) {
+        if (prevProps.offlineEnabled !== this.props.offlineEnabled) {
             this.offlineSupport();
         }
     }
