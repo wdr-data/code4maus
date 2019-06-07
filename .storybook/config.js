@@ -2,6 +2,8 @@ import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
+import { withKnobs } from '@storybook/addon-knobs';
+
 import '../src/css/defaults.css';
 import '../src/css/typography.css';
 
@@ -23,6 +25,7 @@ const ReduxDecorator = (story) => (
 
 addDecorator(BackgroundDecorator);
 addDecorator(ReduxDecorator);
+addDecorator(withKnobs)
 
 function loadStories() {
   req.keys().forEach(filename => req(filename));
