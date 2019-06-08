@@ -189,7 +189,7 @@ export default {
             'caption': 'Das hast du super gemacht!',
         },
     ],
-    'nextGame': '04_a',
+    'nextGame': '07',
     'blocks': [
         {
             'category': 'looks',
