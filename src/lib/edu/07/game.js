@@ -44,7 +44,6 @@ export default {
     id: '07',
     name: 'Tiere raten',
     subtitle: '06 Listen & Variablen',
-    //hidden: true,
     image: maus01,
     fetchProject: () => import('./project.json'),
     'nextGame': '04_c',
