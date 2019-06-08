@@ -47,6 +47,7 @@ export default {
     //hidden: true,
     image: maus01,
     fetchProject: () => import('./project.json'),
+    'nextGame': '04_c',
     'slides': [
         {
             'asset': maus01,

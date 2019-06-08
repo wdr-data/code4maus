@@ -124,7 +124,7 @@ export default {
             'caption': '⏲️ Nimm dir eine Pause',
         },
     ],
-    'nextGame': '04_c',
+    'nextGame': '04_b',
     'blocks': [
         {
             'category': 'motion',
