@@ -13,7 +13,7 @@
         "sizes": "512x512"
       }
     ],
-    "start_url": "http://localhost:8601/",
+    "start_url": "/",
     "background_color": "#E85E38",
     "display": "standalone",
     "orientation": "landscape",
