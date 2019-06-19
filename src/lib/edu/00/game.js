@@ -9,7 +9,7 @@ export default {
     name: 'Hallo Welt',
     subtitle: '00 Video: Erste Schritte',
     image: aL00,
-    preVideo: 'https://swrplanetschule-vh.akamaihd.net/i/schulfernsehen/programmieren_mit_der_maus/programmieren-mit-der-maus_short.mp4/master.m3u8',
+    // preVideo: 'https://swrplanetschule-vh.akamaihd.net/i/schulfernsehen/programmieren_mit_der_maus/programmieren-mit-der-maus_short.mp4/master.m3u8',
     fetchProject: () => import('./project.json'),
     'slides': [
         {
