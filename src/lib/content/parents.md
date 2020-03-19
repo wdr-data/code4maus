@@ -1,10 +1,38 @@
 ---
 title: Eltern-Info
 style: orange
+imports:
+    planetschule: '../../../assets/img/planetschule_logo.jpg'
+    maus: '../../../assets/img/logo_text.png'
 splitSections: true
 ---
 
-Die Welt wird digitaler. Programmieren ist in dieser Welt eine Grundfertigkeit, um selbst aktiv werden, mitgestalten und auch Kritik üben zu können. Bei **Programmieren mit der Maus** programmieren Kinder Schritt für Schritt erste eigene Bildergeschichten und kleine Spiele. Dabei lernen sie Variablen, Schleifen und Verzweigungen kennen.
+```render html
+<p className='logo-row'><img src={planetschule} /><img src={maus} /></p>
+```
+
+## Selbstständig programmieren lernen
+
+Schule geschlossen – was tun? Mit Unterstützung der Maus können Ihre Kinder während der schulfreien Zeit selbstständig entdecken, wie man programmiert. In mehreren kleinen Lernspielen erkunden sie die grundlegenden Funktionen und können anschließend selbst eigene Bewegungs-Programme und kleine Spiele programmieren. Dabei lernen sie Variablen, Schleifen und Verzweigungen kennen.
+
+## Mehr Spaß mit Aufgabenkarten
+
+Von Lernspiel zu Lernspiel steigern sich die Fähigkeiten der Kinder. Tipp: Für die ersten sechs Lernspiele gibt es zusätzlich Aufgabenkarten, die eigentlich für den Grundschul-Unterricht entwickelt wurden. Damit können sich die Kinder noch intensiver mit dem neu Gelernten auseinandersetzen. Mit Kontrollkarten prüfen sie, ob sie alles richtig programmiert haben. Die Aufgabenkarten gibt es in drei Varianten: A ist die schwierigste, B ist mittelschwer, bei C gibt es viele Tipps und Unterstützung. Probieren Sie je nach Alter und Vorerfahrung Ihres Kindes aus, mit welcher Variante es am besten zurecht kommt. Die Kontrollkarten sind für alle drei Aufgaben-Varianten gleich.
+
+→ [Aufgabenkarten für die Lernspiele 01 bis 04](https://www1.wdr.de/schule/digital/unterrichtsmaterial/arbeitsmaterial-lernspiele-maus-100.pdf)  
+→ [Aufgabenkarten für die Lernspiele 05 und 06](https://www1.wdr.de/schule/digital/unterrichtsmaterial/projektaufgaben-maus-100.pdf)
+
+## Schritt-für-Schritt-Anleitung
+
+Falls Sie als Eltern doch einmal mithelfen müssen: Die WDR-Redaktion von [Schule digital](https://www1.wdr.de/schule/digital) hat für Lehrkräfte eine Schritt-für-Schritt-Anleitung mit praktischen Tipps zusammengestellt, die für Sie ebenfalls hilfreich sein kann.
+
+→ [Schritt-für-Schritt-Anleitung](https://www1.wdr.de/schule/digital/unterrichtsmaterial/tipps-programmieren-maus-100.pdf)
+
+## Selbst basteln: Programmieren ohne Strom
+
+Außerdem gibt es noch ein passendes Brettspiel zum Programmier-Angebot, das Sie mit Ihren Kindern einfach selbst nachbasteln können. In dem Spiel werden grundlegende Programmier-Prinzipien Stück für Stück nachvollziehbar.
+
+→ [Vorlage für das Brettspiel zum Ausdrucken auf Papier](https://www1.wdr.de/schule/digital/unterrichtsmaterial/druckvorlage-brettspiel-maus-100.pdf)
 
 ## FAQ
 
