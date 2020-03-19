@@ -22,7 +22,8 @@ addons:
     update: true
 
 before_install:
-  - sudo apt-get install -y python3-pip libcups2-dev
+  - sudo apt-get install -y python3-pip python3-setuptools libcups2-dev
+  - pip3 install --upgrade pip3
   - pip3 install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
 
