@@ -11,7 +11,10 @@ splitSections: true
 <p className='logo-row'><img src={planetschule} /><img src={maus} /></p>
 ```
 
-Begleitend zu Programmieren mit der Maus gibt es ab Juli 2019 Material von [Planet Schule](https://www.planet-schule.de/) für alle, die mit Kindern programmieren wollen: Für Lehrer*innen, AGs im offenen Ganztag oder für interessierte Erwachsene, die einen Programmiertag an einer Grundschule organisieren möchten.
+Begleitend zu Programmieren mit der Maus gibt es Material von [Planet Schule](https://www.planet-schule.de/) für alle, die mit Kindern programmieren wollen: Für Lehrer*innen, AGs im offenen Ganztag oder für interessierte Erwachsene, die einen Programmiertag an einer Grundschule organisieren möchten.
+
+→ [Wissenspool für Lehrkräfte](https://www.planet-schule.de/wissenspool/programmieren-mit-der-maus/inhalt/lernspiel-online.html)  
+→ [Unterrichtsmaterial](https://www.planet-schule.de/wissenspool/programmieren-mit-der-maus/inhalt/unterricht.html)
 
 ## Spielerisch Programmieren erlernen
 Mit Programmieren mit der Maus lassen sich bereits Grundschulkinder spielerisch ans Programmieren heranführen. Das Angebot basiert auf Scratch, einer Open Source Software für Kinder und Jugendliche. In dem Angebot werden die Kinder zunächst durch mehrere Lernspiele geführt. Dort werden sie an sie grundlegende Programmierkonzepte wie Variablen, Schleifen und Verzweigungen herangeführt. Anschließend können sie eigene kleine Programme gestalten.
