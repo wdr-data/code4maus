@@ -2,13 +2,13 @@
 title: Eltern-Info
 style: orange
 imports:
-    planetschule: '../../../assets/img/planetschule_logo.jpg'
+    schuleDigitalLogo: '../assets/schule_digital_logo.png'
     maus: '../../../assets/img/logo_text.png'
 splitSections: true
 ---
 
 ```render html
-<p className='logo-row'><img src={planetschule} /><img src={maus} /></p>
+<p className='logo-row'><img src={schuleDigitalLogo} /><img src={maus} /></p>
 ```
 
 ## Selbstständig programmieren lernen
