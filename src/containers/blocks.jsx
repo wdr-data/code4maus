@@ -72,14 +72,6 @@ class Blocks extends React.Component {
         );
         this.workspace = this.ScratchBlocks.inject(this.blocks, workspaceConfig);
 
-        // we actually never want the workspace to enable "refresh toolbox" - this basically re-renders the
-        // entire toolbox every time we reset the workspace.  We call updateToolbox as a part of
-        // componentDidUpdate so the toolbox will still correctly be updated
-        this.setToolboxRefreshEnabled = this.workspace.setToolboxRefreshEnabled.bind(this.workspace);
-        this.workspace.setToolboxRefreshEnabled = () => {
-            this.setToolboxRefreshEnabled(false);
-        };
-
         // @todo change this when blockly supports UI events
         addFunctionListener(this.workspace, 'translate', this.onWorkspaceMetricsChange);
         addFunctionListener(this.workspace, 'zoom', this.onWorkspaceMetricsChange);
@@ -136,8 +128,6 @@ class Blocks extends React.Component {
         if (this.props.isVisible) { // Scripts tab
             this.workspace.setVisible(true);
             this.props.vm.refreshWorkspace();
-            // Re-enable toolbox refreshes without causing one. See #updateToolbox for more info.
-            this.workspace.toolboxRefreshEnabled_ = true;
             window.dispatchEvent(new Event('resize'));
         } else {
             this.workspace.setVisible(false);
@@ -155,10 +145,6 @@ class Blocks extends React.Component {
         const categoryId = this.workspace.toolbox_.getSelectedCategoryId();
         const offset = this.workspace.toolbox_.getCategoryScrollOffset();
         this.workspace.updateToolbox(this.props.toolboxXML);
-        // In order to catch any changes that mutate the toolbox during "normal runtime"
-        // (variable changes/etc), re-enable toolbox refresh.
-        // Using the setter function will rerender the entire toolbox which we just rendered.
-        this.workspace.toolboxRefreshEnabled_ = true;
 
         const currentCategoryPos = this.workspace.toolbox_.getCategoryPositionById(categoryId);
         const currentCategoryLen = this.workspace.toolbox_.getCategoryLengthById(categoryId);
