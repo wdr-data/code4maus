@@ -73,7 +73,6 @@ const onboardingConfig = {
     {
       text:
         'Ab jetzt steht hier im Fenster, was du als nächstes machen sollst. Wenn du das geschafft hast, klicke auf "Weiter".',
-      buttons: [BUTTON_NEXT],
       loadProject: 'edu/01',
       arrowTo: TRIGGER_REFS.stopButton,
       buttons: [

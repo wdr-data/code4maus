@@ -3,16 +3,16 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import MediaQuery from 'react-responsive'
 
-import Box from '../box/box.jsx'
-import Label from '../forms/label.jsx'
-import Input from '../forms/input.jsx'
-import BufferedInputHOC from '../forms/buffered-input-hoc.jsx'
 import {
   injectIntl,
   intlShape,
   defineMessages,
-  FormattedMessage
+  FormattedMessage,
 } from 'react-intl'
+import Box from '../box/box.jsx'
+import Label from '../forms/label.jsx'
+import Input from '../forms/input.jsx'
+import BufferedInputHOC from '../forms/buffered-input-hoc.jsx'
 
 import layout from '../../lib/layout-constants.js'
 import styles from './sprite-info.css'
@@ -28,8 +28,8 @@ const messages = defineMessages({
   spritePlaceholder: {
     id: 'gui.SpriteInfo.spritePlaceholder',
     defaultMessage: 'Name',
-    description: 'Placeholder text for sprite name'
-  }
+    description: 'Placeholder text for sprite name',
+  },
 })
 
 class SpriteInfo extends React.Component {
@@ -153,7 +153,7 @@ class SpriteInfo extends React.Component {
                   {
                     [styles.isActive]:
                       this.props.visible && !this.props.disabled,
-                    [styles.isDisabled]: this.props.disabled
+                    [styles.isDisabled]: this.props.disabled,
                   }
                 )}
                 tabIndex="0"
@@ -170,7 +170,7 @@ class SpriteInfo extends React.Component {
                   {
                     [styles.isActive]:
                       !this.props.visible && !this.props.disabled,
-                    [styles.isDisabled]: this.props.disabled
+                    [styles.isDisabled]: this.props.disabled,
                   }
                 )}
                 tabIndex="0"
@@ -230,7 +230,7 @@ SpriteInfo.propTypes = {
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   visible: PropTypes.bool,
   x: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  y: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  y: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export default injectIntl(SpriteInfo)

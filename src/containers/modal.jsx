@@ -11,7 +11,7 @@ class Modal extends React.Component {
       'addEventListeners',
       'removeEventListeners',
       'handlePopState',
-      'pushHistory'
+      'pushHistory',
     ])
     this.addEventListeners()
   }
@@ -50,7 +50,7 @@ class Modal extends React.Component {
 Modal.propTypes = {
   id: PropTypes.string.isRequired,
   onRequestClose: PropTypes.func,
-  onRequestOpen: PropTypes.func
+  onRequestOpen: PropTypes.func,
 }
 
 export default Modal

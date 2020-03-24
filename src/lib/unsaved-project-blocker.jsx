@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { block, unblock } from 'redux-little-router'
 import PropTypes from 'prop-types'
 
-const UnsavedProjectBlockerHOC = WrappedComponent => {
+const UnsavedProjectBlockerHOC = (WrappedComponent) => {
   class UnsavedProjectBlocker extends React.Component {
     stopBrowserNavigation(event) {
       event.preventDefault()
@@ -49,14 +49,14 @@ const UnsavedProjectBlockerHOC = WrappedComponent => {
   UnsavedProjectBlocker.propTypes = {
     isProjectUnsaved: PropTypes.bool,
     routerBlock: PropTypes.func.isRequired,
-    routerUnBlock: PropTypes.func.isRequired
+    routerUnBlock: PropTypes.func.isRequired,
   }
 
   return connect(
-    state => ({
-      isProjectUnsaved: state.scratchGui.projectChanged
+    (state) => ({
+      isProjectUnsaved: state.scratchGui.projectChanged,
     }),
-    dispatch => ({
+    (dispatch) => ({
       routerBlock: () =>
         dispatch(
           block(
@@ -64,7 +64,7 @@ const UnsavedProjectBlockerHOC = WrappedComponent => {
               'Möchtest du die Seite wirklich verlassen? Dein Projekt geht ohne Speichern verloren!'
           )
         ),
-      routerUnBlock: () => dispatch(unblock())
+      routerUnBlock: () => dispatch(unblock()),
     })
   )(UnsavedProjectBlocker)
 }

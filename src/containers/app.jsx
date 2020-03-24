@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 import { v4 as uuid } from 'uuid'
 import { replace } from 'redux-little-router'
 
+import { Workbox } from 'workbox-window'
 import { Views } from '../lib/routing'
 import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx'
 import AppStateHOC from '../lib/app-state-hoc.jsx'
@@ -20,18 +21,16 @@ import {
   setEnabled,
   setInstalled,
   setOnline,
-  setOffline
+  setOffline,
 } from '../reducers/offline'
 
+import Loader from '../components/loader/loader.jsx'
+import { isFeatureEnabled, FEATURE_OFFLINE } from '../lib/feature-flags'
 import Menu from './menu.jsx'
 import WelcomeScreen from './welcome-screen.jsx'
 import LazyRender from './lazy-render.jsx'
 import Content from './content.jsx'
 import MobileScreen from './mobile-screen.jsx'
-import Loader from '../components/loader/loader.jsx'
-
-import { Workbox } from 'workbox-window'
-import { isFeatureEnabled, FEATURE_OFFLINE } from '../lib/feature-flags'
 
 addLocaleData(de)
 
@@ -206,27 +205,27 @@ App.propTypes = {
   setEnabled: PropTypes.func.isRequired,
   setInstalled: PropTypes.func.isRequired,
   setOnline: PropTypes.func.isRequired,
-  setOffline: PropTypes.func.isRequired
+  setOffline: PropTypes.func.isRequired,
 }
 
 const ConnectedApp = connect(
-  state => {
+  (state) => {
     const result = state.router.result || {}
     return {
       view: result.view || '',
       userId: state.scratchGui.project.userId,
-      offlineEnabled: state.scratchGui.offline.enabled
+      offlineEnabled: state.scratchGui.offline.enabled,
     }
   },
-  dispatch => ({
-    setUserId: id => dispatch(setUserId(id)),
+  (dispatch) => ({
+    setUserId: (id) => dispatch(setUserId(id)),
     redirectWelcome: () => dispatch(replace('/welcome')),
     startInstall: () => dispatch(startInstall()),
-    failInstall: e => dispatch(failInstall(e)),
+    failInstall: (e) => dispatch(failInstall(e)),
     setInstalled: () => dispatch(setInstalled()),
-    setEnabled: enabled => dispatch(setEnabled(enabled)),
+    setEnabled: (enabled) => dispatch(setEnabled(enabled)),
     setOnline: () => dispatch(setOnline()),
-    setOffline: () => dispatch(setOffline())
+    setOffline: () => dispatch(setOffline()),
   })
 )(App)
 

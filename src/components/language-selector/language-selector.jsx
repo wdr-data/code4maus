@@ -2,8 +2,8 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import Box from '../box/box.jsx'
 import locales from 'scratch-l10n'
+import Box from '../box/box.jsx'
 import languageIcon from './language-icon.svg'
 import dropdownCaret from './dropdown-caret.svg'
 import styles from './language-selector.css'
@@ -19,7 +19,7 @@ const LanguageSelector = ({ currentLocale, onChange, open, ...props }) => (
           value={currentLocale}
           onChange={onChange}
         >
-          {Object.keys(locales).map(locale => (
+          {Object.keys(locales).map((locale) => (
             <option key={locale} value={locale}>
               {locales[locale].name}
             </option>
@@ -43,7 +43,7 @@ const LanguageSelector = ({ currentLocale, onChange, open, ...props }) => (
 LanguageSelector.propTypes = {
   currentLocale: PropTypes.string,
   onChange: PropTypes.func,
-  open: PropTypes.bool
+  open: PropTypes.bool,
 }
 
 export default LanguageSelector

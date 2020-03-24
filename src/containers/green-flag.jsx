@@ -50,7 +50,7 @@ class GreenFlag extends React.Component {
 }
 
 GreenFlag.propTypes = {
-  vm: PropTypes.instanceOf(VM)
+  vm: PropTypes.instanceOf(VM),
 }
 
 export default GreenFlag

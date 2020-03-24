@@ -72,7 +72,7 @@ export default {
             id="gui.howtos.intro-move.step_stepMove"
           />
         ),
-        image: stepMove
+        image: stepMove,
       },
       {
         title: (
@@ -82,12 +82,12 @@ export default {
             id="gui.howtos.add-a-move-block.step_stepMoveSayHello"
           />
         ),
-        image: stepMoveSayHello
+        image: stepMoveSayHello,
       },
       {
-        deckIds: ['add-sprite', 'animate-a-name', 'Make-A-Game']
-      }
-    ]
+        deckIds: ['add-sprite', 'animate-a-name', 'Make-A-Game'],
+      },
+    ],
   },
 
   'add-sprite': {
@@ -108,12 +108,12 @@ export default {
             id="gui.howtos.add-sprite.step_addSprite"
           />
         ),
-        image: stepAddSprite
+        image: stepAddSprite,
       },
       {
-        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size']
-      }
-    ]
+        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size'],
+      },
+    ],
   },
 
   'animate-a-name': {
@@ -127,7 +127,7 @@ export default {
     img: libraryAnimate,
     steps: [
       {
-        video: 'https://www.youtube.com/embed/q3nnXj6wr5k'
+        video: 'https://www.youtube.com/embed/q3nnXj6wr5k',
       },
       {
         title: (
@@ -137,7 +137,7 @@ export default {
             id="gui.howtos.animate-a-name.step_AnimateChangeColor"
           />
         ),
-        image: stepAnimateChangeColor
+        image: stepAnimateChangeColor,
       },
       {
         title: (
@@ -147,7 +147,7 @@ export default {
             id="gui.howtos.animate-a-name.step_AnimateSpin"
           />
         ),
-        image: stepAnimateSpin
+        image: stepAnimateSpin,
       },
       {
         title: (
@@ -157,12 +157,12 @@ export default {
             id="gui.howtos.animate-a-name.step_AnimateGrow"
           />
         ),
-        image: stepAnimateGrow
+        image: stepAnimateGrow,
       },
       {
-        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size']
-      }
-    ]
+        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size'],
+      },
+    ],
   },
   'Make-Music': {
     name: (
@@ -175,7 +175,7 @@ export default {
     img: libraryMakeMusic,
     steps: [
       {
-        video: 'https://www.youtube.com/embed/o3ih7d_4uv0'
+        video: 'https://www.youtube.com/embed/o3ih7d_4uv0',
       },
       {
         title: (
@@ -185,7 +185,7 @@ export default {
             id="gui.howtos.Make-Music.step_CreateASong"
           />
         ),
-        image: stepMakeSong
+        image: stepMakeSong,
       },
       {
         title: (
@@ -195,7 +195,7 @@ export default {
             id="gui.howtos.make-music.step_MakeBeat"
           />
         ),
-        image: stepMakeBeat
+        image: stepMakeBeat,
       },
       {
         title: (
@@ -205,12 +205,12 @@ export default {
             id="gui.howtos.make-music.step_MakeBeatBox"
           />
         ),
-        image: stepMakeBeatbox
+        image: stepMakeBeatbox,
       },
       {
-        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size']
-      }
-    ]
+        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size'],
+      },
+    ],
   },
   'Chase-Game': {
     name: (
@@ -223,7 +223,7 @@ export default {
     img: libraryChaseGame,
     steps: [
       {
-        video: 'https://www.youtube.com/embed/PoQO35QmlVA'
+        video: 'https://www.youtube.com/embed/PoQO35QmlVA',
       },
       {
         title: (
@@ -233,7 +233,7 @@ export default {
             id="gui.howtos.Chase-Game.step_BG"
           />
         ),
-        image: stepBG
+        image: stepBG,
       },
       {
         title: (
@@ -243,7 +243,7 @@ export default {
             id="gui.howtos.chase-game.step_AddOcto"
           />
         ),
-        image: stepAddOcto
+        image: stepAddOcto,
       },
       {
         title: (
@@ -253,7 +253,7 @@ export default {
             id="gui.howtos.make-music.step_LeftRight"
           />
         ),
-        image: stepLeftRight
+        image: stepLeftRight,
       },
       {
         title: (
@@ -263,7 +263,7 @@ export default {
             id="gui.howtos.Chase-Game.step_UpDown"
           />
         ),
-        image: stepUpDown
+        image: stepUpDown,
       },
       {
         title: (
@@ -273,7 +273,7 @@ export default {
             id="gui.howtos.Chase-Game.step_AddStar"
           />
         ),
-        image: stepAddStar
+        image: stepAddStar,
       },
       {
         title: (
@@ -283,7 +283,7 @@ export default {
             id="gui.howtos.Chase-Game.step_MoveRandom"
           />
         ),
-        image: stepMoveRandom
+        image: stepMoveRandom,
       },
       {
         title: (
@@ -293,7 +293,7 @@ export default {
             id="gui.howtos.Chase-Game.step_WhenTouch"
           />
         ),
-        image: stepWhenTouch
+        image: stepWhenTouch,
       },
       {
         title: (
@@ -303,16 +303,16 @@ export default {
             id="gui.howtos.Chase-Game.step_Score"
           />
         ),
-        image: stepScore
+        image: stepScore,
       },
       {
         deckIds: [
           'add-a-backdrop',
           'add-effects',
-          'move-around-with-arrow-keys'
-        ]
-      }
-    ]
+          'move-around-with-arrow-keys',
+        ],
+      },
+    ],
   },
 
   'Make-A-Game': {
@@ -326,7 +326,7 @@ export default {
     img: libraryMakeAGame,
     steps: [
       {
-        video: 'https://www.youtube.com/embed/IPCaZ5kmFTA'
+        video: 'https://www.youtube.com/embed/IPCaZ5kmFTA',
       },
       {
         title: (
@@ -336,7 +336,7 @@ export default {
             id="gui.howtos.Make-A-Game.step_RandomPosition"
           />
         ),
-        image: stepRandom
+        image: stepRandom,
       },
       {
         title: (
@@ -346,7 +346,7 @@ export default {
             id="gui.howtos.make-a-game.step_ChangeColor"
           />
         ),
-        image: stepGameChangeColor
+        image: stepGameChangeColor,
       },
       {
         title: (
@@ -356,16 +356,16 @@ export default {
             id="gui.howtos.make-music.step_ResetScore"
           />
         ),
-        image: stepResetScore
+        image: stepResetScore,
       },
       {
         deckIds: [
           'add-a-backdrop',
           'add-effects',
-          'move-around-with-arrow-keys'
-        ]
-      }
-    ]
+          'move-around-with-arrow-keys',
+        ],
+      },
+    ],
   },
 
   'say-hello': {
@@ -386,12 +386,12 @@ export default {
             id="gui.howtos.say-hello.step_addSprite"
           />
         ),
-        image: stepSayHello
+        image: stepSayHello,
       },
       {
-        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size']
-      }
-    ]
+        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size'],
+      },
+    ],
   },
 
   'glide-around': {
@@ -405,12 +405,12 @@ export default {
     img: glideAroundThumb,
     steps: [
       {
-        video: 'https://www.youtube.com/embed/WUcmsMEIbGg'
+        video: 'https://www.youtube.com/embed/WUcmsMEIbGg',
       },
       {
-        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size']
-      }
-    ]
+        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size'],
+      },
+    ],
   },
   'change-size': {
     name: (
@@ -423,12 +423,12 @@ export default {
     img: changeSizeThumb,
     steps: [
       {
-        video: 'https://www.youtube.com/embed/NiK9KcghZ9s'
+        video: 'https://www.youtube.com/embed/NiK9KcghZ9s',
       },
       {
-        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size']
-      }
-    ]
+        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size'],
+      },
+    ],
   },
   'switch-costume': {
     name: (
@@ -441,12 +441,12 @@ export default {
     img: switchCostumeThumb,
     steps: [
       {
-        video: 'https://www.youtube.com/embed/AUBoFxQDPWA'
+        video: 'https://www.youtube.com/embed/AUBoFxQDPWA',
       },
       {
-        deckIds: ['add-a-backdrop', 'add-effects', 'change-size']
-      }
-    ]
+        deckIds: ['add-a-backdrop', 'add-effects', 'change-size'],
+      },
+    ],
   },
   'hide-and-show': {
     name: (
@@ -459,12 +459,12 @@ export default {
     img: hideAndShowThumb,
     steps: [
       {
-        video: 'https://www.youtube.com/embed/jpvqnlfsDTU'
+        video: 'https://www.youtube.com/embed/jpvqnlfsDTU',
       },
       {
-        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size']
-      }
-    ]
+        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size'],
+      },
+    ],
   },
   'add-a-backdrop': {
     name: (
@@ -477,12 +477,12 @@ export default {
     img: addBackdropThumb,
     steps: [
       {
-        video: 'https://www.youtube.com/embed/WpV05Q7AbPU'
+        video: 'https://www.youtube.com/embed/WpV05Q7AbPU',
       },
       {
-        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size']
-      }
-    ]
+        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size'],
+      },
+    ],
   },
   'add-effects': {
     name: (
@@ -495,35 +495,35 @@ export default {
     img: addEffectsThumb,
     steps: [
       {
-        video: 'https://www.youtube.com/embed/ORuohhkx15g'
+        video: 'https://www.youtube.com/embed/ORuohhkx15g',
       },
       {
-        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size']
-      }
-    ]
+        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size'],
+      },
+    ],
   },
   'move-around-with-arrow-keys': {
     name: 'Move With Arrow Keys',
     img: moveArrowKeysThumb,
     steps: [
       {
-        video: 'https://www.youtube.com/embed/7DUA_Yl0B_M'
+        video: 'https://www.youtube.com/embed/7DUA_Yl0B_M',
       },
       {
-        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size']
-      }
-    ]
+        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size'],
+      },
+    ],
   },
   'spin-video': {
     name: 'Spin!',
     img: spinThumb,
     steps: [
       {
-        video: 'https://www.youtube.com/embed/rHP3aojB_6w'
+        video: 'https://www.youtube.com/embed/rHP3aojB_6w',
       },
       {
-        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size']
-      }
-    ]
-  }
+        deckIds: ['add-a-backdrop', 'switch-costume', 'change-size'],
+      },
+    ],
+  },
 }

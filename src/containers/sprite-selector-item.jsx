@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 
+import VM from '@wdr-data/scratch-vm'
+import { SVGRenderer } from 'scratch-svg-renderer'
 import { setHoveredSprite } from '../reducers/hovered-target'
 import { updateAssetDrag } from '../reducers/asset-drag'
 import storage from '../lib/storage'
 import { getEventXY } from '../lib/touch-utils'
-import VM from '@wdr-data/scratch-vm'
-import { SVGRenderer } from 'scratch-svg-renderer'
 import getCostumeUrl from '../lib/get-costume-url'
 
 import SpriteSelectorItemComponent from '../components/sprite-selector-item/sprite-selector-item.jsx'
@@ -28,7 +28,7 @@ class SpriteSelectorItem extends React.Component {
       'handleMouseLeave',
       'handleMouseDown',
       'handleMouseMove',
-      'handleMouseUp'
+      'handleMouseUp',
     ])
     this.svgRenderer = new SVGRenderer()
     // Asset ID of the SVG currently in SVGRenderer
@@ -70,7 +70,7 @@ class SpriteSelectorItem extends React.Component {
     this.props.onDrag({
       img: null,
       currentOffset: null,
-      dragging: false
+      dragging: false,
     })
   }
   handleMouseMove(e) {
@@ -85,7 +85,7 @@ class SpriteSelectorItem extends React.Component {
       this.props.onDrag({
         img: this.getCostumeData(),
         currentOffset: currentOffset,
-        dragging: true
+        dragging: true,
       })
     }
     e.preventDefault()
@@ -168,7 +168,7 @@ SpriteSelectorItem.propTypes = {
   onDuplicateButtonClick: PropTypes.func,
   receivedBlocks: PropTypes.bool.isRequired,
   selected: PropTypes.bool,
-  vm: PropTypes.instanceOf(VM).isRequired
+  vm: PropTypes.instanceOf(VM).isRequired,
 }
 
 const mapStateToProps = (state, { id }) => ({
@@ -176,13 +176,13 @@ const mapStateToProps = (state, { id }) => ({
   receivedBlocks:
     state.scratchGui.hoveredTarget.receivedBlocks &&
     state.scratchGui.hoveredTarget.sprite === id,
-  vm: state.scratchGui.vm
+  vm: state.scratchGui.vm,
 })
-const mapDispatchToProps = dispatch => ({
-  dispatchSetHoveredSprite: spriteId => {
+const mapDispatchToProps = (dispatch) => ({
+  dispatchSetHoveredSprite: (spriteId) => {
     dispatch(setHoveredSprite(spriteId))
   },
-  onDrag: data => dispatch(updateAssetDrag(data))
+  onDrag: (data) => dispatch(updateAssetDrag(data)),
 })
 
 const ConnectedComponent = connect(
@@ -192,5 +192,5 @@ const ConnectedComponent = connect(
 
 export {
   ConnectedComponent as default,
-  HAS_FONT_REGEXP // Exposed for testing
+  HAS_FONT_REGEXP, // Exposed for testing
 }

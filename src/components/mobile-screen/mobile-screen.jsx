@@ -1,21 +1,20 @@
 import React from 'react'
 import { Link } from 'redux-little-router'
-import headLogo from '../../../assets/img/head_logo.png'
-import wdrLogo from '!raw-loader!../../../assets/img/wdr_logo.svg'
+import classNames from 'classnames'
 import codeGif from '../../../assets/img/code.gif'
 import block1 from '../../../assets/img/block1.png'
 import block2 from '../../../assets/img/block2.png'
 import block3 from '../../../assets/img/block3.png'
 import fant from '../../../assets/img/fant.png'
-import classNames from 'classnames'
+import headLogo from '../../../assets/img/head_logo.png'
 import screenshotEditor from '../../../assets/img/screenshot_editor.png'
 
 import Box from '../box/box.jsx'
 import InlineSVG from '../inline-svg/inline-svg.jsx'
 
-import mausQuestion from '!raw-loader!../../../assets/img/maus_question.svg'
-
 import styles from './mobile-screen.css'
+import wdrLogo from '!raw-loader!../../../assets/img/wdr_logo.svg'
+import mausQuestion from '!raw-loader!../../../assets/img/maus_question.svg'
 
 const MobileScreenComponent = () => (
   <Box className={styles.pageWrapper}>

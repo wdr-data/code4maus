@@ -60,7 +60,7 @@ const SharingPage = () => {
       <div className={styles.wrapper}>
         <h2 className={styles.orange}>Das war ... Code</h2>
         <p>
-          Ich hab's{' '}
+          Ich hab’s{' '}
           <span className={styles.orange}>
             <a
               href={'https://twitter.com/search?q=%23mausprobiert&src=typd'}

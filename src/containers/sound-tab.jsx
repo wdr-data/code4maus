@@ -4,27 +4,25 @@ import bindAll from 'lodash.bindall'
 import { defineMessages, intlShape, injectIntl } from 'react-intl'
 import VM from '@wdr-data/scratch-vm'
 
+import { connect } from 'react-redux'
 import AssetPanel from '../components/asset-panel/asset-panel.jsx'
 import soundIcon from '../components/asset-panel/icon--sound.svg'
 import addSoundFromLibraryIcon from '../../assets/icons/target_add.svg'
 import fileUploadIcon from '../components/action-menu/icon--file-upload.svg'
 import surpriseIcon from '../components/action-menu/icon--surprise.svg'
 
-import RecordModal from './record-modal.jsx'
-import SoundEditor from './sound-editor.jsx'
-import SoundLibrary from './sound-library.jsx'
-
 import soundLibraryContent from '../lib/libraries/sounds.json'
 import { handleFileUpload, soundUpload } from '../lib/file-uploader.js'
 import errorBoundaryHOC from '../lib/error-boundary-hoc.jsx'
 
-import { connect } from 'react-redux'
-
 import {
   closeSoundLibrary,
   openSoundLibrary,
-  openSoundRecorder
+  openSoundRecorder,
 } from '../reducers/modals'
+import SoundLibrary from './sound-library.jsx'
+import SoundEditor from './sound-editor.jsx'
+import RecordModal from './record-modal.jsx'
 
 class SoundTab extends React.Component {
   constructor(props) {
@@ -37,7 +35,7 @@ class SoundTab extends React.Component {
       'handleSurpriseSound',
       'handleFileUploadClick',
       'handleSoundUpload',
-      'setFileInput'
+      'setFileInput',
     ])
     this.state = { selectedSoundIndex: 0 }
   }
@@ -56,7 +54,7 @@ class SoundTab extends React.Component {
       this.setState({ selectedSoundIndex: 0 })
     } else if (this.state.selectedSoundIndex > target.sounds.length - 1) {
       this.setState({
-        selectedSoundIndex: Math.max(target.sounds.length - 1, 0)
+        selectedSoundIndex: Math.max(target.sounds.length - 1, 0),
       })
     }
   }
@@ -97,7 +95,7 @@ class SoundTab extends React.Component {
       md5: soundItem.md5,
       rate: soundItem.rate,
       sampleCount: soundItem.sampleCount,
-      name: soundItem.name
+      name: soundItem.name,
     }
     this.props.vm.addSound(vmSound).then(() => {
       this.handleNewSound()
@@ -110,7 +108,7 @@ class SoundTab extends React.Component {
 
   handleSoundUpload(e) {
     const storage = this.props.vm.runtime.storage
-    const handleSound = newSound =>
+    const handleSound = (newSound) =>
       this.props.vm.addSound(newSound).then(() => this.handleNewSound())
 
     handleFileUpload(e.target, (buffer, fileType, fileName) => {
@@ -123,12 +121,7 @@ class SoundTab extends React.Component {
   }
 
   render() {
-    const {
-      intl,
-      vm,
-      onNewSoundFromLibraryClick,
-      onNewSoundFromRecordingClick
-    } = this.props
+    const { intl, vm, onNewSoundFromLibraryClick } = this.props
 
     if (!vm.editingTarget) {
       return null
@@ -137,10 +130,10 @@ class SoundTab extends React.Component {
     const sprite = vm.editingTarget.sprite
 
     const sounds = sprite.sounds
-      ? sprite.sounds.map(sound => ({
+      ? sprite.sounds.map((sound) => ({
           url: soundIcon,
           name: sound.name,
-          details: (sound.sampleCount / sound.rate).toFixed(2)
+          details: (sound.sampleCount / sound.rate).toFixed(2),
         }))
       : []
 
@@ -148,18 +141,18 @@ class SoundTab extends React.Component {
       fileUploadSound: {
         defaultMessage: 'Upload Sound',
         description: 'Button to upload sound from file in the editor tab',
-        id: 'gui.soundTab.fileUploadSound'
+        id: 'gui.soundTab.fileUploadSound',
       },
       surpriseSound: {
         defaultMessage: 'Surprise',
         description: 'Button to get a random sound in the editor tab',
-        id: 'gui.soundTab.surpriseSound'
+        id: 'gui.soundTab.surpriseSound',
       },
       addSound: {
         defaultMessage: 'Choose a Sound',
         description: 'Button to add a sound in the editor tab',
-        id: 'gui.soundTab.addSoundFromLibrary'
-      }
+        id: 'gui.soundTab.addSoundFromLibrary',
+      },
     })
 
     return (
@@ -168,7 +161,7 @@ class SoundTab extends React.Component {
           {
             title: intl.formatMessage(messages.addSound),
             img: addSoundFromLibraryIcon,
-            onClick: onNewSoundFromLibraryClick
+            onClick: onNewSoundFromLibraryClick,
           },
           {
             title: intl.formatMessage(messages.fileUploadSound),
@@ -176,17 +169,17 @@ class SoundTab extends React.Component {
             onClick: this.handleFileUploadClick,
             fileAccept: '.wav, .mp3',
             fileChange: this.handleSoundUpload,
-            fileInput: this.setFileInput
+            fileInput: this.setFileInput,
           },
           {
             title: intl.formatMessage(messages.surpriseSound),
             img: surpriseIcon,
-            onClick: this.handleSurpriseSound
-          }
+            onClick: this.handleSurpriseSound,
+          },
         ]}
-        items={sounds.map(sound => ({
+        items={sounds.map((sound) => ({
           url: soundIcon,
-          ...sound
+          ...sound,
         }))}
         selectedItemIndex={this.state.selectedSoundIndex}
         onDeleteClick={this.handleDeleteSound}
@@ -223,31 +216,31 @@ SoundTab.propTypes = {
     id: PropTypes.shape({
       sounds: PropTypes.arrayOf(
         PropTypes.shape({
-          name: PropTypes.string.isRequired
+          name: PropTypes.string.isRequired,
         })
-      )
-    })
+      ),
+    }),
   }),
   stage: PropTypes.shape({
     sounds: PropTypes.arrayOf(
       PropTypes.shape({
-        name: PropTypes.string.isRequired
+        name: PropTypes.string.isRequired,
       })
-    )
+    ),
   }),
-  vm: PropTypes.instanceOf(VM).isRequired
+  vm: PropTypes.instanceOf(VM).isRequired,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   editingTarget: state.scratchGui.targets.editingTarget,
   sprites: state.scratchGui.targets.sprites,
   stage: state.scratchGui.targets.stage,
   soundLibraryVisible: state.scratchGui.modals.soundLibrary,
-  soundRecorderVisible: state.scratchGui.modals.soundRecorder
+  soundRecorderVisible: state.scratchGui.modals.soundRecorder,
 })
 
-const mapDispatchToProps = dispatch => ({
-  onNewSoundFromLibraryClick: e => {
+const mapDispatchToProps = (dispatch) => ({
+  onNewSoundFromLibraryClick: (e) => {
     e.preventDefault()
     dispatch(openSoundLibrary())
   },
@@ -256,14 +249,9 @@ const mapDispatchToProps = dispatch => ({
   },
   onRequestCloseSoundLibrary: () => {
     dispatch(closeSoundLibrary())
-  }
+  },
 })
 
 export default errorBoundaryHOC('Sound Tab')(
-  injectIntl(
-    connect(
-      mapStateToProps,
-      mapDispatchToProps
-    )(SoundTab)
-  )
+  injectIntl(connect(mapStateToProps, mapDispatchToProps)(SoundTab))
 )

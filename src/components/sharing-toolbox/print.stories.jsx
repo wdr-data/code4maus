@@ -9,7 +9,7 @@ storiesOf('PrintLayout', module).add('default', () => {
       style={{
         border: '1px solid red',
         display: 'inline-block',
-        background: 'white'
+        background: 'white',
       }}
     >
       <PrintLayout stage={stageDummy} userHandle={'Hallo Welt'} />

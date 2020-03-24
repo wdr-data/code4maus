@@ -9,7 +9,7 @@ class Backpack extends React.Component {
     bindAll(this, ['handleToggle'])
     this.state = {
       expanded: false,
-      contents: []
+      contents: [],
     }
   }
   handleToggle() {
@@ -27,7 +27,7 @@ class Backpack extends React.Component {
 }
 
 Backpack.propTypes = {
-  host: PropTypes.string
+  host: PropTypes.string,
 }
 
 export default Backpack

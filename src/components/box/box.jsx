@@ -4,15 +4,15 @@ import React from 'react'
 import stylePropType from 'react-style-proptype'
 import styles from './box.css'
 
-const getRandomColor = (function() {
+const getRandomColor = (function () {
   // In "DEBUG" mode this is used to output a random background color for each
   // box. The function gives the same "random" set for each seed, allowing re-
   // renders of the same content to give the same random display.
-  const random = (function(seed) {
+  const random = (function (seed) {
     let mW = seed
     let mZ = 987654321
     const mask = 0xffffffff
-    return function() {
+    return function () {
       mZ = (36969 * (mZ & 65535) + (mZ >> 16)) & mask
       mW = (18000 * (mW & 65535) + (mW >> 16)) & mask
       let result = ((mZ << 16) + mW) & mask
@@ -20,7 +20,7 @@ const getRandomColor = (function() {
       return result + 1
     }
   })(601)
-  return function() {
+  return function () {
     const r = Math.max(parseInt(random() * 100, 10) % 256, 1)
     const g = Math.max(parseInt(random() * 100, 10) % 256, 1)
     const b = Math.max(parseInt(random() * 100, 10) % 256, 1)
@@ -28,7 +28,7 @@ const getRandomColor = (function() {
   }
 })()
 
-const Box = props => {
+const Box = (props) => {
   const {
     alignContent,
     alignItems,
@@ -65,17 +65,17 @@ const Box = props => {
           flexWrap: wrap,
           justifyContent: justifyContent,
           width: width,
-          height: height
+          height: height,
         },
         process.env.DEBUG
           ? {
               backgroundColor: getRandomColor(),
-              outline: `1px solid black`
+              outline: `1px solid black`,
             }
           : {},
         style
       ),
-      ...componentProps
+      ...componentProps,
     },
     children
   )
@@ -88,7 +88,7 @@ Box.propTypes = {
     'center',
     'space-between',
     'space-around',
-    'stretch'
+    'stretch',
   ]),
   /** Defines how the browser distributes space between and around flex items horizontally within this box. */
   alignItems: PropTypes.oneOf([
@@ -96,7 +96,7 @@ Box.propTypes = {
     'flex-end',
     'center',
     'baseline',
-    'stretch'
+    'stretch',
   ]),
   /** Specifies how this box should be aligned inside of its container (requires the container to be flexable). */
   alignSelf: PropTypes.oneOf([
@@ -105,7 +105,7 @@ Box.propTypes = {
     'flex-end',
     'center',
     'baseline',
-    'stretch'
+    'stretch',
   ]),
   /** Specifies the initial length of this box */
   basis: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(['auto'])]),
@@ -119,14 +119,14 @@ Box.propTypes = {
    */
   componentRef: PropTypes.oneOfType([
     PropTypes.func,
-    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]),
   /** https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction */
   direction: PropTypes.oneOf([
     'row',
     'row-reverse',
     'column',
-    'column-reverse'
+    'column-reverse',
   ]),
   /** Specifies the type of HTML element of this box. Defaults to div. */
   element: PropTypes.string,
@@ -140,7 +140,7 @@ Box.propTypes = {
     'flex-end',
     'center',
     'space-between',
-    'space-around'
+    'space-around',
   ]),
   /** Specifies the flex shrink factor of a flex item. */
   shrink: PropTypes.number,
@@ -149,10 +149,10 @@ Box.propTypes = {
   /** The width in pixels (if specified as a number) or a string if different units are required. */
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /** How whitespace should wrap within this block. */
-  wrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse'])
+  wrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
 }
 Box.defaultProps = {
   element: 'div',
-  style: {}
+  style: {},
 }
 export default Box

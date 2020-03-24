@@ -13,8 +13,6 @@ const MODAL_SPRITE_LIBRARY = 'spriteLibrary'
 const MODAL_SOUND_RECORDER = 'soundRecorder'
 const MODAL_SAVE_PROJECT = 'saveProject'
 
-const MODAL_TIPS_LIBRARY = 'tipsLibrary'
-
 const initialState = {
   [MODAL_BACKDROP_LIBRARY]: false,
   [MODAL_CAMERA_CAPTURE]: false,

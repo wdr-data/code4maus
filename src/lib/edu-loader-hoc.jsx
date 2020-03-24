@@ -1,9 +1,11 @@
-import { Views } from './routing'
 import { connect } from 'react-redux'
 import React from 'react'
+import { omit } from 'lodash'
+import PropTypes from 'prop-types'
 import { loadGame } from '../reducers/edu-layer'
+import { Views } from './routing'
 
-const EduLoaderHOC = WrappedComponent => {
+const EduLoaderHOC = (WrappedComponent) => {
   class EduLoaderComponent extends React.Component {
     componentDidMount() {
       if (
@@ -13,6 +15,7 @@ const EduLoaderHOC = WrappedComponent => {
         this.loadGame(this.props.router.params.eduId)
       }
     }
+
     componentDidUpdate(prevProps) {
       if (
         this.props.router.view === Views.edu &&
@@ -22,32 +25,39 @@ const EduLoaderHOC = WrappedComponent => {
         this.loadGame(this.props.router.params.eduId)
       }
     }
+
     componentWillUnmount() {
       this.props.dispatch(loadGame(null))
     }
-    async loadGame(id) {
+
+    loadGame(id) {
       this.props.dispatch(loadGame(id))
     }
+
     render() {
-      const {
-        projectId,
-        enabled,
-        router,
-        dispatch,
-        ...componentProps
-      } = this.props
+      const componentProps = omit(this.props, [
+        'projectId',
+        'enabled',
+        'router',
+        'dispatch',
+      ])
 
       return <WrappedComponent {...componentProps} />
     }
   }
 
-  return connect(state => ({
+  EduLoaderComponent.propTypes = {
+    router: PropTypes.object,
+    dispatch: PropTypes.func,
+  }
+
+  return connect((state) => ({
     projectId: state.scratchGui.project.id,
     enabled: state.scratchGui.eduLayer.enabled,
     router: {
       view: state.router.result ? state.router.result.view : '',
-      params: state.router.params || {}
-    }
+      params: state.router.params || {},
+    },
   }))(EduLoaderComponent)
 }
 

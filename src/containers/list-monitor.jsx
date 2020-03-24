@@ -18,7 +18,7 @@ class ListMonitor extends React.Component {
       'handleKeyPress',
       'handleFocus',
       'handleAdd',
-      'handleResizeMouseDown'
+      'handleResizeMouseDown',
     ])
 
     this.state = {
@@ -26,7 +26,7 @@ class ListMonitor extends React.Component {
       activeValue: null,
       // TODO These will need to be sent back to the VM for saving
       width: props.width || 100,
-      height: props.height || 200
+      height: props.height || 200,
     }
   }
 
@@ -38,7 +38,7 @@ class ListMonitor extends React.Component {
 
     this.setState({
       activeIndex: index,
-      activeValue: this.props.value[index]
+      activeValue: this.props.value[index],
     })
   }
 
@@ -82,7 +82,7 @@ class ListMonitor extends React.Component {
       )
       this.setState({
         activeIndex: newIndex,
-        activeValue: this.props.value[newIndex]
+        activeValue: this.props.value[newIndex],
       })
       e.preventDefault() // Stop default tab behavior, handled by this state change
     } else if (e.key === 'Enter') {
@@ -101,7 +101,7 @@ class ListMonitor extends React.Component {
       )
       this.setState({
         activeIndex: newIndex,
-        activeValue: newListItemValue
+        activeValue: newListItemValue,
       })
     }
   }
@@ -137,17 +137,17 @@ class ListMonitor extends React.Component {
     this.initialWidth = this.state.width
     this.initialHeight = this.state.height
 
-    const onMouseMove = ev => {
+    const onMouseMove = (ev) => {
       const newPosition = getEventXY(ev)
       const dx = newPosition.x - this.initialPosition.x
       const dy = newPosition.y - this.initialPosition.y
       this.setState({
         width: Math.max(Math.min(this.initialWidth + dx, 480), 100),
-        height: Math.max(Math.min(this.initialHeight + dy, 360), 60)
+        height: Math.max(Math.min(this.initialHeight + dy, 360), 60),
       })
     }
 
-    const onMouseUp = ev => {
+    const onMouseUp = (ev) => {
       onMouseMove(ev) // Make sure width/height are up-to-date
       // TODO send these new sizes to the VM for saving
       window.removeEventListener('mousemove', onMouseMove)
@@ -195,9 +195,9 @@ ListMonitor.propTypes = {
   vm: PropTypes.instanceOf(VM),
   width: PropTypes.number,
   x: PropTypes.number,
-  y: PropTypes.number
+  y: PropTypes.number,
 }
 
-const mapStateToProps = state => ({ vm: state.scratchGui.vm })
+const mapStateToProps = (state) => ({ vm: state.scratchGui.vm })
 
 export default connect(mapStateToProps)(ListMonitor)

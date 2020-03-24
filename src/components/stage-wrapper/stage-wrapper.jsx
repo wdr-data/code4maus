@@ -7,8 +7,8 @@ import Stage from '../../containers/stage.jsx'
 
 import styles from './stage-wrapper.css'
 
-const StageWrapperComponent = function(props) {
-  const { isRendererSupported, stageSize, vm } = props
+const StageWrapperComponent = function (props) {
+  const { stageSize, vm } = props
 
   return (
     <Box className={styles.stageWrapper} aria-label="Bühne">
@@ -28,9 +28,9 @@ StageWrapperComponent.propTypes = {
   isRendererSupported: PropTypes.bool.isRequired,
   stageSize: PropTypes.shape({
     height: PropTypes.number,
-    width: PropTypes.number
+    width: PropTypes.number,
   }).isRequired,
-  vm: PropTypes.instanceOf(VM).isRequired
+  vm: PropTypes.instanceOf(VM).isRequired,
 }
 
 export default StageWrapperComponent

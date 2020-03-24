@@ -3,7 +3,7 @@ import React from 'react'
 
 import greenFlagIcon from './play@2x.png'
 
-const GreenFlagComponent = function(props) {
+const GreenFlagComponent = function (props) {
   const { onClick, title, ...componentProps } = props
   return (
     <img
@@ -18,9 +18,9 @@ const GreenFlagComponent = function(props) {
 GreenFlagComponent.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func.isRequired,
-  title: PropTypes.string
+  title: PropTypes.string,
 }
 GreenFlagComponent.defaultProps = {
-  title: 'Go'
+  title: 'Go',
 }
 export default GreenFlagComponent

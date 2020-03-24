@@ -9,18 +9,18 @@ import Fullscreen from '../../containers/fullscreen.jsx'
 import Box from '../box/box.jsx'
 import MenuButton from '../menu-button/menu-button.jsx'
 
+import { StageSizeConsumer } from '../../lib/stage-size-provider.jsx'
+import styles from './stage-header.css'
 import saveIcon from '!raw-loader!../../../assets/icons/header_save.svg'
 import menuIcon from '!raw-loader!../../../assets/icons/header_menu.svg'
 import mailIcon from '!raw-loader!../../../assets/icons/menu_impressum.svg'
-import styles from './stage-header.css'
-import { StageSizeConsumer } from '../../lib/stage-size-provider.jsx'
 
-const StageHeaderComponent = function(props) {
+const StageHeaderComponent = function (props) {
   const { isFullScreen, onSaveProject, vm } = props
 
   return (
     <StageSizeConsumer>
-      {stageSize => (
+      {(stageSize) => (
         <Box
           className={
             isFullScreen
@@ -85,7 +85,7 @@ StageHeaderComponent.propTypes = {
   intl: intlShape,
   isFullScreen: PropTypes.bool.isRequired,
   onSaveProject: PropTypes.func.isRequired,
-  vm: PropTypes.instanceOf(VM).isRequired
+  vm: PropTypes.instanceOf(VM).isRequired,
 }
 
 export default injectIntl(StageHeaderComponent)

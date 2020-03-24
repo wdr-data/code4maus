@@ -5,7 +5,7 @@ import Box from '../box/box.jsx'
 import styles from './audio-trimmer.css'
 import handleIcon from './icon--handle.svg'
 
-const AudioTrimmer = props => (
+const AudioTrimmer = (props) => (
   <div className={styles.absolute} ref={props.containerRef}>
     {props.trimStart === null ? null : (
       <Box
@@ -15,7 +15,7 @@ const AudioTrimmer = props => (
           styles.startTrimBackground
         )}
         style={{
-          width: `${100 * props.trimStart}%`
+          width: `${100 * props.trimStart}%`,
         }}
         onMouseDown={props.onTrimStartMouseDown}
         onTouchStart={props.onTrimStartMouseDown}
@@ -50,7 +50,7 @@ const AudioTrimmer = props => (
       <Box
         className={classNames(styles.trimLine, styles.playhead)}
         style={{
-          left: `${100 * props.playhead}%`
+          left: `${100 * props.playhead}%`,
         }}
       />
     ) : null}
@@ -64,7 +64,7 @@ const AudioTrimmer = props => (
         )}
         style={{
           left: `${100 * props.trimEnd}%`,
-          width: `${100 - 100 * props.trimEnd}%`
+          width: `${100 - 100 * props.trimEnd}%`,
         }}
         onMouseDown={props.onTrimEndMouseDown}
         onTouchStart={props.onTrimEndMouseDown}
@@ -102,7 +102,7 @@ AudioTrimmer.propTypes = {
   onTrimStartMouseDown: PropTypes.func.isRequired,
   playhead: PropTypes.number,
   trimEnd: PropTypes.number,
-  trimStart: PropTypes.number
+  trimStart: PropTypes.number,
 }
 
 export default AudioTrimmer

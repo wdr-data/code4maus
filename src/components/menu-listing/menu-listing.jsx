@@ -2,15 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'redux-little-router'
 
-import styles from './menu-listing.css'
 import defaultImage from '../../../assets/img/meine_sachen.png'
 import { useFeatureFlag, FEATURE_GAMESPREVIEW } from '../../lib/feature-flags'
+import styles from './menu-listing.css'
 
-const MenuListingComponent = props => {
+const MenuListingComponent = (props) => {
   const showHidden = useFeatureFlag(FEATURE_GAMESPREVIEW)
   return props.projects
-    .filter(p => !p.hidden || showHidden)
-    .map(project => (
+    .filter((p) => !p.hidden || showHidden)
+    .map((project) => (
       <Link
         href={project.linkTo}
         key={project.key}
@@ -34,11 +34,11 @@ export const SHAPE_PROJECT = {
   title: PropTypes.string.isRequired,
   note: PropTypes.string,
   image: PropTypes.boolean,
-  linkTo: PropTypes.string.isRequired
+  linkTo: PropTypes.string.isRequired,
 }
 
 MenuListingComponent.propTypes = {
-  projects: PropTypes.arrayOf(PropTypes.shape(SHAPE_PROJECT))
+  projects: PropTypes.arrayOf(PropTypes.shape(SHAPE_PROJECT)),
 }
 
 export default MenuListingComponent

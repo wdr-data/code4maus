@@ -5,11 +5,11 @@ import classNames from 'classnames'
 import Box from '../box/box.jsx'
 import SpriteSelectorItem from '../../containers/sprite-selector-item.jsx'
 
-import styles from './sprite-selector.css'
 import itemStyles from '../sprite-selector-item/sprite-selector-item.css'
 
 import IconWithText from '../icon-text/icon-text.jsx'
 import InlineSVG from '../inline-svg/inline-svg.jsx'
+import styles from './sprite-selector.css'
 import CustomeIcon from '!raw-loader!../../../assets/icons/target_costume.svg'
 import AddIcon from '!raw-loader!../../../assets/icons/target_add.svg'
 
@@ -17,33 +17,20 @@ const SpriteSelectorComponent = React.forwardRef((props, ref) => {
   const {
     editingTarget,
     hoveredTarget,
-    intl,
-    onChangeSpriteDirection,
-    onChangeSpriteName,
-    onChangeSpriteSize,
-    onChangeSpriteVisibility,
-    onChangeSpriteX,
-    onChangeSpriteY,
     onDeleteSprite,
     onDuplicateSprite,
-    onFileUploadClick,
     onNewSpriteClick,
-    onPaintSpriteClick,
     onSelectSprite,
-    onSpriteUpload,
-    onSurpriseSpriteClick,
     raised,
     selectedId,
-    spriteFileInput,
     sprites,
-    ...componentProps
   } = props
+
   let selectedSprite = sprites[selectedId]
-  let spriteInfoDisabled = false
   if (typeof selectedSprite === 'undefined') {
     selectedSprite = {}
-    spriteInfoDisabled = true
   }
+
   return (
     <React.Fragment>
       <IconWithText className={styles.label} iconSvg={CustomeIcon}>
@@ -57,8 +44,8 @@ const SpriteSelectorComponent = React.forwardRef((props, ref) => {
         {Object.keys(sprites)
           // Re-order by list order
           .sort((id1, id2) => sprites[id1].order - sprites[id2].order)
-          .map(id => sprites[id])
-          .map(sprite => (
+          .map((id) => sprites[id])
+          .map((sprite) => (
             <SpriteSelectorItem
               asset={sprite.costume && sprite.costume.asset}
               className={classNames(styles.sprite, {
@@ -67,7 +54,7 @@ const SpriteSelectorComponent = React.forwardRef((props, ref) => {
                   sprite.id !== editingTarget &&
                   hoveredTarget.receivedBlocks,
                 [styles.raised]: raised && sprite.id !== editingTarget,
-                [styles.dragTarget]: sprite.id === hoveredTarget.sprite
+                [styles.dragTarget]: sprite.id === hoveredTarget.sprite,
               })}
               id={sprite.id}
               key={sprite.id}
@@ -94,11 +81,14 @@ const SpriteSelectorComponent = React.forwardRef((props, ref) => {
   )
 })
 
+SpriteSelectorComponent.displayName = 'SpriteSelectorComponent'
+
 SpriteSelectorComponent.propTypes = {
   editingTarget: PropTypes.string,
   hoveredTarget: PropTypes.shape({
+    sprite: PropTypes.string,
     hoveredSprite: PropTypes.string,
-    receivedBlocks: PropTypes.bool
+    receivedBlocks: PropTypes.bool,
   }),
   onChangeSpriteDirection: PropTypes.func,
   onChangeSpriteName: PropTypes.func,
@@ -124,12 +114,12 @@ SpriteSelectorComponent.propTypes = {
         name: PropTypes.string.isRequired,
         bitmapResolution: PropTypes.number.isRequired,
         rotationCenterX: PropTypes.number.isRequired,
-        rotationCenterY: PropTypes.number.isRequired
+        rotationCenterY: PropTypes.number.isRequired,
       }),
       name: PropTypes.string.isRequired,
-      order: PropTypes.number.isRequired
-    })
-  })
+      order: PropTypes.number.isRequired,
+    }),
+  }),
 }
 
 export default SpriteSelectorComponent

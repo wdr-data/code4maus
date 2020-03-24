@@ -7,14 +7,14 @@ import Box from '../box/box.jsx'
 import ActionMenu from '../action-menu/action-menu.jsx'
 import styles from './selector.css'
 
-const Selector = props => {
+const Selector = (props) => {
   const {
     buttons,
     items,
     selectedItemIndex,
     onDeleteClick,
     onDuplicateClick,
-    onItemClick
+    onItemClick,
   } = props
 
   let newButtonSection = null
@@ -59,19 +59,19 @@ Selector.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       img: PropTypes.string.isRequired,
-      onClick: PropTypes.func
+      onClick: PropTypes.func,
     })
   ),
   items: PropTypes.arrayOf(
     PropTypes.shape({
       url: PropTypes.string,
-      name: PropTypes.string.isRequired
+      name: PropTypes.string.isRequired,
     })
   ),
   onDeleteClick: PropTypes.func,
   onDuplicateClick: PropTypes.func,
   onItemClick: PropTypes.func.isRequired,
-  selectedItemIndex: PropTypes.number.isRequired
+  selectedItemIndex: PropTypes.number.isRequired,
 }
 
 export default Selector

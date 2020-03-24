@@ -2,8 +2,8 @@ import bindAll from 'lodash.bindall'
 import PropTypes from 'prop-types'
 import React from 'react'
 import VM from '@wdr-data/scratch-vm'
-import { setVariableValue } from '../lib/variable-utils'
 import { connect } from 'react-redux'
+import { setVariableValue } from '../lib/variable-utils'
 
 import SliderMonitorComponent from '../components/monitor/slider-monitor.jsx'
 
@@ -13,7 +13,7 @@ class SliderMonitor extends React.Component {
     bindAll(this, ['handleSliderUpdate'])
 
     this.state = {
-      value: Number(props.value)
+      value: Number(props.value),
     }
   }
   componentWillReceiveProps(nextProps) {
@@ -46,9 +46,9 @@ SliderMonitor.propTypes = {
   id: PropTypes.string,
   targetId: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  vm: PropTypes.instanceOf(VM)
+  vm: PropTypes.instanceOf(VM),
 }
 
-const mapStateToProps = state => ({ vm: state.scratchGui.vm })
+const mapStateToProps = (state) => ({ vm: state.scratchGui.vm })
 
 export default connect(mapStateToProps)(SliderMonitor)

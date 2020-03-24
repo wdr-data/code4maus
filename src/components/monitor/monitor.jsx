@@ -5,10 +5,10 @@ import { FormattedMessage } from 'react-intl'
 import { ContextMenuTrigger } from 'react-contextmenu'
 import { ContextMenu, MenuItem } from '../context-menu/context-menu.jsx'
 import Box from '../box/box.jsx'
-import DefaultMonitor from './default-monitor.jsx'
-import LargeMonitor from './large-monitor.jsx'
 import SliderMonitor from '../../containers/slider-monitor.jsx'
 import ListMonitor from '../../containers/list-monitor.jsx'
+import DefaultMonitor from './default-monitor.jsx'
+import LargeMonitor from './large-monitor.jsx'
 
 import styles from './monitor.css'
 
@@ -18,17 +18,17 @@ const categories = {
   sound: '#CF63CF',
   looks: '#9966FF',
   motion: '#4C97FF',
-  list: '#FC662C'
+  list: '#FC662C',
 }
 
 const modes = {
   default: DefaultMonitor,
   large: LargeMonitor,
   slider: SliderMonitor,
-  list: ListMonitor
+  list: ListMonitor,
 }
 
-const MonitorComponent = props => (
+const MonitorComponent = (props) => (
   <ContextMenuTrigger
     disable={!props.draggable}
     holdToDisplay={props.mode === 'slider' ? -1 : 1000}
@@ -50,7 +50,7 @@ const MonitorComponent = props => (
       >
         {React.createElement(modes[props.mode], {
           categoryColor: categories[props.category],
-          ...props
+          ...props,
         })}
       </Box>
     </Draggable>
@@ -98,12 +98,12 @@ MonitorComponent.propTypes = {
   onNextMode: PropTypes.func.isRequired,
   onSetModeToDefault: PropTypes.func.isRequired,
   onSetModeToLarge: PropTypes.func.isRequired,
-  onSetModeToSlider: PropTypes.func
+  onSetModeToSlider: PropTypes.func,
 }
 
 MonitorComponent.defaultProps = {
   category: 'data',
-  mode: 'default'
+  mode: 'default',
 }
 
 export { MonitorComponent as default, monitorModes }

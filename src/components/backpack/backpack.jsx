@@ -39,12 +39,12 @@ const Backpack = ({ expanded, onToggle }) => (
 )
 Backpack.propTypes = {
   expanded: PropTypes.bool,
-  onToggle: PropTypes.func
+  onToggle: PropTypes.func,
 }
 
 Backpack.defaultProps = {
   expanded: false,
-  onToggle: null
+  onToggle: null,
 }
 
 export default Backpack

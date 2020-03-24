@@ -25,7 +25,7 @@ class StageSelector extends React.Component {
       'handleBackdropUpload',
       'handleMouseEnter',
       'handleMouseLeave',
-      'setFileInput'
+      'setFileInput',
     ])
   }
   addBackdropFromLibraryItem(item) {
@@ -35,7 +35,7 @@ class StageSelector extends React.Component {
       rotationCenterX: item.info[0] && item.info[0] / 2,
       rotationCenterY: item.info[1] && item.info[1] / 2,
       bitmapResolution: item.info.length > 2 ? item.info[2] : 1,
-      skinId: null
+      skinId: null,
     }
     this.handleNewBackdrop(vmBackdrop)
   }
@@ -107,7 +107,7 @@ class StageSelector extends React.Component {
 StageSelector.propTypes = {
   ...StageSelectorComponent.propTypes,
   id: PropTypes.string,
-  onSelect: PropTypes.func
+  onSelect: PropTypes.func,
 }
 
 const mapStateToProps = (state, { asset, id }) => ({
@@ -116,23 +116,20 @@ const mapStateToProps = (state, { asset, id }) => ({
   receivedBlocks:
     state.scratchGui.hoveredTarget.receivedBlocks &&
     state.scratchGui.hoveredTarget.sprite === id,
-  raised: state.scratchGui.blockDrag
+  raised: state.scratchGui.blockDrag,
 })
 
-const mapDispatchToProps = dispatch => ({
-  onNewBackdropClick: e => {
+const mapDispatchToProps = (dispatch) => ({
+  onNewBackdropClick: (e) => {
     e.preventDefault()
     dispatch(activateTab(COSTUMES_TAB_INDEX))
   },
-  onActivateTab: tabIndex => {
+  onActivateTab: (tabIndex) => {
     dispatch(activateTab(tabIndex))
   },
-  dispatchSetHoveredSprite: spriteId => {
+  dispatchSetHoveredSprite: (spriteId) => {
     dispatch(setHoveredSprite(spriteId))
-  }
+  },
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(StageSelector)
+export default connect(mapStateToProps, mapDispatchToProps)(StageSelector)

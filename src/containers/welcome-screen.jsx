@@ -19,15 +19,12 @@ class WelcomeScreen extends React.Component {
 
 WelcomeScreen.propTypes = {
   handleIntroClick: PropTypes.func.isRequired,
-  handleMenuClick: PropTypes.func.isRequired
+  handleMenuClick: PropTypes.func.isRequired,
 }
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   handleIntroClick: () => dispatch(push(eduUrl('00'))),
-  handleMenuClick: () => dispatch(push('/'))
+  handleMenuClick: () => dispatch(push('/')),
 })
 
-export default connect(
-  () => ({}),
-  mapDispatchToProps
-)(WelcomeScreen)
+export default connect(() => ({}), mapDispatchToProps)(WelcomeScreen)

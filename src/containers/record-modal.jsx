@@ -22,7 +22,7 @@ class RecordModal extends React.Component {
       'handleCancel',
       'handleSetPlayhead',
       'handleSetTrimStart',
-      'handleSetTrimEnd'
+      'handleSetTrimEnd',
     ])
 
     this.state = {
@@ -34,7 +34,7 @@ class RecordModal extends React.Component {
       recording: false,
       sampleRate: null,
       trimStart: 0,
-      trimEnd: 1
+      trimEnd: 1,
     }
   }
   handleRecord() {
@@ -47,7 +47,7 @@ class RecordModal extends React.Component {
       levels,
       trimStart,
       trimEnd,
-      recording: false
+      recording: false,
     })
   }
   handlePlay() {
@@ -76,13 +76,13 @@ class RecordModal extends React.Component {
       const clippedSamples = this.state.samples.slice(startIndex, endIndex)
       WavEncoder.encode({
         sampleRate: this.state.sampleRate,
-        channelData: [clippedSamples]
-      }).then(wavBuffer => {
+        channelData: [clippedSamples],
+      }).then((wavBuffer) => {
         const vmSound = {
           format: '',
           dataFormat: 'wav',
           rate: this.state.sampleRate,
-          sampleCount: clippedSamples.length
+          sampleCount: clippedSamples.length,
         }
 
         // Create an asset from the encoded .wav and get resulting md5
@@ -142,20 +142,17 @@ class RecordModal extends React.Component {
 RecordModal.propTypes = {
   onClose: PropTypes.func,
   onNewSound: PropTypes.func,
-  vm: PropTypes.instanceOf(VM)
+  vm: PropTypes.instanceOf(VM),
 }
 
-const mapStateToProps = state => ({
-  vm: state.scratchGui.vm
+const mapStateToProps = (state) => ({
+  vm: state.scratchGui.vm,
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   onClose: () => {
     dispatch(closeSoundRecorder())
-  }
+  },
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(RecordModal)
+export default connect(mapStateToProps, mapDispatchToProps)(RecordModal)

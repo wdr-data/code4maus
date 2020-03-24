@@ -78,7 +78,7 @@ class LoupeComponent extends React.Component {
           top: colorInfo.y - (zoomScale * colorInfo.height) / 2,
           left: colorInfo.x - (zoomScale * colorInfo.width) / 2,
           width: colorInfo.width * zoomScale,
-          height: colorInfo.height * zoomScale
+          height: colorInfo.height * zoomScale,
         }}
         width={colorInfo.width}
       />
@@ -91,14 +91,15 @@ LoupeComponent.propTypes = {
     color: PropTypes.shape({
       r: PropTypes.number,
       g: PropTypes.number,
-      b: PropTypes.number
+      b: PropTypes.number,
+      a: PropTypes.number,
     }),
     data: PropTypes.instanceOf(Uint8Array),
     width: PropTypes.number,
     height: PropTypes.number,
     x: PropTypes.number,
-    y: PropTypes.number
-  })
+    y: PropTypes.number,
+  }),
 }
 
 export default LoupeComponent

@@ -6,7 +6,7 @@ import Button from '../button/button.jsx'
 
 import styles from './welcome-screen.css'
 
-const WelcomeScreenComponent = props => (
+const WelcomeScreenComponent = (props) => (
   <LogoOverlay>
     <div className={styles.wrapper}>
       <div className={styles.innerWrapper}>
@@ -32,7 +32,7 @@ const WelcomeScreenComponent = props => (
 
 WelcomeScreenComponent.propTypes = {
   onIntroClick: PropTypes.func.isRequired,
-  onMenuClick: PropTypes.func.isRequired
+  onMenuClick: PropTypes.func.isRequired,
 }
 
 export default WelcomeScreenComponent

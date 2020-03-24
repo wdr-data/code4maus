@@ -18,7 +18,7 @@ class CameraModal extends React.Component {
       'handleCapture',
       'handleLoaded',
       'handleSubmit',
-      'setCanvas'
+      'setCanvas',
     ])
 
     this.video = null
@@ -27,7 +27,7 @@ class CameraModal extends React.Component {
     this.state = {
       capture: null,
       access: false,
-      loaded: false
+      loaded: false,
     }
   }
   componentWillUnmount() {
@@ -86,18 +86,15 @@ class CameraModal extends React.Component {
 
 CameraModal.propTypes = {
   onClose: PropTypes.func,
-  onNewCostume: PropTypes.func
+  onNewCostume: PropTypes.func,
 }
 
 const mapStateToProps = () => ({})
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   onClose: () => {
     dispatch(closeCameraCapture())
-  }
+  },
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CameraModal)
+export default connect(mapStateToProps, mapDispatchToProps)(CameraModal)

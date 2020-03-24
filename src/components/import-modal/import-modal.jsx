@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import ReactModal from 'react-modal'
-import Box from '../box/box.jsx'
 import {
   defineMessages,
   injectIntl,
   intlShape,
-  FormattedMessage
+  FormattedMessage,
 } from 'react-intl'
 import classNames from 'classnames'
+import Box from '../box/box.jsx'
 
 import CloseButton from '../close-button/close-button.jsx'
 
@@ -18,19 +18,19 @@ const messages = defineMessages({
   title: {
     id: 'gui.importInfo.title',
     defaultMessage: 'View a Scratch 2.0 Project',
-    description: 'Scratch 2.0 import modal label - for accessibility'
+    description: 'Scratch 2.0 import modal label - for accessibility',
   },
   formDescription: {
     defaultMessage:
       'Enter a link to one of your shared Scratch projects. Changes made in this 3.0 Preview will not be saved.',
     description: 'Import project message',
-    id: 'gui.importInfo.message'
+    id: 'gui.importInfo.message',
   },
   invalidFormatError: {
     id: 'gui.importInfo.invalidFormatError',
     defaultMessage: "Uh oh, that project link or id doesn't look quite right.",
-    description: 'Invalid project link or id message'
-  }
+    description: 'Invalid project link or id message',
+  },
 })
 
 const ImportModal = ({ intl, ...props }) => (
@@ -121,7 +121,7 @@ const ImportModal = ({ intl, ...props }) => (
                   id="gui.importInfo.previewfaqlink"
                 />
               </a>
-            )
+            ),
           }}
         />
       </Box>
@@ -138,7 +138,7 @@ ImportModal.propTypes = {
   onGoBack: PropTypes.func.isRequired,
   onKeyPress: PropTypes.func.isRequired,
   onViewProject: PropTypes.func.isRequired,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
 }
 
 export default injectIntl(ImportModal)

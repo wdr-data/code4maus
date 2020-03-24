@@ -52,7 +52,7 @@ class PlaybackStep extends React.Component {
 PlaybackStep.propTypes = {
   sampleRate: PropTypes.number.isRequired,
   samples: PropTypes.instanceOf(Float32Array).isRequired,
-  ...PlaybackStepComponent.propTypes
+  ...PlaybackStepComponent.propTypes,
 }
 
 export default PlaybackStep

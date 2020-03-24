@@ -99,7 +99,7 @@ export default function (vm) {
   const spriteMenu = function () {
     const sprites = []
     for (const targetId in vm.runtime.targets) {
-      if (!vm.runtime.targets.hasOwnProperty(targetId)) {
+      if (!(targetId in vm.runtime.targets)) {
         continue
       }
       if (vm.runtime.targets[targetId].isOriginal) {

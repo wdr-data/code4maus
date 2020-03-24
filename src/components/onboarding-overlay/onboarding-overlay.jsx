@@ -13,32 +13,32 @@ import arrowShort from './arrow-1.svg'
 const arrowOffset = {
   left: {
     targetX: -45,
-    modalX: -40
+    modalX: -40,
   },
   right: {
     targetX: -45,
-    modalX: 48
+    modalX: 48,
   },
   top: {
     targetY: 35,
-    modalY: 200
+    modalY: 200,
   },
   middle: {
     targetX: 0,
     targetY: -40,
-    modalY: 20
+    modalY: 20,
   },
   bottom: {
     targetY: 35,
-    modalY: 200
-  }
+    modalY: 200,
+  },
 }
 
 const getPositions = (props, ref) => {
   if (!props.targetCoordinates) {
     return {
       modalStyle: {},
-      arrow: null
+      arrow: null,
     }
   }
 
@@ -54,7 +54,7 @@ const getPositions = (props, ref) => {
 
   const offset = {
     ...arrowOffset[orientationX],
-    ...arrowOffset[orientationY]
+    ...arrowOffset[orientationY],
   }
   if (props.arrowTo in customOffsets) {
     offset.targetX = offset.targetX + customOffsets[props.arrowTo].x
@@ -64,7 +64,7 @@ const getPositions = (props, ref) => {
   }
 
   const modalStyle = {
-    top: props.targetCoordinates.y + offset.modalY
+    top: props.targetCoordinates.y + offset.modalY,
   }
   if (orientationX === 'left') {
     modalStyle.right =
@@ -75,7 +75,7 @@ const getPositions = (props, ref) => {
 
   const arrowStyle = {
     left: props.targetCoordinates.x + offset.targetX,
-    top: props.targetCoordinates.y + offset.targetY
+    top: props.targetCoordinates.y + offset.targetY,
   }
 
   return {
@@ -90,14 +90,14 @@ const getPositions = (props, ref) => {
         )}
         style={arrowStyle}
       />
-    )
+    ),
   }
 }
 
 const OnboardingOverlayComponent = React.forwardRef((props, ref) => {
   const overlayClasses = classNames(styles.overlay, {
     [styles.dim]: props.dim,
-    [styles.shown]: props.shown
+    [styles.shown]: props.shown,
   })
 
   const { modalStyle, arrow } = getPositions(props, ref)
@@ -106,7 +106,7 @@ const OnboardingOverlayComponent = React.forwardRef((props, ref) => {
     <div className={overlayClasses} ref={ref}>
       <Box
         className={classNames(styles.modal, {
-          [styles.center]: !props.targetCoordinates
+          [styles.center]: !props.targetCoordinates,
         })}
         style={modalStyle}
       >
@@ -114,7 +114,7 @@ const OnboardingOverlayComponent = React.forwardRef((props, ref) => {
         {props.image && <img src={props.image} className={styles.image} />}
         {props.buttons.length > 0 && (
           <div className={styles.buttons}>
-            {props.buttons.map(button => (
+            {props.buttons.map((button) => (
               <Button
                 key={button.text}
                 arrowRight={button.action === NEXT_STEP}
@@ -138,17 +138,18 @@ OnboardingOverlayComponent.propTypes = {
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string.isRequired,
-      action: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired
+      action: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+        .isRequired,
     })
   ),
   targetCoordinates: PropTypes.shape({
     x: PropTypes.number.isRequired,
-    y: PropTypes.number.isRequired
+    y: PropTypes.number.isRequired,
   }),
   dim: PropTypes.bool,
   buttonClickFactory: PropTypes.func.isRequired,
   shown: PropTypes.bool,
-  image: PropTypes.string
+  image: PropTypes.string,
 }
 
 OnboardingOverlayComponent.defaultProps = {
@@ -156,7 +157,7 @@ OnboardingOverlayComponent.defaultProps = {
   buttons: [],
   targetCoordinates: null,
   dim: false,
-  text: ''
+  text: '',
 }
 
 export default OnboardingOverlayComponent

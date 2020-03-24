@@ -1,13 +1,14 @@
 import { connect } from 'react-redux'
 import { push } from 'redux-little-router'
-import { setProjectName, setProjectId } from '../reducers/project'
-import { setProjectUnchanged } from '../reducers/project-changed'
 import React from 'react'
-import { projectUrl } from './routing'
+import PropTypes from 'prop-types'
 import {
   serializeSounds,
-  serializeCostumes
+  serializeCostumes,
 } from '@wdr-data/scratch-vm/src/serialization/serialize-assets'
+import { setProjectName, setProjectId } from '../reducers/project'
+import { setProjectUnchanged } from '../reducers/project-changed'
+import { projectUrl } from './routing'
 
 const contentTypes = {
   jpg: 'image/jpeg',
@@ -15,9 +16,9 @@ const contentTypes = {
   mp3: 'audio/mp3',
   png: 'image/png',
   svg: 'image/svg+xml',
-  wav: 'audio/wav'
+  wav: 'audio/wav',
 }
-const getContentType = filename => {
+const getContentType = (filename) => {
   const parts = filename.split('.')
   const ext = parts[parts.length - 1]
   if (ext in contentTypes) {
@@ -26,7 +27,7 @@ const getContentType = filename => {
   return 'text/plain'
 }
 
-const ProjectSaveHOC = WrappedComponent => {
+const ProjectSaveHOC = (WrappedComponent) => {
   class ProjectSaveComponent extends React.Component {
     constructor(props) {
       super(props)
@@ -34,7 +35,7 @@ const ProjectSaveHOC = WrappedComponent => {
       this.state = {
         nameInput: props.projectName,
         error: '',
-        isSaving: false
+        isSaving: false,
       }
       this.isSaving = false
       this.requestCancelSave = false
@@ -74,7 +75,6 @@ const ProjectSaveHOC = WrappedComponent => {
         await this.saveAssets()
         await this.saveMeta()
       } catch (e) {
-        console.error(e)
         if (!this.requestCancelSave) {
           errPromise = this.setError('Das hat leider nicht geklappt')
         } else {
@@ -89,22 +89,23 @@ const ProjectSaveHOC = WrappedComponent => {
       }
       return errPromise
     }
-    async saveAssets() {
+
+    saveAssets() {
       const costumeAssets = serializeCostumes(this.props.vm.runtime)
       const soundAssets = serializeSounds(this.props.vm.runtime)
       return Promise.all(
         []
           .concat(costumeAssets)
           .concat(soundAssets)
-          .map(async asset => {
+          .map(async (asset) => {
             const res = await fetch('/api/prepareAssetUpload', {
               method: 'POST',
               headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                filename: asset.fileName
-              })
+                filename: asset.fileName,
+              }),
             })
             if (!res.ok && res.status !== 409) {
               throw new Error(`uploading an asset failed: ${asset.filename}`)
@@ -118,9 +119,9 @@ const ProjectSaveHOC = WrappedComponent => {
             const saveRes = await fetch(body.uploadUrl, {
               method: 'PUT',
               headers: {
-                'Content-Type': getContentType(asset.fileName)
+                'Content-Type': getContentType(asset.fileName),
               },
-              body: asset.fileContent
+              body: asset.fileContent,
             })
             if (!saveRes.ok) {
               throw new Error('HTTP Request failed')
@@ -136,7 +137,7 @@ const ProjectSaveHOC = WrappedComponent => {
       const payload = {
         data: this.props.vm.toJSON(),
         name: this.state.nameInput,
-        userId: this.props.userId
+        userId: this.props.userId,
       }
       if (this.props.routeProject) {
         payload.id = this.props.routeProject
@@ -146,9 +147,9 @@ const ProjectSaveHOC = WrappedComponent => {
         method: 'POST',
         headers: {
           Accept: 'application/json, text/plain, */*',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
       })
       let resObj = null
       try {
@@ -211,13 +212,23 @@ const ProjectSaveHOC = WrappedComponent => {
     }
   }
 
-  return connect(state => ({
+  ProjectSaveComponent.propTypes = {
+    isEduGame: PropTypes.bool,
+    projectId: PropTypes.id,
+    projectName: PropTypes.string,
+    userId: PropTypes.string,
+    routeProject: PropTypes.string,
+    vm: PropTypes.object,
+    dispatch: PropTypes.func,
+  }
+
+  return connect((state) => ({
     isEduGame: state.scratchGui.eduLayer.enabled,
     projectId: state.scratchGui.project.id,
     projectName: state.scratchGui.project.name,
     routeProject: (state.router.params || {}).projectId || null,
     userId: state.scratchGui.project.userId,
-    vm: state.scratchGui.vm
+    vm: state.scratchGui.vm,
   }))(ProjectSaveComponent)
 }
 

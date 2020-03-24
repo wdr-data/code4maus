@@ -18,7 +18,7 @@ const ListMonitor = ({
     className={styles.listMonitor}
     style={{
       width: `${width}px`,
-      height: `${height}px`
+      height: `${height}px`,
     }}
   >
     <div className={styles.listHeader}>{label}</div>
@@ -60,14 +60,16 @@ ListMonitor.propTypes = {
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    ),
   ]),
-  width: PropTypes.number
+  width: PropTypes.number,
 }
 
 ListMonitor.defaultProps = {
   width: 110,
-  height: 200
+  height: 200,
 }
 
 export default ListMonitor

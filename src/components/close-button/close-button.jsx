@@ -2,16 +2,16 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import classNames from 'classnames'
 
+import backIcon from '../../lib/assets/icon--back.svg'
 import styles from './close-button.css'
 import closeIcon from './icon--close.svg'
-import backIcon from '../../lib/assets/icon--back.svg'
 
-const CloseButton = props => (
+const CloseButton = (props) => (
   <div
     aria-label="Close"
     className={classNames(styles.closeButton, props.className, {
       [styles.small]: props.size === CloseButton.SIZE_SMALL,
-      [styles.large]: props.size === CloseButton.SIZE_LARGE
+      [styles.large]: props.size === CloseButton.SIZE_LARGE,
     })}
     role="button"
     tabIndex="0"
@@ -31,12 +31,12 @@ CloseButton.propTypes = {
   buttonType: PropTypes.oneOf(['back', 'close']),
   className: PropTypes.string,
   onClick: PropTypes.func.isRequired,
-  size: PropTypes.oneOf([CloseButton.SIZE_SMALL, CloseButton.SIZE_LARGE])
+  size: PropTypes.oneOf([CloseButton.SIZE_SMALL, CloseButton.SIZE_LARGE]),
 }
 
 CloseButton.defaultProps = {
   size: CloseButton.SIZE_LARGE,
-  buttonType: 'close'
+  buttonType: 'close',
 }
 
 export default CloseButton

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './meter.css'
 
-const Meter = props => {
+const Meter = (props) => {
   const { level, width, height } = props
 
   const nGreen = 11
@@ -21,7 +21,7 @@ const Meter = props => {
     <svg className={styles.container} height={height} width={width}>
       {Array(nBars)
         .fill(0)
-        .map((value, index) => (
+        .map((_value, index) => (
           <rect
             className={
               index < nGreen
@@ -54,7 +54,7 @@ const Meter = props => {
 Meter.propTypes = {
   height: PropTypes.number,
   level: PropTypes.number,
-  width: PropTypes.number
+  width: PropTypes.number,
 }
 
 export default Meter

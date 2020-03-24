@@ -11,7 +11,7 @@ const LargeMonitor = ({ categoryColor, value }) => (
 )
 LargeMonitor.propTypes = {
   categoryColor: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export default LargeMonitor

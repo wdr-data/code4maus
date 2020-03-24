@@ -4,7 +4,7 @@ import {
   defineMessages,
   injectIntl,
   intlShape,
-  FormattedMessage
+  FormattedMessage,
 } from 'react-intl'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -20,20 +20,20 @@ const messages = defineMessages({
     defaultMessage: "Don't worry, we're on it {emoji}",
     description:
       'One of the "coming soon" random messages for yet-to-be-done features',
-    id: 'gui.comingSoon.message1'
+    id: 'gui.comingSoon.message1',
   },
   message2: {
     defaultMessage: 'Coming Soon...',
     description:
       'One of the "coming soon" random messages for yet-to-be-done features',
-    id: 'gui.comingSoon.message2'
+    id: 'gui.comingSoon.message2',
   },
   message3: {
     defaultMessage: "We're working on it {emoji}",
     description:
       'One of the "coming soon" random messages for yet-to-be-done features',
-    id: 'gui.comingSoon.message3'
-  }
+    id: 'gui.comingSoon.message3',
+  },
 })
 
 class ComingSoonContent extends React.Component {
@@ -41,7 +41,7 @@ class ComingSoonContent extends React.Component {
     super(props)
     bindAll(this, ['setHide', 'setShow', 'getRandomMessage'])
     this.state = {
-      isShowing: false
+      isShowing: false,
     }
   }
   setShow() {
@@ -63,7 +63,7 @@ class ComingSoonContent extends React.Component {
         values={{
           emoji: (
             <img className={styles.comingSoonImage} src={images[imageNumber]} />
-          )
+          ),
         }}
       />
     )
@@ -78,7 +78,7 @@ class ComingSoonContent extends React.Component {
           [styles.left]: this.props.place === 'left',
           [styles.right]: this.props.place === 'right',
           [styles.top]: this.props.place === 'top',
-          [styles.bottom]: this.props.place === 'bottom'
+          [styles.bottom]: this.props.place === 'bottom',
         })}
         getContent={this.getRandomMessage}
         id={this.props.tooltipId}
@@ -91,16 +91,16 @@ ComingSoonContent.propTypes = {
   className: PropTypes.string,
   intl: intlShape,
   place: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
-  tooltipId: PropTypes.string.isRequired
+  tooltipId: PropTypes.string.isRequired,
 }
 
 ComingSoonContent.defaultProps = {
-  place: 'bottom'
+  place: 'bottom',
 }
 
 const ComingSoon = injectIntl(ComingSoonContent)
 
-const ComingSoonTooltip = props => (
+const ComingSoonTooltip = (props) => (
   <div className={props.className}>
     <div
       data-delay-hide={props.delayHide}
@@ -126,12 +126,12 @@ ComingSoonTooltip.propTypes = {
   delayShow: PropTypes.number,
   place: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
   tooltipClassName: PropTypes.string,
-  tooltipId: PropTypes.string.isRequired
+  tooltipId: PropTypes.string.isRequired,
 }
 
 ComingSoonTooltip.defaultProps = {
   delayHide: 0,
-  delayShow: 0
+  delayShow: 0,
 }
 
 export { ComingSoon as ComingSoonComponent, ComingSoonTooltip }

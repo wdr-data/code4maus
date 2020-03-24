@@ -12,11 +12,11 @@ class Controls extends React.Component {
       'handleGreenFlagClick',
       'handleStopAllClick',
       'onProjectRunStart',
-      'onProjectRunStop'
+      'onProjectRunStop',
     ])
     this.state = {
       projectRunning: false,
-      turbo: false
+      turbo: false,
     }
   }
   componentDidMount() {
@@ -64,7 +64,7 @@ class Controls extends React.Component {
 }
 
 Controls.propTypes = {
-  vm: PropTypes.instanceOf(VM)
+  vm: PropTypes.instanceOf(VM),
 }
 
 export default Controls

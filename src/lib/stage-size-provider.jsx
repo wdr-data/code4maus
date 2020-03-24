@@ -9,7 +9,7 @@ const initialStageSize = getStageSize()
 const StageSizeContext = React.createContext(initialStageSize)
 const StageSizeRequest = React.createContext(() => {})
 
-export const StageSizeProviderHOC = WrappedComponent => {
+export const StageSizeProviderHOC = (WrappedComponent) => {
   class StageSizeState extends React.Component {
     constructor(props) {
       super(props)
@@ -17,7 +17,7 @@ export const StageSizeProviderHOC = WrappedComponent => {
       this.state = {
         height: initialStageSize.height,
         width: initialStageSize.width,
-        forced: false
+        forced: false,
       }
       this.handleScreenSizeChanged = this.handleScreenSizeChanged.bind(this)
       this.handleScreenSizeChangedDebounced = debounce(
@@ -44,7 +44,7 @@ export const StageSizeProviderHOC = WrappedComponent => {
       }
     }
 
-    handleScreenSizeChanged(e) {
+    handleScreenSizeChanged(_event) {
       if (this.state.forced) {
         return
       }
@@ -53,7 +53,7 @@ export const StageSizeProviderHOC = WrappedComponent => {
     }
 
     requestStageSize({ width, height } = {}) {
-      return new Promise(res => {
+      return new Promise((res) => {
         if (!width && !height) {
           const { height, width } = getStageSize(this.props.isFullScreen)
           this.setState({ height, width, forced: false }, res)
@@ -82,11 +82,11 @@ export const StageSizeProviderHOC = WrappedComponent => {
 
   StageSizeState.propTypes = {
     dispatch: PropTypes.func,
-    isFullScreen: PropTypes.bool.isRequired
+    isFullScreen: PropTypes.bool.isRequired,
   }
 
-  return connect(state => ({
-    isFullScreen: state.scratchGui.mode.isFullScreen
+  return connect((state) => ({
+    isFullScreen: state.scratchGui.mode.isFullScreen,
   }))(StageSizeState)
 }
 

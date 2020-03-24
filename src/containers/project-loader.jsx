@@ -28,11 +28,11 @@ class ProjectLoader extends React.Component {
       'renderFileInput',
       'setFileInput',
       'handleChange',
-      'handleClick'
+      'handleClick',
     ])
     this.state = {
       loadingError: false,
-      errorMessage: ''
+      errorMessage: '',
     }
   }
   handleChange(e) {
@@ -49,7 +49,7 @@ class ProjectLoader extends React.Component {
           // This is necessary in case the user wants to reload a project
           thisFileInput.value = null
         })
-        .catch(error => {
+        .catch((error) => {
           this.setState({ loadingError: true, errorMessage: error })
         })
     if (thisFileInput.files) {
@@ -99,20 +99,17 @@ ProjectLoader.propTypes = {
   closeLoadingState: PropTypes.func,
   openLoadingState: PropTypes.func,
   vm: PropTypes.shape({
-    loadProject: PropTypes.func
-  })
+    loadProject: PropTypes.func,
+  }),
 }
 
-const mapStateToProps = state => ({
-  vm: state.scratchGui.vm
+const mapStateToProps = (state) => ({
+  vm: state.scratchGui.vm,
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   closeLoadingState: () => dispatch(closeLoadingProject()),
-  openLoadingState: () => dispatch(openLoadingProject())
+  openLoadingState: () => dispatch(openLoadingProject()),
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ProjectLoader)
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectLoader)

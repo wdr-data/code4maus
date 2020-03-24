@@ -7,12 +7,12 @@ import DOMElementRenderer from '../../containers/dom-element-renderer.jsx'
 import Loupe from '../loupe/loupe.jsx'
 import MonitorList from '../../containers/monitor-list.jsx'
 import Question from '../../containers/question.jsx'
-import styles from './stage.css'
 import Fullscreen from '../../containers/fullscreen.jsx'
 import { useFeatureFlag, FEATURE_SHARING } from '../../lib/feature-flags.js'
 import LazyRender from '../../containers/lazy-render.jsx'
+import styles from './stage.css'
 
-const StageComponent = props => {
+const StageComponent = (props) => {
   const {
     canvas,
     dragRef,
@@ -37,7 +37,7 @@ const StageComponent = props => {
         className={classNames({
           [styles.stageWrapper]: !isFullScreen,
           [styles.stageWrapperOverlay]: isFullScreen,
-          [styles.withColorPicker]: !isFullScreen && isColorPicking
+          [styles.withColorPicker]: !isFullScreen && isColorPicking,
         })}
         onDoubleClick={onDoubleClick}
       >
@@ -48,7 +48,7 @@ const StageComponent = props => {
         )}
         <DOMElementRenderer
           className={classNames(styles.stage, {
-            [styles.stageOverlayContent]: isFullScreen
+            [styles.stageOverlayContent]: isFullScreen,
           })}
           domElement={canvas}
           height={height}
@@ -107,11 +107,12 @@ StageComponent.propTypes = {
   isFullScreen: PropTypes.bool.isRequired,
   onDeactivateColorPicker: PropTypes.func,
   onQuestionAnswered: PropTypes.func,
+  onDoubleClick: PropTypes.func,
   question: PropTypes.string,
   useEditorDragStyle: PropTypes.bool,
-  width: PropTypes.number
+  width: PropTypes.number,
 }
 StageComponent.defaultProps = {
-  dragRef: () => {}
+  dragRef: () => {},
 }
 export default StageComponent

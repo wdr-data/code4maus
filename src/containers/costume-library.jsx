@@ -12,8 +12,8 @@ const messages = defineMessages({
   libraryTitle: {
     defaultMessage: 'Choose a Costume',
     description: 'Heading for the costume library',
-    id: 'gui.costumeLibrary.chooseACostume'
-  }
+    id: 'gui.costumeLibrary.chooseACostume',
+  },
 })
 
 class CostumeLibrary extends React.PureComponent {
@@ -31,7 +31,7 @@ class CostumeLibrary extends React.PureComponent {
       rotationCenterX,
       rotationCenterY,
       bitmapResolution: item.info.length > 2 ? item.info[2] : 1,
-      skinId: null
+      skinId: null,
     }
     this.props.vm.addCostume(item.md5, vmCostume)
   }
@@ -52,7 +52,7 @@ class CostumeLibrary extends React.PureComponent {
 CostumeLibrary.propTypes = {
   intl: intlShape.isRequired,
   onRequestClose: PropTypes.func,
-  vm: PropTypes.instanceOf(VM).isRequired
+  vm: PropTypes.instanceOf(VM).isRequired,
 }
 
 export default injectIntl(CostumeLibrary)

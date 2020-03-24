@@ -33,7 +33,7 @@ class DOMElementRenderer extends React.Component {
 }
 
 DOMElementRenderer.propTypes = {
-  domElement: PropTypes.instanceOf(Element).isRequired
+  domElement: PropTypes.instanceOf(Element).isRequired,
 }
 
 export default DOMElementRenderer

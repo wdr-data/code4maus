@@ -2,21 +2,20 @@ import bindAll from 'lodash.bindall'
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { connect } from 'react-redux'
 import monitorAdapter from '../lib/monitor-adapter.js'
 import MonitorComponent, {
-  monitorModes
+  monitorModes,
 } from '../components/monitor/monitor.jsx'
 import {
   addMonitorRect,
   getInitialPosition,
   resizeMonitorRect,
-  removeMonitorRect
+  removeMonitorRect,
 } from '../reducers/monitor-layout'
 
-import { connect } from 'react-redux'
-
-const availableModes = opcode =>
-  monitorModes.filter(t => {
+const availableModes = (opcode) =>
+  monitorModes.filter((t) => {
     if (opcode === 'data_variable') {
       return t !== 'list'
     } else if (opcode === 'data_listcontents') {
@@ -33,12 +32,12 @@ class Monitor extends React.Component {
       'handleSetModeToDefault',
       'handleSetModeToLarge',
       'handleSetModeToSlider',
-      'setElement'
+      'setElement',
     ])
 
     // @todo consume from VM, but need to store until there are APIs to update vm
     this.state = {
-      mode: props.mode || 'default'
+      mode: props.mode || 'default',
     }
   }
   componentDidMount() {
@@ -53,8 +52,8 @@ class Monitor extends React.Component {
         upperStart: { x: this.props.x, y: this.props.y },
         lowerEnd: {
           x: this.props.x + this.element.offsetWidth,
-          y: this.props.y + this.element.offsetHeight
-        }
+          y: this.props.y + this.element.offsetHeight,
+        },
       }
       this.props.addMonitorRect(this.props.id, rect, true /* savePosition */)
     } else {
@@ -93,7 +92,7 @@ class Monitor extends React.Component {
   componentWillUnmount() {
     this.props.removeMonitorRect(this.props.id)
   }
-  handleDragEnd(e, { x, y }) {
+  handleDragEnd(_event, { x, y }) {
     this.props.onDragEnd(
       this.props.id,
       parseInt(this.element.style.left, 10) + x,
@@ -152,7 +151,7 @@ Monitor.propTypes = {
   mode: PropTypes.oneOf(['default', 'slider', 'large', 'list']),
   monitorLayout: PropTypes.shape({
     monitors: PropTypes.object,
-    savedMonitorPositions: PropTypes.object
+    savedMonitorPositions: PropTypes.object,
   }).isRequired,
   onDragEnd: PropTypes.func.isRequired,
   opcode: PropTypes.string.isRequired, // eslint-disable-line react/no-unused-prop-types
@@ -164,23 +163,22 @@ Monitor.propTypes = {
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    ),
   ]), // eslint-disable-line react/no-unused-prop-types
   width: PropTypes.number,
   x: PropTypes.number,
-  y: PropTypes.number
+  y: PropTypes.number,
 }
-const mapStateToProps = state => ({
-  monitorLayout: state.scratchGui.monitorLayout
+const mapStateToProps = (state) => ({
+  monitorLayout: state.scratchGui.monitorLayout,
 })
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   addMonitorRect: (id, rect, savePosition) =>
     dispatch(addMonitorRect(id, rect.upperStart, rect.lowerEnd, savePosition)),
   resizeMonitorRect: (id, newWidth, newHeight) =>
     dispatch(resizeMonitorRect(id, newWidth, newHeight)),
-  removeMonitorRect: id => dispatch(removeMonitorRect(id))
+  removeMonitorRect: (id) => dispatch(removeMonitorRect(id)),
 })
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Monitor)
+export default connect(mapStateToProps, mapDispatchToProps)(Monitor)

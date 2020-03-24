@@ -20,7 +20,7 @@ class TagButton extends React.Component {
 TagButton.propTypes = {
   ...TagButtonComponent.propTypes,
   onClick: PropTypes.func,
-  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
 }
 
 export default TagButton

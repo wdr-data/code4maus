@@ -15,13 +15,13 @@ class ImportModal extends React.Component {
       'handleCancel',
       'handleChange',
       'handleGoBack',
-      'handleKeyPress'
+      'handleKeyPress',
     ])
 
     this.state = {
       inputValue: '',
       hasValidationError: false,
-      errorMessage: ''
+      errorMessage: '',
     }
   }
   handleKeyPress(event) {
@@ -43,7 +43,7 @@ class ImportModal extends React.Component {
     } else {
       this.setState({
         hasValidationError: true,
-        errorMessage: `invalidFormatError`
+        errorMessage: `invalidFormatError`,
       })
     }
   }
@@ -89,12 +89,12 @@ class ImportModal extends React.Component {
 ImportModal.propTypes = {
   onBack: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
-  onViewProject: PropTypes.func
+  onViewProject: PropTypes.func,
 }
 
 const mapStateToProps = () => ({})
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   onBack: () => {
     dispatch(closeImportInfo())
     dispatch(openPreviewInfo())
@@ -104,10 +104,7 @@ const mapDispatchToProps = dispatch => ({
   },
   onViewProject: () => {
     dispatch(closeImportInfo())
-  }
+  },
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ImportModal)
+export default connect(mapStateToProps, mapDispatchToProps)(ImportModal)

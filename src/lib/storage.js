@@ -22,7 +22,7 @@ class Storage extends ScratchStorage {
   setupS3Source() {
     this.addWebStore([this.AssetType.Project], (project) => {
       if (!this.userId) {
-        console.warn('No user id set')
+        console.warn("No user ID set. We can't upload like this!") // eslint-disable-line
         return false
       }
       return s3userFile(this.userId, `${project.assetId}.${project.dataFormat}`)

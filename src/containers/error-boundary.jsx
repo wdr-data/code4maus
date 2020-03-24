@@ -9,7 +9,7 @@ class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      hasError: false
+      hasError: false,
     }
   }
 
@@ -17,7 +17,7 @@ class ErrorBoundary extends React.Component {
     // Error object may be undefined (IE?)
     error = error || {
       stack: 'Unknown stack',
-      message: 'Unknown error'
+      message: 'Unknown error',
     }
 
     // Display fallback UI
@@ -50,7 +50,7 @@ class ErrorBoundary extends React.Component {
 
 ErrorBoundary.propTypes = {
   action: PropTypes.string.isRequired, // Used for defining tracking action
-  children: PropTypes.node
+  children: PropTypes.node,
 }
 
 export default ErrorBoundary

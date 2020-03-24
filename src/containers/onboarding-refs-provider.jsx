@@ -6,7 +6,7 @@ export const OnboardingRefs = OnboardingRefsContext.Consumer
 
 const OnboardingCaptureContext = React.createContext()
 
-const onboardingRefsHOC = WrappedComponent => {
+const onboardingRefsHOC = (WrappedComponent) => {
   class OnboardingRefsProvider extends Component {
     constructor(props) {
       super(props)
@@ -38,20 +38,22 @@ const onboardingRefsHOC = WrappedComponent => {
 
 const noop = () => {}
 
-export const OnboardingCapture = props => {
+export const OnboardingCapture = (props) => {
   if (!props.componentId) {
     return props.children(noop)
   }
   return (
     <OnboardingCaptureContext.Consumer>
-      {captureRef => props.children(ref => captureRef(props.componentId, ref))}
+      {(captureRef) =>
+        props.children((ref) => captureRef(props.componentId, ref))
+      }
     </OnboardingCaptureContext.Consumer>
   )
 }
 
 OnboardingCapture.propTypes = {
   children: PropTypes.func.isRequired,
-  componentId: PropTypes.string.isRequired
+  componentId: PropTypes.string.isRequired,
 }
 
 export default onboardingRefsHOC

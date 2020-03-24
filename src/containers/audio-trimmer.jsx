@@ -16,7 +16,7 @@ class AudioTrimmer extends React.Component {
       'handleTrimEndMouseMove',
       'handleTrimStartMouseUp',
       'handleTrimEndMouseUp',
-      'storeRef'
+      'storeRef',
     ])
   }
   handleTrimStartMouseMove(e) {
@@ -89,7 +89,7 @@ AudioTrimmer.propTypes = {
   onSetTrimStart: PropTypes.func,
   playhead: PropTypes.number,
   trimEnd: PropTypes.number,
-  trimStart: PropTypes.number
+  trimStart: PropTypes.number,
 }
 
 export default AudioTrimmer

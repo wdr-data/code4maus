@@ -10,10 +10,10 @@ class Prompt extends React.Component {
       'handleOk',
       'handleCancel',
       'handleChange',
-      'handleKeyPress'
+      'handleKeyPress',
     ])
     this.state = {
-      inputValue: ''
+      inputValue: '',
     }
   }
   handleKeyPress(event) {
@@ -24,7 +24,7 @@ class Prompt extends React.Component {
   handleOk() {
     this.props.onOk(this.state.inputValue, {
       scope: 'global',
-      isCloud: false
+      isCloud: false,
     })
   }
   handleCancel() {
@@ -55,7 +55,7 @@ Prompt.propTypes = {
   onOk: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   showMoreOptions: PropTypes.bool.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 }
 
 export default Prompt

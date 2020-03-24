@@ -5,33 +5,33 @@ import { push } from 'redux-little-router'
 
 import ContentWrapper from '../components/content-wrapper/content-wrapper.jsx'
 import ParentHelp, {
-  attributes as parentAttributes
+  attributes as parentAttributes,
 } from '../lib/content/parents.md'
 import Teacher, {
-  attributes as teacherAttributes
+  attributes as teacherAttributes,
 } from '../lib/content/teachers.md'
 import Privacy, {
-  attributes as privacyAttributes
+  attributes as privacyAttributes,
 } from '../lib/content/privacy.md'
 import Terms, { attributes as termsAttributes } from '../lib/content/terms.md'
 
 const contentMap = {
   eltern: {
     Component: ParentHelp,
-    attributes: parentAttributes
+    attributes: parentAttributes,
   },
   lehrkraefte: {
     Component: Teacher,
-    attributes: teacherAttributes
+    attributes: teacherAttributes,
   },
   datenschutz: {
     Component: Privacy,
-    attributes: privacyAttributes
+    attributes: privacyAttributes,
   },
   impressum: {
     Component: Terms,
-    attributes: termsAttributes
-  }
+    attributes: termsAttributes,
+  },
 }
 
 class Content extends React.Component {
@@ -55,17 +55,14 @@ class Content extends React.Component {
 
 Content.propTypes = {
   page: PropTypes.string,
-  backToHome: PropTypes.func.isRequired
+  backToHome: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = state => ({
-  page: state.router.params.page
+const mapStateToProps = (state) => ({
+  page: state.router.params.page,
 })
-const mapDispatchToProps = dispatch => ({
-  backToHome: () => dispatch(push('/'))
+const mapDispatchToProps = (dispatch) => ({
+  backToHome: () => dispatch(push('/')),
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Content)
+export default connect(mapStateToProps, mapDispatchToProps)(Content)

@@ -29,18 +29,15 @@ class MonitorList extends React.Component {
 }
 
 MonitorList.propTypes = {
-  moveMonitorRect: PropTypes.func.isRequired
+  moveMonitorRect: PropTypes.func.isRequired,
 }
-const mapStateToProps = state => ({
-  monitors: state.scratchGui.monitors
+const mapStateToProps = (state) => ({
+  monitors: state.scratchGui.monitors,
 })
-const mapDispatchToProps = dispatch => ({
-  moveMonitorRect: (id, x, y) => dispatch(moveMonitorRect(id, x, y))
+const mapDispatchToProps = (dispatch) => ({
+  moveMonitorRect: (id, x, y) => dispatch(moveMonitorRect(id, x, y)),
 })
 
 export default errorBoundaryHOC('Monitors')(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(MonitorList)
+  connect(mapStateToProps, mapDispatchToProps)(MonitorList)
 )

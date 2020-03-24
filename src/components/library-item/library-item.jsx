@@ -3,9 +3,9 @@ import { FormattedMessage } from 'react-intl'
 import PropTypes from 'prop-types'
 import React from 'react'
 
+import classNames from 'classnames'
 import Box from '../box/box.jsx'
 import styles from './library-item.css'
-import classNames from 'classnames'
 
 class LibraryItem extends React.PureComponent {
   constructor(props) {
@@ -16,7 +16,7 @@ class LibraryItem extends React.PureComponent {
       'handleFocus',
       'handleKeyPress',
       'handleMouseEnter',
-      'handleMouseLeave'
+      'handleMouseLeave',
     ])
   }
   handleBlur() {
@@ -47,7 +47,7 @@ class LibraryItem extends React.PureComponent {
     return this.props.featured ? (
       <div
         className={classNames(styles.libraryItem, styles.featuredItem, {
-          [styles.disabled]: this.props.disabled
+          [styles.disabled]: this.props.disabled,
         })}
         onClick={this.handleClick}
       >
@@ -106,11 +106,11 @@ LibraryItem.propTypes = {
   onFocus: PropTypes.func,
   onMouseEnter: PropTypes.func.isRequired,
   onMouseLeave: PropTypes.func.isRequired,
-  onSelect: PropTypes.func.isRequired
+  onSelect: PropTypes.func.isRequired,
 }
 
 LibraryItem.defaultProps = {
-  disabled: false
+  disabled: false,
 }
 
 export default LibraryItem

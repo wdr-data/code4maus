@@ -6,7 +6,7 @@ import InlineSvg from '../inline-svg/inline-svg.jsx'
 
 import styles from './icon-text.css'
 
-const IconWithText = props => {
+const IconWithText = (props) => {
   const { iconSrc, iconSvg, className, children, ...componentProps } = props
 
   const icon = iconSvg ? (
@@ -25,7 +25,8 @@ const IconWithText = props => {
 IconWithText.propTypes = {
   className: PropTypes.string,
   iconSrc: PropTypes.string,
-  iconSvg: PropTypes.string
+  iconSvg: PropTypes.string,
+  children: PropTypes.node,
 }
 
 export default IconWithText

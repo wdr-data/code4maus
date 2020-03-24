@@ -9,7 +9,7 @@ class LazyRender extends React.Component {
 
     this.state = {
       hasLoaded: false,
-      componentRef: null
+      componentRef: null,
     }
   }
 
@@ -17,7 +17,7 @@ class LazyRender extends React.Component {
     const { default: componentRef } = await this.props.promise
     this.setState({
       componentRef,
-      hasLoaded: true
+      hasLoaded: true,
     })
   }
 
@@ -37,7 +37,7 @@ class LazyRender extends React.Component {
 }
 
 LazyRender.propTypes = {
-  promise: PropTypes.instanceOf(Promise).isRequired
+  promise: PropTypes.instanceOf(Promise).isRequired,
 }
 
 export default LazyRender

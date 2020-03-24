@@ -3,56 +3,56 @@ import React from 'react'
 import { defineMessages, injectIntl, intlShape } from 'react-intl'
 import Box from '../box/box.jsx'
 import Modal from '../modal/modal.jsx'
+import cameraIcon from '../action-menu/icon--camera.svg'
 import styles from './camera-modal.css'
 import backIcon from './icon--back.svg'
-import cameraIcon from '../action-menu/icon--camera.svg'
 
 const messages = defineMessages({
   cameraModalTitle: {
     defaultMessage: 'Take a Photo',
     description:
       'Title for prompt to take a picture (to add as a new costume).',
-    id: 'gui.cameraModal.cameraModalTitle'
+    id: 'gui.cameraModal.cameraModalTitle',
   },
   loadingCameraMessage: {
     defaultMessage: 'Loading Camera...',
     description: 'Notification to the user that the camera is loading',
-    id: 'gui.cameraModal.loadingCameraMessage'
+    id: 'gui.cameraModal.loadingCameraMessage',
   },
   permissionRequest: {
     defaultMessage: 'We need your permission to use your camera',
     description: 'Notification to the user that the app needs camera access',
-    id: 'gui.cameraModal.permissionRequest'
+    id: 'gui.cameraModal.permissionRequest',
   },
   retakePhoto: {
     defaultMessage: 'Retake Photo',
     description:
       'A button that allows the user to take the picture again, replacing the old one',
-    id: 'gui.cameraModal.retakePhoto'
+    id: 'gui.cameraModal.retakePhoto',
   },
   save: {
     defaultMessage: 'Save',
     description:
       'A button that allows the user to save the photo they took as a costume',
-    id: 'gui.cameraModal.save'
+    id: 'gui.cameraModal.save',
   },
   takePhotoButton: {
     defaultMessage: 'Take Photo',
     description: 'A button to take a photo',
-    id: 'gui.cameraModal.takePhoto'
+    id: 'gui.cameraModal.takePhoto',
   },
   loadingCaption: {
     defaultMessage: 'Loading...',
     description:
       'A caption for a disabled button while the video from the camera is still loading',
-    id: 'gui.cameraModal.loadingCaption'
+    id: 'gui.cameraModal.loadingCaption',
   },
   enableCameraCaption: {
     defaultMessage: 'Enable Camera',
     description:
       'A caption for a disabled button prompting the user to enable camera access',
-    id: 'gui.cameraModal.enableCameraCaption'
-  }
+    id: 'gui.cameraModal.enableCameraCaption',
+  },
 })
 
 const CameraModal = ({ intl, ...props }) => (
@@ -140,7 +140,7 @@ CameraModal.propTypes = {
   onBack: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
   onCapture: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
 }
 
 export default injectIntl(CameraModal)

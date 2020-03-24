@@ -4,12 +4,8 @@ import bindAll from 'lodash.bindall'
 import { defineMessages, intlShape, injectIntl } from 'react-intl'
 import VM from '@wdr-data/scratch-vm'
 
-import AssetPanel from '../components/asset-panel/asset-panel.jsx'
-import PaintEditorWrapper from './paint-editor-wrapper.jsx'
-import CostumeLibrary from './costume-library.jsx'
-import BackdropLibrary from './backdrop-library.jsx'
-import CameraModal from './camera-modal.jsx'
 import { connect } from 'react-redux'
+import AssetPanel from '../components/asset-panel/asset-panel.jsx'
 import { emptyItem } from '../lib/default-project'
 import { handleFileUpload, costumeUpload } from '../lib/file-uploader.js'
 import errorBoundaryHOC from '../lib/error-boundary-hoc.jsx'
@@ -20,51 +16,53 @@ import {
   closeBackdropLibrary,
   openCameraCapture,
   openCostumeLibrary,
-  openBackdropLibrary
 } from '../reducers/modals'
 
-import addLibraryBackdropIcon from '../../assets/icons/target_add.svg'
-import addLibraryCostumeIcon from '../../assets/icons/target_add.svg'
+import addLibraryIcon from '../../assets/icons/target_add.svg'
 import fileUploadIcon from '../components/action-menu/icon--file-upload.svg'
 import paintIcon from '../components/action-menu/icon--paint.svg'
 import surpriseIcon from '../components/action-menu/icon--surprise.svg'
 
 import costumeLibraryContent from '../lib/libraries/costumes.json'
 import backdropLibraryContent from '../lib/libraries/backdrops.json'
+import CameraModal from './camera-modal.jsx'
+import BackdropLibrary from './backdrop-library.jsx'
+import CostumeLibrary from './costume-library.jsx'
+import PaintEditorWrapper from './paint-editor-wrapper.jsx'
 
 const messages = defineMessages({
   addLibraryBackdropMsg: {
     defaultMessage: 'Wähle einen Hintergrund',
     description: 'Button to add a backdrop in the editor tab',
-    id: 'gui.costumeTab.addBackdropFromLibrary'
+    id: 'gui.costumeTab.addBackdropFromLibrary',
   },
   addLibraryCostumeMsg: {
     defaultMessage: 'Wähle ein Kostüm',
     description: 'Button to add a costume in the editor tab',
-    id: 'gui.costumeTab.addCostumeFromLibrary'
+    id: 'gui.costumeTab.addCostumeFromLibrary',
   },
   addBlankCostumeMsg: {
     defaultMessage: 'Malen',
     description: 'Button to add a blank costume in the editor tab',
-    id: 'gui.costumeTab.addBlankCostume'
+    id: 'gui.costumeTab.addBlankCostume',
   },
   addSurpriseCostumeMsg: {
     defaultMessage: 'Überraschung',
     description: 'Button to add a surprise costume in the editor tab',
-    id: 'gui.costumeTab.addSurpriseCostume'
+    id: 'gui.costumeTab.addSurpriseCostume',
   },
   addFileBackdropMsg: {
     defaultMessage: 'Hintergrund hochladen',
     description:
       'Button to add a backdrop by uploading a file in the editor tab',
-    id: 'gui.costumeTab.addFileBackdrop'
+    id: 'gui.costumeTab.addFileBackdrop',
   },
   addFileCostumeMsg: {
     defaultMessage: 'Kostüm hochladen',
     description:
       'Button to add a costume by uploading a file in the editor tab',
-    id: 'gui.costumeTab.addFileCostume'
-  }
+    id: 'gui.costumeTab.addFileCostume',
+  },
 })
 
 class CostumeTab extends React.Component {
@@ -81,7 +79,7 @@ class CostumeTab extends React.Component {
       'handleFileUploadClick',
       'handleCostumeUpload',
       'handleCameraBuffer',
-      'setFileInput'
+      'setFileInput',
     ])
     const { editingTarget, sprites, stage } = props
     const target =
@@ -139,7 +137,7 @@ class CostumeTab extends React.Component {
       rotationCenterX: emptyItem.info[0],
       rotationCenterY: emptyItem.info[1],
       bitmapResolution: emptyItem.info.length > 2 ? emptyItem.info[2] : 1,
-      skinId: null
+      skinId: null,
     }
 
     this.handleNewCostume(vmCostume)
@@ -159,7 +157,7 @@ class CostumeTab extends React.Component {
       rotationCenterX,
       rotationCenterY,
       bitmapResolution: item.info.length > 2 ? item.info[2] : 1,
-      skinId: null
+      skinId: null,
     }
     this.handleNewCostume(vmCostume)
   }
@@ -174,7 +172,7 @@ class CostumeTab extends React.Component {
       rotationCenterX: item.info[0] && item.info[0] / 2,
       rotationCenterY: item.info[1] && item.info[1] / 2,
       bitmapResolution: item.info.length > 2 ? item.info[2] : 1,
-      skinId: null
+      skinId: null,
     }
     this.handleNewCostume(vmCostume)
   }
@@ -213,7 +211,6 @@ class CostumeTab extends React.Component {
   render() {
     const {
       intl,
-      onNewCostumeFromCameraClick,
       onNewLibraryBackdropClick,
       onNewLibraryCostumeClick,
       backdropLibraryVisible,
@@ -225,7 +222,7 @@ class CostumeTab extends React.Component {
       editingTarget,
       sprites,
       stage,
-      vm
+      vm,
     } = this.props
 
     const target =
@@ -247,16 +244,13 @@ class CostumeTab extends React.Component {
     const addLibraryFunc = target.isStage
       ? onNewLibraryBackdropClick
       : onNewLibraryCostumeClick
-    const addLibraryIcon = target.isStage
-      ? addLibraryBackdropIcon
-      : addLibraryCostumeIcon
 
-    const costumeData = (target.costumes || []).map(costume => ({
+    const costumeData = (target.costumes || []).map((costume) => ({
       name: costume.name,
       asset: costume.asset,
       details: costume.size
         ? this.formatCostumeDetails(costume.size, costume.bitmapResolution)
-        : null
+        : null,
     }))
 
     return (
@@ -267,7 +261,7 @@ class CostumeTab extends React.Component {
             : {
                 title: intl.formatMessage(addLibraryMessage),
                 img: addLibraryIcon,
-                onClick: addLibraryFunc
+                onClick: addLibraryFunc,
               },
           {
             title: intl.formatMessage(addFileMessage),
@@ -275,19 +269,19 @@ class CostumeTab extends React.Component {
             onClick: this.handleFileUploadClick,
             fileAccept: '.svg, .png, .jpg, .jpeg',
             fileChange: this.handleCostumeUpload,
-            fileInput: this.setFileInput
+            fileInput: this.setFileInput,
           },
           {
             title: intl.formatMessage(messages.addSurpriseCostumeMsg),
             img: surpriseIcon,
-            onClick: addSurpriseFunc
+            onClick: addSurpriseFunc,
           },
           {
             title: intl.formatMessage(messages.addBlankCostumeMsg),
             img: paintIcon,
-            onClick: this.handleNewBlankCostume
-          }
-        ].filter(o => !!o)}
+            onClick: this.handleNewBlankCostume,
+          },
+        ].filter((o) => !!o)}
         items={costumeData}
         selectedItemIndex={this.state.selectedCostumeIndex}
         onDeleteClick={
@@ -344,36 +338,36 @@ CostumeTab.propTypes = {
         PropTypes.shape({
           url: PropTypes.string,
           name: PropTypes.string.isRequired,
-          skinId: PropTypes.number
+          skinId: PropTypes.number,
         })
-      )
-    })
+      ),
+    }),
   }),
   stage: PropTypes.shape({
     sounds: PropTypes.arrayOf(
       PropTypes.shape({
-        name: PropTypes.string.isRequired
+        name: PropTypes.string.isRequired,
       })
-    )
+    ),
   }),
-  vm: PropTypes.instanceOf(VM)
+  vm: PropTypes.instanceOf(VM),
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   editingTarget: state.scratchGui.targets.editingTarget,
   sprites: state.scratchGui.targets.sprites,
   stage: state.scratchGui.targets.stage,
   cameraModalVisible: state.scratchGui.modals.cameraCapture,
   costumeLibraryVisible: state.scratchGui.modals.costumeLibrary,
-  backdropLibraryVisible: state.scratchGui.modals.backdropLibrary
+  backdropLibraryVisible: state.scratchGui.modals.backdropLibrary,
 })
 
-const mapDispatchToProps = dispatch => ({
-  onNewLibraryBackdropClick: e => {
+const mapDispatchToProps = (dispatch) => ({
+  onNewLibraryBackdropClick: (e) => {
     e.preventDefault()
     // no-op
   },
-  onNewLibraryCostumeClick: e => {
+  onNewLibraryCostumeClick: (e) => {
     e.preventDefault()
     dispatch(openCostumeLibrary())
   },
@@ -388,14 +382,9 @@ const mapDispatchToProps = dispatch => ({
   },
   onRequestCloseCameraModal: () => {
     dispatch(closeCameraCapture())
-  }
+  },
 })
 
 export default errorBoundaryHOC('Costume Tab')(
-  injectIntl(
-    connect(
-      mapStateToProps,
-      mapDispatchToProps
-    )(CostumeTab)
-  )
+  injectIntl(connect(mapStateToProps, mapDispatchToProps)(CostumeTab))
 )

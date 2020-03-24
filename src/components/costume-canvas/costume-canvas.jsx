@@ -84,9 +84,9 @@ class CostumeCanvas extends React.Component {
         xhr.get(
           {
             useXDR: true,
-            url: url
+            url: url,
           },
-          (err, response, body) => {
+          (err, _response, body) => {
             if (!err) {
               svgToImage(body, (svgErr, img) => {
                 if (!svgErr) {
@@ -115,10 +115,10 @@ class CostumeCanvas extends React.Component {
         height={this.props.height * (window.devicePixelRatio || 1)}
         style={{
           height: `${this.props.height}px`,
-          width: `${this.props.width}px`
+          width: `${this.props.width}px`,
         }}
         width={this.props.width * (window.devicePixelRatio || 1)}
-        ref={c => (this.canvas = c)} // eslint-disable-line react/jsx-sort-props
+        ref={(c) => (this.canvas = c)} // eslint-disable-line react/jsx-sort-props
       />
     )
   }
@@ -127,7 +127,7 @@ class CostumeCanvas extends React.Component {
 CostumeCanvas.defaultProps = {
   width: 100,
   height: 100,
-  direction: 90
+  direction: 90,
 }
 
 CostumeCanvas.propTypes = {
@@ -135,7 +135,7 @@ CostumeCanvas.propTypes = {
   direction: PropTypes.number,
   height: PropTypes.number,
   url: PropTypes.string.isRequired,
-  width: PropTypes.number
+  width: PropTypes.number,
 }
 
 export default CostumeCanvas

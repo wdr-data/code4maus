@@ -15,7 +15,7 @@ import { setProjectChanged } from '../reducers/project-changed'
  * @param {React.Component} WrappedComponent component to manage VM events for
  * @returns {React.Component} connected component with vm events bound to redux
  */
-const vmListenerHOC = function(WrappedComponent) {
+const vmListenerHOC = function (WrappedComponent) {
   class VMListener extends React.Component {
     constructor(props) {
       super(props)
@@ -52,7 +52,7 @@ const vmListenerHOC = function(WrappedComponent) {
       this.props.vm.postIOData('keyboard', {
         keyCode: e.keyCode,
         key: e.key,
-        isDown: true
+        isDown: true,
       })
     }
     handleKeyUp(e) {
@@ -61,7 +61,7 @@ const vmListenerHOC = function(WrappedComponent) {
       this.props.vm.postIOData('keyboard', {
         keyCode: e.keyCode,
         key: e.key,
-        isDown: false
+        isDown: false,
       })
 
       // E.g., prevent scroll.
@@ -93,30 +93,27 @@ const vmListenerHOC = function(WrappedComponent) {
     onMonitorsUpdate: PropTypes.func.isRequired,
     onProjectChanged: PropTypes.func.isRequired,
     onTargetsUpdate: PropTypes.func.isRequired,
-    vm: PropTypes.instanceOf(VM).isRequired
+    vm: PropTypes.instanceOf(VM).isRequired,
   }
   VMListener.defaultProps = {
-    attachKeyboardEvents: true
+    attachKeyboardEvents: true,
   }
-  const mapStateToProps = state => ({
-    vm: state.scratchGui.vm
+  const mapStateToProps = (state) => ({
+    vm: state.scratchGui.vm,
   })
-  const mapDispatchToProps = dispatch => ({
-    onTargetsUpdate: data => {
+  const mapDispatchToProps = (dispatch) => ({
+    onTargetsUpdate: (data) => {
       dispatch(updateTargets(data.targetList, data.editingTarget))
     },
-    onMonitorsUpdate: monitorList => {
+    onMonitorsUpdate: (monitorList) => {
       dispatch(updateMonitors(monitorList))
     },
-    onBlockDragUpdate: areBlocksOverGui => {
+    onBlockDragUpdate: (areBlocksOverGui) => {
       dispatch(updateBlockDrag(areBlocksOverGui))
     },
-    onProjectChanged: () => dispatch(setProjectChanged())
+    onProjectChanged: () => dispatch(setProjectChanged()),
   })
-  return connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(VMListener)
+  return connect(mapStateToProps, mapDispatchToProps)(VMListener)
 }
 
 export default vmListenerHOC

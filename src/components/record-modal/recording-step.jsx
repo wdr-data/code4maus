@@ -7,7 +7,7 @@ import Waveform from '../waveform/waveform.jsx'
 import styles from './record-modal.css'
 import stopIcon from './icon--stop-recording.svg'
 
-const RecordingStep = props => (
+const RecordingStep = (props) => (
   <Box>
     <Box className={styles.visualizationContainer}>
       <Box className={styles.meterContainer}>
@@ -64,7 +64,7 @@ RecordingStep.propTypes = {
   listening: PropTypes.bool,
   onRecord: PropTypes.func.isRequired,
   onStopRecording: PropTypes.func.isRequired,
-  recording: PropTypes.bool
+  recording: PropTypes.bool,
 }
 
 export default RecordingStep

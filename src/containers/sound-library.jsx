@@ -17,8 +17,8 @@ const messages = defineMessages({
   libraryTitle: {
     defaultMessage: 'Choose a Sound',
     description: 'Heading for the sound library',
-    id: 'gui.soundLibrary.chooseASound'
-  }
+    id: 'gui.soundLibrary.chooseASound',
+  },
 })
 
 class SoundLibrary extends React.PureComponent {
@@ -27,7 +27,7 @@ class SoundLibrary extends React.PureComponent {
     bindAll(this, [
       'handleItemSelected',
       'handleItemMouseEnter',
-      'handleItemMouseLeave'
+      'handleItemMouseLeave',
     ])
 
     /**
@@ -56,7 +56,7 @@ class SoundLibrary extends React.PureComponent {
       // Queued playback began playing before this method.
       if (this.playingSoundPromise.isPlaying) {
         // Fetch the player from the promise and stop playback soon.
-        this.playingSoundPromise.then(soundPlayer => {
+        this.playingSoundPromise.then((soundPlayer) => {
           soundPlayer.stop()
         })
       } else {
@@ -64,7 +64,7 @@ class SoundLibrary extends React.PureComponent {
         // the sound is not playing yet, this callback will be called
         // immediately after the sound starts playback. Stopping it
         // immediately will have the effect of no sound being played.
-        this.playingSoundPromise.then(soundPlayer => {
+        this.playingSoundPromise.then((soundPlayer) => {
           soundPlayer.stopImmediately()
         })
       }
@@ -87,16 +87,16 @@ class SoundLibrary extends React.PureComponent {
     // instruction after the play instruction.
     this.playingSoundPromise = vm.runtime.storage
       .load(vm.runtime.storage.AssetType.Sound, md5, soundItem.format)
-      .then(soundAsset => {
+      .then((soundAsset) => {
         const sound = {
           md5: md5ext,
           name: soundItem.name,
           format: soundItem.format,
-          data: soundAsset.data
+          data: soundAsset.data,
         }
         return this.audioEngine.decodeSoundPlayer(sound)
       })
-      .then(soundPlayer => {
+      .then((soundPlayer) => {
         soundPlayer.connect(this.audioEngine)
         // Play the sound. Playing the sound will always come before a
         // paired stop if the sound must stop early.
@@ -118,7 +118,7 @@ class SoundLibrary extends React.PureComponent {
       md5: soundItem._md5,
       rate: soundItem.rate,
       sampleCount: soundItem.sampleCount,
-      name: soundItem.name
+      name: soundItem.name,
     }
     this.props.vm.addSound(vmSound).then(() => {
       this.props.onNewSound()
@@ -126,12 +126,12 @@ class SoundLibrary extends React.PureComponent {
   }
   render() {
     // @todo need to use this hack to avoid library using md5 for image
-    const soundLibraryThumbnailData = soundLibraryContent.map(sound => {
+    const soundLibraryThumbnailData = soundLibraryContent.map((sound) => {
       const { md5, ...otherData } = sound
       return {
         _md5: md5,
         rawURL: soundIcon,
-        ...otherData
+        ...otherData,
       }
     })
 
@@ -154,7 +154,7 @@ SoundLibrary.propTypes = {
   intl: intlShape.isRequired,
   onNewSound: PropTypes.func.isRequired,
   onRequestClose: PropTypes.func,
-  vm: PropTypes.instanceOf(VM).isRequired
+  vm: PropTypes.instanceOf(VM).isRequired,
 }
 
 export default injectIntl(SoundLibrary)

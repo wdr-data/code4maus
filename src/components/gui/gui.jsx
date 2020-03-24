@@ -29,18 +29,18 @@ import ModalComponent from '../modal/modal.jsx'
 import wdrLogo from '../../../assets/img/wdr_logo.svg'
 import headLogo from '../../../assets/img/logo_text.png'
 import soundsIcon from '../../../assets/icons/tab_sound.svg'
+import { StageSizeConsumer } from '../../lib/stage-size-provider.jsx'
 import codeIcon from './icon--code.svg'
 import costumesIcon from './icon--costumes.svg'
 import expandIcon from './expand_right@2x.svg'
 
 import styles from './gui.css'
-import { StageSizeConsumer } from '../../lib/stage-size-provider.jsx'
 
 // Cache this value to only retreive it once the first time.
 // Assume that it doesn't change for a session.
 let isRendererSupported = null
 
-const GUIComponent = props => {
+const GUIComponent = (props) => {
   /* eslint-disable no-unused-vars */
   const {
     activeTabIndex,
@@ -89,7 +89,7 @@ const GUIComponent = props => {
       tabStyles.reactTabsTabPanelSelected,
       styles.isSelected
     ),
-    tabSelected: classNames(tabStyles.reactTabsTabSelected, styles.isSelected)
+    tabSelected: classNames(tabStyles.reactTabsTabSelected, styles.isSelected),
   }
 
   if (isRendererSupported === null) {
@@ -111,7 +111,7 @@ const GUIComponent = props => {
           <Input
             placeholder="Hier eintippen, wie dein Spiel heißen soll"
             id="save_input"
-            onChange={e => onProjectNameChange(e.target.value)}
+            onChange={(e) => onProjectNameChange(e.target.value)}
             value={projectName}
           />
           {offline ? (
@@ -139,7 +139,7 @@ const GUIComponent = props => {
             style={{ display: 'flex' }}
           >
             <ProjectSaver name={projectName}>
-              {downloadProject => (
+              {(downloadProject) => (
                 <Button
                   style="secondary"
                   className={styles.saveModalDownload}
@@ -285,7 +285,7 @@ const GUIComponent = props => {
                     isVisible={blocksTabVisible}
                     options={{
                       media: `${basePath}static/blocks-media/`,
-                      gridOptions: false
+                      gridOptions: false,
                     }}
                     vm={vm}
                   />
@@ -304,7 +304,7 @@ const GUIComponent = props => {
                   </Button>
                 </Box>
                 <StageSizeConsumer>
-                  {stageSize => (
+                  {(stageSize) => (
                     <Box
                       className={styles.stageAndTargetWrapper}
                       style={{ width: stageSize.width }}
@@ -364,9 +364,10 @@ GUIComponent.propTypes = {
   onSaveProject: PropTypes.func.isRequired,
   isSaving: PropTypes.bool,
   onProjectNameChange: PropTypes.func.isRequired,
-  saveProjectError: PropTypes.string
+  saveProjectError: PropTypes.string,
+  eduId: PropTypes.string,
 }
 GUIComponent.defaultProps = {
-  basePath: '/'
+  basePath: '/',
 }
 export default injectIntl(GUIComponent)

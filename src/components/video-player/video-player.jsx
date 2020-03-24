@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Hls from 'hls.js'
 import styles from './video-player.css'
 
-const VideoPlayer = props => {
+const VideoPlayer = (props) => {
   const videoRef = useRef(null)
   useEffect(() => {
     const video = videoRef.current
@@ -33,7 +33,7 @@ const VideoPlayer = props => {
 }
 
 VideoPlayer.propTypes = {
-  src: PropTypes.string
+  src: PropTypes.string,
 }
 
 export default VideoPlayer

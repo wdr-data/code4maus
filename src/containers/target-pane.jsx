@@ -34,7 +34,7 @@ class TargetPane extends React.Component {
       'handleFileUploadClick',
       'handleSpriteUpload',
       'handleGlobalTouchMove',
-      'setFileInput'
+      'setFileInput',
     ])
 
     this.spriteSelectorRef = React.createRef()
@@ -83,7 +83,7 @@ class TargetPane extends React.Component {
   }
   handlePaintSpriteClick() {
     // @todo this is brittle, will need to be refactored for localized libraries
-    const emptyItem = spriteLibraryContent.find(item => item.name === 'Empty')
+    const emptyItem = spriteLibraryContent.find((item) => item.name === 'Empty')
     if (emptyItem) {
       this.props.vm.addSprite(JSON.stringify(emptyItem.json)).then(() => {
         setTimeout(() => {
@@ -189,10 +189,10 @@ const {
 } = TargetPaneComponent.propTypes
 
 TargetPane.propTypes = {
-  ...targetPaneProps
+  ...targetPaneProps,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   editingTarget: state.scratchGui.targets.editingTarget,
   hoveredTarget: state.scratchGui.hoveredTarget,
   sprites: Object.keys(state.scratchGui.targets.sprites).reduce(
@@ -223,26 +223,23 @@ const mapStateToProps = state => ({
   ),
   stage: state.scratchGui.targets.stage,
   raiseSprites: state.scratchGui.blockDrag,
-  spriteLibraryVisible: state.scratchGui.modals.spriteLibrary
+  spriteLibraryVisible: state.scratchGui.modals.spriteLibrary,
 })
-const mapDispatchToProps = dispatch => ({
-  onNewSpriteClick: e => {
+const mapDispatchToProps = (dispatch) => ({
+  onNewSpriteClick: (e) => {
     e.preventDefault()
     dispatch(openSpriteLibrary())
   },
   onRequestCloseSpriteLibrary: () => {
     dispatch(closeSpriteLibrary())
   },
-  onActivateTab: tabIndex => {
+  onActivateTab: (tabIndex) => {
     dispatch(activateTab(tabIndex))
   },
-  onReceivedBlocks: receivedBlocks => {
+  onReceivedBlocks: (receivedBlocks) => {
     dispatch(setReceivedBlocks(receivedBlocks))
   },
-  onHoveredSprite: spriteId => dispatch(setHoveredSprite(spriteId))
+  onHoveredSprite: (spriteId) => dispatch(setHoveredSprite(spriteId)),
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TargetPane)
+export default connect(mapStateToProps, mapDispatchToProps)(TargetPane)

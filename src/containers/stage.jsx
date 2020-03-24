@@ -5,16 +5,18 @@ import Renderer from 'scratch-render'
 import VM from '@wdr-data/scratch-vm'
 import { connect } from 'react-redux'
 
+import {
+  SVGRenderer as V2SVGAdapter,
+  BitmapAdapter as V2BitmapAdapter,
+} from 'scratch-svg-renderer'
 import { getEventXY } from '../lib/touch-utils'
 import VideoProvider from '../lib/video/video-provider'
-import { SVGRenderer as V2SVGAdapter } from 'scratch-svg-renderer'
-import { BitmapAdapter as V2BitmapAdapter } from 'scratch-svg-renderer'
 
 import StageComponent from '../components/stage/stage.jsx'
 
 import {
   activateColorPicker,
-  deactivateColorPicker
+  deactivateColorPicker,
 } from '../reducers/color-picker'
 
 const colorPickerRadius = 20
@@ -40,7 +42,7 @@ class Stage extends React.Component {
       'setDragCanvas',
       'clearDragCanvas',
       'drawDragCanvas',
-      'positionDragCanvas'
+      'positionDragCanvas',
     ])
     this.state = {
       mouseDownTimeoutId: null,
@@ -49,7 +51,7 @@ class Stage extends React.Component {
       dragOffset: null,
       dragId: null,
       colorInfo: null,
-      question: null
+      question: null,
     }
     if (this.props.vm.runtime.renderer) {
       this.renderer = this.props.vm.runtime.renderer
@@ -158,14 +160,14 @@ class Stage extends React.Component {
     const nativeSize = this.renderer.getNativeSize()
     return [
       (nativeSize[0] / this.rect.width) * (x - this.rect.width / 2),
-      (nativeSize[1] / this.rect.height) * (y - this.rect.height / 2)
+      (nativeSize[1] / this.rect.height) * (y - this.rect.height / 2),
     ]
   }
   getColorInfo(x, y) {
     return {
       x: x,
       y: y,
-      ...this.renderer.extractColor(x, y, colorPickerRadius)
+      ...this.renderer.extractColor(x, y, colorPickerRadius),
     }
   }
   handleDoubleClick(e) {
@@ -213,7 +215,7 @@ class Stage extends React.Component {
         this.props.vm.postSpriteInfo({
           x: spritePosition[0] + this.state.dragOffset[0],
           y: -(spritePosition[1] + this.state.dragOffset[1]),
-          force: true
+          force: true,
         })
       }
     }
@@ -221,7 +223,7 @@ class Stage extends React.Component {
       x: mousePosition[0],
       y: mousePosition[1],
       canvasWidth: this.rect.width,
-      canvasHeight: this.rect.height
+      canvasHeight: this.rect.height,
     }
     this.props.vm.postIOData('mouse', coordinates)
   }
@@ -231,7 +233,7 @@ class Stage extends React.Component {
     this.cancelMouseDownTimeout()
     this.setState({
       mouseDown: false,
-      mouseDownPosition: null
+      mouseDownPosition: null,
     })
     const data = {
       isDown: false,
@@ -239,7 +241,7 @@ class Stage extends React.Component {
       y: y - this.rect.top,
       canvasWidth: this.rect.width,
       canvasHeight: this.rect.height,
-      wasDragged: this.state.isDragging
+      wasDragged: this.state.isDragging,
     }
     if (this.state.isDragging) {
       this.onStopDrag(mousePosition[0], mousePosition[1])
@@ -257,7 +259,7 @@ class Stage extends React.Component {
         mouseDownTimeoutId: setTimeout(
           this.onStartDrag.bind(this, mousePosition[0], mousePosition[1]),
           400
-        )
+        ),
       })
     }
     const data = {
@@ -265,7 +267,7 @@ class Stage extends React.Component {
       x: mousePosition[0],
       y: mousePosition[1],
       canvasWidth: this.rect.width,
-      canvasHeight: this.rect.height
+      canvasHeight: this.rect.height,
     }
     this.props.vm.postIOData('mouse', data)
     if (e.preventDefault) {
@@ -273,7 +275,7 @@ class Stage extends React.Component {
     }
     if (this.props.isColorPicking) {
       const { r, g, b } = this.state.colorInfo.color
-      const componentToString = c => {
+      const componentToString = (c) => {
         const hex = c.toString(16)
         return hex.length === 1 ? `0${hex}` : hex
       }
@@ -287,7 +289,7 @@ class Stage extends React.Component {
   onWheel(e) {
     const data = {
       deltaX: e.deltaX,
-      deltaY: e.deltaY
+      deltaY: e.deltaY,
     }
     this.props.vm.postIOData('mouseWheel', data)
   }
@@ -350,7 +352,7 @@ class Stage extends React.Component {
     this.setState({
       isDragging: true,
       dragId: targetId,
-      dragOffset: drawableData.scratchOffset
+      dragOffset: drawableData.scratchOffset,
     })
     if (this.props.useEditorDragStyle) {
       this.drawDragCanvas(drawableData)
@@ -365,7 +367,7 @@ class Stage extends React.Component {
       this.setState({
         isDragging: false,
         dragOffset: null,
-        dragId: null
+        dragId: null,
       })
     }
     if (this.props.useEditorDragStyle) {
@@ -427,29 +429,26 @@ Stage.propTypes = {
   onDeactivateColorPicker: PropTypes.func,
   useEditorDragStyle: PropTypes.bool,
   vm: PropTypes.instanceOf(VM).isRequired,
-  width: PropTypes.number
+  width: PropTypes.number,
 }
 
 Stage.defaultProps = {
-  useEditorDragStyle: true
+  useEditorDragStyle: true,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isColorPicking: state.scratchGui.colorPicker.active,
   isFullScreen: state.scratchGui.mode.isFullScreen,
   // Do not use editor drag style in fullscreen or player mode.
   useEditorDragStyle: !(
     state.scratchGui.mode.isFullScreen || state.scratchGui.mode.isPlayerOnly
   ),
-  vm: state.scratchGui.vm
+  vm: state.scratchGui.vm,
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   onActivateColorPicker: () => dispatch(activateColorPicker()),
-  onDeactivateColorPicker: color => dispatch(deactivateColorPicker(color))
+  onDeactivateColorPicker: (color) => dispatch(deactivateColorPicker(color)),
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Stage)
+export default connect(mapStateToProps, mapDispatchToProps)(Stage)

@@ -11,7 +11,7 @@ import {
   activateTab,
   BLOCKS_TAB_INDEX,
   COSTUMES_TAB_INDEX,
-  SOUNDS_TAB_INDEX
+  SOUNDS_TAB_INDEX,
 } from '../reducers/editor-tab'
 
 import EduLoaderHOC from '../lib/edu-loader-hoc.jsx'
@@ -31,7 +31,7 @@ class GUI extends React.Component {
     this.state = {
       loading: !props.vm.initialized,
       loadingError: false,
-      errorMessage: ''
+      errorMessage: '',
     }
 
     this.handleSaveModalClose = this.handleSaveModalClose.bind(this)
@@ -70,7 +70,7 @@ class GUI extends React.Component {
           }
           setTimeout(() => this.props.onSetUnchanged(), 100)
         })
-        .catch(e => {
+        .catch((e) => {
           // Need to catch this error and update component state so that
           // error page gets rendered if project failed to load
           this.setState({ loadingError: true, errorMessage: e })
@@ -119,12 +119,12 @@ GUI.propTypes = {
   loadingStateVisible: PropTypes.bool,
   projectData: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   vm: PropTypes.instanceOf(VM),
-  cancelSave: PropTypes.func.isRequired
+  cancelSave: PropTypes.func.isRequired,
 }
 
 GUI.defaultProps = GUIComponent.defaultProps
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   activeTabIndex: state.scratchGui.editorTab.activeTabIndex,
   blocksTabVisible:
     state.scratchGui.editorTab.activeTabIndex === BLOCKS_TAB_INDEX,
@@ -142,23 +142,20 @@ const mapStateToProps = state => ({
   layoutmode: state.scratchGui.layoutMode,
   saveProjectVisible: state.scratchGui.modals.saveProject,
   eduLayerActive: state.scratchGui.eduLayer.enabled,
-  eduId: state.scratchGui.eduLayer.gameId
+  eduId: state.scratchGui.eduLayer.gameId,
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   closeSaveModal: () => dispatch(closeSaveProject()),
   onExtensionButtonClick: () => dispatch(openExtensionLibrary()),
-  onActivateTab: tab => dispatch(activateTab(tab)),
+  onActivateTab: (tab) => dispatch(activateTab(tab)),
   onActivateCostumesTab: () => dispatch(activateTab(COSTUMES_TAB_INDEX)),
   onActivateSoundsTab: () => dispatch(activateTab(SOUNDS_TAB_INDEX)),
   onLayoutModeClick: () => dispatch(toggleLayoutMode()),
-  onSetUnchanged: () => dispatch(setProjectUnchanged())
+  onSetUnchanged: () => dispatch(setProjectUnchanged()),
 })
 
-const ConnectedGUI = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(GUI)
+const ConnectedGUI = connect(mapStateToProps, mapDispatchToProps)(GUI)
 
 // eslint-disable-next-line new-cap
 const WrappedGui = flow([
@@ -167,7 +164,7 @@ const WrappedGui = flow([
   vmListenerHOC,
   ProjectLoaderHOC,
   StageSizeProviderHOC,
-  UnsavedProjectBlockerHOC
+  UnsavedProjectBlockerHOC,
 ])(ConnectedGUI)
 
 export default WrappedGui

@@ -3,7 +3,7 @@ import initS3 from './lib/s3'
 
 const s3 = initS3()
 
-export const handler = async (event, context, callback) => {
+export const handler = async (_event, _context, _callback) => {
   const bucket = process.env.STORAGE_BUCKET || process.env.S3_BUCKET_PROJECTS
 
   let unique = false

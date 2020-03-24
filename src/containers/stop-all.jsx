@@ -45,7 +45,7 @@ class StopAll extends React.Component {
 }
 
 StopAll.propTypes = {
-  vm: PropTypes.instanceOf(VM)
+  vm: PropTypes.instanceOf(VM),
 }
 
 export default StopAll

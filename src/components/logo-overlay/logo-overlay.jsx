@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './logo-overlay.css'
 
 import wdrLogo from '../../../assets/img/wdr_logo.svg'
 import logo from '../../../assets/img/head_logo.png'
+import styles from './logo-overlay.css'
 
 const LogoOverlayComponent = ({ children }) => (
   <div className={styles.background}>
@@ -17,7 +17,7 @@ const LogoOverlayComponent = ({ children }) => (
 )
 
 LogoOverlayComponent.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 }
 
 export default LogoOverlayComponent

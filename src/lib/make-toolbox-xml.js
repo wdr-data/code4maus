@@ -32,7 +32,7 @@ const prepareBlocks = (defaultBlocks, blockLibFn, wrappedFunction) => (
   return wrappedFunction(isStage, blockXml)
 }
 
-const motionBlockLib = (isStage, targetId) => ({
+const motionBlockLib = (_isStage, targetId) => ({
   movesteps: `
         <block type="motion_movesteps">
             <value name="STEPS">
@@ -449,14 +449,14 @@ const looksDefaultBlocks = [
 const looks = prepareBlocks(
   looksDefaultBlocks,
   looksBlockLib,
-  (isStage, blockXml) => `
+  (_isStage, blockXml) => `
     <category name="Aussehen" id="looks">
         ${blockXml}
     </category>
 `
 )
 
-const soundBlockLib = (isStage, targetId) => ({
+const soundBlockLib = (_isStage, targetId) => ({
   play: `
         <block id="${targetId}_sound_play" type="sound_play">
             <value name="SOUND_MENU">
@@ -537,14 +537,14 @@ const soundDefaultBlocks = [
 const sound = prepareBlocks(
   soundDefaultBlocks,
   soundBlockLib,
-  (isStage, blockXml) => `
+  (_isStage, blockXml) => `
     <category name="Klang" id="sound">
         ${blockXml}
     </category>
 `
 )
 
-const eventsBlockLib = (isStage, targetId) => ({
+const eventsBlockLib = (isStage, _targetId) => ({
   whenflagclicked: `
         <block type="event_whenflagclicked"/>
     `,
@@ -609,14 +609,14 @@ const eventDefaultBlocks = [
 const events = prepareBlocks(
   eventDefaultBlocks,
   eventsBlockLib,
-  (isStage, blockXml) => `
+  (_isStage, blockXml) => `
     <category name="Ereignisse" id="events">
         ${blockXml}
     </category>
 `
 )
 
-const controlBlockLib = (isStage, targetId) => ({
+const controlBlockLib = (isStage, _targetId) => ({
   wait: `
         <block type="control_wait">
             <value name="DURATION">
@@ -693,14 +693,14 @@ const controlDefaultBlocks = [
 const control = prepareBlocks(
   controlDefaultBlocks,
   controlBlockLib,
-  (isStage, blockXml) => `
+  (_isStage, blockXml) => `
     <category name="Steuerung" id="control">
         ${blockXml}
     </category>
 `
 )
 
-const sensingBlockLib = (isStage, targetId) => {
+const sensingBlockLib = (isStage, _targetId) => {
   const touchBlocks = isStage
     ? {}
     : {
@@ -834,7 +834,7 @@ const sensingDefaultBlocks = [
 const sensing = prepareBlocks(
   sensingDefaultBlocks,
   sensingBlockLib,
-  (isStage, blockXml) => `
+  (_isStage, blockXml) => `
     <category name="Fühlen" id="sensing">
         ${blockXml}
     </category>
@@ -1078,7 +1078,7 @@ const operatorsDefaultBlocks = [
 const operators = prepareBlocks(
   operatorsDefaultBlocks,
   operatorsBlockLib,
-  (isStage, blockXml) => `
+  (_isStage, blockXml) => `
     <category name="Operatoren" id="operators">
         ${blockXml}
     </category>

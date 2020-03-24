@@ -11,7 +11,7 @@ const ContentWrapper = ({
   backToHome,
   style,
   title,
-  splitSections
+  splitSections,
 }) => (
   <Modal
     fullScreen
@@ -22,7 +22,7 @@ const ContentWrapper = ({
   >
     <div
       className={classNames(styles.wrapper, styles[`style-${style}`], {
-        [styles.splitSections]: splitSections
+        [styles.splitSections]: splitSections,
       })}
     >
       {children}
@@ -35,12 +35,12 @@ ContentWrapper.propTypes = {
   children: PropTypes.node.isRequired,
   style: PropTypes.string,
   title: PropTypes.string,
-  splitSections: PropTypes.bool
+  splitSections: PropTypes.bool,
 }
 
 ContentWrapper.defaultProps = {
   style: 'blue',
-  title: ''
+  title: '',
 }
 
 export default ContentWrapper

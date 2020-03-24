@@ -18,7 +18,7 @@ const Settings = () => {
     <div className={styles.background}>
       <div className={styles.wrapper}>
         <h1 className={styles.header}>Einstellungen</h1>
-        {features.map(feature => (
+        {features.map((feature) => (
           <div key={feature.id} className={styles.feature}>
             <ButtonComponent
               style={feature.enabled ? 'primary' : 'secondary'}

@@ -11,7 +11,7 @@ class SpriteInfo extends React.Component {
       'handleClickVisible',
       'handleClickNotVisible',
       'handlePressVisible',
-      'handlePressNotVisible'
+      'handlePressNotVisible',
     ])
   }
   handleClickVisible(e) {
@@ -56,7 +56,7 @@ SpriteInfo.propTypes = {
   onChangeX: PropTypes.func,
   onChangeY: PropTypes.func,
   x: PropTypes.number,
-  y: PropTypes.number
+  y: PropTypes.number,
 }
 
 export default SpriteInfo

@@ -20,8 +20,9 @@ const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH
 const bucketSuffix = branch === 'production' ? 'prod' : 'staging'
 const bucketUrl = `https://${
   process.env.S3_BUCKET_PREFIX
-}-${bucketSuffix}.s3.dualstack.${process.env.FUNCTIONS_AWS_REGION ||
-  process.env.AWS_REGION}.amazonaws.com`
+}-${bucketSuffix}.s3.dualstack.${
+  process.env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION
+}.amazonaws.com`
 
 const { GenerateSW } = require('workbox-webpack-plugin')
 const GenerateS3SWPrecachePlugin = require('./scripts/generate-s3-sw-precache-plugin')
@@ -43,31 +44,31 @@ module.exports = {
     port: process.env.PORT || 8601,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000'
+        target: 'http://localhost:3000',
       },
       '/data': {
         target: bucketUrl,
-        changeOrigin: true
-      }
+        changeOrigin: true,
+      },
     },
     historyApiFallback: true,
     watchOptions:
       process.env.DOCKER_WATCH === 1
         ? {
             aggregateTimeout: 300,
-            poll: 1000
+            poll: 1000,
           }
-        : {}
+        : {},
   },
   entry: {
     app: './src/entrypoints/index.jsx',
     sharingpage: './src/entrypoints/sharingpage.jsx',
-    settings: './src/entrypoints/settings.jsx'
+    settings: './src/entrypoints/settings.jsx',
   },
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].[contenthash].js',
-    publicPath: '/'
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -76,19 +77,19 @@ module.exports = {
         loader: 'babel-loader',
         include: [
           path.resolve(__dirname, 'src'),
-          /node_modules[\\/](@wdr-data[\\/])?scratch-[^\\/]+[\\/]src/
+          /node_modules[\\/](@wdr-data[\\/])?scratch-[^\\/]+[\\/]src/,
         ],
         options: {
           // Explicitly disable babelrc so we don't catch various config
           // in much lower dependencies.
-          babelrc: false
-        }
+          babelrc: false,
+        },
       },
       {
         test: /\.css$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: 'style-loader',
           },
           {
             loader: 'css-loader',
@@ -96,40 +97,40 @@ module.exports = {
               modules: true,
               importLoaders: 1,
               localIdentName: '[name]_[local]_[hash:base64:5]',
-              camelCase: true
-            }
+              camelCase: true,
+            },
           },
           {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
-              plugins: function() {
+              plugins: function () {
                 return [
                   postcssMixins,
                   postcssImport,
                   postcssVars,
                   autoprefixer({
-                    browsers: ['last 3 versions', 'Safari >= 8', 'iOS >= 8']
-                  })
+                    browsers: ['last 3 versions', 'Safari >= 8', 'iOS >= 8'],
+                  }),
                 ]
-              }
-            }
-          }
-        ]
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(png|wav|gif|jpg|mp4)$/,
         loader: 'file-loader',
         options: {
-          name: file => {
+          name: (file) => {
             const matches = file.match(/\/src\/lib\/edu\/([a-zA-Z0-9]+)\//)
             if (matches !== null) {
               return `edu/${matches[1]}/[hash].[ext]`
             }
             return '[hash].[ext]'
           },
-          outputPath: 'static/assets/'
-        }
+          outputPath: 'static/assets/',
+        },
       },
       {
         test: /\.svg$/,
@@ -137,82 +138,82 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              outputPath: 'static/assets/'
-            }
+              outputPath: 'static/assets/',
+            },
           },
-          { loader: 'svgo-loader' }
-        ]
+          { loader: 'svgo-loader' },
+        ],
       },
       {
         test: /\.md$/,
         use: [
           {
-            loader: 'babel-loader'
+            loader: 'babel-loader',
           },
           {
-            loader: 'react-markdown-loader'
-          }
-        ]
+            loader: 'react-markdown-loader',
+          },
+        ],
       },
       {
         test: require.resolve('zepto'),
-        loader: 'imports-loader?this=>window'
-      }
-    ]
+        loader: 'imports-loader?this=>window',
+      },
+    ],
   },
   optimization: {
     splitChunks: {
-      chunks: 'all'
-    }
+      chunks: 'all',
+    },
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       'process.env.DEBUG': Boolean(process.env.DEBUG),
-      'process.env.ENABLE_TRACKING': Boolean(branch === 'production')
+      'process.env.ENABLE_TRACKING': Boolean(branch === 'production'),
     }),
     customHtmlPlugin({
       entrypoint: 'app',
-      title: 'Programmieren mit der Maus'
+      title: 'Programmieren mit der Maus',
     }),
     customHtmlPlugin({
       entrypoint: 'sharingpage',
       filename: 'teilen/index.html',
-      title: 'Programmieren mit der Maus'
+      title: 'Programmieren mit der Maus',
     }),
     customHtmlPlugin({
       entrypoint: 'settings',
       filename: 'settings/index.html',
-      title: 'Einstellungen | Programmieren mit der Maus'
+      title: 'Einstellungen | Programmieren mit der Maus',
     }),
     new CopyWebpackPlugin([
       {
         from: 'assets/img/favicon.png',
-        to: ''
+        to: '',
       },
       {
         from: 'node_modules/@wdr-data/scratch-blocks/media',
         to: 'static/blocks-media',
-        ignore: ['icons/set-*', 'icons/wedo_*', 'extensions/*']
+        ignore: ['icons/set-*', 'icons/wedo_*', 'extensions/*'],
       },
       {
         from: 'assets/blocks-media',
-        to: 'static/blocks-media'
+        to: 'static/blocks-media',
       },
       {
         from: 'static',
-        to: 'static'
-      }
+        to: 'static',
+      },
     ]),
     new CopyWebpackPlugin([
       {
         from: '_redirects',
-        transform: content => envsub(content.toString())
-      }
+        transform: (content) => envsub(content.toString()),
+      },
     ]),
     new Visualizer({
-      filename: 'statistics.html'
-    })
+      filename: 'statistics.html',
+    }),
   ].concat(
     enableServiceWorker
       ? [
@@ -226,18 +227,18 @@ module.exports = {
               /_redirects$/,
               /data\/projects\/[^/]+\/index\.json$/,
               /\/1x1\.gif$/,
-              /^static\/assets\/edu\/beispiel/
+              /^static\/assets\/edu\/beispiel/,
             ],
             clientsClaim: true,
             skipWaiting: true,
             importScripts: ['s3-manifest.[hash].js', '/static/sw-helper.js'],
             cleanupOutdatedCaches: true,
-            excludeChunks: ['settings', 'sharingpage', 'mobile-screen']
+            excludeChunks: ['settings', 'sharingpage', 'mobile-screen'],
           }),
           new GenerateS3SWPrecachePlugin({
-            filename: 's3-manifest.[hash].js'
-          })
+            filename: 's3-manifest.[hash].js',
+          }),
         ]
       : []
-  )
+  ),
 }

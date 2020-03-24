@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import bindAll from 'lodash.bindall'
 
-import styles from './monitor.css'
 import { List } from 'react-virtualized'
+import styles from './monitor.css'
 
 class ListMonitorScroller extends React.Component {
   constructor(props) {
@@ -96,6 +96,6 @@ ListMonitorScroller.propTypes = {
   values: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   ),
-  width: PropTypes.number
+  width: PropTypes.number,
 }
 export default ListMonitorScroller

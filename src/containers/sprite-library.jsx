@@ -13,8 +13,8 @@ const messages = defineMessages({
   libraryTitle: {
     defaultMessage: 'Choose a Sprite',
     description: 'Heading for the sprite library',
-    id: 'gui.spriteLibrary.chooseASprite'
-  }
+    id: 'gui.spriteLibrary.chooseASprite',
+  },
 })
 
 class SpriteLibrary extends React.PureComponent {
@@ -26,12 +26,12 @@ class SpriteLibrary extends React.PureComponent {
       'handleMouseLeave',
       'rotateCostume',
       'startRotatingCostumes',
-      'stopRotatingCostumes'
+      'stopRotatingCostumes',
     ])
     this.state = {
       activeSprite: null,
       costumeIndex: 0,
-      sprites: spriteLibraryContent
+      sprites: spriteLibraryContent,
     }
   }
   componentWillUnmount() {
@@ -62,7 +62,7 @@ class SpriteLibrary extends React.PureComponent {
     const nextCostumeIndex = (this.state.costumeIndex + 1) % costumes.length
     this.setState({
       costumeIndex: nextCostumeIndex,
-      sprites: this.state.sprites.map(sprite => {
+      sprites: this.state.sprites.map((sprite) => {
         if (sprite.name === this.state.activeSprite.name) {
           const nextCostume = sprite.json.costumes[nextCostumeIndex]
           if (!nextCostume) {
@@ -71,11 +71,11 @@ class SpriteLibrary extends React.PureComponent {
 
           return {
             ...sprite,
-            md5: nextCostume.baseLayerMD5
+            md5: nextCostume.baseLayerMD5,
           }
         }
         return sprite
-      })
+      }),
     })
   }
   render() {
@@ -97,7 +97,7 @@ class SpriteLibrary extends React.PureComponent {
 SpriteLibrary.propTypes = {
   intl: intlShape.isRequired,
   onRequestClose: PropTypes.func,
-  vm: PropTypes.instanceOf(VM).isRequired
+  vm: PropTypes.instanceOf(VM).isRequired,
 }
 
 export default injectIntl(SpriteLibrary)

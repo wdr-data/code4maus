@@ -12,13 +12,13 @@ import Button from '../button/button.jsx'
 import styles from './crash-message.css'
 import reloadIcon from './reload.svg'
 
-const CrashMessage = props => (
+const CrashMessage = (props) => (
   <div className={styles.crashWrapper}>
     <Box className={styles.body}>
       <img className={styles.reloadIcon} src={reloadIcon} />
       <h2>Upps! Da ist was schief gelaufen.</h2>
       <p>
-        "Programmieren mit der Maus" hat aufgehört, zu funktionieren. Bitte lade
+        „Programmieren mit der Maus“ hat aufgehört, zu funktionieren. Bitte lade
         die Seite neu, um es noch einmal zu versuchen.
       </p>
       <Button style="primary" onClick={props.onReload}>
@@ -28,7 +28,7 @@ const CrashMessage = props => (
   </div>
 )
 CrashMessage.propTypes = {
-  onReload: PropTypes.func.isRequired
+  onReload: PropTypes.func.isRequired,
 }
 
 export default CrashMessage

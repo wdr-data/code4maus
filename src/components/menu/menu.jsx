@@ -7,14 +7,15 @@ import PropTypes from 'prop-types'
 import { Link } from 'redux-little-router'
 
 import Box from '../box/box.jsx'
-import MenuListing from '../menu-listing/menu-listing.jsx'
+import MenuListing, { SHAPE_PROJECT } from '../menu-listing/menu-listing.jsx'
 import InlineSVG from '../inline-svg/inline-svg.jsx'
 import MenuButton from '../menu-button/menu-button.jsx'
 import OfflineSupport from '../offline-support/offline-support.jsx'
 import wdrLogo from '../../../assets/img/wdr_logo.svg'
 import headLogo from '../../../assets/img/head_logo.png'
-import { SHAPE_PROJECT } from '../menu-listing/menu-listing.jsx'
 
+import { useFeatureFlag, FEATURE_OFFLINE } from '../../lib/feature-flags.js'
+import styles from './menu.css'
 import buttonNew from '!raw-loader!../../../assets/icons/menu_plus.svg'
 import tabIconEdugames from '!raw-loader!../../../assets/icons/menu_edugames.svg'
 import tabIconProjects from '!raw-loader!../../../assets/icons/menu_projects.svg'
@@ -25,10 +26,7 @@ import buttonIconMausseite from '!raw-loader!../../../assets/icons/menu_mausseit
 import buttonIconDatenschutz from '!raw-loader!../../../assets/icons/icon_hilfe.svg'
 import buttonIconImpressum from '!raw-loader!../../../assets/icons/menu_impressum.svg'
 
-import styles from './menu.css'
-import { useFeatureFlag, FEATURE_OFFLINE } from '../../lib/feature-flags.js'
-
-export const MenuComponent = props => {
+export const MenuComponent = (props) => {
   const tabClassNames = {
     tabs: styles.tabs,
     tab: classNames(tabStyles.reactTabsTab, styles.tab),
@@ -38,7 +36,7 @@ export const MenuComponent = props => {
       tabStyles.reactTabsTabPanelSelected,
       styles.isSelected
     ),
-    tabSelected: classNames(tabStyles.reactTabsTabSelected, styles.isSelected)
+    tabSelected: classNames(tabStyles.reactTabsTabSelected, styles.isSelected),
   }
 
   return (
@@ -163,7 +161,7 @@ MenuComponent.propTypes = {
   projects: PropTypes.arrayOf(PropTypes.shape(SHAPE_PROJECT)),
   selectedTab: PropTypes.number.isRequired,
   handleTabSelected: PropTypes.func.isRequired,
-  isOnline: PropTypes.bool
+  isOnline: PropTypes.bool,
 }
 
 export default MenuComponent

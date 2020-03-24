@@ -3,7 +3,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import bindAll from 'lodash.bindall'
 
-import { setStageSize, STAGE_SIZES } from '../reducers/stage-size'
 import { setFullScreen } from '../reducers/mode'
 
 import FullscreenComponent from '../components/fullscreen/fullscreen.jsx'
@@ -32,19 +31,17 @@ class Fullscreen extends React.Component {
 }
 
 Fullscreen.propTypes = {
-  onSetStageUnFull: PropTypes.func.isRequired
+  onSetStageUnFull: PropTypes.func.isRequired,
+  isFullScreen: PropTypes.bool,
 }
 
-const mapStateToProps = state => ({
-  isFullScreen: state.scratchGui.mode.isFullScreen
+const mapStateToProps = (state) => ({
+  isFullScreen: state.scratchGui.mode.isFullScreen,
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   onSetStageFull: () => dispatch(setFullScreen(true)),
-  onSetStageUnFull: () => dispatch(setFullScreen(false))
+  onSetStageUnFull: () => dispatch(setFullScreen(false)),
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Fullscreen)
+export default connect(mapStateToProps, mapDispatchToProps)(Fullscreen)

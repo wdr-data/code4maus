@@ -18,7 +18,7 @@ const PrintLayout = ({ stage, userHandle, layoutRef = React.createRef() }) => {
 PrintLayout.propTypes = {
   stage: PropTypes.string.isRequired,
   userHandle: PropTypes.string,
-  layoutRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  layoutRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
 }
 
 export default PrintLayout

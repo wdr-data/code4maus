@@ -1,31 +1,31 @@
 import bindAll from 'lodash.bindall'
 import debounce from 'lodash.debounce'
 import defaultsDeep from 'lodash.defaultsdeep'
-import makeToolboxXML from '../lib/make-toolbox-xml'
 import PropTypes from 'prop-types'
 import React from 'react'
-import VMScratchBlocks from '../lib/blocks'
 import VM from '@wdr-data/scratch-vm'
 
-import Prompt from './prompt.jsx'
-import BlocksComponent from '../components/blocks/blocks.jsx'
-import ExtensionLibrary from './extension-library.jsx'
-import CustomProcedures from './custom-procedures.jsx'
+import { connect } from 'react-redux'
 import errorBoundaryHOC from '../lib/error-boundary-hoc.jsx'
 
-import { connect } from 'react-redux'
+import BlocksComponent from '../components/blocks/blocks.jsx'
+import VMScratchBlocks from '../lib/blocks'
+import makeToolboxXML from '../lib/make-toolbox-xml'
 import { updateToolbox } from '../reducers/toolbox'
 import { activateColorPicker } from '../reducers/color-picker'
 import { closeExtensionLibrary } from '../reducers/modals'
 import {
   activateCustomProcedures,
-  deactivateCustomProcedures
+  deactivateCustomProcedures,
 } from '../reducers/custom-procedures'
 import { gamesKeyed } from '../lib/edu'
+import CustomProcedures from './custom-procedures.jsx'
+import ExtensionLibrary from './extension-library.jsx'
+import Prompt from './prompt.jsx'
 
 const addFunctionListener = (object, property, callback) => {
   const oldFn = object[property]
-  object[property] = function() {
+  object[property] = function () {
     const result = oldFn.apply(this, arguments)
     callback.apply(this, result)
     return result
@@ -54,12 +54,12 @@ class Blocks extends React.Component {
       'onVisualReport',
       'onWorkspaceUpdate',
       'onWorkspaceMetricsChange',
-      'setBlocks'
+      'setBlocks',
     ])
     this.ScratchBlocks.prompt = this.handlePromptStart
     this.state = {
       workspaceMetrics: {},
-      prompt: null
+      prompt: null,
     }
     this.onTargetsUpdate = debounce(this.onTargetsUpdate, 100)
     this.toolboxUpdateQueue = []
@@ -187,7 +187,7 @@ class Blocks extends React.Component {
 
     const queue = this.toolboxUpdateQueue
     this.toolboxUpdateQueue = []
-    queue.forEach(fn => fn())
+    queue.forEach((fn) => fn())
   }
 
   withToolboxUpdates(fn) {
@@ -231,10 +231,7 @@ class Blocks extends React.Component {
 
   updateToolboxBlockValue(id, value) {
     this.withToolboxUpdates(() => {
-      const block = this.workspace
-        .getFlyout()
-        .getWorkspace()
-        .getBlockById(id)
+      const block = this.workspace.getFlyout().getWorkspace().getBlockById(id)
       if (block) {
         block.inputList[0].fieldRow[0].setValue(value)
       }
@@ -258,7 +255,7 @@ class Blocks extends React.Component {
 
   onTargetsUpdate() {
     if (this.props.vm.editingTarget) {
-      ;['glide', 'move', 'set'].forEach(prefix => {
+      ;['glide', 'move', 'set'].forEach((prefix) => {
         this.updateToolboxBlockValue(
           `${prefix}x`,
           Math.round(this.props.vm.editingTarget.x).toString()
@@ -277,8 +274,8 @@ class Blocks extends React.Component {
         [target.id]: {
           scrollX: this.workspace.scrollX,
           scrollY: this.workspace.scrollY,
-          scale: this.workspace.scale
-        }
+          scale: this.workspace.scale,
+        },
       })
       this.setState({ workspaceMetrics })
     }
@@ -335,7 +332,7 @@ class Blocks extends React.Component {
     // select JSON from each block info object then reject the pseudo-blocks which don't have JSON, like separators
     // this actually defines blocks and MUST run regardless of the UI state
     this.ScratchBlocks.defineBlocksWithJsonArray(
-      blocksInfo.map(blockInfo => blockInfo.json).filter(x => x)
+      blocksInfo.map((blockInfo) => blockInfo.json).filter((x) => x)
     )
 
     // update the toolbox view: this can be skipped if we're not looking at a target, etc.
@@ -437,7 +434,7 @@ class Blocks extends React.Component {
         {customProceduresVisible ? (
           <CustomProcedures
             options={{
-              media: options.media
+              media: options.media,
             }}
             onRequestClose={this.handleCustomProceduresClose}
           />
@@ -464,7 +461,7 @@ Blocks.propTypes = {
     zoom: PropTypes.shape({
       controls: PropTypes.bool,
       wheel: PropTypes.bool,
-      startScale: PropTypes.number
+      startScale: PropTypes.number,
     }),
     colours: PropTypes.shape({
       workspace: PropTypes.string,
@@ -476,27 +473,27 @@ Blocks.propTypes = {
       insertionMarker: PropTypes.string,
       insertionMarkerOpacity: PropTypes.number,
       fieldShadow: PropTypes.string,
-      dragShadowOpacity: PropTypes.number
+      dragShadowOpacity: PropTypes.number,
     }),
     comments: PropTypes.bool,
-    collapse: PropTypes.bool
+    collapse: PropTypes.bool,
   }),
   toolboxXML: PropTypes.string,
   updateToolboxState: PropTypes.func,
   vm: PropTypes.instanceOf(VM).isRequired,
-  gameId: PropTypes.string
+  gameId: PropTypes.string,
 }
 
 Blocks.defaultOptions = {
   zoom: {
     controls: true,
     wheel: true,
-    startScale: 0.675
+    startScale: 0.675,
   },
   grid: {
     spacing: 40,
     length: 2,
-    colour: '#ddd'
+    colour: '#ddd',
   },
   colours: {
     workspace: '#F9F9F9',
@@ -508,22 +505,22 @@ Blocks.defaultOptions = {
     insertionMarker: '#000000',
     insertionMarkerOpacity: 0.2,
     fieldShadow: 'rgba(255, 255, 255, 0.3)',
-    dragShadowOpacity: 0.6
+    dragShadowOpacity: 0.6,
   },
   comments: false,
   collapse: false,
-  sounds: false
+  sounds: false,
 }
 
 Blocks.defaultProps = {
   isVisible: true,
-  options: Blocks.defaultOptions
+  options: Blocks.defaultOptions,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   anyModalVisible:
     Object.keys(state.scratchGui.modals).some(
-      key => state.scratchGui.modals[key]
+      (key) => state.scratchGui.modals[key]
     ) || state.scratchGui.mode.isFullScreen,
   extensionLibraryVisible: state.scratchGui.modals.extensionLibrary,
   locale: state.intl.locale,
@@ -531,27 +528,24 @@ const mapStateToProps = state => ({
   toolboxXML: state.scratchGui.toolbox.toolboxXML,
   customProceduresVisible: state.scratchGui.customProcedures.active,
   layoutMode: state.scratchGui.layoutMode,
-  gameId: state.scratchGui.eduLayer.gameId
+  gameId: state.scratchGui.eduLayer.gameId,
 })
 
-const mapDispatchToProps = dispatch => ({
-  onActivateColorPicker: callback => dispatch(activateColorPicker(callback)),
+const mapDispatchToProps = (dispatch) => ({
+  onActivateColorPicker: (callback) => dispatch(activateColorPicker(callback)),
   onActivateCustomProcedures: (data, callback) =>
     dispatch(activateCustomProcedures(data, callback)),
   onRequestCloseExtensionLibrary: () => {
     dispatch(closeExtensionLibrary())
   },
-  onRequestCloseCustomProcedures: data => {
+  onRequestCloseCustomProcedures: (data) => {
     dispatch(deactivateCustomProcedures(data))
   },
-  updateToolboxState: toolboxXML => {
+  updateToolboxState: (toolboxXML) => {
     dispatch(updateToolbox(toolboxXML))
-  }
+  },
 })
 
 export default errorBoundaryHOC('Blocks')(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Blocks)
+  connect(mapStateToProps, mapDispatchToProps)(Blocks)
 )

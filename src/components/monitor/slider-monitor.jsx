@@ -10,7 +10,7 @@ const SliderMonitor = ({
   min,
   max,
   value,
-  onSliderUpdate
+  onSliderUpdate,
 }) => (
   <div className={styles.defaultMonitor}>
     <div className={styles.row}>
@@ -37,12 +37,12 @@ SliderMonitor.propTypes = {
   max: PropTypes.number,
   min: PropTypes.number,
   onSliderUpdate: PropTypes.func.isRequired,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 SliderMonitor.defaultProps = {
   min: 0,
-  max: 100
+  max: 100,
 }
 
 export default SliderMonitor

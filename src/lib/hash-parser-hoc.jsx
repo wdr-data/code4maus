@@ -5,13 +5,13 @@ import bindAll from 'lodash.bindall'
  * @param {React.Component} WrappedComponent component to receive projectData prop
  * @returns {React.Component} component with project loading behavior
  */
-const HashParserHOC = function(WrappedComponent) {
+const HashParserHOC = function (WrappedComponent) {
   class HashParserComponent extends React.Component {
     constructor(props) {
       super(props)
       bindAll(this, ['handleHashChange'])
       this.state = {
-        projectId: null
+        projectId: null,
       }
     }
     componentDidMount() {

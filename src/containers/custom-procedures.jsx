@@ -2,9 +2,9 @@ import bindAll from 'lodash.bindall'
 import defaultsDeep from 'lodash.defaultsdeep'
 import PropTypes from 'prop-types'
 import React from 'react'
-import CustomProceduresComponent from '../components/custom-procedures/custom-procedures.jsx'
 import ScratchBlocks from '@wdr-data/scratch-blocks'
 import { connect } from 'react-redux'
+import CustomProceduresComponent from '../components/custom-procedures/custom-procedures.jsx'
 
 class CustomProcedures extends React.Component {
   constructor(props) {
@@ -16,10 +16,10 @@ class CustomProcedures extends React.Component {
       'handleToggleWarp',
       'handleCancel',
       'handleOk',
-      'setBlocks'
+      'setBlocks',
     ])
     this.state = {
-      warp: false
+      warp: false,
     }
   }
   componentWillUnmount() {
@@ -129,30 +129,30 @@ CustomProcedures.propTypes = {
     zoom: PropTypes.shape({
       controls: PropTypes.bool,
       wheel: PropTypes.bool,
-      startScale: PropTypes.number
+      startScale: PropTypes.number,
     }),
     comments: PropTypes.bool,
-    collapse: PropTypes.bool
-  })
+    collapse: PropTypes.bool,
+  }),
 }
 
 CustomProcedures.defaultOptions = {
   zoom: {
     controls: false,
     wheel: false,
-    startScale: 0.9
+    startScale: 0.9,
   },
   comments: false,
   collapse: false,
-  scrollbars: true
+  scrollbars: true,
 }
 
 CustomProcedures.defaultProps = {
-  options: CustomProcedures.defaultOptions
+  options: CustomProcedures.defaultOptions,
 }
 
-const mapStateToProps = state => ({
-  mutator: state.scratchGui.customProcedures.mutator
+const mapStateToProps = (state) => ({
+  mutator: state.scratchGui.customProcedures.mutator,
 })
 
 export default connect(mapStateToProps)(CustomProcedures)

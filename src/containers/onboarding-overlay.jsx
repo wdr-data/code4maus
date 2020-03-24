@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { connect } from 'react-redux'
+import { push } from 'redux-little-router'
 import OnboardingOverlayComponent from '../components/onboarding-overlay/onboarding-overlay.jsx'
 import onboardingConfig, {
   NEXT_STEP,
-  customBlocks
+  customBlocks,
 } from '../lib/onboarding/config'
 import { setProjectId, setCustomBlocks } from '../reducers/project'
 
 import { OnboardingRefs } from './onboarding-refs-provider.jsx'
-import { connect } from 'react-redux'
-import { push } from 'redux-little-router'
 
 class OnboardingOverlay extends React.Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class OnboardingOverlay extends React.Component {
     this.currentTimeout = null
 
     this.state = {
-      overlayProps: null
+      overlayProps: null,
     }
 
     this.buttonClickFactory = this.buttonClickFactory.bind(this)
@@ -81,8 +81,8 @@ class OnboardingOverlay extends React.Component {
     this.setState({
       overlayProps: {
         ...props,
-        targetCoordinates
-      }
+        targetCoordinates,
+      },
     })
 
     this.assignTrigger(trigger)
@@ -95,14 +95,13 @@ class OnboardingOverlay extends React.Component {
   nextStep() {
     const nextStep = this.props.step + 1
     if (nextStep >= onboardingConfig.steps.length) {
-      console.log('OnboardingOverlay: Finished!')
       return
     }
     this.props.setOnboardingStep(nextStep)
   }
 
   buttonClickFactory(action) {
-    return event => {
+    return (_event) => {
       if (typeof action === 'function') {
         // treat functions as action creators
         this.props.dispatchAction(action())
@@ -114,7 +113,7 @@ class OnboardingOverlay extends React.Component {
           this.nextStep()
           break
         default:
-          console.warn('OnboardingOverlay: button action not implemented!')
+          console.warn('OnboardingOverlay: button action not implemented!') // eslint-disable-line
       }
     }
   }
@@ -137,7 +136,7 @@ class OnboardingOverlay extends React.Component {
 
     return {
       x: targetBounds.x + targetBounds.width / 2 - overlayBounds.x,
-      y: targetBounds.y + targetBounds.height / 2 - overlayBounds.y
+      y: targetBounds.y + targetBounds.height / 2 - overlayBounds.y,
     }
   }
 
@@ -163,7 +162,7 @@ class OnboardingOverlay extends React.Component {
     this.triggerRef = ref
   }
 
-  handleTriggerClick(event) {
+  handleTriggerClick(_event) {
     this.nextStep()
   }
 
@@ -188,24 +187,24 @@ OnboardingOverlay.propTypes = {
   loadProject: PropTypes.func.isRequired,
   setCustomBlocks: PropTypes.func.isRequired,
   setOnboardingStep: PropTypes.func.isRequired,
-  dispatchAction: PropTypes.func.isRequired
+  dispatchAction: PropTypes.func.isRequired,
 }
 
 const OnboardingOverlayConnected = connect(
-  state => ({
-    step: parseInt((state.router.params || {}).step) || 0
+  (state) => ({
+    step: parseInt((state.router.params || {}).step) || 0,
   }),
-  dispatch => ({
-    loadProject: id => dispatch(setProjectId(id)),
-    setOnboardingStep: step => dispatch(push(`/onboarding/${step}`)),
-    setCustomBlocks: blocks => dispatch(setCustomBlocks(blocks)),
-    dispatchAction: dispatch
+  (dispatch) => ({
+    loadProject: (id) => dispatch(setProjectId(id)),
+    setOnboardingStep: (step) => dispatch(push(`/onboarding/${step}`)),
+    setCustomBlocks: (blocks) => dispatch(setCustomBlocks(blocks)),
+    dispatchAction: dispatch,
   })
 )(OnboardingOverlay)
 
-const OnboardingOverlayConsumeRefs = props => (
+const OnboardingOverlayConsumeRefs = (props) => (
   <OnboardingRefs>
-    {refs => <OnboardingOverlayConnected capturedRefs={refs} {...props} />}
+    {(refs) => <OnboardingOverlayConnected capturedRefs={refs} {...props} />}
   </OnboardingRefs>
 )
 

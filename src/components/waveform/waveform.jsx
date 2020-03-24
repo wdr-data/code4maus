@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './waveform.css'
 
-const Waveform = props => {
+const Waveform = (props) => {
   const { width, height, data } = props
 
   const cappedData = [0, ...data, 0]
@@ -10,14 +10,14 @@ const Waveform = props => {
   const points = [
     ...cappedData.map((v, i) => [
       (width * i) / cappedData.length,
-      (height * v) / 2
+      (height * v) / 2,
     ]),
     ...cappedData
       .reverse()
       .map((v, i) => [
         (width * (cappedData.length - i - 1)) / cappedData.length,
-        (-height * v) / 2
-      ])
+        (-height * v) / 2,
+      ]),
   ]
 
   const pathComponents = points.map(([x, y], i) => {
@@ -49,7 +49,7 @@ const Waveform = props => {
 Waveform.propTypes = {
   data: PropTypes.arrayOf(PropTypes.number),
   height: PropTypes.number,
-  width: PropTypes.number
+  width: PropTypes.number,
 }
 
 export default Waveform

@@ -6,7 +6,7 @@ const customEndpoint =
     : null
 const s3 = initS3(customEndpoint)
 
-export const handler = async (event, context, callback) => {
+export const handler = async (event, _context, callback) => {
   const { filename } = JSON.parse(event.body)
   if (!filename) {
     callback(null, {
@@ -39,7 +39,9 @@ export const handler = async (event, context, callback) => {
       }),
     })
     return
-  } catch (e) {}
+  } catch (e) {
+    // pass
+  }
 
   const presignedUrl = s3.getSignedUrl('putObject', params)
   callback(null, {

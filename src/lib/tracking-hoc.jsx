@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import { Views } from '../lib/routing'
 
-const withTracking = WrappedComponent => {
+const withTracking = (WrappedComponent) => {
   if (!process.env.ENABLE_TRACKING) {
     return WrappedComponent
   }
@@ -15,11 +15,11 @@ const withTracking = WrappedComponent => {
     'Fernsehen',
     'Kinder',
     'Die Sendung mit der Maus',
-    'Programmieren mit der Maus'
+    'Programmieren mit der Maus',
   ]
 
-  const extendZepto = $ => {
-    $.ajaxSetup = opts => {
+  const extendZepto = ($) => {
+    $.ajaxSetup = (opts) => {
       $.ajaxSettings = $.extend($.ajaxSettings, opts)
     }
     $.getScript = (url, success, error) => {
@@ -72,7 +72,7 @@ const withTracking = WrappedComponent => {
     updateTracking() {
       if (!this.tracker) {
         if (!window.wdrTrackerObject) {
-          console.warn('WDR tracker object not found.')
+          console.warn('WDR tracker object not found.') // eslint-disable-line
           return
         }
         this.tracker = window.wdrTrackerObject
@@ -101,17 +101,17 @@ const withTracking = WrappedComponent => {
       return <WrappedComponent />
     }
   }
-  const mapStateToProps = state => {
+  const mapStateToProps = (state) => {
     const result = state.router.result || {}
     return {
       view: result.view,
-      params: state.router.params
+      params: state.router.params,
     }
   }
 
   WDRTracking.propTypes = {
     view: PropTypes.oneOf(Object.values(Views)),
-    params: PropTypes.objectOf(PropTypes.string)
+    params: PropTypes.objectOf(PropTypes.string),
   }
 
   return connect(mapStateToProps)(WDRTracking)

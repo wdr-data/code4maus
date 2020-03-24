@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import bindAll from 'lodash.bindall'
 import { connect } from 'react-redux'
-import { push } from 'redux-little-router'
 
 import { setFullScreen } from '../reducers/mode'
 import { openSaveProject } from '../reducers/modals'
@@ -35,19 +34,16 @@ class StageHeader extends React.Component {
 
 StageHeader.propTypes = {
   ...StageHeaderComponent.propTypes,
-  onSetStageUnFull: PropTypes.func.isRequired
+  onSetStageUnFull: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = state => ({
-  isFullScreen: state.scratchGui.mode.isFullScreen
+const mapStateToProps = (state) => ({
+  isFullScreen: state.scratchGui.mode.isFullScreen,
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   onSaveProject: () => dispatch(openSaveProject()),
-  onSetStageUnFull: () => dispatch(setFullScreen(false))
+  onSetStageUnFull: () => dispatch(setFullScreen(false)),
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(StageHeader)
+export default connect(mapStateToProps, mapDispatchToProps)(StageHeader)

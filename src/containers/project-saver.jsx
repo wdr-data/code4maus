@@ -27,7 +27,7 @@ class ProjectSaver extends React.Component {
     const saveLink = document.createElement('a')
     document.body.appendChild(saveLink)
 
-    this.props.vm.saveProjectSb3().then(content => {
+    this.props.vm.saveProjectSb3().then((content) => {
       // TODO user-friendly project name
       // File name: project-DATE-TIME
       const date = new Date()
@@ -63,13 +63,13 @@ class ProjectSaver extends React.Component {
 ProjectSaver.propTypes = {
   children: PropTypes.func,
   vm: PropTypes.shape({
-    saveProjectSb3: PropTypes.func
+    saveProjectSb3: PropTypes.func,
   }),
-  name: PropTypes.string
+  name: PropTypes.string,
 }
 
-const mapStateToProps = state => ({
-  vm: state.scratchGui.vm
+const mapStateToProps = (state) => ({
+  vm: state.scratchGui.vm,
 })
 
 export default connect(

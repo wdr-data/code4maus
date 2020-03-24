@@ -19,8 +19,8 @@ const messages = defineMessages({
   filterPlaceholder: {
     id: 'gui.library.filterPlaceholder',
     defaultMessage: 'Search',
-    description: 'Placeholder text for library search field'
-  }
+    description: 'Placeholder text for library search field',
+  },
 })
 
 class LibraryComponent extends React.Component {
@@ -35,15 +35,15 @@ class LibraryComponent extends React.Component {
       'handleMouseLeave',
       'handleSelect',
       'handleTagClick',
-      'setFilteredDataRef'
+      'setFilteredDataRef',
     ])
     this.state = {
       selectedItem: null,
       filterQuery: '',
-      selectedTag: ALL_TAG_TITLE.toLowerCase()
+      selectedTag: ALL_TAG_TITLE.toLowerCase(),
     }
   }
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(_prevProps, prevState) {
     if (
       prevState.filterQuery !== this.state.filterQuery ||
       prevState.selectedTag !== this.state.selectedTag
@@ -64,7 +64,7 @@ class LibraryComponent extends React.Component {
   handleTagClick(tag) {
     this.setState({
       filterQuery: '',
-      selectedTag: tag.toLowerCase()
+      selectedTag: tag.toLowerCase(),
     })
   }
   handleMouseEnter(id) {
@@ -80,7 +80,7 @@ class LibraryComponent extends React.Component {
   handleFilterChange(event) {
     this.setState({
       filterQuery: event.target.value,
-      selectedTag: ALL_TAG_TITLE.toLowerCase()
+      selectedTag: ALL_TAG_TITLE.toLowerCase(),
     })
   }
   handleFilterClear() {
@@ -92,7 +92,7 @@ class LibraryComponent extends React.Component {
         return this.props.data
       }
       return this.props.data.filter(
-        dataItem =>
+        (dataItem) =>
           (dataItem.tags || [])
             // Second argument to map sets `this`
             .map(
@@ -105,7 +105,7 @@ class LibraryComponent extends React.Component {
       )
     }
     return this.props.data.filter(
-      dataItem =>
+      (dataItem) =>
         dataItem.tags &&
         dataItem.tags
           .map(String.prototype.toLowerCase.call, String.prototype.toLowerCase)
@@ -163,7 +163,7 @@ class LibraryComponent extends React.Component {
         )}
         <div
           className={classNames(styles.libraryScrollGrid, {
-            [styles.withFilterBar]: this.props.filterable || this.props.tags
+            [styles.withFilterBar]: this.props.filterable || this.props.tags,
           })}
           ref={this.setFilteredDataRef}
         >
@@ -202,7 +202,7 @@ LibraryComponent.propTypes = {
       // @todo remove md5/rawURL prop from library, refactor to use storage
       md5: PropTypes.string,
       name: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-      rawURL: PropTypes.string
+      rawURL: PropTypes.string,
     })
     /* eslint-enable react/no-unused-prop-types, lines-around-comment */
   ),
@@ -214,11 +214,11 @@ LibraryComponent.propTypes = {
   onItemSelected: PropTypes.func,
   onRequestClose: PropTypes.func,
   tags: PropTypes.arrayOf(PropTypes.shape(TagButton.propTypes)),
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 }
 
 LibraryComponent.defaultProps = {
-  filterable: true
+  filterable: true,
 }
 
 export default injectIntl(LibraryComponent)

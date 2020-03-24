@@ -8,7 +8,7 @@ class Question extends React.Component {
     super(props)
     bindAll(this, ['handleChange', 'handleKeyPress', 'handleSubmit'])
     this.state = {
-      answer: ''
+      answer: '',
     }
   }
   handleChange(e) {
@@ -37,7 +37,7 @@ class Question extends React.Component {
 
 Question.propTypes = {
   onQuestionAnswered: PropTypes.func.isRequired,
-  question: PropTypes.string
+  question: PropTypes.string,
 }
 
 export default Question

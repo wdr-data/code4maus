@@ -32,7 +32,7 @@ class SBFileUploader extends React.Component {
       'renderFileInput',
       'setFileInput',
       'handleChange',
-      'handleClick'
+      'handleClick',
     ])
   }
   getProjectTitleFromFilename(fileInputFilename) {
@@ -65,7 +65,7 @@ class SBFileUploader extends React.Component {
           thisFileInput.value = null
           history.pushState({}, document.title, '/projekt/neu')
         })
-        .catch(error => {
+        .catch((error) => {
           log.warn(error)
           alert(
             'Dein Projekt konnte leider nicht geladen werden. ' +
@@ -117,22 +117,22 @@ SBFileUploader.propTypes = {
   onLoadingStarted: PropTypes.func,
   onSuccess: PropTypes.func,
   vm: PropTypes.shape({
-    loadProject: PropTypes.func
-  })
+    loadProject: PropTypes.func,
+  }),
 }
 SBFileUploader.defaultProps = {
-  className: ''
+  className: '',
 }
-const mapStateToProps = state => ({
-  vm: state.scratchGui.vm
+const mapStateToProps = (state) => ({
+  vm: state.scratchGui.vm,
 })
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch, _ownProps) => ({
   onLoadingFinished: () => dispatch(closeLoadingProject()),
   onLoadingStarted: () => {
     dispatch(loadGame(null, null))
     dispatch(openLoadingProject())
-  }
+  },
 })
 
 // Allow incoming props to override redux-provided props. Used to mock in tests.

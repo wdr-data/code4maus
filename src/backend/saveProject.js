@@ -16,7 +16,7 @@ const injectReplyJson = (handler) => (event, context, callback) =>
     })
   )
 
-export const handler = injectReplyJson(async (event, context, reply) => {
+export const handler = injectReplyJson(async (event, _context, reply) => {
   const { data, id, name, userId } = JSON.parse(event.body)
   if (!data || !name || !userId) {
     return reply(400, {
@@ -75,7 +75,7 @@ export const handler = injectReplyJson(async (event, context, reply) => {
           })
           .promise()
       } catch (e) {
-        console.error(e)
+        console.error(e) // eslint-disable-line no-console
       }
     }
 
@@ -91,7 +91,7 @@ export const handler = injectReplyJson(async (event, context, reply) => {
       if (e.code === 'NoSuchKey') {
         await putIndex()
       } else {
-        console.error(e)
+        console.error(e) // eslint-disable-line no-console
       }
     }
   }

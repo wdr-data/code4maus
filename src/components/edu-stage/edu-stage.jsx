@@ -3,23 +3,23 @@ import React, { useState } from 'react'
 import classNames from 'classnames'
 import { push } from 'redux-little-router'
 
-import Box from '../box/box.jsx'
-import Button from '../button/button.jsx'
-import Modal from '../modal/modal.jsx'
-import styles from './edu-stage.css'
+import { connect } from 'react-redux'
 import fullScreenIcon from '../../../assets/blocks-media/zoom-in.svg'
 import unFullScreenIcon from '../../../assets/blocks-media/zoom-out.svg'
-import { connect } from 'react-redux'
+import Modal from '../modal/modal.jsx'
+import Button from '../button/button.jsx'
+import Box from '../box/box.jsx'
 import {
   nextSlide,
   previousSlide,
-  toggleFullscreen
+  toggleFullscreen,
 } from '../../reducers/edu-layer.js'
 import { eduUrl } from '../../lib/routing'
 import { gamesKeyed } from '../../lib/edu/'
 import VideoPlayer from '../video-player/video-player.jsx'
+import styles from './edu-stage.css'
 
-const EduStageComponent = props => {
+const EduStageComponent = (props) => {
   const [isPreVideoModalOpen, setPreVideoModalOpen] = useState(true)
   const [isPostVideoModalOpen, setPostVideoModalOpen] = useState(true)
   return !props.isEnabled ? null : (
@@ -52,7 +52,7 @@ const EduStageComponent = props => {
       <Box
         aria-label="Lernspiel"
         className={classNames(styles.eduWrapper, {
-          [styles.fullscreen]: props.isFullscreen
+          [styles.fullscreen]: props.isFullscreen,
         })}
       >
         <Box className={styles.eduHeader}>
@@ -124,10 +124,10 @@ EduStageComponent.propTypes = {
   toggleFullscreen: PropTypes.func.isRequired,
   finished: PropTypes.bool,
   preVideo: PropTypes.string,
-  postVideo: PropTypes.string
+  postVideo: PropTypes.string,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const base = {
     slideIndex: state.scratchGui.eduLayer.index,
     slideCount: 0,
@@ -135,7 +135,7 @@ const mapStateToProps = state => {
     isEnabled: state.scratchGui.eduLayer.enabled,
     imageSrc: '',
     gameId: state.scratchGui.eduLayer.gameId,
-    caption: ''
+    caption: '',
   }
 
   const spec = gamesKeyed[base.gameId]
@@ -154,15 +154,15 @@ const mapStateToProps = state => {
     nextGame: spec.nextGame || '',
     finished: !spec.nextGame && base.slideIndex >= spec.slides.length - 1,
     preVideo: spec.preVideo || '',
-    postVideo: spec.postVideo || ''
+    postVideo: spec.postVideo || '',
   }
 }
 
 const mapDispatchToProps = {
-  loadGame: gameId => push(eduUrl(gameId)),
+  loadGame: (gameId) => push(eduUrl(gameId)),
   nextSlide,
   previousSlide,
-  toggleFullscreen
+  toggleFullscreen,
 }
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => ({
@@ -171,7 +171,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
   ...dispatchProps,
   nextSlide: stateProps.linkNextGame
     ? () => dispatchProps.loadGame(stateProps.nextGame)
-    : dispatchProps.nextSlide
+    : dispatchProps.nextSlide,
 })
 
 export default connect(

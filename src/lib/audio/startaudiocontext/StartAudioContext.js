@@ -4,14 +4,8 @@
  *  @license http://opensource.org/licenses/MIT MIT License
  *  @copyright 2016 Yotam Mann
  */
-;(function (root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define([], factory)
-  } else if (typeof module === 'object' && module.exports) {
-    module.exports = factory()
-  } else {
-    root.StartAudioContext = factory()
-  }
+;(function (_root, factory) {
+  module.exports = factory()
 })(this, function () {
   // TAP LISTENER/////////////////////////////////////////////////////////////
 
@@ -37,7 +31,7 @@
   /**
    * drag move event
    */
-  TapListener.prototype._moved = function (e) {
+  TapListener.prototype._moved = function (_event) {
     this._dragged = true
   }
 

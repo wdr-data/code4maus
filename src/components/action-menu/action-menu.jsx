@@ -6,14 +6,12 @@ import ReactTooltip from 'react-tooltip'
 
 import styles from './action-menu.css'
 
-const CLOSE_DELAY = 300 // ms
-
 class ActionMenu extends React.Component {
   constructor(props) {
     super(props)
     bindAll(this, ['setButtonRef', 'setContainerRef'])
   }
-  shouldComponentUpdate(newProps, newState) {
+  shouldComponentUpdate(newProps, _newState) {
     // This check prevents re-rendering while the project is updating.
     // @todo check only the state and the title because it is enough to know
     //  if anything substantial has changed
@@ -45,7 +43,7 @@ class ActionMenu extends React.Component {
                   onClick: handleClick,
                   fileAccept,
                   fileChange,
-                  fileInput
+                  fileInput,
                 },
                 keyId
               ) => {
@@ -78,7 +76,7 @@ class ActionMenu extends React.Component {
                     </button>
                     <ReactTooltip
                       className={classNames(styles.tooltip, {
-                        [styles.comingSoonTooltip]: isComingSoon
+                        [styles.comingSoonTooltip]: isComingSoon,
                       })}
                       effect="solid"
                       id={tooltipId}
@@ -96,6 +94,7 @@ class ActionMenu extends React.Component {
 }
 
 ActionMenu.propTypes = {
+  title: PropTypes.string,
   className: PropTypes.string,
   moreButtons: PropTypes.arrayOf(
     PropTypes.shape({
@@ -104,9 +103,9 @@ ActionMenu.propTypes = {
       onClick: PropTypes.func, // Optional, "coming soon" if no callback provided
       fileAccept: PropTypes.string, // Optional, only for file upload
       fileChange: PropTypes.func, // Optional, only for file upload
-      fileInput: PropTypes.func // Optional, only for file upload
+      fileInput: PropTypes.func, // Optional, only for file upload
     })
-  )
+  ),
 }
 
 export default ActionMenu

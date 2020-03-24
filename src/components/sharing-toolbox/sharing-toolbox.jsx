@@ -4,7 +4,7 @@ import React, {
   useCallback,
   useReducer,
   useRef,
-  useMemo
+  useMemo,
 } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -12,7 +12,7 @@ import VM from '@wdr-data/scratch-vm'
 import QRCode from 'qrcode.react'
 import html2canvas from 'html2canvas'
 import JsPDF from 'jspdf'
-import ffmpegWorkerPath from 'file-loader!ffmpeg.js/ffmpeg-worker-mp4'
+import ffmpegWorkerPath from 'file-loader!ffmpeg.js/ffmpeg-worker-mp4' // eslint-disable-line import/no-unresolved
 
 import InlineSvg from '../inline-svg/inline-svg.jsx'
 import Modal from '../modal/modal.jsx'
@@ -20,19 +20,19 @@ import Box from '../box/box.jsx'
 import Button from '../button/button.jsx'
 import Input from '../forms/input.jsx'
 import { Spinner } from '../loader/loader.jsx'
-import useRecordCanvas from '../../lib/record-canvas.js'
+import { useRecordCanvas } from '../../lib/record-canvas.js'
 import { useFeatureFlag, FEATURE_PRINTING } from '../../lib/feature-flags.js'
 
-import gifIcon from '!raw-loader!../../../assets/icons/icon_gif.svg'
-import printIcon from '!raw-loader!../../../assets/icons/icon_print.svg'
 import printButton from '../../../assets/img/button_print.png'
 import printNowButton from '../../../assets/img/button_printnow.png'
 import shareButton from '../../../assets/img/button_share.png'
 
+import { StageSizeRequester } from '../../lib/stage-size-provider.jsx'
 import buttonBorder from './button_preview.svg'
 import PrintLayout from './print.jsx'
 import styles from './sharing-toolbox.css'
-import { StageSizeRequester } from '../../lib/stage-size-provider.jsx'
+import printIcon from '!raw-loader!../../../assets/icons/icon_print.svg'
+import gifIcon from '!raw-loader!../../../assets/icons/icon_gif.svg'
 
 const useScreenshotState = (vm, onImageReady) => {
   const [image, setImage] = useState(null)
@@ -43,7 +43,7 @@ const useScreenshotState = (vm, onImageReady) => {
     setImage(null)
     onImageReady()
     renderer.requestSnapshot(() =>
-      renderer.gl.canvas.toBlob(blob => {
+      renderer.gl.canvas.toBlob((blob) => {
         setImage(blob)
         setScreenshotLoading(false)
       })
@@ -62,21 +62,21 @@ const usePrintScreenshot = (layoutRef, dispatch) => {
     const canvas = await html2canvas(layoutRef.current)
     const doc = new JsPDF({
       format: 'a5',
-      unit: 'mm'
+      unit: 'mm',
     })
     doc.addImage({
       imageData: canvas,
       x: 20,
       y: 20,
       w: 73,
-      h: 73
+      h: 73,
     })
     doc.addImage({
       imageData: canvas,
       x: 20,
       y: 115,
       w: 73,
-      h: 73
+      h: 73,
     })
     const pdf = doc.output('blob')
     try {
@@ -92,7 +92,7 @@ const usePrintScreenshot = (layoutRef, dispatch) => {
 const useSaveName = () => {
   const [userHandle, setUserHandle] = useState('')
   const onChangeUserHandle = useCallback(
-    event => setUserHandle(event.target.value),
+    (event) => setUserHandle(event.target.value),
     [setUserHandle]
   )
   return { onChangeUserHandle, userHandle }
@@ -114,7 +114,7 @@ const useSaveResult = (asset, dispatch) =>
       const body = await res.json()
       await fetch(body.uploadUrl, {
         method: 'PUT',
-        body: asset
+        body: asset,
       })
       dispatch({ type: actionSharePreview, payload: body.sharingKey })
     } catch (e) {
@@ -122,13 +122,13 @@ const useSaveResult = (asset, dispatch) =>
     }
   }, [dispatch, asset])
 
-const printPdf = async buffer => {
+const printPdf = async (buffer) => {
   const url = 'http://localhost:8602'
   const formData = new FormData()
   formData.append('button', buffer)
   const response = await fetch(url, {
     method: 'POST',
-    body: formData
+    body: formData,
   })
   if (!response.ok) {
     throw new Error(await response.text())
@@ -139,7 +139,7 @@ const initialState = {
   mode: 'default',
   isLoading: false,
   sharingKey: '',
-  errorMessage: ''
+  errorMessage: '',
 }
 
 const actionPrintPreview = 'printPreview'
@@ -162,19 +162,19 @@ const reducer = (state, action) => {
         ...state,
         isLoading: false,
         mode: 'share',
-        sharingKey: action.payload
+        sharingKey: action.payload,
       }
     case actionShareStart:
       return {
         ...initialState,
-        isLoading: true
+        isLoading: true,
       }
     case actionError:
       return {
         ...state,
         errorMessage: action.payload,
         isLoading: false,
-        mode: 'default'
+        mode: 'default',
       }
     default:
       return state
@@ -186,7 +186,7 @@ const SharingModal = ({
   asset,
   isLoading,
   canPrint,
-  title
+  title,
 }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const layoutRef = useRef(null)
@@ -205,7 +205,7 @@ const SharingModal = ({
   }, [asset, isImage, isVideo, dispatch])
 
   const assetURL = useMemo(() => (asset ? URL.createObjectURL(asset) : ''), [
-    asset
+    asset,
   ])
   useEffect(() => () => assetURL && URL.revokeObjectURL(assetURL), [assetURL])
 
@@ -318,21 +318,20 @@ SharingModal.propTypes = {
   asset: PropTypes.instanceOf(Blob),
   userHandle: PropTypes.string,
   onRequestClose: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
 }
 
 const recordingInitialState = {
   timeLeft: 10, // seconds (float)
-  isRecording: false
+  isRecording: false,
 }
 
-const convertVideo = inBuf =>
+const convertVideo = (inBuf) =>
   new Promise((res, rej) => {
-    const start = Date.now()
     const conv = new Worker(ffmpegWorkerPath)
     let stdout = ''
     let stderr = ''
-    conv.addEventListener('message', async ({ data: msg }) => {
+    conv.addEventListener('message', ({ data: msg }) => {
       switch (msg.type) {
         case 'ready':
           conv.postMessage({
@@ -351,10 +350,10 @@ const convertVideo = inBuf =>
               '-preset',
               'ultrafast',
               '-an',
-              'out.mp4'
-            ]
+              'out.mp4',
+            ],
           })
-          console.log('ffmpeg is ready')
+          console.log('ffmpeg is ready') // eslint-disable-line no-console
           break
         case 'stdout':
           stdout += msg.data + '\n'
@@ -363,14 +362,11 @@ const convertVideo = inBuf =>
           stderr += msg.data + '\n'
           break
         case 'exit':
-          console.log('ffmpeg exited with:', msg.data)
-          console.log('stdout:', stdout)
-          console.log('stderr:', stderr)
+          console.log('ffmpeg exited with:', msg.data) // eslint-disable-line no-console
+          console.log('stdout:', stdout) // eslint-disable-line no-console
+          console.log('stderr:', stderr) // eslint-disable-line no-console
           break
         case 'done':
-          console.log(
-            `conversion took: ${((Date.now() - start) / 1000).toFixed(3)}s`
-          )
           res(msg.data.MEMFS[0].data)
           break
         case 'error':
@@ -437,7 +433,7 @@ const useRecording = (vm, onVideoProcessing, requestStageSize) => {
         }
         requestStageSize()
 
-        const inBuf = await new Promise(res => {
+        const inBuf = await new Promise((res) => {
           const reader = new FileReader()
           reader.addEventListener('load', ({ target }) => {
             res(target.result)
@@ -450,24 +446,33 @@ const useRecording = (vm, onVideoProcessing, requestStageSize) => {
         setIsVideoLoading(false)
       }
     }
-  }, [isRecording, dispatch])
+  }, [
+    isRecording,
+    dispatch,
+    onVideoProcessing,
+    requestStageSize,
+    startRecording,
+    stopRecording,
+  ])
   useEffect(() => {
     if (isRecording) {
       vm.greenFlag()
     }
     return () => vm.stopAll()
   }, [vm, isRecording])
+
   const reset = useCallback(() => {
     setVideoData(null)
     setIsVideoLoading(false)
-  })
+  }, [setVideoData, setIsVideoLoading])
+
   return {
     timeLeft,
     toggleRecording,
     isRecording,
     videoData,
     isVideoLoading,
-    reset
+    reset,
   }
 }
 
@@ -484,7 +489,7 @@ const SharingToolboxComponent = ({ vm, requestStageSize }) => {
     timeLeft,
     videoData,
     isVideoLoading,
-    reset: resetVideo
+    reset: resetVideo,
   } = useRecording(vm, () => setGifOpen(true), requestStageSize)
 
   return (
@@ -534,11 +539,11 @@ const SharingToolboxComponent = ({ vm, requestStageSize }) => {
 
 SharingToolboxComponent.propTypes = {
   vm: PropTypes.instanceOf(VM).isRequired,
-  requestStageSize: PropTypes.func.isRequired
+  requestStageSize: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = state => ({
-  vm: state.scratchGui.vm
+const mapStateToProps = (state) => ({
+  vm: state.scratchGui.vm,
 })
 
 const ConnectedSharingToolbox = connect(
@@ -548,7 +553,7 @@ const ConnectedSharingToolbox = connect(
 
 const SharingToolboxTop = () => (
   <StageSizeRequester>
-    {requestStageSize => (
+    {(requestStageSize) => (
       <ConnectedSharingToolbox requestStageSize={requestStageSize} />
     )}
   </StageSizeRequester>

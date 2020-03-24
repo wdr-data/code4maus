@@ -15,7 +15,7 @@ class PreviewModal extends React.Component {
     bindAll(this, ['handleTryIt', 'handleCancel', 'handleViewProject'])
 
     this.state = {
-      previewing: false
+      previewing: false,
     }
   }
   handleTryIt() {
@@ -44,22 +44,19 @@ class PreviewModal extends React.Component {
 
 PreviewModal.propTypes = {
   onTryIt: PropTypes.func,
-  onViewProject: PropTypes.func
+  onViewProject: PropTypes.func,
 }
 
 const mapStateToProps = () => ({})
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   onTryIt: () => {
     dispatch(closePreviewInfo())
   },
   onViewProject: () => {
     dispatch(closePreviewInfo())
     dispatch(openImportInfo())
-  }
+  },
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PreviewModal)
+export default connect(mapStateToProps, mapDispatchToProps)(PreviewModal)

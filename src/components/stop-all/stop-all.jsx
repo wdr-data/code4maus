@@ -3,7 +3,7 @@ import React from 'react'
 
 import stopAllIcon from './stop@2x.png'
 
-const StopAllComponent = function(props) {
+const StopAllComponent = function (props) {
   const { onClick, title, ...componentProps } = props
   return (
     <img
@@ -19,11 +19,11 @@ const StopAllComponent = function(props) {
 StopAllComponent.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func.isRequired,
-  title: PropTypes.string
+  title: PropTypes.string,
 }
 
 StopAllComponent.defaultProps = {
-  title: 'Stop'
+  title: 'Stop',
 }
 
 export default StopAllComponent

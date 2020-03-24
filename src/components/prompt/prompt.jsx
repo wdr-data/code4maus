@@ -9,7 +9,7 @@ import Button from '../button/button.jsx'
 
 import styles from './prompt.css'
 
-const PromptComponent = props => (
+const PromptComponent = (props) => (
   <Modal
     className={styles.modalContent}
     contentLabel={props.title}
@@ -48,7 +48,7 @@ PromptComponent.propTypes = {
   onOk: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   showMoreOptions: PropTypes.bool.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 }
 
 export default PromptComponent

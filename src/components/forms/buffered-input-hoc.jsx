@@ -7,13 +7,13 @@ import React from 'react'
  * @param {React.Component} Input text input that consumes onChange, onBlur, onKeyPress
  * @returns {React.Component} Buffered input that calls onSubmit on blur and <enter>
  */
-export default function(Input) {
+export default function (Input) {
   class BufferedInput extends React.Component {
     constructor(props) {
       super(props)
       bindAll(this, ['handleChange', 'handleKeyPress', 'handleFlush'])
       this.state = {
-        value: null
+        value: null,
       }
     }
     handleKeyPress(e) {
@@ -52,7 +52,7 @@ export default function(Input) {
 
   BufferedInput.propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }
 
   return BufferedInput

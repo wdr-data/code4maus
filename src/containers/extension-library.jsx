@@ -13,13 +13,13 @@ const messages = defineMessages({
   extensionTitle: {
     defaultMessage: 'Choose an Extension',
     description: 'Heading for the extension library',
-    id: 'gui.extensionLibrary.chooseAnExtension'
+    id: 'gui.extensionLibrary.chooseAnExtension',
   },
   extensionUrl: {
     defaultMessage: 'Enter the URL of the extension',
     description: 'Prompt for unoffical extension url',
-    id: 'gui.extensionLibrary.extensionUrl'
-  }
+    id: 'gui.extensionLibrary.extensionUrl',
+  },
 })
 
 class ExtensionLibrary extends React.PureComponent {
@@ -46,9 +46,9 @@ class ExtensionLibrary extends React.PureComponent {
   }
   render() {
     const extensionLibraryThumbnailData = extensionLibraryContent.map(
-      extension => ({
+      (extension) => ({
         rawURL: extension.iconURL || extensionIcon,
-        ...extension
+        ...extension,
       })
     )
     return (
@@ -70,7 +70,7 @@ ExtensionLibrary.propTypes = {
   onCategorySelected: PropTypes.func,
   onRequestClose: PropTypes.func,
   visible: PropTypes.bool,
-  vm: PropTypes.instanceOf(VM).isRequired // eslint-disable-line react/no-unused-prop-types
+  vm: PropTypes.instanceOf(VM).isRequired, // eslint-disable-line react/no-unused-prop-types
 }
 
 export default injectIntl(ExtensionLibrary)

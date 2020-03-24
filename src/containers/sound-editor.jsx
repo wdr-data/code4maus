@@ -29,13 +29,13 @@ class SoundEditor extends React.Component {
       'handleEffect',
       'handleUndo',
       'handleRedo',
-      'submitNewSamples'
+      'submitNewSamples',
     ])
     this.state = {
       chunkLevels: computeChunkedRMS(this.props.samples),
       playhead: null, // null is not playing, [0 -> 1] is playing percent
       trimStart: null,
-      trimEnd: null
+      trimEnd: null,
     }
 
     this.redoStack = []
@@ -65,7 +65,7 @@ class SoundEditor extends React.Component {
       chunkLevels: computeChunkedRMS(samples),
       playhead: null,
       trimStart: null,
-      trimEnd: null
+      trimEnd: null,
     })
   }
   submitNewSamples(samples, sampleRate, skipUndo) {
@@ -81,7 +81,7 @@ class SoundEditor extends React.Component {
     try {
       wavBuffer = WavEncoder.encode.sync({
         sampleRate: sampleRate,
-        channelData: [samples]
+        channelData: [samples],
       })
     } catch (e) {
       // This error state is mostly for the mock sounds used during testing.
@@ -143,7 +143,7 @@ class SoundEditor extends React.Component {
     // Cannot reliably use props.samples because it gets detached by Firefox
     return {
       samples: this.audioBufferPlayer.buffer.getChannelData(0),
-      sampleRate: this.audioBufferPlayer.buffer.sampleRate
+      sampleRate: this.audioBufferPlayer.buffer.sampleRate,
     }
   }
   handleEffect(name) {
@@ -210,8 +210,8 @@ SoundEditor.propTypes = {
   soundIndex: PropTypes.number,
   vm: PropTypes.shape({
     updateSoundBuffer: PropTypes.func,
-    renameSound: PropTypes.func
-  })
+    renameSound: PropTypes.func,
+  }),
 }
 
 const mapStateToProps = (state, { soundIndex }) => {
@@ -226,7 +226,7 @@ const mapStateToProps = (state, { soundIndex }) => {
     sampleRate: audioBuffer.sampleRate,
     samples: audioBuffer.getChannelData(0),
     name: sound.name,
-    vm: state.scratchGui.vm
+    vm: state.scratchGui.vm,
   }
 }
 

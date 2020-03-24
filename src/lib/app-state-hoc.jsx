@@ -5,12 +5,11 @@ import { initializeCurrentLocation } from 'redux-little-router'
 import { createLogger } from 'redux-logger'
 
 import { IntlProvider } from 'react-intl-redux'
+import { ScratchPaintReducer } from 'scratch-paint'
 import intlReducer from '../reducers/intl.js'
 
 import guiReducer, { guiInitialState, guiMiddleware } from '../reducers/gui'
 import * as router from './routing'
-
-import { ScratchPaintReducer } from 'scratch-paint'
 
 const enhancer = compose(
   router.enhancer,
@@ -27,7 +26,7 @@ const enhancer = compose(
  * @param {React.Component} WrappedComponent - component to provide state for
  * @returns {React.Component} component with redux and intl state provided
  */
-const AppStateHOC = function(WrappedComponent) {
+const AppStateHOC = function (WrappedComponent) {
   class AppStateWrapper extends React.Component {
     constructor(props) {
       super(props)
@@ -36,7 +35,7 @@ const AppStateHOC = function(WrappedComponent) {
         intl: intlReducer,
         scratchGui: guiReducer,
         scratchPaint: ScratchPaintReducer,
-        router: router.reducer
+        router: router.reducer,
       })
 
       this.store = createStore(

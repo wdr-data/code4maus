@@ -12,8 +12,8 @@ const messages = defineMessages({
   libraryTitle: {
     defaultMessage: 'Choose a Backdrop',
     description: 'Heading for the backdrop library',
-    id: 'gui.costumeLibrary.chooseABackdrop'
-  }
+    id: 'gui.costumeLibrary.chooseABackdrop',
+  },
 })
 
 class BackdropLibrary extends React.Component {
@@ -27,7 +27,7 @@ class BackdropLibrary extends React.Component {
       rotationCenterX: item.info[0] && item.info[0] / 2,
       rotationCenterY: item.info[1] && item.info[1] / 2,
       bitmapResolution: item.info.length > 2 ? item.info[2] : 1,
-      skinId: null
+      skinId: null,
     }
     this.props.vm.addBackdrop(item.md5, vmBackdrop)
   }
@@ -48,7 +48,7 @@ class BackdropLibrary extends React.Component {
 BackdropLibrary.propTypes = {
   intl: intlShape.isRequired,
   onRequestClose: PropTypes.func,
-  vm: PropTypes.instanceOf(VM).isRequired
+  vm: PropTypes.instanceOf(VM).isRequired,
 }
 
 export default injectIntl(BackdropLibrary)

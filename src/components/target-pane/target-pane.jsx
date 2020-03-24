@@ -90,7 +90,7 @@ const spriteShape = PropTypes.shape({
     // will not have these properties available
     bitmapResolution: PropTypes.number,
     rotationCenterX: PropTypes.number,
-    rotationCenterY: PropTypes.number
+    rotationCenterY: PropTypes.number,
   }),
   direction: PropTypes.number,
   id: PropTypes.string,
@@ -99,7 +99,7 @@ const spriteShape = PropTypes.shape({
   size: PropTypes.number,
   visibility: PropTypes.bool,
   x: PropTypes.number,
-  y: PropTypes.number
+  y: PropTypes.number,
 })
 
 TargetPane.propTypes = {
@@ -108,7 +108,7 @@ TargetPane.propTypes = {
   fileInputRef: PropTypes.func,
   hoveredTarget: PropTypes.shape({
     hoveredSprite: PropTypes.string,
-    receivedBlocks: PropTypes.bool
+    receivedBlocks: PropTypes.bool,
   }),
   onChangeSpriteDirection: PropTypes.func,
   onChangeSpriteName: PropTypes.func,
@@ -131,10 +131,10 @@ TargetPane.propTypes = {
   sprites: PropTypes.objectOf(spriteShape),
   spriteSelectorRef: PropTypes.oneOfType([
     PropTypes.func,
-    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]),
   stage: spriteShape,
-  vm: PropTypes.instanceOf(VM)
+  vm: PropTypes.instanceOf(VM),
 }
 
 export default TargetPane

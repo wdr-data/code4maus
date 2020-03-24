@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import ReactModal from 'react-modal'
-import Box from '../box/box.jsx'
 import {
   defineMessages,
   injectIntl,
   intlShape,
-  FormattedMessage
+  FormattedMessage,
 } from 'react-intl'
+import Box from '../box/box.jsx'
 
 import styles from './browser-modal.css'
 
@@ -15,8 +15,8 @@ const messages = defineMessages({
   label: {
     id: 'gui.unsupportedBrowser.label',
     defaultMessage: 'Browser is not supported',
-    description: ''
-  }
+    description: '',
+  },
 })
 
 const BrowserModal = ({ intl, ...props }) => (
@@ -69,7 +69,7 @@ const BrowserModal = ({ intl, ...props }) => (
                   id="gui.unsupportedBrowser.previewfaqlink"
                 />
               </a>
-            )
+            ),
           }}
         />
       </div>
@@ -78,7 +78,7 @@ const BrowserModal = ({ intl, ...props }) => (
 )
 BrowserModal.propTypes = {
   intl: intlShape.isRequired,
-  onBack: PropTypes.func.isRequired
+  onBack: PropTypes.func.isRequired,
 }
 
 export default injectIntl(BrowserModal)

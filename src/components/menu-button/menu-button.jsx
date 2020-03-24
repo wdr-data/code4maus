@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Link } from 'redux-little-router'
 
-import styles from './menu-button.css'
 import InlineSVG from '../inline-svg/inline-svg.jsx'
+import styles from './menu-button.css'
 
 const MenuButtonComponent = ({
   className,
@@ -33,7 +33,7 @@ const MenuButtonComponent = ({
     )
   )
   const buttonClassName = classNames(className, styles.button, {
-    [styles.buttonVertical]: orientation === 'vertical'
+    [styles.buttonVertical]: orientation === 'vertical',
   })
 
   if (external) {
@@ -83,7 +83,7 @@ MenuButtonComponent.propTypes = {
   linkTo: PropTypes.string,
   external: PropTypes.bool,
   orientation: PropTypes.oneOf(['vertical', 'horizontal']),
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 }
 
 export default MenuButtonComponent

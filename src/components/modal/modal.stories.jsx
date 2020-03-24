@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import Modal from './modal.jsx'
 import Input from '../forms/input.jsx'
+import Modal from './modal.jsx'
 
 storiesOf('Modal', module)
   .add('default', () => (
@@ -14,7 +14,7 @@ storiesOf('Modal', module)
       <div
         style={{
           width: '100vw',
-          height: '120vh'
+          height: '120vh',
         }}
       >
         abc

@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import ReactModal from 'react-modal'
-import Box from '../box/box.jsx'
 import {
   defineMessages,
   injectIntl,
   intlShape,
-  FormattedMessage
+  FormattedMessage,
 } from 'react-intl'
+import Box from '../box/box.jsx'
 
 import styles from './webgl-modal.css'
 
@@ -15,8 +15,8 @@ const messages = defineMessages({
   label: {
     id: 'gui.webglModal.label',
     defaultMessage: 'Your Browser Does Not Support WebGL',
-    description: 'WebGL missing title'
-  }
+    description: 'WebGL missing title',
+  },
 })
 
 const WebGlModal = ({ intl, ...props }) => (
@@ -51,7 +51,7 @@ const WebGlModal = ({ intl, ...props }) => (
                   id="gui.webglModal.webgllink"
                 />
               </a>
-            )
+            ),
           }}
         />
         {/* eslint-enable max-len */}
@@ -83,7 +83,7 @@ const WebGlModal = ({ intl, ...props }) => (
                   id="gui.webglModal.previewfaqlink"
                 />
               </a>
-            )
+            ),
           }}
         />
       </div>
@@ -92,7 +92,7 @@ const WebGlModal = ({ intl, ...props }) => (
 )
 WebGlModal.propTypes = {
   intl: intlShape.isRequired,
-  onBack: PropTypes.func.isRequired
+  onBack: PropTypes.func.isRequired,
 }
 
 export default injectIntl(WebGlModal)

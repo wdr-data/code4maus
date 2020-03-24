@@ -11,12 +11,12 @@ import backIcon from '../../lib/assets/icon--back.svg'
 
 import styles from './modal.css'
 
-const ModalComponent = props => (
+const ModalComponent = (props) => (
   <ReactModal
     isOpen
     className={classNames(styles.modalWrapper, props.className, {
       [styles.fullScreen]: props.fullScreen,
-      [styles.styleOrange]: props.style === 'orange'
+      [styles.styleOrange]: props.style === 'orange',
     })}
     contentLabel={props.contentLabel}
     overlayClassName={styles.modalOverlay}
@@ -58,11 +58,11 @@ ModalComponent.propTypes = {
   fullScreen: PropTypes.bool,
   headerClassName: PropTypes.string,
   onRequestClose: PropTypes.func,
-  style: PropTypes.oneOf(['orange', 'blue'])
+  style: PropTypes.oneOf(['orange', 'blue']),
 }
 
 ModalComponent.defaultProps = {
-  style: 'blue'
+  style: 'blue',
 }
 
 export default ModalComponent

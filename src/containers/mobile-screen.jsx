@@ -10,7 +10,7 @@ class MobileScreen extends React.Component {
     super(props)
 
     this.state = {
-      isMobile: window.innerWidth < 600
+      isMobile: window.innerWidth < 600,
     }
 
     this.el = document.createElement('div')
@@ -32,7 +32,7 @@ class MobileScreen extends React.Component {
     document.body.removeChild(this.el)
   }
 
-  detectMobileSize(ev) {
+  detectMobileSize(_event) {
     const isMobile = window.innerWidth < 600
     if (this.state.isMobile !== isMobile) {
       this.setState({ isMobile })

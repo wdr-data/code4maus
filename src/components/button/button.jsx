@@ -18,7 +18,7 @@ const ButtonComponent = ({
   ...props
 }) => {
   if (disabled) {
-    onClick = function() {}
+    onClick = function () {}
   }
 
   const icon = iconSrc && (
@@ -39,7 +39,7 @@ const ButtonComponent = ({
           [styles.primary]: style === 'primary',
           [styles.secondary]: style === 'secondary',
           [styles.wiggle]: wiggle,
-          [styles.link]: style === 'link'
+          [styles.link]: style === 'link',
         },
         className
       )}
@@ -63,7 +63,7 @@ ButtonComponent.propTypes = {
   arrowLeft: PropTypes.bool,
   arrowRight: PropTypes.bool,
   style: PropTypes.oneOf(['primary', 'secondary']),
-  wiggle: PropTypes.bool
+  wiggle: PropTypes.bool,
 }
 
 export default ButtonComponent

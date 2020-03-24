@@ -30,7 +30,7 @@ const _verifyRect = function (upperStart, lowerEnd) {
 }
 
 const _addMonitorRect = function (state, action) {
-  if (state.monitors.hasOwnProperty(action.monitorId)) {
+  if (monitorExists(state.monitors, action.monitorId)) {
     log.error(
       `Can't add monitor, monitor with id ${action.monitorId} already exists.`
     )
@@ -59,7 +59,7 @@ const _addMonitorRect = function (state, action) {
 }
 
 const _moveMonitorRect = function (state, action) {
-  if (!state.monitors.hasOwnProperty(action.monitorId)) {
+  if (!monitorExists(state.monitors, action.monitorId)) {
     log.error(
       `Can't move monitor, monitor with id ${action.monitorId} does not exist.`
     )
@@ -98,7 +98,7 @@ const _moveMonitorRect = function (state, action) {
 }
 
 const _resizeMonitorRect = function (state, action) {
-  if (!state.monitors.hasOwnProperty(action.monitorId)) {
+  if (!monitorExists(state.monitors, action.monitorId)) {
     log.error(
       `Can't resize monitor, monitor with id ${action.monitorId} does not exist.`
     )
@@ -139,7 +139,7 @@ const _resizeMonitorRect = function (state, action) {
 }
 
 const _removeMonitorRect = function (state, action) {
-  if (!state.monitors.hasOwnProperty(action.monitorId)) {
+  if (!monitorExists(state.monitors, action.monitorId)) {
     log.error(
       `Can't remove monitor, monitor with id ${action.monitorId} does not exist.`
     )
@@ -152,6 +152,10 @@ const _removeMonitorRect = function (state, action) {
     monitors: newMonitors,
     savedMonitorPositions: state.savedMonitorPositions,
   }
+}
+
+function monitorExists(monitors, monitorId) {
+  return Object.prototype.hasOwnProperty.call(monitors, monitorId)
 }
 
 const reducer = function (state, action) {
@@ -200,7 +204,7 @@ const _rectsIntersect = function (rect1, rect2) {
 // We need to place a monitor with the given width and height. Return a rect defining where it should be placed.
 const getInitialPosition = function (state, monitorId, eltWidth, eltHeight) {
   // If this monitor was purposefully moved to a certain position before, put it back in that position
-  if (state.savedMonitorPositions.hasOwnProperty(monitorId)) {
+  if (monitorExists(state.savedMonitorPositions, monitorId)) {
     const saved = state.savedMonitorPositions[monitorId]
     return {
       upperStart: saved,
