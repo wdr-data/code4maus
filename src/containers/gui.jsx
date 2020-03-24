@@ -118,7 +118,7 @@ GUI.propTypes = {
   fetchingProject: PropTypes.bool,
   loadingStateVisible: PropTypes.bool,
   projectData: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  vm: PropTypes.instanceOf(VM),
+  vm: PropTypes.instanceOf(VM).isRequired,
   cancelSave: PropTypes.func.isRequired,
 }
 

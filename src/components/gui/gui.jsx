@@ -41,7 +41,7 @@ import styles from './gui.css'
 let isRendererSupported = null
 
 const GUIComponent = (props) => {
-  /* eslint-disable no-unused-vars */
+  /* eslint-disable no-unused-vars, react/prop-types */
   const {
     activeTabIndex,
     basePath,
@@ -71,9 +71,16 @@ const GUIComponent = (props) => {
     projectName,
     eduLayerActive,
     eduId,
+    projectData,
+    projectId,
+    cancelSave,
+    setProjectName,
+    onSetUnchanged,
+    fileInputRef,
     ...componentProps
   } = props
   /* eslint-enable */
+
   if (children) {
     return <Box {...componentProps}>{children}</Box>
   }

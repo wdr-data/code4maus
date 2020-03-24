@@ -58,12 +58,12 @@ const ProjectLoaderHOC = function (WrappedComponent) {
       )
     }
 
-    render(props) {
+    render() {
       return (
         <WrappedComponent
           fetchingProject={this.state.fetchingProject}
           projectData={this.state.projectData}
-          {...props}
+          {...this.props}
         />
       )
     }

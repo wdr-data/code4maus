@@ -21,6 +21,12 @@ const StageSelector = (props) => {
     onMouseEnter,
     onMouseLeave,
     onNewBackdropClick,
+    fileInputRef: _fileInputRef,
+    onBackdropFileUpload: _onBackdropFileUpload,
+    onBackdropFileUploadClick: _onBackdropFileUploadClick,
+    onEmptyBackdropClick: _onEmptyBackdropClick,
+    onSurpriseBackdropClick: _onSurpriseBackdropClick,
+    backdropCount: _backdropCount,
     ...componentProps
   } = props
   return (
