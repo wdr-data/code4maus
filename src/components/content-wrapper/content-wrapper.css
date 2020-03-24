@@ -1,72 +1,75 @@
-@import "../../css/colors.css";
+@import '../../css/colors.css';
 
 .wrapper {
-    max-width: 50rem;
-    background: white;
-    margin: 2rem auto;
-    box-shadow: 2px 2px .5rem .125rem rgba(0,0,0,0.5);
-    user-select: text;
+  max-width: 50rem;
+  background: white;
+  margin: 2rem auto;
+  box-shadow: 2px 2px 0.5rem 0.125rem rgba(0, 0, 0, 0.5);
+  user-select: text;
 }
 
 .wrapper.split-sections {
-    background: none;
-    box-shadow: none;
+  background: none;
+  box-shadow: none;
 }
 
 .wrapper h2,
 .wrapper h3,
 .wrapper p,
 .wrapper ul {
-    margin: 0;
-    padding: 2rem;
-    background: white;
+  margin: 0;
+  padding: 2rem;
+  background: white;
 }
 
 .wrapper ul {
-    padding: 2rem 3rem;
+  padding: 2rem 3rem;
 }
 
 .wrapper h2 {
-    padding-bottom: 0;
+  padding-bottom: 0;
 }
 
-.style-blue h2, .style-blue a {
-    color: $ui-blue;
+.style-blue h2,
+.style-blue a {
+  color: $ui-blue;
 }
 
-.style-orange h2, .style-orange a {
-    color: $ui-orange;
+.style-orange h2,
+.style-orange a {
+  color: $ui-orange;
 }
 
 .split-sections h2,
 .split-sections h3,
 .split-sections p,
 .split-sections ul {
-    box-shadow: .25rem .25rem .5rem -2px rgba(0,0,0,0.5), -.125rem .125rem .125rem -2px rgba(0,0,0,0.5);
+  box-shadow: 0.25rem 0.25rem 0.5rem -2px rgba(0, 0, 0, 0.5),
+    -0.125rem 0.125rem 0.125rem -2px rgba(0, 0, 0, 0.5);
 }
 
 .split-sections h2 {
-    margin-top: 3rem;
+  margin-top: 3rem;
 }
 
 .wrapper p + p,
 .wrapper p + h3,
 .wrapper p + ul,
 .wrapper h3 + p {
-    padding-top: 0;
+  padding-top: 0;
 }
 
-.wrapper :global(.source)  {
-    display: none;
+.wrapper :global(.source) {
+  display: none;
 }
 
 .wrapper :global(.run) img {
-    padding: 2rem;
-    width: 50%;
+  padding: 2rem;
+  width: 50%;
 }
 
 .wrapper :global(.logo-row) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
 }

@@ -1,102 +1,102 @@
-@import "../../css/units.css";
-@import "../../css/colors.css";
+@import '../../css/units.css';
+@import '../../css/colors.css';
 
 .filter {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: 1;
 
-    background: $ui-white;
-    border-radius: 10rem;
-    user-select: none;
-    height: $library-filter-bar-height;
+  background: $ui-white;
+  border-radius: 10rem;
+  user-select: none;
+  height: $library-filter-bar-height;
 
-    position: relative;
+  position: relative;
 }
 
 .filter-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 
-    height: 1rem;
-    width: 1rem;
-    margin: 0.75rem 0.75rem 0.75rem 1rem;
+  height: 1rem;
+  width: 1rem;
+  margin: 0.75rem 0.75rem 0.75rem 1rem;
 }
 
 /*
     Hidden state
 */
 .x-icon-wrapper {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    right: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    overflow: hidden;  /* Mask the icon animation */
-    height: 1.25rem;
-    width: 1.25rem;
-    margin: 0.625rem;
+  overflow: hidden; /* Mask the icon animation */
+  height: 1.25rem;
+  width: 1.25rem;
+  margin: 0.625rem;
 
-    border-radius: 50%;
-    pointer-events: none;
-    cursor: default;
-    transition: opacity 0.05s linear;
+  border-radius: 50%;
+  pointer-events: none;
+  cursor: default;
+  transition: opacity 0.05s linear;
 }
 
 /*
     Shown state
 */
 .filter.is-active .x-icon-wrapper {
-    pointer-events: auto;
-    cursor: pointer;
-    opacity: 1;
-    transition: opacity 0.05s linear;
+  pointer-events: auto;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.05s linear;
 }
 
 .filter.is-active .x-icon-wrapper:hover {
-    transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
 }
 
 /*
     Hidden state
 */
 .x-icon {
-    position: relative;
-    margin: 0.25rem;
-    user-select: none;
-    transform: translateX(0.5rem);
-    transition: transform 0.085s cubic-bezier(0.78, 1, 1, 1);
+  position: relative;
+  margin: 0.25rem;
+  user-select: none;
+  transform: translateX(0.5rem);
+  transition: transform 0.085s cubic-bezier(0.78, 1, 1, 1);
 }
 
 /*
     Shown state
 */
 .filter.is-active .x-icon-wrapper .x-icon {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
 .filter-input {
-    flex-grow: 1;
-    height: $library-filter-bar-height;
-    -webkit-appearance: none;
-    outline: none;
-    border: 0;
-    font-size: 0.75rem;
-    letter-spacing: 0.15px;
-    cursor: text;
-    padding: .625rem 2rem .625rem 3rem;
+  flex-grow: 1;
+  height: $library-filter-bar-height;
+  -webkit-appearance: none;
+  outline: none;
+  border: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.15px;
+  cursor: text;
+  padding: 0.625rem 2rem 0.625rem 3rem;
 }
 
 .filter-input::placeholder {
-    opacity: .5;
-    padding: 0 0 0 0.25rem;
-    color: $text-primary;
-    font-size: 0.875rem;
-    letter-spacing: 0.15px;
+  opacity: 0.5;
+  padding: 0 0 0 0.25rem;
+  color: $text-primary;
+  font-size: 0.875rem;
+  letter-spacing: 0.15px;
 }

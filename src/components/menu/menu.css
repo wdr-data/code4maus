@@ -1,269 +1,269 @@
-@import "../../css/units.css";
-@import "../../css/colors.css";
+@import '../../css/units.css';
+@import '../../css/colors.css';
 
 .body-wrapper {
-    min-height: 100vh;
-    background-image: url('./bg_blue@1x.png');
-    background-repeat: stretch;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  min-height: 100vh;
+  background-image: url('./bg_blue@1x.png');
+  background-repeat: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .listing-wrapper {
-    padding: 3rem;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+  padding: 3rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-.header > *{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+.header > * {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .first-column {
-    padding: 1rem 0 .04rem 1.2rem;
+  padding: 1rem 0 0.04rem 1.2rem;
 }
 
 .second-column {
-    padding: .5rem 0 .04rem 0;
+  padding: 0.5rem 0 0.04rem 0;
 }
 
 .third-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-    padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 1rem;
 }
 
 .logo {
-    height:  1.6rem;
-    display: block;
+  height: 1.6rem;
+  display: block;
 }
 
 .logo-center {
-    height: 8rem;
-    margin-top: 1rem;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  height: 8rem;
+  margin-top: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tab-list {
-    height: $stage-menu-height;
-    display: flex;
-    align-items: flex-end;
-    max-width: 70rem;
+  height: $stage-menu-height;
+  display: flex;
+  align-items: flex-end;
+  max-width: 70rem;
 
-    font-family: 'Titillium Web';
-    font-weight: 600;
-    font-size: 0.80rem;
+  font-family: 'Titillium Web';
+  font-weight: 600;
+  font-size: 0.8rem;
 
-    /* Overrides for react-tabs styling */
-    margin: 0 !important;
-    border-bottom: 0 !important;
-    background: none;
+  /* Overrides for react-tabs styling */
+  margin: 0 !important;
+  border-bottom: 0 !important;
+  background: none;
 }
 
 .tab {
-    flex-grow: 1;
-    height: 4rem;
-    margin-bottom: 0;
-    margin-right: 1rem;
+  flex-grow: 1;
+  height: 4rem;
+  margin-bottom: 0;
+  margin-right: 1rem;
 
-    padding: .5rem 0 1rem 0;
-    font-size: 1.5rem;
-    color: white;
+  padding: 0.5rem 0 1rem 0;
+  font-size: 1.5rem;
+  color: white;
 
-    background-image: url(../gui/bg_darkblue@1x.png) !important;
-    background-repeat: contain;
-    box-shadow: 5px 0 5px -5px rgb(85, 81, 81);
+  background-image: url(../gui/bg_darkblue@1x.png) !important;
+  background-repeat: contain;
+  box-shadow: 5px 0 5px -5px rgb(85, 81, 81);
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    user-select: none;
-    cursor: pointer;
-    transition: 0.2s ease-out;
+  user-select: none;
+  cursor: pointer;
+  transition: 0.2s ease-out;
 
-    transform: skewY(-$tab-skew);
-    margin-bottom: -.5rem;
+  transform: skewY(-$tab-skew);
+  margin-bottom: -0.5rem;
 }
 
 .tab:hover:not(.is-selected) .tab-content {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .tab-content {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    transform: skewY($tab-skew);
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  transform: skewY($tab-skew);
 }
 
-.tab:nth-of-type(2n+0) {
-    transform: skewY($tab-skew);
+.tab:nth-of-type(2n + 0) {
+  transform: skewY($tab-skew);
 }
-.tab:nth-of-type(2n+0) .tab-content {
-    transform: skewY(-$tab-skew);
+.tab:nth-of-type(2n + 0) .tab-content {
+  transform: skewY(-$tab-skew);
 }
 
 /* Use z-indices to force left-on-top for tabs */
 .tab:nth-of-type(1) {
-    margin-left: 0;
-    z-index: 3;
+  margin-left: 0;
+  z-index: 3;
 }
 .tab:nth-of-type(2) {
-    z-index: 2;
+  z-index: 2;
 }
 .tab:nth-of-type(3) {
-    z-index: 1;
-    margin-right: 1em;
+  z-index: 1;
+  margin-right: 1em;
 }
 
 .tab:hover:not(.is-selected) {
-    height: 4.5rem;
+  height: 4.5rem;
 }
 
 .tab.is-selected {
-    height: 4.5rem;
-    background-image: url('../gui/bg_orange@1x.png') !important;
-    border-radius: 0 !important;
-    border-style: none !important;
-    z-index: 4; /* Make sure selected is always above */
+  height: 4.5rem;
+  background-image: url('../gui/bg_orange@1x.png') !important;
+  border-radius: 0 !important;
+  border-style: none !important;
+  z-index: 4; /* Make sure selected is always above */
 }
 
 .tab img {
-    margin-right: 0.125rem;
-    width: 1.375rem;
-    filter: grayscale(100%);
+  margin-right: 0.125rem;
+  width: 1.375rem;
+  filter: grayscale(100%);
 }
 
 .tab.is-selected img {
-    filter: none;
+  filter: none;
 }
 
 /* Tab style overrides from react-tabs */
 .tab.is-selected:after {
-    display: none;
+  display: none;
 }
 
 .tab.is-selected:focus {
-    outline: none;
-    box-shadow: none;
+  outline: none;
+  box-shadow: none;
 }
 
 .tab.is-selected:focus:after {
-    display: none;
+  display: none;
 }
 
 /* Body of the tabs */
 
 .tabs {
-    position: relative;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .tab-panel {
-    position: relative;
-    z-index: 5;
-    flex-grow: 1;
-    height: 50vh;
-    display: none;
-    background-image: url(../gui/bg_darkblue@1x.png);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  position: relative;
+  z-index: 5;
+  flex-grow: 1;
+  height: 50vh;
+  display: none;
+  background-image: url(../gui/bg_darkblue@1x.png);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
-    transform: skewY(-.5deg);
+  transform: skewY(-0.5deg);
 }
 
 .tab-panel.is-selected {
-    background-image: url(../gui/bg_orange@1x.png);
-    display: flex;
+  background-image: url(../gui/bg_orange@1x.png);
+  display: flex;
 }
 
 .section-title {
-    display: block;
-    padding: 1rem;
-    background: #ddd;
+  display: block;
+  padding: 1rem;
+  background: #ddd;
 }
 
 .section-body {
-    display: flex;
-    align-items: center;
-    overflow-x: scroll;
-    margin: 2rem;
-    padding: 2rem 2rem;
-    background-color: white;
-    transform: skewY(.5deg);
-    width: 100%;
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  margin: 2rem;
+  padding: 2rem 2rem;
+  background-color: white;
+  transform: skewY(0.5deg);
+  width: 100%;
 }
 .section-body:after {
-    content: ' ';
-    display: inline-block;
-    min-width: 2rem;
+  content: ' ';
+  display: inline-block;
+  min-width: 2rem;
 }
 
 .new-button {
-    margin: 1rem 4rem 0 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
+  margin: 1rem 4rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
 
 .new-button-icon {
-    display: block;
-    border-radius: 50%;
-    background-image: url('../gui/bg_orange@1x.png');
-    width: 6rem;
-    height: 6rem;
-    margin-bottom: .5rem;
+  display: block;
+  border-radius: 50%;
+  background-image: url('../gui/bg_orange@1x.png');
+  width: 6rem;
+  height: 6rem;
+  margin-bottom: 0.5rem;
 }
 
 .tab-icon {
-    display: inline-block;
-    height: 2rem;
-    margin-right: 1rem;
-    vertical-align: bottom;
-    text-align: center;
+  display: inline-block;
+  height: 2rem;
+  margin-right: 1rem;
+  vertical-align: bottom;
+  text-align: center;
 }
 
 .button-row {
-    display: flex;
-    justify-content: space-between;
-    align-self: center;
-    margin: 0 2rem 2rem;
-    max-width: 80rem;
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  margin: 0 2rem 2rem;
+  max-width: 80rem;
 }
 
 .copyright {
-    display: inline-block;
-    color: $ui-wdr-blue;
-    font-weight: bold;
-    text-decoration: none;
+  display: inline-block;
+  color: $ui-wdr-blue;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .offline-warning {
-    text-align: center;
-    font-weight: bold;
-    font-size: 2rem;
-    width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  width: 100%;
 }

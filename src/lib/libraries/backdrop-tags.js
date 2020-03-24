@@ -1,5 +1,5 @@
 export default [
-    { title: 'Unterwasser' },
-    { title: 'Weltall' },
-    { title: 'Farben' },
-];
+  { title: 'Unterwasser' },
+  { title: 'Weltall' },
+  { title: 'Farben' },
+]

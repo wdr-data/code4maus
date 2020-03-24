@@ -1,54 +1,56 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import BrowserModalComponent from '../components/browser-modal/browser-modal.jsx';
-import CrashMessageComponent from '../components/crash-message/crash-message.jsx';
-import log from '../lib/log.js';
-import supportedBrowser from '../lib/supported-browser';
+import React from 'react'
+import PropTypes from 'prop-types'
+import BrowserModalComponent from '../components/browser-modal/browser-modal.jsx'
+import CrashMessageComponent from '../components/crash-message/crash-message.jsx'
+import log from '../lib/log.js'
+import supportedBrowser from '../lib/supported-browser'
 
 class ErrorBoundary extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            hasError: false,
-        };
+  constructor(props) {
+    super(props)
+    this.state = {
+      hasError: false,
+    }
+  }
+
+  componentDidCatch(error, info) {
+    // Error object may be undefined (IE?)
+    error = error || {
+      stack: 'Unknown stack',
+      message: 'Unknown error',
     }
 
-    componentDidCatch(error, info) {
-        // Error object may be undefined (IE?)
-        error = error || {
-            stack: 'Unknown stack',
-            message: 'Unknown error',
-        };
+    // Display fallback UI
+    this.setState({ hasError: true })
 
-        // Display fallback UI
-        this.setState({ hasError: true });
+    // Log error locally for debugging as well.
+    log.error(
+      `Unhandled Error: ${error.stack}\nComponent stack: ${info.componentStack}`
+    )
+  }
 
-        // Log error locally for debugging as well.
-        log.error(`Unhandled Error: ${error.stack}\nComponent stack: ${info.componentStack}`);
+  handleBack() {
+    window.history.back()
+  }
+
+  handleReload() {
+    window.location.replace(window.location.origin)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      if (supportedBrowser()) {
+        return <CrashMessageComponent onReload={this.handleReload} />
+      }
+      return <BrowserModalComponent onBack={this.handleBack} />
     }
-
-    handleBack() {
-        window.history.back();
-    }
-
-    handleReload() {
-        window.location.replace(window.location.origin);
-    }
-
-    render() {
-        if (this.state.hasError) {
-            if (supportedBrowser()) {
-                return <CrashMessageComponent onReload={this.handleReload} />;
-            }
-            return <BrowserModalComponent onBack={this.handleBack} />;
-        }
-        return this.props.children;
-    }
+    return this.props.children
+  }
 }
 
 ErrorBoundary.propTypes = {
-    action: PropTypes.string.isRequired, // Used for defining tracking action
-    children: PropTypes.node,
-};
+  action: PropTypes.string.isRequired, // Used for defining tracking action
+  children: PropTypes.node,
+}
 
-export default ErrorBoundary;
+export default ErrorBoundary

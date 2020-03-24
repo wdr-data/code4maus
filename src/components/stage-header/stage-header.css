@@ -1,53 +1,53 @@
-@import "../../css/units.css";
-@import "../../css/colors.css";
+@import '../../css/units.css';
+@import '../../css/colors.css';
 
 .stage-header-wrapper {
-    position: relative;
-    display: flex;
-    height: 100%;
-    width: 100%;
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
 }
 
 .stage-header-wrapper-overlay {
-    position: fixed;
-    background-color: white;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 500;
+  position: fixed;
+  background-color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
 }
 
 .stage-menu-wrapper {
-    height: 100%;
-    padding-bottom: .5rem;
+  height: 100%;
+  padding-bottom: 0.5rem;
 
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .menu-wrapper {
-    display: flex;
+  display: flex;
 }
 
 .controls {
-    margin-right: auto;
+  margin-right: auto;
 }
 
 .flex-wrapper {
-    height: 100%;
+  height: 100%;
 }
 
 .copyright-wrapper {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
 }
 
 .copyright {
-    align-self: flex-end;
-    color: #00345f;
-    font-weight: bold;
-    text-decoration: none;
-    padding-right: .5rem;
+  align-self: flex-end;
+  color: #00345f;
+  font-weight: bold;
+  text-decoration: none;
+  padding-right: 0.5rem;
 }
