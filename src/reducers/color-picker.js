@@ -7,10 +7,10 @@ const initialState = {
   active: false,
   callback: () => {
     throw new Error('Color picker callback not initialized')
-  }
+  },
 }
 
-const reducer = function(state, action) {
+const reducer = function (state, action) {
   if (typeof state === 'undefined') {
     state = initialState
   }
@@ -18,7 +18,7 @@ const reducer = function(state, action) {
     case ACTIVATE_COLOR_PICKER:
       return Object.assign({}, state, {
         active: true,
-        callback: action.callback
+        callback: action.callback,
       })
     case DEACTIVATE_COLOR_PICKER:
       // Can be called without a string to deactivate without setting color
@@ -34,20 +34,20 @@ const reducer = function(state, action) {
   }
 }
 
-const activateColorPicker = callback => ({
+const activateColorPicker = (callback) => ({
   type: ACTIVATE_COLOR_PICKER,
-  callback: callback
+  callback: callback,
 })
-const deactivateColorPicker = color => ({
+const deactivateColorPicker = (color) => ({
   type: DEACTIVATE_COLOR_PICKER,
-  color: color
+  color: color,
 })
-const setCallback = callback => ({ type: SET_CALLBACK, callback: callback })
+const setCallback = (callback) => ({ type: SET_CALLBACK, callback: callback })
 
 export {
   reducer as default,
   initialState as colorPickerInitialState,
   activateColorPicker,
   deactivateColorPicker,
-  setCallback
+  setCallback,
 }

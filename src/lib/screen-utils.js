@@ -4,7 +4,7 @@ const STAGE_SIZE_DEFAULTS = {
   heightSmall: 360,
   widthSmall: 480,
   spacingBorderAdjustment: 9,
-  menuHeightAdjustment: 40
+  menuHeightAdjustment: 40,
 }
 
 const getStageSize = (isFullScreen = false) => {
@@ -15,7 +15,7 @@ const getStageSize = (isFullScreen = false) => {
 
   const stageSize = {
     defaultHeight: height,
-    defaultWidth: width
+    defaultWidth: width,
   }
 
   if (isFullScreen) {
@@ -35,7 +35,7 @@ const getStageSize = (isFullScreen = false) => {
   return {
     ...stageSize,
     height,
-    width
+    width,
   }
 }
 

@@ -17,7 +17,7 @@ const examples = [
   beispiel08,
   beispiel03,
   beispiel04,
-  beispiel09
+  beispiel09,
 ]
 
 export default examples

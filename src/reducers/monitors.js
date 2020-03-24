@@ -3,7 +3,7 @@ import { OrderedMap } from 'immutable'
 
 const initialState = OrderedMap()
 
-const reducer = function(state, action) {
+const reducer = function (state, action) {
   if (typeof state === 'undefined') {
     state = initialState
   }
@@ -15,18 +15,18 @@ const reducer = function(state, action) {
   }
 }
 
-const updateMonitors = function(monitors) {
+const updateMonitors = function (monitors) {
   return {
     type: UPDATE_MONITORS,
     monitors: monitors,
     meta: {
-      throttle: 30
-    }
+      throttle: 30,
+    },
   }
 }
 
 export {
   reducer as default,
   initialState as monitorsInitialState,
-  updateMonitors
+  updateMonitors,
 }

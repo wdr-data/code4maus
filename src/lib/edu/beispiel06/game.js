@@ -10,7 +10,7 @@ export default {
     {
       asset: a000,
       caption:
-        'Mit deinem Finger oder der Computermaus: Lass den Luftballon vor der Ente weglaufen.'
-    }
-  ]
+        'Mit deinem Finger oder der Computermaus: Lass den Luftballon vor der Ente weglaufen.',
+    },
+  ],
 }

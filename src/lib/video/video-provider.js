@@ -1,5 +1,5 @@
-import { requestVideoStream, requestDisableVideo } from './camera.js'
 import log from '../log.js'
+import { requestVideoStream, requestDisableVideo } from './camera.js'
 
 /**
  * Video Manager for video extensions.
@@ -87,7 +87,7 @@ class VideoProvider {
     if (this._singleSetup) {
       this._singleSetup
         .then(this._teardown.bind(this))
-        .catch(err => this.onError(err))
+        .catch((err) => this.onError(err))
     }
   }
 
@@ -125,7 +125,7 @@ class VideoProvider {
     dimensions = VideoProvider.DIMENSIONS,
     mirror = this.mirror,
     format = VideoProvider.FORMAT_IMAGE_DATA,
-    cacheTimeout = this._frameCacheTimeout
+    cacheTimeout = this._frameCacheTimeout,
   }) {
     if (!this.videoReady) {
       return null
@@ -133,7 +133,7 @@ class VideoProvider {
     const [width, height] = dimensions
     const workspace = this._getWorkspace({
       dimensions,
-      mirror: Boolean(mirror)
+      mirror: Boolean(mirror),
     })
     const { videoWidth, videoHeight } = this._video
     const { canvas, context, lastUpdate, cacheData } = workspace
@@ -219,9 +219,9 @@ class VideoProvider {
 
     this._singleSetup = requestVideoStream({
       width: { min: 480, ideal: 640 },
-      height: { min: 360, ideal: 480 }
+      height: { min: 360, ideal: 480 },
     })
-      .then(stream => {
+      .then((stream) => {
         this._video = document.createElement('video')
 
         // Use the new srcObject API, falling back to createObjectURL
@@ -239,7 +239,7 @@ class VideoProvider {
         this._track = stream.getTracks()[0]
         return this
       })
-      .catch(error => {
+      .catch((error) => {
         this._singleSetup = null
         this.onError(error)
       })
@@ -276,7 +276,7 @@ class VideoProvider {
    */
   _getWorkspace({ dimensions, mirror }) {
     let workspace = this._workspace.find(
-      space =>
+      (space) =>
         space.dimensions.join('-') === dimensions.join('-') &&
         space.mirror === mirror
     )
@@ -286,7 +286,7 @@ class VideoProvider {
         mirror,
         canvas: document.createElement('canvas'),
         lastUpdate: 0,
-        cacheData: {}
+        cacheData: {},
       }
       workspace.canvas.width = dimensions[0]
       workspace.canvas.height = dimensions[1]

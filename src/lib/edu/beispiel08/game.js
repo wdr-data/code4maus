@@ -9,7 +9,7 @@ export default {
   slides: [
     {
       asset: a000,
-      caption: 'Übe das Einmaleins'
-    }
-  ]
+      caption: 'Übe das Einmaleins',
+    },
+  ],
 }

@@ -17,7 +17,7 @@ const prepareBlocks = (defaultBlocks, blockLibFn, wrappedFunction) => (
 
   const blockLib = blockLibFn(isStage, targetId)
   const blockXml = blocks
-    .map(type => {
+    .map((type) => {
       if (type === '--') {
         return blockSeparator
       }
@@ -181,7 +181,7 @@ const motionBlockLib = (isStage, targetId) => ({
     `,
   direction: `
         <block id="${targetId}_direction" type="motion_direction"/>
-    `
+    `,
 })
 
 const motionDefaultBlocks = [
@@ -208,14 +208,14 @@ const motionDefaultBlocks = [
   '--',
   'xposition',
   'yposition',
-  'direction'
+  'direction',
 ]
 
 const motion = prepareBlocks(
   motionDefaultBlocks,
   motionBlockLib,
   (isStage, blockXml) => {
-    const xmlBase = inner => `
+    const xmlBase = (inner) => `
         <category name="Bewegung" id="motion">
             ${inner}
         </category>
@@ -278,7 +278,7 @@ const looksBlockLib = (isStage, targetId) => {
                     </shadow>
                 </value>
             </block>
-        `
+        `,
       }
 
   const lookSwitchingBlocks = isStage
@@ -299,7 +299,7 @@ const looksBlockLib = (isStage, targetId) => {
             `,
         nextbackdrop: `
                 <block type="looks_nextbackdrop"/>
-            `
+            `,
       }
     : {
         switchcostumeto: `
@@ -339,7 +339,7 @@ const looksBlockLib = (isStage, targetId) => {
                         </shadow>
                     </value>
                 </block>
-            `
+            `,
       }
 
   const effectsBlocks = {
@@ -363,7 +363,7 @@ const looksBlockLib = (isStage, targetId) => {
         `,
     cleargraphiceffects: `
             <block type="looks_cleargraphiceffects"/>
-        `
+        `,
   }
 
   const visibilityBlocks = isStage
@@ -387,14 +387,14 @@ const looksBlockLib = (isStage, targetId) => {
                     </shadow>
                 </value>
             </block>
-        `
+        `,
       }
 
   const varsBlocks = isStage
     ? {
         backdropnumbername: `
                 <block id="backdropnumbername" type="looks_backdropnumbername"/>
-            `
+            `,
       }
     : {
         costumenumbername: `
@@ -405,7 +405,7 @@ const looksBlockLib = (isStage, targetId) => {
             `,
         size: `
                 <block id="${targetId}_size" type="looks_size"/>
-            `
+            `,
       }
 
   return {
@@ -413,7 +413,7 @@ const looksBlockLib = (isStage, targetId) => {
     ...lookSwitchingBlocks,
     ...effectsBlocks,
     ...visibilityBlocks,
-    ...varsBlocks
+    ...varsBlocks,
   }
 }
 
@@ -443,7 +443,7 @@ const looksDefaultBlocks = [
   'goforwardbackwardlayers',
   'costumenumbername',
   'backdropnumbername',
-  'size'
+  'size',
 ]
 
 const looks = prepareBlocks(
@@ -517,7 +517,7 @@ const soundBlockLib = (isStage, targetId) => ({
     `,
   volume: `
         <block id="volume" type="sound_volume"/>
-    `
+    `,
 })
 
 const soundDefaultBlocks = [
@@ -531,7 +531,7 @@ const soundDefaultBlocks = [
   '--',
   'changevolumeby',
   'setvolumeto',
-  'volume'
+  'volume',
 ]
 
 const sound = prepareBlocks(
@@ -589,7 +589,7 @@ const eventsBlockLib = (isStage, targetId) => ({
                 <shadow type="event_broadcast_menu"></shadow>
             </value>
         </block>
-    `
+    `,
 })
 
 const eventDefaultBlocks = [
@@ -603,7 +603,7 @@ const eventDefaultBlocks = [
   '--',
   'whenbroadcastreceived',
   'broadcast',
-  'broadcastandwait'
+  'broadcastandwait',
 ]
 
 const events = prepareBlocks(
@@ -669,7 +669,7 @@ const controlBlockLib = (isStage, targetId) => ({
     ? ''
     : `
         <block type="control_delete_this_clone"/>
-    `
+    `,
 })
 
 const controlDefaultBlocks = [
@@ -687,7 +687,7 @@ const controlDefaultBlocks = [
   '--',
   'start_as_clone',
   'create_clone_of',
-  'delete_this_clone'
+  'delete_this_clone',
 ]
 
 const control = prepareBlocks(
@@ -734,7 +734,7 @@ const sensingBlockLib = (isStage, targetId) => {
                     <shadow type="sensing_distancetomenu"/>
                 </value>
             </block>
-        `
+        `,
       }
 
   const otherBlocks = {
@@ -795,12 +795,12 @@ const sensingBlockLib = (isStage, targetId) => {
         `,
     username: `
             <block type="sensing_username"/>
-        `
+        `,
   }
 
   return {
     ...touchBlocks,
-    ...otherBlocks
+    ...otherBlocks,
   }
 }
 
@@ -828,7 +828,7 @@ const sensingDefaultBlocks = [
   'current',
   '--',
   'dayssince2000',
-  'username'
+  'username',
 ]
 
 const sensing = prepareBlocks(
@@ -1045,7 +1045,7 @@ const operatorsBlockLib = () => ({
                 </shadow>
             </value>
         </block>
-    `
+    `,
 })
 
 const operatorsDefaultBlocks = [
@@ -1072,7 +1072,7 @@ const operatorsDefaultBlocks = [
   'mod',
   'round',
   '--',
-  'mathop'
+  'mathop',
 ]
 
 const operators = prepareBlocks(
@@ -1085,7 +1085,7 @@ const operators = prepareBlocks(
 `
 )
 
-const variables = function() {
+const variables = function () {
   return `
     <category
         name="Variablen"
@@ -1105,7 +1105,7 @@ const categoryMap = {
   control,
   sensing,
   operators,
-  variables
+  variables,
 }
 
 const xmlOpen = '<xml style="display: none">'
@@ -1117,7 +1117,7 @@ const xmlClose = '</xml>'
  * @param {string?} categoriesXML - null for default toolbox, or an XML string with <category> elements.
  * @returns {string} - a ScratchBlocks-style XML document for the contents of the toolbox.
  */
-const makeToolboxXML = function(
+const makeToolboxXML = function (
   isStage,
   targetId,
   categoriesXML,
@@ -1127,9 +1127,9 @@ const makeToolboxXML = function(
 
   const categories = !Array.isArray(customBlocks)
     ? Object.values(categoryMap).map(
-        cat => cat(isStage, targetId) + categorySeparator
+        (cat) => cat(isStage, targetId) + categorySeparator
       )
-    : customBlocks.map(item =>
+    : customBlocks.map((item) =>
         categoryMap[item.category](isStage, targetId, item.blocks)
       )
 

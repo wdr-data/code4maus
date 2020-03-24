@@ -1,14 +1,14 @@
-import storage from './storage'
 import { SVGRenderer } from 'scratch-svg-renderer'
+import storage from './storage'
 
 // Contains 'font-family', but doesn't only contain 'font-family="none"'
 const HAS_FONT_REGEXP = 'font-family(?!="none")'
 
-const getCostumeUrl = (function() {
+const getCostumeUrl = (function () {
   let cachedAssetId
   let cachedUrl
 
-  return function(asset) {
+  return function (asset) {
     if (cachedAssetId === asset.assetId) {
       return cachedUrl
     }

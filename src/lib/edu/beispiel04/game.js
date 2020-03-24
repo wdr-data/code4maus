@@ -10,7 +10,7 @@ export default {
     {
       asset: a000,
       caption:
-        'Das Raumschiff des Elefanten ist außer Kontrolle. Kannst du ihn einfangen?'
-    }
-  ]
+        'Das Raumschiff des Elefanten ist außer Kontrolle. Kannst du ihn einfangen?',
+    },
+  ],
 }

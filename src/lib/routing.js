@@ -5,52 +5,52 @@ export const Views = {
   menu: 'VIEW_MENU',
   project: 'VIEW_PROJECT',
   content: 'content',
-  welcome: 'welcome'
+  welcome: 'welcome',
 }
 
 export const MenuTabs = {
   edugames: 'lernspiele',
   examples: 'beispiele',
-  projects: 'projekte'
+  projects: 'projekte',
 }
 
-export const eduUrl = eduId => `/lernspiel/${eduId}`
-export const projectUrl = projectId => `/projekt/${projectId}`
+export const eduUrl = (eduId) => `/lernspiel/${eduId}`
+export const projectUrl = (projectId) => `/projekt/${projectId}`
 
 const routes = {
   '/': {
-    view: Views.menu
+    view: Views.menu,
   },
   '/lernspiele': {
     view: Views.menu,
-    tab: MenuTabs.edugames
+    tab: MenuTabs.edugames,
   },
   '/projekte': {
     view: Views.menu,
-    tab: MenuTabs.projects
+    tab: MenuTabs.projects,
   },
   '/beispiele': {
     view: Views.menu,
-    tab: MenuTabs.examples
+    tab: MenuTabs.examples,
   },
   '/lernspiel/:eduId': {
-    view: Views.edu
+    view: Views.edu,
   },
   '/welcome': {
-    view: Views.welcome
+    view: Views.welcome,
   },
   '/projekt': {
     '/neu': {
       view: Views.project,
-      newProject: true
+      newProject: true,
     },
     '/:projectId': {
-      view: Views.project
-    }
+      view: Views.project,
+    },
   },
   '/:page': {
-    view: Views.content
-  }
+    view: Views.content,
+  },
 }
 
 export const { reducer, middleware, enhancer } = routerForBrowser({ routes })

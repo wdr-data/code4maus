@@ -9,10 +9,10 @@ const initialState = {
   index: 0,
   isFullscreen: false,
   enabled: false,
-  gameId: null
+  gameId: null,
 }
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case NEXT_SLIDE: {
       if (!(state.gameId in gamesKeyed)) {
@@ -24,7 +24,7 @@ export default function(state = initialState, action) {
       }
       return {
         ...state,
-        index: state.index + 1
+        index: state.index + 1,
       }
     }
     case PREVIOUS_SLIDE:
@@ -33,19 +33,19 @@ export default function(state = initialState, action) {
       }
       return {
         ...state,
-        index: state.index - 1
+        index: state.index - 1,
       }
     case TOGGLE_FULLSCREEN:
       return {
         ...state,
-        isFullscreen: !state.isFullscreen
+        isFullscreen: !state.isFullscreen,
       }
     case LOAD_GAME:
       return {
         ...state,
         index: 0,
         enabled: action.gameId !== null,
-        gameId: action.gameId
+        gameId: action.gameId,
       }
     default:
       return state
@@ -54,19 +54,19 @@ export default function(state = initialState, action) {
 
 export function nextSlide() {
   return {
-    type: NEXT_SLIDE
+    type: NEXT_SLIDE,
   }
 }
 
 export function previousSlide() {
   return {
-    type: PREVIOUS_SLIDE
+    type: PREVIOUS_SLIDE,
   }
 }
 
 export function toggleFullscreen() {
   return {
-    type: TOGGLE_FULLSCREEN
+    type: TOGGLE_FULLSCREEN,
   }
 }
 
@@ -75,6 +75,6 @@ export const eduLayerInitialState = initialState
 export function loadGame(gameId) {
   return {
     type: LOAD_GAME,
-    gameId
+    gameId,
   }
 }

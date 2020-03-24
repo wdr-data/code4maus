@@ -10,10 +10,10 @@ const initialState = {
   installing: false,
   installError: null,
   installed: false,
-  online: 'onLine' in navigator ? navigator.onLine : true
+  online: 'onLine' in navigator ? navigator.onLine : true,
 }
 
-const reducer = function(state, action) {
+const reducer = function (state, action) {
   if (typeof state === 'undefined') {
     state = initialState
   }
@@ -22,7 +22,7 @@ const reducer = function(state, action) {
       localStorage.setItem('offline-install', action.value)
       return {
         ...state,
-        enabled: action.value
+        enabled: action.value,
       }
     case START_INSTALL:
       return {
@@ -30,7 +30,7 @@ const reducer = function(state, action) {
         installing: true,
         installFinished: false,
         installError: null,
-        installed: false
+        installed: false,
       }
     case FAIL_INSTALL:
       return {
@@ -38,65 +38,65 @@ const reducer = function(state, action) {
         installing: false,
         installFinished: false,
         installError: action.error,
-        installed: false
+        installed: false,
       }
     case SET_INSTALLED:
       return {
         ...state,
         installError: null,
         installing: false,
-        installed: true
+        installed: true,
       }
     case SET_ONLINE:
       return {
         ...state,
-        online: true
+        online: true,
       }
     case SET_OFFLINE:
       return {
         ...state,
-        online: false
+        online: false,
       }
     default:
       return state
   }
 }
 
-const setEnabled = function(value) {
+const setEnabled = function (value) {
   return {
     type: SET_ENABLED,
-    value
+    value,
   }
 }
 
-const startInstall = function() {
+const startInstall = function () {
   return {
-    type: START_INSTALL
+    type: START_INSTALL,
   }
 }
 
-const failInstall = function(e) {
+const failInstall = function (e) {
   return {
     type: FAIL_INSTALL,
-    error: e.message
+    error: e.message,
   }
 }
 
-const setInstalled = function() {
+const setInstalled = function () {
   return {
-    type: SET_INSTALLED
+    type: SET_INSTALLED,
   }
 }
 
-const setOnline = function() {
+const setOnline = function () {
   return {
-    type: SET_ONLINE
+    type: SET_ONLINE,
   }
 }
 
-const setOffline = function() {
+const setOffline = function () {
   return {
-    type: SET_OFFLINE
+    type: SET_OFFLINE,
   }
 }
 
@@ -108,5 +108,5 @@ export {
   startInstall,
   failInstall,
   setOnline,
-  setOffline
+  setOffline,
 }

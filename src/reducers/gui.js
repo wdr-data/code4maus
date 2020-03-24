@@ -1,31 +1,31 @@
 import { applyMiddleware, compose, combineReducers } from 'redux'
+import throttle from 'redux-throttle'
 import assetDragReducer, { assetDragInitialState } from './asset-drag'
 import colorPickerReducer, { colorPickerInitialState } from './color-picker'
 import customProceduresReducer, {
-  customProceduresInitialState
+  customProceduresInitialState,
 } from './custom-procedures'
 import blockDragReducer, { blockDragInitialState } from './block-drag'
 import editorTabReducer, { editorTabInitialState } from './editor-tab'
 import hoveredTargetReducer, {
-  hoveredTargetInitialState
+  hoveredTargetInitialState,
 } from './hovered-target'
 import menuReducer, { menuInitialState } from './menus'
 import modalReducer, { modalsInitialState } from './modals'
 import modeReducer, { modeInitialState } from './mode'
 import monitorReducer, { monitorsInitialState } from './monitors'
 import monitorLayoutReducer, {
-  monitorLayoutInitialState
+  monitorLayoutInitialState,
 } from './monitor-layout'
 import stageSizeReducer, { stageSizeInitialState } from './stage-size'
 import targetReducer, { targetsInitialState } from './targets'
 import toolboxReducer, { toolboxInitialState } from './toolbox'
 import vmReducer, { vmInitialState } from './vm'
-import throttle from 'redux-throttle'
 import layoutModeReducer, { layoutModeInitialState } from './layout-mode'
 import projectReducer, { projectInitialState } from './project'
 import eduLayerReducer, { eduLayerInitialState } from './edu-layer'
 import projectChangedReducer, {
-  projectChangedInitialState
+  projectChangedInitialState,
 } from './project-changed'
 import offlineReducer, { offlineInitialState } from './offline'
 
@@ -53,23 +53,23 @@ const guiInitialState = {
   project: projectInitialState,
   eduLayer: eduLayerInitialState,
   projectChanged: projectChangedInitialState,
-  offline: offlineInitialState
+  offline: offlineInitialState,
 }
 
-const initPlayer = function(currentState) {
+const initPlayer = function (currentState) {
   return Object.assign({}, currentState, {
     mode: {
       isFullScreen: currentState.mode.isFullScreen,
-      isPlayerOnly: true
-    }
+      isPlayerOnly: true,
+    },
   })
 }
-const initFullScreen = function(currentState) {
+const initFullScreen = function (currentState) {
   return Object.assign({}, currentState, {
     mode: {
       isFullScreen: true,
-      isPlayerOnly: currentState.mode.isPlayerOnly
-    }
+      isPlayerOnly: currentState.mode.isPlayerOnly,
+    },
   })
 }
 const guiReducer = combineReducers({
@@ -92,7 +92,7 @@ const guiReducer = combineReducers({
   project: projectReducer,
   eduLayer: eduLayerReducer,
   projectChanged: projectChangedReducer,
-  offline: offlineReducer
+  offline: offlineReducer,
 })
 
 export {
@@ -100,5 +100,5 @@ export {
   guiInitialState,
   guiMiddleware,
   initFullScreen,
-  initPlayer
+  initPlayer,
 }

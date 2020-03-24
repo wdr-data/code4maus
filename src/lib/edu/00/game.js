@@ -1,8 +1,8 @@
 import aL00 from '../shared_assets/L00.jpg'
+import agut_gemacht from '../shared_assets/gut_gemacht.jpg'
 import ahand from './assets/hand.jpg'
 import aa from './assets/a.mp4'
 import ab from './assets/b.mp4'
-import agut_gemacht from '../shared_assets/gut_gemacht.jpg'
 
 export default {
   id: '00',
@@ -16,38 +16,38 @@ export default {
     {
       asset: aL00,
       caption: "➡️ Hier geht's los!",
-      dim: true
+      dim: true,
     },
     {
       asset: ahand,
       caption:
-        "Hier in diesem Kasten lernst du Schritt für Schritt, wie das hier geht. Drücke nach jedem Schritt 'Weiter':"
+        "Hier in diesem Kasten lernst du Schritt für Schritt, wie das hier geht. Drücke nach jedem Schritt 'Weiter':",
     },
     {
       asset: aa,
-      caption: 'Starte mit:'
+      caption: 'Starte mit:',
     },
     {
       asset: ab,
-      caption: 'Stoppe mit:'
+      caption: 'Stoppe mit:',
     },
     {
-      asset: agut_gemacht
-    }
+      asset: agut_gemacht,
+    },
   ],
   nextGame: '01',
   blocks: [
     {
       category: 'motion',
-      blocks: ['turnright', 'turnleft', '--', 'glideto']
+      blocks: ['turnright', 'turnleft', '--', 'glideto'],
     },
     {
       category: 'events',
-      blocks: ['whenflagclicked']
+      blocks: ['whenflagclicked'],
     },
     {
       category: 'control',
-      blocks: ['wait', 'repeat', 'forever']
-    }
-  ]
+      blocks: ['wait', 'repeat', 'forever'],
+    },
+  ],
 }

@@ -24,14 +24,14 @@ class AudioRecorder {
   startListening(onStarted, onUpdate, onError) {
     try {
       getUserMedia({ audio: true })
-        .then(userMediaStream => {
+        .then((userMediaStream) => {
           if (!this.disposed) {
             this.started = true
             onStarted()
             this.attachUserMediaStream(userMediaStream, onUpdate)
           }
         })
-        .catch(e => {
+        .catch((e) => {
           if (!this.disposed) {
             onError(e)
           }
@@ -59,7 +59,7 @@ class AudioRecorder {
       2
     )
 
-    this.scriptProcessorNode.onaudioprocess = processEvent => {
+    this.scriptProcessorNode.onaudioprocess = (processEvent) => {
       if (this.recording && !this.disposed) {
         this.buffers.push(
           new Float32Array(processEvent.inputBuffer.getChannelData(0))
@@ -93,7 +93,7 @@ class AudioRecorder {
   }
 
   stop() {
-    const chunkLevels = this.buffers.map(buffer => computeRMS(buffer))
+    const chunkLevels = this.buffers.map((buffer) => computeRMS(buffer))
     const maxRMS = Math.max.apply(null, chunkLevels)
     const threshold = maxRMS / 8
 
@@ -128,7 +128,7 @@ class AudioRecorder {
       samples: buffer,
       sampleRate: this.audioContext.sampleRate,
       trimStart: trimStart,
-      trimEnd: trimEnd
+      trimEnd: trimEnd,
     }
   }
 

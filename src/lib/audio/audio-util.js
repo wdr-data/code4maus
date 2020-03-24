@@ -1,4 +1,4 @@
-const computeRMS = function(samples, scaling = 0.55) {
+const computeRMS = function (samples, scaling = 0.55) {
   if (samples.length === 0) {
     return 0
   }
@@ -13,7 +13,7 @@ const computeRMS = function(samples, scaling = 0.55) {
   return Math.sqrt(val)
 }
 
-const computeChunkedRMS = function(samples, chunkSize = 1024) {
+const computeChunkedRMS = function (samples, chunkSize = 1024) {
   const sampleCount = samples.length
   const chunkLevels = []
   for (let i = 0; i < sampleCount; i += chunkSize) {

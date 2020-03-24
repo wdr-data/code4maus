@@ -4,8 +4,8 @@ const intlInitialState = {
   intl: {
     defaultLocale: 'de',
     locale: 'de',
-    messages: {}
-  }
+    messages: {},
+  },
 }
 
 export { intlReducer as default, intlInitialState }

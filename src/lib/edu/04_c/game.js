@@ -1,7 +1,7 @@
-import aL007 from './assets/L007.jpg'
 import astart from '../shared_assets/start.jpg'
 import astop from '../shared_assets/stop.jpg'
 import asteuerung from '../shared_assets/steuerung.jpg'
+import aL007 from './assets/L007.jpg'
 import az08 from './assets/z08.jpg'
 import az01 from './assets/z01.jpg'
 import az02 from './assets/z02.jpg'
@@ -19,62 +19,62 @@ export default {
   slides: [
     {
       asset: aL007,
-      caption: 'Kunst mit Maus und Code'
+      caption: 'Kunst mit Maus und Code',
     },
     {
       asset: astart,
-      caption: 'Drücke zum Testen'
+      caption: 'Drücke zum Testen',
     },
     {
       asset: astop,
-      caption: 'Zum Stoppen'
+      caption: 'Zum Stoppen',
     },
     {
       asset: asteuerung,
-      caption: 'Klicke auf Steuerung'
+      caption: 'Klicke auf Steuerung',
     },
     {
       asset: az08,
-      caption: 'Füge ein drittes Programm hinzu'
+      caption: 'Füge ein drittes Programm hinzu',
     },
     {
       asset: az01,
-      caption: "Dazu 'für immer' und 'gehe'"
+      caption: "Dazu 'für immer' und 'gehe'",
     },
     {
       asset: az02,
-      caption: 'Ändere Schritte zu 1'
+      caption: 'Ändere Schritte zu 1',
     },
     {
       asset: astart,
-      caption: 'Was passiert?'
+      caption: 'Was passiert?',
     },
     {
       asset: az03,
-      caption: "Ziehe 'ändere Effekt' dazu"
+      caption: "Ziehe 'ändere Effekt' dazu",
     },
     {
       asset: astart,
-      caption: "Wie sieht's aus?"
+      caption: "Wie sieht's aus?",
     },
     {
       asset: az05,
-      caption: 'Spiele mit den Effekten...'
+      caption: 'Spiele mit den Effekten...',
     },
     {
       asset: az06,
-      caption: 'Ändere die Größe...'
+      caption: 'Ändere die Größe...',
     },
     {
       asset: av01,
-      caption: "Elefant, Ente? Klicke links auf 'nächstes Kostüm'"
-    }
+      caption: "Elefant, Ente? Klicke links auf 'nächstes Kostüm'",
+    },
   ],
   nextGame: '05',
   blocks: [
     {
       category: 'motion',
-      blocks: ['turnright', 'turnleft', 'movesteps', 'gotoxy']
+      blocks: ['turnright', 'turnleft', 'movesteps', 'gotoxy'],
     },
     {
       category: 'looks',
@@ -86,12 +86,12 @@ export default {
         'seteffectto',
         'cleargraphiceffects',
         'show',
-        'hide'
-      ]
+        'hide',
+      ],
     },
     {
       category: 'events',
-      blocks: ['whenflagclicked']
+      blocks: ['whenflagclicked'],
     },
     {
       category: 'control',
@@ -101,12 +101,12 @@ export default {
         'if',
         'create_clone_of',
         'start_as_clone',
-        'delete_this_clone'
-      ]
+        'delete_this_clone',
+      ],
     },
     {
       category: 'sensing',
-      blocks: ['touchingobject']
-    }
-  ]
+      blocks: ['touchingobject'],
+    },
+  ],
 }

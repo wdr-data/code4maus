@@ -7,7 +7,7 @@ import log from './log.js'
  * @return {string} The name without the extension, or the full name if
  * there was no '.' in the string (e.g. 'my_image')
  */
-const extractFileName = function(nameExt) {
+const extractFileName = function (nameExt) {
   // There could be multiple dots, but get the stuff before the first .
   const nameParts = nameExt.split('.', 1) // we only care about the first .
   return nameParts[0]
@@ -19,7 +19,7 @@ const extractFileName = function(nameExt) {
  * @param {Input} fileInput The <input/> element that contains the file being loaded
  * @param {Function} onload The function that handles loading the file
  */
-const handleFileUpload = function(fileInput, onload) {
+const handleFileUpload = function (fileInput, onload) {
   let thisFile = null
   const reader = new FileReader()
   reader.onload = () => {
@@ -62,7 +62,13 @@ const handleFileUpload = function(fileInput, onload) {
  * @return {VMAsset} An object representing this asset and relevant information
  * which can be used to look up the data in storage
  */
-const createVMAsset = function(storage, fileName, assetType, dataFormat, data) {
+const createVMAsset = function (
+  storage,
+  fileName,
+  assetType,
+  dataFormat,
+  data
+) {
   const asset = storage.createAsset(
     assetType,
     dataFormat,
@@ -76,7 +82,7 @@ const createVMAsset = function(storage, fileName, assetType, dataFormat, data) {
     dataFormat: dataFormat,
     asset: asset,
     md5: `${asset.assetId}.${dataFormat}`,
-    assetId: asset.assetId
+    assetId: asset.assetId,
   }
 }
 
@@ -91,7 +97,7 @@ const createVMAsset = function(storage, fileName, assetType, dataFormat, data) {
  * caching this costume in storage - This function should be responsible for
  * adding the costume to the VM and handling other UI flow that should come after adding the costume
  */
-const costumeUpload = function(
+const costumeUpload = function (
   fileData,
   fileType,
   costumeName,
@@ -122,7 +128,7 @@ const costumeUpload = function(
   }
 
   const bitmapAdapter = new BitmapAdapter()
-  const addCostumeFromBuffer = function(dataBuffer) {
+  const addCostumeFromBuffer = function (dataBuffer) {
     const vmCostume = createVMAsset(
       storage,
       costumeName,
@@ -144,7 +150,7 @@ const costumeUpload = function(
     bitmapAdapter
       .importBitmap(fileData, fileType)
       .then(addCostumeFromBuffer)
-      .catch(e => {
+      .catch((e) => {
         log.error(e)
       })
   }
@@ -161,7 +167,7 @@ const costumeUpload = function(
  * This function should be responsible for adding the sound to the VM
  * as well as handling other UI flow that should come after adding the sound
  */
-const soundUpload = function(
+const soundUpload = function (
   fileData,
   fileType,
   soundName,
@@ -198,7 +204,7 @@ const soundUpload = function(
   handleSound(vmSound)
 }
 
-const spriteUpload = function(
+const spriteUpload = function (
   fileData,
   fileType,
   spriteName,
@@ -221,7 +227,7 @@ const spriteUpload = function(
         fileType,
         `${spriteName}-costume1`,
         storage,
-        vmCostume => {
+        (vmCostume) => {
           const newSprite = {
             name: spriteName,
             isStage: false,
@@ -236,7 +242,7 @@ const spriteUpload = function(
             blocks: {},
             variables: {},
             costumes: [vmCostume],
-            sounds: [] // TODO are all of these necessary?
+            sounds: [], // TODO are all of these necessary?
           }
           // TODO probably just want sprite upload to handle this object directly
           handleSprite(JSON.stringify(newSprite))

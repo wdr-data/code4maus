@@ -7,5 +7,5 @@ export default {
   fullSizePaintMinWidth: 1250,
   topBarHeight: 118,
   stageHeaderHeight: 0,
-  targetPaneHeight: 90
+  targetPaneHeight: 90,
 }

@@ -10,7 +10,7 @@ export default {
     {
       asset: a000,
       caption:
-        'Die Maus findet in zehn Fragen jede Zahl zwischen 1 und 1.000 heraus.'
-    }
-  ]
+        'Die Maus findet in zehn Fragen jede Zahl zwischen 1 und 1.000 heraus.',
+    },
+  ],
 }

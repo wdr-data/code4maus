@@ -10,7 +10,7 @@ export default {
     {
       asset: a000,
       caption:
-        'Merke Dir, auf was der Elefant zeigt. Jede Runde kommt eine Sache dazu.'
-    }
-  ]
+        'Merke Dir, auf was der Elefant zeigt. Jede Runde kommt eine Sache dazu.',
+    },
+  ],
 }

@@ -9,7 +9,7 @@ const effectTypes = {
   SOFTER: 'lower',
   FASTER: 'faster',
   SLOWER: 'slower',
-  ECHO: 'echo'
+  ECHO: 'echo',
 }
 
 class AudioEffects {

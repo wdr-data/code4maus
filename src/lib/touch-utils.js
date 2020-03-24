@@ -1,4 +1,4 @@
-const getEventXY = e => {
+const getEventXY = (e) => {
   if (e.touches && e.touches[0]) {
     return { x: e.touches[0].clientX, y: e.touches[0].clientY }
   } else if (e.changedTouches && e.changedTouches[0]) {

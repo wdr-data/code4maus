@@ -4,7 +4,7 @@ const mimeType = 'video/webm;codecs=h264' // used for recorder
 const mimeTypeShort = 'video/webm' // used for blob
 export const supported = MediaRecorder.isTypeSupported(mimeType)
 
-export const useRecordCanvas = canvas => {
+export const useRecordCanvas = (canvas) => {
   const mediaBlobsRef = useRef([])
   const onRecordingBlob = useCallback(
     ({ data }) => mediaBlobsRef.current.push(data),
@@ -21,7 +21,7 @@ export const useRecordCanvas = canvas => {
   }, [canvas, onRecordingBlob])
 
   const startRecording = useCallback(() => recorder && recorder.start(100), [
-    recorder
+    recorder,
   ])
   const stopRecording = useCallback(() => {
     if (!recorder || recorder.state !== 'recording') {
@@ -32,7 +32,7 @@ export const useRecordCanvas = canvas => {
   }, [recorder, mediaBlobsRef])
   return {
     startRecording,
-    stopRecording
+    stopRecording,
   }
 }
 

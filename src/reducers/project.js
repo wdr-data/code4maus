@@ -11,36 +11,36 @@ const initialState = {
   customBlocks: null,
   name: '',
   id: '',
-  userId: null
+  userId: null,
 }
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case SET_PROJECT_NAME:
       return {
         ...state,
-        name: action.name
+        name: action.name,
       }
     case SET_PROJECT_ID:
       return {
         ...state,
-        id: action.id
+        id: action.id,
       }
     case SET_USER_ID:
       return {
         ...state,
-        userId: action.userId
+        userId: action.userId,
       }
     case SET_CUSTOM_BLOCKS:
       return {
         ...state,
-        customBlocks: action.blocks
+        customBlocks: action.blocks,
       }
     case LOCATION_CHANGED:
       if (action.payload.result && action.payload.result.view === Views.edu) {
         return {
           ...state,
-          id: `edu/${action.payload.params.eduId}`
+          id: `edu/${action.payload.params.eduId}`,
         }
       }
       if (
@@ -53,13 +53,13 @@ export default function(state = initialState, action) {
         return {
           ...state,
           id: 0,
-          customBlocks: null
+          customBlocks: null,
         }
       }
       return {
         ...state,
         id: action.payload.params.projectId,
-        customBlocks: null
+        customBlocks: null,
       }
     default:
       return state
@@ -69,28 +69,28 @@ export default function(state = initialState, action) {
 export function setProjectName(name) {
   return {
     type: SET_PROJECT_NAME,
-    name
+    name,
   }
 }
 
 export function setProjectId(id) {
   return {
     type: SET_PROJECT_ID,
-    id
+    id,
   }
 }
 
 export function setUserId(userId) {
   return {
     type: SET_USER_ID,
-    userId
+    userId,
   }
 }
 
 export function setCustomBlocks(blocks) {
   return {
     type: SET_CUSTOM_BLOCKS,
-    blocks
+    blocks,
   }
 }
 

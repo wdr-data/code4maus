@@ -1,14 +1,14 @@
+import afrage from '../shared_assets/frage.jpg'
+import a003 from '../shared_assets/start.jpg'
+import asuper from '../shared_assets/super.jpg'
 import aL02 from './assets/L02.png'
 import aa from './assets/a.mp4'
 import a001 from './assets/001.jpg'
-import afrage from '../shared_assets/frage.jpg'
 import ad from './assets/d.mp4'
 import ax002 from './assets/x002.jpg'
 import ax003 from './assets/x003.jpg'
-import a003 from '../shared_assets/start.jpg'
 import ax004 from './assets/x004.jpg'
 import ax005 from './assets/x005.jpg'
-import asuper from '../shared_assets/super.jpg'
 
 export default {
   id: '02',
@@ -19,73 +19,73 @@ export default {
   slides: [
     {
       asset: aL02,
-      caption: 'Du programmierst:'
+      caption: 'Du programmierst:',
     },
     {
       asset: aa,
-      caption: '⬅ Ziehe diesen Block:'
+      caption: '⬅ Ziehe diesen Block:',
     },
     {
       asset: a001,
-      caption: 'Drücke ein paar Mal drauf:'
+      caption: 'Drücke ein paar Mal drauf:',
     },
     {
       asset: afrage,
-      caption: 'Was macht die Maus?'
+      caption: 'Was macht die Maus?',
     },
     {
-      asset: ad
+      asset: ad,
     },
     {
       asset: ax002,
-      caption: '⬅ Baue dieses Programm:'
+      caption: '⬅ Baue dieses Programm:',
     },
     {
       asset: ax003,
-      caption: '⬅ Ändere die Zahlen:'
+      caption: '⬅ Ändere die Zahlen:',
     },
     {
       asset: a003,
-      caption: 'Teste dein Programm:'
+      caption: 'Teste dein Programm:',
     },
     {
       asset: ax004,
-      caption: '⬅ 2. Programm: Für den Ton'
+      caption: '⬅ 2. Programm: Für den Ton',
     },
     {
       asset: ax005,
-      caption: '⬅ Ändere die Zahl:'
+      caption: '⬅ Ändere die Zahl:',
     },
     {
       asset: a003,
-      caption: 'Fertig. Starte:'
+      caption: 'Fertig. Starte:',
     },
     {
       asset: asuper,
-      caption: 'Fertig. 🍏 Iss oder trink etwas'
-    }
+      caption: 'Fertig. 🍏 Iss oder trink etwas',
+    },
   ],
   nextGame: '03',
   blocks: [
     {
       category: 'motion',
-      blocks: ['turnright', 'turnleft', '--', 'glideto']
+      blocks: ['turnright', 'turnleft', '--', 'glideto'],
     },
     {
       category: 'looks',
-      blocks: ['nextcostume']
+      blocks: ['nextcostume'],
     },
     {
       category: 'sound',
-      blocks: ['playuntildone']
+      blocks: ['playuntildone'],
     },
     {
       category: 'events',
-      blocks: ['whenflagclicked']
+      blocks: ['whenflagclicked'],
     },
     {
       category: 'control',
-      blocks: ['wait', 'repeat', 'forever']
-    }
-  ]
+      blocks: ['wait', 'repeat', 'forever'],
+    },
+  ],
 }

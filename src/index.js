@@ -1,19 +1,19 @@
+import { ScratchPaintReducer } from 'scratch-paint'
+import { setAppElement } from 'react-modal'
 import GUI from './containers/gui.jsx'
 import GuiReducer, {
   guiInitialState,
   guiMiddleware,
   initFullScreen,
-  initPlayer
+  initPlayer,
 } from './reducers/gui'
-import { ScratchPaintReducer } from 'scratch-paint'
 import IntlReducer from './reducers/intl'
 import { setFullScreen, setPlayer } from './reducers/mode'
-import { setAppElement } from 'react-modal'
 
 const guiReducers = {
   intl: IntlReducer,
   scratchGui: GuiReducer,
-  scratchPaint: ScratchPaintReducer
+  scratchPaint: ScratchPaintReducer,
 }
 
 export {
@@ -25,5 +25,5 @@ export {
   initPlayer,
   initFullScreen,
   setFullScreen,
-  setPlayer
+  setPlayer,
 }

@@ -4,5 +4,5 @@ export default [
   { title: 'Ente' },
   { title: 'Geräusche' },
   { title: 'Töne' },
-  { title: 'Musik' }
+  { title: 'Musik' },
 ]

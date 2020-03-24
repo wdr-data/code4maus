@@ -9,7 +9,7 @@ export default {
   slides: [
     {
       asset: a000,
-      caption: 'Errätst Du die geheime Zahl?'
-    }
-  ]
+      caption: 'Errätst Du die geheime Zahl?',
+    },
+  ],
 }

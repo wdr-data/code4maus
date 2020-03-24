@@ -1,18 +1,18 @@
-import initS3 from './lib/s3'
 import nanoid from 'nanoid'
+import initS3 from './lib/s3'
 
 const s3 = initS3()
 
 const getKey = (user, path = 'index.json') => `data/projects/${user}/${path}`
 
-const injectReplyJson = handler => (event, context, callback) =>
+const injectReplyJson = (handler) => (event, context, callback) =>
   handler(event, context, (code, body) =>
     callback(null, {
       statusCode: code,
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
     })
   )
 
@@ -20,7 +20,7 @@ export const handler = injectReplyJson(async (event, context, reply) => {
   const { data, id, name, userId } = JSON.parse(event.body)
   if (!data || !name || !userId) {
     return reply(400, {
-      error: 'Parameters missing in request.'
+      error: 'Parameters missing in request.',
     })
   }
 
@@ -37,13 +37,13 @@ export const handler = injectReplyJson(async (event, context, reply) => {
         Key: getKey(userId, `${projectId}.json`),
         Body: JSON.stringify(cleanedData),
         CacheControl: 'max-age=0',
-        ContentType: 'application/json'
+        ContentType: 'application/json',
       })
       .promise()
   } catch (e) {
     console.error(e) // eslint-disable-line no-console
     return reply(500, {
-      error: 'Saving failed.'
+      error: 'Saving failed.',
     })
   }
 
@@ -51,7 +51,7 @@ export const handler = injectReplyJson(async (event, context, reply) => {
     const putIndex = async (base = {}) => {
       const indexData = {
         name,
-        updated_at: Date.now()
+        updated_at: Date.now(),
       }
       if (!id) {
         indexData.created_at = Date.now()
@@ -61,7 +61,7 @@ export const handler = injectReplyJson(async (event, context, reply) => {
         projectId in base
           ? {
               ...base[projectId],
-              ...indexData
+              ...indexData,
             }
           : indexData
 
@@ -71,7 +71,7 @@ export const handler = injectReplyJson(async (event, context, reply) => {
             Key: getKey(userId),
             Body: JSON.stringify(base),
             CacheControl: 'max-age=0',
-            ContentType: 'application/json'
+            ContentType: 'application/json',
           })
           .promise()
       } catch (e) {
@@ -82,7 +82,7 @@ export const handler = injectReplyJson(async (event, context, reply) => {
     try {
       const indexFile = await s3
         .getObject({
-          Key: getKey(userId)
+          Key: getKey(userId),
         })
         .promise()
       const index = JSON.parse(indexFile.Body.toString())
@@ -97,6 +97,6 @@ export const handler = injectReplyJson(async (event, context, reply) => {
   }
 
   reply(200, {
-    id: projectId
+    id: projectId,
   })
 })

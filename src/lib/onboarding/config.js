@@ -4,7 +4,7 @@ export const NEXT_STEP = 'onboarding/NEXT_STEP'
 
 export const BUTTON_TEXTS = {
   start: "Los geht's",
-  next: 'Weiter'
+  next: 'Weiter',
 }
 
 export const TRIGGER_REFS = {
@@ -12,34 +12,34 @@ export const TRIGGER_REFS = {
   stopButton: 'stopButton',
   blocksToolbox: 'blocksToolbox',
   saveProject: 'saveProject',
-  menu: 'menu'
+  menu: 'menu',
 }
 
 const BUTTON_NEXT = {
   text: BUTTON_TEXTS.next,
-  action: NEXT_STEP
+  action: NEXT_STEP,
 }
 
 export const customBlocks = [
   {
     category: 'motion',
-    blocks: ['turnright', 'turnleft', '--', 'glideto']
+    blocks: ['turnright', 'turnleft', '--', 'glideto'],
   },
   {
     category: 'events',
-    blocks: ['whenflagclicked']
+    blocks: ['whenflagclicked'],
   },
   {
     category: 'control',
-    blocks: ['repeat']
-  }
+    blocks: ['repeat'],
+  },
 ]
 
 export const customOffsets = {
   blocksToolbox: {
     x: 100,
-    y: -150
-  }
+    y: -150,
+  },
 }
 
 const onboardingConfig = {
@@ -49,26 +49,26 @@ const onboardingConfig = {
         'Hallo,\nhier lernst du Schritt für Schritt, wie du Spiele programmierst.',
       buttons: [BUTTON_NEXT],
       dim: true,
-      loadProject: 'edu/00'
+      loadProject: 'edu/00',
     },
     {
       text: 'Mit dem grünen Knopf wird ein Programm gestartet.',
       arrowTo: TRIGGER_REFS.startButton,
       trigger: TRIGGER_REFS.startButton,
-      loadProject: 'edu/00'
+      loadProject: 'edu/00',
     },
     {
       text:
         'Falls das Programm nicht von selbst stoppt, kannst du es mit dem roten Knopf wieder anhalten.',
       arrowTo: TRIGGER_REFS.stopButton,
       buttons: [BUTTON_NEXT],
-      loadProject: 'edu/00'
+      loadProject: 'edu/00',
     },
     {
       text:
         'Gut gemacht.\nJetzt lernst du, wie DU bestimmst, was die Maus macht.\nMan nennt das Programmieren.',
       buttons: [BUTTON_NEXT],
-      loadProject: 'edu/01'
+      loadProject: 'edu/01',
     },
     {
       text:
@@ -79,11 +79,11 @@ const onboardingConfig = {
       buttons: [
         {
           text: 'Weiter',
-          action: () => push(`/lernspiel/01`)
-        }
-      ]
-    }
-  ]
+          action: () => push(`/lernspiel/01`),
+        },
+      ],
+    },
+  ],
 }
 
 export default onboardingConfig

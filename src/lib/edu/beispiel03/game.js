@@ -9,7 +9,7 @@ export default {
   slides: [
     {
       asset: a000,
-      caption: 'Bewege die Maus mit den Pfeilen und suche Elefant und Ente.'
-    }
-  ]
+      caption: 'Bewege die Maus mit den Pfeilen und suche Elefant und Ente.',
+    },
+  ],
 }

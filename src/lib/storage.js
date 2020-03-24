@@ -3,7 +3,7 @@ import ScratchStorage from 'scratch-storage'
 import defaultProjectAssets from './default-project'
 import { gamesKeyed } from './edu/'
 
-export const s3assets = filename => `/data/assets/${filename}`
+export const s3assets = (filename) => `/data/assets/${filename}`
 export const s3userFile = (userId, path) => `/data/projects/${userId}/${path}`
 
 /**
@@ -20,7 +20,7 @@ class Storage extends ScratchStorage {
   }
 
   setupS3Source() {
-    this.addWebStore([this.AssetType.Project], project => {
+    this.addWebStore([this.AssetType.Project], (project) => {
       if (!this.userId) {
         console.warn('No user id set')
         return false
@@ -31,14 +31,14 @@ class Storage extends ScratchStorage {
       [
         this.AssetType.ImageVector,
         this.AssetType.ImageBitmap,
-        this.AssetType.Sound
+        this.AssetType.Sound,
       ],
-      asset => s3assets(`${asset.assetId}.${asset.dataFormat}`)
+      (asset) => s3assets(`${asset.assetId}.${asset.dataFormat}`)
     )
   }
 
   cacheDefaultProject() {
-    defaultProjectAssets.forEach(asset =>
+    defaultProjectAssets.forEach((asset) =>
       this.builtinHelper._store(
         this.AssetType[asset.assetType],
         this.DataFormat[asset.dataFormat],

@@ -4,7 +4,7 @@
  *  @license http://opensource.org/licenses/MIT MIT License
  *  @copyright 2016 Yotam Mann
  */
-;(function(root, factory) {
+;(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define([], factory)
   } else if (typeof module === 'object' && module.exports) {
@@ -12,7 +12,7 @@
   } else {
     root.StartAudioContext = factory()
   }
-})(this, function() {
+})(this, function () {
   // TAP LISTENER/////////////////////////////////////////////////////////////
 
   /**
@@ -20,7 +20,7 @@
    * @param {Element} element
    * @internal
    */
-  let TapListener = function(element, context) {
+  let TapListener = function (element, context) {
     this._dragged = false
 
     this._element = element
@@ -37,14 +37,14 @@
   /**
    * drag move event
    */
-  TapListener.prototype._moved = function(e) {
+  TapListener.prototype._moved = function (e) {
     this._dragged = true
   }
 
   /**
    * tap ended listener
    */
-  TapListener.prototype._ended = function(context) {
+  TapListener.prototype._ended = function (context) {
     if (!this._dragged) {
       startContext(context)
     }
@@ -54,7 +54,7 @@
   /**
    * remove all the bound events
    */
-  TapListener.prototype.dispose = function() {
+  TapListener.prototype.dispose = function () {
     this._element.removeEventListener('touchstart', this._bindedEnd)
     this._element.removeEventListener('touchmove', this._bindedMove)
     this._element.removeEventListener('touchend', this._bindedEnd)
@@ -151,7 +151,7 @@
    */
   function StartAudioContext(context, elements, callback) {
     // the promise is invoked when the AudioContext is started
-    let promise = new Promise(function(success) {
+    let promise = new Promise(function (success) {
       onStarted(context, success)
     })
 
@@ -165,7 +165,7 @@
     bindTapListener(elements, tapListeners, context)
 
     // dispose all these tap listeners when the context is started
-    promise.then(function() {
+    promise.then(function () {
       for (let i = 0; i < tapListeners.length; i++) {
         tapListeners[i].dispose()
       }

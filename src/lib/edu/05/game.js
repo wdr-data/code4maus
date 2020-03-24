@@ -1,3 +1,6 @@
+import astart from '../shared_assets/start.jpg'
+import asuper from '../shared_assets/super.jpg'
+import aherz from '../shared_assets/herz.jpg'
 import aL05 from './assets/L05.png'
 import ax11 from './assets/x11.jpg'
 import a000 from './assets/000.jpg'
@@ -10,8 +13,6 @@ import ax02 from './assets/x02.jpg'
 import a09 from './assets/09.mp4'
 import ax09 from './assets/x09.jpg'
 import ax03 from './assets/x03.jpg'
-import astart from '../shared_assets/start.jpg'
-import asuper from '../shared_assets/super.jpg'
 import a004 from './assets/004.jpg'
 import a01 from './assets/01.jpg'
 import a02 from './assets/02.jpg'
@@ -24,7 +25,6 @@ import ax10 from './assets/x10.jpg'
 import ax05 from './assets/x05.jpg'
 import ax06 from './assets/x06.jpg'
 import ax07 from './assets/x07.jpg'
-import aherz from '../shared_assets/herz.jpg'
 import ax08 from './assets/x08.jpg'
 import a009 from './assets/009.jpg'
 import axx09 from './assets/xx09.jpg'
@@ -39,143 +39,143 @@ export default {
   fetchProject: () => import('./project.json'),
   slides: [
     {
-      asset: aL05
+      asset: aL05,
     },
     {
       asset: ax11,
-      caption: 'Ziel: Fange mit dem Fisch die Äpfel.'
+      caption: 'Ziel: Fange mit dem Fisch die Äpfel.',
     },
     {
       asset: a000,
-      caption: 'Hintergrund: Unterwasser'
+      caption: 'Hintergrund: Unterwasser',
     },
     {
       asset: a001,
-      caption: "Füge Figur 'Fisch' hinzu:"
+      caption: "Füge Figur 'Fisch' hinzu:",
     },
     {
       asset: a002,
-      caption: "Noch eine Figur: 'Apfel'"
+      caption: "Noch eine Figur: 'Apfel'",
     },
     {
       asset: a003,
-      caption: 'Lösche die Maus:'
+      caption: 'Lösche die Maus:',
     },
     {
       asset: a05_01,
-      caption: "Los geht's beim Apfel:"
+      caption: "Los geht's beim Apfel:",
     },
     {
       asset: ax01,
-      caption: '1. Block für den Apfel:'
+      caption: '1. Block für den Apfel:',
     },
     {
       asset: ax02,
-      caption: '2. Block für den Apfel:'
+      caption: '2. Block für den Apfel:',
     },
     {
       asset: a09,
-      caption: 'Zufallszahlen hinzufügen'
+      caption: 'Zufallszahlen hinzufügen',
     },
     {
       asset: ax09,
-      caption: 'Zahlen ändern'
+      caption: 'Zahlen ändern',
     },
     {
       asset: ax03,
-      caption: '3. Block für den Apfel:'
+      caption: '3. Block für den Apfel:',
     },
     {
       asset: astart,
-      caption: 'Teste dein Programm:'
-    },
-    {
-      asset: asuper
-    },
-    {
-      asset: a004,
-      caption: 'Nun zum Fisch:'
-    },
-    {
-      asset: a01,
-      caption: 'Code für den Fisch Teil 1:'
-    },
-    {
-      asset: a02,
-      caption: 'Wenn der Apfel berührt wird ...:'
-    },
-    {
-      asset: a03,
-      caption: 'Nachricht, Ton, Bewegung'
-    },
-    {
-      asset: astart,
-      caption: 'Teste dein Programm wieder:'
-    },
-    {
-      asset: a005,
-      caption: "Füge 2 mal Figur 'Pfeil' hinzu:"
-    },
-    {
-      asset: a006,
-      caption: "Wähle bei 'Pfeil': Kostüm 'links'"
-    },
-    {
-      asset: a007,
-      caption: "Bei 'Pfeil2': Kostüm 'rechts'"
-    },
-    {
-      asset: a008,
-      caption: 'So sollen die Figuren aussehen:'
-    },
-    {
-      asset: ax10,
-      caption: 'Ziehe die Figuren an ihren Platz:'
-    },
-    {
-      asset: ax05,
-      caption: "Code für 'Pfeil' links:"
-    },
-    {
-      asset: ax06,
-      caption: "Wähle 'Neue Nachricht'"
-    },
-    {
-      asset: ax07,
-      caption: "Gib 'links' ein:"
-    },
-    {
-      asset: aherz,
-      caption: 'Kannst du rechts alleine?'
-    },
-    {
-      asset: ax08,
-      caption: "Code für 'Pfeil2' rechts:"
-    },
-    {
-      asset: a009,
-      caption: 'Zurück zum Fisch:'
-    },
-    {
-      asset: axx09,
-      caption: 'Um den Fisch zu steuern:'
-    },
-    {
-      asset: astart,
-      caption: 'Teste dein Spiel'
+      caption: 'Teste dein Programm:',
     },
     {
       asset: asuper,
-      caption: 'Fertig. Du hast alle Lernspiele geschafft.'
+    },
+    {
+      asset: a004,
+      caption: 'Nun zum Fisch:',
+    },
+    {
+      asset: a01,
+      caption: 'Code für den Fisch Teil 1:',
+    },
+    {
+      asset: a02,
+      caption: 'Wenn der Apfel berührt wird ...:',
+    },
+    {
+      asset: a03,
+      caption: 'Nachricht, Ton, Bewegung',
+    },
+    {
+      asset: astart,
+      caption: 'Teste dein Programm wieder:',
+    },
+    {
+      asset: a005,
+      caption: "Füge 2 mal Figur 'Pfeil' hinzu:",
+    },
+    {
+      asset: a006,
+      caption: "Wähle bei 'Pfeil': Kostüm 'links'",
+    },
+    {
+      asset: a007,
+      caption: "Bei 'Pfeil2': Kostüm 'rechts'",
+    },
+    {
+      asset: a008,
+      caption: 'So sollen die Figuren aussehen:',
+    },
+    {
+      asset: ax10,
+      caption: 'Ziehe die Figuren an ihren Platz:',
+    },
+    {
+      asset: ax05,
+      caption: "Code für 'Pfeil' links:",
+    },
+    {
+      asset: ax06,
+      caption: "Wähle 'Neue Nachricht'",
+    },
+    {
+      asset: ax07,
+      caption: "Gib 'links' ein:",
+    },
+    {
+      asset: aherz,
+      caption: 'Kannst du rechts alleine?',
+    },
+    {
+      asset: ax08,
+      caption: "Code für 'Pfeil2' rechts:",
+    },
+    {
+      asset: a009,
+      caption: 'Zurück zum Fisch:',
+    },
+    {
+      asset: axx09,
+      caption: 'Um den Fisch zu steuern:',
+    },
+    {
+      asset: astart,
+      caption: 'Teste dein Spiel',
+    },
+    {
+      asset: asuper,
+      caption: 'Fertig. Du hast alle Lernspiele geschafft.',
     },
     {
       asset: aneu,
-      caption: 'Mache dein eigenes Spiel mit +'
+      caption: 'Mache dein eigenes Spiel mit +',
     },
     {
       asset: a04,
-      caption: "Ideen findest du unter 'Beispiele'."
-    }
+      caption: "Ideen findest du unter 'Beispiele'.",
+    },
   ],
   nextGame: '08',
   blocks: [
@@ -194,8 +194,8 @@ export default {
         'changexby',
         'setx',
         'changeyby',
-        'sety'
-      ]
+        'sety',
+      ],
     },
     {
       category: 'looks',
@@ -209,12 +209,12 @@ export default {
         'show',
         'hide',
         '--',
-        'size'
-      ]
+        'size',
+      ],
     },
     {
       category: 'sound',
-      blocks: ['playuntildone']
+      blocks: ['playuntildone'],
     },
     {
       category: 'events',
@@ -224,8 +224,8 @@ export default {
         '--',
         'whenbroadcastreceived',
         'broadcast',
-        'broadcastandwait'
-      ]
+        'broadcastandwait',
+      ],
     },
     {
       category: 'control',
@@ -243,8 +243,8 @@ export default {
         '--',
         'start_as_clone',
         'create_clone_of',
-        'delete_this_clone'
-      ]
+        'delete_this_clone',
+      ],
     },
     {
       category: 'sensing',
@@ -261,15 +261,15 @@ export default {
         '--',
         'of',
         '--',
-        'current'
-      ]
+        'current',
+      ],
     },
     {
       category: 'operators',
-      blocks: ['random', '--', 'gt', 'lt', 'equals', '--', 'and', 'or', 'not']
+      blocks: ['random', '--', 'gt', 'lt', 'equals', '--', 'and', 'or', 'not'],
     },
     {
-      category: 'variables'
-    }
-  ]
+      category: 'variables',
+    },
+  ],
 }

@@ -5,5 +5,5 @@ export default [
   { title: 'Weltall' },
   { title: 'Unterwasser' },
   { title: 'Dinge' },
-  { title: 'Tiere' }
+  { title: 'Tiere' },
 ]

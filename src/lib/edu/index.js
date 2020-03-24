@@ -20,7 +20,7 @@ const games = [
   game07,
   game04_c,
   game05,
-  game08
+  game08,
 ]
 
 export const gamesKeyed = {}

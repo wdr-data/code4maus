@@ -6,7 +6,7 @@ const defaultVM = new VM()
 defaultVM.attachStorage(storage)
 const initialState = defaultVM
 
-const reducer = function(state, action) {
+const reducer = function (state, action) {
   if (typeof state === 'undefined') {
     state = initialState
   }
@@ -17,10 +17,10 @@ const reducer = function(state, action) {
       return state
   }
 }
-const setVM = function(vm) {
+const setVM = function (vm) {
   return {
     type: SET_VM,
-    vm: vm
+    vm: vm,
   }
 }
 export { reducer as default, initialState as vmInitialState, setVM }

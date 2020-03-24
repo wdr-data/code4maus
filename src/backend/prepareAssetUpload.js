@@ -12,18 +12,18 @@ export const handler = async (event, context, callback) => {
     callback(null, {
       statusCode: 400,
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
       },
       body: JSON.stringify({
-        error: "Request parameter 'Key' missing."
-      })
+        error: "Request parameter 'Key' missing.",
+      }),
     })
     return
   }
 
   const params = {
     Bucket: process.env.STORAGE_BUCKET || process.env.S3_BUCKET_PROJECTS,
-    Key: `data/assets/${filename}`
+    Key: `data/assets/${filename}`,
   }
 
   // check for existence of asset
@@ -32,11 +32,11 @@ export const handler = async (event, context, callback) => {
     callback(null, {
       statusCode: 409,
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
       },
       body: JSON.stringify({
-        exists: true
-      })
+        exists: true,
+      }),
     })
     return
   } catch (e) {}
@@ -45,10 +45,10 @@ export const handler = async (event, context, callback) => {
   callback(null, {
     statusCode: 200,
     headers: {
-      'content-type': 'application/json'
+      'content-type': 'application/json',
     },
     body: JSON.stringify({
-      uploadUrl: presignedUrl
-    })
+      uploadUrl: presignedUrl,
+    }),
   })
 }
