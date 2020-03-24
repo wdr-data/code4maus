@@ -3,9 +3,9 @@ language: node_js
 sudo: false
 
 node_js:
-  - "8"
+  - '10'
 python:
-  - "3.6"
+  - '3.6'
 
 env:
   global:
@@ -56,5 +56,5 @@ notifications:
       - secure: PrGsD5+lm7zp31WeEqV2EOfTSupzJ5K2mO1Hxn/lC3Z+z4hawgesKf9boAhLiWtv7iTMC69WyRtbCEPJk0o+g1xW++OdJgsh2zomyhAV/yChusJ7rX4qzZo78Yh15GFrbD7ALWfFchIzN6eFHXKEk7Q94WIGTKrpyr2ZuWYGW46ZwIih3f0hBPu8EIXHArrBt0WsgYKuWH1Om4N2vbVdK+6vtSG+RgCtnsErchGF22P/vDuXSYE5WAe15n7dI/tiyLtUD5YJOY768kDZSZzqZ02iAQO14QhctJsVqVLQab3tcwvftGj8dhApHuryu3y8S2KOrRszvZmw46ZDPs+1epdJ9qewz3o/2MP81u3V7M8cwGcZdGJaCUGv8LKhWWCN6uPAn7K+LrzxAOKg7l3FxQ3FWnyYc0n7qppuMKIwbWesI8nYvVHP4t/Ro5kvSFXCPosk3AVXXeyZv0MySPG5WJ9mIQ03y1wGQnaYM3onsE5B7QzNIYNJcGDvPntX0eRxFNIvBo3Z8hw5EoRTXlBM+LNftFeJWyHTW71dhGKiHIC1Y5/Sv7UNW0ZPgfpkNcLPSqQw4qp20+P+1tjkhF3d8kfpcMn+4JfZ80+tZqUMd0/R7Py6uQc6FUguTIj1TTZjUmmCT9Utl599Uj/nonbqanAWqswN2UZD+DOkKFPJt3o=
     on_pull_requests: false
     template:
-      - "Deployment %{result}:"
-      - "<%{compare_url}|%{repository_slug}:%{branch}#%{commit}> by %{author}"
+      - 'Deployment %{result}:'
+      - '<%{compare_url}|%{repository_slug}:%{branch}#%{commit}> by %{author}'
