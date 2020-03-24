@@ -1,101 +1,102 @@
-@import "../../css/colors.css";
+@import '../../css/colors.css';
 
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .container {
-    font-family: 'Titillium Web';
-    background-image: url(../menu/bg_blue@1x.png);
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100vw;
+  font-family: 'Titillium Web';
+  background-image: url(../menu/bg_blue@1x.png);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
 }
 
 .second-column a {
-    color: #00345f;
-    font-weight: bold;
-    text-decoration: none;
+  color: #00345f;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-.orange, a {
-    color: $ui-orange;
+.orange,
+a {
+  color: $ui-orange;
 }
 
 h2 {
-    margin: 0;
+  margin: 0;
 }
 
 .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
 }
 
 .header-top {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 90vw;
 }
 
 .logo-center {
-    height: 8rem;
-    width: auto;
+  height: 8rem;
+  width: auto;
 }
 
 .logo {
-    width: 4rem;
-    height: auto;
+  width: 4rem;
+  height: auto;
 }
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    padding: 1rem;
-    margin: 2rem 1rem 0;
-    width: 80%;
-    max-width: 70rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 1rem;
+  margin: 2rem 1rem 0;
+  width: 80%;
+  max-width: 70rem;
 }
 
 .wrapper:last-child {
-    margin-bottom: 2rem;
-    max-width: 70rem;
+  margin-bottom: 2rem;
+  max-width: 70rem;
 }
 
 .image {
-    width: 80vw;
-    max-width: 60rem;
-    height: auto;
+  width: 80vw;
+  max-width: 60rem;
+  height: auto;
 }
 
 .button-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 1rem 1rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1rem 1rem 0;
 }
 
-.button-wrapper > *{
-    padding-right: 1rem;
+.button-wrapper > * {
+  padding-right: 1rem;
 }
 
-.button-wrapper > *:last-child{
-    padding-right: 0;
+.button-wrapper > *:last-child {
+  padding-right: 0;
 }
 
 .brand-icon {
-    height: 2rem;
-    width: auto;
+  height: 2rem;
+  width: auto;
 }
 
 .brand-icon svg path {
-    fill: currentColor;
+  fill: currentColor;
 }

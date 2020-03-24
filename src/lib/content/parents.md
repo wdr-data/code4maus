@@ -2,8 +2,8 @@
 title: Eltern-Info
 style: orange
 imports:
-    schuleDigitalLogo: '../assets/schule_digital_logo.png'
-    maus: '../../../assets/img/logo_text.png'
+  schuleDigitalLogo: '../assets/schule_digital_logo.png'
+  maus: '../../../assets/img/logo_text.png'
 splitSections: true
 ---
 

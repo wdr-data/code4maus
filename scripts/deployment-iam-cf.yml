@@ -1,5 +1,4 @@
 ---
-
 Description: 'Cloudformation stack to setup user permissions for Code4Maus'
 
 Resources:
@@ -49,8 +48,7 @@ Resources:
   AdminGroupUsers:
     Type: AWS::IAM::UserToGroupAddition
     Properties:
-      GroupName:
-        !Ref AdminGroup
+      GroupName: !Ref AdminGroup
       Users:
         - hackingstudio-code4maus-marcus
 

@@ -1,19 +1,20 @@
-@import "../../css/units.css";
-@import "../../css/colors.css";
+@import '../../css/units.css';
+@import '../../css/colors.css';
 
 .input-group {
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.input-label, .input-label-secondary {
-    font-size: 0.625rem;
-    margin-right: .5rem;
-    user-select: none;
-    cursor: default;
+.input-label,
+.input-label-secondary {
+  font-size: 0.625rem;
+  margin-right: 0.5rem;
+  user-select: none;
+  cursor: default;
 }
 
 .input-label {
-    font-weight: bold;
+  font-weight: bold;
 }

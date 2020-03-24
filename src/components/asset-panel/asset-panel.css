@@ -1,19 +1,19 @@
-@import "../../css/units.css";
-@import "../../css/colors.css";
+@import '../../css/units.css';
+@import '../../css/colors.css';
 
 .wrapper {
-    display: flex;
-    flex-grow: 1;
-    border: 1px solid $ui-black-transparent;
-    background: white;
-    font-family: 'Titillium Web';
-    font-size: 0.85rem;
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid $ui-black-transparent;
+  background: white;
+  font-family: 'Titillium Web';
+  font-size: 0.85rem;
 }
 
 .detail-area {
-    display: flex;
-    flex-grow: 1;
-    flex-shrink: 1;
-    border-left: 1px solid $ui-black-transparent;
-    overflow-y: auto;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border-left: 1px solid $ui-black-transparent;
+  overflow-y: auto;
 }

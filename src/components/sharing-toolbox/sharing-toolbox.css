@@ -1,174 +1,174 @@
-@import "../../css/units.css";
-@import "../../css/colors.css";
+@import '../../css/units.css';
+@import '../../css/colors.css';
 
 .toolbox-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    z-index: 501;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 501;
 
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 .toolbox-background {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: white;
-    padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  padding: 1rem 0;
 
-    -webkit-box-shadow: 0.125rem 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.5);
-    box-shadow: 0.125rem 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0.125rem 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0.125rem 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-    min-width: 60vw;
-    margin: auto;
+  min-width: 60vw;
+  margin: auto;
 }
 
 .sharing-button {
-    height: 5rem;
-    margin: 0 1rem;
-    cursor: pointer;
+  height: 5rem;
+  margin: 0 1rem;
+  cursor: pointer;
 }
 
 .screenshot-wrapper {
-    height: 45vh;
-    width: auto;
-    align-self: center;
-    position: relative;
+  height: 45vh;
+  width: auto;
+  align-self: center;
+  position: relative;
 }
 
 .screenshot {
-    height: 45vh;
-    width: auto;
-    align-self: center;
+  height: 45vh;
+  width: auto;
+  align-self: center;
 }
 
 .print-screenshot {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left:0;
-    right:0;
-    margin-left:auto;
-    margin-right:auto;
-    height: 45vh;
-    width: 45vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: 45vh;
+  width: 45vh;
 }
 
 .print-wrapper {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .text-wrapper {
-    position: absolute;
-    top: 0;
-    bottom: 20%;
-    left:0;
-    right:0;
-    margin: auto;
-    width: 30vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    color: black;
+  position: absolute;
+  top: 0;
+  bottom: 20%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 30vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: black;
 }
 
 .user-handle {
-    text-align: center;
-    font-weight: bold;
-    font-size: 2vh;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2vh;
 }
 
 .overlay {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .error-message {
-    color: white;
-    padding: 1rem;
+  color: white;
+  padding: 1rem;
 }
 
 .qr-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: white;
-    padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 1rem;
 }
 
 .sharingkey-wrapper {
-    background: white;
-    padding: 1rem;
-    margin-top: 4rem;
-    text-align: center;
+  background: white;
+  padding: 1rem;
+  margin-top: 4rem;
+  text-align: center;
 }
 
 .button-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .input-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 .name-input {
-    min-width: 10rem;
+  min-width: 10rem;
 }
 
 .button-icon {
-    height: 7rem;
-    width: auto;
-    padding: 0;
+  height: 7rem;
+  width: auto;
+  padding: 0;
 }
 
 [disabled] .button-icon {
-    filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 .recording-button-wrapper {
-    position: relative;
+  position: relative;
 }
 
 .counter {
-    position: absolute;
-    top: 0;
-    right: 100%;
-    margin-top: .5rem;
-    padding: .5rem;
-    background-color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    -webkit-box-shadow: -3px 5px 9px -2px rgba(153,153,153,1);
-    -moz-box-shadow: -3px 5px 9px -2px rgba(153,153,153,1);
-    box-shadow: -3px 5px 9px -2px rgba(153,153,153,1);
+  position: absolute;
+  top: 0;
+  right: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background-color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  -webkit-box-shadow: -3px 5px 9px -2px rgba(153, 153, 153, 1);
+  -moz-box-shadow: -3px 5px 9px -2px rgba(153, 153, 153, 1);
+  box-shadow: -3px 5px 9px -2px rgba(153, 153, 153, 1);
 }
 
 .print-layout {
-    position: absolute;
-    left: 100vw;
+  position: absolute;
+  left: 100vw;
 }

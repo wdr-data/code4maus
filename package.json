@@ -95,6 +95,7 @@
     "postcss-loader": "^3.0.0",
     "postcss-mixins": "^6.2.0",
     "postcss-simple-vars": "^5.0.2",
+    "prettier": "^2.0.2",
     "promise-timeout": "^1.3.0",
     "prop-types": "^15.5.10",
     "raf": "^3.4.0",
@@ -187,5 +188,10 @@
   },
   "resolutions": {
     "history": "4.7.2"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true
   }
 }

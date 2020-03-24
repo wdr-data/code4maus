@@ -1,4 +1,4 @@
-import minilog from 'minilog';
-minilog.enable();
+import minilog from 'minilog'
+minilog.enable()
 
-export default minilog('gui');
+export default minilog('gui')

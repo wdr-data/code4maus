@@ -1,5 +1,4 @@
 ---
-
 Description: 'RUN ONLY ONCE! - Stack used to create a user with console access'
 
 Parameters:
@@ -16,9 +15,7 @@ Resources:
     Type: 'AWS::IAM::User'
     Properties:
       Path: '/hackingstudio/code4maus/'
-      UserName:
-        !Join [ "-", [ 'hackingstudio-code4maus', !Ref Username ] ]
+      UserName: !Join ['-', ['hackingstudio-code4maus', !Ref Username]]
       LoginProfile:
-        Password:
-          !Ref Password
+        Password: !Ref Password
         PasswordResetRequired: true

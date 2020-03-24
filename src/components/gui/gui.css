@@ -1,250 +1,249 @@
-@import "../../css/units.css";
-@import "../../css/colors.css";
+@import '../../css/units.css';
+@import '../../css/colors.css';
 
 .page-wrapper {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .body-wrapper {
-    background-image: url('./bg_orange@1x.png');
-    background-repeat: stretch;
-    flex-grow: 1;
-    display: flex;
-    overflow: hidden;
+  background-image: url('./bg_orange@1x.png');
+  background-repeat: stretch;
+  flex-grow: 1;
+  display: flex;
+  overflow: hidden;
 }
 
 .body-wrapper * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    background-image: url('./bg_header@1x.png');
-    padding: 1rem .5rem 0;
+  display: flex;
+  justify-content: space-between;
+  background-image: url('./bg_header@1x.png');
+  padding: 1rem 0.5rem 0;
 }
 
-
-.header > *{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+.header > * {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .column {
-    margin: 0 .5rem;
+  margin: 0 0.5rem;
 }
 .column:last-of-type {
-    margin-right: 0;
+  margin-right: 0;
 }
 .column-buttons {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .menu-button {
-   margin-top: .25rem;
-   margin-right: .5rem;
-   padding-right: .5rem;
+  margin-top: 0.25rem;
+  margin-right: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .editor-wrapper {
-    flex: 2;
-    position: relative;
-    display: flex;
+  flex: 2;
+  position: relative;
+  display: flex;
 }
 
-[layoutmode=BUILD] .blocks-wrapper {
-    min-width: 100%;
-    padding-right: 0;
+[layoutmode='BUILD'] .blocks-wrapper {
+  min-width: 100%;
+  padding-right: 0;
 }
 
 .logo {
-    height:  1.25rem;
-    display: block;
+  height: 1.25rem;
+  display: block;
 }
 
 .logo-center {
-    /* from image to get correct sizing before image is loaded */
-    height: 6rem;
-    display: block;
-    margin: 0 auto 1.5rem auto;
+  /* from image to get correct sizing before image is loaded */
+  height: 6rem;
+  display: block;
+  margin: 0 auto 1.5rem auto;
 }
 
 .logo-menu {
-    height: 1.4rem;
-    display: block;
-    margin-left: .5rem;
+  height: 1.4rem;
+  display: block;
+  margin-left: 0.5rem;
 }
 
 .tab-list {
-    height: 3rem;
-    display: flex;
-    align-items: flex-end;
-    flex-shrink: 0;
+  height: 3rem;
+  display: flex;
+  align-items: flex-end;
+  flex-shrink: 0;
 
-    font-family: 'Titillium Web';
-    font-weight: 400;
-    font-size: 0.80rem;
+  font-family: 'Titillium Web';
+  font-weight: 400;
+  font-size: 0.8rem;
 
-    /* Overrides for react-tabs styling */
-    margin: 0 !important;
-    border-bottom: 0 !important;
+  /* Overrides for react-tabs styling */
+  margin: 0 !important;
+  border-bottom: 0 !important;
 
-    overflow-y: hidden;
-    background: none;
+  overflow-y: hidden;
+  background: none;
 }
 
 .tab {
-    flex-grow: 1;
-    margin-bottom: 0;
-    margin-right: .75rem;
-    display: flex;
-    align-items: center;
-    height: 3rem;
+  flex-grow: 1;
+  margin-bottom: 0;
+  margin-right: 0.75rem;
+  display: flex;
+  align-items: center;
+  height: 3rem;
 
-    padding: 0 1.25rem 1rem 1.25rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
+  padding: 0 1.25rem 1rem 1.25rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
 
-    background-image: url(./bg_darkblue@1x.png);
-    background-repeat: no-repeat;
+  background-image: url(./bg_darkblue@1x.png);
+  background-repeat: no-repeat;
 
-    user-select: none;
-    cursor: pointer;
-    transition: height 0.2s ease-out;
-    position: relative;
-    z-index: 5;
-    border-radius: 0;
-    border: none;
+  user-select: none;
+  cursor: pointer;
+  transition: height 0.2s ease-out;
+  position: relative;
+  z-index: 5;
+  border-radius: 0;
+  border: none;
 
-    transform: skewY(-$tab-skew);
-    margin-bottom: -1rem;
-    box-shadow: .125rem .125rem .75rem 0 rgba(0, 0, 0, 0.5);
+  transform: skewY(-$tab-skew);
+  margin-bottom: -1rem;
+  box-shadow: 0.125rem 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.5);
 }
 
 .tab:hover:not(.is-selected) .tab-content {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .tab-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2rem;
-    transform: skewY($tab-skew);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  transform: skewY($tab-skew);
 }
-
 
 /* Use z-indices to force left-on-top for tabs */
-.tab:nth-of-type(2n+0) {
-    transform: skewY($tab-skew);
+.tab:nth-of-type(2n + 0) {
+  transform: skewY($tab-skew);
 }
-.tab:nth-of-type(2n+0) .tab-content {
-    transform: skewY(-$tab-skew);
+.tab:nth-of-type(2n + 0) .tab-content {
+  transform: skewY(-$tab-skew);
 }
 
-.tab:hover:not(.is-selected), .tab.is-selected {
-    height: 4rem;
+.tab:hover:not(.is-selected),
+.tab.is-selected {
+  height: 4rem;
 }
 
 .tab.is-selected {
-    background-image: url('./bg_orange@1x.png');
-    z-index: 10; /* Make sure selected is always above */
+  background-image: url('./bg_orange@1x.png');
+  z-index: 10; /* Make sure selected is always above */
 }
 
 .tab img {
-    margin-right: 0.125rem;
-    width: 1.375rem;
-    filter: grayscale(100%);
+  margin-right: 0.125rem;
+  width: 1.375rem;
+  filter: grayscale(100%);
 }
 
 .tab.is-selected img {
-    filter: none;
+  filter: none;
 }
 
 /* Tab style overrides from react-tabs */
 
 .tab.is-selected:focus {
-    outline: none;
-    box-shadow: none;
+  outline: none;
+  box-shadow: none;
 }
 
 .tab.is-selected:focus:after {
-    display: none;
+  display: none;
 }
 
 /* Body of the tabs */
 .tabs {
-    position: relative;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .tab-panel {
-    position: relative;
-    flex-grow: 1;
-    display: none;
-    padding: .5rem;
+  position: relative;
+  flex-grow: 1;
+  display: none;
+  padding: 0.5rem;
 }
 
 .tab-panel.is-selected {
-    display: flex;
+  display: flex;
 }
 
 .code-panel-wrapper.is-selected {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .code-top-row {
-    display: flex;
-    flex-grow: 1;
+  display: flex;
+  flex-grow: 1;
 }
 
 .blocks-wrapper {
-    padding-right: .5rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  padding-right: 0.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .layout-switcher {
-    position: absolute;
-    padding: 0;
-    margin-right: 1rem;
-    right: 0;
-    z-index: 50;
-    border-radius: 0;
-    cursor: pointer;
-    transition: 0.2s ease-out;
+  position: absolute;
+  padding: 0;
+  margin-right: 1rem;
+  right: 0;
+  z-index: 50;
+  border-radius: 0;
+  cursor: pointer;
+  transition: 0.2s ease-out;
 }
 
 .layout-switcher:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .layout-switcher-icon {
-    padding: .5rem;
-    width: 3rem;
-    height: 3rem;
+  padding: 0.5rem;
+  width: 3rem;
+  height: 3rem;
 }
 
-[layoutmode=PLAY] .layout-switcher-icon {
-    transform: rotate(180deg);
+[layoutmode='PLAY'] .layout-switcher-icon {
+  transform: rotate(180deg);
 }
 
-[layoutmode=BUILD] .layout-switcher-icon {
-    margin-left: 30%;
+[layoutmode='BUILD'] .layout-switcher-icon {
+  margin-left: 30%;
 }
 
 .stage-and-target-wrapper {
-    /*
+  /*
         Makes rows for children:
           1) stage menu
           2) stage
@@ -252,120 +251,122 @@
         Only reason we need this, is so .targetWrapper, which holds the selectors,
         goes to full vertical height of the window
     */
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-[layoutmode=BUILD] .stage-and-target-wrapper {
-    transform: translateX(100%);
+[layoutmode='BUILD'] .stage-and-target-wrapper {
+  transform: translateX(100%);
 }
 
 .target-wrapper {
-    display: flex;
+  display: flex;
 }
 
 .extension-button-container {
-    width: 3.25rem;
-    height: 3.25rem;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 50; /** Force extension button above the ScratchBlocks flyout. */
-    background: $motion-primary;
+  width: 3.25rem;
+  height: 3.25rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 50; /** Force extension button above the ScratchBlocks flyout. */
+  background: $motion-primary;
 
-    border: 1px solid $motion-primary;
-    box-sizing: content-box; /* To match scratch-block vertical toolbox borders */
+  border: 1px solid $motion-primary;
+  box-sizing: content-box; /* To match scratch-block vertical toolbox borders */
 }
 
 $fade-out-distance: 15px;
 
 .extension-button-container:before {
-    content: "";
-    position: absolute;
-    top: calc(calc(-1 * $fade-out-distance) - 1px);
-    left: -1px;
-    background: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15));
-    height: $fade-out-distance;
-    width: calc(100% + 0.5px);
+  content: '';
+  position: absolute;
+  top: calc(calc(-1 * $fade-out-distance) - 1px);
+  left: -1px;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  height: $fade-out-distance;
+  width: calc(100% + 0.5px);
 }
 
-
 .extension-button {
-    background: none;
-    border: none;
-    outline: none;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
 
 .extension-button-icon {
-    width: 1.75rem;
-    height: 1.75rem;
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 .extension-button > div {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .save-modal-box {
-    padding: 2rem;
-    background-image: url('../menu/bg_blue@1x.png');
-    display: flex;
-    z-index: 1;
-    position: relative;
-    flex-direction: column;
-    align-content: center;
+  padding: 2rem;
+  background-image: url('../menu/bg_blue@1x.png');
+  display: flex;
+  z-index: 1;
+  position: relative;
+  flex-direction: column;
+  align-content: center;
 }
 
 .save-modal-box input {
-    width: 100%;
-    margin-bottom: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
 .save-modal-download {
-    margin: 1rem .5rem 0 .5rem;
-    align-self: center;
+  margin: 1rem 0.5rem 0 0.5rem;
+  align-self: center;
 }
 
 .save-modal-actions {
-    display: flex;
-    align-self: center;
+  display: flex;
+  align-self: center;
 }
 
 .save-modal-actions p {
-    color: red;
-    flex-grow: 1;
-    margin: 0 1rem 0 0;
+  color: red;
+  flex-grow: 1;
+  margin: 0 1rem 0 0;
 }
 
 span.breadcrumb {
-    list-style: none;
-    padding: 0;
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px 1px 1px 1px);
-    clip: rect(1px, 1px, 1px, 1px);
+  list-style: none;
+  padding: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 .saving-overlay {
-    position: absolute;
-    z-index: 1;
-    top: 0; left: 0; bottom: 0; right: 0;
-    background: rgba(0,0,0,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .saving-overlay[hidden] {
-    display: none;
+  display: none;
 }
 
 @media (max-width: 1024px) {
-    .logo-center {
-        height: 4rem;
-    }
+  .logo-center {
+    height: 4rem;
   }
+}
