@@ -5,20 +5,20 @@ module.exports = ({ entrypoint, ...options }) =>
   new HtmlWebpackPlugin({
     inject: false,
     template: 'src/entrypoints/index.ejs',
-    templateParameters: compilation => {
+    templateParameters: (compilation) => {
       const group = compilation.namedChunkGroups.get(entrypoint)
-      const files = group.getFiles().filter(file => !file.endsWith('.map'))
+      const files = group.getFiles().filter((file) => !file.endsWith('.map'))
 
       const baseUrl = process.env.DEPLOY_PRIME_URL || `https://${baseDomain()}`
+      const pathName = (options.filename || '').replace(/index\.html$/, '')
+      const pageUrl = baseUrl + '/' + pathName
+
       return {
         files,
         options,
         baseUrl,
-        pageUrl: `${baseUrl}/${(options.filename || '').replace(
-          /index\.html$/,
-          ''
-        )}`
+        pageUrl,
       }
     },
-    ...options
+    ...options,
   })

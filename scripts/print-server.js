@@ -1,9 +1,10 @@
-const express = require('express')
-const multer = require('multer')
-const cors = require('cors')
+/* eslint-disable no-console */
 const path = require('path')
 const child_process = require('child_process')
 const fs = require('fs')
+const express = require('express')
+const multer = require('multer')
+const cors = require('cors')
 
 const app = express()
 
@@ -18,7 +19,7 @@ const printDefault = (buffer, format = 'PDF') => {
       data: buffer,
       type: format,
       success: res,
-      error: rej
+      error: rej,
     })
   )
 }
@@ -50,7 +51,7 @@ if (process.platform === 'win32') {
   }
 }
 
-const printWin = async filepath =>
+const printWin = (filepath) =>
   new Promise((res, rej) => {
     const args = ['/t', path.join(process.cwd(), filepath)]
     console.log('Executing binary:', binPath, args)
@@ -64,7 +65,7 @@ const printWin = async filepath =>
       clearTimeout(childTimeout)
       res()
     })
-    child.on('error', err => {
+    child.on('error', (err) => {
       console.error('Errored:', err)
       rej(err)
     })

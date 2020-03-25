@@ -15,16 +15,16 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-          options: babelConfig
-        }
+          options: babelConfig,
+        },
       },
       {
         test: /\.ejs$/,
         use: {
-          loader: 'ejs-loader'
-        }
-      }
-    ]
+          loader: 'ejs-loader',
+        },
+      },
+    ],
   },
-  externals: 'aws-sdk'
+  externals: 'aws-sdk',
 }
