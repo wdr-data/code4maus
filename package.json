@@ -197,5 +197,10 @@
     "tabWidth": 2,
     "semi": false,
     "singleQuote": true
-  }
+  },
+  "browserslist": [
+    "last 3 versions",
+    "Safari >= 8",
+    "iOS >= 8"
+  ]
 }

@@ -5,15 +5,11 @@ const envsub = require('envsubstr')
 // Plugins
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const Visualizer = require('webpack-visualizer-plugin')
-
-// PostCss
-const autoprefixer = require('autoprefixer')
-const postcssVars = require('postcss-simple-vars')
-const postcssImport = require('postcss-import')
-const postcssMixins = require('postcss-mixins')
+const { GenerateSW } = require('workbox-webpack-plugin')
 
 // Custom Plugins
 const customHtmlPlugin = require('./scripts/custom-html-plugin')
+const GenerateS3SWPrecachePlugin = require('./scripts/generate-s3-sw-precache-plugin')
 
 require('dotenv').config()
 const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH
@@ -24,8 +20,6 @@ const bucketUrl = `https://${
   process.env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION
 }.amazonaws.com`
 
-const { GenerateSW } = require('workbox-webpack-plugin')
-const GenerateS3SWPrecachePlugin = require('./scripts/generate-s3-sw-precache-plugin')
 const enableServiceWorker =
   'ENABLE_SERVICE_WORKER' in process.env ||
   process.env.NODE_ENV === 'production'
@@ -88,9 +82,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          {
-            loader: 'style-loader',
-          },
+          { loader: 'style-loader' },
           {
             loader: 'css-loader',
             options: {
@@ -100,22 +92,7 @@ module.exports = {
               camelCase: true,
             },
           },
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              plugins: function () {
-                return [
-                  postcssMixins,
-                  postcssImport,
-                  postcssVars,
-                  autoprefixer({
-                    browsers: ['last 3 versions', 'Safari >= 8', 'iOS >= 8'],
-                  }),
-                ]
-              },
-            },
-          },
+          { loader: 'postcss-loader' },
         ],
       },
       {
