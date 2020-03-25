@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const path = require('path')
 const webpack = require('webpack')
 const envsub = require('envsubstr')
@@ -11,7 +13,6 @@ const { GenerateSW } = require('workbox-webpack-plugin')
 const customHtmlPlugin = require('./scripts/custom-html-plugin')
 const GenerateS3SWPrecachePlugin = require('./scripts/generate-s3-sw-precache-plugin')
 
-require('dotenv').config()
 const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH
 const bucketSuffix = branch === 'production' ? 'prod' : 'staging'
 const bucketUrl = `https://${
