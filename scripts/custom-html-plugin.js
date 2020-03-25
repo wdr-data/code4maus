@@ -10,14 +10,14 @@ module.exports = ({ entrypoint, ...options }) =>
       const files = group.getFiles().filter((file) => !file.endsWith('.map'))
 
       const baseUrl = process.env.DEPLOY_PRIME_URL || `https://${baseDomain()}`
+      const pathName = (options.filename || '').replace(/index\.html$/, '')
+      const pageUrl = baseUrl + '/' + pathName
+
       return {
         files,
         options,
         baseUrl,
-        pageUrl: `${baseUrl}/${(options.filename || '').replace(
-          /index\.html$/,
-          ''
-        )}`,
+        pageUrl,
       }
     },
     ...options,
