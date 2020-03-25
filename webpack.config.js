@@ -30,8 +30,10 @@ if ('FUNCTIONS_AWS_REGION' in process.env) {
   process.env.AWS_REGION = process.env.FUNCTIONS_AWS_REGION
 }
 
+const isEnvProduction = process.env.NODE_ENV === 'production'
+
 module.exports = {
-  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  mode: isEnvProduction ? 'production' : 'development',
   devtool: 'source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),
