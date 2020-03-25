@@ -83,17 +83,19 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          { loader: 'style-loader' },
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
-              modules: true,
+              modules: {
+                localIdentName: '[name]_[local]_[hash:base64:5]',
+                mode: 'local',
+              },
               importLoaders: 1,
-              localIdentName: '[name]_[local]_[hash:base64:5]',
-              camelCase: true,
+              localsConvention: 'camelCaseOnly',
             },
           },
-          { loader: 'postcss-loader' },
+          'postcss-loader',
         ],
       },
       {
@@ -119,19 +121,12 @@ module.exports = {
               outputPath: 'static/assets/',
             },
           },
-          { loader: 'svgo-loader' },
+          'svgo-loader',
         ],
       },
       {
         test: /\.md$/,
-        use: [
-          {
-            loader: 'babel-loader',
-          },
-          {
-            loader: 'react-markdown-loader',
-          },
-        ],
+        use: ['babel-loader', 'react-markdown-loader'],
       },
       {
         test: require.resolve('zepto'),

@@ -59,7 +59,7 @@
     "chromedriver": "^2.39.0",
     "classnames": "^2.2.5",
     "copy-webpack-plugin": "^5.0.1",
-    "css-loader": "^2.1.1",
+    "css-loader": "^3.4.2",
     "dotenv": "^7.0.0",
     "envsubstr": "^0.0.1",
     "enzyme": "^3.1.0",
