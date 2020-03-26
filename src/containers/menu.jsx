@@ -5,8 +5,7 @@ import { push } from 'redux-little-router'
 
 import { MenuComponent } from '../components/menu/menu.jsx'
 import { MenuTabs } from '../lib/routing'
-import eduGameData from '../lib/edu'
-import exampleGameData from '../lib/edu/examples'
+import { games, examples } from '../lib/edu'
 
 const tabIdToTab = {
   0: MenuTabs.edugames,
@@ -30,14 +29,16 @@ class Menu extends React.Component {
     super(props)
 
     this.state = {
-      eduGames: eduGameData.map(Menu.mapGameData),
-      examples: exampleGameData.map(Menu.mapGameData),
+      eduGames: games.map(Menu.mapGameData),
+      examples: examples.map(Menu.mapGameData),
       projects: [],
     }
   }
+
   componentDidMount() {
     this.loadUserProjects()
   }
+
   async loadUserProjects() {
     const userProjects = await (
       await fetch(`/data/projects/${this.props.userId}/index.json`)
@@ -53,6 +54,7 @@ class Menu extends React.Component {
       .sort((a, b) => b._sort - a._sort)
     this.setState({ projects })
   }
+
   static getTabId(tab) {
     const tabEntry = Object.entries(tabIdToTab).find(
       ([_key, val]) => val === tab
@@ -62,6 +64,7 @@ class Menu extends React.Component {
     }
     return parseInt(tabEntry[0])
   }
+
   render() {
     /* eslint-disable no-unused-vars */
     const { tab, userId, ...props } = this.props
