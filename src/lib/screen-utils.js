@@ -11,7 +11,7 @@ const getStageSize = (isFullScreen = false) => {
   let height =
     (window.innerHeight - layout.topBarHeight - layout.stageHeaderHeight - 8) /
     2
-  let width = (height * 4) / 3
+  let width = Math.floor((height * 4) / 3)
 
   const stageSize = {
     defaultHeight: height,
