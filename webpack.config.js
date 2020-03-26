@@ -73,6 +73,7 @@ module.exports = {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         include: [
+          path.resolve(__dirname, '.storybook'),
           path.resolve(__dirname, 'src'),
           /node_modules[\\/](@wdr-data[\\/])?scratch-[^\\/]+[\\/]src/,
         ],

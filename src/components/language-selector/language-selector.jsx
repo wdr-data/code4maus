@@ -26,7 +26,7 @@ const LanguageSelector = ({ currentLocale, onChange, open, ...props }) => (
           ))}
         </select>
       ) : (
-        <React.Fragment>
+        <>
           <img
             className={classNames(styles.languageIcon, styles.disabled)}
             src={languageIcon}
@@ -35,7 +35,7 @@ const LanguageSelector = ({ currentLocale, onChange, open, ...props }) => (
             className={classNames(styles.dropdownCaret, styles.disabled)}
             src={dropdownCaret}
           />
-        </React.Fragment>
+        </>
       )}
     </div>
   </Box>

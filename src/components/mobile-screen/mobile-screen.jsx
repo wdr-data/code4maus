@@ -43,11 +43,14 @@ const MobileScreenComponent = () => (
       <div className={classNames(styles.innerWrapper, styles.firstWrapper)}>
         <p>
           Sie befinden sich auf der mobilen Seite von Programmieren mit der
-          Maus. Die eigentliche Anwendung können sie auf dem Desktop oder auf
-          dem Tablet nutzen. Bei Programmieren mit der Maus lernen Kinder ab
-          acht Jahren spielerisch erstes Programmieren. Begleitet werden sie
-          dabei von den Figuren und Sounds aus der{' '}
-          <span className={styles.boldOrange}>Sendung mit der Maus</span>.
+          Maus.{' '}
+          <strong>
+            Die eigentliche Anwendung können sie auf dem Desktop oder auf dem
+            Tablet nutzen.
+          </strong>{' '}
+          Bei Programmieren mit der Maus lernen Kinder ab acht Jahren
+          spielerisch erstes Programmieren. Begleitet werden sie dabei von den
+          Figuren und Sounds aus der <strong>Sendung mit der Maus</strong>.
           Schritt für Schritt werden sie an Variablen, Schleifen und
           Verzweigungen herangeführt und programmieren erste Animationen und
           Spiele selbst.
@@ -75,7 +78,7 @@ const MobileScreenComponent = () => (
           role="Deko-Block"
           alt="Programmieren mit der Maus"
           title="Link zu Programmieren mit der Maus bei Github"
-          className={styles.block2}
+          className={styles.block1}
           draggable={false}
           src={block2}
         />
@@ -113,11 +116,11 @@ const MobileScreenComponent = () => (
     </div>
     <div className={styles.innerWrapper}>
       <p>
-        <span className={styles.boldOrange}>Programmieren mit der Maus </span>{' '}
-        ist eine Anwendung für Desktop und iPad. Ab Mai 2019 gibt es
-        begleitendes Material für alle, die mit Kindern programmieren wollen:
-        Lehrer*innen, AGs im offenen Ganztag oder interessierte Erwachsene, die
-        zum Beispiel einen Programmiertag organisieren möchten.
+        <strong>Programmieren mit der Maus</strong> ist eine Anwendung für
+        Desktop und iPad. Es gibt begleitendes Material für alle, die mit
+        Kindern programmieren wollen: Lehrer*innen, AGs im offenen Ganztag oder
+        interessierte Erwachsene, die zum Beispiel einen Programmiertag
+        organisieren möchten.
       </p>
     </div>
     <div className={styles.blockWrapper}>

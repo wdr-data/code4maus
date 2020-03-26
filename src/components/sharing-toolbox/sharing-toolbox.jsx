@@ -273,7 +273,7 @@ const SharingModal = ({
             </Button>
           </div>
         ) : (
-          <React.Fragment>
+          <>
             {canPrint && showPrinting && (
               <Button
                 disabled={pending}
@@ -296,7 +296,7 @@ const SharingModal = ({
                 src={shareButton}
               />
             </Button>
-          </React.Fragment>
+          </>
         )}
       </Box>
       {isImage && (
@@ -493,7 +493,7 @@ const SharingToolboxComponent = ({ vm, requestStageSize }) => {
   } = useRecording(vm, () => setGifOpen(true), requestStageSize)
 
   return (
-    <React.Fragment>
+    <>
       <div className={styles.toolboxWrapper}>
         <div className={styles.toolboxBackground}>
           <div className={styles.recordingButtonWrapper}>
@@ -533,7 +533,7 @@ const SharingToolboxComponent = ({ vm, requestStageSize }) => {
           }}
         />
       )}
-    </React.Fragment>
+    </>
   )
 }
 

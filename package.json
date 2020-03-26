@@ -41,10 +41,10 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.4",
-    "@storybook/addon-actions": "^5.0.3",
-    "@storybook/addon-links": "^5.0.3",
-    "@storybook/addons": "^5.0.3",
-    "@storybook/react": "^5.0.3",
+    "@storybook/addon-actions": "^5.3.17",
+    "@storybook/addon-links": "^5.3.17",
+    "@storybook/addons": "^5.3.17",
+    "@storybook/react": "^5.3.17",
     "@types/node": "^11.11.3",
     "@wdr-data/scratch-audio": "0.1.0-prerelease.20190320154358",
     "@wdr-data/scratch-blocks": "^0.1.8",
@@ -172,6 +172,7 @@
     }
   },
   "dependencies": {
+    "@react-hook/window-size": "^1.0.13",
     "cors": "^2.8.5",
     "ejs-loader": "^0.3.3",
     "express": "^4.16.4",
