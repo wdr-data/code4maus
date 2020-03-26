@@ -412,7 +412,7 @@ class Blocks extends React.Component {
     } = this.props
     /* eslint-enable no-unused-vars */
     return (
-      <React.Fragment>
+      <>
         <BlocksComponent componentRef={this.setBlocks} {...props} />
         {this.state.prompt ? (
           <Prompt
@@ -439,7 +439,7 @@ class Blocks extends React.Component {
             onRequestClose={this.handleCustomProceduresClose}
           />
         ) : null}
-      </React.Fragment>
+      </>
     )
   }
 }

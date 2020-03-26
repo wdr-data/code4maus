@@ -10,14 +10,14 @@ function MobileScreenFallback(props) {
   const isMobile = width < 600
 
   return (
-    <React.Fragment>
+    <>
       {isMobile && (
         <div className={indexStyles.mobileOverlayRoot}>
           <LazyRender promise={loadMobileScreen()} />
         </div>
       )}
       {props.children}
-    </React.Fragment>
+    </>
   )
 }
 

@@ -23,7 +23,7 @@ const EduStageComponent = (props) => {
   const [isPreVideoModalOpen, setPreVideoModalOpen] = useState(true)
   const [isPostVideoModalOpen, setPostVideoModalOpen] = useState(true)
   return !props.isEnabled ? null : (
-    <React.Fragment>
+    <>
       {props.preVideo && isPreVideoModalOpen && (
         <Modal
           fullscreen
@@ -105,7 +105,7 @@ const EduStageComponent = (props) => {
           </Button>
         </Box>
       </Box>
-    </React.Fragment>
+    </>
   )
 }
 

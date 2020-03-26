@@ -32,7 +32,7 @@ const SpriteSelectorComponent = React.forwardRef((props, ref) => {
   }
 
   return (
-    <React.Fragment>
+    <>
       <IconWithText className={styles.label} iconSvg={CustomeIcon}>
         Figur
       </IconWithText>
@@ -77,7 +77,7 @@ const SpriteSelectorComponent = React.forwardRef((props, ref) => {
           <InlineSVG svg={AddIcon} />
         </button>
       </Box>
-    </React.Fragment>
+    </>
   )
 })
 

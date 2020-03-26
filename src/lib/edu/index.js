@@ -4,7 +4,7 @@ function importAll(context) {
   return context
     .keys()
     .sort()
-    .map(key => context(key).default)
+    .map((key) => context(key).default)
 }
 
 // This is a Webpack-specific method to load modules according to the given regex

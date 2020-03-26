@@ -185,13 +185,13 @@ class App extends Component {
     }
 
     return (
-      <React.Fragment>
+      <>
         <MobileScreenFallback>
           <IntlProvider locale="de" messages={localeDe}>
             <div className={styles.app}>{this.renderView()}</div>
           </IntlProvider>
         </MobileScreenFallback>
-      </React.Fragment>
+      </>
     )
   }
 }
