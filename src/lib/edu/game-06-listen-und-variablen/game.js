@@ -1,6 +1,6 @@
 import a003 from '../shared_assets/frage.jpg'
 import a13 from '../shared_assets/start.jpg'
-import a24 from '../04_b/assets/blitz.svg'
+import a24 from '../shared_assets/blitz.svg'
 import a33 from '../shared_assets/herz.jpg'
 import a35 from '../shared_assets/gut_gemacht.jpg'
 import maus01 from './assets/Maus_TiereRaten.svg'
