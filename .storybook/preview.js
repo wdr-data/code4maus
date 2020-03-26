@@ -7,21 +7,19 @@ import '../src/css/typography.css'
 
 const req = require.context('../src/components', true, /\.stories\.jsx?$/)
 
-const BackgroundDecorator = story => (
-  <div style={{ backgroundColor: 'darkorange', height: '100vh' }}>
+const BackgroundDecorator = (story) => (
+  <div style={{ backgroundColor: 'darkorange', minHeight: '100vh' }}>
     {story()}
   </div>
 )
 
-const mockStore = createStore(state => state, { router: {} })
+const mockStore = createStore((state) => state, { router: {} })
 
-const ReduxDecorator = story => <Provider store={mockStore}>{story()}</Provider>
+const ReduxDecorator = (story) => (
+  <Provider store={mockStore}>{story()}</Provider>
+)
 
 addDecorator(BackgroundDecorator)
 addDecorator(ReduxDecorator)
 
-function loadStories() {
-  req.keys().forEach(filename => req(filename))
-}
-
-configure(loadStories, module)
+configure(req, module)
