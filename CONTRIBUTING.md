@@ -21,6 +21,22 @@ export AWS_PROFILE=hackingstudio
 yarn assets:download
 ```
 
+## Run the project
+
+```sh
+yarn start
+```
+
+Open http://localhost:8601 and wait for the build to finish.
+
+To also use the save functionality, run:
+
+```sh
+yarn start:backend
+```
+
+This will only work if you have a current AWS_PROFILE with access to the buckets.
+
 ## Add a new Game
 
 The games and examples are placed inside `src/lib/edu`. They are loaded automatically as long as the folders have the `game` or `example` prefix. In the frontend, they are ordered alpabetically by the name of their folder. (So you can use numbers to sort them!)
@@ -64,7 +80,7 @@ export default {
       // The asset can be a `svg`, `png`, `jpg`, `gif` or `mp4`
       asset: require('./assets/slide-01.svg'),
       // You can define a caption that is display above the asset
-      caption: 'Where is my green pullover?'
+      caption: 'Where is my green pullover?',
     },
   ],
 }
@@ -72,7 +88,7 @@ export default {
 
 ### Limit available blocks
 
-If you want to overwrite the categories and blocks in your game, you can add a `blocks` array to your  `game.js`. (By default, all categories and blocks will be displayed.)
+If you want to overwrite the categories and blocks in your game, you can add a `blocks` array to your `game.js`. (By default, all categories and blocks will be displayed.)
 
 ```js
 // game.js
@@ -83,13 +99,7 @@ export default {
   blocks: [
     {
       category: 'motion',
-      blocks: [
-        'movesteps',
-        'turnright',
-        'turnleft',
-        '--',
-        'gotoxy',
-      ],
+      blocks: ['movesteps', 'turnright', 'turnleft', '--', 'gotoxy'],
     },
     {
       category: 'sound',
@@ -100,6 +110,7 @@ export default {
 ```
 
 `category` can have these values:
+
 - `motion`
 - `looks`
 - `sound`
@@ -118,36 +129,36 @@ export default {
 - save project
 - download project and change .sb to .zip
 - unpack .zip
-- open project.json in vs code, str+shift+p ```format document```
+- open project.json in vs code, str+shift+p `format document`
 - then change the name of the new sprites in project.json
-- In your terminal in folder code4maus run ```yarn import-sprites all ../sprites_import/wurst/project.json start``` with adjusted path to the folder you just downloaded
-This will change these files:
-src/lib/libraries/sprites.json
-src/lib/libraries/costumes.json
-src/lib/libraries/sounds.json
+- In your terminal in folder code4maus run `yarn import-sprites all ../sprites_import/wurst/project.json start` with adjusted path to the folder you just downloaded
+  This will change these files:
+  src/lib/libraries/sprites.json
+  src/lib/libraries/costumes.json
+  src/lib/libraries/sounds.json
 
 ## Change blocks translations
 
 1. Change translation in scratch-blocks/patch-translations
-German translations are found in this file: `scratch-blocks/msg/scratch_msgs.js`
+   German translations are found in this file: `scratch-blocks/msg/scratch_msgs.js`
 
 2. Change package.json in scratch-blocks/patch-translations
-Then add +1 to the version of the package in the [package.json](package.json):
-`"version": "0.1.3`"`
+   Then add +1 to the version of the package in the [package.json](package.json):
+   `"version": "0.1.3`"`
 
 3. Commit to scratch-blocks/patch-translations
-Git commit the changes.
+   Git commit the changes.
 
 4. Release to npm
-Now you can release the changes as a new version to npm:
-`npm publish --access public`
-If you are doing this for the first time on your machine, you have to run:
-`npm login`
-and sign in with username, password and email.
+   Now you can release the changes as a new version to npm:
+   `npm publish --access public`
+   If you are doing this for the first time on your machine, you have to run:
+   `npm login`
+   and sign in with username, password and email.
 
 5. Push to scratch-blocks/patch-translations
-Push your commit to scratch-blocks/patch/translations
+   Push your commit to scratch-blocks/patch/translations
 
 6. Add the new version to code4maus/develop
-Change to the code4maus repo and add the new version:
-`yarn add --dev @wdr-data/scratch-blocks`
+   Change to the code4maus repo and add the new version:
+   `yarn add --dev @wdr-data/scratch-blocks`

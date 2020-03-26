@@ -1,27 +1,15 @@
 import nanoid from 'nanoid'
 import initS3 from './lib/s3'
+import * as respond from './lib/respond'
 
 const s3 = initS3()
 
 const getKey = (user, path = 'index.json') => `data/projects/${user}/${path}`
 
-const injectReplyJson = (handler) => (event, context, callback) =>
-  handler(event, context, (code, body) =>
-    callback(null, {
-      statusCode: code,
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    })
-  )
-
-export const handler = injectReplyJson(async (event, _context, reply) => {
+export const handler = async (event) => {
   const { data, id, name, userId } = JSON.parse(event.body)
   if (!data || !name || !userId) {
-    return reply(400, {
-      error: 'Parameters missing in request.',
-    })
+    return respond.error(400, 'Parameters missing in request.')
   }
 
   const projectId = id || nanoid()
@@ -42,9 +30,7 @@ export const handler = injectReplyJson(async (event, _context, reply) => {
       .promise()
   } catch (e) {
     console.error(e) // eslint-disable-line no-console
-    return reply(500, {
-      error: 'Saving failed.',
-    })
+    return respond.error(500, 'Cannot upload file.')
   }
 
   if (name) {
@@ -96,7 +82,5 @@ export const handler = injectReplyJson(async (event, _context, reply) => {
     }
   }
 
-  reply(200, {
-    id: projectId,
-  })
-})
+  return respond.json(200, { id: projectId })
+}

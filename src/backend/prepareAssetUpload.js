@@ -1,4 +1,5 @@
 import initS3 from './lib/s3'
+import * as respond from './lib/respond'
 
 const customEndpoint =
   'STORAGE_ENDPOINT_FRONTEND' in process.env
@@ -6,19 +7,11 @@ const customEndpoint =
     : null
 const s3 = initS3(customEndpoint)
 
-export const handler = async (event, _context, callback) => {
+export const handler = async (event) => {
   const { filename } = JSON.parse(event.body)
+
   if (!filename) {
-    callback(null, {
-      statusCode: 400,
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        error: "Request parameter 'Key' missing.",
-      }),
-    })
-    return
+    return respond.error(400, "Missing request body key 'filename'.")
   }
 
   const params = {
@@ -26,31 +19,13 @@ export const handler = async (event, _context, callback) => {
     Key: `data/assets/${filename}`,
   }
 
-  // check for existence of asset
   try {
     await s3.headObject(params).promise()
-    callback(null, {
-      statusCode: 409,
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        exists: true,
-      }),
-    })
-    return
-  } catch (e) {
-    // pass
+    return respond.error(409, 'Asset already exists.', { exists: true })
+  } catch (_error) {
+    // Asset does not exist, which is good. Just continue.
   }
 
-  const presignedUrl = s3.getSignedUrl('putObject', params)
-  callback(null, {
-    statusCode: 200,
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      uploadUrl: presignedUrl,
-    }),
-  })
+  const uploadUrl = s3.getSignedUrl('putObject', params)
+  return respond.json(200, { uploadUrl })
 }

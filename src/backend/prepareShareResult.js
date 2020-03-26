@@ -1,9 +1,10 @@
 import shortid from 'shortid'
 import initS3 from './lib/s3'
+import * as respond from './lib/respond'
 
 const s3 = initS3()
 
-export const handler = async (_event, _context, _callback) => {
+export const handler = async (_event) => {
   const bucket = process.env.STORAGE_BUCKET || process.env.S3_BUCKET_PROJECTS
 
   let unique = false
@@ -16,30 +17,24 @@ export const handler = async (_event, _context, _callback) => {
         Bucket: bucket,
         Key: `data/sharing/${sharingKey}`,
       }
+
+      // If this throws, the file does not exists:
+      // we have a unique ID and thus can continue
       await s3.headObject(params).promise()
     } catch (err) {
       unique = true
     }
+
     if (unique) {
       break
     }
   }
+
   if (!unique) {
-    return {
-      statusCode: 500,
-      body: 'unable to find unique id for shared object',
-    }
+    return respond.error(500, 'Unable to create a unique sharing id.')
   }
 
-  const presignedUrl = s3.getSignedUrl('putObject', params)
-  return {
-    statusCode: 200,
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      uploadUrl: presignedUrl,
-      sharingKey,
-    }),
-  }
+  const uploadUrl = s3.getSignedUrl('putObject', params)
+
+  return respond.json(200, { uploadUrl, sharingKey })
 }
