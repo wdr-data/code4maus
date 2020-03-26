@@ -137,28 +137,8 @@ export default {
   src/lib/libraries/costumes.json
   src/lib/libraries/sounds.json
 
-## Change blocks translations
+## Patched block translations
 
-1. Change translation in scratch-blocks/patch-translations
-   German translations are found in this file: `scratch-blocks/msg/scratch_msgs.js`
+Some of the official Scratch translations may be a bit hard to understand for kids, so we overwrite some of them. All translations can be found in `src/scratch-patches/german.json`
 
-2. Change package.json in scratch-blocks/patch-translations
-   Then add +1 to the version of the package in the [package.json](package.json):
-   `"version": "0.1.3`"`
-
-3. Commit to scratch-blocks/patch-translations
-   Git commit the changes.
-
-4. Release to npm
-   Now you can release the changes as a new version to npm:
-   `npm publish --access public`
-   If you are doing this for the first time on your machine, you have to run:
-   `npm login`
-   and sign in with username, password and email.
-
-5. Push to scratch-blocks/patch-translations
-   Push your commit to scratch-blocks/patch/translations
-
-6. Add the new version to code4maus/develop
-   Change to the code4maus repo and add the new version:
-   `yarn add --dev @wdr-data/scratch-blocks`
+When you update `scratch-blocks` (`yarn install scratch-blocks@latest`), make sure to run `node ./scripts/extract-german-translations.js` to extract the latest versions of the german translation. After that, you should change your `git diff` to make sure to keep all custom translations that you want to keep.

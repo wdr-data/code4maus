@@ -2121,14 +2121,6 @@
     minilog "^3.0.1"
     startaudiocontext "1.2.1"
 
-"@wdr-data/scratch-blocks@^0.1.8":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@wdr-data/scratch-blocks/-/scratch-blocks-0.1.8.tgz#32bf2528a4f76c72ad89cfe807035e12bcbde676"
-  integrity sha512-lBGBz4SfikYVNWA0w6fAWDngoAj48YqlOIKmKn5m9zIn8oHVSOuRItMDDBEfl5Ns9TmjaCIj4lCF0lXRzWD8lg==
-  dependencies:
-    exports-loader "0.6.3"
-    imports-loader "0.6.5"
-
 "@wdr-data/scratch-vm@0.2.0-minimal-5":
   version "0.2.0-minimal-5"
   resolved "https://registry.yarnpkg.com/@wdr-data/scratch-vm/-/scratch-vm-0.2.0-minimal-5.tgz#80efe2fd21e79f5f3024a9f81de239b6218a98dd"
@@ -14220,6 +14212,14 @@ schema-utils@^2.0.1, schema-utils@^2.5.0, schema-utils@^2.6.0, schema-utils@^2.6
   dependencies:
     ajv "^6.12.0"
     ajv-keywords "^3.4.1"
+
+scratch-blocks@^0.1.0-prerelease.1585138708:
+  version "0.1.0-prerelease.1585138708"
+  resolved "https://registry.yarnpkg.com/scratch-blocks/-/scratch-blocks-0.1.0-prerelease.1585138708.tgz#8aae3e7bc11fbb6491e61f2a0110c11b2db37ceb"
+  integrity sha512-36UhpFoqVZg79nvZi9lxn0nmZ5hOQqIyIELMmogfwMl5CsRE4HfcjiLizDY/ORm6H5zH/AS1SFmiG78YNCnN+A==
+  dependencies:
+    exports-loader "0.6.3"
+    imports-loader "0.6.5"
 
 scratch-l10n@3.1.20190220143732:
   version "3.1.20190220143732"
