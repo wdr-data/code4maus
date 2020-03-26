@@ -8,6 +8,7 @@ import { v4 as uuid } from 'uuid'
 import { replace } from 'redux-little-router'
 
 import { Workbox } from 'workbox-window'
+import styles from '../css/index.css'
 import { Views } from '../lib/routing'
 import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx'
 import AppStateHOC from '../lib/app-state-hoc.jsx'
@@ -30,7 +31,7 @@ import Menu from './menu.jsx'
 import WelcomeScreen from './welcome-screen.jsx'
 import LazyRender from './lazy-render.jsx'
 import Content from './content.jsx'
-import MobileScreen from './mobile-screen.jsx'
+import MobileScreenFallback from './mobile-screen-fallback.jsx'
 
 addLocaleData(de)
 
@@ -185,10 +186,11 @@ class App extends Component {
 
     return (
       <React.Fragment>
-        <IntlProvider locale="de" messages={localeDe}>
-          {this.renderView()}
-        </IntlProvider>
-        <MobileScreen />
+        <MobileScreenFallback>
+          <IntlProvider locale="de" messages={localeDe}>
+            <div className={styles.app}>{this.renderView()}</div>
+          </IntlProvider>
+        </MobileScreenFallback>
       </React.Fragment>
     )
   }
