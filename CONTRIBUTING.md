@@ -1,4 +1,4 @@
-# Development
+# Contributing
 
 ## Initial Setup
 
