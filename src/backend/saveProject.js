@@ -3,7 +3,6 @@ import initS3 from './lib/s3'
 import * as respond from './lib/respond'
 
 const s3 = initS3()
-
 const getKey = (user, path = 'index.json') => `data/projects/${user}/${path}`
 
 export const handler = async (event) => {
