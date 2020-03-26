@@ -18,8 +18,7 @@ export const handler = async (_event) => {
         Key: `data/sharing/${sharingKey}`,
       }
 
-      // If this throws, the file does not exists:
-      // we have a unique ID and thus can continue
+      // If this throws, the file does not exists, which means we've found a unique id
       await s3.headObject(params).promise()
     } catch (err) {
       unique = true
