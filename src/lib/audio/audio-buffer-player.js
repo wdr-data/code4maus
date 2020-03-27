@@ -1,4 +1,4 @@
-import SharedAudioContext from './shared-audio-context.js'
+import SharedAudioContext from 'audio-context'
 
 class AudioBufferPlayer {
   constructor(samples, sampleRate) {
