@@ -2,7 +2,7 @@ import AudioEngine from 'scratch-audio'
 import SharedAudioContext from 'audio-context'
 import PropTypes from 'prop-types'
 import React from 'react'
-import VM from '@wdr-data/scratch-vm'
+import VM from 'scratch-vm'
 import { connect } from 'react-redux'
 import flow from 'lodash.flowright'
 

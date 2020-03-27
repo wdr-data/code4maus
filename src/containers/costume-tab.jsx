@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import bindAll from 'lodash.bindall'
 import { defineMessages, intlShape, injectIntl } from 'react-intl'
-import VM from '@wdr-data/scratch-vm'
+import VM from 'scratch-vm'
 
 import { connect } from 'react-redux'
 import AssetPanel from '../components/asset-panel/asset-panel.jsx'

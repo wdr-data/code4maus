@@ -3,7 +3,7 @@ import debounce from 'lodash.debounce'
 import defaultsDeep from 'lodash.defaultsdeep'
 import PropTypes from 'prop-types'
 import React from 'react'
-import VM from '@wdr-data/scratch-vm'
+import VM from 'scratch-vm'
 
 import { connect } from 'react-redux'
 import errorBoundaryHOC from '../lib/error-boundary-hoc.jsx'

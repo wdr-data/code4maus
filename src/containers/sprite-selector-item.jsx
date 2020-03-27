@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 
-import VM from '@wdr-data/scratch-vm'
+import VM from 'scratch-vm'
 import { SVGRenderer } from 'scratch-svg-renderer'
 import { setHoveredSprite } from '../reducers/hovered-target'
 import { updateAssetDrag } from '../reducers/asset-drag'

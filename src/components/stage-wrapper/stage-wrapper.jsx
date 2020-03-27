@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import VM from '@wdr-data/scratch-vm'
+import VM from 'scratch-vm'
 
 import Stage from '../../containers/stage.jsx'
 

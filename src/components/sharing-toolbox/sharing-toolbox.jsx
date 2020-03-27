@@ -8,7 +8,7 @@ import React, {
 } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import VM from '@wdr-data/scratch-vm'
+import VM from 'scratch-vm'
 import QRCode from 'qrcode.react'
 import html2canvas from 'html2canvas'
 import JsPDF from 'jspdf'
