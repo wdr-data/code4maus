@@ -2,9 +2,9 @@ import bindAll from 'lodash.bindall'
 import defaultsDeep from 'lodash.defaultsdeep'
 import PropTypes from 'prop-types'
 import React from 'react'
-import ScratchBlocks from 'patched-scratch-blocks'
 import { connect } from 'react-redux'
 import CustomProceduresComponent from '../components/custom-procedures/custom-procedures.jsx'
+import ScratchBlocks from '../scratch-patches/scratch-blocks'
 
 class CustomProcedures extends React.Component {
   constructor(props) {

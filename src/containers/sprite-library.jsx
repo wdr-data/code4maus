@@ -2,7 +2,7 @@ import bindAll from 'lodash.bindall'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { injectIntl, intlShape, defineMessages } from 'react-intl'
-import VM from '@wdr-data/scratch-vm'
+import VM from 'scratch-vm'
 
 import spriteLibraryContent from '../lib/libraries/sprites.json'
 import spriteTags from '../lib/libraries/sprite-tags'

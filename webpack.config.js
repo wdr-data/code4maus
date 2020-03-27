@@ -67,14 +67,6 @@ module.exports = {
     filename: '[name].[contenthash].js',
     publicPath: '/',
   },
-  resolve: {
-    alias: {
-      'patched-scratch-blocks': path.resolve(
-        __dirname,
-        'src/scratch-patches/scratch-blocks.js'
-      ),
-    },
-  },
   module: {
     rules: [
       {
@@ -83,7 +75,7 @@ module.exports = {
         include: [
           path.resolve(__dirname, '.storybook'),
           path.resolve(__dirname, 'src'),
-          /node_modules[\\/](@wdr-data[\\/])?scratch-[^\\/]+[\\/]src/,
+          /node_modules\/scratch-[^\\/]+[\\/]src/,
         ],
         options: {
           // Explicitly disable babelrc so we don't catch various config

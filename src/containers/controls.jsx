@@ -1,7 +1,7 @@
 import bindAll from 'lodash.bindall'
 import PropTypes from 'prop-types'
 import React from 'react'
-import VM from '@wdr-data/scratch-vm'
+import VM from 'scratch-vm'
 
 import ControlsComponent from '../components/controls/controls.jsx'
 

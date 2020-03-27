@@ -1,4 +1,4 @@
-import ScratchBlocks from 'patched-scratch-blocks'
+import ScratchBlocks from '../scratch-patches/scratch-blocks'
 
 /**
  * Connect scratch blocks with the vm

@@ -5,7 +5,7 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import tabStyles from 'react-tabs/style/react-tabs.css'
 import { Fragment as RouterFragment, Link } from 'redux-little-router'
-import VM from '@wdr-data/scratch-vm'
+import VM from 'scratch-vm'
 import Renderer from 'scratch-render'
 
 import Blocks from '../../containers/blocks.jsx'

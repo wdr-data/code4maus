@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 global.window = {} // scratch-blocks expects a global window, but this is enough to make it behave
 
 const fs = require('fs')

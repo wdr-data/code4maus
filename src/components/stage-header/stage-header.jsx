@@ -1,7 +1,7 @@
 import { injectIntl, intlShape } from 'react-intl'
 import PropTypes from 'prop-types'
 import React from 'react'
-import VM from '@wdr-data/scratch-vm'
+import VM from 'scratch-vm'
 import { Link } from 'redux-little-router'
 
 import Controls from '../../containers/controls.jsx'

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import {
   serializeSounds,
   serializeCostumes,
-} from '@wdr-data/scratch-vm/src/serialization/serialize-assets'
+} from 'scratch-vm/src/serialization/serialize-assets'
 import { setProjectName, setProjectId } from '../reducers/project'
 import { setProjectUnchanged } from '../reducers/project-changed'
 import { projectUrl } from './routing'
