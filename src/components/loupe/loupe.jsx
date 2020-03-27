@@ -70,6 +70,8 @@ class LoupeComponent extends React.Component {
       <canvas
         className={styles.colorPicker}
         ref={this.setCanvas}
+        width={colorInfo.width}
+        height={colorInfo.height}
         style={{
           top: colorInfo.y - (zoomScale * colorInfo.height) / 2,
           left: colorInfo.x - (zoomScale * colorInfo.width) / 2,
