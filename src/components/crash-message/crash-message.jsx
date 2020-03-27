@@ -6,7 +6,6 @@
 
 import PropTypes from 'prop-types'
 import React from 'react'
-import Box from '../box/box.jsx'
 import Button from '../button/button.jsx'
 
 import styles from './crash-message.css'
@@ -14,7 +13,7 @@ import reloadIcon from './reload.svg'
 
 const CrashMessage = (props) => (
   <div className={styles.crashWrapper}>
-    <Box className={styles.body}>
+    <div className={styles.body}>
       <img className={styles.reloadIcon} src={reloadIcon} />
       <h2>Upps! Da ist was schief gelaufen.</h2>
       <p>
@@ -24,7 +23,7 @@ const CrashMessage = (props) => (
       <Button style="primary" onClick={props.onReload}>
         Neu laden
       </Button>
-    </Box>
+    </div>
   </div>
 )
 CrashMessage.propTypes = {

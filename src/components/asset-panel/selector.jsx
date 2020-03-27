@@ -3,7 +3,6 @@ import React from 'react'
 
 import SpriteSelectorItem from '../../containers/sprite-selector-item.jsx'
 
-import Box from '../box/box.jsx'
 import ActionMenu from '../action-menu/action-menu.jsx'
 import styles from './selector.css'
 
@@ -21,15 +20,15 @@ const Selector = (props) => {
 
   if (buttons.length > 0) {
     newButtonSection = (
-      <Box className={styles.newButtons}>
+      <div className={styles.newButtons}>
         <ActionMenu moreButtons={buttons} />
-      </Box>
+      </div>
     )
   }
 
   return (
-    <Box className={styles.wrapper}>
-      <Box className={styles.listArea}>
+    <div className={styles.wrapper}>
+      <div className={styles.listArea}>
         {items.map((item, index) => (
           <SpriteSelectorItem
             asset={item.asset}
@@ -48,9 +47,9 @@ const Selector = (props) => {
             onDuplicateButtonClick={onDuplicateClick}
           />
         ))}
-      </Box>
+      </div>
       {newButtonSection}
-    </Box>
+    </div>
   )
 }
 

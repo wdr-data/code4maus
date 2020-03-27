@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import Box from '../box/box.jsx'
+
 import Meter from '../meter/meter.jsx'
 import Waveform from '../waveform/waveform.jsx'
 
@@ -8,12 +8,12 @@ import styles from './record-modal.css'
 import stopIcon from './icon--stop-recording.svg'
 
 const RecordingStep = (props) => (
-  <Box>
-    <Box className={styles.visualizationContainer}>
-      <Box className={styles.meterContainer}>
+  <div>
+    <div className={styles.visualizationContainer}>
+      <div className={styles.meterContainer}>
         <Meter height={172} level={props.level} width={20} />
-      </Box>
-      <Box className={styles.waveformContainer}>
+      </div>
+      <div className={styles.waveformContainer}>
         {props.levels ? (
           <Waveform data={props.levels} height={150} level={0} width={440} />
         ) : (
@@ -23,9 +23,9 @@ const RecordingStep = (props) => (
               : '↖️ \u00A0We need your permission to use your microphone'}
           </span>
         )}
-      </Box>
-    </Box>
-    <Box className={styles.mainButtonRow}>
+      </div>
+    </div>
+    <div className={styles.mainButtonRow}>
       <button
         className={styles.mainButton}
         disabled={!props.listening}
@@ -55,8 +55,8 @@ const RecordingStep = (props) => (
           </span>
         </div>
       </button>
-    </Box>
-  </Box>
+    </div>
+  </div>
 )
 RecordingStep.propTypes = {
   level: PropTypes.number,

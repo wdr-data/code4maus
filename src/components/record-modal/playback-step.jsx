@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { defineMessages, injectIntl, intlShape } from 'react-intl'
-import Box from '../box/box.jsx'
+
 import Waveform from '../waveform/waveform.jsx'
 import Meter from '../meter/meter.jsx'
 import AudioTrimmer from '../../containers/audio-trimmer.jsx'
@@ -40,12 +40,12 @@ const messages = defineMessages({
 })
 
 const PlaybackStep = (props) => (
-  <Box>
-    <Box className={styles.visualizationContainer}>
-      <Box className={styles.meterContainer}>
+  <div>
+    <div className={styles.visualizationContainer}>
+      <div className={styles.meterContainer}>
         <Meter height={172} level={0} width={20} />
-      </Box>
-      <Box className={styles.waveformContainer}>
+      </div>
+      <div className={styles.waveformContainer}>
         <Waveform data={props.levels} height={150} level={0} width={480} />
         <AudioTrimmer
           playhead={props.playhead}
@@ -54,9 +54,9 @@ const PlaybackStep = (props) => (
           onSetTrimEnd={props.onSetTrimEnd}
           onSetTrimStart={props.onSetTrimStart}
         />
-      </Box>
-    </Box>
-    <Box className={styles.mainButtonRow}>
+      </div>
+    </div>
+    <div className={styles.mainButtonRow}>
       <button
         className={styles.mainButton}
         onClick={props.playing ? props.onStopPlaying : props.onPlay}
@@ -70,8 +70,8 @@ const PlaybackStep = (props) => (
           </span>
         </div>
       </button>
-    </Box>
-    <Box className={styles.buttonRow}>
+    </div>
+    <div className={styles.buttonRow}>
       <button className={styles.cancelButton} onClick={props.onBack}>
         <img draggable={false} src={backIcon} />
         {props.intl.formatMessage(messages.reRecordMsg)}
@@ -85,8 +85,8 @@ const PlaybackStep = (props) => (
           ? props.intl.formatMessage(messages.loadingMsg)
           : props.intl.formatMessage(messages.saveMsg)}
       </button>
-    </Box>
-  </Box>
+    </div>
+  </div>
 )
 PlaybackStep.propTypes = {
   encoding: PropTypes.bool.isRequired,

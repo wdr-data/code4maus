@@ -19,7 +19,6 @@ import TargetPane from '../../containers/target-pane.jsx'
 import ProjectSaver from '../../containers/project-saver.jsx'
 import SBFileUploader from '../../containers/sb-file-uploader.jsx'
 
-import Box from '../box/box.jsx'
 import Button from '../button/button.jsx'
 import EduStage from '../edu-stage/edu-stage.jsx'
 import Input from '../forms/input.jsx'
@@ -82,7 +81,7 @@ const GUIComponent = (props) => {
   /* eslint-enable */
 
   if (children) {
-    return <Box {...componentProps}>{children}</Box>
+    return <div {...componentProps}>{children}</div>
   }
 
   const offline = navigator.onLine
@@ -104,7 +103,7 @@ const GUIComponent = (props) => {
   }
 
   return (
-    <Box className={styles.pageWrapper} {...componentProps}>
+    <div className={styles.pageWrapper} {...componentProps}>
       {loading ? <Loader /> : null}
       {saveProjectVisible ? (
         <ModalComponent
@@ -112,9 +111,9 @@ const GUIComponent = (props) => {
           contentLabel="Wie soll dein Spiel heißen?"
           onRequestClose={onSaveModalClose}
         >
-          <Box className={styles.savingOverlay} hidden={!isSaving}>
+          <div className={styles.savingOverlay} hidden={!isSaving}>
             <Spinner />
-          </Box>
+          </div>
           <Input
             placeholder="Hier eintippen, wie dein Spiel heißen soll"
             id="save_input"
@@ -122,7 +121,7 @@ const GUIComponent = (props) => {
             value={projectName}
           />
           {offline ? (
-            <Box className={styles.saveModalActions}>
+            <div className={styles.saveModalActions}>
               <p>{saveProjectError}</p>
               <Button
                 style="primary"
@@ -131,19 +130,21 @@ const GUIComponent = (props) => {
               >
                 Speichern
               </Button>
-            </Box>
+            </div>
           ) : (
-            <Box className={styles.saveModalActions}>
+            <div className={styles.saveModalActions}>
               <FormattedMessage
                 defaultMessage="Du bist aktuell Offline und kannst deine Arbeit nur auf deinen Rechner runterladen und nicht im Internet speichern"
                 id="gui.gui.offline"
               />
-            </Box>
+            </div>
           )}
-          <Box
-            direction="row"
-            justifyContent="center"
-            style={{ display: 'flex' }}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
+            }}
           >
             <ProjectSaver name={projectName}>
               {(downloadProject) => (
@@ -168,12 +169,12 @@ const GUIComponent = (props) => {
                 </Button>
               )}
             </SBFileUploader>
-          </Box>
+          </div>
         </ModalComponent>
       ) : null}
       {isRendererSupported ? null : <WebGlModal />}
-      <Box className={styles.header} role="header">
-        <Box className={styles.column}>
+      <div className={styles.header} role="header">
+        <div className={styles.column}>
           <img
             alt="Logo WDR"
             title="Logo WDR"
@@ -203,20 +204,20 @@ const GUIComponent = (props) => {
           >
             <TabList className={tabClassNames.tabList}>
               <Tab className={tabClassNames.tab}>
-                <Box className={styles.tabContent}>
+                <div className={styles.tabContent}>
                   <img draggable={false} src={codeIcon} />
                   <FormattedMessage
                     defaultMessage="Code"
                     description="Button to get to the code panel"
                     id="gui.gui.codeTab"
                   />
-                </Box>
+                </div>
               </Tab>
               <Tab
                 className={tabClassNames.tab}
                 onClick={onActivateCostumesTab}
               >
-                <Box className={styles.tabContent}>
+                <div className={styles.tabContent}>
                   <img draggable={false} src={costumesIcon} />
                   {targetIsStage ? (
                     <FormattedMessage
@@ -231,25 +232,25 @@ const GUIComponent = (props) => {
                       id="gui.gui.costumesTab"
                     />
                   )}
-                </Box>
+                </div>
               </Tab>
               <Tab className={tabClassNames.tab} onClick={onActivateSoundsTab}>
-                <Box className={styles.tabContent}>
+                <div className={styles.tabContent}>
                   <img draggable={false} src={soundsIcon} />
                   <FormattedMessage
                     defaultMessage="Töne"
                     description="Button to get to the sounds panel"
                     id="gui.gui.soundsTab"
                   />
-                </Box>
+                </div>
               </Tab>
             </TabList>
             <TabPanel />
             <TabPanel />
             <TabPanel />
           </Tabs>
-        </Box>
-        <Box className={styles.column}>
+        </div>
+        <div className={styles.column}>
           <img
             role="heading"
             alt="Programmieren mit der Maus"
@@ -258,14 +259,14 @@ const GUIComponent = (props) => {
             draggable={false}
             src={headLogo}
           />
-        </Box>
-        <Box className={classNames(styles.column, styles.columnButtons)}>
+        </div>
+        <div className={classNames(styles.column, styles.columnButtons)}>
           <StageHeader vm={vm} />
-        </Box>
-      </Box>
+        </div>
+      </div>
 
-      <Box className={styles.bodyWrapper} role="main">
-        <Box className={styles.editorWrapper}>
+      <div className={styles.bodyWrapper} role="main">
+        <div className={styles.editorWrapper}>
           <Tabs
             className={tabClassNames.tabs}
             forceRenderTabPanel={true} // eslint-disable-line react/jsx-boolean-value
@@ -282,13 +283,12 @@ const GUIComponent = (props) => {
             <TabPanel
               className={[tabClassNames.tabPanel, styles.codePanelWrapper]}
             >
-              <Box className={styles.codeTopRow}>
-                <Box
+              <div className={styles.codeTopRow}>
+                <div
                   className={styles.blocksWrapper}
                   aria-label="Scratch Blocks"
                 >
                   <Blocks
-                    grow={1}
                     isVisible={blocksTabVisible}
                     options={{
                       media: `${basePath}static/blocks-media/`,
@@ -309,10 +309,10 @@ const GUIComponent = (props) => {
                       title="Coding Area"
                     />
                   </Button>
-                </Box>
+                </div>
                 <StageSizeConsumer>
                   {(stageSize) => (
-                    <Box
+                    <div
                       className={styles.stageAndTargetWrapper}
                       style={{ width: stageSize.width }}
                     >
@@ -322,10 +322,10 @@ const GUIComponent = (props) => {
                         vm={vm}
                       />
                       <EduStage />
-                    </Box>
+                    </div>
                   )}
                 </StageSizeConsumer>
-              </Box>
+              </div>
               {props.eduLayerActive ? null : <TargetPane vm={vm} />}
             </TabPanel>
             <TabPanel className={tabClassNames.tabPanel}>
@@ -335,10 +335,10 @@ const GUIComponent = (props) => {
               {soundsTabVisible ? <SoundTab vm={vm} /> : null}
             </TabPanel>
           </Tabs>
-        </Box>
-      </Box>
+        </div>
+      </div>
       <DragLayer />
-    </Box>
+    </div>
   )
 }
 GUIComponent.propTypes = {

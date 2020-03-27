@@ -8,7 +8,6 @@ import fullScreenIcon from '../../../assets/blocks-media/zoom-in.svg'
 import unFullScreenIcon from '../../../assets/blocks-media/zoom-out.svg'
 import Modal from '../modal/modal.jsx'
 import Button from '../button/button.jsx'
-import Box from '../box/box.jsx'
 import {
   nextSlide,
   previousSlide,
@@ -49,14 +48,14 @@ const EduStageComponent = (props) => {
           </Modal>
         )}
       {props.isDimmed && <div className={styles.dim} />}
-      <Box
+      <div
         aria-label="Lernspiel"
         className={classNames(styles.eduWrapper, {
           [styles.fullscreen]: props.isFullscreen,
         })}
       >
-        <Box className={styles.eduHeader}>
-          <Box className={styles.caption}>{props.caption}</Box>
+        <div className={styles.eduHeader}>
+          <div className={styles.caption}>{props.caption}</div>
           <Button
             className={styles.fullscreenButton}
             onClick={props.toggleFullscreen}
@@ -68,8 +67,8 @@ const EduStageComponent = (props) => {
               title={props.isFullscreen ? 'Verkleinern' : 'Vergrößern'}
             />
           </Button>
-        </Box>
-        <Box className={styles.eduSlides}>
+        </div>
+        <div className={styles.eduSlides}>
           {props.imageSrc &&
             (props.imageSrc.split('.').pop() === 'mp4' ? (
               <video
@@ -81,8 +80,8 @@ const EduStageComponent = (props) => {
             ) : (
               <img className={styles.images} src={props.imageSrc} />
             ))}
-        </Box>
-        <Box className={styles.eduFooter}>
+        </div>
+        <div className={styles.eduFooter}>
           <Button
             arrowLeft
             style="primary"
@@ -103,8 +102,8 @@ const EduStageComponent = (props) => {
           >
             {!props.linkNextGame ? 'Weiter' : 'Nächstes Lernspiel'}
           </Button>
-        </Box>
-      </Box>
+        </div>
+      </div>
     </>
   )
 }

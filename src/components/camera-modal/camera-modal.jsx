@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { defineMessages, injectIntl, intlShape } from 'react-intl'
-import Box from '../box/box.jsx'
 import Modal from '../modal/modal.jsx'
 import cameraIcon from '../action-menu/icon--camera.svg'
 import styles from './camera-modal.css'
@@ -61,8 +60,8 @@ const CameraModal = ({ intl, ...props }) => (
     contentLabel={intl.formatMessage(messages.cameraModalTitle)}
     onRequestClose={props.onCancel}
   >
-    <Box className={styles.body}>
-      <Box className={styles.cameraFeedContainer}>
+    <div className={styles.body}>
+      <div className={styles.cameraFeedContainer}>
         <div className={styles.loadingText}>
           {props.access
             ? intl.formatMessage(messages.loadingCameraMessage)
@@ -79,9 +78,9 @@ const CameraModal = ({ intl, ...props }) => (
           width="960"
         />
         {props.capture ? <div className={styles.flashOverlay} /> : null}
-      </Box>
+      </div>
       {props.capture ? (
-        <Box className={styles.buttonRow}>
+        <div className={styles.buttonRow}>
           <button
             className={styles.cancelButton}
             key="retake-button"
@@ -94,9 +93,9 @@ const CameraModal = ({ intl, ...props }) => (
             {' '}
             {intl.formatMessage(messages.save)}
           </button>
-        </Box>
+        </div>
       ) : (
-        <Box className={styles.mainButtonRow}>
+        <div className={styles.mainButtonRow}>
           <button
             className={styles.mainButton}
             disabled={!props.loaded}
@@ -126,9 +125,9 @@ const CameraModal = ({ intl, ...props }) => (
               </span>
             )}
           </div>
-        </Box>
+        </div>
       )}
-    </Box>
+    </div>
   </Modal>
 )
 CameraModal.propTypes = {

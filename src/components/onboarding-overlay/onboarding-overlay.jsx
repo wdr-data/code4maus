@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import Box from '../box/box.jsx'
 import Button from '../button/button.jsx'
 import { NEXT_STEP, customOffsets } from '../../lib/onboarding/config'
 
@@ -104,7 +103,7 @@ const OnboardingOverlayComponent = React.forwardRef((props, ref) => {
 
   return (
     <div className={overlayClasses} ref={ref}>
-      <Box
+      <div
         className={classNames(styles.modal, {
           [styles.center]: !props.targetCoordinates,
         })}
@@ -126,7 +125,7 @@ const OnboardingOverlayComponent = React.forwardRef((props, ref) => {
             ))}
           </div>
         )}
-      </Box>
+      </div>
       {arrow}
     </div>
   )

@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
 import Modal from '../modal/modal.jsx'
-import Box from '../box/box.jsx'
 
 import booleanInputIcon from './icon--boolean-input.svg'
 import textInputIcon from './icon--text-input.svg'
@@ -16,8 +15,8 @@ const CustomProcedures = (props) => (
     contentLabel="Make a Block"
     onRequestClose={props.onCancel}
   >
-    <Box className={styles.workspace} componentRef={props.componentRef} />
-    <Box className={styles.body}>
+    <div className={styles.workspace} ref={props.componentRef} />
+    <div className={styles.body}>
       <div className={styles.optionsRow}>
         <div
           className={styles.optionCard}
@@ -93,7 +92,7 @@ const CustomProcedures = (props) => (
           />
         </label>
       </div>
-      <Box className={styles.buttonRow}>
+      <div className={styles.buttonRow}>
         <button className={styles.cancelButton} onClick={props.onCancel}>
           <FormattedMessage
             defaultMessage="Cancel"
@@ -108,8 +107,8 @@ const CustomProcedures = (props) => (
             id="gui.customProcedures.ok"
           />
         </button>
-      </Box>
-    </Box>
+      </div>
+    </div>
   </Modal>
 )
 CustomProcedures.propTypes = {

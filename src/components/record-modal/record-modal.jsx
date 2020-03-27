@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { defineMessages, injectIntl, intlShape } from 'react-intl'
-import Box from '../box/box.jsx'
+
 import RecordingStep from '../../containers/recording-step.jsx'
 import PlaybackStep from '../../containers/playback-step.jsx'
 import Modal from '../modal/modal.jsx'
@@ -21,7 +21,7 @@ const RecordModal = (props) => (
     contentLabel={props.intl.formatMessage(messages.title)}
     onRequestClose={props.onCancel}
   >
-    <Box className={styles.body}>
+    <div className={styles.body}>
       {props.samples ? (
         <PlaybackStep
           encoding={props.encoding}
@@ -47,7 +47,7 @@ const RecordModal = (props) => (
           onStopRecording={props.onStopRecording}
         />
       )}
-    </Box>
+    </div>
   </Modal>
 )
 RecordModal.propTypes = {

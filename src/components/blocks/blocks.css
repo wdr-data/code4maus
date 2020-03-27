@@ -11,6 +11,7 @@
 
 .blocks {
   position: relative;
+  flex-grow: 1;
 }
 
 .blocks :global(.injectionDiv) {

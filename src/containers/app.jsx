@@ -185,13 +185,11 @@ class App extends Component {
     }
 
     return (
-      <>
-        <MobileScreenFallback>
-          <IntlProvider locale="de" messages={localeDe}>
-            <div className={styles.app}>{this.renderView()}</div>
-          </IntlProvider>
-        </MobileScreenFallback>
-      </>
+      <MobileScreenFallback>
+        <IntlProvider locale="de" messages={localeDe}>
+          <div className={styles.app}>{this.renderView()}</div>
+        </IntlProvider>
+      </MobileScreenFallback>
     )
   }
 }

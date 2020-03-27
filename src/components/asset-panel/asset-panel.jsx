@@ -1,14 +1,13 @@
 import React from 'react'
 
-import Box from '../box/box.jsx'
 import Selector from './selector.jsx'
 import styles from './asset-panel.css'
 
 const AssetPanel = (props) => (
-  <Box className={styles.wrapper}>
+  <div className={styles.wrapper}>
     <Selector className={styles.selector} {...props} />
-    <Box className={styles.detailArea}>{props.children}</Box>
-  </Box>
+    <div className={styles.detailArea}>{props.children}</div>
+  </div>
 )
 AssetPanel.propTypes = {
   ...Selector.propTypes,

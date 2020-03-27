@@ -9,7 +9,6 @@ import fant from '../../../assets/img/fant.png'
 import headLogo from '../../../assets/img/head_logo.png'
 import screenshotEditor from '../../../assets/img/screenshot_editor.png'
 
-import Box from '../box/box.jsx'
 import InlineSVG from '../inline-svg/inline-svg.jsx'
 
 import styles from './mobile-screen.css'
@@ -17,7 +16,7 @@ import wdrLogo from '!raw-loader!../../../assets/img/wdr_logo.svg'
 import mausQuestion from '!raw-loader!../../../assets/img/maus_question.svg'
 
 const MobileScreenComponent = () => (
-  <Box className={styles.pageWrapper}>
+  <div className={styles.pageWrapper}>
     <div className={styles.logoWrapper}>
       <InlineSVG className={styles.logoWdr} svg={wdrLogo} />
     </div>
@@ -149,7 +148,7 @@ const MobileScreenComponent = () => (
     <Link className={styles.link} href="/inhalte/impressum">
       Impressum
     </Link>
-  </Box>
+  </div>
 )
 
 export default MobileScreenComponent

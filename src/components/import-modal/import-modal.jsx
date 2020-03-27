@@ -8,7 +8,6 @@ import {
   FormattedMessage,
 } from 'react-intl'
 import classNames from 'classnames'
-import Box from '../box/box.jsx'
 
 import CloseButton from '../close-button/close-button.jsx'
 
@@ -41,7 +40,7 @@ const ImportModal = ({ intl, ...props }) => (
     overlayClassName={styles.modalOverlay}
     onRequestClose={props.onCancel}
   >
-    <Box>
+    <div>
       <div className={styles.header}>
         <div className={classNames(styles.headerItem, styles.headerItemClose)}>
           <CloseButton
@@ -57,11 +56,11 @@ const ImportModal = ({ intl, ...props }) => (
           {null}
         </div>
       </div>
-    </Box>
+    </div>
 
-    <Box className={styles.body}>
+    <div className={styles.body}>
       <p>{intl.formatMessage({ ...messages.formDescription })}</p>
-      <Box
+      <div
         className={classNames(
           styles.inputRow,
           props.hasValidationError
@@ -87,15 +86,15 @@ const ImportModal = ({ intl, ...props }) => (
             id="gui.importModal.viewproject"
           />
         </button>
-      </Box>
+      </div>
       {props.hasValidationError ? (
-        <Box className={styles.errorRow}>
+        <div className={styles.errorRow}>
           <p>
             <FormattedMessage {...messages[`${props.errorMessage}`]} />
           </p>
-        </Box>
+        </div>
       ) : null}
-      <Box className={styles.buttonRow}>
+      <div className={styles.buttonRow}>
         <button onClick={props.onGoBack}>
           <FormattedMessage
             defaultMessage="Go Back"
@@ -103,8 +102,8 @@ const ImportModal = ({ intl, ...props }) => (
             id="gui.importInfo.goback"
           />
         </button>
-      </Box>
-      <Box className={styles.faqLinkText}>
+      </div>
+      <div className={styles.faqLinkText}>
         <FormattedMessage
           defaultMessage="To learn more, go to the {previewFaqLink}."
           description="Invitation to try 3.0 preview"
@@ -124,8 +123,8 @@ const ImportModal = ({ intl, ...props }) => (
             ),
           }}
         />
-      </Box>
-    </Box>
+      </div>
+    </div>
   </ReactModal>
 )
 ImportModal.propTypes = {

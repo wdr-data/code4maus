@@ -2,14 +2,13 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import classNames from 'classnames'
 
-import Box from '../box/box.jsx'
 import SpriteSelectorItem from '../../containers/sprite-selector-item.jsx'
-
-import itemStyles from '../sprite-selector-item/sprite-selector-item.css'
-
 import IconWithText from '../icon-text/icon-text.jsx'
 import InlineSVG from '../inline-svg/inline-svg.jsx'
+
+import itemStyles from '../sprite-selector-item/sprite-selector-item.css'
 import styles from './sprite-selector.css'
+
 import CustomeIcon from '!raw-loader!../../../assets/icons/target_costume.svg'
 import AddIcon from '!raw-loader!../../../assets/icons/target_add.svg'
 
@@ -36,10 +35,10 @@ const SpriteSelectorComponent = React.forwardRef((props, ref) => {
       <IconWithText className={styles.label} iconSvg={CustomeIcon}>
         Figur
       </IconWithText>
-      <Box
+      <div
         aria-label="Sprites auswählen"
         className={styles.itemsWrapper}
-        componentRef={ref}
+        ref={ref}
       >
         {Object.keys(sprites)
           // Re-order by list order
@@ -76,7 +75,7 @@ const SpriteSelectorComponent = React.forwardRef((props, ref) => {
         >
           <InlineSVG svg={AddIcon} />
         </button>
-      </Box>
+      </div>
     </>
   )
 })
