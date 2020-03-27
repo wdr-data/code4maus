@@ -4,7 +4,7 @@ import React from 'react'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import tabStyles from 'react-tabs/style/react-tabs.css'
-import { Fragment, Link } from 'redux-little-router'
+import { Fragment as RouterFragment, Link } from 'redux-little-router'
 import VM from '@wdr-data/scratch-vm'
 import Renderer from 'scratch-render'
 
@@ -188,12 +188,12 @@ const GUIComponent = (props) => {
             role="navigation"
           >
             <Link href="/">Übersicht</Link>
-            <Fragment forRoute="/lernspiel/">
+            <RouterFragment forRoute="/lernspiel/">
               <span>Lernspiel {eduId}</span>
-            </Fragment>
-            <Fragment forRoute="/projekt/">
+            </RouterFragment>
+            <RouterFragment forRoute="/projekt/">
               <span>Projekt {projectName}</span>
-            </Fragment>
+            </RouterFragment>
           </span>
           <Tabs
             forceRenderTabPanel={true} // eslint-disable-line react/jsx-boolean-value
