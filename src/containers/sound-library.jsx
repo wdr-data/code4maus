@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { defineMessages, injectIntl, intlShape } from 'react-intl'
 import VM from '@wdr-data/scratch-vm'
-import AudioEngine from '@wdr-data/scratch-audio'
-import sharedAudioContext from '../lib/audio/shared-audio-context'
+import AudioEngine from 'scratch-audio'
+import SharedAudioContext from 'audio-context'
 
 import LibraryComponent from '../components/library/library.jsx'
 
@@ -43,7 +43,7 @@ class SoundLibrary extends React.PureComponent {
     this.playingSoundPromise = null
   }
   componentDidMount() {
-    this.audioEngine = new AudioEngine(sharedAudioContext())
+    this.audioEngine = new AudioEngine(new SharedAudioContext())
     this.playingSoundPromise = null
   }
   componentWillUnmount() {

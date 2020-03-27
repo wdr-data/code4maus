@@ -67,6 +67,14 @@ module.exports = {
     filename: '[name].[contenthash].js',
     publicPath: '/',
   },
+  resolve: {
+    alias: {
+      'patched-scratch-blocks': path.resolve(
+        __dirname,
+        'src/scratch-patches/scratch-blocks.js'
+      ),
+    },
+  },
   module: {
     rules: [
       {
@@ -168,7 +176,7 @@ module.exports = {
         to: '',
       },
       {
-        from: 'node_modules/@wdr-data/scratch-blocks/media',
+        from: 'node_modules/scratch-blocks/media',
         to: 'static/blocks-media',
         ignore: ['icons/set-*', 'icons/wedo_*', 'extensions/*'],
       },
