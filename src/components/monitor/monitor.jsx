@@ -4,7 +4,7 @@ import Draggable from 'react-draggable'
 import { FormattedMessage } from 'react-intl'
 import { ContextMenuTrigger } from 'react-contextmenu'
 import { ContextMenu, MenuItem } from '../context-menu/context-menu.jsx'
-import Box from '../box/box.jsx'
+
 import SliderMonitor from '../../containers/slider-monitor.jsx'
 import ListMonitor from '../../containers/list-monitor.jsx'
 import DefaultMonitor from './default-monitor.jsx'
@@ -41,9 +41,9 @@ const MonitorComponent = (props) => (
       disabled={!props.draggable}
       onStop={props.onDragEnd}
     >
-      <Box
+      <div
         className={styles.monitorContainer}
-        componentRef={props.componentRef}
+        ref={props.componentRef}
         onDoubleClick={
           props.mode === 'list' || !props.draggable ? null : props.onNextMode
         }
@@ -52,7 +52,7 @@ const MonitorComponent = (props) => (
           categoryColor: categories[props.category],
           ...props,
         })}
-      </Box>
+      </div>
     </Draggable>
     {props.mode === 'list' ? null : (
       <ContextMenu id={`monitor-${props.label}`}>

@@ -16,7 +16,6 @@ import ffmpegWorkerPath from 'file-loader!ffmpeg.js/ffmpeg-worker-mp4' // eslint
 
 import InlineSvg from '../inline-svg/inline-svg.jsx'
 import Modal from '../modal/modal.jsx'
-import Box from '../box/box.jsx'
 import Button from '../button/button.jsx'
 import Input from '../forms/input.jsx'
 import { Spinner } from '../loader/loader.jsx'
@@ -254,7 +253,7 @@ const SharingModal = ({
           </div>
         )}
       </div>
-      <Box className={styles.buttonWrapper}>
+      <div className={styles.buttonWrapper}>
         {state.mode === 'print' ? (
           <div className={styles.inputWrapper}>
             <Input
@@ -298,7 +297,7 @@ const SharingModal = ({
             </Button>
           </>
         )}
-      </Box>
+      </div>
       {isImage && (
         <div className={styles.printLayout}>
           <PrintLayout

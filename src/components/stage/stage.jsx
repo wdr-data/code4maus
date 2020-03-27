@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import classNames from 'classnames'
 
-import Box from '../box/box.jsx'
 import DOMElementRenderer from '../../containers/dom-element-renderer.jsx'
 import Loupe from '../loupe/loupe.jsx'
 import MonitorList from '../../containers/monitor-list.jsx'
@@ -33,7 +32,7 @@ const StageComponent = (props) => {
 
   return (
     <div>
-      <Box
+      <div
         className={classNames({
           [styles.stageWrapper]: !isFullScreen,
           [styles.stageWrapperOverlay]: isFullScreen,
@@ -50,22 +49,22 @@ const StageComponent = (props) => {
           className={classNames(styles.stage, {
             [styles.stageOverlayContent]: isFullScreen,
           })}
-          domElement={canvas}
-          height={height}
           width={width}
+          height={height}
+          domElement={canvas}
           {...boxProps}
         />
         {isFullScreen ? null : <Fullscreen />}
-        <Box className={styles.monitorWrapper}>
+        <div className={styles.monitorWrapper}>
           <MonitorList
             draggable={useEditorDragStyle}
             stageSize={{ height, width }}
           />
-        </Box>
+        </div>
         {isColorPicking && colorInfo ? (
-          <Box className={styles.colorPickerWrapper}>
+          <div className={styles.colorPickerWrapper}>
             <Loupe colorInfo={colorInfo} />
-          </Box>
+          </div>
         ) : null}
         {question === null ? null : (
           <div
@@ -88,9 +87,9 @@ const StageComponent = (props) => {
           ref={dragRef}
           width={0}
         />
-      </Box>
+      </div>
       {isColorPicking ? (
-        <Box
+        <div
           className={styles.colorPickerBackground}
           onClick={onDeactivateColorPicker}
         />

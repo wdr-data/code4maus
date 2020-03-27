@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import { OrderedMap } from 'immutable'
-import Box from '../box/box.jsx'
+
 import Monitor from '../../containers/monitor.jsx'
 
 import styles from './monitor-list.css'
@@ -24,7 +24,7 @@ const stageSizeToTransform = ({
 }
 
 const MonitorList = (props) => (
-  <Box
+  <div
     // Use static `monitor-overlay` class for bounds of draggables
     className={classNames(styles.monitorList, 'monitor-overlay')}
     style={{
@@ -32,7 +32,7 @@ const MonitorList = (props) => (
       height: props.stageSize.height,
     }}
   >
-    <Box
+    <div
       className={styles.monitorListScaler}
       style={stageSizeToTransform(props.stageSize)}
     >
@@ -59,8 +59,8 @@ const MonitorList = (props) => (
             onDragEnd={props.onMonitorChange}
           />
         ))}
-    </Box>
-  </Box>
+    </div>
+  </div>
 )
 MonitorList.propTypes = {
   draggable: PropTypes.bool.isRequired,

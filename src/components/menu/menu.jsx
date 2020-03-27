@@ -6,7 +6,6 @@ import { FormattedMessage } from 'react-intl'
 import PropTypes from 'prop-types'
 import { Link } from 'redux-little-router'
 
-import Box from '../box/box.jsx'
 import MenuListing, { SHAPE_PROJECT } from '../menu-listing/menu-listing.jsx'
 import InlineSVG from '../inline-svg/inline-svg.jsx'
 import MenuButton from '../menu-button/menu-button.jsx'
@@ -40,32 +39,32 @@ export const MenuComponent = (props) => {
   }
 
   return (
-    <Box className={styles.bodyWrapper}>
-      <Box className={styles.header}>
-        <Box className={styles.firstColumn}>
+    <div className={styles.bodyWrapper}>
+      <div className={styles.header}>
+        <div className={styles.firstColumn}>
           <img
             alt="WDR"
             className={styles.logo}
             draggable={false}
             src={wdrLogo}
           />
-        </Box>
-        <Box className={styles.secondColumn}>
+        </div>
+        <div className={styles.secondColumn}>
           <img
             alt="head"
             className={styles.logoCenter}
             draggable={false}
             src={headLogo}
           />
-        </Box>
-        <Box className={styles.thirdColumn}>
+        </div>
+        <div className={styles.thirdColumn}>
           <Link href="/inhalte/impressum/" className={styles.copyright}>
             <span>&#9400; WDR {new Date().getFullYear()}</span>
           </Link>
           {useFeatureFlag(FEATURE_OFFLINE) && <OfflineSupport />}
-        </Box>
-      </Box>
-      <Box className={styles.listingWrapper}>
+        </div>
+      </div>
+      <div className={styles.listingWrapper}>
         <Tabs
           className={styles.tabs}
           forceRenderTabPanel={true} // eslint-disable-line react/jsx-boolean-value
@@ -76,49 +75,49 @@ export const MenuComponent = (props) => {
         >
           <TabList className={tabClassNames.tabList}>
             <Tab className={tabClassNames.tab}>
-              <Box className={styles.tabContent}>
+              <div className={styles.tabContent}>
                 <InlineSVG svg={tabIconEdugames} className={styles.tabIcon} />
                 <FormattedMessage
                   defaultMessage="Lernen"
                   id="gui.gui.eduGames"
                 />
-              </Box>
+              </div>
             </Tab>
             <Tab className={tabClassNames.tab}>
-              <Box className={styles.tabContent}>
+              <div className={styles.tabContent}>
                 <InlineSVG svg={tabIconProjects} className={styles.tabIcon} />
                 <FormattedMessage
                   defaultMessage="Meine Sachen"
                   id="gui.gui.games"
                 />
-              </Box>
+              </div>
             </Tab>
             <Tab className={tabClassNames.tab}>
-              <Box className={styles.tabContent}>
+              <div className={styles.tabContent}>
                 <InlineSVG svg={tabIconExamples} className={styles.tabIcon} />
                 <FormattedMessage
                   defaultMessage="Beispiele"
                   id="gui.gui.examples"
                 />
-              </Box>
+              </div>
             </Tab>
           </TabList>
           <TabPanel className={tabClassNames.tabPanel}>
-            <Box className={styles.sectionBody}>
+            <div className={styles.sectionBody}>
               <MenuListing projects={props.eduGames} />
-            </Box>
+            </div>
           </TabPanel>
           <TabPanel className={tabClassNames.tabPanel}>
-            <Box className={styles.sectionBody}>
+            <div className={styles.sectionBody}>
               <Link href="/projekt/neu" className={styles.newButton}>
                 <InlineSVG svg={buttonNew} className={styles.newButtonIcon} />
                 Neu
               </Link>
               <MenuListing projects={props.projects} />
-            </Box>
+            </div>
           </TabPanel>
           <TabPanel className={tabClassNames.tabPanel}>
-            <Box className={styles.sectionBody}>
+            <div className={styles.sectionBody}>
               {props.isOnline ? (
                 <MenuListing projects={props.examples} />
               ) : (
@@ -126,11 +125,11 @@ export const MenuComponent = (props) => {
                   Beispiele sind offline leider nicht verfügbar.
                 </p>
               )}
-            </Box>
+            </div>
           </TabPanel>
         </Tabs>
-      </Box>
-      <Box className={styles.buttonRow}>
+      </div>
+      <div className={styles.buttonRow}>
         <MenuButton iconSvg={buttonIconLehrerinnen} linkTo="/lehrkraefte">
           Lehrkräfte
         </MenuButton>
@@ -150,8 +149,8 @@ export const MenuComponent = (props) => {
         <MenuButton iconSvg={buttonIconImpressum} linkTo="/impressum">
           Impressum
         </MenuButton>
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }
 

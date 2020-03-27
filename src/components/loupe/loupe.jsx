@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import bindAll from 'lodash.bindall'
 
-import Box from '../box/box.jsx'
 import styles from './loupe.css'
 
 const zoomScale = 3
@@ -66,13 +65,12 @@ class LoupeComponent extends React.Component {
     this.canvas = element
   }
   render() {
-    const { colorInfo, ...boxProps } = this.props
+    const { colorInfo } = this.props
     return (
-      <Box
-        {...boxProps}
+      <canvas
         className={styles.colorPicker}
-        componentRef={this.setCanvas}
-        element="canvas"
+        ref={this.setCanvas}
+        width={colorInfo.width}
         height={colorInfo.height}
         style={{
           top: colorInfo.y - (zoomScale * colorInfo.height) / 2,
@@ -80,7 +78,6 @@ class LoupeComponent extends React.Component {
           width: colorInfo.width * zoomScale,
           height: colorInfo.height * zoomScale,
         }}
-        width={colorInfo.width}
       />
     )
   }

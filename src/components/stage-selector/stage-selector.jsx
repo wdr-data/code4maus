@@ -2,9 +2,7 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import Box from '../box/box.jsx'
 import CostumeCanvas from '../costume-canvas/costume-canvas.jsx'
-
 import IconWithText from '../icon-text/icon-text.jsx'
 import InlineSVG from '../inline-svg/inline-svg.jsx'
 import styles from './stage-selector.css'
@@ -30,7 +28,7 @@ const StageSelector = (props) => {
     ...componentProps
   } = props
   return (
-    <Box
+    <div
       aria-label="Hintergrund auswählen"
       className={classNames(styles.stageSelector, {
         [styles.isSelected]: selected,
@@ -58,7 +56,7 @@ const StageSelector = (props) => {
         svg={IconNew}
         onClick={onNewBackdropClick}
       />
-    </Box>
+    </div>
   )
 }
 

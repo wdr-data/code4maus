@@ -3,14 +3,11 @@ import 'es6-object-assign/auto'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import defaultStyles from '../css/defaults.css'
-import styles from '../css/settings.css'
 import ButtonComponent from '../components/button/button.jsx'
 import { useFeatureState } from '../lib/feature-flags'
 
-const appTarget = document.createElement('div')
-appTarget.className = defaultStyles.app
-document.body.appendChild(appTarget)
+import styles from '../css/settings.css'
+import '../css/defaults.css'
 
 const Settings = () => {
   const features = useFeatureState()
@@ -35,4 +32,4 @@ const Settings = () => {
   )
 }
 
-ReactDOM.render(<Settings />, appTarget)
+ReactDOM.render(<Settings />, document.getElementById('__mausapp'))

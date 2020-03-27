@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import classNames from 'classnames'
-import Box from '../box/box.jsx'
 import styles from './audio-trimmer.css'
 import handleIcon from './icon--handle.svg'
 
 const AudioTrimmer = (props) => (
   <div className={styles.absolute} ref={props.containerRef}>
     {props.trimStart === null ? null : (
-      <Box
+      <div
         className={classNames(
           styles.absolute,
           styles.trimBackground,
@@ -20,11 +19,11 @@ const AudioTrimmer = (props) => (
         onMouseDown={props.onTrimStartMouseDown}
         onTouchStart={props.onTrimStartMouseDown}
       >
-        <Box
+        <div
           className={classNames(styles.absolute, styles.trimBackgroundMask)}
         />
-        <Box className={classNames(styles.trimLine, styles.startTrimLine)}>
-          <Box
+        <div className={classNames(styles.trimLine, styles.startTrimLine)}>
+          <div
             className={classNames(
               styles.trimHandle,
               styles.topTrimHandle,
@@ -32,8 +31,8 @@ const AudioTrimmer = (props) => (
             )}
           >
             <img src={handleIcon} />
-          </Box>
-          <Box
+          </div>
+          <div
             className={classNames(
               styles.trimHandle,
               styles.bottomTrimHandle,
@@ -41,13 +40,13 @@ const AudioTrimmer = (props) => (
             )}
           >
             <img src={handleIcon} />
-          </Box>
-        </Box>
-      </Box>
+          </div>
+        </div>
+      </div>
     )}
 
     {props.playhead ? (
-      <Box
+      <div
         className={classNames(styles.trimLine, styles.playhead)}
         style={{
           left: `${100 * props.playhead}%`,
@@ -56,7 +55,7 @@ const AudioTrimmer = (props) => (
     ) : null}
 
     {props.trimEnd === null ? null : (
-      <Box
+      <div
         className={classNames(
           styles.absolute,
           styles.trimBackground,
@@ -69,11 +68,11 @@ const AudioTrimmer = (props) => (
         onMouseDown={props.onTrimEndMouseDown}
         onTouchStart={props.onTrimEndMouseDown}
       >
-        <Box
+        <div
           className={classNames(styles.absolute, styles.trimBackgroundMask)}
         />
-        <Box className={classNames(styles.trimLine, styles.endTrimLine)}>
-          <Box
+        <div className={classNames(styles.trimLine, styles.endTrimLine)}>
+          <div
             className={classNames(
               styles.trimHandle,
               styles.topTrimHandle,
@@ -81,8 +80,8 @@ const AudioTrimmer = (props) => (
             )}
           >
             <img src={handleIcon} />
-          </Box>
-          <Box
+          </div>
+          <div
             className={classNames(
               styles.trimHandle,
               styles.bottomTrimHandle,
@@ -90,9 +89,9 @@ const AudioTrimmer = (props) => (
             )}
           >
             <img src={handleIcon} />
-          </Box>
-        </Box>
-      </Box>
+          </div>
+        </div>
+      </div>
     )}
   </div>
 )

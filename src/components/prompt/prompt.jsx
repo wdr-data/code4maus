@@ -2,7 +2,6 @@ import { FormattedMessage } from 'react-intl'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import Box from '../box/box.jsx'
 import Modal from '../modal/modal.jsx'
 import Input from '../forms/input.jsx'
 import Button from '../button/button.jsx'
@@ -15,14 +14,14 @@ const PromptComponent = (props) => (
     contentLabel={props.title}
     onRequestClose={props.onCancel}
   >
-    <Box className={styles.label}>{props.label}</Box>
+    <div className={styles.label}>{props.label}</div>
     <Input
       autoFocus
       placeholder={props.placeholder}
       onChange={props.onChange}
       onKeyPress={props.onKeyPress}
     />
-    <Box className={styles.buttonRow}>
+    <div className={styles.buttonRow}>
       <Button style="secondary" onClick={props.onCancel}>
         <FormattedMessage
           defaultMessage="Abbrechen"
@@ -37,7 +36,7 @@ const PromptComponent = (props) => (
           id="gui.prompt.ok"
         />
       </Button>
-    </Box>
+    </div>
   </Modal>
 )
 PromptComponent.propTypes = {

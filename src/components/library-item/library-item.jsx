@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 import classNames from 'classnames'
-import Box from '../box/box.jsx'
 import styles from './library-item.css'
 
 class LibraryItem extends React.PureComponent {
@@ -72,7 +71,7 @@ class LibraryItem extends React.PureComponent {
         </div>
       </div>
     ) : (
-      <Box
+      <div
         className={styles.libraryItem}
         role="button"
         tabIndex="0"
@@ -84,13 +83,13 @@ class LibraryItem extends React.PureComponent {
         onMouseLeave={this.handleMouseLeave}
       >
         {/* Layers of wrapping is to prevent layout thrashing on animation */}
-        <Box className={styles.libraryItemImageContainerWrapper}>
-          <Box className={styles.libraryItemImageContainer}>
+        <div className={styles.libraryItemImageContainerWrapper}>
+          <div className={styles.libraryItemImageContainer}>
             <img className={styles.libraryItemImage} src={this.props.iconURL} />
-          </Box>
-        </Box>
+          </div>
+        </div>
         <span className={styles.libraryItemName}>{this.props.name}</span>
-      </Box>
+      </div>
     )
   }
 }

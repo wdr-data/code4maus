@@ -7,7 +7,6 @@ import {
   intlShape,
   FormattedMessage,
 } from 'react-intl'
-import Box from '../box/box.jsx'
 
 import styles from './preview-modal.css'
 import catIcon from './happy-cat.png'
@@ -28,9 +27,9 @@ const PreviewModal = ({ intl, ...props }) => (
     overlayClassName={styles.modalOverlay}
     onRequestClose={props.onTryIt}
   >
-    <Box className={styles.illustration} />
+    <div className={styles.illustration} />
 
-    <Box className={styles.body}>
+    <div className={styles.body}>
       <h2>
         <FormattedMessage
           defaultMessage="Welcome to the Scratch 3.0 Preview"
@@ -46,7 +45,7 @@ const PreviewModal = ({ intl, ...props }) => (
         />
       </p>
 
-      <Box className={styles.buttonRow}>
+      <div className={styles.buttonRow}>
         <button className={styles.noButton} onClick={props.onCancel}>
           <FormattedMessage
             defaultMessage="Not Now"
@@ -79,8 +78,8 @@ const PreviewModal = ({ intl, ...props }) => (
             id="gui.previewModal.viewproject"
           />
         </button>
-      </Box>
-      <Box className={styles.faqLinkText}>
+      </div>
+      <div className={styles.faqLinkText}>
         <FormattedMessage
           defaultMessage="To learn more, go to the {previewFaqLink}."
           description="Invitation to try 3.0 preview"
@@ -100,8 +99,8 @@ const PreviewModal = ({ intl, ...props }) => (
             ),
           }}
         />
-      </Box>
-    </Box>
+      </div>
+    </div>
   </ReactModal>
 )
 PreviewModal.propTypes = {

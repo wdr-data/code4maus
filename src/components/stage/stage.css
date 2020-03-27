@@ -15,6 +15,8 @@
 
   /* Allow custom touch handling to prevent scrolling on Edge */
   touch-action: none;
+
+  flex-shrink: 0;
 }
 
 .with-color-picker {

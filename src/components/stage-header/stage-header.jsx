@@ -6,7 +6,6 @@ import { Link } from 'redux-little-router'
 
 import Controls from '../../containers/controls.jsx'
 import Fullscreen from '../../containers/fullscreen.jsx'
-import Box from '../box/box.jsx'
 import MenuButton from '../menu-button/menu-button.jsx'
 
 import styles from './stage-header.css'
@@ -18,14 +17,14 @@ const StageHeaderComponent = function (props) {
   const { isFullScreen, onSaveProject, vm } = props
 
   return (
-    <Box
+    <div
       className={
         isFullScreen
           ? styles.stageHeaderWrapperOverlay
           : styles.stageHeaderWrapper
       }
     >
-      <Box className={styles.stageMenuWrapper}>
+      <div className={styles.stageMenuWrapper}>
         <Controls
           className={styles.controls}
           vm={vm}
@@ -68,8 +67,8 @@ const StageHeaderComponent = function (props) {
             </div>
           </div>
         )}
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }
 

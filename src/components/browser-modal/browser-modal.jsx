@@ -7,7 +7,6 @@ import {
   intlShape,
   FormattedMessage,
 } from 'react-intl'
-import Box from '../box/box.jsx'
 
 import styles from './browser-modal.css'
 
@@ -27,9 +26,9 @@ const BrowserModal = ({ intl, ...props }) => (
     overlayClassName={styles.modalOverlay}
     onRequestClose={props.onBack}
   >
-    <Box className={styles.illustration} />
+    <div className={styles.illustration} />
 
-    <Box className={styles.body}>
+    <div className={styles.body}>
       <h2>
         <FormattedMessage {...messages.label} />
       </h2>
@@ -43,7 +42,7 @@ const BrowserModal = ({ intl, ...props }) => (
         {/* eslint-enable max-len */}
       </p>
 
-      <Box className={styles.buttonRow}>
+      <div className={styles.buttonRow}>
         <button className={styles.backButton} onClick={props.onBack}>
           <FormattedMessage
             defaultMessage="Back"
@@ -51,7 +50,7 @@ const BrowserModal = ({ intl, ...props }) => (
             id="gui.unsupportedBrowser.back"
           />
         </button>
-      </Box>
+      </div>
       <div className={styles.faqLinkText}>
         <FormattedMessage
           defaultMessage="To learn more, go to the {previewFaqLink}."
@@ -73,7 +72,7 @@ const BrowserModal = ({ intl, ...props }) => (
           }}
         />
       </div>
-    </Box>
+    </div>
   </ReactModal>
 )
 BrowserModal.propTypes = {
