@@ -104,6 +104,10 @@
     z-index: 10;
 }
 
+.block3 {
+    width: 85vw;
+}
+
 .fant {
     position: absolute;
     width: 35vw;
