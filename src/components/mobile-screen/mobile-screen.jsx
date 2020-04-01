@@ -106,18 +106,10 @@ const MobileScreenComponent = () => (
                     role="Lerkräfte-Blog"
                     alt="Link zur Lehrkräfte-Seite"
                     title="Link zur Lehrkräfte-Seite"
-                    className={styles.block1}
+                    className={styles.block3}
                     draggable={false}
                     src={block3} />
             </Link>
-
-            <div className={classNames(styles.innerWrapper, styles.thirdWrapper)}>
-                <p>
-                    Auf der re:publica kann Programmieren mit der Maus von Groß UND Klein <span className={styles.boldOrange}>#mausprobiert </span>
-                    werden. Spielerisch mit Code Bilder mit der Maus, der Ente und dem Elefanten
-                    erzeugen, das Ergebnis dann teilen oder einfach direkt als Button ausdrucken.
-                </p>
-            </div>
         </div>
         <InlineSVG className={styles.mausQuestion} svg={mausQuestion} />
         <Link className={styles.link} href="/inhalte/impressum">Impressum</Link>
