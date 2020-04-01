@@ -66,12 +66,6 @@ Mobile Safari (11+)
 - Zielgruppe sind Kinder ab 8 Jahre. (Die Kinder sollten kurze Texte lesen können. Jüngere Kinder können die Anwendung mit ihren Eltern nutzen.)
 - Zielausspielung sind Tablets (ab iOS 11) und Desktop-Geräte, auf Smartphones ist die Anwendung derzeit leider nicht nutzbar.
 
-## Umsetzung
-
-- Vorbild und Grundlage ist die grafische Programmiersprache **Scratch des MIT Lifelong Kindergarten** (Flash basiert)
-- Das MIT entwickelt Version 3 dieser grafischen Programmiersprache. Die neue Anwendung ermöglicht es, Scratch auch auf Tablets zu benutzen. Die Ausspielung für Smartphones ist derzeit nicht Teil des Projektes. Eine Vorschau davon ist hier zu finden: https://beta.scratch.mit.edu
-- Scratch ist Open Source Software. Deshalb konnten wir eine WDR-Version von Scratch 3 erstellen und sie in den Punkten Design, Figuren und Sounds der Sendung mit der Maus anpassen.
-
 ## Vision
 
 Wir erhoffen uns durch **Programmieren mit der Maus** mehr Kinder spielerisch für das Thema zu begeistern. Dabei ist vor allem wichtig, die selbstbestimmte Mediennutzung zu fördern: Selbermachen statt konsumieren.
