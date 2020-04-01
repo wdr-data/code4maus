@@ -10,14 +10,19 @@
     width: 3.5rem;
     height: 3.5rem;
     padding: 0.25rem;
+    margin-left: 0.5rem;
     user-select: none;
     user-drag: none;
     cursor: pointer;
     transition: transform 0.2s ease-out;
-    margin-left: .5rem;
 }
+
 .control:hover {
     transform: scale(1.2);
+}
+
+.control:last-child {
+    margin-right: 0.5rem;
 }
 
 .control.isActive {
