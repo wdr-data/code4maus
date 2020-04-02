@@ -1,37 +1,79 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Link } from 'redux-little-router';
 
-import LogoOverlay from '../logo-overlay/logo-overlay.jsx';
 import Button from '../button/button.jsx';
-
 import styles from './welcome-screen.css';
 
+import { eduUrl } from '../../lib/routing';
+
+import wdrLogo from '../../../assets/img/wdr_logo.svg';
+import logo from '../../../assets/img/head_logo.png';
+import helloWorldImage from '../../lib/edu/shared_assets/L00.jpg';
+import mausImage from '../../../assets/img/maus1.png';
+
 const WelcomeScreenComponent = (props) => (
-    <LogoOverlay>
+    <div className={styles.container}>
+        <img
+            alt="WDR"
+            className={styles.wdrLogo}
+            draggable={false}
+            src={wdrLogo}
+        />
+
         <div className={styles.wrapper}>
             <div className={styles.innerWrapper}>
-                <p>Willkommen zu <strong>Programmieren mit der Maus</strong></p>
+                <img className={styles.logo} src={logo} />
+
+                <p>Willkommen zu <strong>Programmieren mit der Maus</strong>!</p>
                 <p>
-                Hier lernst du Schritt für Schritt Bildergeschichten 
-                und Spiele mit der Maus zu programmieren.
-                Viel Spaß!
+                    Hier lernst du Schritt für Schritt Bildergeschichten und Spiele mit der Maus zu programmieren. Viel Spaß!
                 </p>
-                <p className={styles.buttonWrapper}>
-                    <Button style='primary' onClick={props.onIntroClick}>
-                        Lernen, wie es geht
-                    </Button>
-                    <Button style='primary' onClick={props.onMenuClick}>
-                        Zur Übersicht
-                    </Button>
-                </p>
+
+                <Link href={eduUrl('00')} className={styles.section}>
+                    <div className={styles.sectionText}>
+                        Spielst du zum ersten Mal?
+
+                        <div className={styles.sectionSmallText}>
+                            Fang am besten mit unserem ersten Lernspiel an.
+                        </div>
+
+                        <Button style="primary">
+                            <div style={{ whiteSpace: 'nowrap' }}>
+                                Lernen, wie es geht ‣
+                            </div>
+                        </Button>
+                    </div>
+
+                    <img
+                        src={helloWorldImage}
+                        alt=""
+                        className={styles.imageHelloWorld}
+                    />
+                </Link>
+
+                <Link href="/" className={styles.section}>
+                    <div className={styles.sectionText}>
+                        Kennst du dich schon aus?
+
+                        <div className={styles.sectionSmallText}>
+                            Gehe direkt zur Übersicht und klicke dein nächstes Lernspiel an. Gespeicherte Spiele findest du unter „Meine Sachen“.
+                        </div>
+                        <Button style="primary">
+                            <div style={{ whiteSpace: 'nowrap' }}>
+                                Alle Lernspiele ‣
+                            </div>
+                        </Button>
+                    </div>
+
+                    <img
+                        src={mausImage}
+                        alt=""
+                        className={styles.imageMaus}
+                    />
+                </Link>
             </div>
         </div>
-    </LogoOverlay>
+    </div>
 );
-
-WelcomeScreenComponent.propTypes = {
-    onIntroClick: PropTypes.func.isRequired,
-    onMenuClick: PropTypes.func.isRequired,
-};
 
 export default WelcomeScreenComponent;
