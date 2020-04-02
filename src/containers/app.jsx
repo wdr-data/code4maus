@@ -160,8 +160,11 @@ class App extends Component {
       return
     }
 
-    this.props.redirectWelcome()
     localStorage.setItem(lsKeyVisited, 'yes')
+
+    if (this.props.isHomepage) {
+      this.props.redirectWelcome()
+    }
   }
 
   renderView() {
@@ -195,6 +198,7 @@ class App extends Component {
 }
 
 App.propTypes = {
+  isHomepage: PropTypes.bool.isRequired,
   view: PropTypes.string.isRequired,
   setUserId: PropTypes.func.isRequired,
   userId: PropTypes.string,
@@ -212,6 +216,7 @@ const ConnectedApp = connect(
   (state) => {
     const result = state.router.result || {}
     return {
+      isHomepage: state.router.route === '/',
       view: result.view || '',
       userId: state.scratchGui.project.userId,
       offlineEnabled: state.scratchGui.offline.enabled,

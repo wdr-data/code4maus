@@ -76,16 +76,6 @@ class Blocks extends React.Component {
     )
     this.workspace = this.ScratchBlocks.inject(this.blocks, workspaceConfig)
 
-    // we actually never want the workspace to enable "refresh toolbox" - this basically re-renders the
-    // entire toolbox every time we reset the workspace.  We call updateToolbox as a part of
-    // componentDidUpdate so the toolbox will still correctly be updated
-    this.setToolboxRefreshEnabled = this.workspace.setToolboxRefreshEnabled.bind(
-      this.workspace
-    )
-    this.workspace.setToolboxRefreshEnabled = () => {
-      this.setToolboxRefreshEnabled(false)
-    }
-
     // @todo change this when blockly supports UI events
     addFunctionListener(
       this.workspace,
@@ -140,17 +130,17 @@ class Blocks extends React.Component {
         this.updateToolbox()
       }, 0)
     }
+
     if (this.props.isVisible === prevProps.isVisible) {
       return
     }
+
     // @todo hack to resize blockly manually in case resize happened while hidden
     // @todo hack to reload the workspace due to gui bug #413
     if (this.props.isVisible) {
       // Scripts tab
       this.workspace.setVisible(true)
       this.props.vm.refreshWorkspace()
-      // Re-enable toolbox refreshes without causing one. See #updateToolbox for more info.
-      this.workspace.toolboxRefreshEnabled_ = true
       window.dispatchEvent(new Event('resize'))
     } else {
       this.workspace.setVisible(false)
@@ -164,7 +154,6 @@ class Blocks extends React.Component {
 
   updateToolbox() {
     this.toolboxUpdateTimeout = false
-
     const categoryId = this.workspace.toolbox_.getSelectedCategoryId()
     const offset = this.workspace.toolbox_.getCategoryScrollOffset()
     this.workspace.updateToolbox(this.props.toolboxXML)
@@ -355,7 +344,9 @@ class Blocks extends React.Component {
     this.blocks = blocks
   }
   handlePromptStart(message, defaultValue, callback, optTitle, optVarType) {
-    const p = { prompt: { callback, message, defaultValue } }
+    const p = {
+      prompt: { callback, message, defaultValue, showMoreOptions: false },
+    }
     p.prompt.title = optTitle
       ? optTitle
       : this.ScratchBlocks.Msg.VARIABLE_MODAL_TITLE
