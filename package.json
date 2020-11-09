@@ -130,7 +130,7 @@
     "scratch-paint": "0.2.0-prerelease.20181120191526",
     "scratch-render": "0.1.0-prerelease.20181102130522",
     "scratch-storage": "1.2.2",
-    "scratch-svg-renderer": "0.2.0-prerelease.20181101210634",
+    "scratch-svg-renderer": "0.2.0-prerelease.20201019174008",
     "selenium-webdriver": "4.0.0-alpha.1",
     "serverless": "^1.30.3",
     "serverless-domain-manager": "^3.1.0",
