@@ -1085,51 +1085,11 @@ const operators = prepareBlocks(
 `
 )
 
-const musicBlockLib = () => ({
-  play_drum_for_beats: `
-        <block type="extension_music_drum" id="extension_music_drum">
-          <value name="DRUM">
-            <shadow type="drum">
-              <field name="DRUM">1</field>
-            </shadow>
-          </value>
-          <value name="DRUM">
-            <shadow type="math_number">
-              <field name="NUM">1</field>
-            </shadow>
-          </value>
-        </block>
-  `,
-  play_note: `
-    <block type="extension_music_play_note" id="extension_music_play_note"> 
-      <value name="NOTE"> 
-        <shadow type="note"> 
-          <field name="NOTE">60</field> 
-        </shadow> 
-      </value> 
-      <value name="BEATS"> 
-        <shadow type="math_number"> 
-          <field name="NUM">0.25</field> 
-        </shadow> 
-      </value> 
-    </block> 
+const music = function () {
+  return `
+  <category name=\"Musik\" id=\"music\"  colour=\"#0FBD8C\" secondaryColour=\"#0DA57A\" iconURI=\"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE2LjA5IDEyLjkzN2MuMjI4IDEuMTQxLS44MzMgMi4wNjMtMi4zNzMgMi4wNjMtMS41MzUgMC0yLjk2Mi0uOTIyLTMuMTg2LTIuMDYzLS4yMy0xLjE0Mi44MzMtMi4wNjggMi4zNzItMi4wNjguMzIzIDAgLjY0MS4wNDIuOTQ1LjExN2EzLjUgMy41IDAgMCAxIC40NjguMTUxYy40MzUtLjAxLS4wNTItMS4xNDctLjkxNy02LjExNC0xLjA2Ny02LjE1MiAxLjUzLS45MzUgNC4zODQtMS4zNzcgMi44NTQtLjQ0Mi4wMzggMi40MS0xLjgyNSAxLjkyMi0xLjg2Mi0uNDkzLTIuMzI1LTMuNTc3LjEzMiA3LjM3ek03LjQ2IDguNTYzYy0xLjg2Mi0uNDkzLTIuMzI1LTMuNTc2LjEzIDcuMzdDNy44MTYgMTcuMDczIDYuNzU0IDE4IDUuMjIgMThjLTEuNTM1IDAtMi45NjEtLjkyNi0zLjE5LTIuMDY4LS4yMjQtMS4xNDIuODM3LTIuMDY3IDIuMzc1LTIuMDY3LjUwMSAwIC45ODcuMDk4IDEuNDI3LjI3Mi40MTItLjAyOC0uMDc0LTEuMTg5LS45My02LjExNEMzLjgzNCAxLjg3IDYuNDMgNy4wODcgOS4yODIgNi42NDZjMi44NTQtLjQ0Ny4wMzggMi40MS0xLjgyMyAxLjkxN3oiIGZpbGw9IiM1NzVFNzUiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==\"><block type=\"music_playDrumForBeats\"><value name=\"DRUM\"><shadow type=\"music_menu_DRUM\"><field name=\"DRUM\">1</field></shadow></value><value name=\"BEATS\"><shadow type=\"math_number\"><field name=\"NUM\">0.25</field></shadow></value></block><block type=\"music_restForBeats\"><value name=\"BEATS\"><shadow type=\"math_number\"><field name=\"NUM\">0.25</field></shadow></value></block><block type=\"music_playNoteForBeats\"><value name=\"NOTE\"><shadow type=\"note\"><field name=\"NOTE\">60</field></shadow></value><value name=\"BEATS\"><shadow type=\"math_number\"><field name=\"NUM\">0.25</field></shadow></value></block><block type=\"music_setInstrument\"><value name=\"INSTRUMENT\"><shadow type=\"music_menu_INSTRUMENT\"><field name=\"INSTRUMENT\">1</field></shadow></value></block><block type=\"music_setTempo\"><value name=\"TEMPO\"><shadow type=\"math_number\"><field name=\"NUM\">60</field></shadow></value></block><block type=\"music_changeTempo\"><value name=\"TEMPO\"><shadow type=\"math_number\"><field name=\"NUM\">20</field></shadow></value></block><block type=\"music_getTempo\"></block></category>
   `
-})
-
-const musicDefaultBlocks = [
-  'play_drum',
-  'play_note'
-]
-
-const music = prepareBlocks(
-  musicDefaultBlocks,
-  musicBlockLib,
-  (_isStage, blockXml) => `
-    <category name="Musik" id="music">
-        ${blockXml}
-    </category>
-  `
-)
+}
 
 const variables = function () {
   return `
