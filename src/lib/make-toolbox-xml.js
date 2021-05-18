@@ -1108,7 +1108,6 @@ const myBlocks = function () {
     </category>
     `;
 };
-/* eslint-enable no-unused-vars */
 
 const categoryMap = {
     motion,
@@ -1119,6 +1118,7 @@ const categoryMap = {
     sensing,
     operators,
     variables,
+    myBlocks,
 }
 
 const xmlOpen = '<xml style="display: none">'
