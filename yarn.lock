@@ -14099,10 +14099,9 @@ schema-utils@^2.0.1, schema-utils@^2.5.0, schema-utils@^2.6.0, schema-utils@^2.6
     ajv "^6.12.0"
     ajv-keywords "^3.4.1"
 
-scratch-audio@^0.1.0-prerelease.20190925183642:
-  version "0.1.0-prerelease.20190925183642"
-  resolved "https://registry.yarnpkg.com/scratch-audio/-/scratch-audio-0.1.0-prerelease.20190925183642.tgz#484e592171d8ee9245f889e15c148937cba5cee9"
-  integrity sha512-cvnNawIThkIKyMZdo+cRmYO+ndCG9dcQeaG8rTgok2iSMvG510OUs3DBnFz/GUncu+OryT1VKdeusEfwKf/+ow==
+"scratch-audio@https://github.com/LLK/scratch-audio.git":
+  version "0.1.0"
+  resolved "https://github.com/LLK/scratch-audio.git#a049deba23013ced81ce21b1ba6ae2c4e9714eb3"
   dependencies:
     audio-context "1.0.1"
     minilog "^3.0.1"
