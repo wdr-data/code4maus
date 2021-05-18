@@ -1106,8 +1106,101 @@ const myBlocks = function () {
         secondaryColour="#FF4D6A"
         custom="PROCEDURE">
     </category>
-    `;
-};
+    `
+}
+
+const musicBlockLib = (_isStage, targetId) => ({
+    playDrumForBeats: `     
+    <block 
+        id="${targetId}_music_playDrumForBeats"
+        type="music_playDrumForBeats">
+        <value name="DRUM">
+            <shadow type="music_menu_DRUM">
+                <field name="DRUM">1</field>
+            </shadow>
+        </value>
+        <value name="BEATS">
+            <shadow type="math_number">
+                <field name="NUM">0.25</field>
+            </shadow>
+        </value>
+    </block>
+    `,
+    restForBeats: `
+    <block type="music_restForBeats">
+        <value name="BEATS">
+            <shadow type="math_number">
+                <field name="NUM">0.25</field>
+            </shadow>
+        </value>
+    </block> 
+    `,
+    playNoteForBeats: `
+    <block type="music_playNoteForBeats">
+        <value name="NOTE">
+            <shadow type="note">
+                <field name="NOTE">60</field></shadow>
+        </value>
+        <value name="BEATS">
+            <shadow type="math_number">
+                <field name="NUM">0.25</field>
+            </shadow>
+        </value>
+    </block>
+    `,
+    setInstrument: ` 
+    <block type="music_setInstrument">
+        <value name="INSTRUMENT">
+            <shadow type="music_menu_INSTRUMENT">
+                <field name="INSTRUMENT">1</field>
+            </shadow>
+        </value>
+    </block>
+    `,
+    setTempo: ` 
+    <block type="music_setTempo">
+        <value name="TEMPO">
+            <shadow type="math_number">
+                <field name="NUM">60</field>
+            </shadow>
+        </value>
+    </block>
+    `,
+    changeTempo: ` 
+    <block type="music_changeTempo">
+        <value name="TEMPO">
+            <shadow type="math_number">
+                <field name="NUM">20</field>
+            </shadow>
+        </value>
+    </block>
+    `,
+    getTempo: ` 
+    <block id="getTempo" type="music_getTempo"/>
+  </category >
+`,
+})
+
+const musicDefaultBlocks = [
+    'playDrumForBeats',
+    'restForBeats',
+    'playNoteForBeats',
+    'setInstrument',
+    'setTempo',
+    'changeTempo',
+    'getTempo',
+]
+
+const music = prepareBlocks(
+    musicDefaultBlocks,
+    musicBlockLib,
+    (_isStage, blockXml) => `
+    <category 
+    name= "Music" id= "music"> 
+        ${blockXml}
+    </category>
+    `
+)
 
 const categoryMap = {
     motion,
@@ -1119,6 +1212,7 @@ const categoryMap = {
     operators,
     variables,
     myBlocks,
+    music,
 }
 
 const xmlOpen = '<xml style="display: none">'
