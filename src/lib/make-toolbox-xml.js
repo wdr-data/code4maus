@@ -1112,7 +1112,6 @@ const myBlocks = function () {
 const musicBlockLib = (_isStage, targetId) => ({
     playDrumForBeats: `     
     <block 
-        id="${targetId}_music_playDrumForBeats"
         type="music_playDrumForBeats">
         <value name="DRUM">
             <shadow type="music_menu_DRUM">
@@ -1247,6 +1246,7 @@ const makeToolboxXML = function (
     }
 
     everything.push(xmlClose)
+    console.log(everything)
     return everything.join('\n')
 }
 
