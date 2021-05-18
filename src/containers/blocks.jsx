@@ -4,6 +4,7 @@ import defaultsDeep from 'lodash.defaultsdeep'
 import PropTypes from 'prop-types'
 import React from 'react'
 import VM from 'scratch-vm'
+import AudioEngine from 'scratch-audio'
 
 import { connect } from 'react-redux'
 import errorBoundaryHOC from '../lib/error-boundary-hoc.jsx'
@@ -85,6 +86,14 @@ class Blocks extends React.Component {
     addFunctionListener(this.workspace, 'zoom', this.onWorkspaceMetricsChange)
 
     this.attachVM()
+
+    if (!this.props.vm.extensionManager.isExtensionLoaded('music')) {
+      prompt()
+      this.props.vm.attachAudioEngine(new AudioEngine());
+      this.props.vm.extensionManager.loadExtensionURL('music').then(() => {
+        console.log('Music on')
+      })
+    }
     this.props.vm.setLocale(this.props.locale, this.props.messages)
   }
   shouldComponentUpdate(nextProps, nextState) {
@@ -93,9 +102,9 @@ class Blocks extends React.Component {
       this.props.isVisible !== nextProps.isVisible ||
       this.props.toolboxXML !== nextProps.toolboxXML ||
       this.props.extensionLibraryVisible !==
-        nextProps.extensionLibraryVisible ||
+      nextProps.extensionLibraryVisible ||
       this.props.customProceduresVisible !==
-        nextProps.customProceduresVisible ||
+      nextProps.customProceduresVisible ||
       this.props.locale !== nextProps.locale ||
       this.props.anyModalVisible !== nextProps.anyModalVisible ||
       this.props.layoutMode !== nextProps.layoutMode
@@ -320,16 +329,16 @@ class Blocks extends React.Component {
   handleExtensionAdded(blocksInfo) {
     // select JSON from each block info object then reject the pseudo-blocks which don't have JSON, like separators
     // this actually defines blocks and MUST run regardless of the UI state
-    this.ScratchBlocks.defineBlocksWithJsonArray(
-      blocksInfo.map((blockInfo) => blockInfo.json).filter((x) => x)
-    )
+    // this.ScratchBlocks.defineBlocksWithJsonArray(
+    // //   blocksInfo.map((blockInfo) => blockInfo.json).filter((x) => x)
+    // )
 
-    // update the toolbox view: this can be skipped if we're not looking at a target, etc.
-    const runtime = this.props.vm.runtime
-    const target = runtime.getEditingTarget() || runtime.getTargetForStage()
-    if (target) {
-      this.updateToolboxXml(target)
-    }
+    // // update the toolbox view: this can be skipped if we're not looking at a target, etc.
+    // const runtime = this.props.vm.runtime
+    // const target = runtime.getEditingTarget() || runtime.getTargetForStage()
+    // if (target) {
+    //   this.updateToolboxXml(target)
+    // }
   }
   handleBlocksInfoUpdate(blocksInfo) {
     // @todo Later we should replace this to avoid all the warnings from redefining blocks.
