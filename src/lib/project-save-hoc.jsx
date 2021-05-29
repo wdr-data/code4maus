@@ -214,7 +214,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
 
   ProjectSaveComponent.propTypes = {
     isEduGame: PropTypes.bool,
-    projectId: PropTypes.number,
+    projectId: PropTypes.string,
     projectName: PropTypes.string,
     userId: PropTypes.string,
     routeProject: PropTypes.string,
