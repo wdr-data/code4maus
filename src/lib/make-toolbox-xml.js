@@ -1111,8 +1111,7 @@ const myBlocks = function () {
 
 const musicBlockLib = (_isStage, targetId) => ({
     playDrumForBeats: `     
-    <block 
-        type="music_playDrumForBeats">
+    <block type="music_playDrumForBeats">
         <value name="DRUM">
             <shadow type="music_menu_DRUM">
                 <field name="DRUM">1</field>
@@ -1138,7 +1137,8 @@ const musicBlockLib = (_isStage, targetId) => ({
     <block type="music_playNoteForBeats">
         <value name="NOTE">
             <shadow type="note">
-                <field name="NOTE">60</field></shadow>
+                <field name="NOTE">60</field>
+            </shadow>
         </value>
         <value name="BEATS">
             <shadow type="math_number">
@@ -1174,10 +1174,7 @@ const musicBlockLib = (_isStage, targetId) => ({
         </value>
     </block>
     `,
-    getTempo: ` 
-    <block id="getTempo" type="music_getTempo"/>
-  </category >
-`,
+    getTempo: `<block id="getTempo" type="music_getTempo"></block>`,
 })
 
 const musicDefaultBlocks = [
@@ -1194,8 +1191,7 @@ const music = prepareBlocks(
     musicDefaultBlocks,
     musicBlockLib,
     (_isStage, blockXml) => `
-    <category 
-    name= "Music" id= "music"> 
+    <category name="Music" id="music"> 
         ${blockXml}
     </category>
     `
