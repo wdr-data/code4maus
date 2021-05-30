@@ -21,7 +21,6 @@ import {
 } from '../reducers/custom-procedures'
 import { gamesKeyed } from '../lib/edu'
 import CustomProcedures from './custom-procedures.jsx'
-import ExtensionLibrary from './extension-library.jsx'
 import Prompt from './prompt.jsx'
 
 const addFunctionListener = (object, property, callback) => {
@@ -57,6 +56,13 @@ class Blocks extends React.Component {
       'onWorkspaceMetricsChange',
       'setBlocks',
     ])
+
+    this.props.vm.setLocale(this.props.locale, this.props.messages)
+
+    this.props.vm.extensionManager.loadExtensionURL('music').then(() => {
+      console.log('Music on')
+    })
+
     this.ScratchBlocks.prompt = this.handlePromptStart
     this.state = {
       workspaceMetrics: {},
@@ -86,15 +92,6 @@ class Blocks extends React.Component {
     addFunctionListener(this.workspace, 'zoom', this.onWorkspaceMetricsChange)
 
     this.attachVM()
-
-    if (!this.props.vm.extensionManager.isExtensionLoaded('music')) {
-      prompt()
-      this.props.vm.attachAudioEngine(new AudioEngine());
-      this.props.vm.extensionManager.loadExtensionURL('music').then(() => {
-        console.log('Music on')
-      })
-    }
-    this.props.vm.setLocale(this.props.locale, this.props.messages)
   }
   shouldComponentUpdate(nextProps, nextState) {
     return (
@@ -422,13 +419,6 @@ class Blocks extends React.Component {
             title={this.state.prompt.title}
             onCancel={this.handlePromptClose}
             onOk={this.handlePromptCallback}
-          />
-        ) : null}
-        {extensionLibraryVisible ? (
-          <ExtensionLibrary
-            vm={vm}
-            onCategorySelected={this.handleCategorySelected}
-            onRequestClose={onRequestCloseExtensionLibrary}
           />
         ) : null}
         {customProceduresVisible ? (

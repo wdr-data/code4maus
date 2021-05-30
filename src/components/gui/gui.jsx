@@ -7,6 +7,7 @@ import tabStyles from 'react-tabs/style/react-tabs.css'
 import { Fragment as RouterFragment, Link } from 'redux-little-router'
 import VM from 'scratch-vm'
 import Renderer from 'scratch-render'
+import AudioEngine from 'scratch-audio'
 
 import Blocks from '../../containers/blocks.jsx'
 import CostumeTab from '../../containers/costume-tab.jsx'
@@ -79,6 +80,8 @@ const GUIComponent = (props) => {
     ...componentProps
   } = props
   /* eslint-enable */
+
+  vm.attachAudioEngine(new AudioEngine());
 
   if (children) {
     return <div {...componentProps}>{children}</div>

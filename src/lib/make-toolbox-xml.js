@@ -1111,9 +1111,9 @@ const myBlocks = function () {
 
 const musicBlockLib = (_isStage, targetId) => ({
     playDrumForBeats: `     
-    <block type="music_playDrumForBeats">
+    <block type="extension_music_drum" id="extension_music_play_drum_for_beats">
         <value name="DRUM">
-            <shadow type="music_menu_DRUM">
+            <shadow type="extension_music_menu_DRUM">
                 <field name="DRUM">1</field>
             </shadow>
         </value>
@@ -1131,20 +1131,20 @@ const musicBlockLib = (_isStage, targetId) => ({
                 <field name="NUM">0.25</field>
             </shadow>
         </value>
-    </block> 
+    </block>
     `,
     playNoteForBeats: `
-    <block type="music_playNoteForBeats">
-        <value name="NOTE">
-            <shadow type="note">
-                <field name="NOTE">60</field>
-            </shadow>
-        </value>
-        <value name="BEATS">
-            <shadow type="math_number">
-                <field name="NUM">0.25</field>
-            </shadow>
-        </value>
+    <block type="extension_music_play_note" id="playNoteForBeats">
+      <value name="NOTE">
+        <shadow type="note">
+          <field name="NOTE">60</field>
+        </shadow>
+      </value>
+      <value name="BEATS">
+        <shadow type="math_number">
+          <field name="NUM">0.25</field>
+        </shadow>
+      </value>
     </block>
     `,
     setInstrument: ` 
@@ -1242,7 +1242,6 @@ const makeToolboxXML = function (
     }
 
     everything.push(xmlClose)
-    console.log(everything)
     return everything.join('\n')
 }
 
