@@ -1137,7 +1137,7 @@ const makeToolboxXML = function (
 
   if (categoriesXML) {
     categoriesXML.forEach((category) => {
-      everything.push(gap, category.xml)
+      everything.push(gap, category.xml.replace('name="Music"', 'name="Musik"'))
     })
   }
 

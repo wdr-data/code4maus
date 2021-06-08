@@ -228,5 +228,89 @@ export default function (vm) {
 
   ScratchBlocks.ScratchMsgs.setLocale('de')
 
+  /* --- HACK: Fix music blocks --- */
+  // Gives music blocks dropdown menus and translations
+
+  ScratchBlocks.jsonInitFactory_ = function (jsonDef) {
+    console.log('jsonDef:', jsonDef)
+    if (jsonDef.type == 'music_playDrumForBeats') {
+      jsonDef.args0[2] = {
+        type: 'field_dropdown',
+        name: 'DRUM',
+        options: function () {
+          return [
+            ['(1) Snare Drum', '1'],
+            ['(2) Bass Drum', '2'],
+            ['(3) Side Stick', '3'],
+            ['(4) Crash Cymbal', '4'],
+            ['(5) Open Hi-Hat', '5'],
+            ['(6) Closed Hi-Hat', '6'],
+            ['(7) Tambourine', '7'],
+            ['(8) Hand Clap', '8'],
+            ['(9) Claves', '9'],
+            ['(10) Wood Block', '10'],
+            ['(11) Cowbell', '11'],
+            ['(12) Triangle', '12'],
+            ['(13) Bongo', '13'],
+            ['(14) Conga', '14'],
+            ['(15) Cabasa', '15'],
+            ['(16) Guiro', '16'],
+            ['(17) Vibraslap', '17'],
+            ['(18) Cuica', '18'],
+          ]
+        },
+      }
+      jsonDef.message0 = '%1 %2Spiele %3 für %4 Takte'
+    } else if (jsonDef.type == 'music_setInstrument') {
+      jsonDef.args0[2] = {
+        type: 'field_dropdown',
+        name: 'INSTRUMENT',
+        options: function () {
+          return [
+            ['(1) Piano', '1'],
+            ['(2) Electric Piano', '2'],
+            ['(3) Organ', '3'],
+            ['(4) Guitar', '4'],
+            ['(5) Electric Guitar', '5'],
+            ['(6) Bass', '6'],
+            ['(7) Pizzicato', '7'],
+            ['(8) Cello', '8'],
+            ['(9) Trombone', '9'],
+            ['(10) Clarinet', '10'],
+            ['(11) Saxophone', '11'],
+            ['(12) Flute', '12'],
+            ['(13) Wooden Flute', '13'],
+            ['(14) Bassoon', '14'],
+            ['(15) Choir', '15'],
+            ['(16) Vibraphone', '16'],
+            ['(17) Music Box', '17'],
+            ['(18) Steel Drum', '18'],
+            ['(19) Marimba', '19'],
+            ['(20) Synth Lead', '20'],
+            ['(21) Synth Pad', '21'],
+          ]
+        },
+      }
+      jsonDef.message0 = '%1 %2Wähle Instrument %3'
+    } else if (jsonDef.type == 'music_midiPlayDrumForBeats') {
+      jsonDef.message0 = '%1 %2Spiele %3 für %4 Takte'
+    } else if (jsonDef.type == 'music_restForBeats') {
+      jsonDef.message0 = '%1 %2Pause für %3 Takte'
+    } else if (jsonDef.type == 'music_playNoteForBeats') {
+      jsonDef.message0 = '%1 %2Spiele Note %3 für %4 Takte'
+    } else if (jsonDef.type == 'music_midiSetInstrument') {
+      jsonDef.message0 = '%1 %2Wähle Instrument %3'
+    } else if (jsonDef.type == 'music_setTempo') {
+      jsonDef.message0 = '%1 %2Setze Tempo auf %3'
+    } else if (jsonDef.type == 'music_changeTempo') {
+      jsonDef.message0 = '%1 %2Ändere Tempo um %3'
+    } else if (jsonDef.type == 'music_getTempo') {
+      jsonDef.message0 = '%1 %2Tempo'
+    }
+    return function () {
+      this.jsonInit(jsonDef)
+    }
+  }
+
   return ScratchBlocks
 }
