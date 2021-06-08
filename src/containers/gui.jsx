@@ -35,14 +35,16 @@ class GUI extends React.Component {
     }
 
     this.handleSaveModalClose = this.handleSaveModalClose.bind(this)
+
+    // Ensure audio context is set up before music extension loads
+    const audioEngine = new AudioEngine(new SharedAudioContext())
+    this.props.vm.attachAudioEngine(audioEngine)
   }
   componentDidMount() {
     if (this.props.vm.initialized) {
       return
     }
 
-    const audioEngine = new AudioEngine(new SharedAudioContext())
-    this.props.vm.attachAudioEngine(audioEngine)
     if (this.props.projectData) {
       this.loadProject()
     }

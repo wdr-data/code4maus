@@ -1114,7 +1114,7 @@ const xmlClose = '</xml>'
 /**
  * @param {!boolean} isStage - Whether the toolbox is for a stage-type target.
  * @param {?string} targetId - The current editing target
- * @param {string?} categoriesXML - null for default toolbox, or an XML string with <category> elements.
+ * @param {Array?} categoriesXML - List of additional categories derived from runtime.getBlocksXML().
  * @returns {string} - a ScratchBlocks-style XML document for the contents of the toolbox.
  */
 const makeToolboxXML = function (
@@ -1136,7 +1136,9 @@ const makeToolboxXML = function (
   const everything = [xmlOpen].concat(categories)
 
   if (categoriesXML) {
-    everything.push(gap, categoriesXML)
+    categoriesXML.forEach((category) => {
+      everything.push(gap, category.xml)
+    })
   }
 
   everything.push(xmlClose)
