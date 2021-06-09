@@ -39,6 +39,11 @@ class GUI extends React.Component {
     // Ensure audio context is set up before music extension loads
     const audioEngine = new AudioEngine(new SharedAudioContext())
     this.props.vm.attachAudioEngine(audioEngine)
+    this.props.vm.setLocale(this.props.locale, this.props.messages)
+
+    console.log('Enabling music extension...')
+    this.props.vm.extensionManager.loadExtensionIdSync('music')
+    console.log('🎵 Music on')
   }
   componentDidMount() {
     if (this.props.vm.initialized) {

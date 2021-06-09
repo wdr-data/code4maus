@@ -85,12 +85,6 @@ class Blocks extends React.Component {
     addFunctionListener(this.workspace, 'zoom', this.onWorkspaceMetricsChange)
 
     this.attachVM()
-    this.props.vm.setLocale(this.props.locale, this.props.messages)
-
-    console.log('Enabling music extension...')
-    this.props.vm.extensionManager.loadExtensionURL('music').then(() => {
-      console.log('🎵 Music on')
-    })
   }
   shouldComponentUpdate(nextProps, nextState) {
     return (
