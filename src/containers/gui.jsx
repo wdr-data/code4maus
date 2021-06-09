@@ -41,9 +41,13 @@ class GUI extends React.Component {
     this.props.vm.attachAudioEngine(audioEngine)
     this.props.vm.setLocale(this.props.locale, this.props.messages)
 
-    console.log('Enabling music extension...')
-    this.props.vm.extensionManager.loadExtensionIdSync('music')
-    console.log('🎵 Music on')
+    // When loading projects, scratch enables the extension automatically
+    // Loading it like this breaks it somehow
+    if (!(this.props.projectData || this.props.fetchingProject)) {
+      console.log('Enabling music extension...')
+      this.props.vm.extensionManager.loadExtensionIdSync('music')
+      console.log('🎵 Music on')
+    }
   }
   componentDidMount() {
     if (this.props.vm.initialized) {
