@@ -1129,14 +1129,25 @@ const makeToolboxXML = function (
     ? Object.values(categoryMap).map(
         (cat) => cat(isStage, targetId) + categorySeparator
       )
-    : customBlocks.map((item) =>
-        categoryMap[item.category](isStage, targetId, item.blocks)
-      )
+    : customBlocks
+        // Filter music here because it's dynamically loaded
+        .filter((item) => item.category !== 'music')
+        .map((item) =>
+          categoryMap[item.category](isStage, targetId, item.blocks)
+        )
 
   const everything = [xmlOpen].concat(categories)
 
   if (categoriesXML) {
     categoriesXML.forEach((category) => {
+      // We can't really filter specific blocks of extensions,
+      // but at least we can filter the category
+      if (
+        Array.isArray(customBlocks) &&
+        customBlocks.findIndex((item) => item.category === category.id) === -1
+      ) {
+        return
+      }
       everything.push(gap, category.xml.replace('name="Music"', 'name="Musik"'))
     })
   }
