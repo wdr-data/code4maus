@@ -1097,6 +1097,18 @@ const variables = function () {
     `
 }
 
+const myBlocks = function () {
+  return `
+    <category
+        name="%{BKY_CATEGORY_MYBLOCKS}"
+        id="myBlocks"
+        colour="#FF6680"
+        secondaryColour="#FF4D6A"
+        custom="PROCEDURE">
+    </category>
+    `
+}
+
 const categoryMap = {
   motion,
   looks,
@@ -1106,6 +1118,7 @@ const categoryMap = {
   sensing,
   operators,
   variables,
+  myBlocks,
 }
 
 const xmlOpen = '<xml style="display: none">'
