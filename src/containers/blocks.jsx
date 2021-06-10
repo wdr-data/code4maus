@@ -85,7 +85,6 @@ class Blocks extends React.Component {
     addFunctionListener(this.workspace, 'zoom', this.onWorkspaceMetricsChange)
 
     this.attachVM()
-    this.props.vm.setLocale(this.props.locale, this.props.messages)
   }
   shouldComponentUpdate(nextProps, nextState) {
     return (
@@ -229,6 +228,7 @@ class Blocks extends React.Component {
 
   updateToolboxXml(target) {
     const dynamicBlocksXML = this.props.vm.runtime.getBlocksXML()
+    console.log('updateToolboxXml', dynamicBlocksXML)
     let customBlocks = null
     if (this.props.gameId && this.props.gameId in gamesKeyed) {
       customBlocks = gamesKeyed[this.props.gameId].blocks
@@ -320,8 +320,9 @@ class Blocks extends React.Component {
   handleExtensionAdded(blocksInfo) {
     // select JSON from each block info object then reject the pseudo-blocks which don't have JSON, like separators
     // this actually defines blocks and MUST run regardless of the UI state
+    console.log('handleExtensionAdded', blocksInfo)
     this.ScratchBlocks.defineBlocksWithJsonArray(
-      blocksInfo.map((blockInfo) => blockInfo.json).filter((x) => x)
+      blocksInfo.blocks.map((blockInfo) => blockInfo.json).filter((x) => x)
     )
 
     // update the toolbox view: this can be skipped if we're not looking at a target, etc.

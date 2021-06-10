@@ -1097,6 +1097,18 @@ const variables = function () {
     `
 }
 
+const myBlocks = function () {
+  return `
+    <category
+        name="%{BKY_CATEGORY_MYBLOCKS}"
+        id="myBlocks"
+        colour="#FF6680"
+        secondaryColour="#FF4D6A"
+        custom="PROCEDURE">
+    </category>
+    `
+}
+
 const categoryMap = {
   motion,
   looks,
@@ -1106,6 +1118,7 @@ const categoryMap = {
   sensing,
   operators,
   variables,
+  myBlocks,
 }
 
 const xmlOpen = '<xml style="display: none">'
@@ -1114,7 +1127,7 @@ const xmlClose = '</xml>'
 /**
  * @param {!boolean} isStage - Whether the toolbox is for a stage-type target.
  * @param {?string} targetId - The current editing target
- * @param {string?} categoriesXML - null for default toolbox, or an XML string with <category> elements.
+ * @param {Array?} categoriesXML - List of additional categories derived from runtime.getBlocksXML().
  * @returns {string} - a ScratchBlocks-style XML document for the contents of the toolbox.
  */
 const makeToolboxXML = function (
@@ -1129,14 +1142,27 @@ const makeToolboxXML = function (
     ? Object.values(categoryMap).map(
         (cat) => cat(isStage, targetId) + categorySeparator
       )
-    : customBlocks.map((item) =>
-        categoryMap[item.category](isStage, targetId, item.blocks)
-      )
+    : customBlocks
+        // Filter music here because it's dynamically loaded
+        .filter((item) => item.category !== 'music')
+        .map((item) =>
+          categoryMap[item.category](isStage, targetId, item.blocks)
+        )
 
   const everything = [xmlOpen].concat(categories)
 
   if (categoriesXML) {
-    everything.push(gap, categoriesXML)
+    categoriesXML.forEach((category) => {
+      // We can't really filter specific blocks of extensions,
+      // but at least we can filter the category
+      if (
+        Array.isArray(customBlocks) &&
+        customBlocks.findIndex((item) => item.category === category.id) === -1
+      ) {
+        return
+      }
+      everything.push(gap, category.xml.replace('name="Music"', 'name="Musik"'))
+    })
   }
 
   everything.push(xmlClose)

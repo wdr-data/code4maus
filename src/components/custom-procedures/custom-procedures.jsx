@@ -12,7 +12,7 @@ import styles from './custom-procedures.css'
 const CustomProcedures = (props) => (
   <Modal
     className={styles.modalContent}
-    contentLabel="Make a Block"
+    contentLabel="Mein Block"
     onRequestClose={props.onCancel}
   >
     <div className={styles.workspace} ref={props.componentRef} />
