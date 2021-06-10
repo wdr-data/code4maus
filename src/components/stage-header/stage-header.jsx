@@ -35,7 +35,7 @@ const StageHeaderComponent = function (props) {
         ) : (
           <div className={styles.flexWrapper}>
             <div className={styles.copyrightWrapper}>
-              <Link href="/inhalte/impressum/" className={styles.copyright}>
+              <Link href="/impressum/" className={styles.copyright}>
                 <span>&copy; WDR {new Date().getFullYear()}</span>
               </Link>
             </div>

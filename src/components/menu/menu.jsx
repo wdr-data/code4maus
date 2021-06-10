@@ -58,7 +58,7 @@ export const MenuComponent = (props) => {
           />
         </div>
         <div className={styles.thirdColumn}>
-          <Link href="/inhalte/impressum/" className={styles.copyright}>
+          <Link href="/impressum/" className={styles.copyright}>
             <span>&#9400; WDR {new Date().getFullYear()}</span>
           </Link>
           {useFeatureFlag(FEATURE_OFFLINE) && <OfflineSupport />}

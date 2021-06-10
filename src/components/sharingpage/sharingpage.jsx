@@ -34,7 +34,7 @@ const SharingPage = () => {
             />
           </div>
           <div className={styles.secondColumn}>
-            <a href="/inhalte/impressum/" className={styles.copyright}>
+            <a href="/impressum/" className={styles.copyright}>
               <span>&#9400; WDR {new Date().getFullYear()}</span>
             </a>
           </div>
