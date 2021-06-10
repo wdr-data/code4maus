@@ -112,6 +112,10 @@
   @mixin categoryBackground ff8639, '../../../assets/icons/icon_variablen.svg';
 }
 
+.blocks :global(.scratchCategoryId-myBlocks .scratchCategoryItemBubble) {
+  @mixin categoryBackground B1485A, '../../../assets/icons/icon_myblocks.svg';
+}
+
 .blocks :global(.scratchCategoryMenuItem):hover {
   color: #4486b5 !important;
 }
