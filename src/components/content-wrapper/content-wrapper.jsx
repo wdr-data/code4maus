@@ -6,6 +6,11 @@ import Modal from '../modal/modal.jsx'
 
 import styles from './content-wrapper.css'
 
+function capitalize(word) {
+  const lower = word.toLowerCase()
+  return word.charAt(0).toUpperCase() + lower.slice(1)
+}
+
 const ContentWrapper = ({
   children,
   backToHome,
@@ -21,9 +26,13 @@ const ContentWrapper = ({
     style={style}
   >
     <div
-      className={classNames(styles.wrapper, styles[`style-${style}`], {
-        [styles.splitSections]: splitSections,
-      })}
+      className={classNames(
+        styles.wrapper,
+        styles[`style${capitalize(style)}`],
+        {
+          [styles.splitSections]: splitSections,
+        }
+      )}
     >
       {children}
     </div>
