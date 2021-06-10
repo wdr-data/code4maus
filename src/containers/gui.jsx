@@ -44,9 +44,7 @@ class GUI extends React.Component {
     // When loading projects, scratch enables the extension automatically
     // Loading it like this breaks it somehow
     if (this.props.projectId === 0) {
-      console.log('Enabling music extension...')
       this.props.vm.extensionManager.loadExtensionIdSync('music')
-      console.log('🎵 Music on')
     }
   }
   componentDidMount() {
