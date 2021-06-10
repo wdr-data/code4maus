@@ -6,42 +6,41 @@
 */
 
 .button {
-    position: relative;
-    height: 862px;
-    width: 862px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  position: relative;
+  height: 862px;
+  width: 862px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .stage {
-    height: 697px;
-    width: auto;
+  height: 697px;
+  width: auto;
 }
 
 .button-border {
-    position: absolute;
-    height: 100%;
+  position: absolute;
+  height: 100%;
 }
 
 .text-wrapper {
-    position: absolute;
-    top: 0;
-    bottom: 25%;
-    left:0;
-    right:0;
-    margin: auto;
-    width: 30vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    color: black;
+  position: absolute;
+  top: 0;
+  bottom: 25%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 30vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: black;
 }
 
 .user-handle {
-    text-align: center;
-    font-weight: bold;
-    font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
 }
-

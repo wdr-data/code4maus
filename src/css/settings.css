@@ -1,39 +1,39 @@
 .background {
-    background-image: url(../components/menu/bg_blue@1x.png);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+  background-image: url(../components/menu/bg_blue@1x.png);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .wrapper {
-    background-color: white;
-    padding: 2rem;
-    max-width: 80vw;
-    box-shadow: 0 0 0.8rem 1px rgba(0,0,0,.5);
+  background-color: white;
+  padding: 2rem;
+  max-width: 80vw;
+  box-shadow: 0 0 0.8rem 1px rgba(0, 0, 0, 0.5);
 }
 
 .header {
-    text-align: center;
+  text-align: center;
 }
 
 .feature {
-    display: flex;
-    align-items: center;
-    min-height: 4rem;
+  display: flex;
+  align-items: center;
+  min-height: 4rem;
 }
 
 .feature > *:not(:last-child) {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
 
 .feature-button {
-    width: 8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .description {
-    max-width: 60vw;
+  max-width: 60vw;
 }

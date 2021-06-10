@@ -1,59 +1,61 @@
-@import "../../css/units.css";
-@import "../../css/colors.css";
+@import '../../css/units.css';
+@import '../../css/colors.css';
 
 @define-mixin categoryBackground $color, $icon {
-    background-image: url($icon), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='97.544' width='105.234'%3E%3Cpath d='M22.033 10.836H83.28V80.68H22.033z'/%3E%3Cpath d='M39.259 96.973c-11.39-1.564-24.446-3.06-32.27-12.511C-.047 75.038.04 62.627 0 51.393c.468-14.137 2.444-28.814 9.677-41.217C15.517 2.026 26.366.623 35.66.525 51.783-.227 68.38-.962 83.888 4.348c6.415 2.307 13.853 4.834 16.873 11.545 5.046 11.024 4.743 23.572 4.162 35.429-.459 7.773 1.399 21.247-5.894 32.327-3.786 7.754-13.027 9.774-20.743 11.255-12.822 2.535-26.01 3.288-39.027 2.069z' fill='%23$(color)'/%3E%3C/svg%3E");
-    background-size: 45% auto, 90%;
-    background-repeat: no-repeat;
-    background-position: center;
+  background-image: url($icon),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='97.544' width='105.234'%3E%3Cpath d='M22.033 10.836H83.28V80.68H22.033z'/%3E%3Cpath d='M39.259 96.973c-11.39-1.564-24.446-3.06-32.27-12.511C-.047 75.038.04 62.627 0 51.393c.468-14.137 2.444-28.814 9.677-41.217C15.517 2.026 26.366.623 35.66.525 51.783-.227 68.38-.962 83.888 4.348c6.415 2.307 13.853 4.834 16.873 11.545 5.046 11.024 4.743 23.572 4.162 35.429-.459 7.773 1.399 21.247-5.894 32.327-3.786 7.754-13.027 9.774-20.743 11.255-12.822 2.535-26.01 3.288-39.027 2.069z' fill='%23$(color)'/%3E%3C/svg%3E");
+  background-size: 45% auto, 90%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .blocks {
-    position: relative;
+  position: relative;
+  flex-grow: 1;
 }
 
 .blocks :global(.injectionDiv) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .blocks :global(.blocklyMainBackground) {
-    stroke: none;
-    fill: #e1ebf6;
+  stroke: none;
+  fill: #e1ebf6;
 }
 
 .blocks :global(.blocklyToolboxDiv) {
-    box-sizing: content-box;
-    background-color: #deebf5;
+  box-sizing: content-box;
+  background-color: #deebf5;
 
-    font-family: 'Titillium Web';
+  font-family: 'Titillium Web';
 }
 
 .blocks ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
+  width: 0px; /* remove scrollbar space */
+  background: transparent; /* optional: just make scrollbar invisible */
 }
 
 .blocks :global(.blocklyFlyout) {
-    box-sizing: content-box;
-    transform: translate(4rem, 0) !important;
+  box-sizing: content-box;
+  transform: translate(4rem, 0) !important;
 }
 
 .blocks :global(.blocklyWorkspace) {
-    transform: translate(0) !important;
+  transform: translate(0) !important;
 }
 
 .blocks :global(.blocklyFlyoutLabelText) {
-    font-family: 'Titillium Web';
-    font-weight: 600;
-    font-size: 1.8rem;
+  font-family: 'Titillium Web';
+  font-weight: 600;
+  font-size: 1.8rem;
 }
 
 .blocks :global(.blocklyScrollbarVertical.blocklyFlyoutScrollbar) {
-    transform: translate(18.5rem, .5rem) !important;
+  transform: translate(18.5rem, 0.5rem) !important;
 }
 
 /*
@@ -62,78 +64,90 @@
     make the change here instead of in scratch-blocks.
 */
 .blocks :global(.scratchCategoryMenuItemLabel) {
-    color: black;
-    font-size: 0.8rem;
+  color: black;
+  font-size: 0.8rem;
 }
 
 .blocks :global(.scratchCategoryMenu) {
-    width: 4.1rem;
+  width: 4.1rem;
 }
 
 .blocks :global(.scratchCategoryMenuRow) {
-    background-color: #deebf5;
+  background-color: #deebf5;
 }
 
 .blocks :global(.scratchCategoryMenuItem) {
-    padding: 0.2rem .3rem .5rem 0.2rem;
+  padding: 0.2rem 0.3rem 0.5rem 0.2rem;
 }
 
 .blocks :global(.scratchCategoryId-motion .scratchCategoryItemBubble) {
-    @mixin categoryBackground 3099f8, "../../../assets/icons/icon_bewegung.svg";
+  @mixin categoryBackground 3099f8, '../../../assets/icons/icon_bewegung.svg';
 }
 
 .blocks :global(.scratchCategoryId-looks .scratchCategoryItemBubble) {
-    @mixin categoryBackground 9b6af7, "../../../assets/icons/icon_aussehen.svg";
+  @mixin categoryBackground 9b6af7, '../../../assets/icons/icon_aussehen.svg';
 }
 
 .blocks :global(.scratchCategoryId-sound .scratchCategoryItemBubble) {
-    @mixin categoryBackground d863c8, "../../../assets/icons/icon_klang.svg";
+  @mixin categoryBackground d863c8, '../../../assets/icons/icon_klang.svg';
 }
 
 .blocks :global(.scratchCategoryId-events .scratchCategoryItemBubble) {
-    @mixin categoryBackground ffbb3f, "../../../assets/icons/icon_ereignisse.svg";
+  @mixin categoryBackground ffbb3f, '../../../assets/icons/icon_ereignisse.svg';
 }
 
 .blocks :global(.scratchCategoryId-control .scratchCategoryItemBubble) {
-    @mixin categoryBackground ffa640, "../../../assets/icons/icon_steuerung.svg";
+  @mixin categoryBackground ffa640, '../../../assets/icons/icon_steuerung.svg';
 }
 
 .blocks :global(.scratchCategoryId-sensing .scratchCategoryItemBubble) {
-    @mixin categoryBackground 43b1d2 , "../../../assets/icons/icon_fuehlen.svg";
+  @mixin categoryBackground 43b1d2, '../../../assets/icons/icon_fuehlen.svg';
 }
 
 .blocks :global(.scratchCategoryId-operators .scratchCategoryItemBubble) {
-    @mixin categoryBackground 3cbf65, "../../../assets/icons/icon_operatoren.svg";
+  @mixin categoryBackground 3cbf65, '../../../assets/icons/icon_operatoren.svg';
 }
 
 .blocks :global(.scratchCategoryId-variables .scratchCategoryItemBubble) {
-    @mixin categoryBackground ff8639, "../../../assets/icons/icon_variablen.svg";
+  @mixin categoryBackground ff8639, '../../../assets/icons/icon_variablen.svg';
+}
+
+.blocks :global(.scratchCategoryId-myBlocks .scratchCategoryItemBubble) {
+  @mixin categoryBackground B1485A, '../../../assets/icons/icon_myblocks.svg';
+}
+
+.blocks :global(.scratchCategoryId-music .scratchCategoryItemIcon) {
+  background-image: url(../../../assets/icons/icon_music.svg),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='97.544' width='105.234'%3E%3Cpath d='M22.033 10.836H83.28V80.68H22.033z'/%3E%3Cpath d='M39.259 96.973c-11.39-1.564-24.446-3.06-32.27-12.511C-.047 75.038.04 62.627 0 51.393c.468-14.137 2.444-28.814 9.677-41.217C15.517 2.026 26.366.623 35.66.525 51.783-.227 68.38-.962 83.888 4.348c6.415 2.307 13.853 4.834 16.873 11.545 5.046 11.024 4.743 23.572 4.162 35.429-.459 7.773 1.399 21.247-5.894 32.327-3.786 7.754-13.027 9.774-20.743 11.255-12.822 2.535-26.01 3.288-39.027 2.069z' fill='%230D7D61'/%3E%3C/svg%3E") !important;
+  background-size: 45% auto, 90%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .blocks :global(.scratchCategoryMenuItem):hover {
-    color: #4486b5 !important;
+  color: #4486b5 !important;
 }
 
-.blocks :global(.scratchCategoryItemBubble) {
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    background-color: transparent !important;
-    border: none !important;
-    width: 3.5rem !important;
-    height: 3.5rem !important;
-    margin: 0 auto !important;
+.blocks :global(.scratchCategoryItemBubble), :global(.scratchCategoryItemIcon) {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-color: transparent !important;
+  border: none !important;
+  width: 3.5rem !important;
+  height: 3.5rem !important;
+  margin: 0 auto !important;
 }
 
 .blocks :global(.scratchCategoryMenuItem.categorySelected) {
-    background-color: #f3f6f8;
+  background-color: #f3f6f8;
 }
 
 .blocks :global(.blocklyMinimalBody) {
-    min-width: auto;
-    min-height: auto;
+  min-width: auto;
+  min-height: auto;
 }
 
 .blocks :global(.blocklyZoom image) {
-    cursor: pointer;
+  cursor: pointer;
 }

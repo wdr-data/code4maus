@@ -1,32 +1,32 @@
 @import '../../css/colors.css';
 
 .project-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin-right: 1rem;
-    padding: 1rem;
-    border: 1px solid rgb(216, 215, 215);
-    border-radius: 1rem;
-    box-shadow: 2px 2px 12px -4px rgba(0, 0, 0, .7);
-    min-width: 14rem;
-    max-width: 14rem;
-    max-height: 16rem;
-    text-align: center;
-    color: black;
-    cursor: pointer;
-    text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 1rem;
+  padding: 1rem;
+  border: 1px solid rgb(216, 215, 215);
+  border-radius: 1rem;
+  box-shadow: 2px 2px 12px -4px rgba(0, 0, 0, .7);
+  min-width: 14rem;
+  max-width: 14rem;
+  max-height: 16rem;
+  text-align: center;
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .project-wrapper:last-of-type {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .project-wrapper img {
-    height: 7rem;
-    margin: 1rem 0;
+  height: 7rem;
+  margin: 1rem 0;
 }
 
 .title {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }

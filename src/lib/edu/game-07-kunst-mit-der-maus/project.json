@@ -1,0 +1,250 @@
+{
+  "targets": [
+    {
+      "isStage": true,
+      "name": "Stage",
+      "variables": {},
+      "lists": {},
+      "broadcasts": {},
+      "blocks": {},
+      "comments": {},
+      "currentCostume": 0,
+      "costumes": [
+        {
+          "assetId": "4b9d08b843f75925855cf8968701586b",
+          "name": "backdrop1",
+          "bitmapResolution": 1,
+          "md5ext": "4b9d08b843f75925855cf8968701586b.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 307.6414253897551,
+          "rotationCenterY": 182.20312499999991
+        }
+      ],
+      "sounds": [
+        {
+          "assetId": "b38904cb3103c903cd6be4b569b8db5c",
+          "name": "Vogel",
+          "dataFormat": "mp3",
+          "rate": 44100,
+          "sampleCount": 16384,
+          "md5ext": "b38904cb3103c903cd6be4b569b8db5c.mp3"
+        }
+      ],
+      "volume": 100,
+      "layerOrder": 0,
+      "tempo": 60,
+      "videoTransparency": 50,
+      "videoState": "off",
+      "textToSpeechLanguage": null
+    },
+    {
+      "isStage": false,
+      "name": "Maus",
+      "variables": {},
+      "lists": {},
+      "broadcasts": {},
+      "blocks": {
+        "_Z*cSxw+67BIIpLnZcnr": {
+          "opcode": "event_whenflagclicked",
+          "next": "5/fIU12fJ0XdC*#E%00x",
+          "parent": null,
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": 161,
+          "y": 150
+        },
+        "5/fIU12fJ0XdC*#E%00x": {
+          "opcode": "control_forever",
+          "next": null,
+          "parent": "_Z*cSxw+67BIIpLnZcnr",
+          "inputs": {
+            "SUBSTACK": [2, "4aiMmRRj~A@}}vtV)p)s"]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "4aiMmRRj~A@}}vtV)p)s": {
+          "opcode": "motion_turnright",
+          "next": "XFCTe)iJD8RtDK7*:+?v",
+          "parent": "5/fIU12fJ0XdC*#E%00x",
+          "inputs": {
+            "DEGREES": [1, [4, "15"]]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "XFCTe)iJD8RtDK7*:+?v": {
+          "opcode": "control_wait",
+          "next": "}ObHlF2bqJ^|Q2;FB@Q0",
+          "parent": "4aiMmRRj~A@}}vtV)p)s",
+          "inputs": {
+            "DURATION": [1, [5, "0.00025"]]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "}ObHlF2bqJ^|Q2;FB@Q0": {
+          "opcode": "control_create_clone_of",
+          "next": null,
+          "parent": "XFCTe)iJD8RtDK7*:+?v",
+          "inputs": {
+            "CLONE_OPTION": [1, "|bk@%/A0sADaO,NtssP."]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "|bk@%/A0sADaO,NtssP.": {
+          "opcode": "control_create_clone_of_menu",
+          "next": null,
+          "parent": "}ObHlF2bqJ^|Q2;FB@Q0",
+          "inputs": {},
+          "fields": {
+            "CLONE_OPTION": ["_myself_", null]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "WSY-Z6{hL)+6sRBN8WU#": {
+          "opcode": "control_start_as_clone",
+          "next": "8g`KOO:ADAQ%;~nQmi)S",
+          "parent": null,
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": 165,
+          "y": 497
+        },
+        "8g`KOO:ADAQ%;~nQmi)S": {
+          "opcode": "control_forever",
+          "next": null,
+          "parent": "WSY-Z6{hL)+6sRBN8WU#",
+          "inputs": {
+            "SUBSTACK": [2, "w(EAdrYq[P$Y:EV`qcHV"]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "w(EAdrYq[P$Y:EV`qcHV": {
+          "opcode": "control_if",
+          "next": null,
+          "parent": "8g`KOO:ADAQ%;~nQmi)S",
+          "inputs": {
+            "SUBSTACK": [2, "qWH@^wRzU2{D(BP~aig!"],
+            "CONDITION": [2, "9Ufp$5`bS%/XZxXRAcsC"]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "qWH@^wRzU2{D(BP~aig!": {
+          "opcode": "control_wait",
+          "next": "Z^+9V^@!x4Wbm4UPfP6G",
+          "parent": "w(EAdrYq[P$Y:EV`qcHV",
+          "inputs": {
+            "DURATION": [1, [5, "1"]]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "9Ufp$5`bS%/XZxXRAcsC": {
+          "opcode": "sensing_touchingobject",
+          "next": null,
+          "parent": "w(EAdrYq[P$Y:EV`qcHV",
+          "inputs": {
+            "TOUCHINGOBJECTMENU": [1, "p^df%O7cz7H8^Z~Yp2x!"]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "p^df%O7cz7H8^Z~Yp2x!": {
+          "opcode": "sensing_touchingobjectmenu",
+          "next": null,
+          "parent": "9Ufp$5`bS%/XZxXRAcsC",
+          "inputs": {},
+          "fields": {
+            "TOUCHINGOBJECTMENU": ["_edge_", null]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "Z^+9V^@!x4Wbm4UPfP6G": {
+          "opcode": "control_delete_this_clone",
+          "next": null,
+          "parent": "qWH@^wRzU2{D(BP~aig!",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        }
+      },
+      "comments": {},
+      "currentCostume": 0,
+      "costumes": [
+        {
+          "assetId": "e218edbb47712fd1d675adda422a1397",
+          "name": "Maus",
+          "bitmapResolution": 1,
+          "md5ext": "e218edbb47712fd1d675adda422a1397.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 29.599999999999795,
+          "rotationCenterY": 55.91895164174559
+        },
+        {
+          "assetId": "b3eaad890fb54417fba4587ea14c8b73",
+          "name": "Elefant",
+          "bitmapResolution": 1,
+          "md5ext": "b3eaad890fb54417fba4587ea14c8b73.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 44.15871416171683,
+          "rotationCenterY": 29.700001525879003
+        },
+        {
+          "assetId": "b5ff6ff2cbf0a253f943a8270f289b19",
+          "name": "Flattert-3",
+          "bitmapResolution": 1,
+          "md5ext": "b5ff6ff2cbf0a253f943a8270f289b19.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 34.89999999999981,
+          "rotationCenterY": 39.775001525878736
+        }
+      ],
+      "sounds": [
+        {
+          "assetId": "282fb24fedf9ed8f6b7dd08366a0f83c",
+          "name": "Klack-Klack-2",
+          "dataFormat": "mp3",
+          "format": "",
+          "rate": 44100,
+          "sampleCount": 19719,
+          "md5ext": "282fb24fedf9ed8f6b7dd08366a0f83c.mp3"
+        }
+      ],
+      "volume": 100,
+      "layerOrder": 1,
+      "visible": true,
+      "x": -6,
+      "y": 2,
+      "size": 100,
+      "direction": 90,
+      "draggable": false,
+      "rotationStyle": "all around"
+    }
+  ],
+  "monitors": [],
+  "extensions": [],
+  "meta": {
+    "semver": "3.0.0",
+    "vm": "0.2.0-minimal-4",
+    "agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36"
+  }
+}

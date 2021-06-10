@@ -1,95 +1,95 @@
 @import '../../css/colors.css';
 
 .edu-header {
-    display: flex;
-    align-items: flex-start;
+  display: flex;
+  align-items: flex-start;
 }
 
 .caption {
-    flex-grow: 1;
-    padding: .5rem 1rem;
-    font-size: 3vh;
-    font-weight: bold;
+  flex-grow: 1;
+  padding: 0.5rem 1rem;
+  font-size: 3vh;
+  font-weight: bold;
 }
 
 .dim {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,.7);
-    z-index: 100;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
 }
 
 .edu-wrapper {
-    position: relative;
-    z-index: 150;
-    margin-top: .5em;
-    flex-grow: 1;
-    background: #fff;
-    border: $ui-black-transparent 1px solid;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  position: relative;
+  z-index: 150;
+  margin-top: 0.5em;
+  flex-grow: 1;
+  background: #fff;
+  border: $ui-black-transparent 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .edu-wrapper.fullscreen {
-    margin-top: 0;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
+  margin-top: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
 }
 
 .fullscreen-button {
-    float: right;
-    margin-top: .75rem;
-    margin-right: .75rem;
-    padding: 0;
-    user-select: none;
-    cursor: pointer;
-    transition: 0.2s ease-out;
+  float: right;
+  margin-top: 0.75rem;
+  margin-right: 0.75rem;
+  padding: 0;
+  user-select: none;
+  cursor: pointer;
+  transition: 0.2s ease-out;
 }
 
 .fullscreen-button:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .fullscreen-button-icon {
-    height: 2rem;
+  height: 2rem;
 }
 
 .eduSlides {
-    display: flex;
-    flex-grow: 1;
-    position: relative;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
 }
 
 .edu-footer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: .5rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
 }
 
 .images {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    max-width: 95%;
-    max-height: 95%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  max-width: 95%;
+  max-height: 95%;
 }
 
 .content {
-    width: 70vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

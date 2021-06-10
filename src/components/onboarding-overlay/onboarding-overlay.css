@@ -10,7 +10,7 @@
 }
 
 .overlay.dim {
-  background: rgba(0,0,0,.4);
+  background: rgba(0, 0, 0, 0.4);
   pointer-events: initial;
 }
 
@@ -22,7 +22,7 @@
   position: absolute;
   padding: 2rem;
   background-color: white;
-  box-shadow: 0 0 .8rem 1px rgba(0,0,0,.5);
+  box-shadow: 0 0 0.8rem 1px rgba(0, 0, 0, 0.5);
   font-size: 1.2rem;
   pointer-events: initial;
   max-width: 40rem;
@@ -47,12 +47,12 @@
 }
 
 .button {
-    margin: 0 1rem;
+  margin: 0 1rem;
 }
 
 .image {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .arrow {

@@ -17,7 +17,7 @@
 
 .icon {
   height: 3.5rem;
-  margin-top: .25rem;
+  margin-top: 0.25rem;
   margin-right: -1rem;
 
   z-index: 1;
@@ -26,8 +26,8 @@
 .content {
   color: black;
   background-color: white;
-  padding: .25rem 1rem .25rem 1.5rem;
-  box-shadow: .125rem .125rem .75rem 0 rgba(0,0,0,0.5);
+  padding: 0.25rem 1rem 0.25rem 1.5rem;
+  box-shadow: 0.125rem 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.5);
 }
 
 .button-vertical {
@@ -37,23 +37,23 @@
 
 .button-vertical > .icon {
   height: 3rem;
-  margin: 0 0 -.3rem 0;
+  margin: 0 0 -0.3rem 0;
 }
 
-.button-vertical:first-child > .icon{
-  margin: .3rem 0 -.6rem 0;
+.button-vertical:first-child > .icon {
+  margin: 0.3rem 0 -0.6rem 0;
 }
 
 .button-vertical > .content {
   font-size: 1rem;
-  padding: 0 .2rem;
-  box-shadow: .125rem .125rem .75rem 0 rgba(0, 0, 0, 0.5);
+  padding: 0 0.2rem;
+  box-shadow: 0.125rem 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 1024px) {
   .button-vertical {
-      width: 80%;
-      height: auto;
+    width: 80%;
+    height: auto;
   }
   .button-vertical > .icon {
     width: 2.5rem;

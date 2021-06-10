@@ -6,7 +6,6 @@ title: Datenschutz
 
 Der WDR nimmt den Schutz Ihrer Daten sehr ernst. Hier erfahren Sie, welche Daten wir erheben und wie wir sie verwenden. Rechtsgrundlage sind die EU Datenschutzgrundverordnung (DSGVO) und begleitende Landes- und Bundesgesetze zum Datenschutz.
 
-
 ## Datenerhebung und Datenprotokollierung
 
 _Programmieren mit der Maus_ ist technisch so organisiert, dass so wenige personenbezogene Daten wie möglich erhoben und gespeichert werden. Die Eingabe von personenbezogenen Daten ist für keinen Aspekt der Nutzung der Anwendung notwendig. Das Angebot ist frei von Werbung und kommerziellen Interessen.
@@ -15,11 +14,11 @@ _Programmieren mit der Maus_ benötigt kein personenbezogenes Profil seiner Nutz
 
 _**Tipp: Jede\*r Nutzer\*in kann seine ID im Browser unter 'Entwicklertools, Anwendungen, Local-Storage' selbst einsehen.**_
 
-Diese ID im Browserspeicher verknüpft das Gerät mit den auf dem Server gespeicherten Projekten beim Speichern und Laden. So können die Nutzer*innen ihre Projekte abspeichern und später mit ihrem Gerät erneut abrufen.
+Diese ID im Browserspeicher verknüpft das Gerät mit den auf dem Server gespeicherten Projekten beim Speichern und Laden. So können die Nutzer\*innen ihre Projekte abspeichern und später mit ihrem Gerät erneut abrufen.
 
 Anders als eine IP-Adresse ermöglicht diese ID keine Rückschlüsse auf persönliche Daten. Programmieren mit der Maus speichert keine IP-Adressen und keine anderen Nutzerparameter, die zur Identifizierung genutzt werden können.
 
-Den Nutzer*innen wird eine Option geboten, ihre gespeicherten Projekte herunterzuladen und so zu erfahren, welche Daten darin gespeichert sind. Außerdem wird angeboten, die gespeicherten Daten zu löschen. Wird die ID im Browserspeicher gelöscht, wird die Verbindung zu den Projekten gelöscht.
+Den Nutzer\*innen wird eine Option geboten, ihre gespeicherten Projekte herunterzuladen und so zu erfahren, welche Daten darin gespeichert sind. Außerdem wird angeboten, die gespeicherten Daten zu löschen. Wird die ID im Browserspeicher gelöscht, wird die Verbindung zu den Projekten gelöscht.
 
 Der Inhalt der erstellten Projekte wird auf den Servern unseres Dienstleisters Amazon Web Services (AWS) gespeichert, der als sog. Data Processor auftritt. Das zugehörige Data Processing Addendum (DPA) ist hier zu finden: https://d1.awsstatic.com/legal/aws-gdpr/AWS_GDPR_DPA.pdf
 
@@ -27,9 +26,8 @@ Es werden keine Daten an Dritte weitergegeben oder für andere Zwecke als die pr
 
 Der WDR wird Ihre Daten nur an Dritte weitergeben:
 
-*   wenn eine vollstreckbare behördliche oder gerichtliche Anordnung vorliegt
-*   soweit dieses nötig ist, um eine missbräuchliche Verwendung unserer Angebote oder Services in gesetzlich zulässiger Weise zu unterbinden.
-
+- wenn eine vollstreckbare behördliche oder gerichtliche Anordnung vorliegt
+- soweit dieses nötig ist, um eine missbräuchliche Verwendung unserer Angebote oder Services in gesetzlich zulässiger Weise zu unterbinden.
 
 ## Verwendung von Zählpixeln
 

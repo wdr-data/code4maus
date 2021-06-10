@@ -1,10 +1,16 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import MobilScreen from './mobile-screen.jsx';
+import React from 'react'
+import MobileScreen from './mobile-screen.jsx'
 
+export default {
+  title: 'MobileScreen',
+  component: MobileScreen,
+  decorators: [
+    (WrappedStory) => (
+      <div style={{ margin: 'auto', maxWidth: '320px' }}>
+        <WrappedStory />
+      </div>
+    ),
+  ],
+}
 
-storiesOf('Mobile-Screen', module)
-    .add('default', () => (
-        <MobilScreen>
-        </MobilScreen>
-    ));
+export const Basic = () => <MobileScreen />

@@ -1,11 +1,9 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Input from './input.jsx';
+import React from 'react'
+import Input from './input.jsx'
 
-storiesOf('Input', module)
-    .add('default', () => (
-        <Input
-            placeholder="Dies ist ein Platzhalter!"
-        >
-        </Input>
-    ));
+export default {
+  title: 'Input',
+  component: Input,
+}
+
+export const Basic = () => <Input placeholder="Dies ist ein Platzhalter!" />

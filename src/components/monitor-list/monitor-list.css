@@ -1,10 +1,10 @@
 .monitor-list {
-    /* Width/height are set by the component, margin: auto centers in fullscreen */
-    margin: auto;
-    pointer-events: none;
+  /* Width/height are set by the component, margin: auto centers in fullscreen */
+  margin: auto;
+  pointer-events: none;
 }
 
 .monitor-list-scaler {
-    /* Scaling for monitors should happen from the top left */
-    transform-origin: left top;
+  /* Scaling for monitors should happen from the top left */
+  transform-origin: left top;
 }

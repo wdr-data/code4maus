@@ -2,7 +2,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  margin: .75rem;
+  margin: 0.75rem;
   padding: 0;
 }
 
@@ -19,11 +19,21 @@
 }
 
 @keyframes wiggle {
-  0% {transform: rotate(3deg) scale(1.05);}
-  25% {transform: rotate(-3deg) scale(1.05);}
-  50% {transform: rotate(5deg) scale(1.05);}
-  75% {transform: rotate(-2deg) scale(1.05);}
-  100% {transform: rotate(0deg) scale(1.05);}
+  0% {
+    transform: rotate(3deg) scale(1.05);
+  }
+  25% {
+    transform: rotate(-3deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(5deg) scale(1.05);
+  }
+  75% {
+    transform: rotate(-2deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(0deg) scale(1.05);
+  }
 }
 
 .stage-button-icon {

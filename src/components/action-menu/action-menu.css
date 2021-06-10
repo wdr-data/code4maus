@@ -1,26 +1,26 @@
-@import "../../css/colors.css";
+@import '../../css/colors.css';
 
 $button-size: 3.5rem;
 
 .menu-container {
-    display: flex;
-    flex-direction: column;
-    transition: 0.2s;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s;
+  position: relative;
 }
 
 .button {
-    cursor: pointer;
-    font-family: 'Titillium Web';
-    outline: none;
-    border: none;
-    width: $button-size;
-    height: $button-size;
-    background: transparent;
+  cursor: pointer;
+  font-family: 'Titillium Web';
+  outline: none;
+  border: none;
+  width: $button-size;
+  height: $button-size;
+  background: transparent;
 }
 
 button::-moz-focus-inner {
-    border: 0;
+  border: 0;
 }
 
 .button:hover {
@@ -28,43 +28,44 @@ button::-moz-focus-inner {
 }
 
 .button img {
-    width: 100%;
+  width: 100%;
 }
 
 .main-button {
-    z-index: 20; /* TODO reorder layout to prevent z-index need */
+  z-index: 20; /* TODO reorder layout to prevent z-index need */
 }
 
 .more-buttons {
-    display: flex;
-    flex-direction: column;
-    z-index: 10; /* @todo justify */
+  display: flex;
+  flex-direction: column;
+  z-index: 10; /* @todo justify */
 }
 
 .file-input {
-    display: none;
+  display: none;
 }
 
 .force-hidden .more-buttons {
-    display: none; /* This property does not animate */
+  display: none; /* This property does not animate */
 }
 
-.more-buttons:first-child { /* Round off top button */
-    border-top-right-radius: $button-size;
-    border-top-left-radius: $button-size;
+.more-buttons:first-child {
+  /* Round off top button */
+  border-top-right-radius: $button-size;
+  border-top-left-radius: $button-size;
 }
 
 .more-button {
-    width: $button-size;
-    height: $button-size;
+  width: $button-size;
+  height: $button-size;
 }
 
 .more-icon {
-    width: 100%;
+  width: 100%;
 }
 
 .coming-soon .more-icon {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 /*
@@ -73,26 +74,26 @@ button::-moz-focus-inner {
     is not very easy to style.
 */
 .tooltip {
-    background-color: $ui-orange !important;
-    opacity: 1 !important;
-    font-family: 'Titillium Web' !important;
+  background-color: $ui-orange !important;
+  opacity: 1 !important;
+  font-family: 'Titillium Web' !important;
 }
 
 .tooltip:after {
-    background-color: $ui-orange;
+  background-color: $ui-orange;
 }
 
 .coming-soon-tooltip {
-    background-color: $ui-orange !important;
+  background-color: $ui-orange !important;
 }
 
 .coming-soon-tooltip:after {
-    background-color: $ui-orange !important;
+  background-color: $ui-orange !important;
 }
 
 .tooltip {
-    font-family: 'Titillium Web' !important;
-    z-index: 100 !important;
+  font-family: 'Titillium Web' !important;
+  z-index: 100 !important;
 }
 
 $arrow-size: 0.5rem;
@@ -100,36 +101,36 @@ $arrow-inset: -0.25rem;
 $arrow-rounding: 0.125rem;
 
 .tooltip:after {
-    content: "";
-    border-top: 1px solid hsla(0, 0%, 0%, .1) !important;
-    border-left: 0 !important;
-    border-bottom: 0 !important;
-    border-right: 1px solid hsla(0, 0%, 0%, .1) !important;
-    border-radius: $arrow-rounding;
-    height: $arrow-size !important;
-    width: $arrow-size !important;
+  content: '';
+  border-top: 1px solid hsla(0, 0%, 0%, 0.1) !important;
+  border-left: 0 !important;
+  border-bottom: 0 !important;
+  border-right: 1px solid hsla(0, 0%, 0%, 0.1) !important;
+  border-radius: $arrow-rounding;
+  height: $arrow-size !important;
+  width: $arrow-size !important;
 }
 
 .tooltip:global(.place-left):after {
-    margin-top: $arrow-inset !important;
-    right: $arrow-inset !important;
-    transform: rotate(45deg) !important;
+  margin-top: $arrow-inset !important;
+  right: $arrow-inset !important;
+  transform: rotate(45deg) !important;
 }
 
 .tooltip:global(.place-right):after {
-    margin-top: $arrow-inset !important;
-    left: $arrow-inset !important;
-    transform: rotate(-135deg) !important;
+  margin-top: $arrow-inset !important;
+  left: $arrow-inset !important;
+  transform: rotate(-135deg) !important;
 }
 
 .tooltip:global(.place-top):after {
-    margin-right: $arrow-inset !important;
-    bottom: $arrow-inset !important;
-    transform: rotate(135deg) !important;
+  margin-right: $arrow-inset !important;
+  bottom: $arrow-inset !important;
+  transform: rotate(135deg) !important;
 }
 
 .tooltip:global(.place-bottom):after {
-    margin-left: $arrow-inset !important;
-    top: $arrow-inset !important;
-    transform: rotate(-45deg) !important;
+  margin-left: $arrow-inset !important;
+  top: $arrow-inset !important;
+  transform: rotate(-45deg) !important;
 }

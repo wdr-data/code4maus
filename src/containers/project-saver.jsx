@@ -1,8 +1,8 @@
-import bindAll from 'lodash.bindall';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { connect } from 'react-redux';
-import slug from 'slugg';
+import bindAll from 'lodash.bindall'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
+import slug from 'slugg'
 
 /**
  * Project saver component passes a saveProject function to its child.
@@ -19,60 +19,60 @@ import slug from 'slugg';
  * )}</ProjectSaver>
  */
 class ProjectSaver extends React.Component {
-    constructor(props) {
-        super(props);
-        bindAll(this, [ 'saveProject' ]);
-    }
-    saveProject() {
-        const saveLink = document.createElement('a');
-        document.body.appendChild(saveLink);
+  constructor(props) {
+    super(props)
+    bindAll(this, ['saveProject'])
+  }
+  saveProject() {
+    const saveLink = document.createElement('a')
+    document.body.appendChild(saveLink)
 
-        this.props.vm.saveProjectSb3().then((content) => {
-            // TODO user-friendly project name
-            // File name: project-DATE-TIME
-            const date = new Date();
-            const timestamp = `${date.toLocaleDateString()}-${date.toLocaleTimeString()}`;
-            const filename = `${slug(this.props.name)}-${timestamp}.sb3`;
+    this.props.vm.saveProjectSb3().then((content) => {
+      // TODO user-friendly project name
+      // File name: project-DATE-TIME
+      const date = new Date()
+      const timestamp = `${date.toLocaleDateString()}-${date.toLocaleTimeString()}`
+      const filename = `${slug(this.props.name)}-${timestamp}.sb3`
 
-            // Use special ms version if available to get it working on Edge.
-            if (navigator.msSaveOrOpenBlob) {
-                navigator.msSaveOrOpenBlob(content, filename);
-                return;
-            }
+      // Use special ms version if available to get it working on Edge.
+      if (navigator.msSaveOrOpenBlob) {
+        navigator.msSaveOrOpenBlob(content, filename)
+        return
+      }
 
-            const url = window.URL.createObjectURL(content);
-            saveLink.href = url;
-            saveLink.download = filename;
-            saveLink.click();
-            window.URL.revokeObjectURL(url);
-            document.body.removeChild(saveLink);
-        });
-    }
-    render() {
-        const {
-            /* eslint-disable no-unused-vars */
-            children,
-            vm,
-            /* eslint-enable no-unused-vars */
-            ...props
-        } = this.props;
-        return this.props.children(this.saveProject, props);
-    }
+      const url = window.URL.createObjectURL(content)
+      saveLink.href = url
+      saveLink.download = filename
+      saveLink.click()
+      window.URL.revokeObjectURL(url)
+      document.body.removeChild(saveLink)
+    })
+  }
+  render() {
+    const {
+      /* eslint-disable no-unused-vars */
+      children,
+      vm,
+      /* eslint-enable no-unused-vars */
+      ...props
+    } = this.props
+    return this.props.children(this.saveProject, props)
+  }
 }
 
 ProjectSaver.propTypes = {
-    children: PropTypes.func,
-    vm: PropTypes.shape({
-        saveProjectSb3: PropTypes.func,
-    }),
-    name: PropTypes.string,
-};
+  children: PropTypes.func,
+  vm: PropTypes.shape({
+    saveProjectSb3: PropTypes.func,
+  }),
+  name: PropTypes.string,
+}
 
 const mapStateToProps = (state) => ({
-    vm: state.scratchGui.vm,
-});
+  vm: state.scratchGui.vm,
+})
 
 export default connect(
-    mapStateToProps,
-    () => ({}) // omit dispatch prop
-)(ProjectSaver);
+  mapStateToProps,
+  () => ({}) // omit dispatch prop
+)(ProjectSaver)

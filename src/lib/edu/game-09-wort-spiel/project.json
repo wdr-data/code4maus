@@ -1,0 +1,154 @@
+{
+  "targets": [
+    {
+      "isStage": true,
+      "name": "Stage",
+      "variables": {
+        "`jEk@4|i[#Fk?(8x)AV.-my variable": ["meine Variable", 0]
+      },
+      "lists": {},
+      "broadcasts": {},
+      "blocks": {},
+      "comments": {},
+      "currentCostume": 0,
+      "costumes": [
+        {
+          "assetId": "3a343d19f40be5196f5b1cad1c7d1e39",
+          "name": "Wiese",
+          "bitmapResolution": 2,
+          "md5ext": "3a343d19f40be5196f5b1cad1c7d1e39.jpg",
+          "dataFormat": "jpg",
+          "rotationCenterX": 480,
+          "rotationCenterY": 360
+        },
+        {
+          "assetId": "a35419bc3c9a8888430c157960ef28b4",
+          "name": "Unterwasser",
+          "bitmapResolution": 2,
+          "md5ext": "a35419bc3c9a8888430c157960ef28b4.jpg",
+          "dataFormat": "jpg",
+          "rotationCenterX": 480,
+          "rotationCenterY": 360
+        },
+        {
+          "assetId": "bea568d0b736f0a365cb41e7d05f8100",
+          "name": "Weltall",
+          "bitmapResolution": 2,
+          "md5ext": "bea568d0b736f0a365cb41e7d05f8100.jpg",
+          "dataFormat": "jpg",
+          "rotationCenterX": 480,
+          "rotationCenterY": 360
+        },
+        {
+          "assetId": "7a0b6208f0ac9b50189eaa3a2fa68590",
+          "name": "Blau",
+          "bitmapResolution": 2,
+          "md5ext": "7a0b6208f0ac9b50189eaa3a2fa68590.jpg",
+          "dataFormat": "jpg",
+          "rotationCenterX": 480,
+          "rotationCenterY": 360
+        },
+        {
+          "assetId": "b533867ddb6e18b4d508f11be3b46095",
+          "name": "Maus",
+          "bitmapResolution": 2,
+          "md5ext": "b533867ddb6e18b4d508f11be3b46095.jpg",
+          "dataFormat": "jpg",
+          "rotationCenterX": 480,
+          "rotationCenterY": 360
+        }
+      ],
+      "sounds": [
+        {
+          "assetId": "b38904cb3103c903cd6be4b569b8db5c",
+          "name": "Vogel",
+          "dataFormat": "mp3",
+          "rate": 44100,
+          "sampleCount": 16384,
+          "md5ext": "b38904cb3103c903cd6be4b569b8db5c.mp3"
+        }
+      ],
+      "volume": 100,
+      "layerOrder": 0,
+      "tempo": 60,
+      "videoTransparency": 50,
+      "videoState": "off",
+      "textToSpeechLanguage": null
+    },
+    {
+      "isStage": false,
+      "name": "Flattert",
+      "variables": {},
+      "lists": {},
+      "broadcasts": {},
+      "blocks": {},
+      "comments": {},
+      "currentCostume": 0,
+      "costumes": [
+        {
+          "assetId": "b872a152f6463e699d6529445cba58fe",
+          "name": "Flattert-1",
+          "bitmapResolution": 1,
+          "md5ext": "b872a152f6463e699d6529445cba58fe.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 31.900000000000006,
+          "rotationCenterY": 31.20000152587889
+        },
+        {
+          "assetId": "a6cefcfc735f75075a0d70290db07c90",
+          "name": "Flattert-2",
+          "bitmapResolution": 1,
+          "md5ext": "a6cefcfc735f75075a0d70290db07c90.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 28.900000000000006,
+          "rotationCenterY": 30.775001525878878
+        },
+        {
+          "assetId": "bd8953746128a73348e33c991e1b5c07",
+          "name": "Flattert-3",
+          "bitmapResolution": 1,
+          "md5ext": "bd8953746128a73348e33c991e1b5c07.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 28.900000000000006,
+          "rotationCenterY": 30.775001525878878
+        },
+        {
+          "assetId": "f93723ad185a4760578de16f812d24fd",
+          "name": "Flattert-4",
+          "bitmapResolution": 1,
+          "md5ext": "f93723ad185a4760578de16f812d24fd.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 31.69999999999999,
+          "rotationCenterY": 30.675001525878884
+        }
+      ],
+      "sounds": [
+        {
+          "assetId": "ffc769dfe1bc0beacf6d59993c68a865",
+          "name": "Ente flattert",
+          "dataFormat": "mp3",
+          "format": "",
+          "rate": 44100,
+          "sampleCount": 38808,
+          "md5ext": "ffc769dfe1bc0beacf6d59993c68a865.mp3"
+        }
+      ],
+      "volume": 100,
+      "layerOrder": 1,
+      "visible": true,
+      "x": 22.905109489051107,
+      "y": -39.27007299270072,
+      "size": 100,
+      "direction": 90,
+      "draggable": false,
+      "rotationStyle": "all around"
+    }
+  ],
+  "monitors": [],
+  "extensions": [],
+  "meta": {
+    "semver": "3.0.0",
+    "vm": "0.2.0-minimal-4",
+    "agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36"
+  }
+}

@@ -1,23 +1,23 @@
-@import "../../css/colors.css";
-@import "../../css/units.css";
-@import "../../css/typography.css";
+@import '../../css/colors.css';
+@import '../../css/units.css';
+@import '../../css/typography.css';
 
 .crash-wrapper {
-    background-image: url(../gui/bg_header@1x.png);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-image: url(../gui/bg_header@1x.png);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .body {
-    width: 35%;
-    color: black;
-    background-color: white;
-    text-align: center;
-    padding: 2rem;
-    box-shadow: 0 0 0.8rem 1px rgba(0,0,0,.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 35%;
+  color: black;
+  background-color: white;
+  text-align: center;
+  padding: 2rem;
+  box-shadow: 0 0 0.8rem 1px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

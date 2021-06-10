@@ -1,62 +1,61 @@
-@import "../../css/colors.css";
-@import "../../css/units.css";
-@import "../../css/typography.css";
+@import '../../css/colors.css';
+@import '../../css/units.css';
+@import '../../css/typography.css';
 
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1000;
-    background-color: $ui-modal-overlay;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: $ui-modal-overlay;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
-    overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .modal-wrapper * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .modal-wrapper {
-    margin: 3rem 0;
-    outline: none;
-    user-select: text;
+  margin: 3rem 0;
+  outline: none;
+  user-select: text;
 
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    max-width: calc(100% - 2rem);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  max-width: calc(100% - 2rem);
 
-    font-family: 'Titillium Web';
-    color: $text-primary;
-    overflow: hidden;
+  font-family: 'Titillium Web';
+  color: $text-primary;
+  overflow: hidden;
 }
 
 .modal-wrapper.full-screen {
-    position: absolute;
+  position: absolute;
 
-    display: flex;
-    height: 100%;
-    width: 100%;
-    max-width: 100%;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
 
-    overflow-y: auto;
-    -webkit-overflow-scrolling: 'touch';
-    user-select: none;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: 'touch';
+  user-select: none;
 
-    background-color: $ui-secondary;
+  background-color: $ui-secondary;
 
-    /* Default modal resets */
-    margin: 0;
-    border: none;
-    border-radius: 0;
+  /* Default modal resets */
+  margin: 0;
+  border: none;
+  border-radius: 0;
 }
-
 
 /*
     Modal header has 3 items:
@@ -68,85 +67,85 @@
 $sides: 20rem;
 
 .header {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    height: $library-header-height;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  height: $library-header-height;
 
-    flex-shrink: 0;
-    box-sizing: border-box;
-    width: 100%;
-    background-image: url(../gui/bg_darkblue@1x.png);
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 100%;
+  background-image: url(../gui/bg_darkblue@1x.png);
 
-    font-family: 'Titillium Web';
-    font-size: 1rem;
-    font-weight: normal;
+  font-family: 'Titillium Web';
+  font-size: 1rem;
+  font-weight: normal;
 }
 .style-orange .header {
-    background-image: url(../gui/bg_orange@1x.png);
+  background-image: url(../gui/bg_orange@1x.png);
 }
 
 .header-item {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    text-decoration: none;
-    color: $ui-white;
-    user-select: none;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  text-decoration: none;
+  color: $ui-white;
+  user-select: none;
 }
 
 .header-item-filter {
-    display: flex;
-    flex-basis: $sides;
-    justify-content: flex-start;
+  display: flex;
+  flex-basis: $sides;
+  justify-content: flex-start;
 }
 
 .header-item-title {
-    flex-grow: 1;
-    flex-shrink: 0;
-    justify-content: center;
-    user-select: none;
-    letter-spacing: 0.4px;
-    cursor: default;
-    margin: 0 -$sides 0 0;
-    font-size: 1.5rem;
-    font-weight: 600;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: center;
+  user-select: none;
+  letter-spacing: 0.4px;
+  cursor: default;
+  margin: 0 -$sides 0 0;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .full-screen .header-item-title {
-    margin: 0 0 0 -$sides;
+  margin: 0 0 0 -$sides;
 }
 
 .header-item-close {
-    flex-basis: $sides;
-    justify-content: flex-end;
-    z-index: 1;
+  flex-basis: $sides;
+  justify-content: flex-end;
+  z-index: 1;
 }
 
 .full-screen .header-item-close {
-    order: -1;
-    justify-content: flex-start;
+  order: -1;
+  justify-content: flex-start;
 }
 
 .back-button {
-    padding-left: 0;
-    background: none;
+  padding-left: 0;
+  background: none;
 }
 
 .content {
-    padding: 2rem;
+  padding: 2rem;
 
-    background-image: url('../menu/bg_blue@1x.png');
+  background-image: url('../menu/bg_blue@1x.png');
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .full-screen .content {
-    padding: 0;
-    flex-grow: 1;
-    flex-shrink: 0;
+  padding: 0;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 .style-orange .content {
-    background-image: url(../gui/bg_lightorange.png);
+  background-image: url(../gui/bg_lightorange.png);
 }

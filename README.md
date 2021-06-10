@@ -1,3 +1,7 @@
+### Documentation
+If you want to develop find the docs here: 
+https://github.com/wdr-data/code4maus/blob/develop/CONTRIBUTING.md
+
 # Programmieren mit der Maus
 
 Am 23. September findet im KiKa ein **Thementag Digitalisierung** statt. Die Sendung mit der Maus nimmt den Tag zum Anlass, um eine Web-Anwendung zu veröffentlichen, die Kinder spielerisch an Grundkonzepte des Programmierens heranführt: 'Programmieren mit der Maus'. Umgesetzt wird das Projekt von uns, dem **Hacking Studio**. Wir sind eine Gruppe von freien Journalistinnen, Entwicklerinnen und Designerinnen, die inhouse innovative, journalistische Produkte mit agilen Methoden entwickeln. Darunter sind datenjournalistische Formate, Chatbots und Webanwendungen. 

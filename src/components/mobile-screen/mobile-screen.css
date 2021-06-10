@@ -1,107 +1,104 @@
-@import "../../css/colors.css";
+@import '../../css/colors.css';
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: url(../gui/bg_header@1x.png);
+  background-size: cover;
+  padding: 1rem;
+  height: auto;
+  overflow: hidden;
+}
 
 .inner-wrapper {
-    max-width: 50rem;
-    padding: 0 1rem;
-    background-color: white;
-    box-shadow: 0 0 0.8rem 1px rgba(0, 0, 0, .5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1rem;
+  max-width: 50rem;
+  padding: 0 1rem;
+  background-color: white;
+  box-shadow: 0 0 0.8rem 1px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 .first-wrapper {
-    margin-top: 4rem;
-    padding-top: 1rem;
+  margin-top: 4rem;
+  padding-top: 1rem;
 }
 
 .second-wrapper {
-    margin-top: 4rem;
-    padding-top: 1rem;
-    position: relative;
-    padding-bottom: 2rem;
+  margin-top: 4rem;
+  padding-top: 1rem;
+  position: relative;
+  padding-bottom: 2rem;
 }
 
 .third-wrapper {
-    margin-top: 4rem;
-    padding-top: 0.5rem;
+  margin-top: 4rem;
+  padding-top: 0.5rem;
 }
 
 .inner-wrapper strong {
-    color: $ui-orange;
+  color: $ui-orange;
 }
 
 .maus-question {
-    height: 60vw;
-    padding: 1rem 0;
-}
-
-.page-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    background: url(../gui/bg_header@1x.png);
-    background-size: cover;
-    padding: 1rem;
-    height: auto;
+  height: 60%;
+  padding: 1rem 0;
 }
 
 .link {
-    text-decoration: underline;
-    color: black;
-    font-weight: bold;
+  text-decoration: underline;
+  color: black;
+  font-weight: bold;
 }
 
 .info-button {
-    display: inline-block;
+  display: inline-block;
 }
 
 .bold-orange {
-    color: $ui-orange;
-    font-weight: bold;
+  color: $ui-orange;
+  font-weight: bold;
 }
 
 .logo-center {
-    height: 6rem;
-    display: block;
-    margin: 0 auto;
+  height: 6rem;
+  display: block;
+  margin: 0 auto;
 }
 
 .logo-wdr {
-    height: 1rem;
-    margin: 0 0.2rem 0.2rem 1.5rem;
+  height: 1rem;
+  margin: 0 0.2rem 0.2rem 1.5rem;
 }
 
 .logo-wrapper {
-    display: flex;
-    justify-content: flex-start;
-    width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .content {
-    width: 100%;
-    margin: 1rem;
-    height: auto;
+  width: 100%;
+  margin: 1rem;
+  height: auto;
 }
 
 .block-wrapper {
-    position: relative;
-    margin-top: 1rem; 
+  position: relative;
+  margin-top: 1rem;
 }
 
 .block1 {
-    position: absolute;
-    width: 85vw;
-    height: auto; 
-}
-
-.block2 {
-    position: absolute;
-    width: 85vw;
-    height: auto; 
-    z-index: 10;
+  position: relative;
+  width: 85%;
+  height: auto;
+  left: 1em;
+  margin-bottom: -5.5em;
+  z-index: 10;
 }
 
 .block3 {
@@ -109,15 +106,15 @@
 }
 
 .fant {
-    position: absolute;
-    width: 35vw;
-    height: auto; 
-    right: 0;
-    bottom: 0;
+  position: absolute;
+  width: 35%;
+  height: auto;
+  right: 0;
+  bottom: 0;
 }
 
 .screenshot-editor {
-    width: 17rem;
-    height: auto;
-    margin: 0 auto 0 0;
+  width: 17rem;
+  height: auto;
+  margin: 0 auto 0 0;
 }

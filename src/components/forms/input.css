@@ -1,41 +1,41 @@
-@import "../../css/units.css";
-@import "../../css/colors.css";
+@import '../../css/units.css';
+@import '../../css/colors.css';
 
 .input-form {
-    padding: 0.5rem 0.75rem;
-    margin-bottom: 1rem;
-    font-family: 'Titillium Web';
-    font-size: inherit;
-    font-weight: bold;
-    color: $text-primary;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+  font-family: 'Titillium Web';
+  font-size: inherit;
+  font-weight: bold;
+  color: $text-primary;
 
-    border-width: 1px;
-    border-style: solid;
-    border-color: $ui-black-transparent;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $ui-black-transparent;
 
-    outline: none;
-    cursor: text;
-    transition: 0.25s ease-out; /* @todo: standardize with var */
-    box-shadow: none;
+  outline: none;
+  cursor: text;
+  transition: 0.25s ease-out; /* @todo: standardize with var */
+  box-shadow: none;
 
-    /*
+  /*
         For truncating overflowing text gracefully
         Min-width is for a bug: https://css-tricks.com/flexbox-truncated-text
         @todo: move this out into a mixin or a helper component
     */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .input-form:hover {
-    border-color: #da632a;
+  border-color: #da632a;
 }
 
 .input-small {
-    width: 3rem;
-    padding: 0 0.5rem;
-    text-overflow: clip;
-    text-align: center;
+  width: 3rem;
+  padding: 0 0.5rem;
+  text-overflow: clip;
+  text-align: center;
 }

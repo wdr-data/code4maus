@@ -1,35 +1,39 @@
-const categorySeparator = '<sep gap="36"/>';
+const categorySeparator = '<sep gap="36"/>'
 
-const blockSeparator = '<sep gap="36"/>'; // At default scale, about 28px
+const blockSeparator = '<sep gap="36"/>' // At default scale, about 28px
 
-const prepareBlocks = (defaultBlocks, blockLibFn, wrappedFunction) => (isStage, targetId, blocks = null) => {
-    if (Array.isArray(blocks) && blocks.length === 0) {
-        return '';
-    }
+const prepareBlocks = (defaultBlocks, blockLibFn, wrappedFunction) => (
+  isStage,
+  targetId,
+  blocks = null
+) => {
+  if (Array.isArray(blocks) && blocks.length === 0) {
+    return ''
+  }
 
-    if (!Array.isArray(blocks)) {
-        blocks = defaultBlocks;
-    }
+  if (!Array.isArray(blocks)) {
+    blocks = defaultBlocks
+  }
 
-    const blockLib = blockLibFn(isStage, targetId);
-    const blockXml = blocks.map((type) => {
-        if (type === '--') {
-            return blockSeparator;
-        }
-        if (!(type in blockLib)) {
-            return '';
-        }
-        return blockLib[type];
-    }).concat(categorySeparator).join();
+  const blockLib = blockLibFn(isStage, targetId)
+  const blockXml = blocks
+    .map((type) => {
+      if (type === '--') {
+        return blockSeparator
+      }
+      if (!(type in blockLib)) {
+        return ''
+      }
+      return blockLib[type]
+    })
+    .concat(categorySeparator)
+    .join()
 
-    return wrappedFunction(
-        isStage,
-        blockXml,
-    );
-};
+  return wrappedFunction(isStage, blockXml)
+}
 
-const motionBlockLib = (isStage, targetId) => ({
-    movesteps: `
+const motionBlockLib = (_isStage, targetId) => ({
+  movesteps: `
         <block type="motion_movesteps">
             <value name="STEPS">
                 <shadow type="math_number">
@@ -38,7 +42,7 @@ const motionBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    turnright: `
+  turnright: `
         <block type="motion_turnright">
             <value name="DEGREES">
                 <shadow type="math_number">
@@ -47,7 +51,7 @@ const motionBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    turnleft: `
+  turnleft: `
         <block type="motion_turnleft">
             <value name="DEGREES">
                 <shadow type="math_number">
@@ -56,7 +60,7 @@ const motionBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    goto: `
+  goto: `
         <block type="motion_goto">
             <value name="TO">
                 <shadow type="motion_goto_menu">
@@ -64,7 +68,7 @@ const motionBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    gotoxy: `
+  gotoxy: `
         <block type="motion_gotoxy">
             <value name="X">
                 <shadow id="movex" type="math_number">
@@ -78,7 +82,7 @@ const motionBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    glideto: `
+  glideto: `
         <block type="motion_glideto" id="motion_glideto">
             <value name="SECS">
                 <shadow type="math_number">
@@ -91,7 +95,7 @@ const motionBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    glidesecstoxy: `
+  glidesecstoxy: `
         <block type="motion_glidesecstoxy">
             <value name="SECS">
                 <shadow type="math_number">
@@ -110,7 +114,7 @@ const motionBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    pointindirection: `
+  pointindirection: `
         <block type="motion_pointindirection">
             <value name="DIRECTION">
                 <shadow type="math_angle">
@@ -119,7 +123,7 @@ const motionBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    pointtowards: `
+  pointtowards: `
         <block type="motion_pointtowards">
             <value name="TOWARDS">
                 <shadow type="motion_pointtowards_menu">
@@ -127,7 +131,7 @@ const motionBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    changexby: `
+  changexby: `
         <block type="motion_changexby">
             <value name="DX">
                 <shadow type="math_number">
@@ -136,7 +140,7 @@ const motionBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    setx: `
+  setx: `
         <block type="motion_setx">
             <value name="X">
                 <shadow id="setx" type="math_number">
@@ -145,7 +149,7 @@ const motionBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    changeyby: `
+  changeyby: `
         <block type="motion_changeyby">
             <value name="DY">
                 <shadow type="math_number">
@@ -154,7 +158,7 @@ const motionBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    sety: `
+  sety: `
         <block type="motion_sety">
             <value name="Y">
                 <shadow id="sety" type="math_number">
@@ -163,66 +167,72 @@ const motionBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    ifonedgebounce: `
+  ifonedgebounce: `
         <block type="motion_ifonedgebounce"/>
     `,
-    setrotationstyle: `
+  setrotationstyle: `
         <block type="motion_setrotationstyle"/>
     `,
-    xposition: `
+  xposition: `
         <block id="${targetId}_xposition" type="motion_xposition"/>
     `,
-    yposition: `
+  yposition: `
         <block id="${targetId}_yposition" type="motion_yposition"/>
     `,
-    direction: `
+  direction: `
         <block id="${targetId}_direction" type="motion_direction"/>
     `,
-});
+})
 
 const motionDefaultBlocks = [
-    'movesteps',
-    'turnright',
-    'turnleft',
-    '--',
-    'goto',
-    'gotoxy',
-    'glideto',
-    'glidesecstoxy',
-    '--',
-    'pointindirection',
-    'pointtowards',
-    '--',
-    'changexby',
-    'setx',
-    'changeyby',
-    'sety',
-    '--',
-    'ifonedgebounce',
-    '--',
-    'setrotationstyle',
-    '--',
-    'xposition',
-    'yposition',
-    'direction',
-];
+  'movesteps',
+  'turnright',
+  'turnleft',
+  '--',
+  'goto',
+  'gotoxy',
+  'glideto',
+  'glidesecstoxy',
+  '--',
+  'pointindirection',
+  'pointtowards',
+  '--',
+  'changexby',
+  'setx',
+  'changeyby',
+  'sety',
+  '--',
+  'ifonedgebounce',
+  '--',
+  'setrotationstyle',
+  '--',
+  'xposition',
+  'yposition',
+  'direction',
+]
 
-const motion = prepareBlocks(motionDefaultBlocks, motionBlockLib, (isStage, blockXml) => {
+const motion = prepareBlocks(
+  motionDefaultBlocks,
+  motionBlockLib,
+  (isStage, blockXml) => {
     const xmlBase = (inner) => `
         <category name="Bewegung" id="motion">
             ${inner}
         </category>
-    `;
+    `
 
     if (isStage) {
-        return xmlBase('<label text=""></label>');
+      return xmlBase('<label text=""></label>')
     }
 
-    return xmlBase(blockXml);
-});
+    return xmlBase(blockXml)
+  }
+)
 
 const looksBlockLib = (isStage, targetId) => {
-    const sayBlocks = isStage ? {} : {
+  const sayBlocks = isStage
+    ? {}
+    : {
         sayforsecs: `
             <block type="looks_sayforsecs">
                 <value name="MESSAGE">
@@ -269,50 +279,50 @@ const looksBlockLib = (isStage, targetId) => {
                 </value>
             </block>
         `,
-    };
+      }
 
-    const lookSwitchingBlocks = isStage
-        ? {
-            switchbackdropto: `
+  const lookSwitchingBlocks = isStage
+    ? {
+        switchbackdropto: `
                 <block type="looks_switchbackdropto">
                     <value name="BACKDROP">
                         <shadow type="looks_backdrops"/>
                     </value>
                 </block>
             `,
-            switchbackdroptoandwait: `
+        switchbackdroptoandwait: `
                 <block type="looks_switchbackdroptoandwait">
                     <value name="BACKDROP">
                         <shadow type="looks_backdrops"/>
                     </value>
                 </block>
             `,
-            nextbackdrop: `
+        nextbackdrop: `
                 <block type="looks_nextbackdrop"/>
             `,
-        }
-        : {
-            switchcostumeto: `
+      }
+    : {
+        switchcostumeto: `
                 <block id="${targetId}_switchcostumeto" type="looks_switchcostumeto">
                     <value name="COSTUME">
                         <shadow type="looks_costume"/>
                     </value>
                 </block>
             `,
-            nextcostume: `
+        nextcostume: `
                 <block type="looks_nextcostume"/>
             `,
-            switchbackdropto: `
+        switchbackdropto: `
                 <block type="looks_switchbackdropto">
                     <value name="BACKDROP">
                         <shadow type="looks_backdrops"/>
                     </value>
                 </block>
             `,
-            nextbackdrop: `
+        nextbackdrop: `
                 <block type="looks_nextbackdrop"/>
             `,
-            changesizeby: `
+        changesizeby: `
                 <block type="looks_changesizeby">
                     <value name="CHANGE">
                         <shadow type="math_number">
@@ -321,7 +331,7 @@ const looksBlockLib = (isStage, targetId) => {
                     </value>
                 </block>
             `,
-            setsizeto: `
+        setsizeto: `
                 <block type="looks_setsizeto">
                     <value name="SIZE">
                         <shadow type="math_number">
@@ -330,10 +340,10 @@ const looksBlockLib = (isStage, targetId) => {
                     </value>
                 </block>
             `,
-        };
+      }
 
-    const effectsBlocks = {
-        changeeffectby: `
+  const effectsBlocks = {
+    changeeffectby: `
             <block type="looks_changeeffectby">
                 <value name="CHANGE">
                     <shadow type="math_number">
@@ -342,7 +352,7 @@ const looksBlockLib = (isStage, targetId) => {
                 </value>
             </block>
         `,
-        seteffectto: `
+    seteffectto: `
             <block type="looks_seteffectto">
                 <value name="VALUE">
                     <shadow type="math_number">
@@ -351,12 +361,14 @@ const looksBlockLib = (isStage, targetId) => {
                 </value>
             </block>
         `,
-        cleargraphiceffects: `
+    cleargraphiceffects: `
             <block type="looks_cleargraphiceffects"/>
         `,
-    };
+  }
 
-    const visibilityBlocks = isStage ? {} : {
+  const visibilityBlocks = isStage
+    ? {}
+    : {
         show: `
             <block type="looks_show"/>
         `,
@@ -376,90 +388,94 @@ const looksBlockLib = (isStage, targetId) => {
                 </value>
             </block>
         `,
-    };
+      }
 
-    const varsBlocks = isStage
-        ? {
-            backdropnumbername: `
+  const varsBlocks = isStage
+    ? {
+        backdropnumbername: `
                 <block id="backdropnumbername" type="looks_backdropnumbername"/>
             `,
-        }
-        : {
-            costumenumbername: `
+      }
+    : {
+        costumenumbername: `
             <block id="${targetId}_costumenumbername" type="looks_costumenumbername"/>
             `,
-            backdropnumbername: `
+        backdropnumbername: `
                 <block id="backdropnumbername" type="looks_backdropnumbername"/>
             `,
-            size: `
+        size: `
                 <block id="${targetId}_size" type="looks_size"/>
             `,
-        };
+      }
 
-    return {
-        ...sayBlocks,
-        ...lookSwitchingBlocks,
-        ...effectsBlocks,
-        ...visibilityBlocks,
-        ...varsBlocks,
-    };
-};
+  return {
+    ...sayBlocks,
+    ...lookSwitchingBlocks,
+    ...effectsBlocks,
+    ...visibilityBlocks,
+    ...varsBlocks,
+  }
+}
 
 const looksDefaultBlocks = [
-    'sayforsecs',
-    'say',
-    'thinkforsecs',
-    'think',
-    '--',
-    'switchcostumeto',
-    'nextcostume',
-    'switchbackdropto',
-    'switchbackdroptoandwait',
-    'nextbackdrop',
-    '--',
-    'changesizeby',
-    'setsizeto',
-    '--',
-    'changeeffectby',
-    'seteffectto',
-    'cleargraphiceffects',
-    '--',
-    'show',
-    'hide',
-    '--',
-    'gotofrontback',
-    'goforwardbackwardlayers',
-    'costumenumbername',
-    'backdropnumbername',
-    'size',
-];
+  'sayforsecs',
+  'say',
+  'thinkforsecs',
+  'think',
+  '--',
+  'switchcostumeto',
+  'nextcostume',
+  'switchbackdropto',
+  'switchbackdroptoandwait',
+  'nextbackdrop',
+  '--',
+  'changesizeby',
+  'setsizeto',
+  '--',
+  'changeeffectby',
+  'seteffectto',
+  'cleargraphiceffects',
+  '--',
+  'show',
+  'hide',
+  '--',
+  'gotofrontback',
+  'goforwardbackwardlayers',
+  'costumenumbername',
+  'backdropnumbername',
+  'size',
+]
 
-const looks = prepareBlocks(looksDefaultBlocks, looksBlockLib, (isStage, blockXml) => `
+const looks = prepareBlocks(
+  looksDefaultBlocks,
+  looksBlockLib,
+  (_isStage, blockXml) => `
     <category name="Aussehen" id="looks">
         ${blockXml}
     </category>
-`);
+`
+)
 
-const soundBlockLib = (isStage, targetId) => ({
-    play: `
+const soundBlockLib = (_isStage, targetId) => ({
+  play: `
         <block id="${targetId}_sound_play" type="sound_play">
             <value name="SOUND_MENU">
                 <shadow type="sound_sounds_menu"/>
             </value>
         </block>
     `,
-    playuntildone: `
+  playuntildone: `
         <block id="${targetId}_sound_playuntildone" type="sound_playuntildone">
             <value name="SOUND_MENU">
                 <shadow type="sound_sounds_menu"/>
             </value>
         </block>
     `,
-    stopallsounds: `
+  stopallsounds: `
         <block type="sound_stopallsounds"/>
         ${blockSeparator}
     `,
-    changeeffectby: `
+  changeeffectby: `
         <block type="sound_changeeffectby">
             <value name="VALUE">
                 <shadow type="math_number">
@@ -468,7 +484,7 @@ const soundBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    seteffectto: `
+  seteffectto: `
         <block type="sound_seteffectto">
             <value name="VALUE">
                 <shadow type="math_number">
@@ -477,11 +493,11 @@ const soundBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    cleareffects: `
+  cleareffects: `
         <block type="sound_cleareffects"/>
         ${blockSeparator}
     `,
-    changevolumeby: `
+  changevolumeby: `
         <block type="sound_changevolumeby">
             <value name="VOLUME">
                 <shadow type="math_number">
@@ -490,7 +506,7 @@ const soundBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    setvolumeto: `
+  setvolumeto: `
         <block type="sound_setvolumeto">
             <value name="VOLUME">
                 <shadow type="math_number">
@@ -499,48 +515,56 @@ const soundBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    volume: `
+  volume: `
         <block id="volume" type="sound_volume"/>
     `,
-});
+})
 
 const soundDefaultBlocks = [
-    'play',
-    'playuntildone',
-    'stopallsounds',
-    '--',
-    'changeeffectby',
-    'seteffectto',
-    'cleareffects',
-    '--',
-    'changevolumeby',
-    'setvolumeto',
-    'volume',
-];
+  'play',
+  'playuntildone',
+  'stopallsounds',
+  '--',
+  'changeeffectby',
+  'seteffectto',
+  'cleareffects',
+  '--',
+  'changevolumeby',
+  'setvolumeto',
+  'volume',
+]
 
-const sound = prepareBlocks(soundDefaultBlocks, soundBlockLib, (isStage, blockXml) => `
+const sound = prepareBlocks(
+  soundDefaultBlocks,
+  soundBlockLib,
+  (_isStage, blockXml) => `
     <category name="Klang" id="sound">
         ${blockXml}
     </category>
-`);
+`
+)
 
-const eventsBlockLib = (isStage, targetId) => ({
-    whenflagclicked: `
+const eventsBlockLib = (isStage, _targetId) => ({
+  whenflagclicked: `
         <block type="event_whenflagclicked"/>
     `,
-    whenkeypressed: `
+  whenkeypressed: `
         <block type="event_whenkeypressed"/>
     `,
-    whenstageclicked: !isStage ? '' : `
+  whenstageclicked: !isStage
+    ? ''
+    : `
         <block type="event_whenstageclicked"/>
     `,
-    whenthisspriteclicked: isStage ? '' : `
+  whenthisspriteclicked: isStage
+    ? ''
+    : `
         <block type="event_whenthisspriteclicked"/>
     `,
-    whenbackdropswitchesto: `
+  whenbackdropswitchesto: `
         <block type="event_whenbackdropswitchesto"/>
     `,
-    whengreaterthan: `
+  whengreaterthan: `
         <block type="event_whengreaterthan">
             <value name="VALUE">
                 <shadow type="math_number">
@@ -549,47 +573,51 @@ const eventsBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    whenbroadcastreceived: `
+  whenbroadcastreceived: `
         <block type="event_whenbroadcastreceived"/>
     `,
-    broadcast: `
+  broadcast: `
         <block type="event_broadcast">
             <value name="BROADCAST_INPUT">
                 <shadow type="event_broadcast_menu"></shadow>
             </value>
         </block>
     `,
-    broadcastandwait: `
+  broadcastandwait: `
         <block type="event_broadcastandwait">
             <value name="BROADCAST_INPUT">
                 <shadow type="event_broadcast_menu"></shadow>
             </value>
         </block>
     `,
-});
+})
 
 const eventDefaultBlocks = [
-    'whenflagclicked',
-    'whenkeypressed',
-    'whenstageclicked',
-    'whenthisspriteclicked',
-    'whenbackdropswitchesto',
-    '--',
-    'whengreaterthan',
-    '--',
-    'whenbroadcastreceived',
-    'broadcast',
-    'broadcastandwait',
-];
+  'whenflagclicked',
+  'whenkeypressed',
+  'whenstageclicked',
+  'whenthisspriteclicked',
+  'whenbackdropswitchesto',
+  '--',
+  'whengreaterthan',
+  '--',
+  'whenbroadcastreceived',
+  'broadcast',
+  'broadcastandwait',
+]
 
-const events = prepareBlocks(eventDefaultBlocks, eventsBlockLib, (isStage, blockXml) => `
+const events = prepareBlocks(
+  eventDefaultBlocks,
+  eventsBlockLib,
+  (_isStage, blockXml) => `
     <category name="Ereignisse" id="events">
         ${blockXml}
     </category>
-`);
+`
+)
 
-const controlBlockLib = (isStage, targetId) => ({
-    wait: `
+const controlBlockLib = (isStage, _targetId) => ({
+  wait: `
         <block type="control_wait">
             <value name="DURATION">
                 <shadow type="math_positive_number">
@@ -598,7 +626,7 @@ const controlBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    repeat: `
+  repeat: `
         <block type="control_repeat">
             <value name="TIMES">
                 <shadow type="math_whole_number">
@@ -607,65 +635,75 @@ const controlBlockLib = (isStage, targetId) => ({
             </value>
         </block>
     `,
-    forever: `
+  forever: `
         <block id="forever" type="control_forever"/>
     `,
-    if: `
+  if: `
         <block type="control_if"/>
     `,
-    if_else: `
+  if_else: `
         <block type="control_if_else"/>
     `,
-    wait_until: `
+  wait_until: `
         <block id="wait_until" type="control_wait_until"/>
     `,
-    repeat_until: `
+  repeat_until: `
         <block id="repeat_until" type="control_repeat_until"/>
     `,
-    stop: `
+  stop: `
         <block id="stop" type="control_stop"/>
     `,
-    start_as_clone: isStage ? '' : `
+  start_as_clone: isStage
+    ? ''
+    : `
         <block type="control_start_as_clone"/>
     `,
-    create_clone_of: `
+  create_clone_of: `
         <block type="control_create_clone_of">
             <value name="CLONE_OPTION">
                 <shadow type="control_create_clone_of_menu"/>
             </value>
         </block>
     `,
-    delete_this_clone: isStage ? '' : `
+  delete_this_clone: isStage
+    ? ''
+    : `
         <block type="control_delete_this_clone"/>
     `,
-});
+})
 
 const controlDefaultBlocks = [
-    'wait',
-    '--',
-    'repeat',
-    'forever',
-    '--',
-    'if',
-    'if_else',
-    'wait_until',
-    'repeat_until',
-    '--',
-    'stop',
-    '--',
-    'start_as_clone',
-    'create_clone_of',
-    'delete_this_clone',
-];
+  'wait',
+  '--',
+  'repeat',
+  'forever',
+  '--',
+  'if',
+  'if_else',
+  'wait_until',
+  'repeat_until',
+  '--',
+  'stop',
+  '--',
+  'start_as_clone',
+  'create_clone_of',
+  'delete_this_clone',
+]
 
-const control = prepareBlocks(controlDefaultBlocks, controlBlockLib, (isStage, blockXml) => `
+const control = prepareBlocks(
+  controlDefaultBlocks,
+  controlBlockLib,
+  (_isStage, blockXml) => `
     <category name="Steuerung" id="control">
         ${blockXml}
     </category>
-`);
+`
+)
 
-const sensingBlockLib = (isStage, targetId) => {
-    const touchBlocks = isStage ? {} : {
+const sensingBlockLib = (isStage, _targetId) => {
+  const touchBlocks = isStage
+    ? {}
+    : {
         touchingobject: `
             <block type="sensing_touchingobject">
                 <value name="TOUCHINGOBJECTMENU">
@@ -697,10 +735,10 @@ const sensingBlockLib = (isStage, targetId) => {
                 </value>
             </block>
         `,
-    };
+      }
 
-    const otherBlocks = {
-        askandwait: `
+  const otherBlocks = {
+    askandwait: `
             <block id="askandwait" type="sensing_askandwait">
                 <value name="QUESTION">
                     <shadow type="text">
@@ -709,96 +747,102 @@ const sensingBlockLib = (isStage, targetId) => {
                 </value>
             </block>
         `,
-        answer: `
+    answer: `
             <block id="answer" type="sensing_answer"/>
         `,
-        keypressed: `
+    keypressed: `
             <block type="sensing_keypressed">
                 <value name="KEY_OPTION">
                     <shadow type="sensing_keyoptions"/>
                 </value>
             </block>
         `,
-        mousedown: `
+    mousedown: `
             <block type="sensing_mousedown"/>
         `,
-        mousex: `
+    mousex: `
             <block type="sensing_mousex"/>
         `,
-        mousey: `
+    mousey: `
             <block type="sensing_mousey"/>
         `,
-        setdragmode: isStage ? '' : `
+    setdragmode: isStage
+      ? ''
+      : `
             ${blockSeparator}
             <block type="sensing_setdragmode" id="sensing_setdragmode"/>
             ${blockSeparator}
         `,
-        loudness: `
+    loudness: `
             <block id="loudness" type="sensing_loudness"/>
         `,
-        timer: `
+    timer: `
             <block id="timer" type="sensing_timer"/>
         `,
-        resettimer: `
+    resettimer: `
             <block type="sensing_resettimer"/>
         `,
-        of: `
+    of: `
             <block id="of" type="sensing_of">
                 <value name="OBJECT">
                     <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>
                 </value>
             </block>
         `,
-        current: `
+    current: `
             <block id="current" type="sensing_current"/>
             <block type="sensing_dayssince2000"/>
         `,
-        username: `
+    username: `
             <block type="sensing_username"/>
         `,
-    };
+  }
 
-    return {
-        ...touchBlocks,
-        ...otherBlocks,
-    };
-};
+  return {
+    ...touchBlocks,
+    ...otherBlocks,
+  }
+}
 
 const sensingDefaultBlocks = [
-    'touchingobject',
-    'touchingcolor',
-    'coloristouchingcolor',
-    'distanceto',
-    '--',
-    'askandwait',
-    'answer',
-    '--',
-    'keypressed',
-    'mousedown',
-    'mousex',
-    'mousey',
-    'setdragmode',
-    'loudness',
-    '--',
-    'timer',
-    'resettimer',
-    '--',
-    'of',
-    '--',
-    'current',
-    '--',
-    'dayssince2000',
-    'username',
-];
+  'touchingobject',
+  'touchingcolor',
+  'coloristouchingcolor',
+  'distanceto',
+  '--',
+  'askandwait',
+  'answer',
+  '--',
+  'keypressed',
+  'mousedown',
+  'mousex',
+  'mousey',
+  'setdragmode',
+  'loudness',
+  '--',
+  'timer',
+  'resettimer',
+  '--',
+  'of',
+  '--',
+  'current',
+  '--',
+  'dayssince2000',
+  'username',
+]
 
-const sensing = prepareBlocks(sensingDefaultBlocks, sensingBlockLib, (isStage, blockXml) => `
+const sensing = prepareBlocks(
+  sensingDefaultBlocks,
+  sensingBlockLib,
+  (_isStage, blockXml) => `
     <category name="Fühlen" id="sensing">
         ${blockXml}
     </category>
-`);
+`
+)
 
 const operatorsBlockLib = () => ({
-    add: `
+  add: `
         <block type="operator_add">
             <value name="NUM1">
                 <shadow type="math_number">
@@ -812,7 +856,7 @@ const operatorsBlockLib = () => ({
             </value>
         </block>
     `,
-    subtract: `
+  subtract: `
         <block type="operator_subtract">
             <value name="NUM1">
                 <shadow type="math_number">
@@ -826,7 +870,7 @@ const operatorsBlockLib = () => ({
             </value>
         </block>
     `,
-    multiply: `
+  multiply: `
         <block type="operator_multiply">
             <value name="NUM1">
                 <shadow type="math_number">
@@ -840,7 +884,7 @@ const operatorsBlockLib = () => ({
             </value>
         </block>
     `,
-    divide: `
+  divide: `
         <block type="operator_divide">
             <value name="NUM1">
                 <shadow type="math_number">
@@ -854,7 +898,7 @@ const operatorsBlockLib = () => ({
             </value>
         </block>
     `,
-    random: `
+  random: `
         <block type="operator_random">
             <value name="FROM">
                 <shadow type="math_number">
@@ -868,7 +912,7 @@ const operatorsBlockLib = () => ({
             </value>
         </block>
     `,
-    gt: `
+  gt: `
         <block type="operator_gt">
             <value name="OPERAND1">
                 <shadow type="text">
@@ -882,7 +926,7 @@ const operatorsBlockLib = () => ({
             </value>
         </block>
     `,
-    lt: `
+  lt: `
         <block type="operator_lt">
             <value name="OPERAND1">
                 <shadow type="text">
@@ -896,7 +940,7 @@ const operatorsBlockLib = () => ({
             </value>
         </block>
     `,
-    equals: `
+  equals: `
         <block type="operator_equals">
             <value name="OPERAND1">
                 <shadow type="text">
@@ -910,16 +954,16 @@ const operatorsBlockLib = () => ({
             </value>
         </block>
     `,
-    and: `
+  and: `
         <block type="operator_and"/>
     `,
-    or: `
+  or: `
         <block type="operator_or"/>
     `,
-    not: `
+  not: `
         <block type="operator_not"/>
     `,
-    join: `
+  join: `
         <block type="operator_join">
             <value name="STRING1">
                 <shadow type="text">
@@ -933,7 +977,7 @@ const operatorsBlockLib = () => ({
             </value>
         </block>
     `,
-    letter_of: `
+  letter_of: `
         <block type="operator_letter_of">
             <value name="LETTER">
                 <shadow type="math_whole_number">
@@ -947,7 +991,7 @@ const operatorsBlockLib = () => ({
             </value>
         </block>
     `,
-    length: `
+  length: `
         <block type="operator_length">
             <value name="STRING">
                 <shadow type="text">
@@ -956,7 +1000,7 @@ const operatorsBlockLib = () => ({
             </value>
         </block>
     `,
-    contains: `
+  contains: `
         <block type="operator_contains" id="operator_contains">
             <value name="STRING1">
                 <shadow type="text">
@@ -970,7 +1014,7 @@ const operatorsBlockLib = () => ({
             </value>
         </block>
     `,
-    mod: `
+  mod: `
         <block type="operator_mod">
             <value name="NUM1">
                 <shadow type="math_number">
@@ -984,7 +1028,7 @@ const operatorsBlockLib = () => ({
             </value>
         </block>
     `,
-    round: `
+  round: `
         <block type="operator_round">
             <value name="NUM">
                 <shadow type="math_number">
@@ -993,7 +1037,7 @@ const operatorsBlockLib = () => ({
             </value>
         </block>
     `,
-    mathop: `
+  mathop: `
         <block type="operator_mathop">
             <value name="NUM">
                 <shadow type="math_number">
@@ -1002,43 +1046,47 @@ const operatorsBlockLib = () => ({
             </value>
         </block>
     `,
-});
+})
 
 const operatorsDefaultBlocks = [
-    'add',
-    'subtract',
-    'multiply',
-    'divide',
-    '--',
-    'random',
-    '--',
-    'gt',
-    'lt',
-    'equals',
-    '--',
-    'and',
-    'or',
-    'not',
-    '--',
-    'join',
-    'letter_of',
-    'length',
-    'contains',
-    '--',
-    'mod',
-    'round',
-    '--',
-    'mathop',
-];
+  'add',
+  'subtract',
+  'multiply',
+  'divide',
+  '--',
+  'random',
+  '--',
+  'gt',
+  'lt',
+  'equals',
+  '--',
+  'and',
+  'or',
+  'not',
+  '--',
+  'join',
+  'letter_of',
+  'length',
+  'contains',
+  '--',
+  'mod',
+  'round',
+  '--',
+  'mathop',
+]
 
-const operators = prepareBlocks(operatorsDefaultBlocks, operatorsBlockLib, (isStage, blockXml) => `
+const operators = prepareBlocks(
+  operatorsDefaultBlocks,
+  operatorsBlockLib,
+  (_isStage, blockXml) => `
     <category name="Operatoren" id="operators">
         ${blockXml}
     </category>
-`);
+`
+)
 
-const variables = function() {
-    return `
+const variables = function () {
+  return `
     <category
         name="Variablen"
         id="variables"
@@ -1046,47 +1094,79 @@ const variables = function() {
         secondaryColour="#DB6E00"
         custom="VARIABLE">
     </category>
-    `;
-};
+    `
+}
+
+const myBlocks = function () {
+  return `
+    <category
+        name="%{BKY_CATEGORY_MYBLOCKS}"
+        id="myBlocks"
+        colour="#FF6680"
+        secondaryColour="#FF4D6A"
+        custom="PROCEDURE">
+    </category>
+    `
+}
 
 const categoryMap = {
-    motion,
-    looks,
-    sound,
-    events,
-    control,
-    sensing,
-    operators,
-    variables,
-};
+  motion,
+  looks,
+  sound,
+  events,
+  control,
+  sensing,
+  operators,
+  variables,
+  myBlocks,
+}
 
-const xmlOpen = '<xml style="display: none">';
-const xmlClose = '</xml>';
+const xmlOpen = '<xml style="display: none">'
+const xmlClose = '</xml>'
 
 /**
  * @param {!boolean} isStage - Whether the toolbox is for a stage-type target.
  * @param {?string} targetId - The current editing target
- * @param {string?} categoriesXML - null for default toolbox, or an XML string with <category> elements.
+ * @param {Array?} categoriesXML - List of additional categories derived from runtime.getBlocksXML().
  * @returns {string} - a ScratchBlocks-style XML document for the contents of the toolbox.
  */
-const makeToolboxXML = function(isStage, targetId, categoriesXML, customBlocks = null) {
-    const gap = [ categorySeparator ];
+const makeToolboxXML = function (
+  isStage,
+  targetId,
+  categoriesXML,
+  customBlocks = null
+) {
+  const gap = [categorySeparator]
 
-    const categories = !Array.isArray(customBlocks)
-        ? Object.values(categoryMap)
-            .map((cat) => cat(isStage, targetId) + categorySeparator)
-        : customBlocks
-            .map((item) => categoryMap[item.category](isStage, targetId, item.blocks));
+  const categories = !Array.isArray(customBlocks)
+    ? Object.values(categoryMap).map(
+        (cat) => cat(isStage, targetId) + categorySeparator
+      )
+    : customBlocks
+        // Filter music here because it's dynamically loaded
+        .filter((item) => item.category !== 'music')
+        .map((item) =>
+          categoryMap[item.category](isStage, targetId, item.blocks)
+        )
 
-    const everything = [ xmlOpen ]
-        .concat(categories);
+  const everything = [xmlOpen].concat(categories)
 
-    if (categoriesXML) {
-        everything.push(gap, categoriesXML);
-    }
+  if (categoriesXML) {
+    categoriesXML.forEach((category) => {
+      // We can't really filter specific blocks of extensions,
+      // but at least we can filter the category
+      if (
+        Array.isArray(customBlocks) &&
+        customBlocks.findIndex((item) => item.category === category.id) === -1
+      ) {
+        return
+      }
+      everything.push(gap, category.xml.replace('name="Music"', 'name="Musik"'))
+    })
+  }
 
-    everything.push(xmlClose);
-    return everything.join('\n');
-};
+  everything.push(xmlClose)
+  return everything.join('\n')
+}
 
-export default makeToolboxXML;
+export default makeToolboxXML
