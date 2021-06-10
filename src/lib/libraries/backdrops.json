@@ -1,51 +1,98 @@
 [
-  {
-    "name": "Wiese",
-    "md5": "3a343d19f40be5196f5b1cad1c7d1e39.jpg",
-    "type": "backdrop",
-    "tags": [],
-    "info": [480, 360, 2]
-  },
-  {
-    "name": "Unterwasser",
-    "md5": "a35419bc3c9a8888430c157960ef28b4.jpg",
-    "type": "backdrop",
-    "tags": ["unterwasser"],
-    "info": [480, 360, 2]
-  },
-  {
-    "name": "Weltall",
-    "md5": "bea568d0b736f0a365cb41e7d05f8100.jpg",
-    "type": "backdrop",
-    "tags": ["weltall"],
-    "info": [480, 360, 2]
-  },
-  {
-    "name": "Rosa",
-    "md5": "815820d7ede7803da5b782a62c5af654.jpg",
-    "type": "backdrop",
-    "tags": ["farben"],
-    "info": [480, 360, null]
-  },
-  {
-    "name": "Hellblau",
-    "md5": "4ea650daa7102189270469d937c6cd58.jpg",
-    "type": "backdrop",
-    "tags": ["farben"],
-    "info": [480, 360, null]
-  },
-  {
-    "name": "Blau",
-    "md5": "7a0b6208f0ac9b50189eaa3a2fa68590.jpg",
-    "type": "backdrop",
-    "tags": [],
-    "info": [480, 360, 2]
-  },
-  {
-    "name": "Maus",
-    "md5": "b533867ddb6e18b4d508f11be3b46095.jpg",
-    "type": "backdrop",
-    "tags": [],
-    "info": [480, 360, 2]
-  }
+    {
+        "name": "Wiese",
+        "md5": "3a343d19f40be5196f5b1cad1c7d1e39.jpg",
+        "type": "backdrop",
+        "tags": [],
+        "info": [
+            480,
+            360,
+            2
+        ]
+    },
+    {
+        "name": "Unterwasser",
+        "md5": "a35419bc3c9a8888430c157960ef28b4.jpg",
+        "type": "backdrop",
+        "tags": [
+            "unterwasser"
+        ],
+        "info": [
+            480,
+            360,
+            2
+        ]
+    },
+    {
+        "name": "Weltall",
+        "md5": "bea568d0b736f0a365cb41e7d05f8100.jpg",
+        "type": "backdrop",
+        "tags": [
+            "weltall"
+        ],
+        "info": [
+            480,
+            360,
+            2
+        ]
+    },
+    {
+        "name": "Rosa",
+        "md5": "815820d7ede7803da5b782a62c5af654.jpg",
+        "type": "backdrop",
+        "tags": [
+            "farben"
+        ],
+        "info": [
+            480,
+            360,
+            null
+        ]
+    },
+    {
+        "name": "Hellblau",
+        "md5": "4ea650daa7102189270469d937c6cd58.jpg",
+        "type": "backdrop",
+        "tags": [
+            "farben"
+        ],
+        "info": [
+            480,
+            360,
+            null
+        ]
+    },
+    {
+        "name": "Blau",
+        "md5": "7a0b6208f0ac9b50189eaa3a2fa68590.jpg",
+        "type": "backdrop",
+        "tags": [],
+        "info": [
+            480,
+            360,
+            2
+        ]
+    },
+    {
+        "name": "Maus",
+        "md5": "b533867ddb6e18b4d508f11be3b46095.jpg",
+        "type": "backdrop",
+        "tags": [],
+        "info": [
+            480,
+            360,
+            2
+        ]
+    },
+    {
+        "name": "Orange",
+        "md5": "a14c503a8981039b7ab3c70cbf355886.jpg",
+        "type": "backdrop",
+        "tags": [],
+        "info": [
+            480,
+            360,
+            2
+        ]
+    }
 ]
