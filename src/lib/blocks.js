@@ -232,7 +232,6 @@ export default function (vm) {
   // Gives music blocks dropdown menus and translations
 
   ScratchBlocks.jsonInitFactory_ = function (jsonDef) {
-    console.log('jsonDef:', jsonDef)
     if (jsonDef.type == 'music_playDrumForBeats') {
       jsonDef.args0[2] = {
         type: 'field_dropdown',
