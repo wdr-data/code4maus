@@ -14065,6 +14065,13 @@ scratch-render-fonts@1.0.0-prerelease.20200507182347:
   dependencies:
     base64-loader "1.0.0"
 
+scratch-render-fonts@1.0.0-prerelease.20210401210003:
+  version "1.0.0-prerelease.20210401210003"
+  resolved "https://registry.yarnpkg.com/scratch-render-fonts/-/scratch-render-fonts-1.0.0-prerelease.20210401210003.tgz#1665433b19382c7e50de3f56cb36631bacc39b1c"
+  integrity sha512-sgU+LIXTLKk4f7FZOv/B61dpvmfpnlXFf912T6T4GpOfzx99JPRhXPyErZWuwPz8NEzthkhpO7iF2AqgzUxJfA==
+  dependencies:
+    base64-loader "1.0.0"
+
 scratch-render@0.1.0-prerelease.20210325231800:
   version "0.1.0-prerelease.20210325231800"
   resolved "https://registry.yarnpkg.com/scratch-render/-/scratch-render-0.1.0-prerelease.20210325231800.tgz#52a016b1b1dcd8a20c0fb841584fe312ff9fd4eb"

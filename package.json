@@ -131,6 +131,7 @@
     "scratch-render": "0.1.0-prerelease.20210325231800",
     "scratch-storage": "1.2.2",
     "scratch-svg-renderer": "0.2.0-prerelease.20210511195415",
+    "scratch-render-fonts": "1.0.0-prerelease.20210401210003",
     "selenium-webdriver": "4.0.0-alpha.1",
     "serverless": "^1.30.3",
     "serverless-domain-manager": "^3.1.0",
