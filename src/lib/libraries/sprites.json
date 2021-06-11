@@ -113,7 +113,7 @@
             "currentCostumeIndex": 0,
             "scratchX": -8.862823061630232,
             "scratchY": -31.962864721485403,
-            "scale": 2,
+            "scale": 0.85,
             "direction": 90,
             "rotationStyle": "normal",
             "isDraggable": false,
