@@ -154,6 +154,58 @@
         ]
     },
     {
+        "name": "Elefant-rockt-1",
+        "md5": "bbc1ebbf626c703f4f667990f01558ba.svg",
+        "type": "costume",
+        "tags": [
+            "elefant"
+        ],
+        "info": [
+            240,
+            180,
+            1
+        ]
+    },
+    {
+        "name": "Elefant-rockt-2",
+        "md5": "84a3f1da90574d40c1d31a955bab7ad5.svg",
+        "type": "costume",
+        "tags": [
+            "elefant"
+        ],
+        "info": [
+            240,
+            180,
+            1
+        ]
+    },
+    {
+        "name": "Elefant-rockt-3",
+        "md5": "34e5f8b9fb182ab01b045b71834ca983.svg",
+        "type": "costume",
+        "tags": [
+            "elefant"
+        ],
+        "info": [
+            240,
+            180,
+            1
+        ]
+    },
+    {
+        "name": "Elefant-rockt-4",
+        "md5": "41817e77ba3ad0cd2f7c567ecd02406f.svg",
+        "type": "costume",
+        "tags": [
+            "elefant"
+        ],
+        "info": [
+            240,
+            180,
+            1
+        ]
+    },
+    {
         "name": "Weltall-11",
         "md5": "c23337cf4a1b13e08d3060fdd7b4a493.svg",
         "type": "costume",
@@ -829,5 +881,75 @@
             24.20195116415576,
             1
         ]
+    },
+    {
+        "name": "Weltall3",
+        "md5": "0fc3aae88262d7fb73b50438d4ae53bf.svg",
+        "type": "sprite",
+        "tags": [
+            "ente",
+            "weltall"
+        ],
+        "info": [
+            0,
+            3,
+            2
+        ],
+        "json": {
+            "objName": "Weltall3",
+            "sounds": [
+                {
+                    "soundName": "Flattert",
+                    "soundID": -1,
+                    "md5": "ffc769dfe1bc0beacf6d59993c68a865.mp3",
+                    "sampleCount": 38808,
+                    "rate": 44100,
+                    "format": ""
+                },
+                {
+                    "soundName": "Space",
+                    "soundID": -1,
+                    "md5": "19ee12af2e5fc48d689cadb3b45fde7a.mp3",
+                    "sampleCount": 159396,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Weltall-21",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "0fc3aae88262d7fb73b50438d4ae53bf.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 31.940000000000026,
+                    "rotationCenterY": 49.60836947427549
+                },
+                {
+                    "costumeName": "Weltall-22",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "c4542a4f27aee680c7d591df4c1f6a3a.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 31.83606797749971,
+                    "rotationCenterY": 52.906295621306484
+                },
+                {
+                    "costumeName": "Weltall-23",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "ffff8efe2808bdb4af991e65b1239dc2.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 39.00405183549043,
+                    "rotationCenterY": 53.83405459704311
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": -8,
+            "scratchY": -17,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
     }
 ]

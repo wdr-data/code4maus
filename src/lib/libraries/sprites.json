@@ -57,7 +57,8 @@
         "md5": "33be196c2a4c9d6aae909f883b60fa8b.svg",
         "type": "sprite",
         "tags": [
-            "maus"
+            "maus",
+            "musik"
         ],
         "info": [
             0,
@@ -663,6 +664,76 @@
             "currentCostumeIndex": 0,
             "scratchX": -100.69470882,
             "scratchY": -17.3230198,
+            "scale": 1,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
+        "name": "Elefant-rockt",
+        "md5": "bbc1ebbf626c703f4f667990f01558ba.svg",
+        "type": "sprite",
+        "tags": [
+            "elefant",
+            "musik"
+        ],
+        "info": [
+            0,
+            4,
+            2
+        ],
+        "json": {
+            "objName": "Elefant-rockt",
+            "sounds": [
+                {
+                    "soundName": "Space",
+                    "soundID": -1,
+                    "md5": "19ee12af2e5fc48d689cadb3b45fde7a.mp3",
+                    "sampleCount": 159396,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Elefant-rockt-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "bbc1ebbf626c703f4f667990f01558ba.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 240,
+                    "rotationCenterY": 180
+                },
+                {
+                    "costumeName": "Elefant-rockt-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "84a3f1da90574d40c1d31a955bab7ad5.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 240,
+                    "rotationCenterY": 180
+                },
+                {
+                    "costumeName": "Elefant-rockt-3",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "34e5f8b9fb182ab01b045b71834ca983.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 240,
+                    "rotationCenterY": 180
+                },
+                {
+                    "costumeName": "Elefant-rockt-4",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "41817e77ba3ad0cd2f7c567ecd02406f.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 240,
+                    "rotationCenterY": 180
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": -8,
+            "scratchY": -17,
             "scale": 1,
             "direction": 90,
             "rotationStyle": "normal",
