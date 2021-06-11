@@ -137,6 +137,9 @@ export default {
   src/lib/libraries/costumes.json
   src/lib/libraries/sounds.json
 
+  Note: 
+  Uploading a new sprite/costume/backdrop on programmmieren.wdrmaus.de will upload the asset into the production bucket. If you want to use this locally also upload it in the staging environment code4maus.de - this will upload the asset into the staging bucket.
+
 ## Patched block translations
 
 Some of the official Scratch translations may be a bit hard to understand for kids, so we overwrite some of them. All translations can be found in `src/scratch-patches/german.json`
