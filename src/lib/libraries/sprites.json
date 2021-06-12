@@ -857,6 +857,68 @@
         }
     },
     {
+        "name": "Ente-rockt",
+        "md5": "03d5f275965445a262bb4893a60ae69e.svg",
+        "type": "sprite",
+        "tags": [
+            "ente",
+            "musik"
+        ],
+        "info": [
+            0,
+            3,
+            2
+        ],
+        "json": {
+            "objName": "Ente-rockt",
+            "sounds": [
+                {
+                    "soundName": "Flattert",
+                    "soundID": -1,
+                    "md5": "ffc769dfe1bc0beacf6d59993c68a865.mp3",
+                    "sampleCount": 38808,
+                    "rate": 44100,
+                    "format": ""
+                }
+            ],
+            "costumes": [
+                {
+                    "costumeName": "Ente-rockt-1",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "03d5f275965445a262bb4893a60ae69e.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 75,
+                    "rotationCenterY": 75
+                },
+                {
+                    "costumeName": "Ente-rockt-2",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "6f456a2015516c29cd363d4fc4c538ac.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 75,
+                    "rotationCenterY": 75
+                },
+                {
+                    "costumeName": "Ente-rockt-3",
+                    "baseLayerID": -1,
+                    "baseLayerMD5": "69331db92e968afd73acb520a1e696b2.svg",
+                    "bitmapResolution": 1,
+                    "rotationCenterX": 75,
+                    "rotationCenterY": 75
+                }
+            ],
+            "currentCostumeIndex": 0,
+            "scratchX": 2.7080291970802826,
+            "scratchY": -67.0729927007299,
+            "scale": 0.76,
+            "direction": 90,
+            "rotationStyle": "normal",
+            "isDraggable": false,
+            "visible": true,
+            "spriteInfo": {}
+        }
+    },
+    {
         "name": "Weltall",
         "md5": "7ad6b9346d46a0f0aae8e27606e67140.svg",
         "type": "sprite",
