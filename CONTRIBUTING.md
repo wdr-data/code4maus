@@ -137,8 +137,14 @@ export default {
   src/lib/libraries/costumes.json
   src/lib/libraries/sounds.json
 
+  Add tags for the new sprites and costumes, list of tags can be found here:
+  src/lib/libraries/sprite-tags.json
+
+  To update a backdrop do the same as with sprites, but add the backdrop as well in 
+  src/lib/default-project/project.json
+
   Note: 
-  Uploading a new sprite/costume/backdrop on programmmieren.wdrmaus.de will upload the asset into the production bucket. If you want to use this locally also upload it in the staging environment code4maus.de - this will upload the asset into the staging bucket.
+  Uploading a new sprite/costume/backdrop on programmmieren.wdrmaus.de will upload the asset into the production bucket. If you want to use this locally also upload it in the staging environment code4maus.de - this will upload the asset into the staging bucket. Recommended: Start by uploading new sprites in staging, download the .sb3 and run the `import-sprites` command, check locally, merge into staging and then upload the .sb3 in programmieren.wdrmaus.de before production deploy. 
 
 ## Patched block translations
 
