@@ -359,6 +359,48 @@
         ]
     },
     {
+        "name": "Ente-rockt-1",
+        "md5": "03d5f275965445a262bb4893a60ae69e.svg",
+        "type": "costume",
+        "tags": [
+            "ente",
+            "musik"
+        ],
+        "info": [
+            75,
+            75,
+            1
+        ]
+    },
+    {
+        "name": "Ente-rockt-2",
+        "md5": "6f456a2015516c29cd363d4fc4c538ac.svg",
+        "type": "costume",
+        "tags": [
+            "ente",
+            "musik"
+        ],
+        "info": [
+            75,
+            75,
+            1
+        ]
+    },
+    {
+        "name": "Ente-rockt-3",
+        "md5": "69331db92e968afd73acb520a1e696b2.svg",
+        "type": "costume",
+        "tags": [
+            "ente",
+            "musik"
+        ],
+        "info": [
+            75,
+            75,
+            1
+        ]
+    },
+    {
         "name": "Luftballon",
         "md5": "1b6b1842b4516ee12dbbb4cbb3311816.svg",
         "type": "costume",
