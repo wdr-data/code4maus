@@ -4,10 +4,22 @@
       "isStage": true,
       "name": "Stage",
       "variables": {
-        "`jEk@4|i[#Fk?(8x)AV.-my variable": ["meine Variable", 0],
-        "b$,+brOV-9I-/S;HV^Fg": ["Anzahl_Blätter", 9],
-        "-GrRo,Jm@Z7BL^Uv[d@G": ["Größe", "30"],
-        "2Nci!Xip8d~;)c^y(4l!": ["Farbe", "80"]
+        "`jEk@4|i[#Fk?(8x)AV.-my variable": [
+          "meine Variable",
+          0
+        ],
+        "b$,+brOV-9I-/S;HV^Fg": [
+          "Anzahl_Blätter",
+          9
+        ],
+        "-GrRo,Jm@Z7BL^Uv[d@G": [
+          "Größe",
+          "30"
+        ],
+        "2Nci!Xip8d~;)c^y(4l!": [
+          "Farbe",
+          "80"
+        ]
       },
       "lists": {},
       "broadcasts": {
@@ -123,7 +135,14 @@
           "next": null,
           "parent": "|I0EC7+M_6w?Bx3X8[/b",
           "inputs": {
-            "BROADCAST_INPUT": [1, [11, "Blatt_lang", "@vMVz[8Pz3B$z[S?.F4C"]]
+            "BROADCAST_INPUT": [
+              1,
+              [
+                11,
+                "Blatt_lang",
+                "@vMVz[8Pz3B$z[S?.F4C"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -135,7 +154,10 @@
           "parent": null,
           "inputs": {},
           "fields": {
-            "BROADCAST_OPTION": ["Blatt_lang", "@vMVz[8Pz3B$z[S?.F4C"]
+            "BROADCAST_OPTION": [
+              "Blatt_lang",
+              "@vMVz[8Pz3B$z[S?.F4C"
+            ]
           },
           "shadow": false,
           "topLevel": true,
@@ -147,8 +169,20 @@
           "next": "34jtxrB5:[ZDU=!k:$PN",
           "parent": "dk%_[)xS-sn=jgwT-UvF",
           "inputs": {
-            "X": [1, [4, "-70"]],
-            "Y": [1, [4, "60"]]
+            "X": [
+              1,
+              [
+                4,
+                "-70"
+              ]
+            ],
+            "Y": [
+              1,
+              [
+                4,
+                "60"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -159,7 +193,18 @@
           "next": "x?`!3e$SR;0SEx?,LEc,",
           "parent": "NAcNCq(?K:RWV?NS|YU#",
           "inputs": {
-            "SIZE": [3, [12, "Größe", "-GrRo,Jm@Z7BL^Uv[d@G"], [4, "100"]]
+            "SIZE": [
+              3,
+              [
+                12,
+                "Größe",
+                "-GrRo,Jm@Z7BL^Uv[d@G"
+              ],
+              [
+                4,
+                "100"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -179,7 +224,10 @@
           "next": "Xk*-`L]KO/.CxvL5]Pry",
           "parent": "x?`!3e$SR;0SEx?,LEc,",
           "inputs": {
-            "COSTUME": [1, "/4rBZRuXDOaG2t6|2.:K"]
+            "COSTUME": [
+              1,
+              "/4rBZRuXDOaG2t6|2.:K"
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -191,7 +239,10 @@
           "parent": "y}nw-$3/BXmO(0*C7K9e",
           "inputs": {},
           "fields": {
-            "COSTUME": ["Blatt lang", null]
+            "COSTUME": [
+              "Blatt lang",
+              null
+            ]
           },
           "shadow": true,
           "topLevel": false
@@ -201,10 +252,24 @@
           "next": "#1]^]VwC,_M:KxxG,PYY",
           "parent": "y}nw-$3/BXmO(0*C7K9e",
           "inputs": {
-            "VALUE": [3, [12, "Farbe", "2Nci!Xip8d~;)c^y(4l!"], [4, "0"]]
+            "VALUE": [
+              3,
+              [
+                12,
+                "Farbe",
+                "2Nci!Xip8d~;)c^y(4l!"
+              ],
+              [
+                4,
+                "0"
+              ]
+            ]
           },
           "fields": {
-            "EFFECT": ["COLOR", null]
+            "EFFECT": [
+              "COLOR",
+              null
+            ]
           },
           "shadow": false,
           "topLevel": false
@@ -216,12 +281,22 @@
           "inputs": {
             "VALUE": [
               3,
-              [12, "Anzahl_Blätter", "b$,+brOV-9I-/S;HV^Fg"],
-              [10, "0"]
+              [
+                12,
+                "Anzahl_Blätter",
+                "b$,+brOV-9I-/S;HV^Fg"
+              ],
+              [
+                10,
+                "0"
+              ]
             ]
           },
           "fields": {
-            "VARIABLE": ["Anzahl_Blätter", "b$,+brOV-9I-/S;HV^Fg"]
+            "VARIABLE": [
+              "Anzahl_Blätter",
+              "b$,+brOV-9I-/S;HV^Fg"
+            ]
           },
           "shadow": false,
           "topLevel": false
@@ -231,7 +306,11 @@
           "next": "KMe5P]HN$Cl+}Mmmi@P*",
           "parent": "#1]^]VwC,_M:KxxG,PYY",
           "inputs": {
-            "TOWARDS": [3, "fGw!:o]OedpD=|d98THq", "56/q%{zTsmJfmanMEfqv"]
+            "TOWARDS": [
+              3,
+              "fGw!:o]OedpD=|d98THq",
+              "56/q%{zTsmJfmanMEfqv"
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -242,8 +321,20 @@
           "next": null,
           "parent": "n17PwiaAt:R.zLW1WYh#",
           "inputs": {
-            "FROM": [1, [4, "1"]],
-            "TO": [1, [4, "360"]]
+            "FROM": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ],
+            "TO": [
+              1,
+              [
+                4,
+                "360"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -255,7 +346,10 @@
           "parent": "n17PwiaAt:R.zLW1WYh#",
           "inputs": {},
           "fields": {
-            "TOWARDS": ["_mouse_", null]
+            "TOWARDS": [
+              "_mouse_",
+              null
+            ]
           },
           "shadow": true,
           "topLevel": false
@@ -267,10 +361,20 @@
           "inputs": {
             "TIMES": [
               3,
-              [12, "Anzahl_Blätter", "b$,+brOV-9I-/S;HV^Fg"],
-              [6, "10"]
+              [
+                12,
+                "Anzahl_Blätter",
+                "b$,+brOV-9I-/S;HV^Fg"
+              ],
+              [
+                6,
+                "10"
+              ]
             ],
-            "SUBSTACK": [2, "R2jnFBmfL6(F)%m-xc2Q"]
+            "SUBSTACK": [
+              2,
+              "R2jnFBmfL6(F)%m-xc2Q"
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -281,7 +385,10 @@
           "next": "/km:^p]5E0D[QzM%V(Lx",
           "parent": "KMe5P]HN$Cl+}Mmmi@P*",
           "inputs": {
-            "CLONE_OPTION": [1, "N60xL.7X-@@?Jyr9U~Ww"]
+            "CLONE_OPTION": [
+              1,
+              "N60xL.7X-@@?Jyr9U~Ww"
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -293,7 +400,10 @@
           "parent": "R2jnFBmfL6(F)%m-xc2Q",
           "inputs": {},
           "fields": {
-            "CLONE_OPTION": ["_myself_", null]
+            "CLONE_OPTION": [
+              "_myself_",
+              null
+            ]
           },
           "shadow": true,
           "topLevel": false
@@ -303,7 +413,14 @@
           "next": null,
           "parent": "R2jnFBmfL6(F)%m-xc2Q",
           "inputs": {
-            "DEGREES": [3, "B:wJ+EjtB:Sr)/lQ_-%E", [4, "15"]]
+            "DEGREES": [
+              3,
+              "B:wJ+EjtB:Sr)/lQ_-%E",
+              [
+                4,
+                "15"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -314,8 +431,25 @@
           "next": null,
           "parent": "/km:^p]5E0D[QzM%V(Lx",
           "inputs": {
-            "NUM1": [1, [4, "360"]],
-            "NUM2": [3, [12, "Anzahl_Blätter", "b$,+brOV-9I-/S;HV^Fg"], [4, ""]]
+            "NUM1": [
+              1,
+              [
+                4,
+                "360"
+              ]
+            ],
+            "NUM2": [
+              3,
+              [
+                12,
+                "Anzahl_Blätter",
+                "b$,+brOV-9I-/S;HV^Fg"
+              ],
+              [
+                4,
+                ""
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -326,7 +460,14 @@
           "next": "n}Laz4ZC_-46~oPHo0Xh",
           "parent": "KMe5P]HN$Cl+}Mmmi@P*",
           "inputs": {
-            "BROADCAST_INPUT": [1, [11, "Blatt_kurz", "L7X;p9g}p,21?3T~.6fO"]]
+            "BROADCAST_INPUT": [
+              1,
+              [
+                11,
+                "Blatt_kurz",
+                "L7X;p9g}p,21?3T~.6fO"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -357,10 +498,19 @@
           "next": "d+,-V?[X=L^;pueci5mq",
           "parent": "oT)k0S[ERU;~/=)Ulk}X",
           "inputs": {
-            "VALUE": [1, [10, "30"]]
+            "VALUE": [
+              1,
+              [
+                10,
+                "30"
+              ]
+            ]
           },
           "fields": {
-            "VARIABLE": ["Größe", "-GrRo,Jm@Z7BL^Uv[d@G"]
+            "VARIABLE": [
+              "Größe",
+              "-GrRo,Jm@Z7BL^Uv[d@G"
+            ]
           },
           "shadow": false,
           "topLevel": false
@@ -370,10 +520,19 @@
           "next": "Z`VA6IT![Y;,{`F.NND[",
           "parent": "8Iy++pug0[wDW|dF0:gt",
           "inputs": {
-            "VALUE": [1, [10, "80"]]
+            "VALUE": [
+              1,
+              [
+                10,
+                "80"
+              ]
+            ]
           },
           "fields": {
-            "VARIABLE": ["Farbe", "2Nci!Xip8d~;)c^y(4l!"]
+            "VARIABLE": [
+              "Farbe",
+              "2Nci!Xip8d~;)c^y(4l!"
+            ]
           },
           "shadow": false,
           "topLevel": false
@@ -383,10 +542,19 @@
           "next": null,
           "parent": "d+,-V?[X=L^;pueci5mq",
           "inputs": {
-            "VALUE": [1, [10, "12"]]
+            "VALUE": [
+              1,
+              [
+                10,
+                "12"
+              ]
+            ]
           },
           "fields": {
-            "VARIABLE": ["Anzahl_Blätter", "b$,+brOV-9I-/S;HV^Fg"]
+            "VARIABLE": [
+              "Anzahl_Blätter",
+              "b$,+brOV-9I-/S;HV^Fg"
+            ]
           },
           "shadow": false,
           "topLevel": false
@@ -439,7 +607,10 @@
           "parent": null,
           "inputs": {},
           "fields": {
-            "BROADCAST_OPTION": ["Blatt_kurz", "L7X;p9g}p,21?3T~.6fO"]
+            "BROADCAST_OPTION": [
+              "Blatt_kurz",
+              "L7X;p9g}p,21?3T~.6fO"
+            ]
           },
           "shadow": false,
           "topLevel": true,
@@ -451,8 +622,20 @@
           "next": "BN94Ul2]^).dGS,EKAjq",
           "parent": ":@yo:Zx3qnEPd,UpQIY-",
           "inputs": {
-            "X": [1, [4, "-70"]],
-            "Y": [1, [4, "60"]]
+            "X": [
+              1,
+              [
+                4,
+                "-70"
+              ]
+            ],
+            "Y": [
+              1,
+              [
+                4,
+                "60"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -473,7 +656,10 @@
           "parent": "BN94Ul2]^).dGS,EKAjq",
           "inputs": {},
           "fields": {
-            "FRONT_BACK": ["front", null]
+            "FRONT_BACK": [
+              "front",
+              null
+            ]
           },
           "shadow": false,
           "topLevel": false
@@ -483,7 +669,14 @@
           "next": "uA5_s5h2!d!+zX{0:n{N",
           "parent": "^xXH0U1^I4MBGtF*s$~_",
           "inputs": {
-            "SIZE": [3, "t3BzjCdjXS8s*6AJX?hW", [4, "100"]]
+            "SIZE": [
+              3,
+              "t3BzjCdjXS8s*6AJX?hW",
+              [
+                4,
+                "100"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -494,8 +687,26 @@
           "next": null,
           "parent": "=kZ]R{--7;%T(fB:[eV/",
           "inputs": {
-            "NUM1": [3, [12, "Größe", "-GrRo,Jm@Z7BL^Uv[d@G"], [4, ""]],
-            "NUM2": [3, "WU.jZt*ff2jtn!U!q/oF", [4, ""]]
+            "NUM1": [
+              3,
+              [
+                12,
+                "Größe",
+                "-GrRo,Jm@Z7BL^Uv[d@G"
+              ],
+              [
+                4,
+                ""
+              ]
+            ],
+            "NUM2": [
+              3,
+              "WU.jZt*ff2jtn!U!q/oF",
+              [
+                4,
+                ""
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -506,8 +717,20 @@
           "next": null,
           "parent": "t3BzjCdjXS8s*6AJX?hW",
           "inputs": {
-            "FROM": [1, [4, "-5"]],
-            "TO": [1, [4, "10"]]
+            "FROM": [
+              1,
+              [
+                4,
+                "-5"
+              ]
+            ],
+            "TO": [
+              1,
+              [
+                4,
+                "10"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -518,10 +741,20 @@
           "next": "8x{1,H}V|,9f9y%^llc5",
           "parent": "=kZ]R{--7;%T(fB:[eV/",
           "inputs": {
-            "VALUE": [3, ";y-j_5huXje;qwl:Hewj", [4, "0"]]
+            "VALUE": [
+              3,
+              ";y-j_5huXje;qwl:Hewj",
+              [
+                4,
+                "0"
+              ]
+            ]
           },
           "fields": {
-            "EFFECT": ["COLOR", null]
+            "EFFECT": [
+              "COLOR",
+              null
+            ]
           },
           "shadow": false,
           "topLevel": false
@@ -531,8 +764,26 @@
           "next": null,
           "parent": "uA5_s5h2!d!+zX{0:n{N",
           "inputs": {
-            "NUM1": [3, [12, "Farbe", "2Nci!Xip8d~;)c^y(4l!"], [4, ""]],
-            "NUM2": [3, "GAPVMVE{|V`[i5dPXZzI", [4, ""]]
+            "NUM1": [
+              3,
+              [
+                12,
+                "Farbe",
+                "2Nci!Xip8d~;)c^y(4l!"
+              ],
+              [
+                4,
+                ""
+              ]
+            ],
+            "NUM2": [
+              3,
+              "GAPVMVE{|V`[i5dPXZzI",
+              [
+                4,
+                ""
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -543,8 +794,20 @@
           "next": null,
           "parent": ";y-j_5huXje;qwl:Hewj",
           "inputs": {
-            "FROM": [1, [4, "1"]],
-            "TO": [1, [4, "1000"]]
+            "FROM": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ],
+            "TO": [
+              1,
+              [
+                4,
+                "1000"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -555,10 +818,20 @@
           "next": "u?8g+nYW3BkVxsw*iIVN",
           "parent": "uA5_s5h2!d!+zX{0:n{N",
           "inputs": {
-            "VALUE": [3, "`}B[;P*P@_Z,IQ*hW[@a", [10, "0"]]
+            "VALUE": [
+              3,
+              "`}B[;P*P@_Z,IQ*hW[@a",
+              [
+                10,
+                "0"
+              ]
+            ]
           },
           "fields": {
-            "VARIABLE": ["Anzahl_Blätter", "b$,+brOV-9I-/S;HV^Fg"]
+            "VARIABLE": [
+              "Anzahl_Blätter",
+              "b$,+brOV-9I-/S;HV^Fg"
+            ]
           },
           "shadow": false,
           "topLevel": false
@@ -568,8 +841,25 @@
           "next": null,
           "parent": "8x{1,H}V|,9f9y%^llc5",
           "inputs": {
-            "FROM": [1, [4, "4"]],
-            "TO": [3, [12, "Anzahl_Blätter", "b$,+brOV-9I-/S;HV^Fg"], [4, "24"]]
+            "FROM": [
+              1,
+              [
+                4,
+                "4"
+              ]
+            ],
+            "TO": [
+              3,
+              [
+                12,
+                "Anzahl_Blätter",
+                "b$,+brOV-9I-/S;HV^Fg"
+              ],
+              [
+                4,
+                "24"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -580,7 +870,11 @@
           "next": "~wb6l5uY[ESRb|4`fgU[",
           "parent": "8x{1,H}V|,9f9y%^llc5",
           "inputs": {
-            "TOWARDS": [3, "?woc*+1%NcV#vJ7;:[I0", "fL3-}1C+;4?:Kj;]{(,A"]
+            "TOWARDS": [
+              3,
+              "?woc*+1%NcV#vJ7;:[I0",
+              "fL3-}1C+;4?:Kj;]{(,A"
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -591,8 +885,20 @@
           "next": null,
           "parent": "u?8g+nYW3BkVxsw*iIVN",
           "inputs": {
-            "FROM": [1, [4, "1"]],
-            "TO": [1, [4, "360"]]
+            "FROM": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ],
+            "TO": [
+              1,
+              [
+                4,
+                "360"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -604,7 +910,10 @@
           "parent": "u?8g+nYW3BkVxsw*iIVN",
           "inputs": {},
           "fields": {
-            "TOWARDS": ["_mouse_", null]
+            "TOWARDS": [
+              "_mouse_",
+              null
+            ]
           },
           "shadow": true,
           "topLevel": false
@@ -616,10 +925,20 @@
           "inputs": {
             "TIMES": [
               3,
-              [12, "Anzahl_Blätter", "b$,+brOV-9I-/S;HV^Fg"],
-              [6, "10"]
+              [
+                12,
+                "Anzahl_Blätter",
+                "b$,+brOV-9I-/S;HV^Fg"
+              ],
+              [
+                6,
+                "10"
+              ]
             ],
-            "SUBSTACK": [2, "-jw2mX4#J-Wmlm#LPy3m"]
+            "SUBSTACK": [
+              2,
+              "-jw2mX4#J-Wmlm#LPy3m"
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -630,7 +949,10 @@
           "next": "9]nc4.Is]3*B%Gep+Lyf",
           "parent": "~wb6l5uY[ESRb|4`fgU[",
           "inputs": {
-            "CLONE_OPTION": [1, "MCD#DhJ}[/I?QY~9V*u4"]
+            "CLONE_OPTION": [
+              1,
+              "MCD#DhJ}[/I?QY~9V*u4"
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -642,7 +964,10 @@
           "parent": "-jw2mX4#J-Wmlm#LPy3m",
           "inputs": {},
           "fields": {
-            "CLONE_OPTION": ["_myself_", null]
+            "CLONE_OPTION": [
+              "_myself_",
+              null
+            ]
           },
           "shadow": true,
           "topLevel": false
@@ -652,7 +977,14 @@
           "next": null,
           "parent": "-jw2mX4#J-Wmlm#LPy3m",
           "inputs": {
-            "DEGREES": [3, "Z.#N5a4Y8ZQ~b@@(Q7@R", [4, "15"]]
+            "DEGREES": [
+              3,
+              "Z.#N5a4Y8ZQ~b@@(Q7@R",
+              [
+                4,
+                "15"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -663,8 +995,25 @@
           "next": null,
           "parent": "9]nc4.Is]3*B%Gep+Lyf",
           "inputs": {
-            "NUM1": [1, [4, "360"]],
-            "NUM2": [3, [12, "Anzahl_Blätter", "b$,+brOV-9I-/S;HV^Fg"], [4, ""]]
+            "NUM1": [
+              1,
+              [
+                4,
+                "360"
+              ]
+            ],
+            "NUM2": [
+              3,
+              [
+                12,
+                "Anzahl_Blätter",
+                "b$,+brOV-9I-/S;HV^Fg"
+              ],
+              [
+                4,
+                ""
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -675,7 +1024,14 @@
           "next": "qr#zkMh~*_@M}:FQYpyM",
           "parent": "~wb6l5uY[ESRb|4`fgU[",
           "inputs": {
-            "BROADCAST_INPUT": [1, [11, "Mitte", "Iu`](,(g(iW.RdmZ/Q:4"]]
+            "BROADCAST_INPUT": [
+              1,
+              [
+                11,
+                "Mitte",
+                "Iu`](,(g(iW.RdmZ/Q:4"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -758,7 +1114,10 @@
           "parent": null,
           "inputs": {},
           "fields": {
-            "BROADCAST_OPTION": ["Mitte", "Iu`](,(g(iW.RdmZ/Q:4"]
+            "BROADCAST_OPTION": [
+              "Mitte",
+              "Iu`](,(g(iW.RdmZ/Q:4"
+            ]
           },
           "shadow": false,
           "topLevel": true,
@@ -770,8 +1129,20 @@
           "next": "917g-V?K./UT,Q3WV+}(",
           "parent": "hx@3hAbVnpnU!hVE;8@l",
           "inputs": {
-            "X": [1, [4, "-69"]],
-            "Y": [1, [4, "62"]]
+            "X": [
+              1,
+              [
+                4,
+                "-69"
+              ]
+            ],
+            "Y": [
+              1,
+              [
+                4,
+                "62"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -792,7 +1163,10 @@
           "parent": "917g-V?K./UT,Q3WV+}(",
           "inputs": {},
           "fields": {
-            "FRONT_BACK": ["front", null]
+            "FRONT_BACK": [
+              "front",
+              null
+            ]
           },
           "shadow": false,
           "topLevel": false
@@ -811,7 +1185,14 @@
           "next": "?i]I7st5_yryoGFvX=7D",
           "parent": "2Ct9VgfKb9ILLc6oDizn",
           "inputs": {
-            "SIZE": [3, "CZi)iS37lM0VLGL]MrJE", [4, "100"]]
+            "SIZE": [
+              3,
+              "CZi)iS37lM0VLGL]MrJE",
+              [
+                4,
+                "100"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -822,8 +1203,26 @@
           "next": null,
           "parent": "RBrTj#3RS%OnN?pW8j9T",
           "inputs": {
-            "NUM1": [3, [12, "Größe", "-GrRo,Jm@Z7BL^Uv[d@G"], [4, ""]],
-            "NUM2": [3, ":cm)vo:A@^xIq1(qW1FL", [4, ""]]
+            "NUM1": [
+              3,
+              [
+                12,
+                "Größe",
+                "-GrRo,Jm@Z7BL^Uv[d@G"
+              ],
+              [
+                4,
+                ""
+              ]
+            ],
+            "NUM2": [
+              3,
+              ":cm)vo:A@^xIq1(qW1FL",
+              [
+                4,
+                ""
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -834,8 +1233,20 @@
           "next": null,
           "parent": "CZi)iS37lM0VLGL]MrJE",
           "inputs": {
-            "FROM": [1, [4, "0"]],
-            "TO": [1, [4, "5"]]
+            "FROM": [
+              1,
+              [
+                4,
+                "0"
+              ]
+            ],
+            "TO": [
+              1,
+              [
+                4,
+                "5"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -846,10 +1257,20 @@
           "next": ",(HAnr@:tSpU%`f+dRkL",
           "parent": "RBrTj#3RS%OnN?pW8j9T",
           "inputs": {
-            "VALUE": [3, "XWM[hV,}}1aVp}WS:(Rs", [4, "0"]]
+            "VALUE": [
+              3,
+              "XWM[hV,}}1aVp}WS:(Rs",
+              [
+                4,
+                "0"
+              ]
+            ]
           },
           "fields": {
-            "EFFECT": ["COLOR", null]
+            "EFFECT": [
+              "COLOR",
+              null
+            ]
           },
           "shadow": false,
           "topLevel": false
@@ -859,8 +1280,20 @@
           "next": null,
           "parent": "?i]I7st5_yryoGFvX=7D",
           "inputs": {
-            "FROM": [1, [4, "1"]],
-            "TO": [1, [4, "50"]]
+            "FROM": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ],
+            "TO": [
+              1,
+              [
+                4,
+                "50"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -871,7 +1304,10 @@
           "next": "xgg=wx0uBTYRDdLASrM,",
           "parent": "?i]I7st5_yryoGFvX=7D",
           "inputs": {
-            "CLONE_OPTION": [1, "86%5h=(|v8uL-%*fwl4s"]
+            "CLONE_OPTION": [
+              1,
+              "86%5h=(|v8uL-%*fwl4s"
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -883,7 +1319,10 @@
           "parent": ",(HAnr@:tSpU%`f+dRkL",
           "inputs": {},
           "fields": {
-            "CLONE_OPTION": ["_myself_", null]
+            "CLONE_OPTION": [
+              "_myself_",
+              null
+            ]
           },
           "shadow": true,
           "topLevel": false
@@ -976,7 +1415,10 @@
           "parent": "D$]PQs!M(V!#$DWzpP_,",
           "inputs": {},
           "fields": {
-            "FRONT_BACK": ["back", null]
+            "FRONT_BACK": [
+              "back",
+              null
+            ]
           },
           "shadow": false,
           "topLevel": false
@@ -986,8 +1428,20 @@
           "next": "Y|T~[-0FxR!uST9P+623",
           "parent": "[4Jq6dR/NM8[br1EW]n+",
           "inputs": {
-            "X": [1, [4, "40"]],
-            "Y": [1, [4, "10"]]
+            "X": [
+              1,
+              [
+                4,
+                "40"
+              ]
+            ],
+            "Y": [
+              1,
+              [
+                4,
+                "10"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -998,7 +1452,13 @@
           "next": null,
           "parent": "suYDd5t9*G[z#Q~)x}T{",
           "inputs": {
-            "SIZE": [1, [4, "200"]]
+            "SIZE": [
+              1,
+              [
+                4,
+                "200"
+              ]
+            ]
           },
           "fields": {},
           "shadow": false,
@@ -1009,10 +1469,10 @@
       "currentCostume": 0,
       "costumes": [
         {
-          "assetId": "3be9896385a22664f1738fb5b0c3e6ee",
+          "assetId": "2d40633a95ef4dd5ea76305649a168f7",
           "name": "mausprobiert",
           "bitmapResolution": 1,
-          "md5ext": "3be9896385a22664f1738fb5b0c3e6ee.svg",
+          "md5ext": "2d40633a95ef4dd5ea76305649a168f7.svg",
           "dataFormat": "svg",
           "rotationCenterX": 96.13871500000002,
           "rotationCenterY": 152.86181500000015
