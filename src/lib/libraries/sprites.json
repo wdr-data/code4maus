@@ -54,7 +54,7 @@
     },
     {
         "name": "Rockt",
-        "md5": "33be196c2a4c9d6aae909f883b60fa8b.svg",
+        "md5": "7715ce37494e336ac6d079c0eae21f8a.svg",
         "type": "sprite",
         "tags": [
             "maus",
@@ -81,7 +81,7 @@
                 {
                     "costumeName": "Rockt-1",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "33be196c2a4c9d6aae909f883b60fa8b.svg",
+                    "baseLayerMD5": "7715ce37494e336ac6d079c0eae21f8a.svg",
                     "bitmapResolution": 1,
                     "rotationCenterX": 75.88716125488281,
                     "rotationCenterY": 73.61809539794922
@@ -89,7 +89,7 @@
                 {
                     "costumeName": "Rockt-2",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "93f3259a450b44b79863cc3592529313.svg",
+                    "baseLayerMD5": "e0629aba32e5c9b4b603ab5ad16be800.svg",
                     "bitmapResolution": 1,
                     "rotationCenterX": 75.88716125488281,
                     "rotationCenterY": 73.61809539794922
@@ -97,7 +97,7 @@
                 {
                     "costumeName": "Rockt-3",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "ff7f7ab833f96ee9c26ef20e19337900.svg",
+                    "baseLayerMD5": "c3564fae6873cb8b6eadd47e1d859ba4.svg",
                     "bitmapResolution": 1,
                     "rotationCenterX": 75.88716125488281,
                     "rotationCenterY": 73.61809539794922
@@ -105,16 +105,16 @@
                 {
                     "costumeName": "Rockt-4",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "bb37272576e8ee762b68e876ce7237b0.svg",
+                    "baseLayerMD5": "21944a00083b4fda44760b1004418aa1.svg",
                     "bitmapResolution": 1,
                     "rotationCenterX": 75.88716125488281,
                     "rotationCenterY": 73.61809539794922
                 }
             ],
             "currentCostumeIndex": 0,
-            "scratchX": -8.862823061630232,
-            "scratchY": -31.962864721485403,
-            "scale": 0.85,
+            "scratchX": -144.3200795228628,
+            "scratchY": -46.270557029177695,
+            "scale": 0.83,
             "direction": 90,
             "rotationStyle": "normal",
             "isDraggable": false,
@@ -674,7 +674,7 @@
     },
     {
         "name": "Elefant-rockt",
-        "md5": "bbc1ebbf626c703f4f667990f01558ba.svg",
+        "md5": "b53674fc146a2ba4baa705ee74200c06.svg",
         "type": "sprite",
         "tags": [
             "elefant",
@@ -683,7 +683,7 @@
         "info": [
             0,
             4,
-            2
+            1
         ],
         "json": {
             "objName": "Elefant-rockt",
@@ -701,7 +701,7 @@
                 {
                     "costumeName": "Elefant-rockt-1",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "bbc1ebbf626c703f4f667990f01558ba.svg",
+                    "baseLayerMD5": "b53674fc146a2ba4baa705ee74200c06.svg",
                     "bitmapResolution": 1,
                     "rotationCenterX": 240,
                     "rotationCenterY": 180
@@ -709,7 +709,7 @@
                 {
                     "costumeName": "Elefant-rockt-2",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "84a3f1da90574d40c1d31a955bab7ad5.svg",
+                    "baseLayerMD5": "79ee7df9cde7c650829024afe61709f4.svg",
                     "bitmapResolution": 1,
                     "rotationCenterX": 240,
                     "rotationCenterY": 180
@@ -717,7 +717,7 @@
                 {
                     "costumeName": "Elefant-rockt-3",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "34e5f8b9fb182ab01b045b71834ca983.svg",
+                    "baseLayerMD5": "a4706dd67218753763464c8e70b3fb9e.svg",
                     "bitmapResolution": 1,
                     "rotationCenterX": 240,
                     "rotationCenterY": 180
@@ -725,16 +725,16 @@
                 {
                     "costumeName": "Elefant-rockt-4",
                     "baseLayerID": -1,
-                    "baseLayerMD5": "41817e77ba3ad0cd2f7c567ecd02406f.svg",
+                    "baseLayerMD5": "22b7f7498568ab60910c25ed9dd9317d.svg",
                     "bitmapResolution": 1,
                     "rotationCenterX": 240,
                     "rotationCenterY": 180
                 }
             ],
             "currentCostumeIndex": 0,
-            "scratchX": -8,
-            "scratchY": -17,
-            "scale": 1,
+            "scratchX": 39.26838966202783,
+            "scratchY": -14,
+            "scale": 0.83,
             "direction": 90,
             "rotationStyle": "normal",
             "isDraggable": false,
