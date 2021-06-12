@@ -4,7 +4,10 @@
       "isStage": true,
       "name": "Stage",
       "variables": {
-        "`jEk@4|i[#Fk?(8x)AV.-my variable": ["meine Variable", 0]
+        "`jEk@4|i[#Fk?(8x)AV.-my variable": [
+          "meine Variable",
+          0
+        ]
       },
       "lists": {},
       "broadcasts": {},
@@ -53,6 +56,15 @@
           "name": "Maus",
           "bitmapResolution": 2,
           "md5ext": "b533867ddb6e18b4d508f11be3b46095.jpg",
+          "dataFormat": "jpg",
+          "rotationCenterX": 480,
+          "rotationCenterY": 360
+        },
+        {
+          "assetId": "74070a04458069b1b94ddc2483a40e4c",
+          "name": "Gelb",
+          "bitmapResolution": 2,
+          "md5ext": "74070a04458069b1b94ddc2483a40e4c.jpg",
           "dataFormat": "jpg",
           "rotationCenterX": 480,
           "rotationCenterY": 360

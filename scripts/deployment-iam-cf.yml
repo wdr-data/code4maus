@@ -50,15 +50,15 @@ Resources:
     Properties:
       GroupName: !Ref AdminGroup
       Users:
-        - hackingstudio-code4maus-marcus
+        - hackingstudio-marcus
         - hackingstudio-code4maus-railslove
 
   UserPolicyMarcus:
     Type: 'AWS::IAM::Policy'
     Properties:
       Users:
-        - hackingstudio-code4maus-marcus
-      PolicyName: 'hackingstudio-code4maus-userinline-marcus'
+        - hackingstudio-marcus
+      PolicyName: 'hackingstudio-userinline-marcus'
       PolicyDocument:
         Version: 2012-10-17
         Statement:
@@ -66,7 +66,7 @@ Resources:
             Action:
               - 'iam:ChangePassword'
             Resource:
-              - !Sub 'arn:aws:iam::${AWS::AccountId}:user/hackingstudio/code4maus/hackingstudio-code4maus-marcus'
+              - !Sub 'arn:aws:iam::${AWS::AccountId}:user/hackingstudio/code4maus/hackingstudio-marcus'
 
   UserPolicyRailslove:
     Type: 'AWS::IAM::Policy'
@@ -81,7 +81,7 @@ Resources:
             Action:
               - 'iam:ChangePassword'
             Resource:
-              - !Sub 'arn:aws:iam::${AWS::AccountId}:user/hackingstudio/code4maus/hackingstudio-code4maus-railslove'
+              - !Sub 'arn:aws:iam::${AWS::AccountId}:user/hackingstudio-code4maus-railslove'
 
   DeployGroup:
     Type: 'AWS::IAM::Group'

@@ -1,5 +1,3 @@
-import AudioEngine from 'scratch-audio'
-import SharedAudioContext from 'audio-context'
 import PropTypes from 'prop-types'
 import React from 'react'
 import VM from 'scratch-vm'
@@ -35,17 +33,7 @@ class GUI extends React.Component {
     }
 
     this.handleSaveModalClose = this.handleSaveModalClose.bind(this)
-
-    // Ensure audio context is set up before music extension loads
-    const audioEngine = new AudioEngine(new SharedAudioContext())
-    this.props.vm.attachAudioEngine(audioEngine)
     this.props.vm.setLocale(this.props.locale, this.props.messages)
-
-    // When loading projects, scratch enables the extension automatically
-    // Loading it like this breaks it somehow
-    if (this.props.projectId === 0) {
-      this.props.vm.extensionManager.loadExtensionIdSync('music')
-    }
   }
   componentDidMount() {
     if (this.props.vm.initialized) {

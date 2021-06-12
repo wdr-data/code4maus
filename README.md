@@ -37,8 +37,8 @@ Denkbar ist zum Beispiel Material für Lehrerinnen und Fachkräfte im offenen Ga
 
 ## Team
 
-- Konzept, Programmierung: Patricia Ennenbach, Christine Gotthardt, Marcus Weiner
-- Design: Machbar
+- Konzept, Programmierung: Patricia Ennenbach, Christine Gotthardt, Marcus Weiner, Jannes Höke, Railslove 
+- Design: Machbar, Christine Gotthardt
 - Redaktion: Matthias Körnich, Oliver Schwarz
 Gefördert durch den Innovationstopf des Intendanten.
 
