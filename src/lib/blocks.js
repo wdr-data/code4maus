@@ -307,5 +307,10 @@ export default function (vm) {
     }
   }
 
+  // Fix piano flyout not playing notes
+  ScratchBlocks.FieldNote.playNote_ = function (noteNum, extensionId) {
+    vm.runtime.emit('PLAY_NOTE', noteNum, extensionId)
+  }
+
   return ScratchBlocks
 }
