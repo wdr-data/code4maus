@@ -12,6 +12,7 @@ export const MenuTabs = {
   edugames: 'lernspiele',
   examples: 'beispiele',
   projects: 'projekte',
+  videos: 'videos',
 }
 
 export const eduUrl = (eduId) => `/lernspiel/${eduId}`
@@ -32,6 +33,10 @@ const routes = {
   '/beispiele': {
     view: Views.menu,
     tab: MenuTabs.examples,
+  },
+  '/videos': {
+    view: Views.menu,
+    tab: MenuTabs.videos,
   },
   '/lernspiel/:eduId': {
     view: Views.edu,

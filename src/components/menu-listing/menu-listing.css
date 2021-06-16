@@ -8,14 +8,14 @@
   padding: 1rem;
   border: 1px solid rgb(216, 215, 215);
   border-radius: 1rem;
-  box-shadow: 2px 2px 12px -4px rgba(0, 0, 0, .7);
-  min-width: 14rem;
-  max-width: 14rem;
-  max-height: 16rem;
+  box-shadow: 2px 2px 12px -4px rgba(0, 0, 0, 0.7);
+  min-width: 16rem;
+  max-width: 16rem;
   text-align: center;
   color: black;
   cursor: pointer;
   text-decoration: none;
+  line-height: 1.2;
 }
 
 .project-wrapper:last-of-type {
@@ -29,4 +29,11 @@
 
 .title {
   font-size: 1.25rem;
+}
+
+.video-content {
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
