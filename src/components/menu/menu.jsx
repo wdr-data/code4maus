@@ -6,9 +6,9 @@ import { FormattedMessage } from 'react-intl'
 import PropTypes from 'prop-types'
 import { Link } from 'redux-little-router'
 
-import MenuListing, { SHAPE_PROJECT } from '../menu-listing/menu-listing.jsx'
 import InlineSVG from '../inline-svg/inline-svg.jsx'
 import MenuButton from '../menu-button/menu-button.jsx'
+import MenuListing, { SHAPE_PROJECT } from '../menu-listing/menu-listing.jsx'
 import OfflineSupport from '../offline-support/offline-support.jsx'
 import wdrLogo from '../../../assets/img/wdr_logo.svg'
 import headLogo from '../../../assets/img/head_logo.png'
@@ -19,6 +19,7 @@ import buttonNew from '!raw-loader!../../../assets/icons/menu_plus.svg'
 import tabIconEdugames from '!raw-loader!../../../assets/icons/menu_edugames.svg'
 import tabIconProjects from '!raw-loader!../../../assets/icons/menu_projects.svg'
 import tabIconExamples from '!raw-loader!../../../assets/icons/menu_examples.svg'
+import tabIconVideos from '!raw-loader!../../../assets/icons/icon_film.svg'
 import buttonIconLehrerinnen from '!raw-loader!../../../assets/icons/menu_lehrer.svg'
 import buttonIconInfo from '!raw-loader!../../../assets/icons/menu_eltern-info.svg'
 import buttonIconMausseite from '!raw-loader!../../../assets/icons/menu_mausseite.svg'
@@ -101,6 +102,12 @@ export const MenuComponent = (props) => {
                 />
               </div>
             </Tab>
+            <Tab className={tabClassNames.tab}>
+              <div className={styles.tabContent}>
+                <InlineSVG svg={tabIconVideos} className={styles.tabIcon} />
+                <FormattedMessage defaultMessage="Videos" id="gui.gui.videos" />
+              </div>
+            </Tab>
           </TabList>
           <TabPanel className={tabClassNames.tabPanel}>
             <div className={styles.sectionBody}>
@@ -125,6 +132,11 @@ export const MenuComponent = (props) => {
                   Beispiele sind offline leider nicht verfügbar.
                 </p>
               )}
+            </div>
+          </TabPanel>
+          <TabPanel className={tabClassNames.tabPanel}>
+            <div className={styles.sectionBody}>
+              <MenuListing projects={props.videos} isVideoListing />
             </div>
           </TabPanel>
         </Tabs>
@@ -158,6 +170,7 @@ MenuComponent.propTypes = {
   eduGames: PropTypes.arrayOf(PropTypes.shape(SHAPE_PROJECT)),
   examples: PropTypes.arrayOf(PropTypes.shape(SHAPE_PROJECT)),
   projects: PropTypes.arrayOf(PropTypes.shape(SHAPE_PROJECT)),
+  videos: PropTypes.arrayOf(PropTypes.shape(SHAPE_PROJECT)),
   selectedTab: PropTypes.number.isRequired,
   handleTabSelected: PropTypes.func.isRequired,
   isOnline: PropTypes.bool,

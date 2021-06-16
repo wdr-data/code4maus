@@ -2,13 +2,26 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'redux-little-router'
 
+import VideoButtonModal from '../video-button-modal/video-button-modal.jsx'
 import defaultImage from '../../../assets/img/meine_sachen.png'
 import { useFeatureFlag, FEATURE_GAMESPREVIEW } from '../../lib/feature-flags'
 import styles from './menu-listing.css'
 
 const MenuListingComponent = (props) => {
   const showHidden = useFeatureFlag(FEATURE_GAMESPREVIEW)
-  return props.projects
+  const { projects, isVideoListing } = props
+  if (isVideoListing) {
+    return projects.map((project) => (
+      <VideoButtonModal
+        key={project.key}
+        title={project.title}
+        note={project.note}
+        image={project.image}
+        video={project.video}
+      />
+    ))
+  }
+  return projects
     .filter((p) => !p.hidden || showHidden)
     .map((project) => (
       <Link
@@ -34,11 +47,13 @@ export const SHAPE_PROJECT = {
   title: PropTypes.string.isRequired,
   note: PropTypes.string,
   image: PropTypes.boolean,
-  linkTo: PropTypes.string.isRequired,
+  video: PropTypes.string,
+  linkTo: PropTypes.string,
 }
 
 MenuListingComponent.propTypes = {
   projects: PropTypes.arrayOf(PropTypes.shape(SHAPE_PROJECT)),
+  isVideoListing: PropTypes.bool,
 }
 
 export default MenuListingComponent

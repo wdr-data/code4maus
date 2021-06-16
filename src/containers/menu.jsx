@@ -5,12 +5,13 @@ import { push } from 'redux-little-router'
 
 import { MenuComponent } from '../components/menu/menu.jsx'
 import { MenuTabs } from '../lib/routing'
-import { games, examples } from '../lib/edu'
+import { games, examples, videos } from '../lib/edu'
 
 const tabIdToTab = {
   0: MenuTabs.edugames,
   1: MenuTabs.projects,
   2: MenuTabs.examples,
+  3: MenuTabs.videos,
 }
 
 class Menu extends React.Component {
@@ -25,6 +26,16 @@ class Menu extends React.Component {
     }
   }
 
+  static mapVideoData(video) {
+    return {
+      key: video.id,
+      title: video.name,
+      note: video.subtitle,
+      image: video.image,
+      video: video.video,
+    }
+  }
+
   constructor(props) {
     super(props)
 
@@ -32,6 +43,7 @@ class Menu extends React.Component {
       eduGames: games.map(Menu.mapGameData),
       examples: examples.map(Menu.mapGameData),
       projects: [],
+      videos: videos.map(Menu.mapVideoData),
     }
   }
 
@@ -75,6 +87,7 @@ class Menu extends React.Component {
         projects={this.state.projects}
         eduGames={this.state.eduGames}
         examples={this.state.examples}
+        videos={this.state.videos}
         selectedTab={tab}
         {...props}
       />
