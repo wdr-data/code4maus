@@ -5,10 +5,15 @@ import Modal from '../modal/modal.jsx'
 import VideoPlayer from '../video-player/video-player.jsx'
 
 import defaultImage from '../../../assets/img/meine_sachen.png'
-import styles from '../menu-listing/menu-listing.css'
+import styles from './video-button-modal.css'
 
 const VideoButtonModal = ({ title, image, note, video }) => {
   const [showModal, setShowModal] = useState(false)
+  // Use the '(' in the title string to split it into two lines
+  let [firstline, secondline] = title.split('(')
+  // Add the '(' back to the 2nd line for correct display
+  secondline = secondline ? `(${secondline}` : ''
+
   return (
     <>
       <div
@@ -16,9 +21,15 @@ const VideoButtonModal = ({ title, image, note, video }) => {
         role="button"
         onClick={() => setShowModal(true)}
       >
-        <span className={styles.title}>{title}</span>
+        <div className={styles.title}>
+          <span>
+            {firstline}
+            <br />
+            {secondline}
+          </span>
+        </div>
         <span className={styles.image}>
-          {image ? <img src={image} /> : <img src={defaultImage} />}
+          <img src={image || defaultImage} />
         </span>
         <span className={styles.note}>{note}</span>
       </div>

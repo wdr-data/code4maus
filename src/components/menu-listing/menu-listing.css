@@ -30,10 +30,3 @@
 .title {
   font-size: 1.25rem;
 }
-
-.video-content {
-  width: 70vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
