@@ -1,24 +1,16 @@
-@import '../../css/colors.css';
+@import '../menu-listing/menu-listing.css';
 
-.container {
+.project-wrapper:first-of-type .title {
+  margin-bottom: auto;
+}
+
+.note {
+  margin-bottom: auto;
+}
+
+.video-content {
+  width: 70vw;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  cursor: pointer;
-  transition: 0.2s;
-  font-size: 0.75rem;
-  font-family: 'Titillium Web';
-  color: $motion-primary;
-}
-
-.container:hover {
-  transform: scale(1.1);
-}
-
-.container + .container {
-  margin-top: 1.25rem;
-}
-
-.title {
-  margin-top: 0.5rem;
+  justify-content: center;
 }
