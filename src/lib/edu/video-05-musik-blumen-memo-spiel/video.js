@@ -3,7 +3,7 @@ const url =
 
 export default {
   id: '05',
-  name: 'Musik: Blumen-Memo-Spiel (5/5)',
+  name: 'Blumen-Memo (Musik 5/5)',
   subtitle: 'Programmiere ein Computer-Spiel mit Tönen',
   image: null,
   video: url,

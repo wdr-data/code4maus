@@ -6,7 +6,7 @@ const url =
 export default {
   id: '07',
   name: 'Die Weltraum-Maus (2/10)',
-  subtitle: 'Lass die Maus durchs Weltall fliegen',
+  subtitle: 'Lasse die Maus durchs Weltall fliegen',
   image: aL01,
   video: url,
 }
