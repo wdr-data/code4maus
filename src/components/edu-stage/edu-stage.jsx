@@ -19,7 +19,7 @@ import VideoPlayer from '../video-player/video-player.jsx'
 import styles from './edu-stage.css'
 
 const EduStageComponent = (props) => {
-  const [isPreVideoModalOpen, setPreVideoModalOpen] = useState(true)
+  const [isPreVideoModalOpen, setPreVideoModalOpen] = useState(false)
   const [isPostVideoModalOpen, setPostVideoModalOpen] = useState(true)
   return !props.isEnabled ? null : (
     <>

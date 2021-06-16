@@ -1,0 +1,12 @@
+@import '../menu-listing/menu-listing.css';
+
+.note {
+  margin-bottom: auto;
+}
+
+.video-content {
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

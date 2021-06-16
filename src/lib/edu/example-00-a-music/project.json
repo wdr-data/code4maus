@@ -1,0 +1,6637 @@
+{
+  "targets": [
+    {
+      "isStage": true,
+      "name": "Stage",
+      "variables": {
+        "`jEk@4|i[#Fk?(8x)AV.-my variable": [
+          "Kostüme animiert",
+          "0"
+        ]
+      },
+      "lists": {},
+      "broadcasts": {
+        "^lDc6Ij}NzeWJnbsERBD": "Intro",
+        "O18AMMmsDUPDPK8{+y/1": "Strophe",
+        "^icFz|_o`kU1q!vWQ!1Y": "Letzte Strophe",
+        "2=NbmsB4?UJ*y-Ctb7RS": "Melodie 1",
+        "5O/V=)5A*Abx^Fq3Wm*{": "Melodie 2"
+      },
+      "blocks": {},
+      "comments": {},
+      "currentCostume": 2,
+      "costumes": [
+        {
+          "assetId": "3a343d19f40be5196f5b1cad1c7d1e39",
+          "name": "Wiese",
+          "bitmapResolution": 2,
+          "md5ext": "3a343d19f40be5196f5b1cad1c7d1e39.jpg",
+          "dataFormat": "jpg",
+          "rotationCenterX": 480,
+          "rotationCenterY": 360
+        },
+        {
+          "assetId": "a35419bc3c9a8888430c157960ef28b4",
+          "name": "Unterwasser",
+          "bitmapResolution": 2,
+          "md5ext": "a35419bc3c9a8888430c157960ef28b4.jpg",
+          "dataFormat": "jpg",
+          "rotationCenterX": 480,
+          "rotationCenterY": 360
+        },
+        {
+          "assetId": "bea568d0b736f0a365cb41e7d05f8100",
+          "name": "Weltall",
+          "bitmapResolution": 2,
+          "md5ext": "bea568d0b736f0a365cb41e7d05f8100.jpg",
+          "dataFormat": "jpg",
+          "rotationCenterX": 480,
+          "rotationCenterY": 360
+        },
+        {
+          "assetId": "7a0b6208f0ac9b50189eaa3a2fa68590",
+          "name": "Blau",
+          "bitmapResolution": 2,
+          "md5ext": "7a0b6208f0ac9b50189eaa3a2fa68590.jpg",
+          "dataFormat": "jpg",
+          "rotationCenterX": 480,
+          "rotationCenterY": 360
+        },
+        {
+          "assetId": "b533867ddb6e18b4d508f11be3b46095",
+          "name": "Maus",
+          "bitmapResolution": 2,
+          "md5ext": "b533867ddb6e18b4d508f11be3b46095.jpg",
+          "dataFormat": "jpg",
+          "rotationCenterX": 480,
+          "rotationCenterY": 360
+        },
+        {
+          "assetId": "74070a04458069b1b94ddc2483a40e4c",
+          "name": "Gelb",
+          "bitmapResolution": 2,
+          "md5ext": "74070a04458069b1b94ddc2483a40e4c.jpg",
+          "dataFormat": "jpg",
+          "rotationCenterX": 480,
+          "rotationCenterY": 360
+        }
+      ],
+      "sounds": [
+        {
+          "assetId": "b38904cb3103c903cd6be4b569b8db5c",
+          "name": "Vogel",
+          "dataFormat": "mp3",
+          "rate": 48000,
+          "sampleCount": 17832,
+          "md5ext": "b38904cb3103c903cd6be4b569b8db5c.mp3"
+        }
+      ],
+      "volume": 100,
+      "layerOrder": 0,
+      "tempo": 50,
+      "videoTransparency": 50,
+      "videoState": "off",
+      "textToSpeechLanguage": null
+    },
+    {
+      "isStage": false,
+      "name": "Rockt",
+      "variables": {},
+      "lists": {},
+      "broadcasts": {},
+      "blocks": {
+        "EX-^:vn:G[Z=hJ6*j)?9": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "K]EJy,Kc3{vnPjfld;00",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Intro",
+              "^lDc6Ij}NzeWJnbsERBD"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": -21,
+          "y": 515
+        },
+        "BB8e(,MOKlBC.d.g8,D3": {
+          "opcode": "music_setInstrument",
+          "next": "V_0+~;X!~s%%Y2advo93",
+          "parent": "~#Mth}eXivW1KkKl({wi",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "V_0+~;X!~s%%Y2advo93": {
+          "opcode": "music_playNoteForBeats",
+          "next": "r%so1epR:#C%`62?3*LH",
+          "parent": "BB8e(,MOKlBC.d.g8,D3",
+          "inputs": {
+            "NOTE": [
+              1,
+              "dpUCo|jJG6){vk1I`Z3A"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "dpUCo|jJG6){vk1I`Z3A": {
+          "opcode": "note",
+          "next": null,
+          "parent": "V_0+~;X!~s%%Y2advo93",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "36",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "r%so1epR:#C%`62?3*LH": {
+          "opcode": "music_setInstrument",
+          "next": "Pb=`R0;!`Hb`2)B@%8ym",
+          "parent": "V_0+~;X!~s%%Y2advo93",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "Pb=`R0;!`Hb`2)B@%8ym": {
+          "opcode": "music_playNoteForBeats",
+          "next": "7K6`,tSUEYeYEmd!x_h|",
+          "parent": "r%so1epR:#C%`62?3*LH",
+          "inputs": {
+            "NOTE": [
+              1,
+              "i7vL56EZ8Z!je3)U7WzE"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "i7vL56EZ8Z!je3)U7WzE": {
+          "opcode": "note",
+          "next": null,
+          "parent": "Pb=`R0;!`Hb`2)B@%8ym",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "43",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "7K6`,tSUEYeYEmd!x_h|": {
+          "opcode": "music_setInstrument",
+          "next": "GZndA)8uXqB;~7o|9OF4",
+          "parent": "Pb=`R0;!`Hb`2)B@%8ym",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "GZndA)8uXqB;~7o|9OF4": {
+          "opcode": "music_playNoteForBeats",
+          "next": "~6t!Vw|*sGOHcx{rz*ks",
+          "parent": "7K6`,tSUEYeYEmd!x_h|",
+          "inputs": {
+            "NOTE": [
+              1,
+              "P)xzmE]!%I^-ES.UfK%Z"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "P)xzmE]!%I^-ES.UfK%Z": {
+          "opcode": "note",
+          "next": null,
+          "parent": "GZndA)8uXqB;~7o|9OF4",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "41",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "~6t!Vw|*sGOHcx{rz*ks": {
+          "opcode": "music_setInstrument",
+          "next": "M`B_tvttwq$dQ?0=,(fM",
+          "parent": "GZndA)8uXqB;~7o|9OF4",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "M`B_tvttwq$dQ?0=,(fM": {
+          "opcode": "music_playNoteForBeats",
+          "next": null,
+          "parent": "~6t!Vw|*sGOHcx{rz*ks",
+          "inputs": {
+            "NOTE": [
+              1,
+              "vpaigcvRCJWo1TK,z8up"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "vpaigcvRCJWo1TK,z8up": {
+          "opcode": "note",
+          "next": null,
+          "parent": "M`B_tvttwq$dQ?0=,(fM",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "43",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "~#Mth}eXivW1KkKl({wi": {
+          "opcode": "control_repeat",
+          "next": null,
+          "parent": "K]EJy,Kc3{vnPjfld;00",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "2"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "BB8e(,MOKlBC.d.g8,D3"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "hlD1+bU/p*_=pB~q}haC": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "~15^9@=J~7gCA5d[x.XW",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Intro",
+              "^lDc6Ij}NzeWJnbsERBD"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": -423,
+          "y": 512
+        },
+        "K]EJy,Kc3{vnPjfld;00": {
+          "opcode": "sound_setvolumeto",
+          "next": "~#Mth}eXivW1KkKl({wi",
+          "parent": "EX-^:vn:G[Z=hJ6*j)?9",
+          "inputs": {
+            "VOLUME": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "v:.qh5!mr2ZL*bAmP#`C": {
+          "opcode": "control_repeat",
+          "next": "dsMri*UQgJMBPTApoU^z",
+          "parent": "~15^9@=J~7gCA5d[x.XW",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "24"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "`n1Vj.J]?j9I7Jn^H0Xf"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "`n1Vj.J]?j9I7Jn^H0Xf": {
+          "opcode": "music_restForBeats",
+          "next": "#9^%YUg!3{MHkCN9;#v=",
+          "parent": "v:.qh5!mr2ZL*bAmP#`C",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "#9^%YUg!3{MHkCN9;#v=": {
+          "opcode": "sound_changevolumeby",
+          "next": null,
+          "parent": "`n1Vj.J]?j9I7Jn^H0Xf",
+          "inputs": {
+            "VOLUME": [
+              1,
+              [
+                4,
+                "2.777"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "dsMri*UQgJMBPTApoU^z": {
+          "opcode": "sound_setvolumeto",
+          "next": null,
+          "parent": "v:.qh5!mr2ZL*bAmP#`C",
+          "inputs": {
+            "VOLUME": [
+              1,
+              [
+                4,
+                "70"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "~15^9@=J~7gCA5d[x.XW": {
+          "opcode": "sound_setvolumeto",
+          "next": "v:.qh5!mr2ZL*bAmP#`C",
+          "parent": "hlD1+bU/p*_=pB~q}haC",
+          "inputs": {
+            "VOLUME": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        ")lc5~D7~0E7k|yrvYADg": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "unZ-#Wo]I6AkdRfAg)CA",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Strophe",
+              "O18AMMmsDUPDPK8{+y/1"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 477,
+          "y": 1313
+        },
+        "P+7R5(D)zP8SoBjPoi==": {
+          "opcode": "music_setInstrument",
+          "next": "rTh}*mWuUeWk*ETTmQTS",
+          "parent": "7fX0uq@%Uaqpr3^c[LU!",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "rTh}*mWuUeWk*ETTmQTS": {
+          "opcode": "music_playNoteForBeats",
+          "next": "ncF=f=A#rrv:~5-S_d|V",
+          "parent": "P+7R5(D)zP8SoBjPoi==",
+          "inputs": {
+            "NOTE": [
+              1,
+              "CX](|aWYG-EPn(#%k7cj"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                ".75"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "CX](|aWYG-EPn(#%k7cj": {
+          "opcode": "note",
+          "next": null,
+          "parent": "rTh}*mWuUeWk*ETTmQTS",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "36",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "ncF=f=A#rrv:~5-S_d|V": {
+          "opcode": "music_setInstrument",
+          "next": "e8k7H-t1U9t/ASc3v;)*",
+          "parent": "rTh}*mWuUeWk*ETTmQTS",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "e8k7H-t1U9t/ASc3v;)*": {
+          "opcode": "music_playNoteForBeats",
+          "next": "~iU.De@($X}9+D_var|z",
+          "parent": "ncF=f=A#rrv:~5-S_d|V",
+          "inputs": {
+            "NOTE": [
+              1,
+              ";+z[M?c`RutAKC#,`ib6"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                ".25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        ";+z[M?c`RutAKC#,`ib6": {
+          "opcode": "note",
+          "next": null,
+          "parent": "e8k7H-t1U9t/ASc3v;)*",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "28",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "~iU.De@($X}9+D_var|z": {
+          "opcode": "music_setInstrument",
+          "next": "i-h@B*}[|YN)#uIk}[A)",
+          "parent": "e8k7H-t1U9t/ASc3v;)*",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "i-h@B*}[|YN)#uIk}[A)": {
+          "opcode": "music_playNoteForBeats",
+          "next": "pQGEOuBQ1T*a.6!YM(%J",
+          "parent": "~iU.De@($X}9+D_var|z",
+          "inputs": {
+            "NOTE": [
+              1,
+              "|T^$:f+.+2]e-eu:~HRs"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                ".75"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "|T^$:f+.+2]e-eu:~HRs": {
+          "opcode": "note",
+          "next": null,
+          "parent": "i-h@B*}[|YN)#uIk}[A)",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "31",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "pQGEOuBQ1T*a.6!YM(%J": {
+          "opcode": "music_setInstrument",
+          "next": "=L|2yTMdlg=~fO*2C3$K",
+          "parent": "i-h@B*}[|YN)#uIk}[A)",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "=L|2yTMdlg=~fO*2C3$K": {
+          "opcode": "music_playNoteForBeats",
+          "next": "|mQ{/7j]|{O#2Q^Pav|d",
+          "parent": "pQGEOuBQ1T*a.6!YM(%J",
+          "inputs": {
+            "NOTE": [
+              1,
+              "`_1gaG8g9m^lf0`t:m3t"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                ".25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "`_1gaG8g9m^lf0`t:m3t": {
+          "opcode": "note",
+          "next": null,
+          "parent": "=L|2yTMdlg=~fO*2C3$K",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "35",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "O_o#UD(FprexQQQfw|=u": {
+          "opcode": "music_setInstrument",
+          "next": "JkbLc),$tH.Lkjw5P]^B",
+          "parent": "-tFJlcV,tX:$;YL/z6WL",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "JkbLc),$tH.Lkjw5P]^B": {
+          "opcode": "music_playNoteForBeats",
+          "next": "-SlP5B$3G5#XrWeJ6meH",
+          "parent": "O_o#UD(FprexQQQfw|=u",
+          "inputs": {
+            "NOTE": [
+              1,
+              "86h{-:_wyB4%ck1+n!M!"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                ".5"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "86h{-:_wyB4%ck1+n!M!": {
+          "opcode": "note",
+          "next": null,
+          "parent": "JkbLc),$tH.Lkjw5P]^B",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "31",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "-SlP5B$3G5#XrWeJ6meH": {
+          "opcode": "music_setInstrument",
+          "next": "j7SW7KYWU:P3olfUb,$U",
+          "parent": "JkbLc),$tH.Lkjw5P]^B",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "j7SW7KYWU:P3olfUb,$U": {
+          "opcode": "music_playNoteForBeats",
+          "next": null,
+          "parent": "-SlP5B$3G5#XrWeJ6meH",
+          "inputs": {
+            "NOTE": [
+              1,
+              "/qq!D)Z^qhEO7C%k7yuA"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                ".5"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "/qq!D)Z^qhEO7C%k7yuA": {
+          "opcode": "note",
+          "next": null,
+          "parent": "j7SW7KYWU:P3olfUb,$U",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "35",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "|mQ{/7j]|{O#2Q^Pav|d": {
+          "opcode": "music_setInstrument",
+          "next": "n~QJ%G}lHp^#]7Z,,=9H",
+          "parent": "=L|2yTMdlg=~fO*2C3$K",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "n~QJ%G}lHp^#]7Z,,=9H": {
+          "opcode": "music_playNoteForBeats",
+          "next": "BuJE2|sXYWh_MYDx5h@d",
+          "parent": "|mQ{/7j]|{O#2Q^Pav|d",
+          "inputs": {
+            "NOTE": [
+              1,
+              "J#Z@-WiwM!g]GoMu{BO_"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                ".5"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "J#Z@-WiwM!g]GoMu{BO_": {
+          "opcode": "note",
+          "next": null,
+          "parent": "n~QJ%G}lHp^#]7Z,,=9H",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "41",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "BuJE2|sXYWh_MYDx5h@d": {
+          "opcode": "music_setInstrument",
+          "next": "-tFJlcV,tX:$;YL/z6WL",
+          "parent": "n~QJ%G}lHp^#]7Z,,=9H",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "-tFJlcV,tX:$;YL/z6WL": {
+          "opcode": "music_playNoteForBeats",
+          "next": "O_o#UD(FprexQQQfw|=u",
+          "parent": "BuJE2|sXYWh_MYDx5h@d",
+          "inputs": {
+            "NOTE": [
+              1,
+              ",*}K:Pap(#]L8M*7+SfJ"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                ".5"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        ",*}K:Pap(#]L8M*7+SfJ": {
+          "opcode": "note",
+          "next": null,
+          "parent": "-tFJlcV,tX:$;YL/z6WL",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "33",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "0|UJLx%pQE?NZ{WV`tPb": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "Ze[4^ht;lRzp$CGb[Mv8",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Intro",
+              "^lDc6Ij}NzeWJnbsERBD"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 1083,
+          "y": 464
+        },
+        "MnH1}LKLYIO,F]R8`ruM": {
+          "opcode": "control_repeat",
+          "next": null,
+          "parent": "Ze[4^ht;lRzp$CGb[Mv8",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "8"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "P(9~{ZJb5O1P5[(yEdQ2"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "P(9~{ZJb5O1P5[(yEdQ2": {
+          "opcode": "looks_nextcostume",
+          "next": "?_!0cFwR6-dRiLmTiBiX",
+          "parent": "MnH1}LKLYIO,F]R8`ruM",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "?_!0cFwR6-dRiLmTiBiX": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "P(9~{ZJb5O1P5[(yEdQ2",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "Omq}y8?DLndMk8G/.x5-": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "TXH@-RVt]{yjB,3q7b-{",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Strophe",
+              "O18AMMmsDUPDPK8{+y/1"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 1085,
+          "y": 876
+        },
+        "{gEKTVcKV~2i4O$;0`r4": {
+          "opcode": "control_repeat",
+          "next": null,
+          "parent": "TXH@-RVt]{yjB,3q7b-{",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "8"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "PT|ay;)Fe?z)pdvR!?5N"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "PT|ay;)Fe?z)pdvR!?5N": {
+          "opcode": "looks_nextcostume",
+          "next": "kr6IgERMy,1{?{cWsO)/",
+          "parent": "{gEKTVcKV~2i4O$;0`r4",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "kr6IgERMy,1{?{cWsO)/": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "PT|ay;)Fe?z)pdvR!?5N",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                ".5"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "7fX0uq@%Uaqpr3^c[LU!": {
+          "opcode": "procedures_definition",
+          "next": "P+7R5(D)zP8SoBjPoi==",
+          "parent": null,
+          "inputs": {
+            "custom_block": [
+              1,
+              ")$|0z_wVZ6ORp3eQ%-VU"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": -22,
+          "y": 1173
+        },
+        ")$|0z_wVZ6ORp3eQ%-VU": {
+          "opcode": "procedures_prototype",
+          "next": null,
+          "parent": "7fX0uq@%Uaqpr3^c[LU!",
+          "inputs": {},
+          "fields": {},
+          "shadow": true,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Strophe",
+            "argumentids": "[]",
+            "argumentnames": "[]",
+            "argumentdefaults": "[]",
+            "warp": "false"
+          }
+        },
+        "unZ-#Wo]I6AkdRfAg)CA": {
+          "opcode": "procedures_call",
+          "next": null,
+          "parent": ")lc5~D7~0E7k|yrvYADg",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Strophe",
+            "argumentids": "[]",
+            "warp": "false"
+          }
+        },
+        "H|3s(6x8PS9[6})*/=yW": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": ":$shX*-CJ#cxsjdNTsyX",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Letzte Strophe",
+              "^icFz|_o`kU1q!vWQ!1Y"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 478,
+          "y": 1482
+        },
+        ":$shX*-CJ#cxsjdNTsyX": {
+          "opcode": "procedures_call",
+          "next": null,
+          "parent": "H|3s(6x8PS9[6})*/=yW",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Strophe",
+            "argumentids": "[]",
+            "warp": "false"
+          }
+        },
+        "*=q/r-2.*OEH]_r`:S[a": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "=|ZXnrS__]kcm,Xl0[tm",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Letzte Strophe",
+              "^icFz|_o`kU1q!vWQ!1Y"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 1075,
+          "y": 1256
+        },
+        "R,jAOtI6rgsyJaD1PJ42": {
+          "opcode": "control_repeat",
+          "next": null,
+          "parent": "=|ZXnrS__]kcm,Xl0[tm",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "8"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "E;AWlad81!;Q)G%Ood~w"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "E;AWlad81!;Q)G%Ood~w": {
+          "opcode": "looks_nextcostume",
+          "next": "b;*`CB*n!CH1E]@--%bU",
+          "parent": "R,jAOtI6rgsyJaD1PJ42",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "b;*`CB*n!CH1E]@--%bU": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "E;AWlad81!;Q)G%Ood~w",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                ".5"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "Ze[4^ht;lRzp$CGb[Mv8": {
+          "opcode": "control_if",
+          "next": null,
+          "parent": "0|UJLx%pQE?NZ{WV`tPb",
+          "inputs": {
+            "SUBSTACK": [
+              2,
+              "MnH1}LKLYIO,F]R8`ruM"
+            ],
+            "CONDITION": [
+              2,
+              "X9:HsQ}$rc4o(GYpmZf@"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "X9:HsQ}$rc4o(GYpmZf@": {
+          "opcode": "operator_equals",
+          "next": null,
+          "parent": "Ze[4^ht;lRzp$CGb[Mv8",
+          "inputs": {
+            "OPERAND1": [
+              3,
+              [
+                12,
+                "Kostüme animiert",
+                "`jEk@4|i[#Fk?(8x)AV.-my variable"
+              ],
+              [
+                10,
+                ""
+              ]
+            ],
+            "OPERAND2": [
+              1,
+              [
+                10,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "TXH@-RVt]{yjB,3q7b-{": {
+          "opcode": "control_if",
+          "next": null,
+          "parent": "Omq}y8?DLndMk8G/.x5-",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "0+2jVDr#UWdx/n#2.@qm"
+            ],
+            "SUBSTACK": [
+              2,
+              "{gEKTVcKV~2i4O$;0`r4"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "0+2jVDr#UWdx/n#2.@qm": {
+          "opcode": "operator_equals",
+          "next": null,
+          "parent": "TXH@-RVt]{yjB,3q7b-{",
+          "inputs": {
+            "OPERAND1": [
+              3,
+              [
+                12,
+                "Kostüme animiert",
+                "`jEk@4|i[#Fk?(8x)AV.-my variable"
+              ],
+              [
+                10,
+                ""
+              ]
+            ],
+            "OPERAND2": [
+              1,
+              [
+                10,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "=|ZXnrS__]kcm,Xl0[tm": {
+          "opcode": "control_if",
+          "next": null,
+          "parent": "*=q/r-2.*OEH]_r`:S[a",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "wP?c!Qe[C}vlQ7oa(_.c"
+            ],
+            "SUBSTACK": [
+              2,
+              "R,jAOtI6rgsyJaD1PJ42"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "wP?c!Qe[C}vlQ7oa(_.c": {
+          "opcode": "operator_equals",
+          "next": null,
+          "parent": "=|ZXnrS__]kcm,Xl0[tm",
+          "inputs": {
+            "OPERAND1": [
+              3,
+              [
+                12,
+                "Kostüme animiert",
+                "`jEk@4|i[#Fk?(8x)AV.-my variable"
+              ],
+              [
+                10,
+                ""
+              ]
+            ],
+            "OPERAND2": [
+              1,
+              [
+                10,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        }
+      },
+      "comments": {},
+      "currentCostume": 0,
+      "costumes": [
+        {
+          "assetId": "1606aabe76a6d14467e9bced37214f43",
+          "name": "Rockt-1",
+          "bitmapResolution": 1,
+          "md5ext": "1606aabe76a6d14467e9bced37214f43.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 75.88716125488281,
+          "rotationCenterY": 73.61809539794922
+        },
+        {
+          "assetId": "6491aa458f7d260f6c80a5d77780c885",
+          "name": "Rockt-2",
+          "bitmapResolution": 1,
+          "md5ext": "6491aa458f7d260f6c80a5d77780c885.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 75.88716125488281,
+          "rotationCenterY": 73.61809539794922
+        },
+        {
+          "assetId": "ddf8209bc3b43decb061f33428e3de2a",
+          "name": "Rockt-3",
+          "bitmapResolution": 1,
+          "md5ext": "ddf8209bc3b43decb061f33428e3de2a.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 75.88716125488281,
+          "rotationCenterY": 73.61809539794922
+        },
+        {
+          "assetId": "91c370ecd0fd7fc66c396f2388b2b29a",
+          "name": "Rockt-4",
+          "bitmapResolution": 1,
+          "md5ext": "91c370ecd0fd7fc66c396f2388b2b29a.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 75.88716125488281,
+          "rotationCenterY": 73.61809539794922
+        }
+      ],
+      "sounds": [
+        {
+          "assetId": "282fb24fedf9ed8f6b7dd08366a0f83c",
+          "name": "Klack-Klack-2",
+          "dataFormat": "mp3",
+          "format": "",
+          "rate": 48000,
+          "sampleCount": 21462,
+          "md5ext": "282fb24fedf9ed8f6b7dd08366a0f83c.mp3"
+        }
+      ],
+      "volume": 70,
+      "layerOrder": 2,
+      "visible": true,
+      "x": -117.6583541147132,
+      "y": -83.18801996672215,
+      "size": 83,
+      "direction": 90,
+      "draggable": false,
+      "rotationStyle": "all around"
+    },
+    {
+      "isStage": false,
+      "name": "Elefant-rockt",
+      "variables": {},
+      "lists": {},
+      "broadcasts": {},
+      "blocks": {
+        "ueuA/+b-G@oqZE/Uj7rh": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "0o;CvS{~LW)frTZ6t55K",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Intro",
+              "^lDc6Ij}NzeWJnbsERBD"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 707,
+          "y": 607
+        },
+        "0o;CvS{~LW)frTZ6t55K": {
+          "opcode": "sound_setvolumeto",
+          "next": "pC.[MVf//wQ!~1_Fs=kt",
+          "parent": "ueuA/+b-G@oqZE/Uj7rh",
+          "inputs": {
+            "VOLUME": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "pC.[MVf//wQ!~1_Fs=kt": {
+          "opcode": "control_repeat",
+          "next": "f/iZDyXsfrp`bzq/6.#Y",
+          "parent": "0o;CvS{~LW)frTZ6t55K",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "24"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "g~B294hr7d~d12}!K]@c"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "g~B294hr7d~d12}!K]@c": {
+          "opcode": "music_restForBeats",
+          "next": "Ew(vUL#wtge2z8:j~*f{",
+          "parent": "pC.[MVf//wQ!~1_Fs=kt",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "Ew(vUL#wtge2z8:j~*f{": {
+          "opcode": "sound_changevolumeby",
+          "next": null,
+          "parent": "g~B294hr7d~d12}!K]@c",
+          "inputs": {
+            "VOLUME": [
+              1,
+              [
+                4,
+                "4"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "f/iZDyXsfrp`bzq/6.#Y": {
+          "opcode": "sound_setvolumeto",
+          "next": null,
+          "parent": "pC.[MVf//wQ!~1_Fs=kt",
+          "inputs": {
+            "VOLUME": [
+              1,
+              [
+                4,
+                "100"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "nNZ~[of={5b2LHkALDYl": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "_*!~2UzI~eR-Y:@^[{70",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Intro",
+              "^lDc6Ij}NzeWJnbsERBD"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 19,
+          "y": 518
+        },
+        "_*!~2UzI~eR-Y:@^[{70": {
+          "opcode": "sound_setvolumeto",
+          "next": "6*k+F!*Ws6eV!5T!~-Uc",
+          "parent": "nNZ~[of={5b2LHkALDYl",
+          "inputs": {
+            "VOLUME": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "6*k+F!*Ws6eV!5T!~-Uc": {
+          "opcode": "control_repeat",
+          "next": null,
+          "parent": "_*!~2UzI~eR-Y:@^[{70",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "2"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "A4,Ei]fZbMpyzYtJ{o|="
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "A4,Ei]fZbMpyzYtJ{o|=": {
+          "opcode": "control_repeat",
+          "next": "UmZP58E*GW_|[C5#[KFN",
+          "parent": "6*k+F!*Ws6eV!5T!~-Uc",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "3"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "|;JVCpg+ot`PWs4~x~q="
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "|;JVCpg+ot`PWs4~x~q=": {
+          "opcode": "music_playDrumForBeats",
+          "next": "sTwZz~|In=Pot2D5O4fJ",
+          "parent": "A4,Ei]fZbMpyzYtJ{o|=",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "2",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "sTwZz~|In=Pot2D5O4fJ": {
+          "opcode": "music_restForBeats",
+          "next": "!j:3_2v!dKO9i1|t=0Q2",
+          "parent": "|;JVCpg+ot`PWs4~x~q=",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "!j:3_2v!dKO9i1|t=0Q2": {
+          "opcode": "music_playDrumForBeats",
+          "next": "+JdVfH:XC2Y`H1*eD.N7",
+          "parent": "sTwZz~|In=Pot2D5O4fJ",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "1",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "+JdVfH:XC2Y`H1*eD.N7": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "!j:3_2v!dKO9i1|t=0Q2",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "UmZP58E*GW_|[C5#[KFN": {
+          "opcode": "music_playDrumForBeats",
+          "next": "Iw~YP]]bh5NoC~qCKDxl",
+          "parent": "A4,Ei]fZbMpyzYtJ{o|=",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "2",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "Iw~YP]]bh5NoC~qCKDxl": {
+          "opcode": "music_restForBeats",
+          "next": ":x7dkJ@fpz0{nF0x72/`",
+          "parent": "UmZP58E*GW_|[C5#[KFN",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        ":x7dkJ@fpz0{nF0x72/`": {
+          "opcode": "music_playDrumForBeats",
+          "next": "H?vckefk*tbG?C:hZi/{",
+          "parent": "Iw~YP]]bh5NoC~qCKDxl",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "5",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "H?vckefk*tbG?C:hZi/{": {
+          "opcode": "music_playDrumForBeats",
+          "next": "okM=q`K5)j:3rwH~.ube",
+          "parent": ":x7dkJ@fpz0{nF0x72/`",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "1",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "okM=q`K5)j:3rwH~.ube": {
+          "opcode": "music_restForBeats",
+          "next": "Ecd|DSB=?Xjiiq{;%IaI",
+          "parent": "H?vckefk*tbG?C:hZi/{",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "Ecd|DSB=?Xjiiq{;%IaI": {
+          "opcode": "music_playDrumForBeats",
+          "next": "0[M:VgEYr.5)j94Deq5v",
+          "parent": "okM=q`K5)j:3rwH~.ube",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "0[M:VgEYr.5)j94Deq5v": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "Ecd|DSB=?Xjiiq{;%IaI",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "Z7~AO{#NQD9YmeS*(vZt": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "2kXwT+/bDwpR|?E=oxAZ",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Strophe",
+              "O18AMMmsDUPDPK8{+y/1"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 347,
+          "y": 1455
+        },
+        "2kXwT+/bDwpR|?E=oxAZ": {
+          "opcode": "procedures_call",
+          "next": null,
+          "parent": "Z7~AO{#NQD9YmeS*(vZt",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Drums Strophe Regulär",
+            "argumentids": "[]",
+            "warp": "false"
+          }
+        },
+        "l+6,Cb_}Jx_oN,|A/A2|": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "uG(1;lZO)e,;i9~X3RGV",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Strophe",
+              "O18AMMmsDUPDPK8{+y/1"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 690,
+          "y": 1464
+        },
+        "uG(1;lZO)e,;i9~X3RGV": {
+          "opcode": "procedures_call",
+          "next": null,
+          "parent": "l+6,Cb_}Jx_oN,|A/A2|",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Hi-Hat Strophe Regulär",
+            "argumentids": "[]",
+            "warp": "false"
+          }
+        },
+        "z2}J*x/i)G#FlqZSQ2R?": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "sm,(Hjd)R4VzvLrdL[h;",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Intro",
+              "^lDc6Ij}NzeWJnbsERBD"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 1182,
+          "y": 363
+        },
+        "g|d8iO2:sc9bps2ye@o/": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "NFC.XY6sU1oe:7([5X:b",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Strophe",
+              "O18AMMmsDUPDPK8{+y/1"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 1169,
+          "y": 769
+        },
+        "0}@/HZI`3ze{??m?voBS": {
+          "opcode": "control_repeat",
+          "next": null,
+          "parent": "NFC.XY6sU1oe:7([5X:b",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "16"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "*@jzs6Yxdi1=T@x6:QRZ"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "*@jzs6Yxdi1=T@x6:QRZ": {
+          "opcode": "looks_nextcostume",
+          "next": "ke*Rnz{ZS?!lqdu)E(aA",
+          "parent": "0}@/HZI`3ze{??m?voBS",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "ke*Rnz{ZS?!lqdu)E(aA": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "*@jzs6Yxdi1=T@x6:QRZ",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                ".25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "4^m@h(fBu9,M%-!hlA+m": {
+          "opcode": "control_repeat",
+          "next": null,
+          "parent": "sm,(Hjd)R4VzvLrdL[h;",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "16"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              ":s@3~y3vwDG2uy?pq{FT"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        ":s@3~y3vwDG2uy?pq{FT": {
+          "opcode": "looks_nextcostume",
+          "next": "O~0zc]m]Xs`B!OX@e{nv",
+          "parent": "4^m@h(fBu9,M%-!hlA+m",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "O~0zc]m]Xs`B!OX@e{nv": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": ":s@3~y3vwDG2uy?pq{FT",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                ".5"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "v4,;1F2$Y@r6;O$b+jS^": {
+          "opcode": "procedures_definition",
+          "next": "*?HaxQ~n-e(~XIP5_1As",
+          "parent": null,
+          "inputs": {
+            "custom_block": [
+              1,
+              "k{OE@QJ0%($tUO0`(@!Y"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": -378,
+          "y": 1451
+        },
+        "k{OE@QJ0%($tUO0`(@!Y": {
+          "opcode": "procedures_prototype",
+          "next": null,
+          "parent": "v4,;1F2$Y@r6;O$b+jS^",
+          "inputs": {},
+          "fields": {},
+          "shadow": true,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Drums Strophe Regulär",
+            "argumentids": "[]",
+            "argumentnames": "[]",
+            "argumentdefaults": "[]",
+            "warp": "false"
+          }
+        },
+        "*?HaxQ~n-e(~XIP5_1As": {
+          "opcode": "control_repeat",
+          "next": "X,~WIcQNW~t{no|?ItCO",
+          "parent": "v4,;1F2$Y@r6;O$b+jS^",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "3"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "b:};]aZ@JnDTq4;)fS5Q"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "b:};]aZ@JnDTq4;)fS5Q": {
+          "opcode": "music_playDrumForBeats",
+          "next": "V(duObo!FWn.0at/CS_)",
+          "parent": "*?HaxQ~n-e(~XIP5_1As",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "2",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "V(duObo!FWn.0at/CS_)": {
+          "opcode": "music_restForBeats",
+          "next": "D(s=(OSn)ZVYU8f(~dw$",
+          "parent": "b:};]aZ@JnDTq4;)fS5Q",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "D(s=(OSn)ZVYU8f(~dw$": {
+          "opcode": "music_playDrumForBeats",
+          "next": "L([C:g2TeI#HF?7G!*}1",
+          "parent": "V(duObo!FWn.0at/CS_)",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "1",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "L([C:g2TeI#HF?7G!*}1": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "D(s=(OSn)ZVYU8f(~dw$",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "X,~WIcQNW~t{no|?ItCO": {
+          "opcode": "music_playDrumForBeats",
+          "next": ".*Q0JTzj3=0sC8Yl,i]A",
+          "parent": "*?HaxQ~n-e(~XIP5_1As",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "2",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        ".*Q0JTzj3=0sC8Yl,i]A": {
+          "opcode": "music_restForBeats",
+          "next": "~|vJF:fGV4+I{frn5/S(",
+          "parent": "X,~WIcQNW~t{no|?ItCO",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "~|vJF:fGV4+I{frn5/S(": {
+          "opcode": "music_playDrumForBeats",
+          "next": "K.Y(fkhL*Qxmczx==,ql",
+          "parent": ".*Q0JTzj3=0sC8Yl,i]A",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "8",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "K.Y(fkhL*Qxmczx==,ql": {
+          "opcode": "music_playDrumForBeats",
+          "next": "##((LV|eX,%WHc}4KL.q",
+          "parent": "~|vJF:fGV4+I{frn5/S(",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "8",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "##((LV|eX,%WHc}4KL.q": {
+          "opcode": "music_restForBeats",
+          "next": "z{urv[WhO^0*V(d9Ulc*",
+          "parent": "K.Y(fkhL*Qxmczx==,ql",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "z{urv[WhO^0*V(d9Ulc*": {
+          "opcode": "music_playDrumForBeats",
+          "next": "djc;MtL6FRBr;,1.dGOy",
+          "parent": "##((LV|eX,%WHc}4KL.q",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "2",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "djc;MtL6FRBr;,1.dGOy": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "z{urv[WhO^0*V(d9Ulc*",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "RQ`mz3$HZ4S%Ic*!p;2)": {
+          "opcode": "procedures_definition",
+          "next": "%JkF=}gia:`.~O)#w_O2",
+          "parent": null,
+          "inputs": {
+            "custom_block": [
+              1,
+              "qs0)uRfVN!LVR|qOr19J"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": -313,
+          "y": 2343
+        },
+        "qs0)uRfVN!LVR|qOr19J": {
+          "opcode": "procedures_prototype",
+          "next": null,
+          "parent": "RQ`mz3$HZ4S%Ic*!p;2)",
+          "inputs": {},
+          "fields": {},
+          "shadow": true,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Drums Letzte Strophe",
+            "argumentids": "[]",
+            "argumentnames": "[]",
+            "argumentdefaults": "[]",
+            "warp": "false"
+          }
+        },
+        "%JkF=}gia:`.~O)#w_O2": {
+          "opcode": "control_repeat",
+          "next": "83a@nb9M-=To1B*Ed%UT",
+          "parent": "RQ`mz3$HZ4S%Ic*!p;2)",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "3"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              ")*(vp~Q5GHvy0h}L`NI#"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        ")*(vp~Q5GHvy0h}L`NI#": {
+          "opcode": "music_playDrumForBeats",
+          "next": "[,1E{K*bFFXgiOCk)xYM",
+          "parent": "%JkF=}gia:`.~O)#w_O2",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "2",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "[,1E{K*bFFXgiOCk)xYM": {
+          "opcode": "music_restForBeats",
+          "next": "L,G`i![nT8v{Mr8REU-f",
+          "parent": ")*(vp~Q5GHvy0h}L`NI#",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "L,G`i![nT8v{Mr8REU-f": {
+          "opcode": "music_playDrumForBeats",
+          "next": ";^Ll!q!WT2ra_4bRj-=9",
+          "parent": "[,1E{K*bFFXgiOCk)xYM",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "1",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        ";^Ll!q!WT2ra_4bRj-=9": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "L,G`i![nT8v{Mr8REU-f",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "83a@nb9M-=To1B*Ed%UT": {
+          "opcode": "music_playDrumForBeats",
+          "next": null,
+          "parent": "%JkF=}gia:`.~O)#w_O2",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "2",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "Dhs#utGnW(rEadlHfaV$": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "iX5eu8Cw^hjj}2G=5#xk",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Letzte Strophe",
+              "^icFz|_o`kU1q!vWQ!1Y"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 340,
+          "y": 1661
+        },
+        "iX5eu8Cw^hjj}2G=5#xk": {
+          "opcode": "procedures_call",
+          "next": null,
+          "parent": "Dhs#utGnW(rEadlHfaV$",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Drums Letzte Strophe",
+            "argumentids": "[]",
+            "warp": "false"
+          }
+        },
+        "=L/B{|J!zT;|gg`G.N1J": {
+          "opcode": "procedures_definition",
+          "next": "!By3zD_L}C594Mt:Vs%m",
+          "parent": null,
+          "inputs": {
+            "custom_block": [
+              1,
+              "vHutsxSi#8U!q#`;Z+90"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": 1248,
+          "y": 1518
+        },
+        "vHutsxSi#8U!q#`;Z+90": {
+          "opcode": "procedures_prototype",
+          "next": null,
+          "parent": "=L/B{|J!zT;|gg`G.N1J",
+          "inputs": {},
+          "fields": {},
+          "shadow": true,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Hi-Hat Strophe Regulär",
+            "argumentids": "[]",
+            "argumentnames": "[]",
+            "argumentdefaults": "[]",
+            "warp": "false"
+          }
+        },
+        "!By3zD_L}C594Mt:Vs%m": {
+          "opcode": "control_repeat",
+          "next": null,
+          "parent": "=L/B{|J!zT;|gg`G.N1J",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "16"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "4Ruxl?nK}tmbGoivIKQ{"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "4Ruxl?nK}tmbGoivIKQ{": {
+          "opcode": "music_playDrumForBeats",
+          "next": "0]ng)KHAyIfKGkPG_d`I",
+          "parent": "!By3zD_L}C594Mt:Vs%m",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "0]ng)KHAyIfKGkPG_d`I": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "4Ruxl?nK}tmbGoivIKQ{",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "eu:Q2#Hx1OwYcitorj/-": {
+          "opcode": "procedures_definition",
+          "next": "y=/ndt)WN=G~ZE)e!B3O",
+          "parent": null,
+          "inputs": {
+            "custom_block": [
+              1,
+              "!KJ2@~3LCFIA!;^TP7@~"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": 1256,
+          "y": 1866
+        },
+        "!KJ2@~3LCFIA!;^TP7@~": {
+          "opcode": "procedures_prototype",
+          "next": null,
+          "parent": "eu:Q2#Hx1OwYcitorj/-",
+          "inputs": {},
+          "fields": {},
+          "shadow": true,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Hi-Hat Letzte Strophe",
+            "argumentids": "[]",
+            "argumentnames": "[]",
+            "argumentdefaults": "[]",
+            "warp": "false"
+          }
+        },
+        "y=/ndt)WN=G~ZE)e!B3O": {
+          "opcode": "control_repeat",
+          "next": "(K#-EA#/IZKvoF./V9Y^",
+          "parent": "eu:Q2#Hx1OwYcitorj/-",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "13"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "1r*UA_(m81:Kmj#|x+ZV"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "1r*UA_(m81:Kmj#|x+ZV": {
+          "opcode": "music_playDrumForBeats",
+          "next": "{;m/#-+0.Zjr#_LY*_.)",
+          "parent": "y=/ndt)WN=G~ZE)e!B3O",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "{;m/#-+0.Zjr#_LY*_.)": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "1r*UA_(m81:Kmj#|x+ZV",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "(K#-EA#/IZKvoF./V9Y^": {
+          "opcode": "music_restForBeats",
+          "next": "TSP,!]]1YM~l+eri8QT3",
+          "parent": "y=/ndt)WN=G~ZE)e!B3O",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "TSP,!]]1YM~l+eri8QT3": {
+          "opcode": "music_playDrumForBeats",
+          "next": "B*duV-+Ak8BAS.u2xJu~",
+          "parent": "(K#-EA#/IZKvoF./V9Y^",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "5",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "B*duV-+Ak8BAS.u2xJu~": {
+          "opcode": "music_playDrumForBeats",
+          "next": "y|d~$^)cr3)XVc.]4u71",
+          "parent": "TSP,!]]1YM~l+eri8QT3",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "1",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "y|d~$^)cr3)XVc.]4u71": {
+          "opcode": "music_restForBeats",
+          "next": "RiP;55Twl|Wq6d_H?zuj",
+          "parent": "B*duV-+Ak8BAS.u2xJu~",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "RiP;55Twl|Wq6d_H?zuj": {
+          "opcode": "music_playDrumForBeats",
+          "next": "?;*MPr}mk`LV0wlSXyyY",
+          "parent": "y|d~$^)cr3)XVc.]4u71",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "6",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "?;*MPr}mk`LV0wlSXyyY": {
+          "opcode": "music_restForBeats",
+          "next": "P7QT|@W;x}-!T~4vK$U.",
+          "parent": "RiP;55Twl|Wq6d_H?zuj",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "P7QT|@W;x}-!T~4vK$U.": {
+          "opcode": "music_playDrumForBeats",
+          "next": null,
+          "parent": "?;*MPr}mk`LV0wlSXyyY",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.5"
+              ]
+            ]
+          },
+          "fields": {
+            "DRUM": [
+              "4",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "Q?6!Ha:Xr|qEk+oI(k:i": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "YJ,czZIIC?=2ucg5uUy,",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Letzte Strophe",
+              "^icFz|_o`kU1q!vWQ!1Y"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 711,
+          "y": 1644
+        },
+        "YJ,czZIIC?=2ucg5uUy,": {
+          "opcode": "procedures_call",
+          "next": null,
+          "parent": "Q?6!Ha:Xr|qEk+oI(k:i",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Hi-Hat Letzte Strophe",
+            "argumentids": "[]",
+            "warp": "false"
+          }
+        },
+        "ECWH]J1Q{bWCQ+53w`g6": {
+          "opcode": "event_whenflagclicked",
+          "next": "vYYwR,Q%8Rwx%aqF]n,F",
+          "parent": null,
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": -558,
+          "y": 669
+        },
+        "vYYwR,Q%8Rwx%aqF]n,F": {
+          "opcode": "music_setTempo",
+          "next": ",0NbkY$ZCX4e{+3TccNu",
+          "parent": "ECWH]J1Q{bWCQ+53w`g6",
+          "inputs": {
+            "TEMPO": [
+              1,
+              [
+                4,
+                "50"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        ",0NbkY$ZCX4e{+3TccNu": {
+          "opcode": "event_broadcastandwait",
+          "next": "#ovcJK_BLVfEuygYxj32",
+          "parent": "vYYwR,Q%8Rwx%aqF]n,F",
+          "inputs": {
+            "BROADCAST_INPUT": [
+              1,
+              [
+                11,
+                "Intro",
+                "^lDc6Ij}NzeWJnbsERBD"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "#ovcJK_BLVfEuygYxj32": {
+          "opcode": "event_broadcastandwait",
+          "next": "J%ADu^E_Yw%VDdM$^Mq-",
+          "parent": ",0NbkY$ZCX4e{+3TccNu",
+          "inputs": {
+            "BROADCAST_INPUT": [
+              1,
+              [
+                11,
+                "Strophe",
+                "O18AMMmsDUPDPK8{+y/1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "8py~Ib{HdB)*D)K1naI.": {
+          "opcode": "event_broadcastandwait",
+          "next": "(x)iEU,/;7G?F^[DLGin",
+          "parent": "J%ADu^E_Yw%VDdM$^Mq-",
+          "inputs": {
+            "BROADCAST_INPUT": [
+              1,
+              [
+                11,
+                "Strophe",
+                "O18AMMmsDUPDPK8{+y/1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "J%ADu^E_Yw%VDdM$^Mq-": {
+          "opcode": "event_broadcast",
+          "next": "8py~Ib{HdB)*D)K1naI.",
+          "parent": "#ovcJK_BLVfEuygYxj32",
+          "inputs": {
+            "BROADCAST_INPUT": [
+              1,
+              [
+                11,
+                "Melodie 1",
+                "2=NbmsB4?UJ*y-Ctb7RS"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "J!O35,J@*y~$%fuS$6=}": {
+          "opcode": "event_broadcastandwait",
+          "next": null,
+          "parent": "#X[E?9QE5V{#J6M{ZsS)",
+          "inputs": {
+            "BROADCAST_INPUT": [
+              1,
+              [
+                11,
+                "Letzte Strophe",
+                "^icFz|_o`kU1q!vWQ!1Y"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "(x)iEU,/;7G?F^[DLGin": {
+          "opcode": "event_broadcast",
+          "next": "r6EJFuv,f6)}mp;Hb*l~",
+          "parent": "8py~Ib{HdB)*D)K1naI.",
+          "inputs": {
+            "BROADCAST_INPUT": [
+              1,
+              [
+                11,
+                "Melodie 1",
+                "2=NbmsB4?UJ*y-Ctb7RS"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "r6EJFuv,f6)}mp;Hb*l~": {
+          "opcode": "event_broadcastandwait",
+          "next": "kwy/{Jc:4nH$IOAK=jzC",
+          "parent": "(x)iEU,/;7G?F^[DLGin",
+          "inputs": {
+            "BROADCAST_INPUT": [
+              1,
+              [
+                11,
+                "Strophe",
+                "O18AMMmsDUPDPK8{+y/1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "kwy/{Jc:4nH$IOAK=jzC": {
+          "opcode": "event_broadcast",
+          "next": "#X[E?9QE5V{#J6M{ZsS)",
+          "parent": "r6EJFuv,f6)}mp;Hb*l~",
+          "inputs": {
+            "BROADCAST_INPUT": [
+              1,
+              [
+                11,
+                "Melodie 2",
+                "5O/V=)5A*Abx^Fq3Wm*{"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "#X[E?9QE5V{#J6M{ZsS)": {
+          "opcode": "event_broadcastandwait",
+          "next": "J!O35,J@*y~$%fuS$6=}",
+          "parent": "kwy/{Jc:4nH$IOAK=jzC",
+          "inputs": {
+            "BROADCAST_INPUT": [
+              1,
+              [
+                11,
+                "Strophe",
+                "O18AMMmsDUPDPK8{+y/1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "yp(q+L9uGnzGYdN_CM22": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "l_5ZfvduxI=UhJ09S$dI",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Letzte Strophe",
+              "^icFz|_o`kU1q!vWQ!1Y"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 1160,
+          "y": 1153
+        },
+        "l_5ZfvduxI=UhJ09S$dI": {
+          "opcode": "control_repeat",
+          "next": null,
+          "parent": "yp(q+L9uGnzGYdN_CM22",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "17"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "dF9l)dg5sqZiPH-uoaTj"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "-1h9_A]^d,h3xD=ht)%]": {
+          "opcode": "looks_nextcostume",
+          "next": "S?+y(ta0b,Uuh;8Jz@xf",
+          "parent": "dF9l)dg5sqZiPH-uoaTj",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "S?+y(ta0b,Uuh;8Jz@xf": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "-1h9_A]^d,h3xD=ht)%]",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                ".25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "sm,(Hjd)R4VzvLrdL[h;": {
+          "opcode": "control_if",
+          "next": null,
+          "parent": "z2}J*x/i)G#FlqZSQ2R?",
+          "inputs": {
+            "CONDITION": [
+              3,
+              ",}3Ag_BLE~dBlQFxt5|Y",
+              null
+            ],
+            "SUBSTACK": [
+              2,
+              "4^m@h(fBu9,M%-!hlA+m"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        ",}3Ag_BLE~dBlQFxt5|Y": {
+          "opcode": "operator_equals",
+          "next": null,
+          "parent": "sm,(Hjd)R4VzvLrdL[h;",
+          "inputs": {
+            "OPERAND1": [
+              3,
+              [
+                12,
+                "Kostüme animiert",
+                "`jEk@4|i[#Fk?(8x)AV.-my variable"
+              ],
+              [
+                10,
+                ""
+              ]
+            ],
+            "OPERAND2": [
+              1,
+              [
+                10,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "dF9l)dg5sqZiPH-uoaTj": {
+          "opcode": "control_if",
+          "next": null,
+          "parent": "l_5ZfvduxI=UhJ09S$dI",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "Iqv%D/k^+sW5#h$K$}]7"
+            ],
+            "SUBSTACK": [
+              2,
+              "-1h9_A]^d,h3xD=ht)%]"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "Iqv%D/k^+sW5#h$K$}]7": {
+          "opcode": "operator_equals",
+          "next": null,
+          "parent": "dF9l)dg5sqZiPH-uoaTj",
+          "inputs": {
+            "OPERAND1": [
+              3,
+              [
+                12,
+                "Kostüme animiert",
+                "`jEk@4|i[#Fk?(8x)AV.-my variable"
+              ],
+              [
+                10,
+                ""
+              ]
+            ],
+            "OPERAND2": [
+              1,
+              [
+                10,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "NFC.XY6sU1oe:7([5X:b": {
+          "opcode": "control_if",
+          "next": null,
+          "parent": "g|d8iO2:sc9bps2ye@o/",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "!^ZKEyrO`,5XSs=wrGB4"
+            ],
+            "SUBSTACK": [
+              2,
+              "0}@/HZI`3ze{??m?voBS"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "!^ZKEyrO`,5XSs=wrGB4": {
+          "opcode": "operator_equals",
+          "next": null,
+          "parent": "NFC.XY6sU1oe:7([5X:b",
+          "inputs": {
+            "OPERAND1": [
+              3,
+              [
+                12,
+                "Kostüme animiert",
+                "`jEk@4|i[#Fk?(8x)AV.-my variable"
+              ],
+              [
+                10,
+                ""
+              ]
+            ],
+            "OPERAND2": [
+              1,
+              [
+                10,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        }
+      },
+      "comments": {},
+      "currentCostume": 2,
+      "costumes": [
+        {
+          "assetId": "80480d6395c9659184fe6fc250fcfb7e",
+          "name": "Elefant-rockt-1",
+          "bitmapResolution": 1,
+          "md5ext": "80480d6395c9659184fe6fc250fcfb7e.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 240,
+          "rotationCenterY": 180
+        },
+        {
+          "assetId": "c7e3e97543a08c2e2a73b745c4519117",
+          "name": "Elefant-rockt-2",
+          "bitmapResolution": 1,
+          "md5ext": "c7e3e97543a08c2e2a73b745c4519117.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 240,
+          "rotationCenterY": 180
+        },
+        {
+          "assetId": "59103173cb223afc7b8d326389e08ec0",
+          "name": "Elefant-rockt-3",
+          "bitmapResolution": 1,
+          "md5ext": "59103173cb223afc7b8d326389e08ec0.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 240,
+          "rotationCenterY": 180
+        },
+        {
+          "assetId": "250e32a08359b62e79b2ab670be59cc7",
+          "name": "Elefant-rockt-4",
+          "bitmapResolution": 1,
+          "md5ext": "250e32a08359b62e79b2ab670be59cc7.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 240,
+          "rotationCenterY": 180
+        }
+      ],
+      "sounds": [
+        {
+          "assetId": "19ee12af2e5fc48d689cadb3b45fde7a",
+          "name": "Space",
+          "dataFormat": "mp3",
+          "format": "",
+          "rate": 48000,
+          "sampleCount": 173492,
+          "md5ext": "19ee12af2e5fc48d689cadb3b45fde7a.mp3"
+        }
+      ],
+      "volume": 100,
+      "layerOrder": 1,
+      "visible": true,
+      "x": -8.523690773067344,
+      "y": -19.999999999999986,
+      "size": 83,
+      "direction": 90,
+      "draggable": false,
+      "rotationStyle": "all around"
+    },
+    {
+      "isStage": false,
+      "name": "Ente-rockt",
+      "variables": {},
+      "lists": {},
+      "broadcasts": {},
+      "blocks": {
+        ".st69:;g;[V]kW~D#RCD": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "A.,~.e.qg9qLN|5l_?+N",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Intro",
+              "^lDc6Ij}NzeWJnbsERBD"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 99,
+          "y": 437
+        },
+        "A.,~.e.qg9qLN|5l_?+N": {
+          "opcode": "sound_setvolumeto",
+          "next": "c/:;CN;YL~)mSvg/6kM]",
+          "parent": ".st69:;g;[V]kW~D#RCD",
+          "inputs": {
+            "VOLUME": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "c/:;CN;YL~)mSvg/6kM]": {
+          "opcode": "control_repeat",
+          "next": null,
+          "parent": "A.,~.e.qg9qLN|5l_?+N",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "2"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              ";%NoOj[_rV1ohs:LJX{j"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        ";%NoOj[_rV1ohs:LJX{j": {
+          "opcode": "music_setInstrument",
+          "next": "T3(L,(K`3F6a.3`MmPjd",
+          "parent": "c/:;CN;YL~)mSvg/6kM]",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "T3(L,(K`3F6a.3`MmPjd": {
+          "opcode": "music_playNoteForBeats",
+          "next": "Cud;[p4#yAT]%KQ:2s8p",
+          "parent": ";%NoOj[_rV1ohs:LJX{j",
+          "inputs": {
+            "NOTE": [
+              1,
+              "FoL7YKQ3IT/jQYmfp%OC"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "FoL7YKQ3IT/jQYmfp%OC": {
+          "opcode": "note",
+          "next": null,
+          "parent": "T3(L,(K`3F6a.3`MmPjd",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "48",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "Cud;[p4#yAT]%KQ:2s8p": {
+          "opcode": "music_setInstrument",
+          "next": "c9p)G:h+6+.UDSDp0B,x",
+          "parent": "T3(L,(K`3F6a.3`MmPjd",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "c9p)G:h+6+.UDSDp0B,x": {
+          "opcode": "music_playNoteForBeats",
+          "next": "gvj~Kv~e:!Qpdzq;l6lm",
+          "parent": "Cud;[p4#yAT]%KQ:2s8p",
+          "inputs": {
+            "NOTE": [
+              1,
+              "eXJJ;:32`EpB_s}{VneI"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "eXJJ;:32`EpB_s}{VneI": {
+          "opcode": "note",
+          "next": null,
+          "parent": "c9p)G:h+6+.UDSDp0B,x",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "55",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "gvj~Kv~e:!Qpdzq;l6lm": {
+          "opcode": "music_setInstrument",
+          "next": "986XEM1.Yt^/yx[2v!LO",
+          "parent": "c9p)G:h+6+.UDSDp0B,x",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "986XEM1.Yt^/yx[2v!LO": {
+          "opcode": "music_playNoteForBeats",
+          "next": "~ey];-HWvUj-];)W%HTT",
+          "parent": "gvj~Kv~e:!Qpdzq;l6lm",
+          "inputs": {
+            "NOTE": [
+              1,
+              "dQ7nLZHwqK`%g]zu%OF!"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "dQ7nLZHwqK`%g]zu%OF!": {
+          "opcode": "note",
+          "next": null,
+          "parent": "986XEM1.Yt^/yx[2v!LO",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "53",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "~ey];-HWvUj-];)W%HTT": {
+          "opcode": "music_setInstrument",
+          "next": "SSk^i7G7w^dH:pJ^cjof",
+          "parent": "986XEM1.Yt^/yx[2v!LO",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "SSk^i7G7w^dH:pJ^cjof": {
+          "opcode": "music_playNoteForBeats",
+          "next": null,
+          "parent": "~ey];-HWvUj-];)W%HTT",
+          "inputs": {
+            "NOTE": [
+              1,
+              "*b9VQYS)m:ia1,.K;wC6"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "*b9VQYS)m:ia1,.K;wC6": {
+          "opcode": "note",
+          "next": null,
+          "parent": "SSk^i7G7w^dH:pJ^cjof",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "55",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "Uf/^RsW1!=1VvGk/!_89": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "=QpqrDd*_Wt?j*Ao[+w@",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Intro",
+              "^lDc6Ij}NzeWJnbsERBD"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 690,
+          "y": 416
+        },
+        "=QpqrDd*_Wt?j*Ao[+w@": {
+          "opcode": "sound_setvolumeto",
+          "next": "R9j{#A?(ug4216fb}cDk",
+          "parent": "Uf/^RsW1!=1VvGk/!_89",
+          "inputs": {
+            "VOLUME": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "R9j{#A?(ug4216fb}cDk": {
+          "opcode": "control_repeat",
+          "next": null,
+          "parent": "=QpqrDd*_Wt?j*Ao[+w@",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "2"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "5P:!Av|=1.h)m]XJldLC"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "5P:!Av|=1.h)m]XJldLC": {
+          "opcode": "music_setInstrument",
+          "next": "+Pw*_.3F)X=o0O=f2;gl",
+          "parent": "R9j{#A?(ug4216fb}cDk",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "+Pw*_.3F)X=o0O=f2;gl": {
+          "opcode": "music_playNoteForBeats",
+          "next": ")o)PpL[DAX-*pEjhpZ!_",
+          "parent": "5P:!Av|=1.h)m]XJldLC",
+          "inputs": {
+            "NOTE": [
+              1,
+              "S/O,o3R?5.zdK@#FQ@.!"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "S/O,o3R?5.zdK@#FQ@.!": {
+          "opcode": "note",
+          "next": null,
+          "parent": "+Pw*_.3F)X=o0O=f2;gl",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "52",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        ")o)PpL[DAX-*pEjhpZ!_": {
+          "opcode": "music_setInstrument",
+          "next": "eC8QneyCP.HCXD`IzMrq",
+          "parent": "+Pw*_.3F)X=o0O=f2;gl",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "eC8QneyCP.HCXD`IzMrq": {
+          "opcode": "music_playNoteForBeats",
+          "next": "g(*ijJUz,wRs)bLz)8cP",
+          "parent": ")o)PpL[DAX-*pEjhpZ!_",
+          "inputs": {
+            "NOTE": [
+              1,
+              "Vv(mP|{|LlP`=#lUY^R`"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "Vv(mP|{|LlP`=#lUY^R`": {
+          "opcode": "note",
+          "next": null,
+          "parent": "eC8QneyCP.HCXD`IzMrq",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "59",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "g(*ijJUz,wRs)bLz)8cP": {
+          "opcode": "music_setInstrument",
+          "next": "{(KF+fZX.puVixC?~gG4",
+          "parent": "eC8QneyCP.HCXD`IzMrq",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "{(KF+fZX.puVixC?~gG4": {
+          "opcode": "music_playNoteForBeats",
+          "next": "yH+^J_dr,1`?B//Pg_T{",
+          "parent": "g(*ijJUz,wRs)bLz)8cP",
+          "inputs": {
+            "NOTE": [
+              1,
+              "!JkT171ea!(uZ@G8awSD"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "!JkT171ea!(uZ@G8awSD": {
+          "opcode": "note",
+          "next": null,
+          "parent": "{(KF+fZX.puVixC?~gG4",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "57",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "yH+^J_dr,1`?B//Pg_T{": {
+          "opcode": "music_setInstrument",
+          "next": "9pIrw(WiktdcHSJ-k.EU",
+          "parent": "{(KF+fZX.puVixC?~gG4",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "9pIrw(WiktdcHSJ-k.EU": {
+          "opcode": "music_playNoteForBeats",
+          "next": null,
+          "parent": "yH+^J_dr,1`?B//Pg_T{",
+          "inputs": {
+            "NOTE": [
+              1,
+              "epp}EczS4-+5MM]8aU0H"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "epp}EczS4-+5MM]8aU0H": {
+          "opcode": "note",
+          "next": null,
+          "parent": "9pIrw(WiktdcHSJ-k.EU",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "59",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "1AqzOk?N3FqP=d7qkB}B": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "BZPx7mlJJMoo*SR)Ysos",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Intro",
+              "^lDc6Ij}NzeWJnbsERBD"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 1228,
+          "y": 411
+        },
+        "BZPx7mlJJMoo*SR)Ysos": {
+          "opcode": "sound_setvolumeto",
+          "next": "d[)FxYl#ez-S-v]]._R8",
+          "parent": "1AqzOk?N3FqP=d7qkB}B",
+          "inputs": {
+            "VOLUME": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "d[)FxYl#ez-S-v]]._R8": {
+          "opcode": "control_repeat",
+          "next": null,
+          "parent": "BZPx7mlJJMoo*SR)Ysos",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "2"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "ta-K9i]:!?K9B/L-eM?["
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "ta-K9i]:!?K9B/L-eM?[": {
+          "opcode": "music_setInstrument",
+          "next": "y(d0%O!jyZx0,qig^0A=",
+          "parent": "d[)FxYl#ez-S-v]]._R8",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "y(d0%O!jyZx0,qig^0A=": {
+          "opcode": "music_playNoteForBeats",
+          "next": "mX!b,wzDHlr.2):8cw?/",
+          "parent": "ta-K9i]:!?K9B/L-eM?[",
+          "inputs": {
+            "NOTE": [
+              1,
+              "DqX)AB,R#JB~I=s^weat"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "DqX)AB,R#JB~I=s^weat": {
+          "opcode": "note",
+          "next": null,
+          "parent": "y(d0%O!jyZx0,qig^0A=",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "43",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "mX!b,wzDHlr.2):8cw?/": {
+          "opcode": "music_setInstrument",
+          "next": "zcR-e[hlw6[^(9wgD{hg",
+          "parent": "y(d0%O!jyZx0,qig^0A=",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "zcR-e[hlw6[^(9wgD{hg": {
+          "opcode": "music_playNoteForBeats",
+          "next": "ueyXr=4PfK1yL|r_`qs#",
+          "parent": "mX!b,wzDHlr.2):8cw?/",
+          "inputs": {
+            "NOTE": [
+              1,
+              "!ws{*xCk+1pQ*C9[J+E+"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "!ws{*xCk+1pQ*C9[J+E+": {
+          "opcode": "note",
+          "next": null,
+          "parent": "zcR-e[hlw6[^(9wgD{hg",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "62",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "ueyXr=4PfK1yL|r_`qs#": {
+          "opcode": "music_setInstrument",
+          "next": "6erH-|dtzMl_(mf?UooD",
+          "parent": "zcR-e[hlw6[^(9wgD{hg",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "6erH-|dtzMl_(mf?UooD": {
+          "opcode": "music_playNoteForBeats",
+          "next": "RwgEX9wkb_4W[dqOOJa5",
+          "parent": "ueyXr=4PfK1yL|r_`qs#",
+          "inputs": {
+            "NOTE": [
+              1,
+              "g]GKAtY36A}s9DcTM1m%"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "g]GKAtY36A}s9DcTM1m%": {
+          "opcode": "note",
+          "next": null,
+          "parent": "6erH-|dtzMl_(mf?UooD",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "60",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "RwgEX9wkb_4W[dqOOJa5": {
+          "opcode": "music_setInstrument",
+          "next": "H=)9F,S~4YKC(Shy4RII",
+          "parent": "6erH-|dtzMl_(mf?UooD",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "H=)9F,S~4YKC(Shy4RII": {
+          "opcode": "music_playNoteForBeats",
+          "next": null,
+          "parent": "RwgEX9wkb_4W[dqOOJa5",
+          "inputs": {
+            "NOTE": [
+              1,
+              "|F*Xe;MM@6t]6b_}nj54"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "|F*Xe;MM@6t]6b_}nj54": {
+          "opcode": "note",
+          "next": null,
+          "parent": "H=)9F,S~4YKC(Shy4RII",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "62",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "FT{wLt@o#6!+*1W,l;Wv": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": ".pN]-%Uf_gtA2}{~G`/*",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Intro",
+              "^lDc6Ij}NzeWJnbsERBD"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 1866,
+          "y": 325
+        },
+        ".pN]-%Uf_gtA2}{~G`/*": {
+          "opcode": "sound_setvolumeto",
+          "next": "ACyi!-yo:XZnK(#0G)RQ",
+          "parent": "FT{wLt@o#6!+*1W,l;Wv",
+          "inputs": {
+            "VOLUME": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "ACyi!-yo:XZnK(#0G)RQ": {
+          "opcode": "control_repeat",
+          "next": "pjNH#}4+|/=2)0VpPB/l",
+          "parent": ".pN]-%Uf_gtA2}{~G`/*",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "24"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "r={_pJdX|S|poev#~5{2"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "r={_pJdX|S|poev#~5{2": {
+          "opcode": "music_restForBeats",
+          "next": "{ZoI.Lo)Jme;^HO[.yRF",
+          "parent": "ACyi!-yo:XZnK(#0G)RQ",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "{ZoI.Lo)Jme;^HO[.yRF": {
+          "opcode": "sound_changevolumeby",
+          "next": null,
+          "parent": "r={_pJdX|S|poev#~5{2",
+          "inputs": {
+            "VOLUME": [
+              1,
+              [
+                4,
+                "2"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "pjNH#}4+|/=2)0VpPB/l": {
+          "opcode": "sound_setvolumeto",
+          "next": null,
+          "parent": "ACyi!-yo:XZnK(#0G)RQ",
+          "inputs": {
+            "VOLUME": [
+              1,
+              [
+                4,
+                "50"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "gl_`)2A1h%;3u[xs0+~s": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "8;r.pn=Vi2[bL2r~m(g]",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Strophe",
+              "O18AMMmsDUPDPK8{+y/1"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 97,
+          "y": 1130
+        },
+        "8;r.pn=Vi2[bL2r~m(g]": {
+          "opcode": "procedures_call",
+          "next": "Zww},-xvc6|mQd3#1.Px",
+          "parent": "gl_`)2A1h%;3u[xs0+~s",
+          "inputs": {
+            ",a(D*UY*#_qAn_?!ZNM2": [
+              1,
+              [
+                10,
+                "48"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Akkord Rythmus %s",
+            "argumentids": "[\",a(D*UY*#_qAn_?!ZNM2\"]",
+            "warp": "false"
+          }
+        },
+        "Zww},-xvc6|mQd3#1.Px": {
+          "opcode": "procedures_call",
+          "next": "Ais*9Zb4cLg04*o`LNfr",
+          "parent": "8;r.pn=Vi2[bL2r~m(g]",
+          "inputs": {
+            ",a(D*UY*#_qAn_?!ZNM2": [
+              1,
+              [
+                10,
+                "55"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Akkord Rythmus %s",
+            "argumentids": "[\",a(D*UY*#_qAn_?!ZNM2\"]",
+            "warp": "false"
+          }
+        },
+        "Ais*9Zb4cLg04*o`LNfr": {
+          "opcode": "procedures_call",
+          "next": "Qcu-h*9#}#gD=tB|}~~$",
+          "parent": "Zww},-xvc6|mQd3#1.Px",
+          "inputs": {
+            ",a(D*UY*#_qAn_?!ZNM2": [
+              1,
+              [
+                10,
+                "53"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Akkord Rythmus %s",
+            "argumentids": "[\",a(D*UY*#_qAn_?!ZNM2\"]",
+            "warp": "false"
+          }
+        },
+        "Qcu-h*9#}#gD=tB|}~~$": {
+          "opcode": "procedures_call",
+          "next": null,
+          "parent": "Ais*9Zb4cLg04*o`LNfr",
+          "inputs": {
+            ",a(D*UY*#_qAn_?!ZNM2": [
+              1,
+              [
+                10,
+                "55"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Akkord Rythmus %s",
+            "argumentids": "[\",a(D*UY*#_qAn_?!ZNM2\"]",
+            "warp": "false"
+          }
+        },
+        "Cnh4S{Ec]j7SN2o1~ZVo": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "@RXm38;4b;6{9sdpN-5d",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Strophe",
+              "O18AMMmsDUPDPK8{+y/1"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 707,
+          "y": 1133
+        },
+        "@RXm38;4b;6{9sdpN-5d": {
+          "opcode": "procedures_call",
+          "next": "d?7!,%|Tv#VgZ.Gj+|GV",
+          "parent": "Cnh4S{Ec]j7SN2o1~ZVo",
+          "inputs": {
+            ",a(D*UY*#_qAn_?!ZNM2": [
+              1,
+              [
+                10,
+                "52"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Akkord Rythmus %s",
+            "argumentids": "[\",a(D*UY*#_qAn_?!ZNM2\"]",
+            "warp": "false"
+          }
+        },
+        "d?7!,%|Tv#VgZ.Gj+|GV": {
+          "opcode": "procedures_call",
+          "next": "wzAQE(R)5{~^TF=A$Q}k",
+          "parent": "@RXm38;4b;6{9sdpN-5d",
+          "inputs": {
+            ",a(D*UY*#_qAn_?!ZNM2": [
+              1,
+              [
+                10,
+                "59"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Akkord Rythmus %s",
+            "argumentids": "[\",a(D*UY*#_qAn_?!ZNM2\"]",
+            "warp": "false"
+          }
+        },
+        "wzAQE(R)5{~^TF=A$Q}k": {
+          "opcode": "procedures_call",
+          "next": "D4@3f8T!Z0K3v5X0{2VL",
+          "parent": "d?7!,%|Tv#VgZ.Gj+|GV",
+          "inputs": {
+            ",a(D*UY*#_qAn_?!ZNM2": [
+              1,
+              [
+                10,
+                "57"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Akkord Rythmus %s",
+            "argumentids": "[\",a(D*UY*#_qAn_?!ZNM2\"]",
+            "warp": "false"
+          }
+        },
+        "D4@3f8T!Z0K3v5X0{2VL": {
+          "opcode": "procedures_call",
+          "next": null,
+          "parent": "wzAQE(R)5{~^TF=A$Q}k",
+          "inputs": {
+            ",a(D*UY*#_qAn_?!ZNM2": [
+              1,
+              [
+                10,
+                "59"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Akkord Rythmus %s",
+            "argumentids": "[\",a(D*UY*#_qAn_?!ZNM2\"]",
+            "warp": "false"
+          }
+        },
+        "Cai8s.C2y@9S0Ox~e2,s": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "u8=:wFh3`74eK$Y[+HUO",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Strophe",
+              "O18AMMmsDUPDPK8{+y/1"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 1245,
+          "y": 1127
+        },
+        "u8=:wFh3`74eK$Y[+HUO": {
+          "opcode": "procedures_call",
+          "next": "(~f|MDUh4uo4{FpBqfOo",
+          "parent": "Cai8s.C2y@9S0Ox~e2,s",
+          "inputs": {
+            ",a(D*UY*#_qAn_?!ZNM2": [
+              1,
+              [
+                10,
+                "43"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Akkord Rythmus %s",
+            "argumentids": "[\",a(D*UY*#_qAn_?!ZNM2\"]",
+            "warp": "false"
+          }
+        },
+        "(~f|MDUh4uo4{FpBqfOo": {
+          "opcode": "procedures_call",
+          "next": "gXJK..Ykv{xLV_#YviD8",
+          "parent": "u8=:wFh3`74eK$Y[+HUO",
+          "inputs": {
+            ",a(D*UY*#_qAn_?!ZNM2": [
+              1,
+              [
+                10,
+                "62"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Akkord Rythmus %s",
+            "argumentids": "[\",a(D*UY*#_qAn_?!ZNM2\"]",
+            "warp": "false"
+          }
+        },
+        "gXJK..Ykv{xLV_#YviD8": {
+          "opcode": "procedures_call",
+          "next": "7cY$U)0TBR=kX3ts~avf",
+          "parent": "(~f|MDUh4uo4{FpBqfOo",
+          "inputs": {
+            ",a(D*UY*#_qAn_?!ZNM2": [
+              1,
+              [
+                10,
+                "60"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Akkord Rythmus %s",
+            "argumentids": "[\",a(D*UY*#_qAn_?!ZNM2\"]",
+            "warp": "false"
+          }
+        },
+        "7cY$U)0TBR=kX3ts~avf": {
+          "opcode": "procedures_call",
+          "next": null,
+          "parent": "gXJK..Ykv{xLV_#YviD8",
+          "inputs": {
+            ",a(D*UY*#_qAn_?!ZNM2": [
+              1,
+              [
+                10,
+                "62"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Akkord Rythmus %s",
+            "argumentids": "[\",a(D*UY*#_qAn_?!ZNM2\"]",
+            "warp": "false"
+          }
+        },
+        "L9LPMyZi,jqL$vI|iI;r": {
+          "opcode": "procedures_definition",
+          "next": ")e1Ig#kiE@v[k$rLp-ZT",
+          "parent": null,
+          "inputs": {
+            "custom_block": [
+              1,
+              "z@5g`W+|pl-~`Kr2*jHX"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": -794,
+          "y": 919
+        },
+        "z@5g`W+|pl-~`Kr2*jHX": {
+          "opcode": "procedures_prototype",
+          "next": null,
+          "parent": "L9LPMyZi,jqL$vI|iI;r",
+          "inputs": {
+            ",a(D*UY*#_qAn_?!ZNM2": [
+              1,
+              "WO5.D_EF-+lKf}?O?D{C"
+            ]
+          },
+          "fields": {},
+          "shadow": true,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Akkord Rythmus %s",
+            "argumentids": "[\",a(D*UY*#_qAn_?!ZNM2\"]",
+            "argumentnames": "[\"Ton\"]",
+            "argumentdefaults": "[\"\"]",
+            "warp": "false"
+          }
+        },
+        "WO5.D_EF-+lKf}?O?D{C": {
+          "opcode": "argument_reporter_string_number",
+          "next": null,
+          "parent": "z@5g`W+|pl-~`Kr2*jHX",
+          "inputs": {},
+          "fields": {
+            "VALUE": [
+              "Ton",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        ")e1Ig#kiE@v[k$rLp-ZT": {
+          "opcode": "music_setInstrument",
+          "next": "a]F]moTH^fqlLQm{ZYc]",
+          "parent": "L9LPMyZi,jqL$vI|iI;r",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "a]F]moTH^fqlLQm{ZYc]": {
+          "opcode": "music_playNoteForBeats",
+          "next": "14{r*lK-z2qPx27ut/be",
+          "parent": ")e1Ig#kiE@v[k$rLp-ZT",
+          "inputs": {
+            "NOTE": [
+              3,
+              "pr/l2W@7d-dSnW/b`s_]",
+              "x)YTE}Np=ygUZ;bl}i`|"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                ".125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "pr/l2W@7d-dSnW/b`s_]": {
+          "opcode": "argument_reporter_string_number",
+          "next": null,
+          "parent": "a]F]moTH^fqlLQm{ZYc]",
+          "inputs": {},
+          "fields": {
+            "VALUE": [
+              "Ton",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "x)YTE}Np=ygUZ;bl}i`|": {
+          "opcode": "note",
+          "next": null,
+          "parent": "a]F]moTH^fqlLQm{ZYc]",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "48",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "14{r*lK-z2qPx27ut/be": {
+          "opcode": "music_setInstrument",
+          "next": "`jdqxk|}qE6;i]X-^s*:",
+          "parent": "a]F]moTH^fqlLQm{ZYc]",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "`jdqxk|}qE6;i]X-^s*:": {
+          "opcode": "music_playNoteForBeats",
+          "next": "c,bzRRSsc[|X%UzFT=B$",
+          "parent": "14{r*lK-z2qPx27ut/be",
+          "inputs": {
+            "NOTE": [
+              3,
+              "Hv=1`ywwz(NY;E%aZ.RX",
+              "vUvW~za9+%1FW8~2Arfe"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                ".125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "Hv=1`ywwz(NY;E%aZ.RX": {
+          "opcode": "argument_reporter_string_number",
+          "next": null,
+          "parent": "`jdqxk|}qE6;i]X-^s*:",
+          "inputs": {},
+          "fields": {
+            "VALUE": [
+              "Ton",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "vUvW~za9+%1FW8~2Arfe": {
+          "opcode": "note",
+          "next": null,
+          "parent": "`jdqxk|}qE6;i]X-^s*:",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "48",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "c,bzRRSsc[|X%UzFT=B$": {
+          "opcode": "music_restForBeats",
+          "next": "Mpj)6+tnH,v|.!cJcw|i",
+          "parent": "`jdqxk|}qE6;i]X-^s*:",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "Mpj)6+tnH,v|.!cJcw|i": {
+          "opcode": "music_setInstrument",
+          "next": "FV3OZ)Tx|[t]VnC(K%]o",
+          "parent": "c,bzRRSsc[|X%UzFT=B$",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "FV3OZ)Tx|[t]VnC(K%]o": {
+          "opcode": "music_playNoteForBeats",
+          "next": "{oME]c{gVv{Sz1hzK@Ho",
+          "parent": "Mpj)6+tnH,v|.!cJcw|i",
+          "inputs": {
+            "NOTE": [
+              3,
+              "0HQ=r+K=N|2CW9}Mh~Dm",
+              "u!?LmEdJR_px,E%x9o^A"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                ".25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "0HQ=r+K=N|2CW9}Mh~Dm": {
+          "opcode": "argument_reporter_string_number",
+          "next": null,
+          "parent": "FV3OZ)Tx|[t]VnC(K%]o",
+          "inputs": {},
+          "fields": {
+            "VALUE": [
+              "Ton",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "u!?LmEdJR_px,E%x9o^A": {
+          "opcode": "note",
+          "next": null,
+          "parent": "FV3OZ)Tx|[t]VnC(K%]o",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "48",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "{oME]c{gVv{Sz1hzK@Ho": {
+          "opcode": "music_setInstrument",
+          "next": "Ii,Ug*Is%{iofw!rUD81",
+          "parent": "FV3OZ)Tx|[t]VnC(K%]o",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "Ii,Ug*Is%{iofw!rUD81": {
+          "opcode": "music_playNoteForBeats",
+          "next": "/6p_6/pg}()u!!9J4GUE",
+          "parent": "{oME]c{gVv{Sz1hzK@Ho",
+          "inputs": {
+            "NOTE": [
+              3,
+              ")ca}T{b!QCm_}zZp9UX|",
+              "aIf=ta)FCmNtLf5tgYVY"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                ".125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        ")ca}T{b!QCm_}zZp9UX|": {
+          "opcode": "argument_reporter_string_number",
+          "next": null,
+          "parent": "Ii,Ug*Is%{iofw!rUD81",
+          "inputs": {},
+          "fields": {
+            "VALUE": [
+              "Ton",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "aIf=ta)FCmNtLf5tgYVY": {
+          "opcode": "note",
+          "next": null,
+          "parent": "Ii,Ug*Is%{iofw!rUD81",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "48",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "/6p_6/pg}()u!!9J4GUE": {
+          "opcode": "music_setInstrument",
+          "next": ":lxc%w;@8]}Cq1SjRaEJ",
+          "parent": "Ii,Ug*Is%{iofw!rUD81",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "21",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        ":lxc%w;@8]}Cq1SjRaEJ": {
+          "opcode": "music_playNoteForBeats",
+          "next": "]UVbB89((k5aBjAc_rF,",
+          "parent": "/6p_6/pg}()u!!9J4GUE",
+          "inputs": {
+            "NOTE": [
+              3,
+              "?XEDgfb26_h0y5v(r8ZW",
+              "L*5^sAcE47P)?KgLtM=W"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                ".125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "?XEDgfb26_h0y5v(r8ZW": {
+          "opcode": "argument_reporter_string_number",
+          "next": null,
+          "parent": ":lxc%w;@8]}Cq1SjRaEJ",
+          "inputs": {},
+          "fields": {
+            "VALUE": [
+              "Ton",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "L*5^sAcE47P)?KgLtM=W": {
+          "opcode": "note",
+          "next": null,
+          "parent": ":lxc%w;@8]}Cq1SjRaEJ",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "48",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "]UVbB89((k5aBjAc_rF,": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": ":lxc%w;@8]}Cq1SjRaEJ",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "$@+F`OV@6/(ctSlZ==b$": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "!yyNb%GlKd)`khVwyDi9",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Melodie 1",
+              "2=NbmsB4?UJ*y-Ctb7RS"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 858,
+          "y": 1590
+        },
+        "!yyNb%GlKd)`khVwyDi9": {
+          "opcode": "procedures_call",
+          "next": null,
+          "parent": "$@+F`OV@6/(ctSlZ==b$",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Melodie 1",
+            "argumentids": "[]",
+            "warp": "false"
+          }
+        },
+        "4(Brh;VoPUED%+j`%ZQF": {
+          "opcode": "procedures_call",
+          "next": null,
+          "parent": "QS2p?sY4N+jkFkufbsSP",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Melodie 2",
+            "argumentids": "[]",
+            "warp": "false"
+          }
+        },
+        "UI0jP_IjSevb^jP!veb%": {
+          "opcode": "procedures_definition",
+          "next": "4CA,QT)h7.xV3Q5Wm^U@",
+          "parent": null,
+          "inputs": {
+            "custom_block": [
+              1,
+              "`~=zrB+K{nT5E(U-Ixsr"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": 1291,
+          "y": 1539
+        },
+        "`~=zrB+K{nT5E(U-Ixsr": {
+          "opcode": "procedures_prototype",
+          "next": null,
+          "parent": "UI0jP_IjSevb^jP!veb%",
+          "inputs": {},
+          "fields": {},
+          "shadow": true,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Melodie 1",
+            "argumentids": "[]",
+            "argumentnames": "[]",
+            "argumentdefaults": "[]",
+            "warp": "false"
+          }
+        },
+        "4CA,QT)h7.xV3Q5Wm^U@": {
+          "opcode": "music_setInstrument",
+          "next": "4;$A.tOOyP~)2(IVpEM{",
+          "parent": "UI0jP_IjSevb^jP!veb%",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "4;$A.tOOyP~)2(IVpEM{": {
+          "opcode": "music_playNoteForBeats",
+          "next": "(Rcw;o%B4Oi.|r|.^wyO",
+          "parent": "4CA,QT)h7.xV3Q5Wm^U@",
+          "inputs": {
+            "NOTE": [
+              1,
+              "O{Pfh4v[MO]cMUNloT@5"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "O{Pfh4v[MO]cMUNloT@5": {
+          "opcode": "note",
+          "next": null,
+          "parent": "4;$A.tOOyP~)2(IVpEM{",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "52",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "(Rcw;o%B4Oi.|r|.^wyO": {
+          "opcode": "music_setInstrument",
+          "next": "aWZ_Fq@qW-nM#{Sg,`]g",
+          "parent": "4;$A.tOOyP~)2(IVpEM{",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "aWZ_Fq@qW-nM#{Sg,`]g": {
+          "opcode": "music_playNoteForBeats",
+          "next": "Zs1dz-}Pyd+]W^7yk7(6",
+          "parent": "(Rcw;o%B4Oi.|r|.^wyO",
+          "inputs": {
+            "NOTE": [
+              1,
+              "bLh!)-hBD,_%Oe}Eh`6("
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "bLh!)-hBD,_%Oe}Eh`6(": {
+          "opcode": "note",
+          "next": null,
+          "parent": "aWZ_Fq@qW-nM#{Sg,`]g",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "55",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "Zs1dz-}Pyd+]W^7yk7(6": {
+          "opcode": "music_setInstrument",
+          "next": "I01G;:J*6g`7N[Hw(rMB",
+          "parent": "aWZ_Fq@qW-nM#{Sg,`]g",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "I01G;:J*6g`7N[Hw(rMB": {
+          "opcode": "music_playNoteForBeats",
+          "next": "_SV}CbB1fsA{vHl)}X48",
+          "parent": "Zs1dz-}Pyd+]W^7yk7(6",
+          "inputs": {
+            "NOTE": [
+              1,
+              "9umJ|_[?_Rm9+^j}auH:"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "9umJ|_[?_Rm9+^j}auH:": {
+          "opcode": "note",
+          "next": null,
+          "parent": "I01G;:J*6g`7N[Hw(rMB",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "52",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "_SV}CbB1fsA{vHl)}X48": {
+          "opcode": "music_setInstrument",
+          "next": "{}}DN#aHGT!~1$i8Vqvu",
+          "parent": "I01G;:J*6g`7N[Hw(rMB",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "{}}DN#aHGT!~1$i8Vqvu": {
+          "opcode": "music_playNoteForBeats",
+          "next": "J.2F,?NyKx:pERd(Ed|b",
+          "parent": "_SV}CbB1fsA{vHl)}X48",
+          "inputs": {
+            "NOTE": [
+              1,
+              "nB@xJuRR:!G+R@6cp|[b"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "nB@xJuRR:!G+R@6cp|[b": {
+          "opcode": "note",
+          "next": null,
+          "parent": "{}}DN#aHGT!~1$i8Vqvu",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "55",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "J.2F,?NyKx:pERd(Ed|b": {
+          "opcode": "music_setInstrument",
+          "next": "GRg+[e*?s)y@XrrSctxF",
+          "parent": "{}}DN#aHGT!~1$i8Vqvu",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "GRg+[e*?s)y@XrrSctxF": {
+          "opcode": "music_playNoteForBeats",
+          "next": "!Z(Akn:I`qEJqf4+{}2R",
+          "parent": "J.2F,?NyKx:pERd(Ed|b",
+          "inputs": {
+            "NOTE": [
+              1,
+              "{*ph0ft=gl~M_BA[B$,8"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.375"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "{*ph0ft=gl~M_BA[B$,8": {
+          "opcode": "note",
+          "next": null,
+          "parent": "GRg+[e*?s)y@XrrSctxF",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "53",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "!Z(Akn:I`qEJqf4+{}2R": {
+          "opcode": "music_restForBeats",
+          "next": "VJw|+KM(4.g#a-;)`%O?",
+          "parent": "GRg+[e*?s)y@XrrSctxF",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "VJw|+KM(4.g#a-;)`%O?": {
+          "opcode": "music_setInstrument",
+          "next": "PX:4XSo[Y5^k#~(Z^C8o",
+          "parent": "!Z(Akn:I`qEJqf4+{}2R",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "PX:4XSo[Y5^k#~(Z^C8o": {
+          "opcode": "music_playNoteForBeats",
+          "next": "gj-0[lCP,md8m9Q@u+g?",
+          "parent": "VJw|+KM(4.g#a-;)`%O?",
+          "inputs": {
+            "NOTE": [
+              1,
+              "Be]:AW,IW?,6!-S!z:Mg"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.375"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "Be]:AW,IW?,6!-S!z:Mg": {
+          "opcode": "note",
+          "next": null,
+          "parent": "PX:4XSo[Y5^k#~(Z^C8o",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "53",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "gj-0[lCP,md8m9Q@u+g?": {
+          "opcode": "music_restForBeats",
+          "next": "#/d*P;WZw8.O%ASHYhUb",
+          "parent": "PX:4XSo[Y5^k#~(Z^C8o",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "#/d*P;WZw8.O%ASHYhUb": {
+          "opcode": "music_setInstrument",
+          "next": "sH#6GBdHpqYJX4)dm[5y",
+          "parent": "gj-0[lCP,md8m9Q@u+g?",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "sH#6GBdHpqYJX4)dm[5y": {
+          "opcode": "music_playNoteForBeats",
+          "next": "gmIZQnrU2ehb[;a*]5Dz",
+          "parent": "#/d*P;WZw8.O%ASHYhUb",
+          "inputs": {
+            "NOTE": [
+              1,
+              "ATD=tJcKQ#]$qq/KY.yU"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.375"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "ATD=tJcKQ#]$qq/KY.yU": {
+          "opcode": "note",
+          "next": null,
+          "parent": "sH#6GBdHpqYJX4)dm[5y",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "57",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "gmIZQnrU2ehb[;a*]5Dz": {
+          "opcode": "music_restForBeats",
+          "next": "N?ZUm{6`40-iNJz?1_*1",
+          "parent": "sH#6GBdHpqYJX4)dm[5y",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "N?ZUm{6`40-iNJz?1_*1": {
+          "opcode": "music_setInstrument",
+          "next": "dtK:?mQ/,;c@+iM--($)",
+          "parent": "gmIZQnrU2ehb[;a*]5Dz",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "dtK:?mQ/,;c@+iM--($)": {
+          "opcode": "music_playNoteForBeats",
+          "next": "R|ylWPj~hy-0o@K:ZTtQ",
+          "parent": "N?ZUm{6`40-iNJz?1_*1",
+          "inputs": {
+            "NOTE": [
+              1,
+              "U-R(OWZU]z/VECTODG9#"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.375"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "U-R(OWZU]z/VECTODG9#": {
+          "opcode": "note",
+          "next": null,
+          "parent": "dtK:?mQ/,;c@+iM--($)",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "53",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "R|ylWPj~hy-0o@K:ZTtQ": {
+          "opcode": "music_restForBeats",
+          "next": "]cSjuCk81-;@6Imul^`d",
+          "parent": "dtK:?mQ/,;c@+iM--($)",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "]cSjuCk81-;@6Imul^`d": {
+          "opcode": "music_setInstrument",
+          "next": "#dd~lwlQh!+)XV#!mM4`",
+          "parent": "R|ylWPj~hy-0o@K:ZTtQ",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "#dd~lwlQh!+)XV#!mM4`": {
+          "opcode": "music_playNoteForBeats",
+          "next": "ti?DR;o?Z)X^;U97luUP",
+          "parent": "]cSjuCk81-;@6Imul^`d",
+          "inputs": {
+            "NOTE": [
+              1,
+              "dQZ2L2?d@bC{s#+:JO!0"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                ".875"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "dQZ2L2?d@bC{s#+:JO!0": {
+          "opcode": "note",
+          "next": null,
+          "parent": "#dd~lwlQh!+)XV#!mM4`",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "52",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "ti?DR;o?Z)X^;U97luUP": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "#dd~lwlQh!+)XV#!mM4`",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "CBb*+%n7sNK/-syD!9uQ": {
+          "opcode": "procedures_definition",
+          "next": "x(Xy`oYk9Po1C9om5ail",
+          "parent": null,
+          "inputs": {
+            "custom_block": [
+              1,
+              "T`-2%($$fc9%@HEd?!#-"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": 1788,
+          "y": 1536
+        },
+        "T`-2%($$fc9%@HEd?!#-": {
+          "opcode": "procedures_prototype",
+          "next": null,
+          "parent": "CBb*+%n7sNK/-syD!9uQ",
+          "inputs": {},
+          "fields": {},
+          "shadow": true,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Melodie 2",
+            "argumentids": "[]",
+            "argumentnames": "[]",
+            "argumentdefaults": "[]",
+            "warp": "false"
+          }
+        },
+        "x(Xy`oYk9Po1C9om5ail": {
+          "opcode": "music_setInstrument",
+          "next": "/iec_f6iPghRDYYu^1na",
+          "parent": "CBb*+%n7sNK/-syD!9uQ",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "/iec_f6iPghRDYYu^1na": {
+          "opcode": "music_playNoteForBeats",
+          "next": "E::NBu{oG+uy@8}F.13Y",
+          "parent": "x(Xy`oYk9Po1C9om5ail",
+          "inputs": {
+            "NOTE": [
+              1,
+              "uE:TJdDejz-VS1OqK(:="
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "uE:TJdDejz-VS1OqK(:=": {
+          "opcode": "note",
+          "next": null,
+          "parent": "/iec_f6iPghRDYYu^1na",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "48",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "E::NBu{oG+uy@8}F.13Y": {
+          "opcode": "music_setInstrument",
+          "next": "kxiLQdl?[VLe`|IRO45M",
+          "parent": "/iec_f6iPghRDYYu^1na",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "kxiLQdl?[VLe`|IRO45M": {
+          "opcode": "music_playNoteForBeats",
+          "next": "9D~JtLS9Th|x2r|3nJb5",
+          "parent": "E::NBu{oG+uy@8}F.13Y",
+          "inputs": {
+            "NOTE": [
+              1,
+              "FGY4FPNs_P^2t8N`b4d,"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "FGY4FPNs_P^2t8N`b4d,": {
+          "opcode": "note",
+          "next": null,
+          "parent": "kxiLQdl?[VLe`|IRO45M",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "52",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "9D~JtLS9Th|x2r|3nJb5": {
+          "opcode": "music_setInstrument",
+          "next": "X@hjYuJ1M[{lN}jFDiYf",
+          "parent": "kxiLQdl?[VLe`|IRO45M",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "X@hjYuJ1M[{lN}jFDiYf": {
+          "opcode": "music_playNoteForBeats",
+          "next": "q4E^yzzd[a`pg;Xkmbvo",
+          "parent": "9D~JtLS9Th|x2r|3nJb5",
+          "inputs": {
+            "NOTE": [
+              1,
+              "nTgN(n-^6WKt08hpLNAU"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "nTgN(n-^6WKt08hpLNAU": {
+          "opcode": "note",
+          "next": null,
+          "parent": "X@hjYuJ1M[{lN}jFDiYf",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "55",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "q4E^yzzd[a`pg;Xkmbvo": {
+          "opcode": "music_setInstrument",
+          "next": "0qj!u,]ikZl9Q1F3g|*p",
+          "parent": "X@hjYuJ1M[{lN}jFDiYf",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "0qj!u,]ikZl9Q1F3g|*p": {
+          "opcode": "music_playNoteForBeats",
+          "next": "d-`56$^J+V[06^Bdz$.=",
+          "parent": "q4E^yzzd[a`pg;Xkmbvo",
+          "inputs": {
+            "NOTE": [
+              1,
+              "S4gnZt3AB~7?5rPjr^.B"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "S4gnZt3AB~7?5rPjr^.B": {
+          "opcode": "note",
+          "next": null,
+          "parent": "0qj!u,]ikZl9Q1F3g|*p",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "48",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "d-`56$^J+V[06^Bdz$.=": {
+          "opcode": "music_setInstrument",
+          "next": ";!4u/v`/jXG}OuugT/R]",
+          "parent": "0qj!u,]ikZl9Q1F3g|*p",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        ";!4u/v`/jXG}OuugT/R]": {
+          "opcode": "music_playNoteForBeats",
+          "next": "7Xw^,YKXO7#hPo:5aEB@",
+          "parent": "d-`56$^J+V[06^Bdz$.=",
+          "inputs": {
+            "NOTE": [
+              1,
+              "6Xb259,@}YA`CY4Id{xe"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "6Xb259,@}YA`CY4Id{xe": {
+          "opcode": "note",
+          "next": null,
+          "parent": ";!4u/v`/jXG}OuugT/R]",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "50",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "7Xw^,YKXO7#hPo:5aEB@": {
+          "opcode": "music_setInstrument",
+          "next": ":Z3G(?tB^a#Dn:g^G0O[",
+          "parent": ";!4u/v`/jXG}OuugT/R]",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        ":Z3G(?tB^a#Dn:g^G0O[": {
+          "opcode": "music_playNoteForBeats",
+          "next": "2ehFx8%Xuv(`MZm?KkXo",
+          "parent": "7Xw^,YKXO7#hPo:5aEB@",
+          "inputs": {
+            "NOTE": [
+              1,
+              "3jbbY736[KpkvB`(8ZM]"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "3jbbY736[KpkvB`(8ZM]": {
+          "opcode": "note",
+          "next": null,
+          "parent": ":Z3G(?tB^a#Dn:g^G0O[",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "53",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "2ehFx8%Xuv(`MZm?KkXo": {
+          "opcode": "music_setInstrument",
+          "next": "}=Z9a8O~vq]!u/)OFsNA",
+          "parent": ":Z3G(?tB^a#Dn:g^G0O[",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "}=Z9a8O~vq]!u/)OFsNA": {
+          "opcode": "music_playNoteForBeats",
+          "next": "D3SnhDt`8-BnS0^_dOVv",
+          "parent": "2ehFx8%Xuv(`MZm?KkXo",
+          "inputs": {
+            "NOTE": [
+              1,
+              ")qS9ShG3k-$9VX,%%Hxi"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.375"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        ")qS9ShG3k-$9VX,%%Hxi": {
+          "opcode": "note",
+          "next": null,
+          "parent": "}=Z9a8O~vq]!u/)OFsNA",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "57",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "D3SnhDt`8-BnS0^_dOVv": {
+          "opcode": "music_restForBeats",
+          "next": "Eq)0lf.i#kJ{X1}Qgb,X",
+          "parent": "}=Z9a8O~vq]!u/)OFsNA",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "Eq)0lf.i#kJ{X1}Qgb,X": {
+          "opcode": "music_setInstrument",
+          "next": "4kx%WhLmB]Ig-J]-pLy)",
+          "parent": "D3SnhDt`8-BnS0^_dOVv",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "4kx%WhLmB]Ig-J]-pLy)": {
+          "opcode": "music_playNoteForBeats",
+          "next": ",v=|)z]DiJ(BHwAs:c3U",
+          "parent": "Eq)0lf.i#kJ{X1}Qgb,X",
+          "inputs": {
+            "NOTE": [
+              1,
+              "n;xPzD9:MDEQyiIM2j;b"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "n;xPzD9:MDEQyiIM2j;b": {
+          "opcode": "note",
+          "next": null,
+          "parent": "4kx%WhLmB]Ig-J]-pLy)",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "53",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        ",v=|)z]DiJ(BHwAs:c3U": {
+          "opcode": "music_setInstrument",
+          "next": "R%Uk4|LpU27toHOhK4X8",
+          "parent": "4kx%WhLmB]Ig-J]-pLy)",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "R%Uk4|LpU27toHOhK4X8": {
+          "opcode": "music_playNoteForBeats",
+          "next": "V}c]xyOLM+UyJwNuV;PK",
+          "parent": ",v=|)z]DiJ(BHwAs:c3U",
+          "inputs": {
+            "NOTE": [
+              1,
+              "0tu{l]xy%KP-PHsxnJ*u"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "0tu{l]xy%KP-PHsxnJ*u": {
+          "opcode": "note",
+          "next": null,
+          "parent": "R%Uk4|LpU27toHOhK4X8",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "60",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "V}c]xyOLM+UyJwNuV;PK": {
+          "opcode": "music_setInstrument",
+          "next": "-3mx(P~M%LkeR~j4E38f",
+          "parent": "R%Uk4|LpU27toHOhK4X8",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "-3mx(P~M%LkeR~j4E38f": {
+          "opcode": "music_playNoteForBeats",
+          "next": "LrAPIWA9LY;vCjrhveF*",
+          "parent": "V}c]xyOLM+UyJwNuV;PK",
+          "inputs": {
+            "NOTE": [
+              1,
+              "3K/cEFB2;Oz%XxN@l,z+"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "3K/cEFB2;Oz%XxN@l,z+": {
+          "opcode": "note",
+          "next": null,
+          "parent": "-3mx(P~M%LkeR~j4E38f",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "57",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "LrAPIWA9LY;vCjrhveF*": {
+          "opcode": "music_setInstrument",
+          "next": "|p{bu.HBbQJ[-1CJ^j!g",
+          "parent": "-3mx(P~M%LkeR~j4E38f",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "|p{bu.HBbQJ[-1CJ^j!g": {
+          "opcode": "music_playNoteForBeats",
+          "next": "3_}U@9NRD5,GPUL-kkS6",
+          "parent": "LrAPIWA9LY;vCjrhveF*",
+          "inputs": {
+            "NOTE": [
+              1,
+              "Tm:-}BbRDl3[e7b_2Jqy"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "Tm:-}BbRDl3[e7b_2Jqy": {
+          "opcode": "note",
+          "next": null,
+          "parent": "|p{bu.HBbQJ[-1CJ^j!g",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "53",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "3_}U@9NRD5,GPUL-kkS6": {
+          "opcode": "music_setInstrument",
+          "next": "IQx8;Ok%1Fwd_4Ji}K%D",
+          "parent": "|p{bu.HBbQJ[-1CJ^j!g",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "IQx8;Ok%1Fwd_4Ji}K%D": {
+          "opcode": "music_playNoteForBeats",
+          "next": "K?}W/X:d:L-nR*?nbk,_",
+          "parent": "3_}U@9NRD5,GPUL-kkS6",
+          "inputs": {
+            "NOTE": [
+              1,
+              "oT`y[pu1d3xY+Db2WX^)"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "oT`y[pu1d3xY+Db2WX^)": {
+          "opcode": "note",
+          "next": null,
+          "parent": "IQx8;Ok%1Fwd_4Ji}K%D",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "55",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "K?}W/X:d:L-nR*?nbk,_": {
+          "opcode": "music_setInstrument",
+          "next": "qAlx[3eL%F#M-:PfwB?/",
+          "parent": "IQx8;Ok%1Fwd_4Ji}K%D",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "qAlx[3eL%F#M-:PfwB?/": {
+          "opcode": "music_playNoteForBeats",
+          "next": "i(HGStFo(Y:.$2[NK1?7",
+          "parent": "K?}W/X:d:L-nR*?nbk,_",
+          "inputs": {
+            "NOTE": [
+              1,
+              "MC,-*fPcBhZic3BL?(ES"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.25"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "MC,-*fPcBhZic3BL?(ES": {
+          "opcode": "note",
+          "next": null,
+          "parent": "qAlx[3eL%F#M-:PfwB?/",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "55",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        "i(HGStFo(Y:.$2[NK1?7": {
+          "opcode": "music_setInstrument",
+          "next": "@(%SvNn~O`PXpctPZ_3$",
+          "parent": "qAlx[3eL%F#M-:PfwB?/",
+          "inputs": {},
+          "fields": {
+            "INSTRUMENT": [
+              "20",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "@(%SvNn~O`PXpctPZ_3$": {
+          "opcode": "music_playNoteForBeats",
+          "next": ".7hSxmsjbfYSrHNUiqK6",
+          "parent": "i(HGStFo(Y:.$2[NK1?7",
+          "inputs": {
+            "NOTE": [
+              1,
+              "z/_L(su(4j5D8HIE04^?"
+            ],
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.375"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "z/_L(su(4j5D8HIE04^?": {
+          "opcode": "note",
+          "next": null,
+          "parent": "@(%SvNn~O`PXpctPZ_3$",
+          "inputs": {},
+          "fields": {
+            "NOTE": [
+              "53",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false
+        },
+        ".7hSxmsjbfYSrHNUiqK6": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "@(%SvNn~O`PXpctPZ_3$",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "0.125"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "VD)a`o1Vu5TY;jpF=YeZ": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": ";M(mF1N5Zf@YI.).*~g6",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Intro",
+              "^lDc6Ij}NzeWJnbsERBD"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 2270,
+          "y": 287
+        },
+        "PxK;:P*`c)c1[G6PJ|.m": {
+          "opcode": "control_repeat",
+          "next": null,
+          "parent": ";M(mF1N5Zf@YI.).*~g6",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "8"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "n^h)=qZTA^]p0S4!NjVH"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "n^h)=qZTA^]p0S4!NjVH": {
+          "opcode": "looks_nextcostume",
+          "next": "+_Go{J[9=|5,r7db%~Y+",
+          "parent": "PxK;:P*`c)c1[G6PJ|.m",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "+_Go{J[9=|5,r7db%~Y+": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "n^h)=qZTA^]p0S4!NjVH",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "L%j`B3~E.9XM?|a?^#+,": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "-}LRk/4i_U_~b+%KB}D]",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Strophe",
+              "O18AMMmsDUPDPK8{+y/1"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 2271,
+          "y": 727
+        },
+        "h1wGCDBW6w*o=34O%FeD": {
+          "opcode": "control_repeat",
+          "next": null,
+          "parent": "-}LRk/4i_U_~b+%KB}D]",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "8"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "sVCV]6-~,z:b{F)5LtH:"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "sVCV]6-~,z:b{F)5LtH:": {
+          "opcode": "looks_nextcostume",
+          "next": "c{/Y2#ZyYT;WarIs{|aR",
+          "parent": "h1wGCDBW6w*o=34O%FeD",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "c{/Y2#ZyYT;WarIs{|aR": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "sVCV]6-~,z:b{F)5LtH:",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                ".5"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "QS2p?sY4N+jkFkufbsSP": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "4(Brh;VoPUED%+j`%ZQF",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Melodie 2",
+              "5O/V=)5A*Abx^Fq3Wm*{"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 867,
+          "y": 1753
+        },
+        "^}dY5ypmxh-DsF_*X~`$": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "jdZQM}p{5oT`rybogD2Y",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Letzte Strophe",
+              "^icFz|_o`kU1q!vWQ!1Y"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 872,
+          "y": 1915
+        },
+        "jdZQM}p{5oT`rybogD2Y": {
+          "opcode": "procedures_call",
+          "next": null,
+          "parent": "^}dY5ypmxh-DsF_*X~`$",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "Melodie 1",
+            "argumentids": "[]",
+            "warp": "false"
+          }
+        },
+        ";M(mF1N5Zf@YI.).*~g6": {
+          "opcode": "control_if",
+          "next": null,
+          "parent": "VD)a`o1Vu5TY;jpF=YeZ",
+          "inputs": {
+            "CONDITION": [
+              3,
+              "LUdm|jXCzG%tH6S[*RNB",
+              null
+            ],
+            "SUBSTACK": [
+              2,
+              "PxK;:P*`c)c1[G6PJ|.m"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "LUdm|jXCzG%tH6S[*RNB": {
+          "opcode": "operator_equals",
+          "next": null,
+          "parent": ";M(mF1N5Zf@YI.).*~g6",
+          "inputs": {
+            "OPERAND1": [
+              3,
+              [
+                12,
+                "Kostüme animiert",
+                "`jEk@4|i[#Fk?(8x)AV.-my variable"
+              ],
+              [
+                10,
+                ""
+              ]
+            ],
+            "OPERAND2": [
+              1,
+              [
+                10,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "w}:2tappG%s)0,]x*KYw": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": ")P/$bU/kZ^nUB@NY#%p9",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Letzte Strophe",
+              "^icFz|_o`kU1q!vWQ!1Y"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 2280,
+          "y": 1156
+        },
+        ")_H(9/OCrU5A)yZxO(Nx": {
+          "opcode": "control_repeat",
+          "next": null,
+          "parent": ")P/$bU/kZ^nUB@NY#%p9",
+          "inputs": {
+            "TIMES": [
+              1,
+              [
+                6,
+                "8"
+              ]
+            ],
+            "SUBSTACK": [
+              2,
+              "jJ(kaK/hOd:^cin(Fa;r"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "jJ(kaK/hOd:^cin(Fa;r": {
+          "opcode": "looks_nextcostume",
+          "next": "}^!Spa(LyehDI);9LO//",
+          "parent": ")_H(9/OCrU5A)yZxO(Nx",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "}^!Spa(LyehDI);9LO//": {
+          "opcode": "music_restForBeats",
+          "next": null,
+          "parent": "jJ(kaK/hOd:^cin(Fa;r",
+          "inputs": {
+            "BEATS": [
+              1,
+              [
+                4,
+                ".5"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "-}LRk/4i_U_~b+%KB}D]": {
+          "opcode": "control_if",
+          "next": null,
+          "parent": "L%j`B3~E.9XM?|a?^#+,",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "GSJ3#ty.3$kttfV[wg*^"
+            ],
+            "SUBSTACK": [
+              2,
+              "h1wGCDBW6w*o=34O%FeD"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "GSJ3#ty.3$kttfV[wg*^": {
+          "opcode": "operator_equals",
+          "next": null,
+          "parent": "-}LRk/4i_U_~b+%KB}D]",
+          "inputs": {
+            "OPERAND1": [
+              3,
+              [
+                12,
+                "Kostüme animiert",
+                "`jEk@4|i[#Fk?(8x)AV.-my variable"
+              ],
+              [
+                10,
+                ""
+              ]
+            ],
+            "OPERAND2": [
+              1,
+              [
+                10,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        ")P/$bU/kZ^nUB@NY#%p9": {
+          "opcode": "control_if",
+          "next": null,
+          "parent": "w}:2tappG%s)0,]x*KYw",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "L^[?%dc7+X?wqY;5#xP7"
+            ],
+            "SUBSTACK": [
+              2,
+              ")_H(9/OCrU5A)yZxO(Nx"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "L^[?%dc7+X?wqY;5#xP7": {
+          "opcode": "operator_equals",
+          "next": null,
+          "parent": ")P/$bU/kZ^nUB@NY#%p9",
+          "inputs": {
+            "OPERAND1": [
+              3,
+              [
+                12,
+                "Kostüme animiert",
+                "`jEk@4|i[#Fk?(8x)AV.-my variable"
+              ],
+              [
+                10,
+                ""
+              ]
+            ],
+            "OPERAND2": [
+              1,
+              [
+                10,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        }
+      },
+      "comments": {},
+      "currentCostume": 0,
+      "costumes": [
+        {
+          "assetId": "c0e31c2c391917149b2e73df2265d9f8",
+          "name": "Ente-rockt-1",
+          "bitmapResolution": 1,
+          "md5ext": "c0e31c2c391917149b2e73df2265d9f8.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 75,
+          "rotationCenterY": 75
+        },
+        {
+          "assetId": "b45997efcde99b87b5669cae7dce0003",
+          "name": "Ente-rockt-2",
+          "bitmapResolution": 1,
+          "md5ext": "b45997efcde99b87b5669cae7dce0003.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 75,
+          "rotationCenterY": 75
+        },
+        {
+          "assetId": "ab81f51f70fd7f31101ed4990c3c0902",
+          "name": "Ente-rockt-3",
+          "bitmapResolution": 1,
+          "md5ext": "ab81f51f70fd7f31101ed4990c3c0902.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 75,
+          "rotationCenterY": 75
+        }
+      ],
+      "sounds": [
+        {
+          "assetId": "ffc769dfe1bc0beacf6d59993c68a865",
+          "name": "Flattert",
+          "dataFormat": "mp3",
+          "format": "",
+          "rate": 48000,
+          "sampleCount": 42240,
+          "md5ext": "ffc769dfe1bc0beacf6d59993c68a865.mp3"
+        }
+      ],
+      "volume": 50,
+      "layerOrder": 3,
+      "visible": true,
+      "x": 106.28179551122193,
+      "y": -90.4009983361065,
+      "size": 76,
+      "direction": 90,
+      "draggable": false,
+      "rotationStyle": "all around"
+    }
+  ],
+  "monitors": [
+    {
+      "id": "`jEk@4|i[#Fk?(8x)AV.-my variable",
+      "mode": "default",
+      "opcode": "data_variable",
+      "params": {
+        "VARIABLE": "Kostüme animiert"
+      },
+      "spriteName": null,
+      "value": "0",
+      "width": 0,
+      "height": 0,
+      "x": null,
+      "y": null,
+      "visible": true,
+      "sliderMin": 0,
+      "sliderMax": 100,
+      "isDiscrete": true
+    }
+  ],
+  "extensions": [
+    "music"
+  ],
+  "meta": {
+    "semver": "3.0.0",
+    "vm": "0.2.0-prerelease.20210510162256",
+    "agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
+  }
+}
