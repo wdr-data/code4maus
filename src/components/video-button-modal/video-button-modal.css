@@ -1,9 +1,5 @@
 @import '../menu-listing/menu-listing.css';
 
-.project-wrapper:first-of-type .title {
-  margin-bottom: auto;
-}
-
 .note {
   margin-bottom: auto;
 }

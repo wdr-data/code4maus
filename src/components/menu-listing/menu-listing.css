@@ -5,12 +5,16 @@
   flex-direction: column;
   justify-content: space-around;
   margin-right: 1rem;
+  margin-top: auto;
+  margin-bottom: auto;
   padding: 1rem;
   border: 1px solid rgb(216, 215, 215);
   border-radius: 1rem;
   box-shadow: 2px 2px 12px -4px rgba(0, 0, 0, 0.7);
+  min-height: 17rem;
   min-width: 16rem;
   max-width: 16rem;
+  max-height: 17rem;
   text-align: center;
   color: black;
   cursor: pointer;
