@@ -3,8 +3,8 @@ const url =
 
 export default {
   id: '02',
-  name: 'Musik: Die Band - Party on! (2/5)',
-  subtitle: 'Code einen Song und lass Konfetti regnen',
+  name: 'Die Band (Musik 2/5)',
+  subtitle: 'Code einen Song und lasse Konfetti regnen',
   image: null,
   video: url,
 }

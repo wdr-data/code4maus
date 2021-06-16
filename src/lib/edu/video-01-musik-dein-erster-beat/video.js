@@ -3,7 +3,7 @@ const url =
 
 export default {
   id: '01',
-  name: 'Musik: Dein erster Beat (1/5)',
+  name: 'Dein erster Beat (Musik 1/5)',
   subtitle: 'Programmiere mit Blöcken einen Beat',
   image: null,
   video: url,

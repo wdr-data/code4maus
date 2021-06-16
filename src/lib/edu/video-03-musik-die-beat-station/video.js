@@ -3,7 +3,7 @@ const url =
 
 export default {
   id: '03',
-  name: 'Musik: Die Beat-Station (3/5)',
+  name: 'Die Beat-Station (Musik 3/5)',
   subtitle: 'Jede Figur startet und stoppt per Klick',
   image: null,
   video: url,

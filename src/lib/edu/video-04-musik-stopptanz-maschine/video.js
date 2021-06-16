@@ -3,8 +3,8 @@ const url =
 
 export default {
   id: '04',
-  name: 'Musik: Stopptanz-Maschine (4/5)',
-  subtitle: 'Lass die Maus den Takt beim Stopptanz angeben',
+  name: 'Stopptanz (Musik 4/5)',
+  subtitle: 'Die Maus gibt den Takt an beim Stopptanz',
   image: null,
   video: url,
 }
