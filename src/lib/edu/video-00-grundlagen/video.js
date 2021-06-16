@@ -6,7 +6,7 @@ const url =
 
 export default {
   id: '00',
-  name: 'Grundlagen',
+  name: 'Grundlagen (1/1)',
   subtitle: 'Lernen, wie es geht',
   image: title,
   video: url,
