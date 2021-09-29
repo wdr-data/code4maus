@@ -7,7 +7,7 @@ import ab from './assets/b.mp4'
 export default {
   id: '00',
   name: 'Hallo Welt',
-  subtitle: '00 Video: Erste Schritte',
+  subtitle: '00 Erste Schritte',
   image: aL00,
   preVideo:
     'https://wdradaptiv-vh.akamaihd.net/i/medp/ondemand/weltweit/fsk0/191/1910629/,1910629_22682393,1910629_22682388,1910629_22682390,1910629_22682389,1910629_22682392,1910629_22682391,.mp4.csmil/master.m3u8',
