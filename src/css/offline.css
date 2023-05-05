@@ -1,0 +1,33 @@
+.background {
+  background-image: url(../components/menu/bg_blue@1x.png);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.wrapper {
+  background-color: white;
+  padding: 3rem;
+  max-width: 80vw;
+  box-shadow: 0 0 0.8rem 1px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 2rem auto;
+}
+
+h1 {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.feature-button {
+  width: 15rem;
+  margin: 2rem auto 1rem;
+  justify-content: center;
+  padding: 0.75rem;
+}

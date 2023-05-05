@@ -1,0 +1,9 @@
+@import '../../css/colors.css';
+
+
+.link {
+  text-decoration: underline;
+  padding: 0;
+  color: $ui-wdr-blue;
+  font-weight: 600;
+}
