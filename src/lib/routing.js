@@ -5,6 +5,7 @@ export const Views = {
   menu: 'VIEW_MENU',
   project: 'VIEW_PROJECT',
   content: 'content',
+  offline: 'offline',
   welcome: 'welcome',
 }
 
@@ -55,6 +56,9 @@ const routes = {
   },
   '/:page': {
     view: Views.content,
+  },
+  '/offline': {
+    view: Views.offline,
   },
 }
 

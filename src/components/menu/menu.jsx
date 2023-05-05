@@ -9,7 +9,6 @@ import { Link } from 'redux-little-router'
 import InlineSVG from '../inline-svg/inline-svg.jsx'
 import MenuButton from '../menu-button/menu-button.jsx'
 import MenuListing, { SHAPE_PROJECT } from '../menu-listing/menu-listing.jsx'
-import OfflineSupport from '../offline-support/offline-support.jsx'
 import wdrLogo from '../../../assets/img/wdr_logo.svg'
 import headLogo from '../../../assets/img/head_logo.png'
 
@@ -39,6 +38,13 @@ export const MenuComponent = (props) => {
     tabSelected: classNames(tabStyles.reactTabsTabSelected, styles.isSelected),
   }
 
+  const offlineOption = () => {
+    const buttonText = useFeatureFlag(FEATURE_OFFLINE) ? 'Offlineversion aktiviert' : 'Offlinemodus aktivieren'
+    return (
+      <Link href="/offline">{buttonText}</Link>
+    )
+  }
+
   return (
     <div className={styles.bodyWrapper}>
       <div className={styles.header}>
@@ -62,7 +68,7 @@ export const MenuComponent = (props) => {
           <Link href="/impressum/" className={styles.copyright}>
             <span>&#9400; WDR {new Date().getFullYear()}</span>
           </Link>
-          {useFeatureFlag(FEATURE_OFFLINE) && <OfflineSupport />}
+          {offlineOption()}
         </div>
       </div>
       <div className={styles.listingWrapper}>

@@ -31,6 +31,7 @@ import Menu from './menu.jsx'
 import WelcomeScreen from './welcome-screen.jsx'
 import LazyRender from './lazy-render.jsx'
 import Content from './content.jsx'
+import OfflineModus from './offline-modus.jsx'
 import MobileScreenFallback from './mobile-screen-fallback.jsx'
 
 addLocaleData(de)
@@ -174,6 +175,8 @@ class App extends Component {
         return <LazyRender promise={import('./gui.jsx')} />
       case Views.content:
         return <Content />
+      case Views.offline:
+        return <OfflineModus />
       case Views.welcome:
         return <WelcomeScreen />
       case Views.menu:

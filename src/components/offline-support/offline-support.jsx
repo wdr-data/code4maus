@@ -4,9 +4,25 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import ButtonComponent from '../button/button.jsx'
 import { setEnabled } from '../../reducers/offline.js'
+import styles from '../../css/offline.css'
+
+
+// TODO: add changing local storage key value before setEnabled
 
 const OfflineSupport = (props) => {
   const offlineSupport = 'serviceWorker' in navigator
+
+  const toggleButton = (enabled) => (
+    <ButtonComponent
+      style={enabled ? 'primary' : 'secondary'}
+      className={styles.featureButton}
+      onClick={() => props.setEnabled(!enabled)}
+    >
+      {`Offlinemodus ${enabled ? 'Deaktivieren' : 'Aktivieren'}`}
+    </ButtonComponent>
+  )
+
+
   if (!offlineSupport) {
     return null
   }
@@ -16,19 +32,27 @@ const OfflineSupport = (props) => {
   }
 
   if (props.installed) {
-    return <div>Offlineversion aktiviert</div>
+    return (
+      <>
+        {toggleButton(true)}
+        <div>Offlineversion aktiviert</div>
+      </>
+    )
   }
 
   if (!props.enabled) {
     return (
-      <ButtonComponent style="link" onClick={() => props.setEnabled(true)}>
-        Offlinemodus aktivieren
-      </ButtonComponent>
+      toggleButton(false)
     )
   }
 
   if (props.installError !== null) {
-    return <div>Fehler: {props.installError}</div>
+    return (
+      <>
+        {toggleButton(true)}
+        <i>Fehler: {props.installError}</i>
+      </>
+    )
   }
 
   return null
