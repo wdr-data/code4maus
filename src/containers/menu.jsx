@@ -6,6 +6,7 @@ import { push } from 'redux-little-router'
 import { MenuComponent } from '../components/menu/menu.jsx'
 import { MenuTabs } from '../lib/routing'
 import { games, examples, videos } from '../lib/edu'
+import { paEvent } from '../lib/piano-analytics.js'
 
 const tabIdToTab = {
   0: MenuTabs.edugames,
@@ -45,6 +46,8 @@ class Menu extends React.Component {
       projects: [],
       videos: videos.map(Menu.mapVideoData),
     }
+
+    paEvent.pageDisplay({ pages: ['Menu'], pageType: 'Hauptseite' })
   }
 
   componentDidMount() {

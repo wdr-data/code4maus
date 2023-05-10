@@ -8645,7 +8645,7 @@ intl-format-cache@^2.0.5:
 intl-messageformat-parser@1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-1.4.0.tgz#b43d45a97468cadbe44331d74bb1e8dea44fc075"
-  integrity sha1-tD1FqXRoytvkQzHXS7Ho3qRPwHU=
+  integrity sha512-/XkqFHKezO6UcF4Av2/Lzfrez18R0jyw7kRFhSeB/YRakdrgSc9QfFZUwNJI9swMwMoNPygK1ArC5wdFSjPw+A==
 
 intl-messageformat-parser@^1.2.0:
   version "1.8.1"
@@ -8655,7 +8655,7 @@ intl-messageformat-parser@^1.2.0:
 intl-messageformat@^2.0.0, intl-messageformat@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-2.2.0.tgz#345bcd46de630b7683330c2e52177ff5eab484fc"
-  integrity sha1-NFvNRt5jC3aDMwwuUhd/9eq0hPw=
+  integrity sha512-I+tSvHnXqJYjDfNmY95tpFMj30yoakC6OXAo+wu/wTMy6tA/4Fd4mvV7Uzs4cqK/Ap29sHhwjcY+78a8eifcXw==
   dependencies:
     intl-messageformat-parser "1.4.0"
 
@@ -12151,6 +12151,11 @@ pez@2.x.x:
     content "3.x.x"
     hoek "4.x.x"
     nigel "2.x.x"
+
+piano-analytics-js@^6.8.3:
+  version "6.8.3"
+  resolved "https://registry.yarnpkg.com/piano-analytics-js/-/piano-analytics-js-6.8.3.tgz#f13bfaafdc0a58b7045cfb02be20a918cf3231a7"
+  integrity sha512-2NI77WkB1I31ZYdHe9brUhrCpEeDWqdlY/KmUKgvF6npbTiONzMGJOKui6eqKJkoo8f0Wuy1ucmpGM7wXYVdGw==
 
 picomatch@^2.0.5:
   version "2.2.2"

@@ -5,6 +5,9 @@ import ReactDOM from 'react-dom'
 
 import App from '../containers/app.jsx'
 import '../css/defaults.css'
+import { paSetConfig } from '../lib/piano-analytics.js'
+
+paSetConfig()
 
 const appTarget = document.getElementById('__mausapp')
 
