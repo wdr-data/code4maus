@@ -25,7 +25,8 @@ import buttonIconInfo from '!raw-loader!../../../assets/icons/menu_eltern-info.s
 import buttonIconMausseite from '!raw-loader!../../../assets/icons/menu_mausseite.svg'
 import buttonIconDatenschutz from '!raw-loader!../../../assets/icons/icon_hilfe.svg'
 import buttonIconImpressum from '!raw-loader!../../../assets/icons/menu_impressum.svg'
-import { paEvent } from '../../lib/piano-analytics.js'
+import { paEvent } from '../../lib/piano-analytics/main.js'
+import { menuTabTitles } from '../../lib/piano-analytics/constants.js'
 
 // TODO: Use when updating react-intl (must use static values for now)
 // const tabListData = {
@@ -34,13 +35,6 @@ import { paEvent } from '../../lib/piano-analytics.js'
 //   2: { title: "Beispiele", id: "gui.gui.examples", svg: tabIconExamples },
 //   3: { title: "Videos", id: "gui.gui.videos", svg: tabIconVideos },
 // }
-
-const tabTitles = {
-  0: "Lernen",
-  1: "Meine Sachen",
-  2: "Beispiele",
-  3: "Videos"
-}
 
 export const MenuComponent = (props) => {
   const tabClassNames = {
@@ -109,7 +103,7 @@ export const MenuComponent = (props) => {
           selectedTabPanelClassName={tabClassNames.tabPanelSelected}
           selectedIndex={props.selectedTab}
           onSelect={(index) => {
-            paEvent.pageDisplay({ pages: ["Menu", tabTitles[index]], pageType: "Hauptseite" })
+            paEvent.pageDisplay({ pages: ["Menu", menuTabTitles[index]], pageType: "Hauptseite" })
             return props.handleTabSelected(index)
           }}
         >

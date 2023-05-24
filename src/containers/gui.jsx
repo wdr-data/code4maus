@@ -9,6 +9,7 @@ import {
   activateTab,
   BLOCKS_TAB_INDEX,
   COSTUMES_TAB_INDEX,
+  editorTabNames,
   SOUNDS_TAB_INDEX,
 } from '../reducers/editor-tab'
 
@@ -22,6 +23,8 @@ import { StageSizeProviderHOC } from '../lib/stage-size-provider.jsx'
 import GUIComponent from '../components/gui/gui.jsx'
 import { toggleLayoutMode } from '../reducers/layout-mode'
 import { setProjectUnchanged } from '../reducers/project-changed'
+import { paEvent } from '../lib/piano-analytics/main'
+import { menuTabTitles } from '../lib/piano-analytics/constants'
 
 class GUI extends React.Component {
   constructor(props) {
@@ -45,6 +48,11 @@ class GUI extends React.Component {
     }
   }
   componentDidUpdate(prevProps) {
+
+    if (this.props.eduId && this.props.eduId !== prevProps.eduId) {
+      paEvent.pageDisplay({ pages: [menuTabTitles[0], `Lernspiel ${this.props.eduId}`], pageType: "Spiele" })
+    }
+
     if (
       prevProps.projectData !== this.props.projectData ||
       // force clearing workspace after fetching
@@ -142,17 +150,33 @@ const mapStateToProps = (state) => ({
   eduId: state.scratchGui.eduLayer.gameId,
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const onTabActivating = (eduId, tab) => {
+  paEvent.pageDisplay({ pages: [menuTabTitles[0], `Lernspiel ${eduId}`, editorTabNames[tab]], pageType: "Spiele" })
+  return activateTab(tab)
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
   closeSaveModal: () => dispatch(closeSaveProject()),
   onExtensionButtonClick: () => dispatch(openExtensionLibrary()),
-  onActivateTab: (tab) => dispatch(activateTab(tab)),
-  onActivateCostumesTab: () => dispatch(activateTab(COSTUMES_TAB_INDEX)),
-  onActivateSoundsTab: () => dispatch(activateTab(SOUNDS_TAB_INDEX)),
+  onActivateTab: (eduId, tab) => dispatch(onTabActivating(eduId, tab)),
+  onActivateCostumesTab: (eduId) => dispatch(onTabActivating(eduId, COSTUMES_TAB_INDEX)),
+  onActivateSoundsTab: (eduId) => dispatch(onTabActivating(eduId, SOUNDS_TAB_INDEX)),
   onLayoutModeClick: () => dispatch(toggleLayoutMode()),
   onSetUnchanged: () => dispatch(setProjectUnchanged()),
 })
 
-const ConnectedGUI = connect(mapStateToProps, mapDispatchToProps)(GUI)
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  return {
+    ...ownProps,
+    ...stateProps,
+    ...dispatchProps,
+    onActivateTab: (tab) => dispatchProps.onActivateTab(stateProps.eduId, tab),
+    onActivateCostumesTab: () => dispatchProps.onActivateCostumesTab(stateProps.eduId),
+    onActivateSoundsTab: () => dispatchProps.onActivateSoundsTab(stateProps.eduId),
+  }
+}
+
+const ConnectedGUI = connect(mapStateToProps, mapDispatchToProps, mergeProps)(GUI)
 
 // eslint-disable-next-line new-cap
 const WrappedGui = flow([

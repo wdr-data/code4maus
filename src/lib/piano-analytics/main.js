@@ -1,4 +1,5 @@
 import { pianoAnalytics } from 'piano-analytics-js'
+import { EVENTS, PROPERTIES, DEFAULT_PROPERTY_VALUES } from './constants'
 
 pianoAnalytics.setConfigurations({
   site: 621455,
@@ -20,38 +21,6 @@ export const paSetConfig = () => {
     }
   }
   pianoAnalytics.setConfigurations(configurations)
-}
-
-export const EVENTS = {
-  pageDisplay: 'page.display',
-  clickNavigation: 'click.navigation',
-  clickExit: 'click.exit',
-  clickAction: 'click.action',
-}
-
-export const PROPERTIES = {
-  siteLevel2: 'site_level2',
-  brand: 'brand',
-  redaction: 'editorial_department',
-  platform: 'platform',
-  siteTitle: 'page_title',
-  pageLevel1: 'page_chapter1',
-  pageLevel2: 'page_chapter2',
-  pageLevel3: 'page_chapter3',
-  siteType: 'page_type',
-  publicationTimeAt: 'publication_time', // date
-  reactionUpdatedAt: 'last_editorial_update', // date
-  daysSincePublication: 'days_since_publication', // integer
-  clickLabel: 'click',
-  clickTarget: 'click_target',
-  clickChapter1: 'click_chapter1',
-  clickChapter2: 'click_chapter2',
-}
-
-const DEFAULT_PROPERTY_VALUES = {
-  [PROPERTIES.siteLevel2]: 'Programmieren mit der Maus',
-  [PROPERTIES.brand]: 'Die Maus',
-  [PROPERTIES.redaction]: 'PG Kinder und Familie',
 }
 
 const pageLevelKeys = [

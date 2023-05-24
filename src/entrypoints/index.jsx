@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'
 
 import App from '../containers/app.jsx'
 import '../css/defaults.css'
-import { paSetConfig } from '../lib/piano-analytics.js'
+import { paSetConfig } from '../lib/piano-analytics/main.js'
 
 paSetConfig()
 
