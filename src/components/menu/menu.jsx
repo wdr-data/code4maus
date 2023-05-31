@@ -185,6 +185,10 @@ export const MenuComponent = (props) => {
           iconSvg={buttonIconMausseite}
           external
           linkTo="https://www.wdrmaus.de/"
+          onClick={() => {
+            // TODO: add click event
+            console.log("zur Maus-Seite")
+          }}
         >
           Zur Maus-Seite
         </MenuButton>

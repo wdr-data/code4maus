@@ -14,6 +14,7 @@ import Privacy, {
   attributes as privacyAttributes,
 } from '../lib/content/privacy.md'
 import Terms, { attributes as termsAttributes } from '../lib/content/terms.md'
+import { paEvent } from '../lib/piano-analytics/main.js'
 
 const contentMap = {
   eltern: {
@@ -41,6 +42,13 @@ class Content extends React.Component {
         {children}
       </ContentWrapper>
     )
+  }
+
+  componentDidMount() {
+    paEvent.pageDisplay({
+      pages: [this.props.page],
+      pageType: 'Beitrag'
+    })
   }
 
   render() {
