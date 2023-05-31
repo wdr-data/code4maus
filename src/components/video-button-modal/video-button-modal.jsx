@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Modal from '../modal/modal.jsx'
 import VideoPlayer from '../video-player/video-player.jsx'
 
 import defaultImage from '../../../assets/img/meine_sachen.png'
 import styles from './video-button-modal.css'
+import { paEvent } from '../../lib/piano-analytics/main.js'
+import { menuTabTitles } from '../../lib/piano-analytics/constants.js'
 
 const VideoButtonModal = ({ title, image, note, video }) => {
   const [showModal, setShowModal] = useState(false)
@@ -13,6 +15,15 @@ const VideoButtonModal = ({ title, image, note, video }) => {
   let [firstline, secondline] = title.split('(')
   // Add the '(' back to the 2nd line for correct display
   secondline = secondline ? `(${secondline}` : ''
+
+  useEffect(() => {
+    if (!showModal) return
+
+    paEvent.pageDisplay({
+      pages: ["Menu", menuTabTitles[3], `Video ${note}`],
+      pageType: 'Video'
+    })
+  }, [showModal])
 
   return (
     <>

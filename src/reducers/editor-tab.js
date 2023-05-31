@@ -9,6 +9,12 @@ const initialState = {
   activeTabIndex: BLOCKS_TAB_INDEX,
 }
 
+const editorTabNames = {
+  [BLOCKS_TAB_INDEX]: 'Code',
+  [COSTUMES_TAB_INDEX]: 'Kostüme',
+  [SOUNDS_TAB_INDEX]: 'Töne',
+}
+
 const reducer = function (state, action) {
   if (typeof state === 'undefined') {
     state = initialState
@@ -37,4 +43,5 @@ export {
   BLOCKS_TAB_INDEX,
   COSTUMES_TAB_INDEX,
   SOUNDS_TAB_INDEX,
+  editorTabNames,
 }
