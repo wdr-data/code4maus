@@ -1,5 +1,10 @@
 import { pianoAnalytics } from 'piano-analytics-js'
-import { EVENTS, PROPERTIES, DEFAULT_PROPERTY_VALUES } from './constants'
+import {
+  EVENTS,
+  PROPERTIES,
+  DEFAULT_PROPERTY_VALUES,
+  menuTabTitles,
+} from './constants'
 
 pianoAnalytics.setConfigurations({
   site: 621455,
@@ -21,6 +26,18 @@ export const paSetConfig = () => {
     }
   }
   pianoAnalytics.setConfigurations(configurations)
+}
+
+export const guiTypePages = (gameId) => {
+  if (!gameId) {
+    return [menuTabTitles[1], 'New Project']
+  }
+
+  if (gameId.match(/beispiel(0|0\d{1})?$/gm)) {
+    return [menuTabTitles[2], `Beispiel ${gameId}`]
+  } else {
+    return [menuTabTitles[0], `Lernspiel ${gameId}`]
+  }
 }
 
 const pageLevelKeys = [
@@ -61,32 +78,27 @@ const getCustomProperties = (data) => {
   }
 }
 
-const clickEventEntries = () => {
-  const { pageDisplay, ...otherEvents } = EVENTS
+const pageValuesToData = ({ pages, pageType }) => {
+  let data = {}
 
-  return Object.entries(otherEvents).map(([eventName, eventKey]) => [
+  if (typeof pages === 'string') {
+    data[PROPERTIES.pageLevel1] = pages
+  } else {
+    const pagesList = [...pages].slice(0, 3)
+    pagesList.forEach((page, index) => {
+      data[PROPERTIES[`pageLevel${index + 1}`]] = page
+    })
+  }
+
+  if (pageType) data[PROPERTIES.siteType] = pageType
+  return data
+}
+
+const clickEventEntries = () => {
+  return Object.entries(EVENTS).map(([eventName, eventKey]) => [
     eventName,
-    (data) => sendEvent(eventKey, data),
+    (data) => sendEvent(eventKey, pageValuesToData(data)),
   ])
 }
 
-const clickEvents = Object.fromEntries(clickEventEntries())
-
-export const paEvent = {
-  pageDisplay: ({ pages, pageType }) => {
-    let data = {}
-
-    if (typeof pages === 'string') {
-      data[PROPERTIES.pageLevel1] = pages
-    } else {
-      const pagesList = [...pages].slice(0, 3)
-      pagesList.forEach((page, index) => {
-        data[PROPERTIES[`pageLevel${index + 1}`]] = page
-      })
-    }
-
-    if (pageType) data[PROPERTIES.siteType] = pageType
-    return sendEvent(EVENTS.pageDisplay, data)
-  },
-  ...clickEvents,
-}
+export const paEvent = Object.fromEntries(clickEventEntries())

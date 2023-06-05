@@ -23,8 +23,7 @@ import { StageSizeProviderHOC } from '../lib/stage-size-provider.jsx'
 import GUIComponent from '../components/gui/gui.jsx'
 import { toggleLayoutMode } from '../reducers/layout-mode'
 import { setProjectUnchanged } from '../reducers/project-changed'
-import { paEvent } from '../lib/piano-analytics/main'
-import { menuTabTitles } from '../lib/piano-analytics/constants'
+import { guiTypePages, paEvent } from '../lib/piano-analytics/main'
 
 class GUI extends React.Component {
   constructor(props) {
@@ -157,11 +156,9 @@ const mapStateToProps = (state) => ({
 const logPageDisplay = (eduId, isNewProject, tab) => {
   let pages = []
   if (isNewProject) {
-    pages = [menuTabTitles[1], 'New Project']
-  } else if (eduId && eduId.match(/beispiel(0|0\d{1})?$/gm)) {
-    pages = [menuTabTitles[2], `Beispiel ${eduId}`]
+    pages = guiTypePages(null)
   } else if (eduId) {
-    pages = [menuTabTitles[0], `Lernspiel ${eduId}`]
+    pages = guiTypePages(eduId)
   }
 
   paEvent.pageDisplay({

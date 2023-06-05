@@ -35,6 +35,10 @@ class Controls extends React.Component {
   }
   handleGreenFlagClick(e) {
     e.preventDefault()
+
+    if (this.props.onGreenFlagClick) {
+      this.props.onGreenFlagClick()
+    }
     if (e.shiftKey) {
       this.setState({ turbo: !this.state.turbo })
       this.props.vm.setTurboMode(!this.state.turbo)
@@ -44,6 +48,10 @@ class Controls extends React.Component {
   }
   handleStopAllClick(e) {
     e.preventDefault()
+
+    if (this.props.onStopAllClick) {
+      this.props.onStopAllClick()
+    }
     this.props.vm.stopAll()
   }
   render() {
@@ -65,6 +73,8 @@ class Controls extends React.Component {
 
 Controls.propTypes = {
   vm: PropTypes.instanceOf(VM),
+  onGreenFlagClick: PropTypes.func,
+  onStopAllClick: PropTypes.func
 }
 
 export default Controls
