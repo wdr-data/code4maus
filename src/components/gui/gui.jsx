@@ -1,10 +1,11 @@
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import tabStyles from 'react-tabs/style/react-tabs.css'
-import { Fragment as RouterFragment, Link } from 'redux-little-router'
+// import { Fragment as RouterFragment } from 'redux-little-router'
+import { Link } from 'react-router-dom'
 import VM from 'scratch-vm'
 import Renderer from 'scratch-render'
 
@@ -187,13 +188,13 @@ const GUIComponent = (props) => {
             aria-label="Brotkrümel Navigation"
             role="navigation"
           >
-            <Link href="/">Übersicht</Link>
-            <RouterFragment forRoute="/lernspiel/">
+            <Link to="/">Übersicht</Link>
+            {/* <RouterFragment forRoute="/lernspiel/">
               <span>Lernspiel {eduId}</span>
             </RouterFragment>
             <RouterFragment forRoute="/projekt/">
               <span>Projekt {projectName}</span>
-            </RouterFragment>
+            </RouterFragment> */}
           </span>
           <Tabs
             forceRenderTabPanel={true} // eslint-disable-line react/jsx-boolean-value
@@ -321,7 +322,7 @@ const GUIComponent = (props) => {
                         stageSize={stageSize}
                         vm={vm}
                       />
-                      <EduStage />
+                      <EduStage {...props} />
                     </div>
                   )}
                 </StageSizeConsumer>

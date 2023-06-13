@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { push } from 'redux-little-router'
+// import { push } from 'redux-little-router'
+import { history } from '../lib/app-state-hoc.jsx'
 
 import ContentWrapper from '../components/content-wrapper/content-wrapper.jsx'
 import ParentHelp, {
@@ -46,17 +47,17 @@ class Content extends React.Component {
 
   componentDidMount() {
     paEvent.pageDisplay({
-      pages: [this.props.page],
+      pages: [this.props.match.params.page],
       pageType: 'Beitrag'
     })
   }
 
   render() {
-    if (!(this.props.page in contentMap)) {
+    if (!(this.props.match.params.page in contentMap)) {
       return this.wrapContent('Inhalt nicht gefunden.')
     }
 
-    const { Component, attributes } = contentMap[this.props.page]
+    const { Component, attributes } = contentMap[this.props.match.params.page]
     return this.wrapContent(<Component />, attributes)
   }
 }
@@ -67,10 +68,11 @@ Content.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  page: state.router.params.page,
+  // page: state.router.params.page,
 })
-const mapDispatchToProps = (dispatch) => ({
-  backToHome: () => dispatch(push('/')),
+
+const mapDispatchToProps = () => ({
+  backToHome: () => history.push('/'),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content)

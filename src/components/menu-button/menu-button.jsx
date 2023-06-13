@@ -1,7 +1,8 @@
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Link } from 'redux-little-router'
+// import { Link } from 'redux-little-router'
+import { Link } from 'react-router-dom'
 
 import InlineSVG from '../inline-svg/inline-svg.jsx'
 import styles from './menu-button.css'
@@ -63,7 +64,7 @@ const MenuButtonComponent = ({
 
   return (
     <Link
-      href={linkTo}
+      to={linkTo}
       className={buttonClassName}
       onClick={onClick}
       {...props}

@@ -2,7 +2,8 @@ import { injectIntl, intlShape } from 'react-intl'
 import PropTypes from 'prop-types'
 import React from 'react'
 import VM from 'scratch-vm'
-import { Link } from 'redux-little-router'
+// import { Link } from 'redux-little-router'
+import { Link } from 'react-router-dom'
 
 import Controls from '../../containers/controls.jsx'
 import Fullscreen from '../../containers/fullscreen.jsx'
@@ -38,7 +39,7 @@ const StageHeaderComponent = function (props) {
         ) : (
           <div className={styles.flexWrapper}>
             <div className={styles.copyrightWrapper}>
-              <Link href="/impressum/" className={styles.copyright}>
+              <Link to="/impressum/" className={styles.copyright}>
                 <span>&copy; WDR {new Date().getFullYear()}</span>
               </Link>
             </div>

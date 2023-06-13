@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import classNames from 'classnames'
-import { push } from 'redux-little-router'
+// import { push } from 'redux-little-router'
+import { history } from '../../lib/app-state-hoc.jsx'
 
 import { connect } from 'react-redux'
 import fullScreenIcon from '../../../assets/blocks-media/zoom-in.svg'
@@ -142,14 +143,14 @@ EduStageComponent.propTypes = {
   postVideo: PropTypes.string,
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   const base = {
     slideIndex: state.scratchGui.eduLayer.index,
     slideCount: 0,
     isFullscreen: state.scratchGui.eduLayer.isFullscreen,
     isEnabled: state.scratchGui.eduLayer.enabled,
     imageSrc: '',
-    gameId: state.scratchGui.eduLayer.gameId,
+    gameId: ownProps.match.params.eduId,
     caption: '',
   }
 
@@ -174,20 +175,22 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  loadGame: (gameId) => push(eduUrl(gameId)),
+  // loadGame: (gameId) => history.push(eduUrl(gameId)),
   nextSlide,
   previousSlide,
   toggleFullscreen,
 }
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => ({
-  ...ownProps,
-  ...stateProps,
-  ...dispatchProps,
-  nextSlide: stateProps.linkNextGame
-    ? () => dispatchProps.loadGame(stateProps.nextGame)
-    : dispatchProps.nextSlide,
-})
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  return {
+    ...ownProps,
+    ...stateProps,
+    ...dispatchProps,
+    nextSlide: stateProps.linkNextGame
+      ? () => history.push(eduUrl(stateProps.nextGame)) // dispatchProps.loadGame(stateProps.nextGame)
+      : dispatchProps.nextSlide,
+  }
+}
 
 export default connect(
   mapStateToProps,

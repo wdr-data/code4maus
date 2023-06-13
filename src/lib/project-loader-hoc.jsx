@@ -21,15 +21,29 @@ const ProjectLoaderHOC = function (WrappedComponent) {
         projectData: null,
         fetchingProject: true,
       }
+
+      this.projectId = this.getProjectId(props)
+    }
+
+    getProjectId(props) {
+      if (!props.match.params.eduId) return 0
+
+      if (props.match.path.includes('/lernspiel/')) {
+        return `edu/${props.match.params.eduId}`
+      }
+      return props.match.params.eduId
     }
 
     componentDidMount() {
-      this.loadProject(this.props.projectId || 0)
+      this.loadProject(this.getProjectId(this.props))
     }
 
     componentDidUpdate(prevProps) {
-      if (prevProps.projectId !== this.props.projectId) {
-        this.loadProject(this.props.projectId || 0)
+      const prevProjectId = this.getProjectId(prevProps)
+      const currProjectId = this.getProjectId(this.props)
+
+      if (prevProjectId !== currProjectId) {
+        this.loadProject(currProjectId)
       }
     }
 
@@ -75,7 +89,7 @@ const ProjectLoaderHOC = function (WrappedComponent) {
 
   return connect(
     (state) => ({
-      projectId: state.scratchGui.project.id,
+      // projectId: state.scratchGui.project.id,
     }),
     (dispatch) => ({
       setProjectName: (name) => dispatch(setProjectName(name)),

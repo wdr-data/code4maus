@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import { push } from 'redux-little-router'
+// import { push } from 'redux-little-router'
+import { history } from './app-state-hoc.jsx'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
@@ -169,7 +170,8 @@ const ProjectSaveHOC = (WrappedComponent) => {
       this.props.dispatch(setProjectName(this.state.nameInput))
       if (this.props.routeProject !== resObj.id) {
         this.props.dispatch(setProjectId(resObj.id))
-        this.props.dispatch(push(projectUrl(resObj.id)))
+        history.push(projectUrl(resObj.id))
+        // this.props.dispatch(push(projectUrl(resObj.id)))
       }
     }
     cancelSave() {

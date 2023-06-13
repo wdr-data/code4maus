@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
-import { push } from 'redux-little-router'
+// import { push } from 'redux-little-router'
 import OnboardingOverlayComponent from '../components/onboarding-overlay/onboarding-overlay.jsx'
 import onboardingConfig, {
   NEXT_STEP,
@@ -196,7 +196,7 @@ const OnboardingOverlayConnected = connect(
   }),
   (dispatch) => ({
     loadProject: (id) => dispatch(setProjectId(id)),
-    setOnboardingStep: (step) => dispatch(push(`/onboarding/${step}`)),
+    setOnboardingStep: (step) => history.push(`/onboarding/${step}`),
     setCustomBlocks: (blocks) => dispatch(setCustomBlocks(blocks)),
     dispatchAction: dispatch,
   })

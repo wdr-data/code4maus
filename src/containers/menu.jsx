@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { push } from 'redux-little-router'
+// import { push } from 'redux-little-router'
+import { history } from '../lib/app-state-hoc.jsx'
 
 import { MenuComponent } from '../components/menu/menu.jsx'
 import { MenuTabs } from '../lib/routing'
@@ -91,7 +92,7 @@ class Menu extends React.Component {
         eduGames={this.state.eduGames}
         examples={this.state.examples}
         videos={this.state.videos}
-        selectedTab={tab}
+        selectedTab={Menu.getTabId(tab)}
         {...props}
       />
     )
@@ -99,18 +100,18 @@ class Menu extends React.Component {
 }
 
 Menu.propTypes = {
-  tab: PropTypes.number.isRequired,
+  tab: PropTypes.string.isRequired,
   userId: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = (state) => ({
-  tab: Menu.getTabId((state.router.result || {}).tab),
+  // tab: Menu.getTabId((state.router.result || {}).tab),
   userId: state.scratchGui.project.userId,
   isOnline: state.scratchGui.offline.online,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  handleTabSelected: (tabId) => dispatch(push(`/${tabIdToTab[tabId]}`)),
+  handleTabSelected: (tabId) => history.push(`/${tabIdToTab[tabId]}`),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu)

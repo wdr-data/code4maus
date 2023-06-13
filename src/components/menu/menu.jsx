@@ -4,7 +4,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import tabStyles from 'react-tabs/style/react-tabs.css'
 import { FormattedMessage } from 'react-intl'
 import PropTypes from 'prop-types'
-import { Link } from 'redux-little-router'
+import { Link } from 'react-router-dom'
 
 import InlineSVG from '../inline-svg/inline-svg.jsx'
 import MenuButton from '../menu-button/menu-button.jsx'
@@ -89,7 +89,7 @@ export const MenuComponent = (props) => {
           />
         </div>
         <div className={styles.thirdColumn}>
-          <Link href="/impressum/" className={styles.copyright}>
+          <Link to="/impressum/" className={styles.copyright}>
             <span>&#9400; WDR {new Date().getFullYear()}</span>
           </Link>
           {useFeatureFlag(FEATURE_OFFLINE) && <OfflineSupport />}
@@ -149,7 +149,12 @@ export const MenuComponent = (props) => {
           </TabPanel>
           <TabPanel className={tabClassNames.tabPanel}>
             <div className={styles.sectionBody}>
-              <Link href="/projekt/neu" className={styles.newButton}>
+              <Link
+                to={{
+                  pathname: "/projekt/neu",
+                  state: { isNewProject: true }
+                }}
+                className={styles.newButton}>
                 <InlineSVG svg={buttonNew} className={styles.newButtonIcon} />
                 Neu
               </Link>
