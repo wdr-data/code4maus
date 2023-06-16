@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Link } from 'redux-little-router'
 import { Link } from 'react-router-dom'
 import classNames from 'classnames'
 import codeGif from '../../../assets/img/code.gif'

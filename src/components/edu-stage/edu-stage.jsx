@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import classNames from 'classnames'
-// import { push } from 'redux-little-router'
 import { history } from '../../lib/app-state-hoc.jsx'
 
 import { connect } from 'react-redux'
@@ -187,7 +186,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     ...stateProps,
     ...dispatchProps,
     nextSlide: stateProps.linkNextGame
-      ? () => history.push(eduUrl(stateProps.nextGame)) // dispatchProps.loadGame(stateProps.nextGame)
+      ? () => history.push(eduUrl(stateProps.nextGame))
       : dispatchProps.nextSlide,
   }
 }

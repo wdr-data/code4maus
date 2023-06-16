@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
-// import { push } from 'redux-little-router'
+import { history } from '../lib/app-state-hoc.jsx'
 import OnboardingOverlayComponent from '../components/onboarding-overlay/onboarding-overlay.jsx'
 import onboardingConfig, {
   NEXT_STEP,

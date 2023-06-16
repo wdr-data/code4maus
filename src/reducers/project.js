@@ -1,12 +1,8 @@
-import { LOCATION_CHANGED } from 'redux-little-router'
-
-import { Views } from '../lib/routing'
-
 const SET_PROJECT_NAME = 'scratch-gui/project/SET_PROJECT_NAME'
 const SET_PROJECT_ID = 'scratch-gui/project/SET_PROJECT_ID'
 const SET_USER_ID = 'scratch-gui/project/SET_USER_ID'
 const SET_CUSTOM_BLOCKS = 'scratch-gui/project/SET_CUSTOM_BLOCKS'
-const LOCATION_CHANGE = '@@router/LOCATION_CHANGE'
+// const LOCATION_CHANGE = '@@router/LOCATION_CHANGE'
 
 const initialState = {
   customBlocks: null,
@@ -37,31 +33,6 @@ export default function (state = initialState, action) {
         ...state,
         customBlocks: action.blocks,
       }
-    case LOCATION_CHANGED:
-    // if (action.payload.result && action.payload.result.view === Views.edu) {
-    //   return {
-    //     ...state,
-    //     id: `edu/${action.payload.params.eduId}`,
-    //   }
-    // }
-    // if (
-    //   action.payload.result &&
-    //   action.payload.result.view !== Views.project
-    // ) {
-    //   return state
-    // }
-    // if ((action.payload.result || {}).newProject) {
-    //   return {
-    //     ...state,
-    //     id: 0,
-    //     customBlocks: null,
-    //   }
-    // }
-    // return {
-    //   ...state,
-    //   id: action.payload.params.projectId,
-    //   customBlocks: null,
-    // }
     default:
       return state
   }

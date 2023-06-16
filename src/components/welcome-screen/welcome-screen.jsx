@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Link } from 'redux-little-router'
 import { Link } from 'react-router-dom'
 
 import Button from '../button/button.jsx'

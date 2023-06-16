@@ -1,4 +1,4 @@
-import { push } from 'redux-little-router'
+import { history } from '../app-state-hoc.jsx'
 
 export const NEXT_STEP = 'onboarding/NEXT_STEP'
 
@@ -78,7 +78,7 @@ const onboardingConfig = {
       buttons: [
         {
           text: 'Weiter',
-          action: () => push(`/lernspiel/01`),
+          action: () => history.push(`/lernspiel/01`),
         },
       ],
     },

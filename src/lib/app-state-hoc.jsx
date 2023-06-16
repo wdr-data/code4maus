@@ -2,7 +2,6 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { createBrowserHistory } from 'history'
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
-// import { initializeCurrentLocation } from 'redux-little-router'
 import { ConnectedRouter, connectRouter, routerMiddleware } from 'connected-react-router'
 import { createLogger } from 'redux-logger'
 
@@ -11,7 +10,6 @@ import { ScratchPaintReducer } from 'scratch-paint'
 import intlReducer from '../reducers/intl.js'
 
 import guiReducer, { guiInitialState, guiMiddleware } from '../reducers/gui'
-// import * as router from './routing'
 
 export const history = createBrowserHistory()
 
@@ -47,11 +45,6 @@ const AppStateHOC = function (WrappedComponent) {
         { scratchGui: guiInitialState },
         enhancer
       )
-
-      // const initialLocation = this.store.getState().router
-      // if (initialLocation) {
-      //   this.store.dispatch(initializeCurrentLocation(initialLocation))
-      // }
     }
     render() {
       return (

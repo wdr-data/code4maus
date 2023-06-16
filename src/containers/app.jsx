@@ -5,12 +5,10 @@ import { addLocaleData, IntlProvider } from 'react-intl'
 import de from 'react-intl/locale-data/de'
 import PropTypes from 'prop-types'
 import { v4 as uuid } from 'uuid'
-// import { replace } from 'redux-little-router'
 import { history } from '../lib/app-state-hoc.jsx'
 
 import { Workbox } from 'workbox-window'
 import styles from '../css/index.css'
-import { Views } from '../lib/routing'
 import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx'
 import AppStateHOC from '../lib/app-state-hoc.jsx'
 import withTracking from '../lib/tracking-hoc.jsx'
@@ -169,42 +167,29 @@ class App extends Component {
     }
   }
 
-  // renderView() {
-  //   switch (this.props.view) {
-  //     case Views.edu:
-  //     case Views.project:
-  //       return <LazyRender promise={import('./gui.jsx')} />
-  //     case Views.content:
-  //       return <Content />
-  //     case Views.welcome:
-  //       return <WelcomeScreen />
-  //     case Views.menu:
-  //     default:
-  //       return <Menu />
-  //   }
-  // }
-
   switchViews() {
     return (
       <Switch>
-        <Route path="/welcome">
-          <WelcomeScreen />
-        </Route>
+        <Route path="/welcome" component={WelcomeScreen} />
 
-        <Route path="/projekt/neu" render={(props) => <LazyRender isNewProject={true} promise={import('./gui.jsx')} {...props} />} />
+        <Route
+          path="/projekt/neu"
+          render={(props) => <LazyRender isNewProject={true} promise={import('./gui.jsx')} {...props} />}
+        />
 
-        <Route path={["/projekt/:projectId", "/lernspiel/:eduId"]} render={(props) => <LazyRender promise={import('./gui.jsx')} {...props} />} />
+        <Route
+          path={["/projekt/:projectId", "/lernspiel/:eduId"]}
+          render={(props) => <LazyRender promise={import('./gui.jsx')} {...props} />}
+        />
 
         <Route path="/lernspiele" render={(props) => <Menu tab={"lernspiele"} {...props} />} />
         <Route path="/beispiele" render={(props) => <Menu tab={"beispiele"} {...props} />} />
         <Route path="/videos" render={(props) => <Menu tab={"videos"} {...props} />} />
         <Route path="/projekte" render={(props) => <Menu tab={"projekte"} {...props} />} />
-
         <Route path="/:page" render={(props) => <Content {...props} />} />
 
-        <Route path="/" >
-          <Menu tab={"lernspiele"} />
-        </Route>
+        <Route path="/" render={() => <Menu tab={"lernspiele"} />} />
+
       </Switch>
     )
   }

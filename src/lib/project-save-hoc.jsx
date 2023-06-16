@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-// import { push } from 'redux-little-router'
 import { history } from './app-state-hoc.jsx'
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -171,7 +170,6 @@ const ProjectSaveHOC = (WrappedComponent) => {
       if (this.props.routeProject !== resObj.id) {
         this.props.dispatch(setProjectId(resObj.id))
         history.push(projectUrl(resObj.id))
-        // this.props.dispatch(push(projectUrl(resObj.id)))
       }
     }
     cancelSave() {
@@ -216,7 +214,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
 
   ProjectSaveComponent.propTypes = {
     isEduGame: PropTypes.bool,
-    projectId: PropTypes.number,
+    projectId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     projectName: PropTypes.string,
     userId: PropTypes.string,
     routeProject: PropTypes.string,

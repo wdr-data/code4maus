@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-// import { push } from 'redux-little-router'
 import { history } from '../lib/app-state-hoc.jsx'
 
 import ContentWrapper from '../components/content-wrapper/content-wrapper.jsx'

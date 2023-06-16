@@ -106,6 +106,9 @@ class GUI extends React.Component {
       loadingStateVisible,
       onSetUnchanged, // eslint-disable-line no-unused-vars
       projectData, // eslint-disable-line no-unused-vars
+      isNewProject,
+      staticContext,
+      dispatch,
       vm,
       ...componentProps
     } = this.props

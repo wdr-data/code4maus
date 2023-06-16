@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-// import { push } from 'redux-little-router'
 import { history } from '../lib/app-state-hoc.jsx'
 
 import { MenuComponent } from '../components/menu/menu.jsx'
@@ -105,12 +104,11 @@ Menu.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  // tab: Menu.getTabId((state.router.result || {}).tab),
   userId: state.scratchGui.project.userId,
   isOnline: state.scratchGui.offline.online,
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = () => ({
   handleTabSelected: (tabId) => history.push(`/${tabIdToTab[tabId]}`),
 })
 
