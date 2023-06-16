@@ -9,10 +9,7 @@ const isEduView = (a) => !!a && a.includes('/lernspiel/')
 const EduLoaderHOC = (WrappedComponent) => {
   class EduLoaderComponent extends React.Component {
     componentDidMount() {
-      if (
-        isEduView(this.props.match.path) &&
-        this.props.match.params.eduId
-      ) {
+      if (isEduView(this.props.match.path) && this.props.match.params.eduId) {
         this.loadGame(this.props.match.params.eduId)
       }
     }

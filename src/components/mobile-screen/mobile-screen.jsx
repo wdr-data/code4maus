@@ -69,10 +69,7 @@ const MobileScreenComponent = () => (
     </div>
 
     <div className={styles.blockWrapper}>
-      <Link
-        className={styles.link}
-        to="https://github.com/wdr-data/code4maus"
-      >
+      <Link className={styles.link} to="https://github.com/wdr-data/code4maus">
         <img
           role="Deko-Block"
           alt="Programmieren mit der Maus"

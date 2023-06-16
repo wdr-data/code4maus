@@ -14,6 +14,8 @@ import wdrLogo from '../../../assets/img/wdr_logo.svg'
 import headLogo from '../../../assets/img/head_logo.png'
 
 import { useFeatureFlag, FEATURE_OFFLINE } from '../../lib/feature-flags.js'
+import { paEvent } from '../../lib/piano-analytics/main.js'
+import { menuTabTitles } from '../../lib/piano-analytics/constants.js'
 import styles from './menu.css'
 import buttonNew from '!raw-loader!../../../assets/icons/menu_plus.svg'
 import tabIconEdugames from '!raw-loader!../../../assets/icons/menu_edugames.svg'
@@ -25,8 +27,6 @@ import buttonIconInfo from '!raw-loader!../../../assets/icons/menu_eltern-info.s
 import buttonIconMausseite from '!raw-loader!../../../assets/icons/menu_mausseite.svg'
 import buttonIconDatenschutz from '!raw-loader!../../../assets/icons/icon_hilfe.svg'
 import buttonIconImpressum from '!raw-loader!../../../assets/icons/menu_impressum.svg'
-import { paEvent } from '../../lib/piano-analytics/main.js'
-import { menuTabTitles } from '../../lib/piano-analytics/constants.js'
 
 // TODO: Use when updating react-intl (must use static values for now)
 // const tabListData = {
@@ -103,7 +103,10 @@ export const MenuComponent = (props) => {
           selectedTabPanelClassName={tabClassNames.tabPanelSelected}
           selectedIndex={props.selectedTab}
           onSelect={(index) => {
-            paEvent.pageDisplay({ pages: ["Menu", menuTabTitles[index]], pageType: "Hauptseite" })
+            paEvent.pageDisplay({
+              pages: ['Menu', menuTabTitles[index]],
+              pageType: 'Hauptseite',
+            })
             return props.handleTabSelected(index)
           }}
         >
@@ -151,10 +154,11 @@ export const MenuComponent = (props) => {
             <div className={styles.sectionBody}>
               <Link
                 to={{
-                  pathname: "/projekt/neu",
-                  state: { isNewProject: true }
+                  pathname: '/projekt/neu',
+                  state: { isNewProject: true },
                 }}
-                className={styles.newButton}>
+                className={styles.newButton}
+              >
                 <InlineSVG svg={buttonNew} className={styles.newButtonIcon} />
                 Neu
               </Link>
@@ -193,7 +197,7 @@ export const MenuComponent = (props) => {
           onClick={() =>
             paEvent.clickExit({
               pages: ['Menu', 'Zur Maus-Seite'],
-              pageType: 'Beitrag'
+              pageType: 'Beitrag',
             })
           }
         >

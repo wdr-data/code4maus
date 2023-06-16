@@ -2,7 +2,11 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { createBrowserHistory } from 'history'
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
-import { ConnectedRouter, connectRouter, routerMiddleware } from 'connected-react-router'
+import {
+  ConnectedRouter,
+  connectRouter,
+  routerMiddleware,
+} from 'connected-react-router'
 import { createLogger } from 'redux-logger'
 
 import { IntlProvider } from 'react-intl-redux'
@@ -13,12 +17,13 @@ import guiReducer, { guiInitialState, guiMiddleware } from '../reducers/gui'
 
 export const history = createBrowserHistory()
 
-const reducer = (history) => combineReducers({
-  intl: intlReducer,
-  scratchGui: guiReducer,
-  scratchPaint: ScratchPaintReducer,
-  router: connectRouter(history),
-})
+const reducer = (history) =>
+  combineReducers({
+    intl: intlReducer,
+    scratchGui: guiReducer,
+    scratchPaint: ScratchPaintReducer,
+    router: connectRouter(history),
+  })
 
 const enhancer = compose(
   // router.enhancer,

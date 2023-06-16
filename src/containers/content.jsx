@@ -47,7 +47,7 @@ class Content extends React.Component {
   componentDidMount() {
     paEvent.pageDisplay({
       pages: [this.props.match.params.page],
-      pageType: 'Beitrag'
+      pageType: 'Beitrag',
     })
   }
 
@@ -63,15 +63,12 @@ class Content extends React.Component {
 
 Content.propTypes = {
   page: PropTypes.string,
+  match: PropTypes.object,
   backToHome: PropTypes.func.isRequired,
 }
-
-const mapStateToProps = (state) => ({
-  // page: state.router.params.page,
-})
 
 const mapDispatchToProps = () => ({
   backToHome: () => history.push('/'),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Content)
+export default connect(() => ({}), mapDispatchToProps)(Content)

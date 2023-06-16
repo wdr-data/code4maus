@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import classNames from 'classnames'
+import { connect } from 'react-redux'
 import { history } from '../../lib/app-state-hoc.jsx'
 
-import { connect } from 'react-redux'
 import fullScreenIcon from '../../../assets/blocks-media/zoom-in.svg'
 import unFullScreenIcon from '../../../assets/blocks-media/zoom-out.svg'
 import Modal from '../modal/modal.jsx'
@@ -16,8 +16,8 @@ import {
 import { eduUrl } from '../../lib/routing'
 import { gamesKeyed } from '../../lib/edu/'
 import VideoPlayer from '../video-player/video-player.jsx'
-import styles from './edu-stage.css'
 import { guiTypePages, paEvent } from '../../lib/piano-analytics/main'
+import styles from './edu-stage.css'
 
 const EduStageComponent = (props) => {
   const [isPreVideoModalOpen, setPreVideoModalOpen] = useState(false)

@@ -62,12 +62,7 @@ const MenuButtonComponent = ({
   }
 
   return (
-    <Link
-      to={linkTo}
-      className={buttonClassName}
-      onClick={onClick}
-      {...props}
-    >
+    <Link to={linkTo} className={buttonClassName} onClick={onClick} {...props}>
       {icon}
       <div className={styles.content}>{children}</div>
     </Link>

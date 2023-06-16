@@ -106,9 +106,9 @@ class GUI extends React.Component {
       loadingStateVisible,
       onSetUnchanged, // eslint-disable-line no-unused-vars
       projectData, // eslint-disable-line no-unused-vars
-      isNewProject,
-      staticContext,
-      dispatch,
+      isNewProject, // eslint-disable-line no-unused-vars
+      staticContext, // eslint-disable-line no-unused-vars
+      dispatch, // eslint-disable-line no-unused-vars
       vm,
       ...componentProps
     } = this.props
@@ -155,7 +155,8 @@ const mapStateToProps = (state) => ({
   saveProjectVisible: state.scratchGui.modals.saveProject,
   eduLayerActive: state.scratchGui.eduLayer.enabled,
   // eduId: state.scratchGui.eduLayer.gameId,
-  isNewProject: state.router.location.state && !!state.router.location.state.isNewProject
+  isNewProject:
+    state.router.location.state && !!state.router.location.state.isNewProject,
 })
 
 const logPageDisplay = (eduId, isNewProject, tab) => {
@@ -168,7 +169,7 @@ const logPageDisplay = (eduId, isNewProject, tab) => {
 
   paEvent.pageDisplay({
     pages: tab ? [...pages, editorTabNames[tab]] : pages,
-    pageType: "Spiele"
+    pageType: 'Spiele',
   })
 }
 
@@ -180,9 +181,12 @@ const onTabActivating = (eduId, isNewProject, tab) => {
 const mapDispatchToProps = (dispatch) => ({
   closeSaveModal: () => dispatch(closeSaveProject()),
   onExtensionButtonClick: () => dispatch(openExtensionLibrary()),
-  onActivateTab: (eduId, isNewProject, tab) => dispatch(onTabActivating(eduId, isNewProject, tab)),
-  onActivateCostumesTab: (eduId, isNewProject) => dispatch(onTabActivating(eduId, isNewProject, COSTUMES_TAB_INDEX)),
-  onActivateSoundsTab: (eduId, isNewProject) => dispatch(onTabActivating(eduId, isNewProject, SOUNDS_TAB_INDEX)),
+  onActivateTab: (eduId, isNewProject, tab) =>
+    dispatch(onTabActivating(eduId, isNewProject, tab)),
+  onActivateCostumesTab: (eduId, isNewProject) =>
+    dispatch(onTabActivating(eduId, isNewProject, COSTUMES_TAB_INDEX)),
+  onActivateSoundsTab: (eduId, isNewProject) =>
+    dispatch(onTabActivating(eduId, isNewProject, SOUNDS_TAB_INDEX)),
   onLayoutModeClick: () => dispatch(toggleLayoutMode()),
   onSetUnchanged: () => dispatch(setProjectUnchanged()),
 })
@@ -194,13 +198,20 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     ...ownProps,
     ...stateProps,
     ...dispatchProps,
-    onActivateTab: (tab) => dispatchProps.onActivateTab(eduId, stateProps.isNewProject, tab),
-    onActivateCostumesTab: () => dispatchProps.onActivateCostumesTab(eduId, stateProps.isNewProject),
-    onActivateSoundsTab: () => dispatchProps.onActivateSoundsTab(eduId, stateProps.isNewProject),
+    onActivateTab: (tab) =>
+      dispatchProps.onActivateTab(eduId, stateProps.isNewProject, tab),
+    onActivateCostumesTab: () =>
+      dispatchProps.onActivateCostumesTab(eduId, stateProps.isNewProject),
+    onActivateSoundsTab: () =>
+      dispatchProps.onActivateSoundsTab(eduId, stateProps.isNewProject),
   }
 }
 
-const ConnectedGUI = connect(mapStateToProps, mapDispatchToProps, mergeProps)(GUI)
+const ConnectedGUI = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+  mergeProps
+)(GUI)
 
 // eslint-disable-next-line new-cap
 const WrappedGui = flow([

@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { history } from './app-state-hoc.jsx'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
@@ -8,6 +7,7 @@ import {
 } from 'scratch-vm/src/serialization/serialize-assets'
 import { setProjectName, setProjectId } from '../reducers/project'
 import { setProjectUnchanged } from '../reducers/project-changed'
+import { history } from './app-state-hoc.jsx'
 import { projectUrl } from './routing'
 
 const contentTypes = {

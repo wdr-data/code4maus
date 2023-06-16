@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { history } from './app-state-hoc.jsx'
 import PropTypes from 'prop-types'
+import { history } from './app-state-hoc.jsx'
 
 const UnsavedProjectBlockerHOC = (WrappedComponent) => {
   class UnsavedProjectBlocker extends React.Component {
@@ -11,10 +11,14 @@ const UnsavedProjectBlockerHOC = (WrappedComponent) => {
     }
     routerBlock() {
       const unblock = history.block(() => {
-        return window.confirm('Möchtest du die Seite wirklich verlassen? Dein Projekt geht ohne Speichern verloren!')
+        return window.confirm(
+          'Möchtest du die Seite wirklich verlassen? Dein Projekt geht ohne Speichern verloren!'
+        )
       })
 
-      return () => { unblock() }
+      return () => {
+        unblock()
+      }
     }
     componentDidUpdate(oldProps) {
       if (this.props.isProjectUnsaved !== oldProps.isProjectUnsaved) {
@@ -53,11 +57,9 @@ const UnsavedProjectBlockerHOC = (WrappedComponent) => {
     isProjectUnsaved: PropTypes.bool,
   }
 
-  return connect(
-    (state) => ({
-      isProjectUnsaved: state.scratchGui.projectChanged,
-    })
-  )(UnsavedProjectBlocker)
+  return connect((state) => ({
+    isProjectUnsaved: state.scratchGui.projectChanged,
+  }))(UnsavedProjectBlocker)
 }
 
 export default UnsavedProjectBlockerHOC

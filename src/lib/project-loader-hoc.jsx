@@ -75,8 +75,8 @@ const ProjectLoaderHOC = function (WrappedComponent) {
 
     render() {
       const {
-        setProjectId,
-        setProjectName,
+        setProjectId, // eslint-disable-line no-unused-vars
+        setProjectName, // eslint-disable-line no-unused-vars
         ...componentProps
       } = this.props
 
@@ -92,15 +92,14 @@ const ProjectLoaderHOC = function (WrappedComponent) {
   ProjectLoaderComponent.propTypes = {
     projectId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     setProjectName: PropTypes.func.isRequired,
-    setProjectId: PropTypes.func
+    setProjectId: PropTypes.func,
   }
 
   return connect(
     () => ({}),
     (dispatch) => ({
       setProjectName: (name) => dispatch(setProjectName(name)),
-      setProjectId: (id) => dispatch(setProjectId(id))
-
+      setProjectId: (id) => dispatch(setProjectId(id)),
     })
   )(ProjectLoaderComponent)
 }

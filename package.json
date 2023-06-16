@@ -19,6 +19,7 @@
     "i18n:src": "babel src > tmp.js && rimraf tmp.js && build-i18n-src ./translations/messages/ ./translations/",
     "import-sprites": "ts-node scripts/import-sprites.ts",
     "lint": "eslint . --ext .js,.jsx",
+    "lint:fix": "eslint --fix --ext .js,.jsx .",
     "assets:download": "aws s3 sync s3://code4maus-assets assets",
     "assets:netlify": "AWS_ACCESS_KEY_ID=$DEPLOY_AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$DEPLOY_AWS_SECRET_ACCESS_KEY npm run assets:download",
     "assets:upload": "aws s3 sync --exclude .gitkeep --exclude .DS_Store assets s3://code4maus-assets",
