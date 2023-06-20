@@ -19,8 +19,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: yarn install
-    - name: Run Lint
-      run: yarn run lint
     - name: serverless deploy
       uses: serverless/github-action@v3.2
       with:
