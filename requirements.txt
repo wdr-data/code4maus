@@ -1,1 +1,1 @@
-aws-cli
+awscli
