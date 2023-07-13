@@ -1,1 +1,1 @@
-aws-cli==2.11.16
+aws-cli
