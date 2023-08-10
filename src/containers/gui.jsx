@@ -48,7 +48,7 @@ class GUI extends React.Component {
     }
   }
   componentDidUpdate(prevProps) {
-    if (this.props.isNewProject) {
+    if (this.props.isNewProject && prevProps.fetchingProject) {
       logPageDisplay(null, this.props.isNewProject)
     }
 
@@ -165,7 +165,7 @@ const logPageDisplay = (eduId, isNewProject, tab) => {
   }
 
   paEvent.pageDisplay({
-    pages: tab ? [...pages, editorTabNames[tab]] : pages,
+    pages: tab || tab === 0 ? [...pages, editorTabNames[tab]] : pages,
     pageType: "Spiele"
   })
 }
@@ -179,8 +179,8 @@ const mapDispatchToProps = (dispatch) => ({
   closeSaveModal: () => dispatch(closeSaveProject()),
   onExtensionButtonClick: () => dispatch(openExtensionLibrary()),
   onActivateTab: (eduId, isNewProject, tab) => dispatch(onTabActivating(eduId, isNewProject, tab)),
-  onActivateCostumesTab: (eduId, isNewProject) => dispatch(onTabActivating(eduId, isNewProject, COSTUMES_TAB_INDEX)),
-  onActivateSoundsTab: (eduId, isNewProject) => dispatch(onTabActivating(eduId, isNewProject, SOUNDS_TAB_INDEX)),
+  onActivateCostumesTab: () => dispatch(activateTab(COSTUMES_TAB_INDEX)),
+  onActivateSoundsTab: () => dispatch(activateTab(SOUNDS_TAB_INDEX)),
   onLayoutModeClick: () => dispatch(toggleLayoutMode()),
   onSetUnchanged: () => dispatch(setProjectUnchanged()),
 })
@@ -191,8 +191,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     ...stateProps,
     ...dispatchProps,
     onActivateTab: (tab) => dispatchProps.onActivateTab(stateProps.eduId, stateProps.isNewProject, tab),
-    onActivateCostumesTab: () => dispatchProps.onActivateCostumesTab(stateProps.eduId, stateProps.isNewProject),
-    onActivateSoundsTab: () => dispatchProps.onActivateSoundsTab(stateProps.eduId, stateProps.isNewProject),
+    onActivateCostumesTab: () => dispatchProps.onActivateCostumesTab(),
+    onActivateSoundsTab: () => dispatchProps.onActivateSoundsTab(),
   }
 }
 
