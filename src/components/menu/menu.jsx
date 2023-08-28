@@ -187,7 +187,7 @@ export const MenuComponent = (props) => {
           linkTo="https://www.wdrmaus.de/"
           onClick={() => {
             // TODO: add click event
-            console.log("zur Maus-Seite")
+            console.log("click: zur Maus-Seite")
           }}
         >
           Zur Maus-Seite
