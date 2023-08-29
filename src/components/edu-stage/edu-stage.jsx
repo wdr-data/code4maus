@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import classNames from 'classnames'
-import { push } from 'redux-little-router'
-
 import { connect } from 'react-redux'
+import { history } from '../../lib/app-state-hoc.jsx'
+
 import fullScreenIcon from '../../../assets/blocks-media/zoom-in.svg'
 import unFullScreenIcon from '../../../assets/blocks-media/zoom-out.svg'
 import Modal from '../modal/modal.jsx'
@@ -16,8 +16,8 @@ import {
 import { eduUrl } from '../../lib/routing'
 import { gamesKeyed } from '../../lib/edu/'
 import VideoPlayer from '../video-player/video-player.jsx'
-import styles from './edu-stage.css'
 import { guiTypePages, paEvent } from '../../lib/piano-analytics/main'
+import styles from './edu-stage.css'
 
 const EduStageComponent = (props) => {
   const [isPreVideoModalOpen, setPreVideoModalOpen] = useState(false)
@@ -142,14 +142,14 @@ EduStageComponent.propTypes = {
   postVideo: PropTypes.string,
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   const base = {
     slideIndex: state.scratchGui.eduLayer.index,
     slideCount: 0,
     isFullscreen: state.scratchGui.eduLayer.isFullscreen,
     isEnabled: state.scratchGui.eduLayer.enabled,
     imageSrc: '',
-    gameId: state.scratchGui.eduLayer.gameId,
+    gameId: ownProps.match.params.eduId,
     caption: '',
   }
 
@@ -174,20 +174,22 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  loadGame: (gameId) => push(eduUrl(gameId)),
+  // loadGame: (gameId) => history.push(eduUrl(gameId)),
   nextSlide,
   previousSlide,
   toggleFullscreen,
 }
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => ({
-  ...ownProps,
-  ...stateProps,
-  ...dispatchProps,
-  nextSlide: stateProps.linkNextGame
-    ? () => dispatchProps.loadGame(stateProps.nextGame)
-    : dispatchProps.nextSlide,
-})
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  return {
+    ...ownProps,
+    ...stateProps,
+    ...dispatchProps,
+    nextSlide: stateProps.linkNextGame
+      ? () => history.push(eduUrl(stateProps.nextGame))
+      : dispatchProps.nextSlide,
+  }
+}
 
 export default connect(
   mapStateToProps,

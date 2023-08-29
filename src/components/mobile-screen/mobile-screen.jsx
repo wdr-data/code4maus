@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'redux-little-router'
+import { Link } from 'react-router-dom'
 import classNames from 'classnames'
 import codeGif from '../../../assets/img/code.gif'
 import block1 from '../../../assets/img/block1.png'
@@ -69,10 +69,7 @@ const MobileScreenComponent = () => (
     </div>
 
     <div className={styles.blockWrapper}>
-      <Link
-        className={styles.link}
-        href="https://github.com/wdr-data/code4maus"
-      >
+      <Link className={styles.link} to="https://github.com/wdr-data/code4maus">
         <img
           role="Deko-Block"
           alt="Programmieren mit der Maus"
@@ -86,7 +83,7 @@ const MobileScreenComponent = () => (
       <div className={classNames(styles.innerWrapper, styles.secondWrapper)}>
         <p>
           Das Ganze beruht auf der grafischen Programmiersprache{' '}
-          <Link className={styles.link} href="https://scratch.mit.edu/">
+          <Link className={styles.link} to="https://scratch.mit.edu/">
             Scratch
           </Link>
           , die am MIT, in den USA, entwickelt und von Kindern der ganzen Welt
@@ -122,7 +119,7 @@ const MobileScreenComponent = () => (
       </p>
     </div>
     <div className={styles.blockWrapper}>
-      <Link className={styles.link} href="/lehrkraefte">
+      <Link className={styles.link} to="/lehrkraefte">
         <img
           role="Lerkräfte-Blog"
           alt="Link zur Lehrkräfte-Seite"
@@ -134,7 +131,7 @@ const MobileScreenComponent = () => (
       </Link>
     </div>
     <InlineSVG className={styles.mausQuestion} svg={mausQuestion} />
-    <Link className={styles.link} href="/inhalte/impressum">
+    <Link className={styles.link} to="/inhalte/impressum">
       Impressum
     </Link>
   </div>

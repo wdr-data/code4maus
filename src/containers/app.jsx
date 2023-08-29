@@ -5,13 +5,13 @@ import { addLocaleData, IntlProvider } from 'react-intl'
 import de from 'react-intl/locale-data/de'
 import PropTypes from 'prop-types'
 import { v4 as uuid } from 'uuid'
-import { replace } from 'redux-little-router'
-
 import { Workbox } from 'workbox-window'
+import { Switch, Route } from 'react-router-dom'
+import AppStateHOC, { history } from '../lib/app-state-hoc.jsx'
+
 import styles from '../css/index.css'
-import { Views } from '../lib/routing'
 import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx'
-import AppStateHOC from '../lib/app-state-hoc.jsx'
+
 import withTracking from '../lib/tracking-hoc.jsx'
 import localeDe from '../../translations/de.json'
 import storage, { s3userFile } from '../lib/storage'
@@ -167,19 +167,50 @@ class App extends Component {
     }
   }
 
-  renderView() {
-    switch (this.props.view) {
-      case Views.edu:
-      case Views.project:
-        return <LazyRender promise={import('./gui.jsx')} />
-      case Views.content:
-        return <Content />
-      case Views.welcome:
-        return <WelcomeScreen />
-      case Views.menu:
-      default:
-        return <Menu />
-    }
+  switchViews() {
+    return (
+      <Switch>
+        <Route path="/welcome" component={WelcomeScreen} />
+
+        <Route
+          path="/projekt/neu"
+          render={(props) => (
+            <LazyRender
+              isNewProject={true}
+              promise={import('./gui.jsx')}
+              {...props}
+            />
+          )}
+        />
+
+        <Route
+          path={['/projekt/:projectId', '/lernspiel/:eduId']}
+          render={(props) => (
+            <LazyRender promise={import('./gui.jsx')} {...props} />
+          )}
+        />
+
+        <Route
+          path="/lernspiele"
+          render={(props) => <Menu tab={'lernspiele'} {...props} />}
+        />
+        <Route
+          path="/beispiele"
+          render={(props) => <Menu tab={'beispiele'} {...props} />}
+        />
+        <Route
+          path="/videos"
+          render={(props) => <Menu tab={'videos'} {...props} />}
+        />
+        <Route
+          path="/projekte"
+          render={(props) => <Menu tab={'projekte'} {...props} />}
+        />
+        <Route path="/:page" render={(props) => <Content {...props} />} />
+
+        <Route path="/" render={() => <Menu tab={'lernspiele'} />} />
+      </Switch>
+    )
   }
 
   render() {
@@ -190,7 +221,7 @@ class App extends Component {
     return (
       <MobileScreenFallback>
         <IntlProvider locale="de" messages={localeDe}>
-          <div className={styles.app}>{this.renderView()}</div>
+          <div className={styles.app}>{this.switchViews()}</div>
         </IntlProvider>
       </MobileScreenFallback>
     )
@@ -216,7 +247,7 @@ const ConnectedApp = connect(
   (state) => {
     const result = state.router.result || {}
     return {
-      isHomepage: state.router.route === '/',
+      isHomepage: state.router.location.pathname === '/',
       view: result.view || '',
       userId: state.scratchGui.project.userId,
       offlineEnabled: state.scratchGui.offline.enabled,
@@ -224,7 +255,7 @@ const ConnectedApp = connect(
   },
   (dispatch) => ({
     setUserId: (id) => dispatch(setUserId(id)),
-    redirectWelcome: () => dispatch(replace('/welcome')),
+    redirectWelcome: () => history.replace('/welcome'),
     startInstall: () => dispatch(startInstall()),
     failInstall: (e) => dispatch(failInstall(e)),
     setInstalled: () => dispatch(setInstalled()),

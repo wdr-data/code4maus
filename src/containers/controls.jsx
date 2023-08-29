@@ -74,7 +74,7 @@ class Controls extends React.Component {
 Controls.propTypes = {
   vm: PropTypes.instanceOf(VM),
   onGreenFlagClick: PropTypes.func,
-  onStopAllClick: PropTypes.func
+  onStopAllClick: PropTypes.func,
 }
 
 export default Controls

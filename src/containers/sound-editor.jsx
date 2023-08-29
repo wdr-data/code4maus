@@ -47,7 +47,7 @@ class SoundEditor extends React.Component {
       this.props.sampleRate
     )
   }
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     if (newProps.soundId !== this.props.soundId) {
       // A different sound has been selected
       this.redoStack = []

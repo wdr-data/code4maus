@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
-import { setProjectName } from '../reducers/project'
+import { setProjectName, setProjectId } from '../reducers/project'
 import log from './log'
 import storage from './storage'
 
@@ -21,19 +21,34 @@ const ProjectLoaderHOC = function (WrappedComponent) {
         projectData: null,
         fetchingProject: true,
       }
+      this.projectId = this.getProjectId(props)
+    }
+
+    getProjectId(props) {
+      if (!props.match.params.eduId) return 0
+
+      if (props.match.path.includes('/lernspiel/')) {
+        return `edu/${props.match.params.eduId}`
+      }
+      return props.match.params.eduId
     }
 
     componentDidMount() {
-      this.loadProject(this.props.projectId || 0)
+      this.loadProject(this.getProjectId(this.props))
     }
 
     componentDidUpdate(prevProps) {
-      if (prevProps.projectId !== this.props.projectId) {
-        this.loadProject(this.props.projectId || 0)
+      const prevProjectId = this.getProjectId(prevProps)
+      const currProjectId = this.getProjectId(this.props)
+
+      if (prevProjectId !== currProjectId) {
+        this.loadProject(currProjectId)
       }
     }
 
     loadProject(id) {
+      this.props.setProjectId(id)
+
       this.setState({ fetchingProject: true }, () =>
         (async () => {
           const projectAsset = await storage.load(
@@ -59,11 +74,17 @@ const ProjectLoaderHOC = function (WrappedComponent) {
     }
 
     render() {
+      const {
+        setProjectId, // eslint-disable-line no-unused-vars
+        setProjectName, // eslint-disable-line no-unused-vars
+        ...componentProps
+      } = this.props
+
       return (
         <WrappedComponent
           fetchingProject={this.state.fetchingProject}
           projectData={this.state.projectData}
-          {...this.props}
+          {...componentProps}
         />
       )
     }
@@ -71,14 +92,14 @@ const ProjectLoaderHOC = function (WrappedComponent) {
   ProjectLoaderComponent.propTypes = {
     projectId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     setProjectName: PropTypes.func.isRequired,
+    setProjectId: PropTypes.func,
   }
 
   return connect(
-    (state) => ({
-      projectId: state.scratchGui.project.id,
-    }),
+    () => ({}),
     (dispatch) => ({
       setProjectName: (name) => dispatch(setProjectName(name)),
+      setProjectId: (id) => dispatch(setProjectId(id)),
     })
   )(ProjectLoaderComponent)
 }

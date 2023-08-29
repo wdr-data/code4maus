@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { push } from 'redux-little-router'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
@@ -8,6 +7,7 @@ import {
 } from 'scratch-vm/src/serialization/serialize-assets'
 import { setProjectName, setProjectId } from '../reducers/project'
 import { setProjectUnchanged } from '../reducers/project-changed'
+import { history } from './app-state-hoc.jsx'
 import { projectUrl } from './routing'
 
 const contentTypes = {
@@ -169,7 +169,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
       this.props.dispatch(setProjectName(this.state.nameInput))
       if (this.props.routeProject !== resObj.id) {
         this.props.dispatch(setProjectId(resObj.id))
-        this.props.dispatch(push(projectUrl(resObj.id)))
+        history.push(projectUrl(resObj.id))
       }
     }
     cancelSave() {
@@ -214,7 +214,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
 
   ProjectSaveComponent.propTypes = {
     isEduGame: PropTypes.bool,
-    projectId: PropTypes.number,
+    projectId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     projectName: PropTypes.string,
     userId: PropTypes.string,
     routeProject: PropTypes.string,

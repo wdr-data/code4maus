@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'redux-little-router'
+import { Link } from 'react-router-dom'
 
 import Button from '../button/button.jsx'
 import wdrLogo from '../../../assets/img/wdr_logo.svg'
@@ -25,7 +25,7 @@ const WelcomeScreenComponent = () => (
           der Maus zu programmieren. Viel Spaß!
         </p>
 
-        <Link href={eduUrl('00')} className={styles.section}>
+        <Link to={eduUrl('00')} className={styles.section}>
           <div className={styles.sectionText}>
             Spielst du zum ersten Mal?
             <div className={styles.sectionSmallText}>
@@ -43,7 +43,7 @@ const WelcomeScreenComponent = () => (
           />
         </Link>
 
-        <Link href="/" className={styles.section}>
+        <Link to="/" className={styles.section}>
           <div className={styles.sectionText}>
             Kennst du dich schon aus?
             <div className={styles.sectionSmallText}>
