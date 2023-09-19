@@ -14,7 +14,7 @@ import menuIcon from '!raw-loader!../../../assets/icons/header_menu.svg'
 import mailIcon from '!raw-loader!../../../assets/icons/menu_impressum.svg'
 
 const StageHeaderComponent = function (props) {
-  const { isFullScreen, onSaveProject, vm } = props
+  const { isFullScreen, onSaveProject, vm, logPageInfo } = props
 
   return (
     <div
@@ -29,6 +29,7 @@ const StageHeaderComponent = function (props) {
           className={styles.controls}
           vm={vm}
           isFullScreen={isFullScreen}
+          logPageInfo={logPageInfo}
         />
         {isFullScreen ? (
           <Fullscreen />
