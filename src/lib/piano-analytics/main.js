@@ -1,5 +1,11 @@
 import { pianoAnalytics } from 'piano-analytics-js'
-import { EVENTS, PROPERTIES, DEFAULT_PROPERTY_VALUES } from './constants'
+import {
+  EVENTS,
+  PROPERTIES,
+  DEFAULT_PROPERTY_VALUES,
+  menuTabTitles,
+} from './constants'
+import { editorTabNames } from '../../reducers/editor-tab'
 
 pianoAnalytics.setConfigurations({
   site: 621455,
@@ -61,17 +67,6 @@ const getCustomProperties = (data) => {
   }
 }
 
-const clickEventEntries = () => {
-  const { pageDisplay, ...otherEvents } = EVENTS
-
-  return Object.entries(otherEvents).map(([eventName, eventKey]) => [
-    eventName,
-    (data) => sendEvent(eventKey, data),
-  ])
-}
-
-const clickEvents = Object.fromEntries(clickEventEntries())
-
 export const paEvent = {
   pageDisplay: ({ pages, pageType }) => {
     let data = {}
@@ -88,5 +83,42 @@ export const paEvent = {
     if (pageType) data[PROPERTIES.siteType] = pageType
     return sendEvent(EVENTS.pageDisplay, data)
   },
-  ...clickEvents,
+  clickAction: (params) => clickEvent(EVENTS.clickAction, params),
+  clickExit: (params) => clickEvent(EVENTS.clickExit, params),
+}
+
+export const buildGuiPage = (eduId, isNewProject, activeTab) => {
+  let pages = []
+  if (isNewProject) {
+    pages = [menuTabTitles[1], 'New Project']
+  } else if (eduId && eduId.match(/beispiel(0|0\d{1})?$/gm)) {
+    pages = [menuTabTitles[2], `Beispiel ${eduId}`]
+  } else if (eduId) {
+    pages = [menuTabTitles[0], `Lernspiel ${eduId}`]
+  }
+  return [...pages, editorTabNames[activeTab || 0]]
+}
+
+const clickEvent = (
+  eventName,
+  { pages, pageType, chapter1, chapter2, target }
+) => {
+  let data = {}
+
+  const pagesList = [...pages].slice(0, 3)
+  pagesList.forEach((page, index) => {
+    data[PROPERTIES[`pageLevel${index + 1}`]] = page
+  })
+  data[PROPERTIES.siteType] = pageType
+
+  const clickProperties = {
+    [PROPERTIES.clickChapter1]: chapter1,
+    [PROPERTIES.clickChapter2]: chapter2,
+    [PROPERTIES.clickTarget]: target,
+  }
+
+  return sendEvent(eventName, {
+    ...data,
+    ...clickProperties,
+  })
 }

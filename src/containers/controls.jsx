@@ -4,6 +4,7 @@ import React from 'react'
 import VM from 'scratch-vm'
 
 import ControlsComponent from '../components/controls/controls.jsx'
+import { paEvent } from '../lib/piano-analytics/main.js'
 
 class Controls extends React.Component {
   constructor(props) {
@@ -41,14 +42,31 @@ class Controls extends React.Component {
     } else {
       this.props.vm.greenFlag()
     }
+
+    paEvent.clickAction({
+      pages: this.props.logPageInfo,
+      pageType: 'Spiele',
+      chapter1: 'Code',
+      chapter2: 'Los',
+      target: 'Code ausführen'
+    })
   }
   handleStopAllClick(e) {
     e.preventDefault()
     this.props.vm.stopAll()
+
+    paEvent.clickAction({
+      pages: this.props.logPageInfo,
+      pageType: 'Spiele',
+      chapter1: 'Code',
+      chapter2: 'Stopp',
+      target: 'Code stoppen'
+    })
   }
   render() {
     const {
       vm, // eslint-disable-line no-unused-vars
+      logPageInfo,
       ...props
     } = this.props
     return (

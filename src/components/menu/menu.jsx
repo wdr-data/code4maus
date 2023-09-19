@@ -186,8 +186,13 @@ export const MenuComponent = (props) => {
           external
           linkTo="https://www.wdrmaus.de/"
           onClick={() => {
-            // TODO: add click event
-            console.log("click: zur Maus-Seite")
+            paEvent.clickExit({
+              pages: ['Menu', menuTabTitles[props.selectedTab]],
+              pageType: 'Hauptseite',
+              chapter1: 'Exit',
+              chapter2: 'Zur Maus-Seite',
+              target: "https://www.wdrmaus.de/"
+            })
           }}
         >
           Zur Maus-Seite
