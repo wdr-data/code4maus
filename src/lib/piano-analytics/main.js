@@ -29,6 +29,18 @@ export const paSetConfig = () => {
   pianoAnalytics.setConfigurations(configurations)
 }
 
+export const guiTypePages = (gameId) => {
+  if (!gameId) {
+    return [menuTabTitles[1], 'New Project']
+  }
+
+  if (gameId.match(/beispiel(0|0\d{1})?$/gm)) {
+    return [menuTabTitles[2], `Beispiel ${gameId}`]
+  } else {
+    return [menuTabTitles[0], `Lernspiel ${gameId}`]
+  }
+}
+
 const pageLevelKeys = [
   PROPERTIES.pageLevel1,
   PROPERTIES.pageLevel2,
