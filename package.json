@@ -89,7 +89,7 @@
     "lodash.pick": "^4.4.0",
     "minilog": "^3.1.0",
     "mkdirp": "^0.5.1",
-    "nanoid": "^2.0.1",
+    "nanoid": "^3.1.31",
     "netlify-lambda": "1.4.3",
     "patch-package": "^6.2.1",
     "pkg": "^4.3.7",
