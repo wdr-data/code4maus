@@ -91,6 +91,7 @@ const EduStageComponent = (props) => {
             style="primary"
             disabled={props.slideIndex === 0}
             onClick={() => {
+              console.log(props.slideIndex)
               sendPaEvent(props, 'Zurück')
               return props.previousSlide()
             }}
@@ -105,6 +106,7 @@ const EduStageComponent = (props) => {
             style="primary"
             wiggle={props.slideIndex === 0 && !props.finished}
             onClick={() => {
+              console.log(props.slideIndex)
               sendPaEvent(props, 'Weiter')
               return props.nextSlide()
             }}
@@ -121,14 +123,18 @@ const EduStageComponent = (props) => {
 const sendPaEvent = (props, clickName) => {
   const pages = guiTypePages(props.gameId)
   pages.push('Code')
-  const sIndexGap = clickName == 'Weiter' ? 2 : 0
+
+  let target = `${props.slideIndex}/${props.slideCount}`
+  if (clickName == 'Weiter') {
+    target = !props.linkNextGame ? `${targetIndex + 2}/${props.slideCount}` : 'Nächstes Lernspiel'
+  }
 
   paEvent.clickAction({
     pages,
     pageType: 'Spiele',
     chapter1: 'Tutorial',
     chapter2: clickName,
-    target: `${props.slideIndex + sIndexGap}/${props.slideCount}`
+    target
   })
 }
 
