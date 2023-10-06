@@ -126,7 +126,7 @@ const sendPaEvent = (props, clickName) => {
 
   let target = `${props.slideIndex}/${props.slideCount}`
   if (clickName == 'Weiter') {
-    target = !props.linkNextGame ? `${targetIndex + 2}/${props.slideCount}` : 'Nächstes Lernspiel'
+    target = !props.linkNextGame ? `${props.slideIndex + 2}/${props.slideCount}` : 'Nächstes Lernspiel'
   }
 
   paEvent.clickAction({
