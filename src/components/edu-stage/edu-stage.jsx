@@ -91,7 +91,6 @@ const EduStageComponent = (props) => {
             style="primary"
             disabled={props.slideIndex === 0}
             onClick={() => {
-              console.log(props.slideIndex)
               sendPaEvent(props, 'Zurück')
               return props.previousSlide()
             }}
@@ -106,7 +105,6 @@ const EduStageComponent = (props) => {
             style="primary"
             wiggle={props.slideIndex === 0 && !props.finished}
             onClick={() => {
-              console.log(props.slideIndex)
               sendPaEvent(props, 'Weiter')
               return props.nextSlide()
             }}
