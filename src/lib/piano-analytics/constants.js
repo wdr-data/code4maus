@@ -28,6 +28,7 @@ export const DEFAULT_PROPERTY_VALUES = {
   [PROPERTIES.siteLevel2]: 'Programmieren mit der Maus',
   [PROPERTIES.brand]: 'Die Maus',
   [PROPERTIES.redaction]: 'PG Kinder und Familie',
+  [PROPERTIES.platform]: 'Web',
 }
 
 export const menuTabTitles = {

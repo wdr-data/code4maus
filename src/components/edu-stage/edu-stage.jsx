@@ -60,7 +60,7 @@ const EduStageComponent = (props) => {
           <Button
             className={styles.fullscreenButton}
             onClick={() => {
-              sendPaEvent(props.gameId, 'Fullscreen Button')
+              sendPaEvent(props, 'Fullscreen')
               return props.toggleFullscreen()
             }}
           >
@@ -91,7 +91,7 @@ const EduStageComponent = (props) => {
             style="primary"
             disabled={props.slideIndex === 0}
             onClick={() => {
-              sendPaEvent(props.gameId, 'Zurück Button')
+              sendPaEvent(props, 'Zurück')
               return props.previousSlide()
             }}
           >
@@ -105,7 +105,7 @@ const EduStageComponent = (props) => {
             style="primary"
             wiggle={props.slideIndex === 0 && !props.finished}
             onClick={() => {
-              sendPaEvent(props.gameId, 'Weiter Button')
+              sendPaEvent(props, 'Weiter')
               return props.nextSlide()
             }}
             disabled={props.finished}
@@ -118,10 +118,18 @@ const EduStageComponent = (props) => {
   )
 }
 
-const sendPaEvent = (gameId, lastLevel) => {
-  const pages = guiTypePages(gameId)
-  pages.push(lastLevel)
-  paEvent.clickAction({ pages })
+const sendPaEvent = (props, clickName) => {
+  const pages = guiTypePages(props.gameId)
+  pages.push('Code')
+  const sIndexGap = clickName == 'Weiter' ? 2 : 0
+
+  paEvent.clickAction({
+    pages,
+    pageType: 'Spiele',
+    chapter1: 'Tutorial',
+    chapter2: clickName,
+    target: `${props.slideIndex + sIndexGap}/${props.slideCount}`
+  })
 }
 
 EduStageComponent.propTypes = {

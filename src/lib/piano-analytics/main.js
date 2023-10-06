@@ -70,12 +70,10 @@ const getCustomProperties = (data) => {
   const pageList = pageLevelKeys
     .filter((key) => key in data)
     .map((key) => data[key])
-  const platform = window.navigator.userAgent.match(/^(.*?)\(/)
 
   return {
     page: [data[PROPERTIES.siteLevel2], ...pageList].join('_'),
     ...(pageList.length && { [PROPERTIES.siteTitle]: pageList.slice(-1)[0] }),
-    ...(platform.length && { [PROPERTIES.platform]: platform.slice(-1)[0] }),
   }
 }
 
@@ -127,6 +125,7 @@ const clickEvent = (
     [PROPERTIES.clickChapter1]: chapter1,
     [PROPERTIES.clickChapter2]: chapter2,
     [PROPERTIES.clickTarget]: target,
+    [PROPERTIES.clickLabel]: chapter2,
   }
 
   return sendEvent(eventName, {
