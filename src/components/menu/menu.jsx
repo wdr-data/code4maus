@@ -185,12 +185,15 @@ export const MenuComponent = (props) => {
           iconSvg={buttonIconMausseite}
           external
           linkTo="https://www.wdrmaus.de/"
-          onClick={() =>
+          onClick={() => {
             paEvent.clickExit({
-              pages: ['Menu', 'Zur Maus-Seite'],
-              pageType: 'Beitrag'
+              pages: ['Menu', menuTabTitles[props.selectedTab]],
+              pageType: 'Hauptseite',
+              chapter1: 'Exit',
+              chapter2: 'Zur Maus-Seite',
+              target: "https://www.wdrmaus.de/"
             })
-          }
+          }}
         >
           Zur Maus-Seite
         </MenuButton>

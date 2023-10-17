@@ -14,7 +14,7 @@ export const PROPERTIES = {
   pageLevel1: 'page_chapter1',
   pageLevel2: 'page_chapter2',
   pageLevel3: 'page_chapter3',
-  siteType: 'page_type',
+  siteType: 'content_type',
   publicationTimeAt: 'publication_time', // date
   reactionUpdatedAt: 'last_editorial_update', // date
   daysSincePublication: 'days_since_publication', // integer
@@ -28,6 +28,7 @@ export const DEFAULT_PROPERTY_VALUES = {
   [PROPERTIES.siteLevel2]: 'Programmieren mit der Maus',
   [PROPERTIES.brand]: 'Die Maus',
   [PROPERTIES.redaction]: 'PG Kinder und Familie',
+  [PROPERTIES.platform]: 'Web',
 }
 
 export const menuTabTitles = {

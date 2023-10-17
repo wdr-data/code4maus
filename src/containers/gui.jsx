@@ -23,7 +23,8 @@ import { StageSizeProviderHOC } from '../lib/stage-size-provider.jsx'
 import GUIComponent from '../components/gui/gui.jsx'
 import { toggleLayoutMode } from '../reducers/layout-mode'
 import { setProjectUnchanged } from '../reducers/project-changed'
-import { guiTypePages, paEvent } from '../lib/piano-analytics/main'
+import { buildGuiPage, paEvent } from '../lib/piano-analytics/main'
+import { menuTabTitles } from '../lib/piano-analytics/constants'
 
 class GUI extends React.Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class GUI extends React.Component {
     }
   }
   componentDidUpdate(prevProps) {
-    if (this.props.isNewProject) {
+    if (this.props.isNewProject && prevProps.fetchingProject) {
       logPageDisplay(null, this.props.isNewProject)
     }
 
@@ -154,17 +155,9 @@ const mapStateToProps = (state) => ({
 })
 
 const logPageDisplay = (eduId, isNewProject, tab) => {
-  let pages = []
-  if (isNewProject) {
-    pages = guiTypePages(null)
-  } else if (eduId) {
-    pages = guiTypePages(eduId)
-  }
+  const pages = buildGuiPage(eduId, isNewProject, tab)
 
-  paEvent.pageDisplay({
-    pages: tab ? [...pages, editorTabNames[tab]] : pages,
-    pageType: "Spiele"
-  })
+  paEvent.pageDisplay({ pages: pages, pageType: "Spiele" })
 }
 
 const onTabActivating = (eduId, isNewProject, tab) => {
@@ -176,8 +169,8 @@ const mapDispatchToProps = (dispatch) => ({
   closeSaveModal: () => dispatch(closeSaveProject()),
   onExtensionButtonClick: () => dispatch(openExtensionLibrary()),
   onActivateTab: (eduId, isNewProject, tab) => dispatch(onTabActivating(eduId, isNewProject, tab)),
-  onActivateCostumesTab: (eduId, isNewProject) => dispatch(onTabActivating(eduId, isNewProject, COSTUMES_TAB_INDEX)),
-  onActivateSoundsTab: (eduId, isNewProject) => dispatch(onTabActivating(eduId, isNewProject, SOUNDS_TAB_INDEX)),
+  onActivateCostumesTab: () => dispatch(activateTab(COSTUMES_TAB_INDEX)),
+  onActivateSoundsTab: () => dispatch(activateTab(SOUNDS_TAB_INDEX)),
   onLayoutModeClick: () => dispatch(toggleLayoutMode()),
   onSetUnchanged: () => dispatch(setProjectUnchanged()),
 })
@@ -188,8 +181,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     ...stateProps,
     ...dispatchProps,
     onActivateTab: (tab) => dispatchProps.onActivateTab(stateProps.eduId, stateProps.isNewProject, tab),
-    onActivateCostumesTab: () => dispatchProps.onActivateCostumesTab(stateProps.eduId, stateProps.isNewProject),
-    onActivateSoundsTab: () => dispatchProps.onActivateSoundsTab(stateProps.eduId, stateProps.isNewProject),
+    onActivateCostumesTab: () => dispatchProps.onActivateCostumesTab(),
+    onActivateSoundsTab: () => dispatchProps.onActivateSoundsTab(),
   }
 }
 
