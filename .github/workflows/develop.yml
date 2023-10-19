@@ -34,9 +34,10 @@ jobs:
           pip3 install --user awscli
           export PATH=$PATH:$HOME/.local/bin
       - name: Install dependencies
-        run: yarn install
-      - name: before build
-        run: yarn assets:download
+        run: |
+          yarn install
+          export AWS_PROFILE=hackingstudio
+          yarn assets:download
       - name: build app
         run: NODE_ENV=production yarn build
       - name: serverless deploy
