@@ -35,5 +35,9 @@ jobs:
           export PATH=$PATH:$HOME/.local/bin
       - name: Install dependencies
         run: yarn install
+      - name: before build
+        run: yarn assets:download
+      - name: build app
+        run: NODE_ENV=production yarn build
       - name: serverless deploy
         run: SLS_STAGE=staging BRANCH=develop yarn deploy
