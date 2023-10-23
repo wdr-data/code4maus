@@ -42,7 +42,6 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install
-          export AWS_PROFILE=hackingstudio
           yarn assets:download
       - name: build app
         run: NODE_ENV=production yarn build
