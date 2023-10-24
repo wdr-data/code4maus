@@ -40,11 +40,12 @@ jobs:
           aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
       - name: test
-        run: aws sts get-caller-identity
+        run: |
+          aws sts get-caller-identity
       - name: Install dependencies
         run: |
           yarn install
-      #   yarn assets:download
+          yarn assets:download
       - name: build app
         run: NODE_ENV=production yarn build
       - name: serverless deploy
