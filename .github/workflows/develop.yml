@@ -41,11 +41,12 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
       - name: test
         run: |
-          aws sts get-caller-identity
-      - name: Install dependencies
-        run: |
-          yarn install
-      - name: build app
-        run: NODE_ENV=production yarn build
-      - name: serverless deploy
-        run: SLS_STAGE=staging BRANCH=develop yarn deploy
+          touch camila_test
+          aws s3 cp camila_test s3://hackingstudio-code4maus-app-staging/camila_test
+      #- name: Install dependencies
+      #  run: |
+      #    yarn install
+      #- name: build app
+      #  run: NODE_ENV=production yarn build
+      #- name: serverless deploy
+      #  run: SLS_STAGE=staging BRANCH=develop yarn deploy
