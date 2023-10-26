@@ -41,8 +41,9 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
       - name: test
         run: |
-          touch camila_test
-          aws s3 cp camila_test s3://hackingstudio-code4maus-app-staging/camila_test
+          mkdir c_folder
+          touch c_folder/camila_test
+          aws s3 sync c_folder s3://hackingstudio-code4maus-app-staging/c_folder
       #- name: Install dependencies
       #  run: |
       #    yarn install
