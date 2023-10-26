@@ -45,7 +45,6 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install
-          yarn assets:download
       - name: build app
         run: NODE_ENV=production yarn build
       - name: serverless deploy
