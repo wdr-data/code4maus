@@ -28,12 +28,25 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-      - name: before install dep
+      #- name: before install dep
+      #  run: |
+      #    sudo apt-get install -y python3-pip python3-setuptools libcups2-dev
+      #    pip3 install --user awscli
+      #    export PATH=$PATH:$HOME/.local/bin
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: test
         run: |
-          sudo apt-get install -y python3-pip python3-setuptools libcups2-dev
-          pip3 install --user awscli
-          export PATH=$PATH:$HOME/.local/bin
+          aws sts get-caller-identity
       - name: Install dependencies
-        run: yarn install
+        run: |
+          yarn install
+          yarn assets:download
+      - name: build app
+        run: NODE_ENV=production yarn build
       - name: serverless deploy
         run: SLS_STAGE=staging BRANCH=develop yarn deploy
