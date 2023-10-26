@@ -2,7 +2,7 @@ service: hackingstudio-code4maus
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs18.x
   region: eu-central-1
   role: 'arn:aws:iam::#{AWS::AccountId}:role/hackingstudio/code4maus/hackingstudio-code4maus-functions'
   stage: ${file(scripts/env.js):stage}
