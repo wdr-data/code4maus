@@ -26,9 +26,6 @@ npm-*
 .env
 .env.backend
 
-# External assets
-/assets/
-
 # Cache
 /.cache/
 .webpack/
