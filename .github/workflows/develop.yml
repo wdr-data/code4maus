@@ -39,15 +39,15 @@ jobs:
           aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
-      - name: test
-        run: |
-          mkdir c_folder
-          touch c_folder/camila_test
-          aws s3 sync c_folder s3://hackingstudio-code4maus-app-staging/c_folder --acl public-read
-      #- name: Install dependencies
+      #- name: test
       #  run: |
-      #    yarn install
-      #- name: build app
-      #  run: NODE_ENV=production yarn build
-      #- name: serverless deploy
-      #  run: SLS_STAGE=staging BRANCH=develop yarn deploy
+      #    mkdir c_folder
+      #    touch c_folder/camila_test
+      #    aws s3 sync c_folder s3://hackingstudio-code4maus-app-staging/c_folder --acl public-read
+      - name: Install dependencies
+        run: |
+          yarn install
+      - name: build app
+        run: NODE_ENV=production yarn build
+      - name: serverless deploy
+        run: SLS_STAGE=staging BRANCH=develop yarn deploy
