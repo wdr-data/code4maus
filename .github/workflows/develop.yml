@@ -29,10 +29,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: before install dep
-       run: |
-         sudo apt-get install -y python3-pip python3-setuptools libcups2-dev
-         pip3 install --user awscli
-         export PATH=$PATH:$HOME/.local/bin
+        run: |
+          sudo apt-get install -y python3-pip python3-setuptools libcups2-dev
+          pip3 install --user awscli
+          export PATH=$PATH:$HOME/.local/bin
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
