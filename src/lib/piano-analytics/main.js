@@ -15,7 +15,7 @@ pianoAnalytics.setConfigurations({
 export const paSetConfig = () => {
   let configurations
 
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.BRANCH === 'production') {
     configurations = {
       site: 632700,
       collectDomain: 'https://ama.wdr.de/',
