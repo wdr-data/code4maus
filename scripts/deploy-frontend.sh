@@ -1,7 +1,5 @@
 #!/bin/bash
 
-aws sts get-caller-identity
-
 # todo: make dynamic via serverless
 BUCKET="hackingstudio-code4maus-app"
 
@@ -20,3 +18,4 @@ for FILE in $(find build -name index.html -printf '%P\n'); do
 done
 
 aws s3 cp build/service-worker.js s3://${BUCKET}/service-worker.js --metadata-directive REPLACE --cache-control max-age=0,no-cache,no-store,must-revalidate --content-type application/javascript --acl public-read
+
