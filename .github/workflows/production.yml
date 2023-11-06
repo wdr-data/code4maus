@@ -1,12 +1,12 @@
-name: staging deployment v1
+name: production deployment v1
 
 on:
   push:
     branches:
-      - develop
+      - production
   pull_request:
     branches:
-      - develop
+      - production
 
 jobs:
   build:
@@ -48,4 +48,4 @@ jobs:
       - name: build app
         run: NODE_ENV=production yarn build
       - name: serverless deploy
-        run: SLS_STAGE=staging BRANCH=develop yarn deploy
+        run: SLS_STAGE=prod BRANCH=production yarn deploy
