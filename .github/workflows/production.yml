@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - production
-
+  pull_request:
+    branches:
+      - production
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -44,5 +46,7 @@ jobs:
           yarn install
       - name: build app
         run: NODE_ENV=production yarn build
-      - name: serverless deploy
-        run: SLS_STAGE=prod BRANCH=production yarn deploy
+      - name: serverless deploy - TEST without sync
+        run: |
+          SLS_STAGE=prod BRANCH=production yarn deploy:build
+          SLS_STAGE=prod BRANCH=production yarn deploy:apply
