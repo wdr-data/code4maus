@@ -43,5 +43,5 @@ jobs:
           yarn install
       - name: build app
         run: NODE_ENV=production yarn build
-      - name: serverless deploy - TEST without sync
+      - name: serverless deploy
         run: SLS_STAGE=prod BRANCH=production yarn deploy
