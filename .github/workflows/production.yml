@@ -1,0 +1,48 @@
+name: production deployment v1
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+        python-version: [3.0]
+    env:
+      S3_BUCKET_PREFIX: hackingstudio-code4maus-projects
+      AWS_REGION: eu-central-1
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    steps:
+      - name: Checkout app
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: before install dep
+        run: |
+          sudo apt-get install -y python3-pip python3-setuptools libcups2-dev
+          pip3 install --user awscli
+          export PATH=$PATH:$HOME/.local/bin
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Install dependencies
+        run: |
+          yarn install
+      - name: build app
+        run: NODE_ENV=production yarn build
+      - name: serverless deploy
+        run: SLS_STAGE=prod BRANCH=production yarn deploy
