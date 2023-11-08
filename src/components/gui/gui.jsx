@@ -34,6 +34,7 @@ import costumesIcon from './icon--costumes.svg'
 import expandIcon from './expand_right@2x.svg'
 
 import styles from './gui.css'
+import { buildGuiPage, paEvent } from '../../lib/piano-analytics/main.js'
 
 // Cache this value to only retreive it once the first time.
 // Assume that it doesn't change for a session.
@@ -67,6 +68,7 @@ const GUIComponent = (props) => {
     closeSaveModal,
     saveProjectError,
     isSaving,
+    isNewProject,
     projectName,
     eduLayerActive,
     eduId,
@@ -102,6 +104,17 @@ const GUIComponent = (props) => {
     isRendererSupported = Renderer.isSupported()
   }
 
+  const logClickEvent = (eventFn, eventName) => {
+    paEvent.clickAction({
+      pages: buildGuiPage(props.eduId, props.isNewProject, props.activeTabIndex),
+      pageType: 'Spiele',
+      chapter1: 'Speichern',
+      chapter2: eventName,
+      target: eventName
+    })
+    eventFn()
+  }
+
   return (
     <div className={styles.pageWrapper} {...componentProps}>
       {loading ? <Loader /> : null}
@@ -125,7 +138,7 @@ const GUIComponent = (props) => {
               <p>{saveProjectError}</p>
               <Button
                 style="primary"
-                onClick={() => onSaveProject().then(() => closeSaveModal())}
+                onClick={() => logClickEvent(() => onSaveProject().then(() => closeSaveModal()), 'Speichern')}
                 disabled={isSaving}
               >
                 Speichern
@@ -151,7 +164,7 @@ const GUIComponent = (props) => {
                 <Button
                   style="secondary"
                   className={styles.saveModalDownload}
-                  onClick={downloadProject}
+                  onClick={() => logClickEvent(downloadProject, 'Projekt herunterladen')}
                 >
                   Projekt herunterladen
                 </Button>
@@ -162,7 +175,7 @@ const GUIComponent = (props) => {
                 <Button
                   style="secondary"
                   className={styles.saveModalDownload}
-                  onClick={handleClick}
+                  onClick={() => logClickEvent(handleClick, 'Projekt hochladen')}
                 >
                   Projekt hochladen
                   {renderFileInput()}
@@ -261,7 +274,7 @@ const GUIComponent = (props) => {
           />
         </div>
         <div className={classNames(styles.column, styles.columnButtons)}>
-          <StageHeader vm={vm} />
+          <StageHeader vm={vm} logPageInfo={buildGuiPage(props.eduId, props.isNewProject, props.activeTabIndex)} />
         </div>
       </div>
 

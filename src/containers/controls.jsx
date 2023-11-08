@@ -4,6 +4,7 @@ import React from 'react'
 import VM from 'scratch-vm'
 
 import ControlsComponent from '../components/controls/controls.jsx'
+import { paEvent } from '../lib/piano-analytics/main.js'
 
 class Controls extends React.Component {
   constructor(props) {
@@ -35,20 +36,45 @@ class Controls extends React.Component {
   }
   handleGreenFlagClick(e) {
     e.preventDefault()
+
+    if (this.props.onGreenFlagClick) {
+      this.props.onGreenFlagClick()
+    }
     if (e.shiftKey) {
       this.setState({ turbo: !this.state.turbo })
       this.props.vm.setTurboMode(!this.state.turbo)
     } else {
       this.props.vm.greenFlag()
     }
+
+    paEvent.clickAction({
+      pages: this.props.logPageInfo,
+      pageType: 'Spiele',
+      chapter1: 'Code',
+      chapter2: 'Los',
+      target: 'Code ausführen'
+    })
   }
   handleStopAllClick(e) {
     e.preventDefault()
+
+    if (this.props.onStopAllClick) {
+      this.props.onStopAllClick()
+    }
     this.props.vm.stopAll()
+
+    paEvent.clickAction({
+      pages: this.props.logPageInfo,
+      pageType: 'Spiele',
+      chapter1: 'Code',
+      chapter2: 'Stopp',
+      target: 'Code stoppen'
+    })
   }
   render() {
     const {
       vm, // eslint-disable-line no-unused-vars
+      logPageInfo,
       ...props
     } = this.props
     return (
@@ -65,6 +91,8 @@ class Controls extends React.Component {
 
 Controls.propTypes = {
   vm: PropTypes.instanceOf(VM),
+  onGreenFlagClick: PropTypes.func,
+  onStopAllClick: PropTypes.func
 }
 
 export default Controls

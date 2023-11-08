@@ -17,6 +17,7 @@ import { eduUrl } from '../../lib/routing'
 import { gamesKeyed } from '../../lib/edu/'
 import VideoPlayer from '../video-player/video-player.jsx'
 import styles from './edu-stage.css'
+import { guiTypePages, paEvent } from '../../lib/piano-analytics/main'
 
 const EduStageComponent = (props) => {
   const [isPreVideoModalOpen, setPreVideoModalOpen] = useState(false)
@@ -58,7 +59,10 @@ const EduStageComponent = (props) => {
           <div className={styles.caption}>{props.caption}</div>
           <Button
             className={styles.fullscreenButton}
-            onClick={props.toggleFullscreen}
+            onClick={() => {
+              sendPaEvent(props, 'Fullscreen')
+              return props.toggleFullscreen()
+            }}
           >
             <img
               className={styles.fullscreenButtonIcon}
@@ -86,7 +90,10 @@ const EduStageComponent = (props) => {
             arrowLeft
             style="primary"
             disabled={props.slideIndex === 0}
-            onClick={props.previousSlide}
+            onClick={() => {
+              sendPaEvent(props, 'Zurück')
+              return props.previousSlide()
+            }}
           >
             Zurück
           </Button>
@@ -97,7 +104,10 @@ const EduStageComponent = (props) => {
             arrowRight
             style="primary"
             wiggle={props.slideIndex === 0 && !props.finished}
-            onClick={props.nextSlide}
+            onClick={() => {
+              sendPaEvent(props, 'Weiter')
+              return props.nextSlide()
+            }}
             disabled={props.finished}
           >
             {!props.linkNextGame ? 'Weiter' : 'Nächstes Lernspiel'}
@@ -106,6 +116,24 @@ const EduStageComponent = (props) => {
       </div>
     </>
   )
+}
+
+const sendPaEvent = (props, clickName) => {
+  const pages = guiTypePages(props.gameId)
+  pages.push('Code')
+
+  let target = `${props.slideIndex}/${props.slideCount}`
+  if (clickName == 'Weiter') {
+    target = !props.linkNextGame ? `${props.slideIndex + 2}/${props.slideCount}` : 'Nächstes Lernspiel'
+  }
+
+  paEvent.clickAction({
+    pages,
+    pageType: 'Spiele',
+    chapter1: 'Tutorial',
+    chapter2: clickName,
+    target
+  })
 }
 
 EduStageComponent.propTypes = {

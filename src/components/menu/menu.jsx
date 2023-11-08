@@ -25,6 +25,16 @@ import buttonIconInfo from '!raw-loader!../../../assets/icons/menu_eltern-info.s
 import buttonIconMausseite from '!raw-loader!../../../assets/icons/menu_mausseite.svg'
 import buttonIconDatenschutz from '!raw-loader!../../../assets/icons/icon_hilfe.svg'
 import buttonIconImpressum from '!raw-loader!../../../assets/icons/menu_impressum.svg'
+import { paEvent } from '../../lib/piano-analytics/main.js'
+import { menuTabTitles } from '../../lib/piano-analytics/constants.js'
+
+// TODO: Use when updating react-intl (must use static values for now)
+// const tabListData = {
+//   0: { title: "Lernen", id: "gui.gui.eduGames", svg: tabIconEdugames },
+//   1: { title: "Meine Sachen", id: "gui.gui.games", svg: tabIconProjects },
+//   2: { title: "Beispiele", id: "gui.gui.examples", svg: tabIconExamples },
+//   3: { title: "Videos", id: "gui.gui.videos", svg: tabIconVideos },
+// }
 
 export const MenuComponent = (props) => {
   const tabClassNames = {
@@ -38,6 +48,26 @@ export const MenuComponent = (props) => {
     ),
     tabSelected: classNames(tabStyles.reactTabsTabSelected, styles.isSelected),
   }
+
+  // TODO: Use when updating react-intl
+  // const menuTab = (index) => {
+  //   const { title, id, svg } = tabListData[index]
+
+  //   return (
+  //     <Tab className={tabClassNames.tab}>
+  //       <div className={styles.tabContent}>
+  //         <InlineSVG svg={svg} className={styles.tabIcon} />
+  //         <FormattedMessage
+  //           defaultMessage="{title}"
+  //           values={{
+  //             title: title
+  //           }}
+  //           id={id}
+  //         />
+  //       </div>
+  //     </Tab>
+  //   )
+  // }
 
   return (
     <div className={styles.bodyWrapper}>
@@ -72,7 +102,10 @@ export const MenuComponent = (props) => {
           selectedTabClassName={tabClassNames.tabSelected}
           selectedTabPanelClassName={tabClassNames.tabPanelSelected}
           selectedIndex={props.selectedTab}
-          onSelect={props.handleTabSelected}
+          onSelect={(index) => {
+            paEvent.pageDisplay({ pages: ["Menu", menuTabTitles[index]], pageType: "Hauptseite" })
+            return props.handleTabSelected(index)
+          }}
         >
           <TabList className={tabClassNames.tabList}>
             <Tab className={tabClassNames.tab}>
@@ -152,6 +185,15 @@ export const MenuComponent = (props) => {
           iconSvg={buttonIconMausseite}
           external
           linkTo="https://www.wdrmaus.de/"
+          onClick={() => {
+            paEvent.clickExit({
+              pages: ['Menu', menuTabTitles[props.selectedTab]],
+              pageType: 'Hauptseite',
+              chapter1: 'Exit',
+              chapter2: 'Zur Maus-Seite',
+              target: "https://www.wdrmaus.de/"
+            })
+          }}
         >
           Zur Maus-Seite
         </MenuButton>
