@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
         python-version: [3.0]
     env:
       S3_BUCKET_PREFIX: hackingstudio-code4maus-projects
