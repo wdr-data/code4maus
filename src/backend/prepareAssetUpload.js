@@ -28,8 +28,6 @@ export const handler = async (event) => {
     // Asset does not exist, which is good. Just continue.
   }
 
-  console.log("headObject works")
-
   const uploadUrl = s3.getSignedUrl('putObject', params)
 
   return respond.json(200, { uploadUrl })
