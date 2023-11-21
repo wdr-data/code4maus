@@ -27,6 +27,5 @@ export const handler = async (event) => {
   }
 
   const uploadUrl = s3.getSignedUrl('putObject', params)
-
   return respond.json(200, { uploadUrl })
 }
