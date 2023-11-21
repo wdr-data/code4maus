@@ -19,6 +19,8 @@ export const handler = async (event) => {
     Key: `data/assets/${filename}`,
   }
 
+  console.log("prepareAssetUpload params", params)
+
   try {
     await s3.headObject(params).promise()
     return respond.error(409, 'Asset already exists.', { exists: true })
@@ -26,6 +28,10 @@ export const handler = async (event) => {
     // Asset does not exist, which is good. Just continue.
   }
 
+  console.log("headObject works")
+
   const uploadUrl = s3.getSignedUrl('putObject', params)
+
+  console.log("uploadUrl is", uploadUrl)
   return respond.json(200, { uploadUrl })
 }
