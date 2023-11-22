@@ -19,6 +19,8 @@ export const handler = async (event) => {
     Key: `data/assets/${filename}`,
   }
 
+  console.log("params", params)
+
   try {
     await s3.headObject(params).promise()
     return respond.error(409, 'Asset already exists.', { exists: true })
