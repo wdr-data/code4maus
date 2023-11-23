@@ -10,6 +10,8 @@ const s3 = initS3(customEndpoint)
 export const handler = async (event) => {
   const { filename } = JSON.parse(event.body)
 
+  console.log("filename for handler", filename)
+
   if (!filename) {
     return respond.error(400, "Missing request body key 'filename'.")
   }
