@@ -114,7 +114,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
             console.log("save assets res", res)
             
             if (!res.ok && res.status !== 409) {
-              throw new Error(`uploading an asset failed: ${asset.filename}`)
+              throw new Error(`uploading an asset failed: ${asset.fileName}`)
             }
 
             const body = await res.json()
