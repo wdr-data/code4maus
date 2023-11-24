@@ -76,6 +76,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
         await this.saveMeta()
       } catch (e) {
         if (!this.requestCancelSave) {
+          console.warn("error in saving:", e)
           errPromise = this.setError('Das hat leider nicht geklappt')
         } else {
           errPromise = Promise.reject()
@@ -107,8 +108,10 @@ const ProjectSaveHOC = (WrappedComponent) => {
                 filename: asset.fileName,
               }),
             })
+            
             if (!res.ok && res.status !== 409) {
-              throw new Error(`uploading an asset failed: ${asset.filename}`)
+              console.warn("save assets error response", res)
+              throw new Error(`uploading an asset failed: ${asset.fileName}`)
             }
 
             const body = await res.json()
