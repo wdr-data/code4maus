@@ -76,7 +76,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
         await this.saveMeta()
       } catch (e) {
         if (!this.requestCancelSave) {
-          console.log("error save:", e)
+          console.warn("error in saving:", e)
           errPromise = this.setError('Das hat leider nicht geklappt')
         } else {
           errPromise = Promise.reject()
@@ -92,8 +92,6 @@ const ProjectSaveHOC = (WrappedComponent) => {
     }
 
     saveAssets() {
-      console.log("inside save assets")
-        
       const costumeAssets = serializeCostumes(this.props.vm.runtime)
       const soundAssets = serializeSounds(this.props.vm.runtime)
       return Promise.all(
@@ -110,10 +108,9 @@ const ProjectSaveHOC = (WrappedComponent) => {
                 filename: asset.fileName,
               }),
             })
-
-            console.log("save assets res", res)
             
             if (!res.ok && res.status !== 409) {
+              console.warn("save assets error response", res)
               throw new Error(`uploading an asset failed: ${asset.fileName}`)
             }
 
