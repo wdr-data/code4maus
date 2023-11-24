@@ -147,6 +147,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       'process.env.DEBUG': Boolean(process.env.DEBUG),
       'process.env.ENABLE_TRACKING': Boolean(branch === 'production'),
+      'process.env.BRANCH': JSON.stringify(branch),
     }),
     customHtmlPlugin({
       entrypoint: 'app',

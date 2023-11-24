@@ -12,6 +12,7 @@ jobs:
         node-version: [12.x]
         python-version: [3.0]
     env:
+      BRANCH: production
       S3_BUCKET_PREFIX: hackingstudio-code4maus-projects
       AWS_REGION: eu-central-1
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
