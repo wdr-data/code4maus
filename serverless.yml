@@ -6,6 +6,8 @@ provider:
   region: eu-central-1
   role: 'arn:aws:iam::#{AWS::AccountId}:role/hackingstudio/code4maus/hackingstudio-code4maus-functions'
   stage: ${file(scripts/env.js):stage}
+  deploymentBucket:
+    skipPolicySetup: true
   environment:
     S3_BUCKET_PROJECTS: ${self:custom.projectBucketName}
     ASSET_BASEURL: ${self:custom.baseUrl}

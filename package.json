@@ -128,7 +128,7 @@
     "scratch-storage": "2.3.3",
     "scratch-svg-renderer": "1.0.0",
     "selenium-webdriver": "4.0.0-alpha.1",
-    "serverless": "^1.83.3",
+    "serverless": "2.16.0",
     "serverless-domain-manager": "^3.1.0",
     "serverless-dotenv-plugin": "^2.0.1",
     "serverless-offline": "^8.8.0",
