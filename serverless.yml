@@ -43,6 +43,7 @@ resources:
         AccessControl: Private
         PublicAccessBlockConfiguration:
           BlockPublicPolicy: false
+          RestrictPublicBuckets: false
         BucketName: ${self:custom.appBucketName}
         WebsiteConfiguration:
           IndexDocument: index.html
@@ -54,6 +55,7 @@ resources:
         AccessControl: Private
         PublicAccessBlockConfiguration:
           BlockPublicPolicy: false
+          RestrictPublicBuckets: false
         BucketName: ${self:custom.projectBucketName}
         CorsConfiguration:
           CorsRules:
