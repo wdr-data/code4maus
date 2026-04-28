@@ -1,49 +1,35 @@
-name: staging deployment v1
+name: staging deployment
 
 on:
   push:
     branches:
       - develop
-
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
-        python-version: [3.0]
     env:
-      S3_BUCKET_PREFIX: hackingstudio-code4maus-projects
+      STAGE: staging
       AWS_REGION: eu-central-1
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      SLS_DEBUG: true
     steps:
-      - name: Checkout app
-        uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: before install dep
-        run: |
-          sudo apt-get install -y python3-pip python3-setuptools libcups2-dev
-          pip3 install --user awscli
-          export PATH=$PATH:$HOME/.local/bin
-      - name: Configure AWS Credentials
+          node-version: 20
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
-      - name: Install dependencies
-        run: |
-          yarn install
-      - name: build app
+      - name: Install root dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build frontend
         run: NODE_ENV=production yarn build
-      - name: serverless deploy
-        run: SLS_STAGE=staging BRANCH=develop yarn deploy
+      - name: Install infra dependencies
+        run: yarn install --frozen-lockfile
+        working-directory: infra
+      - name: Deploy CDK stack
+        run: yarn cdk deploy --require-approval never
+        working-directory: infra
