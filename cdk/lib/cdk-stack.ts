@@ -24,7 +24,7 @@ export class MausAppStack extends cdk.Stack {
 
     // S3
     const appBucket = new s3.Bucket(this, 'AppBucket', {
-        bucketName: `appbucket-${stage}`,
+        bucketName: `pmdm-appbucket-${stage}`,
         encryption: s3.BucketEncryption.KMS,
        //blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL, //tbd!
        removalPolicy: RemovalPolicy.RETAIN,
@@ -42,7 +42,7 @@ export class MausAppStack extends cdk.Stack {
     };
 
    const projectBucket = new s3.Bucket(this, 'ProjectBucket', {
-       bucketName: `projectbucket-${stage}`,
+       bucketName: `pmdm-projectbucket-${stage}`,
        encryption: s3.BucketEncryption.KMS,
        removalPolicy: RemovalPolicy.RETAIN,
        cors: [projectBucketCorsRule],
@@ -73,6 +73,7 @@ export class MausAppStack extends cdk.Stack {
               nodeModules: [
                   'aws-sdk',
                   'nanoid',
+                  'shortid',
           ],
           // TODO austauschen https://aws.amazon.com/blogs/developer/announcing-end-of-support-for-aws-sdk-for-javascript-v2/
         externalModules: [],
@@ -80,15 +81,8 @@ export class MausAppStack extends cdk.Stack {
         sourceMap: true,
       },
     }
-   /*
-   // machen wir später
-   const prepareAssetUpload = new lambda.Function(this, "PrepareAssetUploadFunction", {
-     runtime: lambda.Runtime.NODEJS_24_X, // Provide any supported Node.js runtime
-     handler: "handler",
-     code: lambda.Code.fromAsset("src/backend/prepareAssetUpload.js"),
-   });
-   */
-   const prepareAssetUploadFn = new NodejsFunction(this, 'PrepareAssetUploadFn', {
+
+      const prepareAssetUploadFn = new NodejsFunction(this, 'PrepareAssetUploadFn', {
        ...lambdaCommon,
        entry: path.join(HANDLERS_DIR, 'prepareAssetUpload.js'),
        handler: 'handler',
