@@ -53,7 +53,8 @@ export const STAGES: Record<StageName, StageConfig> = {
   dev: {
     domain: 'dev.maus.metahost.org',
     projectBucketSuffix: 'staging',
-    certArn: "arn:aws:acm:us-east-1:795331281068:certificate/386fe544-2b6b-4aeb-a23a-cac7d1d7fe28",
+    certArn:
+      'arn:aws:acm:us-east-1:795331281068:certificate/386fe544-2b6b-4aeb-a23a-cac7d1d7fe28',
     hostedZoneId: 'TODO_DEV_HOSTED_ZONE_ID',
     hostedZoneName: 'maus.metahost.org',
     account: DEFAULT_ACCOUNT,
@@ -64,5 +65,7 @@ export const STAGES: Record<StageName, StageConfig> = {
 export function resolveStage(input: string | undefined): StageName {
   if (input === 'prod' || input === 'staging' || input === 'dev') return input
   if (input === undefined || input === '') return 'dev'
-  throw new Error(`Unknown stage: ${input}. Expected one of: prod, staging, dev.`)
+  throw new Error(
+    `Unknown stage: ${input}. Expected one of: prod, staging, dev.`
+  )
 }
