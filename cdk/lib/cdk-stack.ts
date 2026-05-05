@@ -1,12 +1,13 @@
 import * as path from 'path'
 import * as cdk from 'aws-cdk-lib/core'
 import { Construct } from 'constructs'
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
 import * as lambda from 'aws-cdk-lib/aws-lambda'
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs'
 import * as s3 from 'aws-cdk-lib/aws-s3'
 import * as s3deploy from 'aws-cdk-lib/aws-s3-deployment'
 import * as apigw from 'aws-cdk-lib/aws-apigateway'
+import * as route53 from 'aws-cdk-lib/aws-route53'
+import * as targets from 'aws-cdk-lib/aws-route53-targets'
 import * as acm from 'aws-cdk-lib/aws-certificatemanager'
 import * as cloudfront from 'aws-cdk-lib/aws-cloudfront'
 import * as origins from 'aws-cdk-lib/aws-cloudfront-origins'
@@ -29,16 +30,16 @@ export class MausAppStack extends cdk.Stack {
     const appBucket = new s3.Bucket(this, 'AppBucket', {
       bucketName: `pmdm-appbucket-${stage}`,
       encryption: s3.BucketEncryption.KMS,
-      //blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL, //tbd!
-      removalPolicy: RemovalPolicy.RETAIN,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       accessControl: s3.BucketAccessControl.PRIVATE,
+      removalPolicy: RemovalPolicy.RETAIN,
       websiteIndexDocument: 'index.html',
       websiteErrorDocument: 'index.html',
     })
 
     const projectBucketCorsRule: s3.CorsRule = {
       allowedMethods: [s3.HttpMethods.PUT],
-      allowedOrigins: [`https://${config.domain}`], // tbd: ist das die richtige?
+      allowedOrigins: [`https://${config.domain}`],
       allowedHeaders: ['content-type'],
       id: 'projectBucketCORSRule1',
       maxAge: 1800,
@@ -47,34 +48,31 @@ export class MausAppStack extends cdk.Stack {
     const projectBucket = new s3.Bucket(this, 'ProjectBucket', {
       bucketName: `pmdm-projectbucket-${stage}`,
       encryption: s3.BucketEncryption.KMS,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      accessControl: s3.BucketAccessControl.PRIVATE,
       removalPolicy: RemovalPolicy.RETAIN,
       cors: [projectBucketCorsRule],
-      accessControl: s3.BucketAccessControl.PRIVATE,
     })
 
     // Lambda
     const REPO_ROOT = path.resolve(__dirname, '..', '..')
     const FRONTEND_BUILD_DIR = path.join(REPO_ROOT, 'build')
     const HANDLERS_DIR = path.join(REPO_ROOT, 'src', 'backend')
+    // generisches Konstrukt, aus dem alle Lambdas erweitert werden
     const lambdaCommon = {
       runtime: lambda.Runtime.NODEJS_24_X,
       memorySize: 256,
       timeout: Duration.seconds(15),
       projectRoot: REPO_ROOT,
-      //depsLockFilePath: path.join(REPO_ROOT, 'yarn.lock'),
       environment: {
         S3_BUCKET_PROJECTS: projectBucket.bucketName,
         ASSET_BASEURL: `https://${config.domain}`,
         API_HOST: `https://${config.domain}`,
       },
       bundling: {
-        // Handlers still use aws-sdk v2 (require('aws-sdk')). The Node 18+ Lambda
-        // runtime no longer bundles it, so esbuild includes it in the bundle.
-        // Override CDK's default of externalizing aws-sdk v2.
-        // Migrate handlers to @aws-sdk/* v3 in a follow-up to shrink the zip.
-        //externalModules: ['@aws-sdk/*'],
+        // aws-sdk v2 wird gebundlet, weil neuere Node-Runtimes es nicht mehr mitliefern
+        // TODO ist auch veraltet, austauschen: https://aws.amazon.com/blogs/developer/announcing-end-of-support-for-aws-sdk-for-javascript-v2/
         nodeModules: ['aws-sdk', 'nanoid', 'shortid'],
-        // TODO austauschen https://aws.amazon.com/blogs/developer/announcing-end-of-support-for-aws-sdk-for-javascript-v2/
         externalModules: [],
         target: 'node24',
         sourceMap: true,
@@ -107,12 +105,11 @@ export class MausAppStack extends cdk.Stack {
       }
     )
 
-    // TODO - necessary?
-    projectBucket.grantReadWrite(prepareAssetUploadFn)
-    projectBucket.grantReadWrite(saveProjectFn)
-    projectBucket.grantReadWrite(prepareShareResultFn)
+    projectBucket.grants.readWrite(prepareAssetUploadFn)
+    projectBucket.grants.readWrite(saveProjectFn)
+    projectBucket.grants.readWrite(prepareShareResultFn)
 
-    // ---- API Gateway --------------------------------------------------------
+    // API Gateway
     const api = new apigw.RestApi(this, 'Api', {
       restApiName: `mausapp-${stage}`,
       deployOptions: { stageName: stage },
@@ -153,19 +150,20 @@ export class MausAppStack extends cdk.Stack {
       compress: true,
     }
 
-    // Project (user data)
+    // Origin für ProjectBucket: Uploads und Assets
     const projectsOrigin =
       origins.S3BucketOrigin.withOriginAccessControl(projectBucket)
     const dataBehavior: cloudfront.BehaviorOptions = {
       origin: projectsOrigin,
       viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-      allowedMethods: cloudfront.AllowedMethods.ALLOW_ALL,
+      allowedMethods: cloudfront.AllowedMethods.ALLOW_ALL, // TODO ist das sinnvoll? -> evtl auf GET_HEAD umstellen, außer wir schreiben direkt so in den Bucket von Cloudfront (aber sollte ja eigentlich die Lambda machen)
+      //allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD, // TODO ist das sinnvoll? -> evtl auf GET_HEAD umstellen, außer wir schreiben direkt so in den Bucket von Cloudfront (aber sollte ja eigentlich die Lambda machen)
       cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
-      cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
+      cachePolicy: cloudfront.CachePolicy.CACHING_DISABLED, // vorsichtige Einstellung zu Beginn -> langfristig evtl cachen
       compress: true,
     }
 
-    // App
+    // Origin für AppBucket: App-Code
     const appOrigin = origins.S3BucketOrigin.withOriginAccessControl(appBucket)
     const distribution = new cloudfront.Distribution(this, 'Distribution', {
       comment: `Code4Maus ${stage}`,
@@ -186,8 +184,8 @@ export class MausAppStack extends cdk.Stack {
         'data/*': dataBehavior,
         'api/*': apiBehavior,
       },
-      // Private buckets fronted by OAC return 403 (not 404) for missing keys.
-      // Map both to /index.html so the SPA router can take over.
+      // 403 und 404 auf 200 und "Upps!"-Seite umbiegen; Originalverhalten
+      // langfristig vllt. so ändern, dass das nur App-Pfade betrifft und nicht z.B. API-Pfade
       errorResponses: [
         {
           httpStatus: 403,
@@ -204,10 +202,8 @@ export class MausAppStack extends cdk.Stack {
       ],
     })
 
-    // ---- Frontend deployment -----------------------------------------------
-    // Two deployments so cache-control can differ per file:
-    //   1. Long-cached static assets (everything except index.html and service-worker.js)
-    //   2. No-cache HTML + service worker (must always be revalidated)
+    // Frontend in S3
+    // Deployment für alle statischen Assets mit Caching
     new s3deploy.BucketDeployment(this, 'FrontendStatic', {
       sources: [s3deploy.Source.asset(FRONTEND_BUILD_DIR)],
       destinationBucket: appBucket,
@@ -215,9 +211,10 @@ export class MausAppStack extends cdk.Stack {
       distributionPaths: ['/*'],
       prune: true,
       exclude: ['index.html', '**/index.html', 'service-worker.js'],
-      memoryLimit: 512,
+      memoryLimit: 512, // im Auge behalten -> bei Problemen erhöhen, war anfangs zu wenig
     })
 
+    // Deployment für Assets, die nicht gecachet werden sollen
     new s3deploy.BucketDeployment(this, 'FrontendHtml', {
       sources: [s3deploy.Source.asset(FRONTEND_BUILD_DIR)],
       destinationBucket: appBucket,
@@ -230,11 +227,18 @@ export class MausAppStack extends cdk.Stack {
         ),
       ],
     })
-    // The code that defines your stack goes here
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'CdkQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    // DNS (Route53) - optional
+    if (createDnsRecord) {
+      const zone = route53.HostedZone.fromHostedZoneAttributes(this, 'Zone', {
+        hostedZoneId: config.hostedZoneId,
+        zoneName: config.hostedZoneName,
+      })
+      new route53.ARecord(this, 'DnsRecord', {
+        zone,
+        recordName: config.domain,
+        target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
+      })
+    }
   }
 }

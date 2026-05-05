@@ -31,6 +31,7 @@ const DEFAULT_REGION = 'eu-central-1'
 const PLACEHOLDER_CERT_ARN =
   'arn:aws:acm:us-east-1:000000000000:certificate/00000000-0000-0000-0000-000000000000'
 
+// tbd: arbeiten wir überhaupt mit hosted zones oder nur externen DNS-Records?
 export const STAGES: Record<StageName, StageConfig> = {
   prod: {
     domain: 'programmieren.wdrmaus.de',
@@ -56,7 +57,7 @@ export const STAGES: Record<StageName, StageConfig> = {
     certArn:
       'arn:aws:acm:us-east-1:795331281068:certificate/386fe544-2b6b-4aeb-a23a-cac7d1d7fe28',
     hostedZoneId: 'TODO_DEV_HOSTED_ZONE_ID',
-    hostedZoneName: 'maus.metahost.org',
+    hostedZoneName: 'maus.metahost.org.',
     account: DEFAULT_ACCOUNT,
     region: DEFAULT_REGION,
   },
