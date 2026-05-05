@@ -156,8 +156,10 @@ export class MausAppStack extends cdk.Stack {
     const dataBehavior: cloudfront.BehaviorOptions = {
       origin: projectsOrigin,
       viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-      allowedMethods: cloudfront.AllowedMethods.ALLOW_ALL, // TODO ist das sinnvoll? -> evtl auf GET_HEAD umstellen, außer wir schreiben direkt so in den Bucket von Cloudfront (aber sollte ja eigentlich die Lambda machen)
-      //allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD, // TODO ist das sinnvoll? -> evtl auf GET_HEAD umstellen, außer wir schreiben direkt so in den Bucket von Cloudfront (aber sollte ja eigentlich die Lambda machen)
+      // TODO ist das sinnvoll? -> evtl auf GET_HEAD umstellen
+      // außer wir schreiben direkt so in den Bucket von Cloudfront (aber sollte ja eigentlich die Lambda machen)
+      allowedMethods: cloudfront.AllowedMethods.ALLOW_ALL,
+      //allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD,
       cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
       cachePolicy: cloudfront.CachePolicy.CACHING_DISABLED, // vorsichtige Einstellung zu Beginn -> langfristig evtl cachen
       compress: true,
