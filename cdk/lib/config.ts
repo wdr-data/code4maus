@@ -60,7 +60,7 @@ export const STAGES: Record<StageName, StageConfig> = {
     domain: 'dev.maus.metahost.org',
     projectBucketSuffix: 'staging',
     certArn:
-      'arn:aws:acm:us-east-1:795331281068:certificate/386fe544-2b6b-4aeb-a23a-cac7d1d7fe28',
+      'arn:aws:acm:us-east-1:391322831368:certificate/b2d1f159-5248-4f44-9bef-b94f9b69b260',
     hostedZoneId: 'TODO_DEV_HOSTED_ZONE_ID',
     hostedZoneName: 'maus.metahost.org.',
     account: ACCOUNTS.dev,
