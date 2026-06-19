@@ -46,7 +46,7 @@ export class MausAppStack extends cdk.Stack {
     }
 
     const projectBucket = new s3.Bucket(this, 'ProjectBucket', {
-      bucketName: `pmdm-projectbucket-${stage}`,
+      bucketName: `pmdm-projectbucket-${config.projectBucketSuffix}`,
       encryption: s3.BucketEncryption.KMS,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       accessControl: s3.BucketAccessControl.PRIVATE,
