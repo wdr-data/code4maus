@@ -20,8 +20,13 @@ export interface StageConfig {
   region: string
 }
 
-const DEFAULT_ACCOUNT = process.env.CDK_DEFAULT_ACCOUNT ?? ''
 const DEFAULT_REGION = 'eu-central-1'
+
+const ACCOUNTS: Record<StageName, string> = {
+  prod: 'TODO_PROD_ACCOUNT_ID',
+  staging: 'TODO_STAGING_ACCOUNT_ID',
+  dev: '391322831368',
+}
 
 // TODO before first deploy: replace the placeholder certArn (us-east-1) and
 // hostedZoneId values below with the real ones for each stage.
@@ -39,7 +44,7 @@ export const STAGES: Record<StageName, StageConfig> = {
     certArn: PLACEHOLDER_CERT_ARN,
     hostedZoneId: 'TODO_PROD_HOSTED_ZONE_ID',
     hostedZoneName: 'wdrmaus.de.',
-    account: DEFAULT_ACCOUNT,
+    account: ACCOUNTS.prod,
     region: DEFAULT_REGION,
   },
   staging: {
@@ -48,7 +53,7 @@ export const STAGES: Record<StageName, StageConfig> = {
     certArn: PLACEHOLDER_CERT_ARN,
     hostedZoneId: 'TODO_STAGING_HOSTED_ZONE_ID',
     hostedZoneName: 'code4maus.wt.wdr.cloud.',
-    account: DEFAULT_ACCOUNT,
+    account: ACCOUNTS.staging,
     region: DEFAULT_REGION,
   },
   dev: {
@@ -58,7 +63,7 @@ export const STAGES: Record<StageName, StageConfig> = {
       'arn:aws:acm:us-east-1:795331281068:certificate/386fe544-2b6b-4aeb-a23a-cac7d1d7fe28',
     hostedZoneId: 'TODO_DEV_HOSTED_ZONE_ID',
     hostedZoneName: 'maus.metahost.org.',
-    account: DEFAULT_ACCOUNT,
+    account: ACCOUNTS.dev,
     region: DEFAULT_REGION,
   },
 }

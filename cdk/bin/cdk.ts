@@ -5,7 +5,9 @@ import { resolveStage, STAGES } from '../lib/config'
 
 const app = new cdk.App()
 
-const stage = resolveStage(process.env.STAGE ?? app.node.tryGetContext('stage'))
+// Stage über CDK-Context (`cdk deploy -c stage=staging`) bzw. als Fallback die
+// STAGE-Env-Var. Account/Region kommen fest pro Stage aus der config.
+const stage = resolveStage(app.node.tryGetContext('stage') ?? process.env.STAGE)
 const config = STAGES[stage]
 
 // tbd: arbeiten wir überhaupt mit hosted zones oder nur externen DNS-Records?
@@ -22,8 +24,8 @@ new MausAppStack(app, `MausApp-${stage}`, {
   config,
   createDnsRecord,
   env: {
-    account: config.account || process.env.CDK_DEFAULT_ACCOUNT,
-    region: config.region || process.env.CDK_DEFAULT_REGION,
+    account: config.account,
+    region: config.region,
   },
   description: `PmdM stack (${stage})`,
 })
