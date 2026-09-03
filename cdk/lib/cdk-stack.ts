@@ -28,7 +28,7 @@ export class MausAppStack extends cdk.Stack {
 
     // S3
     const appBucket = new s3.Bucket(this, 'AppBucket', {
-      bucketName: `pmdm-appbucket-${stage}`,
+      bucketName: `pmdm-appbucket-${stage}-${config.account}`,
       encryption: s3.BucketEncryption.KMS,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       accessControl: s3.BucketAccessControl.PRIVATE,
@@ -46,7 +46,7 @@ export class MausAppStack extends cdk.Stack {
     }
 
     const projectBucket = new s3.Bucket(this, 'ProjectBucket', {
-      bucketName: `pmdm-projectbucket-${config.projectBucketSuffix}`,
+      bucketName: `pmdm-projectbucket-${stage}-${config.account}`,
       encryption: s3.BucketEncryption.KMS,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       accessControl: s3.BucketAccessControl.PRIVATE,

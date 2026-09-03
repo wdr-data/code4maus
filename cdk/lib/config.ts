@@ -2,7 +2,6 @@ export type StageName = 'prod' | 'staging' | 'dev'
 
 export interface StageConfig {
   domain: string
-  projectBucketSuffix: 'prod' | 'staging'
   /**
    * ACM certificate ARN. Must be in us-east-1 (CloudFront requirement).
    * Look up once with:
@@ -40,7 +39,6 @@ const PLACEHOLDER_CERT_ARN =
 export const STAGES: Record<StageName, StageConfig> = {
   prod: {
     domain: 'programmieren.wdrmaus.de',
-    projectBucketSuffix: 'prod',
     certArn: PLACEHOLDER_CERT_ARN,
     hostedZoneId: 'TODO_PROD_HOSTED_ZONE_ID',
     hostedZoneName: 'wdrmaus.de.',
@@ -49,7 +47,6 @@ export const STAGES: Record<StageName, StageConfig> = {
   },
   staging: {
     domain: 'staging.code4maus.wt.wdr.cloud',
-    projectBucketSuffix: 'staging',
     certArn: PLACEHOLDER_CERT_ARN,
     hostedZoneId: 'TODO_STAGING_HOSTED_ZONE_ID',
     hostedZoneName: 'code4maus.wt.wdr.cloud.',
@@ -58,7 +55,6 @@ export const STAGES: Record<StageName, StageConfig> = {
   },
   dev: {
     domain: 'dev.maus.metahost.org',
-    projectBucketSuffix: 'staging',
     certArn:
       'arn:aws:acm:us-east-1:391322831368:certificate/b2d1f159-5248-4f44-9bef-b94f9b69b260',
     hostedZoneId: 'TODO_DEV_HOSTED_ZONE_ID',
