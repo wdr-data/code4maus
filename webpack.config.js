@@ -14,12 +14,11 @@ const customHtmlPlugin = require('./scripts/custom-html-plugin')
 const { getAllAssets } = require('./scripts/lib/assets')
 
 const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH
-const bucketSuffix = branch === 'production' ? 'prod' : 'staging'
-const bucketUrl = `https://${
-  process.env.S3_BUCKET_PREFIX
-}-${bucketSuffix}.s3.dualstack.${
-  process.env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION
-}.amazonaws.com`
+
+// Dev server proxies /data and /api to a deployed stage (see .env.example).
+// API_PROXY_TARGET overrides /api, e.g. to use a local serverless-offline.
+const proxyTarget = process.env.PROXY_TARGET
+const apiProxyTarget = process.env.API_PROXY_TARGET || proxyTarget
 
 const enableServiceWorker =
   'ENABLE_SERVICE_WORKER' in process.env ||
@@ -62,12 +61,12 @@ module.exports = {
     port: process.env.PORT || 8601,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000/dev',
+        target: apiProxyTarget,
         changeOrigin: true,
         secure: false,
       },
       '/data': {
-        target: bucketUrl,
+        target: proxyTarget,
         changeOrigin: true,
       },
     },
