@@ -18,6 +18,8 @@ Copy the file `.env.example` to `.env`:
 cp .env.example .env
 ```
 
+`PROXY_TARGET` points the dev server at a deployed stage (default: dev). Requests to `/data` (assets, saved projects) and `/api` (save, share) are proxied there, so no AWS credentials are needed to run the app locally.
+
 Currently, the assets (in `./assets`) are not part of this repository, so you'll have to get them first. For that, you need the AWS CLI and access to the `hackingstudio` AWS profile.
 
 ```sh
@@ -33,13 +35,22 @@ yarn start
 
 Open http://localhost:8601 and wait for the build to finish.
 
-To also use the save functionality, run:
+Saving works against the stage in `PROXY_TARGET`. Asset uploads go from the browser directly to the stage's project bucket, which only works for stages whose bucket CORS rule allows `http://localhost:8601` (currently: dev, see `cdk/lib/cdk-stack.ts`).
+
+### Local backend (optional)
+
+To run the Lambda handlers from `src/backend` locally instead of using the deployed API:
+
+1. Set up an AWS profile with access to the stage's project bucket, e.g. via `aws configure sso`.
+2. Copy `.env.backend.example` to `.env.backend` and set `STORAGE_BUCKET` to that bucket.
+3. In `.env`, set `API_PROXY_TARGET=http://localhost:3000/dev`.
+4. Start the backend:
 
 ```sh
+export AWS_PROFILE=<your profile>
+export AWS_SDK_LOAD_CONFIG=1  # required for SSO profiles with aws-sdk v2
 yarn start:backend
 ```
-
-This will only work if you have a current AWS_PROFILE with access to the buckets.
 
 ## Add a new Game
 
