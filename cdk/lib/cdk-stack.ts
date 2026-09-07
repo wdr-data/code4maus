@@ -39,7 +39,11 @@ export class MausAppStack extends cdk.Stack {
 
     const projectBucketCorsRule: s3.CorsRule = {
       allowedMethods: [s3.HttpMethods.PUT],
-      allowedOrigins: [`https://${config.domain}`],
+      allowedOrigins: [
+        `https://${config.domain}`,
+        // local dev server uploads assets directly to the dev bucket
+        ...(stage === 'dev' ? ['http://localhost:8601'] : []),
+      ],
       allowedHeaders: ['content-type'],
       id: 'projectBucketCORSRule1',
       maxAge: 1800,
