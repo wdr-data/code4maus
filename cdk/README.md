@@ -35,9 +35,18 @@ Mit externer DNS-Zone:
 - `createDnsRecord` in der bin/cdk.ts auf false setzen
 - gewünschte Domains in lib/config.ts eintragen
 - aws-cli wie benötigt einrichten inkl. Access Keys o.ä.
-- in ACM (AWS Certificate Manager) händisch die Zertifikate anlegen und per DNS-01-Challenge bestätigen
+- in ACM (AWS Certificate Manager) in us-east-1 Zertifikate requesten
+- per DNS-01-Challenge bestätigen
 - Zertifikat-ARNs in lib/config.ts eintragen
+- bei Bedarf (neuer AWS-Account): bootstrappen nicht vergessen
 ### Deployment
-- im Rootverzeichnis mit `yarn build` die App bauen
+- im Rootverzeichnis .env anlegen (kopieren von .env.example) und passende Werte einfüllen
+- mit `yarn build` die App bauen
+- für alle folgenden CDK-Calls folgende Optionen beachten: `npx cdk <Befehl> -c stage=dev --profile=pmdm-dev` -> dabei ist `stage` eine von `dev`, `staging` und `prod`, Profile ist der Name des Accounts in der lokalen AWSCLI-Config
 - im CDK-Verzeichnis `npx cdk diff` die Änderungen anzeigen lassen, ggf. mit `npx cdk synth` das CloudFormation-Template prüfen
 - und dann mit `npx cdk deploy` deployen.
+- Bei externer DNS-Zone: CloudFront-Domainname in den CFN-Outputs finden und CNAME-Record damit anlegen
+
+## TO DO
+- KMS-Wünsche klären
+- Tagging?
