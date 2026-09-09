@@ -5,6 +5,7 @@ const webpack = require('webpack')
 
 // Plugins
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const { GenerateSW } = require('workbox-webpack-plugin')
 
 // Custom Plugins
@@ -168,6 +169,14 @@ module.exports = {
         type: 'javascript/auto',
       },
       {
+        // Prebuilt emscripten worker, shipped as-is and excluded from minification.
+        test: /ffmpeg\.js[\\/]ffmpeg-worker-mp4\.js$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/ffmpeg-worker-mp4.[contenthash][ext]',
+        },
+      },
+      {
         test: require.resolve('zepto'),
         use: [
           {
@@ -180,6 +189,11 @@ module.exports = {
   },
   optimization: {
     runtimeChunk: 'single',
+    minimizer: [
+      new TerserPlugin({
+        exclude: /ffmpeg-worker-mp4/,
+      }),
+    ],
   },
   plugins: [
     new webpack.DefinePlugin({
