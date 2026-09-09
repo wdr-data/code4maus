@@ -57,6 +57,13 @@ module.exports = {
       },
     },
     historyApiFallback: true,
+    client: {
+      overlay: {
+        // Benign browser notice (triggered e.g. by react-tooltip), not an app error.
+        runtimeErrors: (error) =>
+          !/ResizeObserver loop/.test(error?.message ?? ''),
+      },
+    },
   },
   entry: {
     app: './src/entrypoints/index.jsx',
