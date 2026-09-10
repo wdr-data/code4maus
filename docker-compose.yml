@@ -1,53 +1,71 @@
-version: '3.5'
-
 services:
-  entry:
-    image: traefik:1.7
-    command: -c /dev/null --api --docker --docker.domain=localhost
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      # - "8601:80"
-      - "8080:8080"
-    labels:
-      traefik.enable: false
-  # app:
-  #   image: node:16.3.0-alpine
-  #   command: /src/node_modules/.bin/yarn start
-  #   working_dir: /src
-  #   environment:
-  #     DOCKER_WATCH: 1
-  #     AWS_ACCESS_KEY_ID: shaiChotufuochizi7ei
-  #     AWS_SECRET_ACCESS_KEY: thaacooG9iequeexooreiKoh9daihoo8ta0aifoh1ChahBi1ko
-  #     AWS_REGION: eu-central-1
-  #   volumes:
-  #     - ".:/src"
-  #   labels:
-  #     traefik.port: 8601
-  #     traefik.frontend.rule: Host:localhost
-  backend:
-    image: node:16.3.0-alpine
-    command: /src/node_modules/.bin/yarn start:backend -o 0.0.0.0
+  dependencies:
+    image: node:24-bookworm
     working_dir: /src
-    environment:
-      STORAGE_ENDPOINT: http://storage:9000
-      STORAGE_ENDPOINT_FRONTEND: http://localhost:9000
-      STORAGE_BUCKET: data
+    command: yarn install --frozen-lockfile
     volumes:
-      - ".:/src"
-    labels:
-      traefik.port: 3000
-      traefik.frontend.rule: Host:localhost;PathPrefix:/api/
-  storage:
-    image: minio/minio
-    command: server /data
-    volumes:
-      - "./.cache:/data"
+      - .:/src
+      - node_modules:/src/node_modules
+    init: true
+
+  frontend:
+    image: node:24-bookworm
+    working_dir: /src
+    command: yarn start
+    env_file: .env
     environment:
-      MINIO_ACCESS_KEY: shaiChotufuochizi7ei
-      MINIO_SECRET_KEY: thaacooG9iequeexooreiKoh9daihoo8ta0aifoh1ChahBi1ko
+      API_PROXY_TARGET: http://backend:3000
+      PORT: 8601
+      DOCKER_WATCH: '1'
+    depends_on:
+      dependencies:
+        condition: service_completed_successfully
+      backend:
+        condition: service_healthy
     ports:
-      - "9000:9000"
-    labels:
-      traefik.port: 9000
-      traefik.frontend.rule: Host:localhost;PathPrefix:/data/
+      - '127.0.0.1:8601:8601'
+    volumes:
+      - .:/src
+      - node_modules:/src/node_modules
+      - frontend_cache:/src/.cache
+      - frontend_build:/src/build
+    init: true
+
+  backend:
+    image: node:24-bookworm
+    working_dir: /src
+    command: yarn start:backend
+    env_file: .env.backend
+    environment:
+      BACKEND_HOST: 0.0.0.0
+      BACKEND_PORT: 3000
+      AWS_SDK_LOAD_CONFIG: '1'
+    depends_on:
+      dependencies:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:3000/health').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))",
+        ]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+    ports:
+      - '127.0.0.1:3000:3000'
+    volumes:
+      - .:/src
+      - node_modules:/src/node_modules
+      - backend_cache:/src/.cache
+      - ${HOME}/.aws:/root/.aws:ro  # TODO: Remove once we have the bucket within the compose stack
+    init: true
+
+volumes:
+  node_modules:
+  backend_cache:
+  frontend_cache:
+  frontend_build:

@@ -61,6 +61,24 @@ If AWS requests fail, check the backend logs and renew the SSO login. Access and
 
 To return to the deployed API, unset `API_PROXY_TARGET` in `.env` and restart `yarn start`.
 
+#### Docker development stack
+
+With `.env` and `.env.backend` configured and the host SSO session logged in:
+
+```sh
+docker compose up
+```
+
+Open http://localhost:8601 after the frontend finishes compiling. Compose runs both frontend and backend on Node 24, publishing ports 8601 and 3000 on localhost. Stop host instances of `yarn start` and `yarn start:backend` before starting Compose on those ports.
+
+The frontend routes `/api` to `http://backend:3000` inside Docker, overriding the host-oriented `API_PROXY_TARGET` in `.env`. Reads under `/data` still use `PROXY_TARGET` from `.env`, and browser uploads still go directly to the dev bucket.
+
+A one-shot `dependencies` service installs from the lockfile into a shared container-only `node_modules` volume before either app starts. The first start requires registry access. Source files are mounted for automatic backend restarts and frontend reloads; frontend polling supports Docker bind mounts. Build output and caches use named volumes, leaving the host build directory available for CDK. After dependency or environment changes, run `docker compose down` followed by `docker compose up` to reinstall as needed and restart both apps.
+
+The host's `~/.aws` directory is mounted read-only into the backend so it can use its config and SSO cache. Renew SSO with the AWS CLI on the host. Local S3 storage is not part of this stack.
+
+Use `docker compose stop` to stop both apps. You can still run only `docker compose up backend` alongside a host frontend configured with `API_PROXY_TARGET=http://localhost:3000`.
+
 #### Backend checks
 
 ```sh
@@ -174,10 +192,10 @@ export default {
   Add tags for the new sprites and costumes, list of tags can be found here:
   src/lib/libraries/sprite-tags.json
 
-  To update a backdrop do the same as with sprites, but add the backdrop as well in 
+  To update a backdrop do the same as with sprites, but add the backdrop as well in
   src/lib/default-project/project.json
 
-  Note: 
+  Note:
   Uploading a new sprite/costume/backdrop on programmmieren.wdrmaus.de will upload the asset into the production bucket. If you want to use this locally also upload it in the staging environment code4maus.de - this will upload the asset into the staging bucket. Recommended: Start by uploading new sprites in staging, download the .sb3 and run the `import-sprites` command, check locally, merge into staging and then upload the .sb3 in programmieren.wdrmaus.de before production deploy.
 
 ## Patched block translations

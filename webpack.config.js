@@ -30,20 +30,21 @@ if ('FUNCTIONS_AWS_REGION' in process.env) {
 }
 
 const isEnvProduction = process.env.NODE_ENV === 'production'
+const dockerWatch = process.env.DOCKER_WATCH === '1'
 
 module.exports = {
   mode: isEnvProduction ? 'production' : 'development',
   devtool: 'source-map',
+  watchOptions: dockerWatch ? { aggregateTimeout: 300, poll: 1000 } : {},
   devServer: {
     static: {
       directory: path.join(__dirname, 'build'),
-      watch:
-        process.env.DOCKER_WATCH === 1
-          ? {
-              aggregateTimeout: 300,
-              poll: 1000,
-            }
-          : {},
+      watch: dockerWatch
+        ? {
+            aggregateTimeout: 300,
+            poll: 1000,
+          }
+        : {},
     },
     host: '0.0.0.0',
     port: process.env.PORT || 8601,
