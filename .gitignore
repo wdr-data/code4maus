@@ -30,6 +30,10 @@ npm-*
 /.cache/
 .webpack/
 
+# Downloaded runtime assets used to seed the local S3 bucket
+/assets/runtime/*
+!/assets/runtime/.gitkeep
+
 # Yarn
 yarn-error.log
 

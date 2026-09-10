@@ -1,4 +1,37 @@
+x-local-storage: &local-storage
+  AWS_ACCESS_KEY_ID: code4maus-local
+  AWS_SECRET_ACCESS_KEY: code4maus-local-secret
+  AWS_REGION: eu-central-1
+  STORAGE_BUCKET: code4maus-local
+  STORAGE_ENDPOINT: http://storage:8333
+
 services:
+  storage:
+    image: chrislusf/seaweedfs:4.46
+    command: mini -dir=/data -ip=storage
+    environment:
+      <<: *local-storage
+    ports:
+      - '127.0.0.1:8333:8333'
+    volumes:
+      - storage_data:/data
+
+  storage-seed:
+    image: node:24-bookworm
+    working_dir: /src
+    command: yarn storage:seed
+    environment:
+      <<: *local-storage
+    depends_on:
+      dependencies:
+        condition: service_completed_successfully
+      storage:
+        condition: service_started
+    volumes:
+      - .:/src:ro
+      - node_modules:/src/node_modules:ro
+    init: true
+
   dependencies:
     image: node:24-bookworm
     working_dir: /src
@@ -15,6 +48,7 @@ services:
     env_file: .env
     environment:
       API_PROXY_TARGET: http://backend:3000
+      PROXY_TARGET: http://storage:8333/code4maus-local
       PORT: 8601
       DOCKER_WATCH: '1'
     depends_on:
@@ -35,13 +69,16 @@ services:
     image: node:24-bookworm
     working_dir: /src
     command: yarn start:backend
-    env_file: .env.backend
     environment:
+      <<: *local-storage
+      STORAGE_ENDPOINT_FRONTEND: http://localhost:8333
       BACKEND_HOST: 0.0.0.0
       BACKEND_PORT: 3000
       AWS_SDK_LOAD_CONFIG: '1'
     depends_on:
       dependencies:
+        condition: service_completed_successfully
+      storage-seed:
         condition: service_completed_successfully
     healthcheck:
       test:
@@ -61,7 +98,6 @@ services:
       - .:/src
       - node_modules:/src/node_modules
       - backend_cache:/src/.cache
-      - ${HOME}/.aws:/root/.aws:ro  # TODO: Remove once we have the bucket within the compose stack
     init: true
 
 volumes:
@@ -69,3 +105,4 @@ volumes:
   backend_cache:
   frontend_cache:
   frontend_build:
+  storage_data:

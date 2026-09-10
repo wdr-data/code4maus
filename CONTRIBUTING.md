@@ -18,74 +18,83 @@ Copy the file `.env.example` to `.env`:
 cp .env.example .env
 ```
 
-`PROXY_TARGET` points the dev server at a deployed stage (default: dev). Requests to `/data` (assets, saved projects) and `/api` (save, share) are proxied there, so no AWS credentials are needed to run the app locally.
+## Prepare runtime assets
 
-Currently, the assets (in `./assets`) are not part of this repository, so you'll have to get them first. For that, you need the AWS CLI and access to the `hackingstudio` AWS profile.
+Build-time assets (logos, icons, block media, and the default project's embedded media) are tracked under `assets/`. The runtime sprite, costume, backdrop, sound, and educational-project media are loaded from the S3 bucket's `data/assets/` prefix.
 
-```sh
-export AWS_PROFILE=hackingstudio
-yarn assets:download
-```
-
-## Run the project
+Keep downloaded runtime media in `assets/runtime/`. Git ignores its contents. The preparation command checks references in the source libraries, default project, and educational projects, copies matching files from your asset archive and the tracked default assets, and reports anything missing:
 
 ```sh
-yarn start
+yarn assets:prepare --from stuff/assets
 ```
 
-Open http://localhost:8601 and wait for the build to finish.
-
-Saving works against the stage in `PROXY_TARGET`. Asset uploads go from the browser directly to the stage's project bucket, which only works for stages whose bucket CORS rule allows `http://localhost:8601` (currently: dev, see `cdk/lib/cdk-stack.ts`).
-
-### Local backend (optional)
-
-To run the Lambda handlers from `src/backend` locally instead of using the deployed API:
-
-1. Set up an AWS profile with read/write access to the dev project bucket and its KMS key. The example uses the `code4maus-sso` SSO profile.
-2. Copy `.env.backend.example` to `.env.backend`. It sets the dev bucket, region, and AWS profile. Exported environment variables take precedence.
-3. In `.env`, set `API_PROXY_TARGET=http://localhost:3000`. Keep `PROXY_TARGET=https://dev.maus.metahost.org` so reads use the same dev bucket through CloudFront.
-4. Log in and start the backend:
+You can provide another directory with `--from /path/to/assets`. Your original files are left in place. A complete copy needs no AWS access. To fill gaps from the dev project's bucket, run this explicit one-time preparation step on the host:
 
 ```sh
 aws sso login --profile code4maus-sso
-yarn start:backend
+AWS_PROFILE=code4maus-sso yarn assets:prepare --from stuff/assets --download
 ```
 
-Run `yarn start` in another terminal (restart it after changing `.env`). The backend listens on `127.0.0.1:3000` and rebuilds/restarts when backend source files change. Restart `yarn start:backend` after editing `.env.backend`. `BACKEND_HOST` and `BACKEND_PORT` can override the listener; update `API_PROXY_TARGET` if changing the port.
+Downloads read only missing source-referenced objects under `data/assets/`; they do not copy users' projects or sharing results. Use `--bucket <bucket-name>` to select another source bucket. The separate `assets/` prefix in the dev bucket contains an incomplete asset copy; it is not the runtime path used by the frontend.
 
-The local Express server calls the same three Lambda handlers as CDK: `POST /api/prepareAssetUpload`, `POST /api/saveProject`, and `POST /api/prepareShareResult`. No API stage prefix is needed. `GET /health` checks the local HTTP server; it does not check AWS access. Request bodies are limited to 6 MB.
+Check completeness any time, including after adding library entries or educational projects:
 
-Requests to `/api` go through the webpack proxy to the local backend. Reads under `/data` continue through the deployed dev CloudFront distribution, and presigned uploads go directly from the browser to the dev bucket. Saving and sharing therefore write real dev data. Keep the browser at `http://localhost:8601`, which is allowed by the dev bucket's CORS configuration.
+```sh
+yarn assets:check
+```
 
-If AWS requests fail, check the backend logs and renew the SSO login. Access and credential errors are reported as errors, rather than interpreted as missing assets. The SDK loads and refreshes credentials through its standard credential chain; no keys belong in frontend configuration.
+## Run with Docker Compose
 
-To return to the deployed API, unset `API_PROXY_TARGET` in `.env` and restart `yarn start`.
-
-#### Docker development stack
-
-With `.env` and `.env.backend` configured and the host SSO session logged in:
+Once the assets are prepared:
 
 ```sh
 docker compose up
 ```
 
-Open http://localhost:8601 after the frontend finishes compiling. Compose runs both frontend and backend on Node 24, publishing ports 8601 and 3000 on localhost. Stop host instances of `yarn start` and `yarn start:backend` before starting Compose on those ports.
+Open http://localhost:8601 after the frontend finishes compiling. Stop host instances of `yarn start` and `yarn start:backend` before starting Compose on the same ports.
 
-The frontend routes `/api` to `http://backend:3000` inside Docker, overriding the host-oriented `API_PROXY_TARGET` in `.env`. Reads under `/data` still use `PROXY_TARGET` from `.env`, and browser uploads still go directly to the dev bucket.
+Compose starts the frontend, backend, and a pinned SeaweedFS S3 service. A one-shot `dependencies` service installs from the lockfile, and `storage-seed` waits for storage, creates the `code4maus-local` bucket, configures browser CORS and public reads under `data/`, and uploads missing seed assets through the S3 API. Seeding leaves existing assets, projects, and sharing results untouched. Missing seed files stop startup with a preparation command rather than leaving an incomplete bucket.
 
-A one-shot `dependencies` service installs from the lockfile into a shared container-only `node_modules` volume before either app starts. The first start requires registry access. Source files are mounted for automatic backend restarts and frontend reloads; frontend polling supports Docker bind mounts. Build output and caches use named volumes, leaving the host build directory available for CDK. After dependency or environment changes, run `docker compose down` followed by `docker compose up` to reinstall as needed and restart both apps.
+The frontend routes `/api` to the backend and `/data` to the local bucket. The backend accesses `http://storage:8333` inside Docker and signs browser uploads for `http://localhost:8333`. All storage writes and reads are local; no AWS profile, SSO login, or `~/.aws` mount is used by Compose. The fixed credentials in Compose are only for this local service. Keep the browser at `http://localhost:8601`, which the local bucket permits for uploads.
 
-The host's `~/.aws` directory is mounted read-only into the backend so it can use its config and SSO cache. Renew SSO with the AWS CLI on the host. Local S3 storage is not part of this stack.
+The bucket persists in the `storage_data` Docker volume. `assets/runtime/` holds the seed inputs, not the storage server's internal files. Do not copy files into the volume directly. `docker compose stop` and `docker compose down` retain data; adding `--volumes` to `down` deletes local projects and other named-volume contents. The next startup recreates and seeds an empty bucket from `assets/runtime/`.
 
-Use `docker compose stop` to stop both apps. You can still run only `docker compose up backend` alongside a host frontend configured with `API_PROXY_TARGET=http://localhost:3000`.
+Source files are mounted for backend restarts and frontend reloads, with polling for Docker bind mounts. Container dependencies, build output, and caches use named volumes. After dependency or environment changes, run `docker compose down` followed by `docker compose up`. To add newly prepared assets to an already running bucket, run:
 
-#### Backend checks
+```sh
+docker compose run --rm --no-deps storage-seed
+```
+
+## Run the app processes on the host
+
+You can use local storage from Docker while running the frontend and backend directly:
+
+```sh
+cp .env.backend.example .env.backend
+docker compose up -d storage
+docker compose run --rm storage-seed
+# In separate terminals:
+yarn start:backend
+yarn start
+```
+
+The example environment files target the local bucket and API. The backend listens on `127.0.0.1:3000` and rebuilds/restarts when its source changes. Restart it after editing `.env.backend`; restart the frontend after editing `.env`. `BACKEND_HOST` and `BACKEND_PORT` override the backend listener.
+
+The Express server calls the same three Lambda handlers as CDK: `POST /api/prepareAssetUpload`, `POST /api/saveProject`, and `POST /api/prepareShareResult`. No API stage prefix is needed. `GET /health` checks the HTTP server, not bucket access. Request bodies are limited to 6 MB.
+
+### Optional deployed backend
+
+For a host frontend using the deployed dev API and bucket, set `PROXY_TARGET=https://dev.maus.metahost.org` in `.env`, unset `API_PROXY_TARGET`, and restart `yarn start`. This mode writes real dev data. It needs no AWS credentials because the deployed API handles writes. Compose always overrides these settings to use local services.
+
+To run a host backend against AWS, follow the remote-mode notes in `.env.backend.example`: remove local endpoint and credential settings, select the remote bucket and AWS profile, and log in with the AWS CLI. Point the host frontend's `/api` at that backend and its `/data` at the matching deployed stage.
+
+### Backend checks
 
 ```sh
 yarn test:backend
 ```
 
-These HTTP tests exercise the actual handlers with mocked S3 calls, covering save, upload, sharing, request validation, and storage errors. They need no AWS credentials and write no AWS data.
+These tests cover the HTTP handlers with mocked S3 calls, request validation, storage errors, and separate internal/browser storage endpoints. They need no AWS credentials and write no AWS data.
 
 Deployment migration is maintained separately on `deploy-2026`. Serverless dependencies have been removed here; the legacy deployment scripts and workflows are pending replacement on that branch and cannot run with this dependency set.
 

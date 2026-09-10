@@ -4,6 +4,7 @@ import * as respond from './lib/respond'
 import isMissingObject from './lib/is-missing-object'
 
 const s3 = initS3()
+const uploadS3 = initS3(process.env.STORAGE_ENDPOINT_FRONTEND || null)
 
 export const handler = async (_event) => {
   const bucket = process.env.STORAGE_BUCKET || process.env.S3_BUCKET_PROJECTS
@@ -35,7 +36,7 @@ export const handler = async (_event) => {
     return respond.error(500, 'Unable to create a unique sharing id.')
   }
 
-  const uploadUrl = await s3.getSignedUrlPromise('putObject', params)
+  const uploadUrl = await uploadS3.getSignedUrlPromise('putObject', params)
 
   return respond.json(200, { uploadUrl, sharingKey })
 }

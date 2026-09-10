@@ -65,6 +65,7 @@ const getProjectContent = function () {
 
   return globby('src/lib/edu/*/project.json', {
     cwd: path.resolve(__dirname, '..', '..'),
+    absolute: true,
   })
     .then((eduProjects) => [defaultPath].concat(eduProjects))
     .then((projectPaths) =>
