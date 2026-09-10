@@ -10,7 +10,7 @@ To install the dependencies, run:
 yarn install
 ```
 
-Build failures for the optional native modules `printer` and `snappy` can be ignored. `printer` is only needed for `yarn start:printer` and requires `libcups2-dev`.
+Build failure for the optional native module `printer` can be ignored. It is only needed for `yarn start:printer` and requires `libcups2-dev`.
 
 Copy the file `.env.example` to `.env`:
 
@@ -68,6 +68,8 @@ yarn test:backend
 ```
 
 These HTTP tests exercise the actual handlers with mocked S3 calls, covering save, upload, sharing, request validation, and storage errors. They need no AWS credentials and write no AWS data.
+
+Deployment uses AWS CDK, see [`cdk/DEPLOYMENT.md`](cdk/DEPLOYMENT.md).
 
 ## Add a new Game
 
