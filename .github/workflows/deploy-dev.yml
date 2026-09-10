@@ -1,0 +1,20 @@
+# Push auf develop -> Deploy auf Stage dev. Zusätzlich manuell per
+# workflow_dispatch (praktisch, um einen Feature-Branch gegen dev zu testen).
+name: Deploy dev
+
+on:
+  push:
+    branches: [develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    #uses: ./.github/workflows/_deploy.yml
+    uses: ./.github/workflows/_deploy-gated.yml
+    with:
+      stage: dev
+      environment: dev
+    secrets: inherit

@@ -1,0 +1,124 @@
+# Deployment-Workflow mit Bestätigung, angedacht für staging und prod
+# Job "plan": führt `cdk synth` aus und schreibt die Ánderungen bzw. das Diff in den Job-Output.
+#   cdk.out wird als Artefakt gespeichert
+# Job "apply": lädt das neue Template (bzw. cdk.out) herunter und deployt es 
+
+name: deploy (gated)
+
+on:
+  workflow_call:
+    inputs:
+      stage:
+        description: CDK-Stage (staging | prod)
+        required: true
+        type: string
+      environment:
+        description: Github-Environment (Approval-Gate + Secrets)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+env:
+  AWS_REGION: eu-central-1
+  NODE_OPTIONS: --max-old-space-size=4096
+
+jobs:
+  # ---- Plan: synth + diff, ohne etwas zu verändern -------------------------
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node 24 einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: yarn
+
+      - name: AWS-Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_2026 }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_2026 }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Frontend-Dependencies installieren
+        run: yarn install --frozen-lockfile --ignore-optional
+
+      - name: Frontend bauen
+        run: yarn build
+        env:
+          NODE_ENV: production
+
+      - name: CDK-Dependencies installieren
+        run: npm ci
+        working-directory: cdk
+
+      - name: CDK synth
+        run: npx cdk synth --context stage=${{ inputs.stage }}
+        working-directory: cdk
+
+      # diff gegen den deployten Stack (change-set-basiert = autoritativ) in die
+      # Run-Summary schreiben, damit Reviewer:innen es VOR der Freigabe sehen.
+      - name: CDK diff → Summary
+        working-directory: cdk
+        run: |
+          npx cdk diff --app cdk.out "MausApp-${{ inputs.stage }}" 2>&1 | tee diff.txt
+          {
+            echo "## CDK diff (${{ inputs.stage }})"
+            echo '```'
+            cat diff.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Cloud Assembly sichern
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloud-assembly-${{ inputs.stage }}
+          path: cdk/cdk.out
+          retention-days: 5
+
+  # ---- Apply: deployt exakt das geplante Assembly, nach Approval ------------
+  apply:
+    needs: plan
+    runs-on: ubuntu-latest
+    # Das Environment ist das Gate: hat es einen Required Reviewer (prod),
+    # pausiert der Run hier, bis freigegeben wird.
+    environment: ${{ inputs.environment }}
+    concurrency:
+      group: deploy-${{ inputs.stage }}
+      cancel-in-progress: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node 24 einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: yarn
+
+      - name: AWS-Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_2026 }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_2026 }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      # Nur die CDK-CLI wird gebraucht; nicht neu bauen/synthen.
+      - name: CDK-Dependencies installieren
+        run: npm ci
+        working-directory: cdk
+
+      - name: Cloud Assembly laden
+        uses: actions/download-artifact@v4
+        with:
+          name: cloud-assembly-${{ inputs.stage }}
+          path: cdk/cdk.out
+
+      - name: CDK deploy (exakt das reviewte Assembly)
+        working-directory: cdk
+        run: npx cdk deploy --app cdk.out "MausApp-${{ inputs.stage }}" --require-approval never
