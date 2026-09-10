@@ -10,7 +10,7 @@ To install the dependencies, run:
 yarn install
 ```
 
-Build failures for the optional native modules `printer` and `snappy` can be ignored. `printer` is only needed for `yarn start:printer` and requires `libcups2-dev`.
+Build failure for the optional native module `printer` can be ignored. It is only needed for `yarn start:printer` and requires `libcups2-dev`.
 
 Copy the file `.env.example` to `.env`:
 
@@ -68,6 +68,8 @@ yarn test:backend
 ```
 
 These HTTP tests exercise the actual handlers with mocked S3 calls, covering save, upload, sharing, request validation, and storage errors. They need no AWS credentials and write no AWS data.
+
+Deployment migration is maintained separately on `deploy-2026`. Serverless dependencies have been removed here; the legacy deployment scripts and workflows are pending replacement on that branch and cannot run with this dependency set.
 
 ## Add a new Game
 
