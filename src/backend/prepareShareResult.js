@@ -1,6 +1,7 @@
 import shortid from 'shortid'
 import initS3 from './lib/s3'
 import * as respond from './lib/respond'
+import isMissingObject from './lib/is-missing-object'
 
 const s3 = initS3()
 
@@ -21,6 +22,7 @@ export const handler = async (_event) => {
       // If this throws, the file does not exists, which means we've found a unique id
       await s3.headObject(params).promise()
     } catch (err) {
+      if (!isMissingObject(err)) throw err
       unique = true
     }
 
@@ -33,7 +35,7 @@ export const handler = async (_event) => {
     return respond.error(500, 'Unable to create a unique sharing id.')
   }
 
-  const uploadUrl = s3.getSignedUrl('putObject', params)
+  const uploadUrl = await s3.getSignedUrlPromise('putObject', params)
 
   return respond.json(200, { uploadUrl, sharingKey })
 }
