@@ -61,6 +61,7 @@
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "es6-object-assign": "^1.1.0",
+    "esbuild": "0.21.5",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-config-scratch": "^5.1.0",
