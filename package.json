@@ -23,9 +23,10 @@
     "assets:download": "aws s3 sync s3://code4maus-assets assets",
     "assets:upload": "aws s3 sync --exclude .gitkeep --exclude .DS_Store assets s3://code4maus-assets",
     "start": "webpack-dev-server",
-    "start:backend": "serverless offline",
+    "start:backend": "node scripts/start-backend.js",
     "start:printer": "node scripts/print-server.js",
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -p 6006",
+    "test:backend": "jest --config scripts/jest.backend.config.js --runInBand"
   },
   "author": "Massachusetts Institute of Technology",
   "license": "BSD-3-Clause",
@@ -49,6 +50,7 @@
     "autoprefixer": "^9.5.0",
     "aws-sdk": "^2.423.0",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^28.1.3",
     "babel-loader": "^8.0.5",
     "babel-plugin-import-noop": "^1.0.1",
     "bowser": "^1.9.3",

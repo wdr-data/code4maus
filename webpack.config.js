@@ -16,7 +16,7 @@ const customHtmlPlugin = require('./scripts/custom-html-plugin')
 const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH
 
 // Dev server proxies /data and /api to a deployed stage (see .env.example).
-// API_PROXY_TARGET overrides /api, e.g. to use a local serverless-offline.
+// API_PROXY_TARGET overrides /api to use the local backend.
 const proxyTarget = process.env.PROXY_TARGET
 const apiProxyTarget = process.env.API_PROXY_TARGET || proxyTarget
 

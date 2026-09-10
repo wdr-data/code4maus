@@ -41,16 +41,33 @@ Saving works against the stage in `PROXY_TARGET`. Asset uploads go from the brow
 
 To run the Lambda handlers from `src/backend` locally instead of using the deployed API:
 
-1. Set up an AWS profile with access to the stage's project bucket, e.g. via `aws configure sso`.
-2. Copy `.env.backend.example` to `.env.backend` and set `STORAGE_BUCKET` to that bucket.
-3. In `.env`, set `API_PROXY_TARGET=http://localhost:3000/dev`.
-4. Start the backend:
+1. Set up an AWS profile with read/write access to the dev project bucket and its KMS key. The example uses the `code4maus-sso` SSO profile.
+2. Copy `.env.backend.example` to `.env.backend`. It sets the dev bucket, region, and AWS profile. Exported environment variables take precedence.
+3. In `.env`, set `API_PROXY_TARGET=http://localhost:3000`. Keep `PROXY_TARGET=https://dev.maus.metahost.org` so reads use the same dev bucket through CloudFront.
+4. Log in and start the backend:
 
 ```sh
-export AWS_PROFILE=<your profile>
-export AWS_SDK_LOAD_CONFIG=1  # required for SSO profiles with aws-sdk v2
+aws sso login --profile code4maus-sso
 yarn start:backend
 ```
+
+Run `yarn start` in another terminal (restart it after changing `.env`). The backend listens on `127.0.0.1:3000` and rebuilds/restarts when backend source files change. Restart `yarn start:backend` after editing `.env.backend`. `BACKEND_HOST` and `BACKEND_PORT` can override the listener; update `API_PROXY_TARGET` if changing the port.
+
+The local Express server calls the same three Lambda handlers as CDK: `POST /api/prepareAssetUpload`, `POST /api/saveProject`, and `POST /api/prepareShareResult`. No API stage prefix is needed. `GET /health` checks the local HTTP server; it does not check AWS access. Request bodies are limited to 6 MB.
+
+Requests to `/api` go through the webpack proxy to the local backend. Reads under `/data` continue through the deployed dev CloudFront distribution, and presigned uploads go directly from the browser to the dev bucket. Saving and sharing therefore write real dev data. Keep the browser at `http://localhost:8601`, which is allowed by the dev bucket's CORS configuration.
+
+If AWS requests fail, check the backend logs and renew the SSO login. Access and credential errors are reported as errors, rather than interpreted as missing assets. The SDK loads and refreshes credentials through its standard credential chain; no keys belong in frontend configuration.
+
+To return to the deployed API, unset `API_PROXY_TARGET` in `.env` and restart `yarn start`.
+
+#### Backend checks
+
+```sh
+yarn test:backend
+```
+
+These HTTP tests exercise the actual handlers with mocked S3 calls, covering save, upload, sharing, request validation, and storage errors. They need no AWS credentials and write no AWS data.
 
 ## Add a new Game
 
