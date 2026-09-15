@@ -30,6 +30,10 @@ npm-*
 /.cache/
 .webpack/
 
+# Untracked project media for libraries, examples, and local bucket seeding
+/assets/runtime/*
+!/assets/runtime/.gitkeep
+
 # Yarn
 yarn-error.log
 
