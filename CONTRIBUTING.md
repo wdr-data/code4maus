@@ -18,14 +18,55 @@ Copy the file `.env.example` to `.env`:
 cp .env.example .env
 ```
 
-`PROXY_TARGET` points the dev server at a deployed stage (default: dev). Requests to `/data` (assets, saved projects) and `/api` (save, share) are proxied there, so no AWS credentials are needed to run the app locally.
+## Project media
 
-Currently, the assets (in `./assets`) are not part of this repository, so you'll have to get them first. For that, you need the AWS CLI and access to the `hackingstudio` AWS profile.
+UI assets and the default project's embedded media are checked into Git. The sprite, costume, backdrop, sound, and educational-project libraries also reference media served from the project bucket under `data/assets/<filename>`.
+
+Keep untracked project media in `assets/runtime/`. Either copy a bundle from another contributor directly into that directory, or download the files referenced by the current checkout:
 
 ```sh
-export AWS_PROFILE=hackingstudio
 yarn assets:download
 ```
+
+Downloads use the public dev site, so no AWS credentials are needed. Only missing files are downloaded; existing local files are kept. Tracked default-project media is reused directly from `assets/project-assets/`. To use another deployed environment as the source:
+
+```sh
+yarn assets:download --source https://programmieren.wdrmaus.de
+```
+
+Check the local collection after switching branches or adding project/library references:
+
+```sh
+yarn assets:check
+```
+
+The check reports missing files, invalid content, filename-hash mismatches, and files not referenced by the current checkout. Missing files, empty files, and HTML error pages fail the check. Hash mismatches are warnings because some existing published media has a filename that no longer matches its content. Downloads never replace existing files; back up a conflicting file before removing it and downloading a replacement.
+
+To delete the unreferenced local files listed by the check:
+
+```sh
+yarn assets:check --prune
+```
+
+Pruning only removes files from `assets/runtime/`, preserving `.gitkeep`. It does not touch bundled media or any bucket. Files for unfinished work or another branch may still be useful, so review the list first.
+
+### Publish new project media
+
+Place new images and sounds in `assets/runtime/` with the filenames referenced by the project/library JSON, then run `yarn assets:check`.
+
+Maintainers publish this media separately from the frontend build. Choose the destination environment's project bucket explicitly, and use an AWS profile with read/write access to that bucket and its encryption key. For an SSO profile, log in first with `aws sso login --profile <profile>`.
+
+```sh
+# Preview which source-referenced files are missing from the destination.
+AWS_PROFILE=<profile> yarn assets:upload --bucket <project-bucket> --dry-run
+
+# Upload the missing files.
+AWS_PROFILE=<profile> yarn assets:upload --bucket <project-bucket>
+```
+
+The upload command uses `data/assets/` in the selected bucket and includes any referenced bundled default media. It defaults to region `eu-central-1`; set `AWS_REGION` for another region. Existing objects are compared with the local files before uploading, and differing content stops the operation. No existing objects are overwritten or deleted: saved user projects can reference media that is absent from the current source tree. New assets must be published to each destination before deploying frontend changes that reference them. UI assets and slides imported by the frontend are included in its normal build and deployment.
+
+For contributions with new untracked media, provide the files to a maintainer as an archive alongside the code review. The JSON references belong in Git; files in `assets/runtime/` do not. Contributors do not need AWS access to develop or submit changes.
 
 ## Run the project
 
@@ -83,9 +124,10 @@ Use `docker compose stop` to stop both apps. You can still run only `docker comp
 
 ```sh
 yarn test:backend
+yarn test:assets
 ```
 
-These HTTP tests exercise the actual handlers with mocked S3 calls, covering save, upload, sharing, request validation, and storage errors. They need no AWS credentials and write no AWS data.
+These HTTP tests exercise the actual handlers with mocked S3 calls, covering save, upload, sharing, request validation, and storage errors. The asset tests exercise downloads, checks/pruning, and publishing with temporary files and a local HTTP server. These tests need no AWS credentials and write no AWS data.
 
 Deployment migration is maintained separately on `deploy-2026`. Serverless dependencies have been removed here; the legacy deployment scripts and workflows are pending replacement on that branch and cannot run with this dependency set.
 
@@ -97,7 +139,7 @@ A game folder should consist of a Scratch 3 `project.json` file and a `game.js`.
 
 The `id` property of the game data (inside each `game.js`) will be used as the slug for the URL. Example: The game with `id: "00"` can be seen at https://programmieren.wdrmaus.de/lernspiel/00
 
-To create your `project.json`, create your project on the [programmieren.wdrrmaus.de](https://programmieren.wdrmaus.de) website and download it.
+To create your `project.json`, create a project in the local app and download it as an `.sb3` file.
 
 ```sh
 # make sure you're in the right folder
@@ -115,7 +157,7 @@ yarn prettier --write ./src/lib/edu/example-your-cool-project/project.json
 
 You can now create the `game.js` and configure your game. Look at the other games to see what to put into your `game.js`.
 
-⚠️ `unzip` will also put the project's asset files (images, sounds, etc) into your game folder. You need to move those into `./assets/project-assets` and sync them to S3. Currently, they should not be uploaded to GitHub.
+`unzip` also puts the project's images and sounds into the game folder. Move those media files into `assets/runtime/`, keeping `project.json` in the game folder. Follow [Publish new project media](#publish-new-project-media) to check, test, and publish them. Keep slide images and other media imported by `game.js` beside the game code and commit them to Git.
 
 ### Slides
 
@@ -176,27 +218,18 @@ export default {
 
 ## Add a costume or sprite
 
-- In programmieren.wdrmaus.de frontend choose upload.
-- Import svg for each costume and import sound.
-- save project
-- download project and change .sb to .zip
-- unpack .zip
-- open project.json in vs code, str+shift+p `format document`
-- then change the name of the new sprites in project.json
-- In your terminal in folder code4maus run `yarn import-sprites all ../sprites_import/wurst/project.json start` with adjusted path to the folder you just downloaded
-  This will change these files:
-  src/lib/libraries/sprites.json
-  src/lib/libraries/costumes.json
-  src/lib/libraries/sounds.json
+1. In the local app, import the costumes and sounds, name the sprites, and download the project as an `.sb3` file.
+2. Unzip the project into a temporary directory. Move its media files into `assets/runtime/` and keep `project.json` for the import command.
+3. Import the library entries with the path to that JSON:
 
-  Add tags for the new sprites and costumes, list of tags can be found here:
-  src/lib/libraries/sprite-tags.json
+   ```sh
+   yarn import-sprites all /path/to/extracted/project.json start
+   ```
 
-  To update a backdrop do the same as with sprites, but add the backdrop as well in
-  src/lib/default-project/project.json
+   This updates `src/lib/libraries/sprites.json`, `costumes.json`, and `sounds.json`. Review the generated entries and add tags from `src/lib/libraries/sprite-tags.json`.
+4. Run `yarn assets:check` and follow [Publish new project media](#publish-new-project-media) to publish and test the library entries in the chosen environment.
 
-  Note:
-  Uploading a new sprite/costume/backdrop on programmmieren.wdrmaus.de will upload the asset into the production bucket. If you want to use this locally also upload it in the staging environment code4maus.de - this will upload the asset into the staging bucket. Recommended: Start by uploading new sprites in staging, download the .sb3 and run the `import-sprites` command, check locally, merge into staging and then upload the .sb3 in programmieren.wdrmaus.de before production deploy.
+If a change also updates the default project, update `src/lib/default-project/project.json` and its bundled media imports in `src/lib/default-project/index.js`. Those embedded files belong in the tracked `assets/project-assets/` directory.
 
 ## Patched block translations
 
