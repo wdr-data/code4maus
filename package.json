@@ -27,7 +27,8 @@
     "start:printer": "node scripts/print-server.js",
     "storybook": "start-storybook -p 6006",
     "test:backend": "jest --config scripts/jest.backend.config.js --runInBand",
-    "test:assets": "node --test scripts/assets.test.cjs"
+    "test:assets": "node --test scripts/assets.test.cjs",
+    "storage:seed": "node scripts/seed-local-storage.js"
   },
   "author": "Massachusetts Institute of Technology",
   "license": "BSD-3-Clause",
