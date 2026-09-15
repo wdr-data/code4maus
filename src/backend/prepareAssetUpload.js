@@ -2,11 +2,8 @@ import initS3 from './lib/s3'
 import * as respond from './lib/respond'
 import isMissingObject from './lib/is-missing-object'
 
-const customEndpoint =
-  'STORAGE_ENDPOINT_FRONTEND' in process.env
-    ? process.env.STORAGE_ENDPOINT_FRONTEND
-    : null
-const s3 = initS3(customEndpoint)
+const s3 = initS3()
+const uploadS3 = initS3(process.env.STORAGE_ENDPOINT_FRONTEND || null)
 
 export const handler = async (event) => {
   const { filename } = JSON.parse(event.body)
@@ -27,6 +24,6 @@ export const handler = async (event) => {
     if (!isMissingObject(error)) throw error
   }
 
-  const uploadUrl = await s3.getSignedUrlPromise('putObject', params)
+  const uploadUrl = await uploadS3.getSignedUrlPromise('putObject', params)
   return respond.json(200, { uploadUrl })
 }
