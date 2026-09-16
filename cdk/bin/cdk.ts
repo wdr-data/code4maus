@@ -10,14 +10,11 @@ const app = new cdk.App()
 const stage = resolveStage(app.node.tryGetContext('stage') ?? process.env.STAGE)
 const config = STAGES[stage]
 
-// tbd: arbeiten wir überhaupt mit hosted zones oder nur externen DNS-Records?
-/*
-const createDnsRecord =
-  (process.env.CREATE_DNS_RECORD ??
-    app.node.tryGetContext('createDnsRecord') ??
-    'true') !== 'false'
-    */
-    const createDnsRecord = false // für Entwicklungsphase und Testing
+// DNS wird org-intern außerhalb von AWS verwaltet; die Records (CNAME auf die
+// CloudFront-Domain) werden manuell gepflegt. Zonenverwaltung in ROute53 ist
+// vorhanden, aber abgeschaltet. Zum Reaktivieren auf true setzen und
+// hostedZoneId/hostedZoneName je Stage in lib/config.ts eintragen.
+const createDnsRecord = false
 
 new MausAppStack(app, `MausApp-${stage}`, {
   stage,

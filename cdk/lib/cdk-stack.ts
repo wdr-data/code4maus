@@ -234,11 +234,18 @@ export class MausAppStack extends cdk.Stack {
       ],
     })
 
-    // DNS (Route53) - optional
+    // DNS (Route53) – derzeit abgeschaltet, DNS wird extern verwaltet
+    // (siehe createDnsRecord in bin/cdk.ts)
     if (createDnsRecord) {
+      const { hostedZoneId, hostedZoneName } = config
+      if (!hostedZoneId || !hostedZoneName) {
+        throw new Error(
+          `createDnsRecord ist aktiv, aber hostedZoneId/hostedZoneName fehlen in der Config für Stage ${stage}`
+        )
+      }
       const zone = route53.HostedZone.fromHostedZoneAttributes(this, 'Zone', {
-        hostedZoneId: config.hostedZoneId,
-        zoneName: config.hostedZoneName,
+        hostedZoneId,
+        zoneName: hostedZoneName,
       })
       new route53.ARecord(this, 'DnsRecord', {
         zone,

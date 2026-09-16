@@ -59,9 +59,17 @@ Die Zertifikat-ARNs werden in `lib/config.ts` je Stage eingetragen.
 
 ### DNS
 
-DNS-Records werden derzeit **extern** verwaltet (`createDnsRecord = false` in `bin/cdk.ts`). Nach dem ersten Deploy gibt CloudFront eine Domain aus (`*.cloudfront.net`), auf die der externe DNS-Record (CNAME oder ALIAS) zeigen muss.
+DNS wird org-intern außerhalb von AWS verwaltet und nicht über Route53 abgebildet. Die Records werden **manuell** gepflegt: Die Stage-Domain zeigt per CNAME auf die CloudFront-Domain (`*.cloudfront.net`) der jeweiligen Distribution. Die Domain muss außerdem im Zertifikat der Stage enthalten sein.
 
-Ob die DNS-Zonen langfristig nach Route53 umgezogen werden, ist noch offen — die Infrastruktur dafür ist vorbereitet (`hostedZoneId`/`hostedZoneName` in `lib/config.ts`).
+CloudFront-Domain einer Stage nachschlagen (die Distribution trägt den Kommentar `Code4Maus <stage>`):
+
+```bash
+aws cloudfront list-distributions \
+  --query "DistributionList.Items[?Comment=='Code4Maus dev'].DomainName" \
+  --output text
+```
+
+Die Route53-Logik ist im Stack noch enthalten, aber abgeschaltet (`createDnsRecord = false` in `bin/cdk.ts`). Zum Reaktivieren müssten zusätzlich `hostedZoneId` und `hostedZoneName` je Stage in `lib/config.ts` eingetragen werden.
 
 ## Setup
 

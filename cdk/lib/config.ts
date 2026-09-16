@@ -9,10 +9,13 @@ export interface StageConfig {
    *     --query "CertificateSummaryList[?DomainName=='*.code4maus.wt.wdr.cloud' || DomainName=='programmieren.wdrmaus.de'].CertificateArn"
    */
   certArn: string
-  /** Route53 hosted zone id (without the /hostedzone/ prefix). */
-  hostedZoneId: string
-  /** Route53 hosted zone name (must end with a trailing dot). */
-  hostedZoneName: string
+  /**
+   * Route53 hosted zone id (without the /hostedzone/ prefix). Only required when
+   * `createDnsRecord` is enabled in bin/cdk.ts – DNS is currently managed outside AWS.
+   */
+  hostedZoneId?: string
+  /** Route53 hosted zone name (must end with a trailing dot). See hostedZoneId. */
+  hostedZoneName?: string
   /** AWS account id (for stack env binding). */
   account: string
   /** AWS region for the stack (everything except the cert lives here). */
@@ -27,29 +30,31 @@ const ACCOUNTS: Record<StageName, string> = {
   dev: '391322831368',
 }
 
-// TODO before first deploy: replace the placeholder certArn (us-east-1) and
-// hostedZoneId values below with the real ones for each stage.
-// Look them up with:
+// TODO before first deploy: replace the placeholder certArn (us-east-1) below
+// with the real one for each stage. Look it up with:
 //   aws acm list-certificates --region us-east-1
-//   aws route53 list-hosted-zones
 const PLACEHOLDER_CERT_ARN =
   'arn:aws:acm:us-east-1:000000000000:certificate/00000000-0000-0000-0000-000000000000'
 
-// tbd: arbeiten wir überhaupt mit hosted zones oder nur externen DNS-Records?
+// hostedZoneId/hostedZoneName sind derzeit nicht in Benutzung: DNS wird
+// org-intern außerhalb von AWS verwaltet und `createDnsRecord` in bin/cdk.ts
+// ist abgeschaltet. Die Felder bleiben auskommentiert stehen, falls die Zonen
+// doch einmal nach Route53 wandern; die IDs müssten dann erst ermittelt werden
+// (`aws route53 list-hosted-zones`).
 export const STAGES: Record<StageName, StageConfig> = {
   prod: {
     domain: 'programmieren.wdrmaus.de',
     certArn: PLACEHOLDER_CERT_ARN,
-    hostedZoneId: 'TODO_PROD_HOSTED_ZONE_ID',
-    hostedZoneName: 'wdrmaus.de.',
+    // hostedZoneId: 'TODO_PROD_HOSTED_ZONE_ID',
+    // hostedZoneName: 'wdrmaus.de.',
     account: ACCOUNTS.prod,
     region: DEFAULT_REGION,
   },
   staging: {
     domain: 'staging.code4maus.wt.wdr.cloud',
     certArn: PLACEHOLDER_CERT_ARN,
-    hostedZoneId: 'TODO_STAGING_HOSTED_ZONE_ID',
-    hostedZoneName: 'code4maus.wt.wdr.cloud.',
+    // hostedZoneId: 'TODO_STAGING_HOSTED_ZONE_ID',
+    // hostedZoneName: 'code4maus.wt.wdr.cloud.',
     account: ACCOUNTS.staging,
     region: DEFAULT_REGION,
   },
@@ -57,8 +62,8 @@ export const STAGES: Record<StageName, StageConfig> = {
     domain: 'dev.maus.metahost.org',
     certArn:
       'arn:aws:acm:us-east-1:391322831368:certificate/b2d1f159-5248-4f44-9bef-b94f9b69b260',
-    hostedZoneId: 'TODO_DEV_HOSTED_ZONE_ID',
-    hostedZoneName: 'maus.metahost.org.',
+    // hostedZoneId: 'TODO_DEV_HOSTED_ZONE_ID',
+    // hostedZoneName: 'maus.metahost.org.',
     account: ACCOUNTS.dev,
     region: DEFAULT_REGION,
   },
