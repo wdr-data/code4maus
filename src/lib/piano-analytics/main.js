@@ -18,7 +18,7 @@ export const paSetConfig = () => {
   if (process.env.BRANCH === 'production') {
     configurations = {
       site: 632700,
-      collectDomain: 'https://ama.wdr.de/',
+      collectDomain: 'https://lwqvhgk.pa-cd.com/',
     }
   } else {
     configurations = {
