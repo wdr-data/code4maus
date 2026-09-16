@@ -101,63 +101,73 @@ Beim ersten Deploy einer neuen Stage: sicherstellen, dass Zertifikat-ARN in `lib
 
 ## CI/CD (GitHub Actions)
 
-Deployments laufen über GitHub Actions. Ein wiederverwendbarer Workflow
-(`.github/workflows/_deploy.yml`) baut das Frontend und führt `cdk deploy` aus;
-drei schlanke Workflows triggern ihn:
+Deployments laufen über GitHub Actions. Die Branch-Namen bilden die Stages ab:
 
-| Workflow | Trigger | Stage | Environment |
-|----------|---------|-------|-------------|
-| `deploy-dev.yml` | Push auf `develop` (+ manuell) | dev | `dev` |
-| `deploy-staging.yml` | Push auf `staging` | staging | `staging` |
-| `deploy-production.yml` | Push auf `production` | prod | `prod` (Approval) |
+| Workflow | Trigger | Stage | Ablauf |
+|----------|---------|-------|--------|
+| `deploy-dev.yml` | Push auf `develop`, manuell (`workflow_dispatch`) | dev | direkt: diff → deploy |
+| `deploy-staging.yml` | Push auf `staging` | staging | gated: plan → Freigabe → apply |
+| `deploy-production.yml` | Push auf `production` | prod | gated: plan → Freigabe → apply |
 
-`pr-checks.yml` baut bei Pull Requests gegen `develop`/`production` das Frontend
-und synthetisiert den Stack (`cdk synth`) — ohne Deploy und ohne AWS-Zugriff, um
-Bundling-, Config- und Template-Fehler vor dem Merge zu fangen.
+Die Trigger-Workflows rufen einen von zwei wiederverwendbaren Workflows auf:
 
-### Authentifizierung (OIDC)
+- **`_deploy.yml`** (dev) baut Frontend und Stack, schreibt `cdk diff` ins Log und deployt direkt.
+- **`_deploy-gated.yml`** (staging, prod) besteht aus zwei Jobs:
+  - `plan` baut und synthetisiert den Stack, schreibt den `cdk diff` in die Run-Summary und sichert das Cloud Assembly (`cdk.out`) als Artefakt.
+  - `apply` ist an das GitHub-Environment gebunden. Hat das Environment einen Required Reviewer, pausiert der Run hier bis zur Freigabe. Danach wird exakt das Assembly aus `plan` deployt (`cdk deploy --app cdk.out`).
 
-Die Workflows nehmen per GitHub-OIDC eine IAM-Deploy-Role an — keine statischen
-Keys. Einmalige AWS-Einrichtung im Zielaccount:
+Freigabe eines gated Deploys: Run öffnen → im `plan`-Job unter *Summary* den Diff prüfen → **Review deployments** → Environment auswählen → **Approve and deploy**. Wird abgelehnt, bleibt der Stack unverändert.
 
-1. OIDC-Provider für GitHub anlegen (falls noch nicht vorhanden):
-   - Provider-URL: `https://token.actions.githubusercontent.com`
-   - Audience: `sts.amazonaws.com`
-2. IAM-Role mit Trust-Policy auf dieses Repo anlegen. Da die Deploy-Jobs ein
-   `environment:` setzen, ist der Token-`sub` environment- (nicht branch-)
-   basiert — die Bedingung muss darauf matchen:
+`pr-checks.yml` baut bei Pull Requests gegen `develop`, `staging` und `production` das Frontend und synthetisiert den Stack (`cdk synth`). Das läuft ohne Deploy und ohne AWS-Zugriff und fängt Bundling-, Config- und Template-Fehler vor dem Merge ab.
 
-   ```json
-   "Condition": {
-     "StringEquals": {
-       "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
-     },
-     "StringLike": {
-       "token.actions.githubusercontent.com:sub": [
-         "repo:wdr-data/code4maus:environment:dev",
-         "repo:wdr-data/code4maus:environment:staging",
-         "repo:wdr-data/code4maus:environment:prod"
-       ]
-     }
-   }
-   ```
-3. Der Role Deploy-Rechte geben: am einfachsten das Annehmen der von
-   `cdk bootstrap` angelegten Rollen erlauben (`sts:AssumeRole` auf
-   `arn:aws:iam::<account>:role/cdk-*`).
+Hinweise zu den Triggern:
+
+- `workflow_dispatch` (manueller Start) steht erst zur Verfügung, wenn der Workflow auf dem Default-Branch (`develop`) liegt. Danach lässt sich beim Start ein beliebiger Branch auswählen.
+
+### Authentifizierung
+
+Die Workflows authentifizieren sich mit den statischen Access Keys eines eigenen IAM-Users (kein OIDC).
+
+Der IAM-User `code4maus-ci-deploy` hat nur programmatischen Zugriff und eine Customer-Managed-Policy (`code4maus-cdk-deploy`). Sie erlaubt ausschließlich, die von `cdk bootstrap` angelegten Rollen anzunehmen und die Bootstrap-Version zu lesen. Die eigentlichen Deploy-Rechte liegen in diesen `cdk-*`-Rollen, nicht beim User.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AssumeCdkRoles",
+      "Effect": "Allow",
+      "Action": "sts:AssumeRole",
+      "Resource": "arn:aws:iam::<account>:role/cdk-hnb659fds-*"
+    },
+    {
+      "Sid": "BootstrapVersion",
+      "Effect": "Allow",
+      "Action": "ssm:GetParameter",
+      "Resource": "arn:aws:ssm:eu-central-1:<account>:parameter/cdk-bootstrap/*"
+    }
+  ]
+}
+```
+
+Die Policy setzt voraus, dass der Account mit dem Default-Qualifier `hnb659fds` gebootstrappt ist. Einen Deploy mit den Keys des CI-Users lokal testen:
+
+```bash
+aws configure --profile code4maus-ci
+AWS_PROFILE=code4maus-ci npx cdk deploy --context stage=dev --require-approval never
+```
 
 ### GitHub-Konfiguration
 
-- Drei Environments anlegen: `dev`, `staging`, `prod`.
-- In jedem Environment die Variable `AWS_DEPLOY_ROLE_ARN` (ARN der Deploy-Role)
-  setzen — bei einem gemeinsamen Account für alle drei dieselbe ARN möglich.
-- Beim Environment `prod` einen **Required Reviewer** hinterlegen, damit der
-  Deploy erst nach manueller Freigabe läuft.
+- Secrets `AWS_ACCESS_KEY_ID_2026` und `AWS_SECRET_ACCESS_KEY_2026` mit den Keys des CI-Users anlegen, als Repo-Secret oder je Environment.
+- Environments `dev`, `staging` und `prod` anlegen. Bei `prod` (und bei Bedarf `staging`) einen **Required Reviewer** hinterlegen. Ohne Reviewer läuft `apply` ohne Pause durch.
 
-### Voraussetzungen vor dem ersten CI-Deploy
+### Voraussetzungen vor dem ersten CI-Deploy einer Stage
 
-- `cdk bootstrap aws://<account>/eu-central-1` einmalig ausführen.
-- Für staging/prod die Platzhalter in `lib/config.ts` (Account, certArn,
-  hostedZoneId) durch echte Werte ersetzen — sonst schlägt deren Deploy fehl.
+- Der Account ist gebootstrappt (`cdk bootstrap aws://<account>/eu-central-1`).
+- Die Platzhalter für Account und `certArn` in `lib/config.ts` sind durch echte Werte ersetzt (betrifft derzeit staging und prod).
+- Der Branch der Stage existiert (`staging` gibt es noch nicht).
+- Nach dem ersten Deploy ist der DNS-Record manuell gesetzt (siehe [DNS](#dns)).
 
 ## Nützliche CDK-Befehle
 

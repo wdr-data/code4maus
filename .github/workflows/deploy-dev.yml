@@ -12,8 +12,7 @@ permissions:
 
 jobs:
   deploy:
-    #uses: ./.github/workflows/_deploy.yml
-    uses: ./.github/workflows/_deploy-gated.yml
+    uses: ./.github/workflows/_deploy.yml
     with:
       stage: dev
       environment: dev
