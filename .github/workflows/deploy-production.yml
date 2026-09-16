@@ -1,0 +1,19 @@
+# Push auf production -> Plan/Approve/Apply auf Stage prod.
+# Das GitHub-Environment "prod" braucht einen Required Reviewer, damit der
+# Apply-Job erst nach manueller Freigabe läuft.
+name: Deploy production
+
+on:
+  push:
+    branches: [production]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/_deploy-gated.yml
+    with:
+      stage: prod
+      environment: prod
+    secrets: inherit

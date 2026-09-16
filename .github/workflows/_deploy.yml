@@ -1,0 +1,72 @@
+# Baut Assets und `cdk deploy`t direkt, ohne Bestätigung
+# intendiert für dev
+name: deploy
+
+on:
+  workflow_call:
+    inputs:
+      stage:
+        description: CDK-Stage (dev / staging / prod)
+        required: true
+        type: string
+      environment:
+        description: GitHub-Environment
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-26.04 # noch in Test -> latest lieber vermeiden
+    #runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    # verhindert überlappende Deploys auf dieselbe Stage
+    concurrency:
+      group: deploy-${{ inputs.stage }}
+      cancel-in-progress: false
+    env:
+      AWS_REGION: eu-central-1
+      NODE_OPTIONS: --max-old-space-size=4096
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node 24 einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: yarn
+
+      - name: AWS-Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_2026 }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_2026 }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      # Frontend-Projekt (yarn). --ignore-optional überspringt native
+      # optional-deps (printer/snappy), die für den Build nicht gebraucht werden
+      - name: Frontend-Dependencies installieren
+        run: yarn install --frozen-lockfile --ignore-optional
+
+      - name: Frontend bauen
+        run: yarn build
+        env:
+          NODE_ENV: production
+
+      # CDK-Projekt (npm). esbuild für das Lambda-Bundling wird aus dem
+      # Repo-Root (yarn) aufgelöst und muss dort nicht erneut installiert werden
+      - name: CDK-Dependencies installieren
+        run: npm ci
+        working-directory: cdk
+
+      # Loggt das diff -> keine Bestätigung nötig
+      - name: CDK diff
+        run: npx cdk diff --context stage=${{ inputs.stage }}
+        working-directory: cdk
+
+      - name: CDK deploy
+        run: npx cdk deploy --context stage=${{ inputs.stage }} --require-approval never
+        working-directory: cdk
