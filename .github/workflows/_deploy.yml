@@ -29,6 +29,7 @@ jobs:
     env:
       AWS_REGION: eu-central-1
       NODE_OPTIONS: --max-old-space-size=4096
+      BRANCH: ${{ github.ref.name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

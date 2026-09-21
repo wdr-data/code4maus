@@ -52,6 +52,7 @@ jobs:
         run: yarn build
         env:
           NODE_ENV: production
+          BRANCH: ${{ github.ref.name }}
 
       - name: CDK-Dependencies installieren
         run: npm ci
@@ -65,6 +66,7 @@ jobs:
       # Run-Summary schreiben, damit Reviewer:innen es VOR der Freigabe sehen.
       - name: CDK diff → Summary
         working-directory: cdk
+        shell: bash
         run: |
           npx cdk diff --app cdk.out "MausApp-${{ inputs.stage }}" 2>&1 | tee diff.txt
           {
