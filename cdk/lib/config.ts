@@ -24,9 +24,10 @@ export interface StageConfig {
 
 const DEFAULT_REGION = 'eu-central-1'
 
+// zukünftig evtl. vereinfachen -> wir bleiben wohl beim Single-Account-Setup
 const ACCOUNTS: Record<StageName, string> = {
-  prod: 'TODO_PROD_ACCOUNT_ID',
-  staging: 'TODO_STAGING_ACCOUNT_ID',
+  prod: '391322831368',
+  staging: '391322831368',
   dev: '391322831368',
 }
 
