@@ -163,6 +163,22 @@ export class MausAppStack extends cdk.Stack {
       compress: true,
     }
 
+    // Liefert die eigenständigen Seiten /teilen und /settings mit ihrer eigenen
+    // index.html aus (Details in functions/entrypoint-rewrite.js). Bei neuen
+    // Einstiegspunkten dort UND in der navigateFallbackDenylist des Service
+    // Workers (webpack.config.js) ergänzen.
+    const entrypointRewrite = new cloudfront.Function(
+      this,
+      'EntrypointRewrite',
+      {
+        runtime: cloudfront.FunctionRuntime.JS_2_0,
+        comment: 'Rewrites /teilen and /settings to their own index.html',
+        code: cloudfront.FunctionCode.fromFile({
+          filePath: path.join(__dirname, '..', 'functions', 'entrypoint-rewrite.js'),
+        }),
+      }
+    )
+
     // Origin für AppBucket: App-Code
     const appOrigin = origins.S3BucketOrigin.withOriginAccessControl(appBucket)
     const distribution = new cloudfront.Distribution(this, 'Distribution', {
@@ -179,6 +195,12 @@ export class MausAppStack extends cdk.Stack {
         cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
         cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
         compress: true,
+        functionAssociations: [
+          {
+            function: entrypointRewrite,
+            eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
+          },
+        ],
       },
       additionalBehaviors: {
         'data/*': dataBehavior,
