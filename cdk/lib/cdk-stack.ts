@@ -72,12 +72,9 @@ export class MausAppStack extends cdk.Stack {
         S3_BUCKET_PROJECTS: projectBucket.bucketName,
         ASSET_BASEURL: `https://${config.domain}`,
         API_HOST: `https://${config.domain}`,
+        NODE_OPTIONS: '--enable-source-maps',
       },
       bundling: {
-        // aws-sdk v2 wird gebundlet, weil neuere Node-Runtimes es nicht mehr mitliefern
-        // TODO ist auch veraltet, austauschen: https://aws.amazon.com/blogs/developer/announcing-end-of-support-for-aws-sdk-for-javascript-v2/
-        nodeModules: ['aws-sdk', 'nanoid', 'shortid'],
-        externalModules: [],
         target: 'node24',
         sourceMap: true,
       },
