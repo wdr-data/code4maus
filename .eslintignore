@@ -1,3 +1,6 @@
 build/*
 dist/*
 lambda/*
+**/*.ts
+cdk/node_modules/*
+cdk/cdk.out/*
