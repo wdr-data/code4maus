@@ -163,16 +163,16 @@ export class MausAppStack extends cdk.Stack {
       compress: true,
     }
 
-    // Liefert die eigenständigen Seiten /teilen und /settings mit ihrer eigenen
-    // index.html aus (Details in functions/entrypoint-rewrite.js). Bei neuen
-    // Einstiegspunkten dort UND in der navigateFallbackDenylist des Service
-    // Workers (webpack.config.js) ergänzen.
+    // Routet Seiten-Requests auf die passende index.html, bevor sie den
+    // App-Bucket erreichen: die Haupt-App sowie die eigenständigen Seiten
+    // /teilen und /settings. Dateien bleiben unangetastet. Details und die
+    // Liste der Dateipfade in functions/entrypoint-rewrite.js.
     const entrypointRewrite = new cloudfront.Function(
       this,
       'EntrypointRewrite',
       {
         runtime: cloudfront.FunctionRuntime.JS_2_0,
-        comment: 'Rewrites /teilen and /settings to their own index.html',
+        comment: 'Routes page requests to the matching index.html',
         code: cloudfront.FunctionCode.fromFile({
           filePath: path.join(__dirname, '..', 'functions', 'entrypoint-rewrite.js'),
         }),
@@ -206,22 +206,6 @@ export class MausAppStack extends cdk.Stack {
         'data/*': dataBehavior,
         'api/*': apiBehavior,
       },
-      // 403 und 404 auf 200 und "Upps!"-Seite umbiegen; Originalverhalten
-      // langfristig vllt. so ändern, dass das nur App-Pfade betrifft und nicht z.B. API-Pfade
-      errorResponses: [
-        {
-          httpStatus: 403,
-          responseHttpStatus: 200,
-          responsePagePath: '/index.html',
-          ttl: Duration.seconds(0),
-        },
-        {
-          httpStatus: 404,
-          responseHttpStatus: 200,
-          responsePagePath: '/index.html',
-          ttl: Duration.seconds(0),
-        },
-      ],
     })
 
     // Frontend in S3
