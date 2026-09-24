@@ -2,7 +2,6 @@ require('dotenv').config()
 
 const path = require('path')
 const webpack = require('webpack')
-const envsub = require('envsubstr')
 
 // Plugins
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -224,14 +223,6 @@ module.exports = {
         },
       ],
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: '_redirects',
-          transform: (content) => envsub(content.toString()),
-        },
-      ],
-    }),
     new webpack.ProvidePlugin({
       Buffer: ['buffer', 'Buffer'],
     }),
@@ -246,7 +237,6 @@ module.exports = {
             exclude: [
               /\.map$/,
               /^manifest.*\.js$/,
-              /_redirects$/,
               /\/1x1\.gif$/,
               /^static\/assets\/edu\/beispiel/,
             ],

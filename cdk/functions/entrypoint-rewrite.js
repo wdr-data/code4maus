@@ -47,8 +47,7 @@ function handler(event) {
     uri.endsWith('.js') ||
     uri.endsWith('.map') ||
     uri.endsWith('.html') ||
-    uri === '/favicon.png' ||
-    uri === '/_redirects'
+    uri === '/favicon.png'
   ) {
     return request
   }
