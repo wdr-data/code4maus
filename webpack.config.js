@@ -2,7 +2,6 @@ require('dotenv').config()
 
 const path = require('path')
 const webpack = require('webpack')
-const envsub = require('envsubstr')
 
 // Plugins
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -188,6 +187,9 @@ module.exports = {
       entrypoint: 'app',
       title: 'Programmieren mit der Maus',
     }),
+    // Eigenständige Seiten neben der Haupt-App. Neue Einträge auch in der
+    // CloudFront Function (cdk/functions/entrypoint-rewrite.js) und in der
+    // navigateFallbackDenylist des Service Workers unten ergänzen.
     customHtmlPlugin({
       entrypoint: 'sharingpage',
       filename: 'teilen/index.html',
@@ -221,14 +223,6 @@ module.exports = {
         },
       ],
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: '_redirects',
-          transform: (content) => envsub(content.toString()),
-        },
-      ],
-    }),
     new webpack.ProvidePlugin({
       Buffer: ['buffer', 'Buffer'],
     }),
@@ -237,11 +231,12 @@ module.exports = {
       ? [
           new GenerateSW({
             navigateFallback: '/index.html',
-            navigateFallbackDenylist: [/^\/data\//],
+            // /teilen und /settings sind eigene Seiten, nicht Teil der Haupt-SPA
+            // Neu hinzukommende Seiten müssen hier und in entrypoint-rewrite.js gepflegt werden!
+            navigateFallbackDenylist: [/^\/data\//, /^\/teilen/, /^\/settings/],
             exclude: [
               /\.map$/,
               /^manifest.*\.js$/,
-              /_redirects$/,
               /\/1x1\.gif$/,
               /^static\/assets\/edu\/beispiel/,
             ],
