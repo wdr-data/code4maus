@@ -63,24 +63,18 @@ Kommt eine weitere eigenständige Seite dazu, muss sie an drei Stellen eingetrag
 
 Zertifikate müssen manuell in ACM in der Region **`us-east-1`** angelegt werden — das ist eine CloudFront-Voraussetzung, unabhängig davon, wo der Rest des Stacks läuft.
 
+Für eine neue Stage: Zertifikat in us-east-1 requesten, per DNS-01-Challenge bestätigen, ARN in `lib/config.ts` eintragen. Der Validierungs-CNAME muss dauerhaft stehen bleiben, ACM prüft ihn bei jeder Erneuerung.
+
 ```bash
 # Vorhandene Zertifikate nachschlagen
 aws acm list-certificates --region us-east-1
 ```
 
-Die Zertifikat-ARNs werden in `lib/config.ts` je Stage eingetragen.
-
 ### DNS
 
 DNS wird org-intern außerhalb von AWS verwaltet und nicht über Route53 abgebildet. Die Records werden **manuell** gepflegt: Die Stage-Domain zeigt per CNAME auf die CloudFront-Domain (`*.cloudfront.net`) der jeweiligen Distribution. Die Domain muss außerdem im Zertifikat der Stage enthalten sein.
 
-CloudFront-Domain einer Stage nachschlagen (die Distribution trägt den Kommentar `Code4Maus <stage>`):
-
-```bash
-aws cloudfront list-distributions \
-  --query "DistributionList.Items[?Comment=='Code4Maus dev'].DomainName" \
-  --output text
-```
+Die CloudFront-Domain steht nach dem Deploy in den Stack-Outputs (`DistributionDomainName`).
 
 Die Route53-Logik ist im Stack noch enthalten, aber abgeschaltet (`createDnsRecord = false` in `bin/cdk.ts`). Zum Reaktivieren müssten zusätzlich `hostedZoneId` und `hostedZoneName` je Stage in `lib/config.ts` eingetragen werden.
 
@@ -88,8 +82,9 @@ Die Route53-Logik ist im Stack noch enthalten, aber abgeschaltet (`createDnsReco
 
 Voraussetzungen:
 - Node.js + npm
-- AWS CLI konfiguriert (`aws sso login` oder Umgebungsvariablen)
+- AWS CLI konfiguriert, Profil für den Zielaccount
 - Das Frontend muss vor dem CDK-Deploy gebaut sein (`yarn build` im Root)
+- Für den lokalen Dev-Server: `.env` im Root anlegen (Vorlage `.env.example`)
 
 ```bash
 cd cdk
@@ -101,14 +96,13 @@ npm run build   # TypeScript kompilieren
 
 ```bash
 # Vorschau: was würde sich ändern?
-STAGE=dev npx cdk diff
+npx cdk diff --context stage=dev --profile pmdm-dev
 
 # Deployen
-STAGE=dev npx cdk deploy
-
-# Alternativ über CDK-Kontext
-npx cdk deploy --context stage=staging
+npx cdk deploy --context stage=dev --profile pmdm-dev
 ```
+
+`stage` ist eines von `dev`, `staging`, `prod`, alternativ per Umgebungsvariable `STAGE`. `--profile` ist der Account-Name in der lokalen AWS-CLI-Config.
 
 Beim ersten Deploy einer neuen Stage: sicherstellen, dass Zertifikat-ARN in `lib/config.ts` eingetragen ist (kein Placeholder mehr).
 
