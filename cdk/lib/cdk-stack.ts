@@ -215,6 +215,12 @@ export class MausAppStack extends cdk.Stack {
       destinationBucket: appBucket,
       prune: false,
       exclude: ['index.html', '**/index.html', 'service-worker.js'],
+      // Ohne mehr Speicher failt die Deployment-Lambda beim Entpacken des
+      // Frontends (rund 80 MB, über 400 Dateien), CloudFormation bekommt keine
+      // Antwort und läuft in einen Timeout. Nicht ohne Test wieder entfernen.
+      // Beide Deployments nutzen denselben Wert, damit sie sich eine Lambda
+      // (und damit eine Rolle) teilen.
+      memoryLimit: 512,
     })
 
     // Deployment für Assets, die nicht gecachet werden sollen
@@ -231,6 +237,8 @@ export class MausAppStack extends cdk.Stack {
           'max-age=0,no-cache,no-store,must-revalidate'
         ),
       ],
+      // Gleicher Wert wie bei FrontendStatic, siehe Kommentar dort.
+      memoryLimit: 512,
     })
 
     frontendHtml.node.addDependency(frontendStatic)
