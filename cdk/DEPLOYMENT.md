@@ -44,7 +44,20 @@ Einstiegspunkt für alle Anfragen, konfiguriert mit drei Origins:
 | `/data/*` | ProjectBucket | deaktiviert |
 | `/api/*` | API Gateway | deaktiviert |
 
-Preisklasse 100 (Europa + USA). TLS-Mindestversion TLS 1.2. 403- und 404-Fehler werden auf `index.html` umgeleitet (SPA-Routing).
+Preisklasse 100 (Europa + USA). TLS-Mindestversion TLS 1.2.
+
+### Routing der Seiten
+
+Eine CloudFront Function (`EntrypointRewrite`, Quelltext in `functions/entrypoint-rewrite.js`) hängt am Default-Behavior und entscheidet vor dem Origin-Zugriff, ob ein Pfad eine Datei im App-Bucket meint oder eine Seite:
+
+- **Dateien** werden unverändert durchgereicht: alles unter `/static/`, alle `.js` und `.map` im Wurzelverzeichnis sowie `/favicon.png` und `/_redirects`.
+- **Seiten** bekommen die passende `index.html`. Die Haupt-App ist eine SPA, alle ihre Routen (`/lernspiele`, `/projekt/123`, …) liefern dieselbe `/index.html`. Daneben gibt es zwei eigenständige Seiten mit eigenem HTML: `/teilen` (Anzeige geteilter Ergebnisse) und `/settings` (Feature-Flags).
+
+Die URL im Browser bleibt dabei unverändert. Die Liste der Dateien ist eine Allowlist: Unbekannte Pfade gelten als Seite und landen in der App, nicht als roher S3-Fehler. Kommt eine neue Datei ins Wurzelverzeichnis (`robots.txt`, `manifest.json`, `/.well-known/…`), muss sie in der Function ergänzt werden.
+
+Bewusst **kein** `errorResponses` an der Distribution: Das hätte für alle Behaviors gegolten und auch Fehler von `/api/*` und `/data/*` in „200 + `index.html`" verwandelt. Fehlende Assets und API-Fehler kommen so als echte Fehler beim Frontend an.
+
+Kommt eine weitere eigenständige Seite dazu, muss sie an drei Stellen eingetragen werden: `customHtmlPlugin` in `webpack.config.js`, die Function in `functions/entrypoint-rewrite.js` und die `navigateFallbackDenylist` des Service Workers.
 
 ### TLS-Zertifikate
 
