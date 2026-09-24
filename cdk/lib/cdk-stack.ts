@@ -210,20 +210,19 @@ export class MausAppStack extends cdk.Stack {
 
     // Frontend in S3
     // Deployment für alle statischen Assets mit Caching
-    new s3deploy.BucketDeployment(this, 'FrontendStatic', {
+    const frontendStatic = new s3deploy.BucketDeployment(this, 'FrontendStatic', {
+      sources: [s3deploy.Source.asset(FRONTEND_BUILD_DIR)],
+      destinationBucket: appBucket,
+      prune: false,
+      exclude: ['index.html', '**/index.html', 'service-worker.js'],
+    })
+
+    // Deployment für Assets, die nicht gecachet werden sollen
+    const frontendHtml = new s3deploy.BucketDeployment(this, 'FrontendHtml', {
       sources: [s3deploy.Source.asset(FRONTEND_BUILD_DIR)],
       destinationBucket: appBucket,
       distribution,
       distributionPaths: ['/*'],
-      prune: true,
-      exclude: ['index.html', '**/index.html', 'service-worker.js'],
-      memoryLimit: 512, // im Auge behalten -> bei Problemen erhöhen, war anfangs zu wenig
-    })
-
-    // Deployment für Assets, die nicht gecachet werden sollen
-    new s3deploy.BucketDeployment(this, 'FrontendHtml', {
-      sources: [s3deploy.Source.asset(FRONTEND_BUILD_DIR)],
-      destinationBucket: appBucket,
       prune: false,
       include: ['index.html', '**/index.html', 'service-worker.js'],
       exclude: ['*'],
@@ -233,6 +232,8 @@ export class MausAppStack extends cdk.Stack {
         ),
       ],
     })
+
+    frontendHtml.node.addDependency(frontendStatic)
 
     // DNS (Route53) – derzeit abgeschaltet, DNS wird extern verwaltet
     // (siehe createDnsRecord in bin/cdk.ts)
