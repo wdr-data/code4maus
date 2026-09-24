@@ -46,7 +46,7 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Frontend-Dependencies installieren
-        run: yarn install --frozen-lockfile --ignore-optional
+        run: yarn install --frozen-lockfile
 
       - name: Frontend bauen
         run: yarn build
