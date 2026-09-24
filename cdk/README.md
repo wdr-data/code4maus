@@ -27,3 +27,7 @@ Details zu Komponenten, Routing, Zertifikaten, DNS und CI/CD: siehe [DEPLOYMENT.
   - Log Groups
   - Assets
   - alte Projekte (Löschfunktion)
+- Legacy-Deployment entfernen
+  - Netlify (ggf. behalten für PR-Previews? Oder wollen wir die anders lösen, wenn überhaupt?)
+  - Workflows
+  - Serverless
