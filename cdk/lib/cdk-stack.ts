@@ -243,6 +243,18 @@ export class MausAppStack extends cdk.Stack {
 
     frontendHtml.node.addDependency(frontendStatic)
 
+    // Wird für den manuell gepflegten DNS-Record gebraucht: Die Stage-Domain
+    // zeigt per CNAME hierauf. Siehe DEPLOYMENT.md, Abschnitt DNS.
+    new cdk.CfnOutput(this, 'DistributionDomainName', {
+      value: distribution.distributionDomainName,
+      description: 'CloudFront-Domain, auf die der DNS-CNAME zeigen muss',
+    })
+
+    new cdk.CfnOutput(this, 'DistributionId', {
+      value: distribution.distributionId,
+      description: 'Distribution-ID, z.B. für manuelle Invalidierungen',
+    })
+
     // DNS (Route53) – derzeit abgeschaltet, DNS wird extern verwaltet
     // (siehe createDnsRecord in bin/cdk.ts)
     if (createDnsRecord) {
