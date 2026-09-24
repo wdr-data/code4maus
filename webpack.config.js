@@ -61,6 +61,8 @@ module.exports = {
     historyApiFallback: true,
     client: {
       overlay: {
+        // Warnings (e.g. production bundle size hints) stay in the terminal.
+        warnings: false,
         // Benign browser notice (triggered e.g. by react-tooltip), not an app error.
         runtimeErrors: (error) =>
           !/ResizeObserver loop/.test(error?.message ?? ''),
