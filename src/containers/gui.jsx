@@ -9,7 +9,6 @@ import {
   activateTab,
   BLOCKS_TAB_INDEX,
   COSTUMES_TAB_INDEX,
-  editorTabNames,
   SOUNDS_TAB_INDEX,
 } from '../reducers/editor-tab'
 
@@ -24,7 +23,6 @@ import GUIComponent from '../components/gui/gui.jsx'
 import { toggleLayoutMode } from '../reducers/layout-mode'
 import { setProjectUnchanged } from '../reducers/project-changed'
 import { buildGuiPage, paEvent } from '../lib/piano-analytics/main'
-import { menuTabTitles } from '../lib/piano-analytics/constants'
 
 class GUI extends React.Component {
   constructor(props) {
@@ -48,14 +46,12 @@ class GUI extends React.Component {
     }
   }
   componentDidUpdate(prevProps) {
-    if (this.props.isNewProject && prevProps.fetchingProject) {
-      logPageDisplay(null, this.props.isNewProject)
-    }
-
-    const eduId = this.props.match.params.eduId
-    const prevEduId = prevProps.match.params.eduId
-    if (eduId && eduId !== prevEduId) {
-      logPageDisplay(eduId, false)
+    if (prevProps.fetchingProject && !this.props.fetchingProject) {
+      logPageDisplay(
+        this.props.eduId,
+        this.props.isNewProject,
+        this.props.activeTabIndex
+      )
     }
 
     if (
@@ -107,7 +103,6 @@ class GUI extends React.Component {
       loadingStateVisible,
       onSetUnchanged, // eslint-disable-line no-unused-vars
       projectData, // eslint-disable-line no-unused-vars
-      isNewProject, // eslint-disable-line no-unused-vars
       staticContext, // eslint-disable-line no-unused-vars
       dispatch, // eslint-disable-line no-unused-vars
       vm,
@@ -155,7 +150,6 @@ const mapStateToProps = (state) => ({
   layoutmode: state.scratchGui.layoutMode,
   saveProjectVisible: state.scratchGui.modals.saveProject,
   eduLayerActive: state.scratchGui.eduLayer.enabled,
-  // eduId: state.scratchGui.eduLayer.gameId,
   isNewProject:
     state.router.location.state && !!state.router.location.state.isNewProject,
 })
@@ -163,18 +157,13 @@ const mapStateToProps = (state) => ({
 const logPageDisplay = (eduId, isNewProject, tab) => {
   const pages = buildGuiPage(eduId, isNewProject, tab)
 
-  paEvent.pageDisplay({ pages: pages, pageType: "Spiele" })
-}
-
-const onTabActivating = (eduId, isNewProject, tab) => {
-  logPageDisplay(eduId, isNewProject, tab)
-  return activateTab(tab)
+  paEvent.pageDisplay({ pages: pages, pageType: 'Spiele' })
 }
 
 const mapDispatchToProps = (dispatch) => ({
   closeSaveModal: () => dispatch(closeSaveProject()),
   onExtensionButtonClick: () => dispatch(openExtensionLibrary()),
-  onActivateTab: (eduId, isNewProject, tab) => dispatch(onTabActivating(eduId, isNewProject, tab)),
+  onActivateTab: (tab) => dispatch(activateTab(tab)),
   onActivateCostumesTab: () => dispatch(activateTab(COSTUMES_TAB_INDEX)),
   onActivateSoundsTab: () => dispatch(activateTab(SOUNDS_TAB_INDEX)),
   onLayoutModeClick: () => dispatch(toggleLayoutMode()),
@@ -188,7 +177,14 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     ...ownProps,
     ...stateProps,
     ...dispatchProps,
-    onActivateTab: (tab) => dispatchProps.onActivateTab(stateProps.eduId, stateProps.isNewProject, tab),
+    eduId,
+    onActivateTab: (tab) => {
+      // react-tabs also fires onSelect for the already active tab
+      if (tab !== stateProps.activeTabIndex) {
+        logPageDisplay(eduId, stateProps.isNewProject, tab)
+      }
+      dispatchProps.onActivateTab(tab)
+    },
     onActivateCostumesTab: () => dispatchProps.onActivateCostumesTab(),
     onActivateSoundsTab: () => dispatchProps.onActivateSoundsTab(),
   }

@@ -102,13 +102,9 @@ export const MenuComponent = (props) => {
           selectedTabClassName={tabClassNames.tabSelected}
           selectedTabPanelClassName={tabClassNames.tabPanelSelected}
           selectedIndex={props.selectedTab}
-          onSelect={(index) => {
-            paEvent.pageDisplay({
-              pages: ['Menu', menuTabTitles[index]],
-              pageType: 'Hauptseite',
-            })
-            return props.handleTabSelected(index)
-          }}
+          onSelect={(index) =>
+            index !== props.selectedTab && props.handleTabSelected(index)
+          }
         >
           <TabList className={tabClassNames.tabList}>
             <Tab className={tabClassNames.tab}>
@@ -200,7 +196,7 @@ export const MenuComponent = (props) => {
               pageType: 'Hauptseite',
               chapter1: 'Exit',
               chapter2: 'Zur Maus-Seite',
-              target: "https://www.wdrmaus.de/"
+              target: 'https://www.wdrmaus.de/',
             })
           }}
         >
