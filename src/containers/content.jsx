@@ -45,10 +45,20 @@ class Content extends React.Component {
   }
 
   componentDidMount() {
-    paEvent.pageDisplay({
-      pages: [this.props.match.params.page],
-      pageType: 'Beitrag',
-    })
+    this.logPageDisplay()
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.page !== this.props.match.params.page) {
+      this.logPageDisplay()
+    }
+  }
+
+  logPageDisplay() {
+    const { page } = this.props.match.params
+    if (page in contentMap) {
+      paEvent.pageDisplay({ pages: [page], pageType: 'Beitrag' })
+    }
   }
 
   render() {
