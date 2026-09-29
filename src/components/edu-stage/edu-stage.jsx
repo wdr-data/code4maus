@@ -16,7 +16,7 @@ import {
 import { eduUrl } from '../../lib/routing'
 import { gamesKeyed } from '../../lib/edu/'
 import VideoPlayer from '../video-player/video-player.jsx'
-import { guiTypePages, paEvent } from '../../lib/piano-analytics/main'
+import { buildGuiPage, paEvent } from '../../lib/piano-analytics/main'
 import styles from './edu-stage.css'
 
 const EduStageComponent = (props) => {
@@ -119,12 +119,16 @@ const EduStageComponent = (props) => {
 }
 
 const sendPaEvent = (props, clickName) => {
-  const pages = guiTypePages(props.gameId)
-  pages.push('Code')
+  const pages = buildGuiPage(props.gameId, false, props.activeTabIndex)
 
-  let target = `${props.slideIndex}/${props.slideCount}`
-  if (clickName == 'Weiter') {
-    target = !props.linkNextGame ? `${props.slideIndex + 2}/${props.slideCount}` : 'Nächstes Lernspiel'
+  // 1-based number of the slide shown after the click
+  let target = `${props.slideIndex + 1}/${props.slideCount}`
+  if (clickName == 'Zurück') {
+    target = `${props.slideIndex}/${props.slideCount}`
+  } else if (clickName == 'Weiter') {
+    target = !props.linkNextGame
+      ? `${props.slideIndex + 2}/${props.slideCount}`
+      : 'Nächstes Lernspiel'
   }
 
   paEvent.clickAction({
@@ -132,7 +136,7 @@ const sendPaEvent = (props, clickName) => {
     pageType: 'Spiele',
     chapter1: 'Tutorial',
     chapter2: clickName,
-    target
+    target,
   })
 }
 
@@ -150,6 +154,7 @@ EduStageComponent.propTypes = {
   slideIndex: PropTypes.number,
   toggleFullscreen: PropTypes.func.isRequired,
   finished: PropTypes.bool,
+  activeTabIndex: PropTypes.number,
   preVideo: PropTypes.string,
   postVideo: PropTypes.string,
 }
@@ -162,6 +167,7 @@ const mapStateToProps = (state, ownProps) => {
     isEnabled: state.scratchGui.eduLayer.enabled,
     imageSrc: '',
     gameId: ownProps.match.params.eduId,
+    activeTabIndex: state.scratchGui.editorTab.activeTabIndex,
     caption: '',
   }
 
