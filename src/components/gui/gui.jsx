@@ -106,11 +106,15 @@ const GUIComponent = (props) => {
 
   const logClickEvent = (eventFn, eventName) => {
     paEvent.clickAction({
-      pages: buildGuiPage(props.eduId, props.isNewProject, props.activeTabIndex),
+      pages: buildGuiPage(
+        props.eduId,
+        props.isNewProject,
+        props.activeTabIndex
+      ),
       pageType: 'Spiele',
       chapter1: 'Speichern',
       chapter2: eventName,
-      target: eventName
+      target: eventName,
     })
     eventFn()
   }
@@ -138,7 +142,12 @@ const GUIComponent = (props) => {
               <p>{saveProjectError}</p>
               <Button
                 style="primary"
-                onClick={() => logClickEvent(() => onSaveProject().then(() => closeSaveModal()), 'Speichern')}
+                onClick={() =>
+                  logClickEvent(
+                    () => onSaveProject().then(() => closeSaveModal()),
+                    'Speichern'
+                  )
+                }
                 disabled={isSaving}
               >
                 Speichern
@@ -164,7 +173,9 @@ const GUIComponent = (props) => {
                 <Button
                   style="secondary"
                   className={styles.saveModalDownload}
-                  onClick={() => logClickEvent(downloadProject, 'Projekt herunterladen')}
+                  onClick={() =>
+                    logClickEvent(downloadProject, 'Projekt herunterladen')
+                  }
                 >
                   Projekt herunterladen
                 </Button>
@@ -172,14 +183,19 @@ const GUIComponent = (props) => {
             </ProjectSaver>
             <SBFileUploader onSuccess={closeSaveModal}>
               {(_, renderFileInput, handleClick) => (
-                <Button
-                  style="secondary"
-                  className={styles.saveModalDownload}
-                  onClick={() => logClickEvent(handleClick, 'Projekt hochladen')}
-                >
-                  Projekt hochladen
+                <>
+                  {/* outside the button, so the input's click doesn't bubble into onClick */}
                   {renderFileInput()}
-                </Button>
+                  <Button
+                    style="secondary"
+                    className={styles.saveModalDownload}
+                    onClick={() =>
+                      logClickEvent(handleClick, 'Projekt hochladen')
+                    }
+                  >
+                    Projekt hochladen
+                  </Button>
+                </>
               )}
             </SBFileUploader>
           </div>
@@ -268,7 +284,14 @@ const GUIComponent = (props) => {
           />
         </div>
         <div className={classNames(styles.column, styles.columnButtons)}>
-          <StageHeader vm={vm} logPageInfo={buildGuiPage(props.eduId, props.isNewProject, props.activeTabIndex)} />
+          <StageHeader
+            vm={vm}
+            logPageInfo={buildGuiPage(
+              props.eduId,
+              props.isNewProject,
+              props.activeTabIndex
+            )}
+          />
         </div>
       </div>
 
@@ -380,6 +403,7 @@ GUIComponent.propTypes = {
   onProjectNameChange: PropTypes.func.isRequired,
   saveProjectError: PropTypes.string,
   eduId: PropTypes.string,
+  isNewProject: PropTypes.bool,
 }
 GUIComponent.defaultProps = {
   basePath: '/',
