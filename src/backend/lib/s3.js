@@ -1,4 +1,4 @@
-import AWS from 'aws-sdk'
+import S3 from 'aws-sdk/clients/s3'
 
 let options = {
   params: {
@@ -40,5 +40,5 @@ export default function (endpoint = null) {
       endpoint,
     }
   }
-  return new AWS.S3(options)
+  return new S3(options)
 }

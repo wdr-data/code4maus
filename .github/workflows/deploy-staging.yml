@@ -1,0 +1,17 @@
+# Push auf staging -> Plan/Approve/Apply auf Stage staging.
+name: Deploy staging
+
+on:
+  push:
+    branches: [staging]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/_deploy-gated.yml
+    with:
+      stage: staging
+      environment: staging
+    secrets: inherit
