@@ -106,6 +106,14 @@ npx cdk deploy --context stage=dev --profile pmdm-dev
 
 Beim ersten Deploy einer neuen Stage: sicherstellen, dass Zertifikat-ARN in `lib/config.ts` eingetragen ist (kein Placeholder mehr).
 
+Der Projekt-Bucket einer neu aufgesetzten Stage ist leer. Die Maus-Assets (Kostüme, Hintergründe, Sounds) müssen einmalig von Hand hineinkopiert werden, sonst fehlen sie in der App, das macht sich an Fragezeichen-Icons bemerkbar. Quelle ist der Projekt-Bucket einer bestehenden Stage oder eine lokale Kopie; die Präfixe `data/assets/` und `assets/` müssen dabei erhalten bleiben. Hier als Beispiel, das die Daten zwischen zwei Umgebungen in einem AWS-Account kopiert: 
+```
+$ aws s3 sync s3://pmdm-projectbucket-dev-391322831368/data/assets/ s3://pmdm-projectbucket-staging-391322831368/data/assets/
+$ aws s3 sync s3://pmdm-projectbucket-dev-391322831368/assets/ s3://pmdm-projectbucket-staging-391322831368/assets/
+```
+
+
+
 ## CI/CD (GitHub Actions)
 
 Deployments laufen über GitHub Actions. Die Branch-Namen bilden die Stages ab:

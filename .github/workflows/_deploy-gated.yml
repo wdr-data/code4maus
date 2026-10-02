@@ -121,6 +121,6 @@ jobs:
           name: cloud-assembly-${{ inputs.stage }}
           path: cdk/cdk.out
 
-      - name: CDK deploy (exakt das reviewte Assembly)
+      - name: CDK deploy (vorher gebautes Assembly)
         working-directory: cdk
         run: npx cdk deploy --app cdk.out "MausApp-${{ inputs.stage }}" --require-approval never
