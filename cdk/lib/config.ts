@@ -52,8 +52,9 @@ export const STAGES: Record<StageName, StageConfig> = {
     region: DEFAULT_REGION,
   },
   staging: {
-    domain: 'staging.code4maus.wt.wdr.cloud',
-    certArn: PLACEHOLDER_CERT_ARN,
+    domain: 'staging.maus.metahost.org',
+    certArn:
+      'arn:aws:acm:us-east-1:391322831368:certificate/c7376bf1-8253-42e3-9385-da8bfaa1ae18',
     // hostedZoneId: 'TODO_STAGING_HOSTED_ZONE_ID',
     // hostedZoneName: 'code4maus.wt.wdr.cloud.',
     account: ACCOUNTS.staging,
