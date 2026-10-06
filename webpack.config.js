@@ -7,7 +7,7 @@ const webpack = require('webpack')
 // Plugins
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const { GenerateSW } = require('workbox-webpack-plugin')
+const { InjectManifest } = require('workbox-webpack-plugin')
 
 // Custom Plugins
 const customHtmlPlugin = require('./scripts/custom-html-plugin')
@@ -256,45 +256,15 @@ module.exports = {
   ].concat(
     enableServiceWorker
       ? [
-          new GenerateSW({
-            navigateFallback: '/index.html',
-            // /teilen und /settings sind eigene Seiten, nicht Teil der Haupt-SPA
-            // Neu hinzukommende Seiten müssen hier und in entrypoint-rewrite.js gepflegt werden!
-            navigateFallbackDenylist: [/^\/data\//, /^\/teilen/, /^\/settings/],
+          new InjectManifest({
+            swSrc: './src/service-worker.js',
+            swDest: 'service-worker.js',
             exclude: [
               /\.map$/,
               /^manifest.*\.js$/,
               /\/1x1\.gif$/,
               /^static\/assets\/edu\/beispiel/,
             ],
-            runtimeCaching: [
-              {
-                urlPattern: ({ url }) => {
-                  return (
-                    url.pathname.startsWith('/data/assets/') ||
-                    url.pathname.startsWith('/static/assets')
-                  )
-                },
-                handler: 'CacheFirst',
-                options: {
-                  cacheName: 'assets',
-                  cacheableResponse: {
-                    statuses: [0, 200],
-                  },
-                },
-              },
-              {
-                urlPattern: new RegExp(/data\/projects\/[^/]+\/index\.json$/),
-                handler: 'NetworkFirst',
-                options: {
-                  cacheName: 'projects',
-                },
-              },
-            ],
-            clientsClaim: true,
-            skipWaiting: true,
-            importScripts: ['/static/sw-helper.js'],
-            cleanupOutdatedCaches: true,
             excludeChunks: ['settings', 'sharingpage', 'mobile-screen'],
             maximumFileSizeToCacheInBytes: 19 * 1024 * 1024,
             manifestTransforms: [precacheProjectMedia],
