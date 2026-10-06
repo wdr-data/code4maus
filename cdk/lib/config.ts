@@ -1,3 +1,5 @@
+import STAGE_DOMAINS from './stage-domains.json'
+
 export type StageName = 'prod' | 'staging' | 'dev'
 
 export interface StageConfig {
@@ -44,7 +46,7 @@ const PLACEHOLDER_CERT_ARN =
 // (`aws route53 list-hosted-zones`).
 export const STAGES: Record<StageName, StageConfig> = {
   prod: {
-    domain: 'programmieren.wdrmaus.de',
+    domain: STAGE_DOMAINS.prod,
     certArn: PLACEHOLDER_CERT_ARN,
     // hostedZoneId: 'TODO_PROD_HOSTED_ZONE_ID',
     // hostedZoneName: 'wdrmaus.de.',
@@ -52,7 +54,7 @@ export const STAGES: Record<StageName, StageConfig> = {
     region: DEFAULT_REGION,
   },
   staging: {
-    domain: 'staging.maus.metahost.org',
+    domain: STAGE_DOMAINS.staging,
     certArn:
       'arn:aws:acm:us-east-1:391322831368:certificate/c7376bf1-8253-42e3-9385-da8bfaa1ae18',
     // hostedZoneId: 'TODO_STAGING_HOSTED_ZONE_ID',
@@ -61,7 +63,7 @@ export const STAGES: Record<StageName, StageConfig> = {
     region: DEFAULT_REGION,
   },
   dev: {
-    domain: 'dev.maus.metahost.org',
+    domain: STAGE_DOMAINS.dev,
     certArn:
       'arn:aws:acm:us-east-1:391322831368:certificate/b2d1f159-5248-4f44-9bef-b94f9b69b260',
     // hostedZoneId: 'TODO_DEV_HOSTED_ZONE_ID',
