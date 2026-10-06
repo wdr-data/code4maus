@@ -108,13 +108,16 @@ npx cdk deploy --context stage=dev --profile pmdm-dev
 
 Beim ersten Deploy einer neuen Stage: sicherstellen, dass Zertifikat-ARN in `lib/config.ts` eingetragen ist (kein Placeholder mehr).
 
-Der Projekt-Bucket einer neu aufgesetzten Stage ist leer. Die Maus-Assets (Kostüme, Hintergründe, Sounds) müssen einmalig von Hand hineinkopiert werden, sonst fehlen sie in der App, das macht sich an Fragezeichen-Icons bemerkbar. Quelle ist der Projekt-Bucket einer bestehenden Stage oder eine lokale Kopie; die Präfixe `data/assets/` und `assets/` müssen dabei erhalten bleiben. Hier als Beispiel, das die Daten zwischen zwei Umgebungen in einem AWS-Account kopiert: 
-```
-$ aws s3 sync s3://pmdm-projectbucket-dev-391322831368/data/assets/ s3://pmdm-projectbucket-staging-391322831368/data/assets/
-$ aws s3 sync s3://pmdm-projectbucket-dev-391322831368/assets/ s3://pmdm-projectbucket-staging-391322831368/assets/
+Der Projekt-Bucket einer neu aufgesetzten Stage ist leer. Die Maus-Assets (Kostüme, Hintergründe, Sounds) müssen einmalig hochgeladen werden, sonst fehlen sie in der App, das macht sich an Fragezeichen-Icons bemerkbar. Im Repo-Root:
+
+```bash
+yarn assets:download   # fehlende Dateien von der dev-Seite nach assets/runtime/, andere Quelle mit --source <url>
+yarn assets:check
+AWS_PROFILE=pmdm-dev yarn assets:upload --bucket pmdm-projectbucket-staging-391322831368 --dry-run
+AWS_PROFILE=pmdm-dev yarn assets:upload --bucket pmdm-projectbucket-staging-391322831368
 ```
 
-
+`assets:upload` schreibt nur fehlende Dateien nach `data/assets/` und überschreibt oder löscht nichts. Neue Assets werden genauso veröffentlicht, siehe „Publish new project media“ in [`CONTRIBUTING.md`](../CONTRIBUTING.md#publish-new-project-media).
 
 ## CI/CD (GitHub Actions)
 
