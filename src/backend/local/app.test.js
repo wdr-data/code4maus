@@ -105,6 +105,39 @@ test('accepts project payloads above Express default and writes project/index', 
   )
 })
 
+test('saving with an existing id updates that index entry', async () => {
+  s3.putObject.mockReturnValue({ promise: () => Promise.resolve({}) })
+  s3.getObject.mockReturnValue({
+    promise: () =>
+      Promise.resolve({
+        Body: Buffer.from(
+          JSON.stringify({
+            abc123: { name: 'Old name', created_at: 1, updated_at: 1 },
+          })
+        ),
+      }),
+  })
+  const response = await post(
+    'saveProject',
+    JSON.stringify({
+      data: JSON.stringify({ meta: { agent: 'test' } }),
+      userId: 'local-test-user',
+      name: 'New name',
+      id: 'abc123',
+    })
+  )
+  expect(response.status).toBe(200)
+  expect(await response.json()).toEqual({ id: 'abc123' })
+  expect(s3.putObject.mock.calls[0][0].Key).toBe(
+    'data/projects/local-test-user/abc123.json'
+  )
+  const index = JSON.parse(s3.putObject.mock.calls[1][0].Body)
+  expect(Object.keys(index)).toEqual(['abc123'])
+  expect(index.abc123.name).toBe('New name')
+  expect(index.abc123.created_at).toBe(1)
+  expect(index.abc123.updated_at).toBeGreaterThan(1)
+})
+
 test('rejects oversized requests', async () => {
   expect(
     (await post('saveProject', 'x'.repeat(6 * 1024 * 1024 + 1))).status
