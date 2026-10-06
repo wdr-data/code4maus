@@ -161,15 +161,6 @@ module.exports = {
         include: /node_modules/,
         type: 'javascript/auto',
       },
-      {
-        test: require.resolve('zepto'),
-        use: [
-          {
-            loader: 'imports-loader',
-            options: 'this=>window',
-          },
-        ],
-      },
     ],
   },
   optimization: {
@@ -178,9 +169,6 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.DEBUG': 'process.env.DEBUG',
-      'process.env.ENABLE_TRACKING': JSON.stringify(
-        Boolean(branch === 'production')
-      ),
       'process.env.BRANCH': JSON.stringify(branch),
     }),
     customHtmlPlugin({
