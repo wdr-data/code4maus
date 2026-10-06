@@ -1,15 +1,17 @@
 require('dotenv').config()
 
+const fs = require('fs')
 const path = require('path')
 const webpack = require('webpack')
 
 // Plugins
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const { GenerateSW } = require('workbox-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const { InjectManifest } = require('workbox-webpack-plugin')
 
 // Custom Plugins
 const customHtmlPlugin = require('./scripts/custom-html-plugin')
-// const { getAssetsList } = require('./scripts/generate-s3-sw-precache-plugin')
+const { getAllAssets } = require('./scripts/lib/assets')
 
 const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH
 const bucketSuffix = branch === 'production' ? 'prod' : 'staging'
@@ -22,6 +24,18 @@ const bucketUrl = `https://${
 const enableServiceWorker =
   'ENABLE_SERVICE_WORKER' in process.env ||
   process.env.NODE_ENV === 'production'
+
+// Precache project media loaded from /data/assets/ for offline mode.
+// Default project media is bundled and excluded.
+const precacheProjectMedia = async (entries) => {
+  const bundled = new Set(
+    fs.readdirSync(path.join(__dirname, 'assets/project-assets'))
+  )
+  const media = (await getAllAssets())
+    .filter((name) => !bundled.has(name))
+    .map((name) => ({ url: `/data/assets/${name}`, revision: null, size: 0 }))
+  return { manifest: entries.concat(media), warnings: [] }
+}
 
 // fix for Netlify, where we cannot define AWS_REGION in the environment
 if ('FUNCTIONS_AWS_REGION' in process.env) {
@@ -162,6 +176,14 @@ module.exports = {
         type: 'javascript/auto',
       },
       {
+        // Prebuilt emscripten worker, shipped as-is and excluded from minification.
+        test: /ffmpeg\.js[\\/]ffmpeg-worker-mp4\.js$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/ffmpeg-worker-mp4.[contenthash][ext]',
+        },
+      },
+      {
         test: require.resolve('zepto'),
         use: [
           {
@@ -174,6 +196,11 @@ module.exports = {
   },
   optimization: {
     runtimeChunk: 'single',
+    minimizer: [
+      new TerserPlugin({
+        exclude: /ffmpeg-worker-mp4/,
+      }),
+    ],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -229,47 +256,18 @@ module.exports = {
   ].concat(
     enableServiceWorker
       ? [
-          new GenerateSW({
-            navigateFallback: '/index.html',
-            // /teilen und /settings sind eigene Seiten, nicht Teil der Haupt-SPA
-            // Neu hinzukommende Seiten müssen hier und in entrypoint-rewrite.js gepflegt werden!
-            navigateFallbackDenylist: [/^\/data\//, /^\/teilen/, /^\/settings/],
+          new InjectManifest({
+            swSrc: './src/service-worker.js',
+            swDest: 'service-worker.js',
             exclude: [
               /\.map$/,
               /^manifest.*\.js$/,
               /\/1x1\.gif$/,
               /^static\/assets\/edu\/beispiel/,
             ],
-            runtimeCaching: [
-              {
-                urlPattern: ({ url }) => {
-                  return (
-                    url.pathname.startsWith('/data/assets/') ||
-                    url.pathname.startsWith('/static/assets')
-                  )
-                },
-                handler: 'CacheFirst',
-                options: {
-                  cacheName: 'assets',
-                  cacheableResponse: {
-                    statuses: [0, 200],
-                  },
-                },
-              },
-              {
-                urlPattern: new RegExp(/data\/projects\/[^/]+\/index\.json$/),
-                handler: 'NetworkFirst',
-                options: {
-                  cacheName: 'projects',
-                },
-              },
-            ],
-            clientsClaim: true,
-            skipWaiting: true,
-            importScripts: ['/static/sw-helper.js'],
-            cleanupOutdatedCaches: true,
             excludeChunks: ['settings', 'sharingpage', 'mobile-screen'],
             maximumFileSizeToCacheInBytes: 19 * 1024 * 1024,
+            manifestTransforms: [precacheProjectMedia],
           }),
         ]
       : []
