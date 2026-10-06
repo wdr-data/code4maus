@@ -1178,7 +1178,7 @@
     "@babel/plugin-transform-modules-commonjs" "^7.24.7"
     "@babel/plugin-transform-typescript" "^7.24.7"
 
-"@babel/register@^7.12.1", "@babel/register@^7.4.4":
+"@babel/register@^7.12.1":
   version "7.24.6"
   resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.24.6.tgz#59e21dcc79e1d04eed5377633b0f88029a6bef9e"
   integrity sha512-WSuFCc2wCqMeXkz/i3yfAAsxwWflEgbVkZzivgAmXl/MxrXeoYFZOOPllbC8R8WTF7u61wSRQtDVZ1879cdu6w==
@@ -5025,11 +5025,6 @@ babel-plugin-formatjs@^10.5.16:
     "@types/babel__helper-plugin-utils" "^7.10.0"
     "@types/babel__traverse" "^7.1.7"
     tslib "^2.4.0"
-
-babel-plugin-import-noop@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-import-noop/-/babel-plugin-import-noop-1.0.1.tgz#ceb9afa4006de68579fe676afc77dc1899a146eb"
-  integrity sha512-LcEOxEZ+/QZvO0BqTuDfOg6dISFEZjIJ2kep+kaVSl/D4MtiYy/TvZgqe5P19atn6nG0HPpvVz6n8Gl5Ab/XXw==
 
 babel-plugin-istanbul@^6.1.1:
   version "6.1.1"

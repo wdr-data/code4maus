@@ -1,5 +1,6 @@
 require('dotenv').config()
 
+const fs = require('fs')
 const path = require('path')
 const webpack = require('webpack')
 
@@ -10,7 +11,7 @@ const { GenerateSW } = require('workbox-webpack-plugin')
 
 // Custom Plugins
 const customHtmlPlugin = require('./scripts/custom-html-plugin')
-// const { getAssetsList } = require('./scripts/generate-s3-sw-precache-plugin')
+const { getAllAssets } = require('./scripts/lib/assets')
 
 const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH
 const bucketSuffix = branch === 'production' ? 'prod' : 'staging'
@@ -23,6 +24,18 @@ const bucketUrl = `https://${
 const enableServiceWorker =
   'ENABLE_SERVICE_WORKER' in process.env ||
   process.env.NODE_ENV === 'production'
+
+// Precache project media loaded from /data/assets/ for offline mode.
+// Default project media is bundled and excluded.
+const precacheProjectMedia = async (entries) => {
+  const bundled = new Set(
+    fs.readdirSync(path.join(__dirname, 'assets/project-assets'))
+  )
+  const media = (await getAllAssets())
+    .filter((name) => !bundled.has(name))
+    .map((name) => ({ url: `/data/assets/${name}`, revision: null, size: 0 }))
+  return { manifest: entries.concat(media), warnings: [] }
+}
 
 // fix for Netlify, where we cannot define AWS_REGION in the environment
 if ('FUNCTIONS_AWS_REGION' in process.env) {
@@ -284,6 +297,7 @@ module.exports = {
             cleanupOutdatedCaches: true,
             excludeChunks: ['settings', 'sharingpage', 'mobile-screen'],
             maximumFileSizeToCacheInBytes: 19 * 1024 * 1024,
+            manifestTransforms: [precacheProjectMedia],
           }),
         ]
       : []
