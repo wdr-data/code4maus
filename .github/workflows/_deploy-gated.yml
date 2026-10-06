@@ -52,6 +52,7 @@ jobs:
         run: yarn build
         env:
           NODE_ENV: production
+          STAGE: ${{ inputs.stage }}
           BRANCH: ${{ github.ref_name }}
 
       - name: CDK-Dependencies installieren
