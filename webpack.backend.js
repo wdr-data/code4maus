@@ -1,11 +1,9 @@
 /* eslint-disable import/no-commonjs */
-const slsw = require('serverless-webpack')
 const babelConfig = require('./babel.backend')
 
 require('dotenv').config({ silent: true, path: '.env.backend' })
 
 module.exports = {
-  entry: slsw.lib.entries,
   mode: 'production',
   target: 'node',
   module: {

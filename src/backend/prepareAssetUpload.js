@@ -1,5 +1,6 @@
 import initS3 from './lib/s3'
 import * as respond from './lib/respond'
+import isMissingObject from './lib/is-missing-object'
 
 const customEndpoint =
   'STORAGE_ENDPOINT_FRONTEND' in process.env
@@ -22,10 +23,10 @@ export const handler = async (event) => {
   try {
     await s3.headObject(params).promise()
     return respond.error(409, 'Asset already exists.', { exists: true })
-  } catch (_error) {
-    // Asset does not exist, which is good. Just continue.
+  } catch (error) {
+    if (!isMissingObject(error)) throw error
   }
 
-  const uploadUrl = s3.getSignedUrl('putObject', params)
+  const uploadUrl = await s3.getSignedUrlPromise('putObject', params)
   return respond.json(200, { uploadUrl })
 }
