@@ -7,8 +7,10 @@ Im Zuge der App-Erneuerung wurde das Deployment im Mai 2026 vom Serverless Frame
 | Stage | Domain | Projekt-Bucket |
 |-------|--------|----------------|
 | `dev` | `dev.maus.metahost.org` | `pmdm-projectbucket-dev-<account>` |
-| `staging` | `staging.code4maus.wt.wdr.cloud` | `pmdm-projectbucket-staging-<account>` |
+| `staging` | `staging.maus.metahost.org` | `pmdm-projectbucket-staging-<account>` |
 | `prod` | `programmieren.wdrmaus.de` | `pmdm-projectbucket-prod-<account>` |
+
+Die Domains stehen in `lib/stage-domains.json`. Der Frontend-Build liest sie ebenfalls, für die Seiten-URLs in den Meta-Tags; die Deploy-Workflows geben ihm dafür die Stage per `STAGE` mit.
 
 Die aktive Stage wird über die Umgebungsvariable `STAGE` oder den CDK-Kontext-Parameter `--context stage=<stage>` gesetzt. Ohne Angabe wird `dev` verwendet.
 

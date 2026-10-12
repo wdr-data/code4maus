@@ -54,6 +54,7 @@ jobs:
         run: yarn build
         env:
           NODE_ENV: production
+          STAGE: ${{ inputs.stage }}
 
       # CDK-Projekt (npm). esbuild für das Lambda-Bundling wird aus dem
       # Repo-Root (yarn) aufgelöst und muss dort nicht erneut installiert werden
