@@ -14,12 +14,11 @@ const customHtmlPlugin = require('./scripts/custom-html-plugin')
 const { getAllAssets } = require('./scripts/lib/assets')
 
 const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH
-const bucketSuffix = branch === 'production' ? 'prod' : 'staging'
-const bucketUrl = `https://${
-  process.env.S3_BUCKET_PREFIX
-}-${bucketSuffix}.s3.dualstack.${
-  process.env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION
-}.amazonaws.com`
+
+// Dev server proxies /data and /api to a deployed stage (see .env.example).
+// API_PROXY_TARGET overrides /api to use the local backend.
+const proxyTarget = process.env.PROXY_TARGET
+const apiProxyTarget = process.env.API_PROXY_TARGET || proxyTarget
 
 const enableServiceWorker =
   'ENABLE_SERVICE_WORKER' in process.env ||
@@ -43,35 +42,37 @@ if ('FUNCTIONS_AWS_REGION' in process.env) {
 }
 
 const isEnvProduction = process.env.NODE_ENV === 'production'
+const dockerWatch = process.env.DOCKER_WATCH === '1'
 
 module.exports = {
   mode: isEnvProduction ? 'production' : 'development',
   devtool: 'source-map',
+  watchOptions: dockerWatch ? { aggregateTimeout: 300, poll: 1000 } : {},
   devServer: {
-    static: {
-      directory: path.join(__dirname, 'build'),
-      watch:
-        process.env.DOCKER_WATCH === 1
-          ? {
-              aggregateTimeout: 300,
-              poll: 1000,
-            }
-          : {},
-    },
+    static: false,
     host: '0.0.0.0',
     port: process.env.PORT || 8601,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000/dev',
+        target: apiProxyTarget,
         changeOrigin: true,
         secure: false,
       },
       '/data': {
-        target: bucketUrl,
+        target: proxyTarget,
         changeOrigin: true,
       },
     },
     historyApiFallback: true,
+    client: {
+      overlay: {
+        // Warnings (e.g. production bundle size hints) stay in the terminal.
+        warnings: false,
+        // Benign browser notice (triggered e.g. by react-tooltip), not an app error.
+        runtimeErrors: (error) =>
+          !/ResizeObserver loop/.test(error?.message ?? ''),
+      },
+    },
   },
   entry: {
     app: './src/entrypoints/index.jsx',
