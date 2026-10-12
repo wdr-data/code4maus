@@ -33,6 +33,14 @@ registerRoute(
 precacheAndRoute(self.__WB_MANIFEST)
 cleanupOutdatedCaches()
 
+// Serve the precached settings page for /settings too. The precache route
+// only appends index.html to URLs ending in a slash.
+registerRoute(
+  new NavigationRoute(createHandlerBoundToURL('/settings/index.html'), {
+    allowlist: [/^\/settings\/?$/],
+  })
+)
+
 // /teilen und /settings sind eigene Seiten, nicht Teil der Haupt-SPA
 // Neu hinzukommende Seiten müssen hier, in webpack.config.js und in
 // cdk/functions/entrypoint-rewrite.js gepflegt werden!

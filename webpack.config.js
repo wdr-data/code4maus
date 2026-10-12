@@ -264,8 +264,10 @@ module.exports = {
               /^manifest.*\.js$/,
               /\/1x1\.gif$/,
               /^static\/assets\/edu\/beispiel/,
+              // Shows shared media from /data/sharing/, useless offline
+              /^teilen\//,
             ],
-            excludeChunks: ['settings', 'sharingpage', 'mobile-screen'],
+            excludeChunks: ['sharingpage', 'mobile-screen'],
             maximumFileSizeToCacheInBytes: 19 * 1024 * 1024,
             manifestTransforms: [precacheProjectMedia],
           }),
