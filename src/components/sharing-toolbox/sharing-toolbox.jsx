@@ -12,7 +12,7 @@ import VM from 'scratch-vm'
 import QRCode from 'qrcode.react'
 import html2canvas from 'html2canvas'
 import JsPDF from 'jspdf'
-import ffmpegWorkerPath from 'file-loader!ffmpeg.js/ffmpeg-worker-mp4' // eslint-disable-line import/no-unresolved
+import ffmpegWorkerPath from 'ffmpeg.js/ffmpeg-worker-mp4'
 
 import InlineSvg from '../inline-svg/inline-svg.jsx'
 import Modal from '../modal/modal.jsx'

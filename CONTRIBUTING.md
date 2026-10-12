@@ -2,11 +2,15 @@
 
 ## Initial Setup
 
+Use the Node version from `.nvmrc` (`nvm use`). Yarn 1 is pinned via `packageManager` in `package.json`, so corepack picks it up automatically.
+
 To install the dependencies, run:
 
 ```sh
 yarn install
 ```
+
+Build failures for the optional native modules `printer` and `snappy` can be ignored. `printer` is only needed for `yarn start:printer` and requires `libcups2-dev`.
 
 Copy the file `.env.example` to `.env`:
 

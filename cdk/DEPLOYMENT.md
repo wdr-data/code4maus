@@ -57,7 +57,7 @@ Die URL im Browser bleibt dabei unverändert. Die Liste der Dateien ist eine All
 
 Bewusst **kein** `errorResponses` an der Distribution: Das hätte für alle Behaviors gegolten und auch Fehler von `/api/*` und `/data/*` in „200 + `index.html`" verwandelt. Fehlende Assets und API-Fehler kommen so als echte Fehler beim Frontend an.
 
-Kommt eine weitere eigenständige Seite dazu, muss sie an drei Stellen eingetragen werden: `customHtmlPlugin` in `webpack.config.js`, die Function in `functions/entrypoint-rewrite.js` und die `navigateFallbackDenylist` des Service Workers.
+Kommt eine weitere eigenständige Seite dazu, muss sie an drei Stellen eingetragen werden: `customHtmlPlugin` in `webpack.config.js`, die Function in `functions/entrypoint-rewrite.js` und die `denylist` der `NavigationRoute` in `src/service-worker.js`.
 
 ### TLS-Zertifikate
 

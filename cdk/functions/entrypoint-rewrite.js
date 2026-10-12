@@ -23,7 +23,7 @@ function handler(event) {
 
   // Eigenständige Seiten mit eigener index.html (webpack.config.js,
   // customHtmlPlugin mit `filename`). Neue Seiten hier, in webpack.config.js
-  // und in der navigateFallbackDenylist des Service Workers ergänzen.
+  // und in der denylist der NavigationRoute in src/service-worker.js ergänzen.
   var pages = {
     '/teilen': '/teilen/index.html',
     '/teilen/': '/teilen/index.html',
