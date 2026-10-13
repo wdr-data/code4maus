@@ -23,6 +23,8 @@ permissions:
 env:
   AWS_REGION: eu-central-1
   NODE_OPTIONS: --max-old-space-size=4096
+  # Nur relevant, wenn der Wartungsmodus in lib/config.ts aktiv ist
+  MAINTENANCE_TOKEN: ${{ secrets.MAINTENANCE_TOKEN }}
 
 jobs:
   # ---- Plan: synth + diff, ohne etwas zu verändern -------------------------

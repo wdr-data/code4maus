@@ -18,6 +18,12 @@ export interface StageConfig {
   hostedZoneId?: string
   /** Route53 hosted zone name (must end with a trailing dot). See hostedZoneId. */
   hostedZoneName?: string
+  /**
+   * Wartungsmodus: liefert statt der App eine Wartungsseite aus und sperrt
+   * /api und /data. Per Context übersteuerbar (`-c maintenance=true`), siehe
+   * bin/cdk.ts. Braucht zusätzlich einen `maintenanceToken` für den Bypass.
+   */
+  maintenance?: boolean
   /** AWS account id (for stack env binding). */
   account: string
   /** AWS region for the stack (everything except the cert lives here). */

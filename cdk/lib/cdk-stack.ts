@@ -1,3 +1,4 @@
+import * as fs from 'fs'
 import * as path from 'path'
 import * as cdk from 'aws-cdk-lib/core'
 import { Construct } from 'constructs'
@@ -18,13 +19,18 @@ export interface MausAppStackProps extends StackProps {
   stage: StageName
   config: StageConfig
   createDnsRecord: boolean
+  /** Wartungsseite statt App ausliefern, /api und /data sperren. */
+  maintenance: boolean
+  /** Token für den Bypass (`?bypass=<token>`), nur bei maintenance relevant. */
+  maintenanceToken: string
 }
 
 export class MausAppStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props: MausAppStackProps) {
     super(scope, id, props)
 
-    const { stage, config, createDnsRecord } = props
+    const { stage, config, createDnsRecord, maintenance, maintenanceToken } =
+      props
 
     // S3
     const appBucket = new s3.Bucket(this, 'AppBucket', {
@@ -140,8 +146,62 @@ export class MausAppStack extends cdk.Stack {
 
     const apiOrigin = new origins.RestApiOrigin(api)
 
+    // CloudFront Functions werden 1:1 hochgeladen, es gibt also keinen Build.
+    // Die Konfiguration kommt deshalb hier als Prelude davor; die Dateien
+    // deklarieren die Namen per `/* global */` und bleiben so lintbar.
+    const functionsDir = path.join(__dirname, '..', 'functions')
+    const readFunctionFile = (name: string) =>
+      fs.readFileSync(path.join(functionsDir, name), 'utf8')
+    const functionPrelude = [
+      `var MAINTENANCE = ${maintenance};`,
+      `var BYPASS_TOKEN = ${JSON.stringify(maintenanceToken)};`,
+    ].join('\n')
+
+    // Routet Seiten-Requests auf die passende index.html, bevor sie den
+    // App-Bucket erreichen: die Haupt-App sowie die eigenständigen Seiten
+    // /teilen und /settings. Dateien bleiben unangetastet. Im Wartungsmodus
+    // beantwortet sie stattdessen alles selbst. Details in
+    // functions/entrypoint-rewrite.js.
+    const entrypointRewrite = new cloudfront.Function(
+      this,
+      'EntrypointRewrite',
+      {
+        runtime: cloudfront.FunctionRuntime.JS_2_0,
+        comment: 'Routes page requests to the matching index.html',
+        code: cloudfront.FunctionCode.fromInline(
+          [functionPrelude, readFunctionFile('entrypoint-rewrite.js')].join(
+            '\n'
+          )
+        ),
+      }
+    )
+
+    // Sperrt /api und /data während der Wartung. Wird nur dann überhaupt
+    // angelegt und verknüpft, sonst würde sie im Normalbetrieb mitlaufen.
+    const maintenanceBlock = maintenance
+      ? new cloudfront.Function(this, 'MaintenanceBlock', {
+          runtime: cloudfront.FunctionRuntime.JS_2_0,
+          comment: 'Blocks /api and /data while maintenance mode is on',
+          code: cloudfront.FunctionCode.fromInline(
+            [functionPrelude, readFunctionFile('maintenance-block.js')].join(
+              '\n'
+            )
+          ),
+        })
+      : undefined
+
+    const maintenanceAssociations = maintenanceBlock
+      ? [
+          {
+            function: maintenanceBlock,
+            eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
+          },
+        ]
+      : undefined
+
     const apiBehavior: cloudfront.BehaviorOptions = {
       origin: apiOrigin,
+      functionAssociations: maintenanceAssociations,
       viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       allowedMethods: cloudfront.AllowedMethods.ALLOW_ALL,
       cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
@@ -156,28 +216,13 @@ export class MausAppStack extends cdk.Stack {
       origins.S3BucketOrigin.withOriginAccessControl(projectBucket)
     const dataBehavior: cloudfront.BehaviorOptions = {
       origin: projectsOrigin,
+      functionAssociations: maintenanceAssociations,
       viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD,
       cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
       cachePolicy: cloudfront.CachePolicy.CACHING_DISABLED, // vorsichtige Einstellung zu Beginn -> langfristig evtl cachen
       compress: true,
     }
-
-    // Routet Seiten-Requests auf die passende index.html, bevor sie den
-    // App-Bucket erreichen: die Haupt-App sowie die eigenständigen Seiten
-    // /teilen und /settings. Dateien bleiben unangetastet. Details und die
-    // Liste der Dateipfade in functions/entrypoint-rewrite.js.
-    const entrypointRewrite = new cloudfront.Function(
-      this,
-      'EntrypointRewrite',
-      {
-        runtime: cloudfront.FunctionRuntime.JS_2_0,
-        comment: 'Routes page requests to the matching index.html',
-        code: cloudfront.FunctionCode.fromFile({
-          filePath: path.join(__dirname, '..', 'functions', 'entrypoint-rewrite.js'),
-        }),
-      }
-    )
 
     // Origin für AppBucket: App-Code
     const appOrigin = origins.S3BucketOrigin.withOriginAccessControl(appBucket)

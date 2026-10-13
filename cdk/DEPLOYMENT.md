@@ -80,6 +80,18 @@ Die CloudFront-Domain steht nach dem Deploy in den Stack-Outputs (`DistributionD
 
 Die Route53-Logik ist im Stack noch enthalten, aber abgeschaltet (`createDnsRecord = false` in `bin/cdk.ts`). Zum Reaktivieren müssten zusätzlich `hostedZoneId` und `hostedZoneName` je Stage in `lib/config.ts` eingetragen werden.
 
+### Wartungsmodus
+
+Ist er aktiv, liefert CloudFront bei jedem Seitenaufruf die Wartungsseite aus, ohne dass die App geladen wird. `/api/*` und `/data/*` werden mit `503` und dem Header `x-maintenance: 1` gesperrt, es kann also währenddessen nichts gespeichert und nichts nachgeladen werden.
+
+Eingeschaltet wird er über `maintenance: true` bei der Stage in `lib/config.ts`, also per PR und regulärem Deploy. Dadurch führt jeder Deploy den aktuellen Stand mit und kann ihn nicht versehentlich abschalten. Für den Fall, dass nicht über CI deployt werden kann, geht es auch per Context: `-c maintenance=true`.
+
+Für den Zugriff trotz Wartungsmodus braucht es einen Token. In CI kommt er aus dem Secret `MAINTENANCE_TOKEN`, lokal aus `-c maintenanceToken=…`. Ohne Token bricht der Synth ab, damit man sich nicht selbst aussperrt. Einmal `https://<domain>/?bypass=<token>` aufrufen: Das setzt ein Cookie, danach ist die Stage normal benutzbar.
+
+Die Wartungsseite liegt unter `static/wartung.html` im Repo-Root und wird mit dem Frontend in den App-Bucket deployt. Die CloudFront Function schreibt im Wartungsmodus alle Anfragen darauf um; `/static/*` bleibt erreichbar, die Seite kann also eigene Bilder oder Stylesheets nutzen. Durch das Umschreiben kommt sie mit Status `200` statt `503`, deshalb steht `noindex` darin.
+
+Nicht abgedeckt: Wer die App geöffnet hat, behält die Oberfläche, weil der Service Worker sie aus dem Cache ausliefert. Speichern und Nachladen schlagen aber fehl, sobald die API oder `/data` gebraucht wird.
+
 ## Setup
 
 Voraussetzungen:
