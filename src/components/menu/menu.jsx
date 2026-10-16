@@ -148,13 +148,7 @@ export const MenuComponent = (props) => {
           </TabPanel>
           <TabPanel className={tabClassNames.tabPanel}>
             <div className={styles.sectionBody}>
-              <Link
-                to={{
-                  pathname: '/projekt/neu',
-                  state: { isNewProject: true },
-                }}
-                className={styles.newButton}
-              >
+              <Link to="/projekt/neu" className={styles.newButton}>
                 <InlineSVG Svg={ButtonNew} className={styles.newButtonIcon} />
                 Neu
               </Link>
