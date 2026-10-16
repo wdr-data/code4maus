@@ -299,22 +299,24 @@ class Stage extends React.Component {
     }
     this.setState({ mouseDownTimeoutId: null })
   }
-  drawDragCanvas(drawableData) {
-    const { data, width, height, x, y } = drawableData
-    this.dragCanvas.width = width
-    this.dragCanvas.height = height
-    // Need to convert uint8array from WebGL readPixels into Uint8ClampedArray
-    // for ImageData constructor. Shares underlying buffer, so it is fast.
-    const imageData = new ImageData(
-      new Uint8ClampedArray(data.buffer),
-      width,
-      height
-    )
+  drawDragCanvas(drawableData, x, y) {
+    const {
+      imageData,
+      x: boundsX,
+      y: boundsY,
+      width: boundsWidth,
+      height: boundsHeight,
+    } = drawableData
+    this.dragCanvas.width = imageData.width
+    this.dragCanvas.height = imageData.height
+    // On high-DPI devices the extracted image is larger than its CSS size
+    this.dragCanvas.style.width = `${boundsWidth}px`
+    this.dragCanvas.style.height = `${boundsHeight}px`
     this.dragCanvas.getContext('2d').putImageData(imageData, 0, 0)
-    // Position so that pick location is at (0, 0) so that  positionDragCanvas()
+    // Position so that pick location is at (0, 0) so that positionDragCanvas()
     // can use translation to move to mouse position smoothly.
-    this.dragCanvas.style.left = `${-x}px`
-    this.dragCanvas.style.top = `${-y}px`
+    this.dragCanvas.style.left = `${boundsX - x}px`
+    this.dragCanvas.style.top = `${boundsY - y}px`
     this.dragCanvas.style.display = 'block'
   }
   clearDragCanvas() {
@@ -334,28 +336,30 @@ class Stage extends React.Component {
     if (drawableId === null) {
       return
     }
-    const drawableData = this.renderer.extractDrawable(drawableId, x, y)
     const targetId = this.props.vm.getTargetIdForDrawableId(drawableId)
     if (targetId === null) {
       return
     }
+    const target = this.props.vm.runtime.getTargetById(targetId)
 
     // Only start drags on non-draggable targets in editor drag mode
-    if (!this.props.useEditorDragStyle) {
-      const target = this.props.vm.runtime.getTargetById(targetId)
-      if (!target.draggable) {
-        return
-      }
+    if (!(this.props.useEditorDragStyle || target.draggable)) {
+      return
     }
+
+    const [scratchMouseX, scratchMouseY] = this.getScratchCoords(x, y)
+    const offsetX = target.x - scratchMouseX
+    const offsetY = -(target.y + scratchMouseY)
 
     this.props.vm.startDrag(targetId)
     this.setState({
       isDragging: true,
       dragId: targetId,
-      dragOffset: drawableData.scratchOffset,
+      dragOffset: [offsetX, offsetY],
     })
     if (this.props.useEditorDragStyle) {
-      this.drawDragCanvas(drawableData)
+      const drawableData = this.renderer.extractDrawableScreenSpace(drawableId)
+      this.drawDragCanvas(drawableData, x, y)
       this.positionDragCanvas(x, y)
       this.props.vm.postSpriteInfo({ visible: false })
     }
