@@ -13,7 +13,6 @@ import AppStateHOC, { history } from '../lib/app-state-hoc.jsx'
 import styles from '../css/index.css'
 import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx'
 
-import withTracking from '../lib/tracking-hoc.jsx'
 import localeDe from '../../translations/de.json'
 import storage, { s3userFile } from '../lib/storage'
 import { setUserId } from '../reducers/project'
@@ -271,9 +270,7 @@ const ConnectedApp = connect(
   })
 )(App)
 
-const WrappedApp = ErrorBoundaryHOC('Top Level App')(
-  AppStateHOC(withTracking(ConnectedApp))
-)
+const WrappedApp = ErrorBoundaryHOC('Top Level App')(AppStateHOC(ConnectedApp))
 
 WrappedApp.setAppElement = ReactModal.setAppElement
 export default WrappedApp
