@@ -259,7 +259,12 @@ export class MausAppStack extends cdk.Stack {
       sources: [s3deploy.Source.asset(FRONTEND_BUILD_DIR)],
       destinationBucket: appBucket,
       prune: false,
-      exclude: ['index.html', '**/index.html', 'service-worker.js'],
+      exclude: [
+        'index.html',
+        '**/index.html',
+        'service-worker.js',
+        'maintenance.html',
+      ],
       // Ohne mehr Speicher failt die Deployment-Lambda beim Entpacken des
       // Frontends (rund 80 MB, über 400 Dateien), CloudFormation bekommt keine
       // Antwort und läuft in einen Timeout. Nicht ohne Test wieder entfernen.
@@ -275,7 +280,12 @@ export class MausAppStack extends cdk.Stack {
       distribution,
       distributionPaths: ['/*'],
       prune: false,
-      include: ['index.html', '**/index.html', 'service-worker.js'],
+      include: [
+        'index.html',
+        '**/index.html',
+        'service-worker.js',
+        'maintenance.html',
+      ],
       exclude: ['*'],
       cacheControl: [
         s3deploy.CacheControl.fromString(

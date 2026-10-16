@@ -21,9 +21,9 @@
 
 /* global MAINTENANCE, BYPASS_TOKEN */
 
-// Liegt im Frontend unter static/wartung.html und wird mit dem Build in den
-// App-Bucket deployt.
-var MAINTENANCE_PAGE = '/static/wartung.html'
+// Eigenständige Seite ohne externe Assets, gebaut von `yarn build` aus
+// maintenance/ (siehe maintenance/README.md).
+var MAINTENANCE_PAGE = '/maintenance.html'
 
 function hasBypassCookie(request) {
   var cookies = request.cookies
@@ -68,12 +68,7 @@ function handler(event) {
     }
 
     if (!hasBypassCookie(request)) {
-      // Alles unter /static/ durchlassen, damit die Wartungsseite eigene
-      // Bilder oder Stylesheets nutzen kann. Alles andere, inklusive der
-      // App-Bundles im Wurzelverzeichnis, bekommt die Wartungsseite.
-      if (!uri.startsWith('/static/')) {
-        request.uri = MAINTENANCE_PAGE
-      }
+      request.uri = MAINTENANCE_PAGE
       return request
     }
   }

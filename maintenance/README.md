@@ -8,6 +8,9 @@ Deployment-Umgebung.
 - `yarn build:maintenance` erzeugt daraus `build/maintenance.html`: eine
   einzelne Datei, in der Stylesheet, Bilder, Favicon und Schriften eingebettet
   sind. Sie lädt nichts nach und funktioniert ohne den Rest der App.
+  `yarn build` baut sie mit.
+- Ausgeliefert wird sie im Wartungsmodus, siehe Abschnitt „Wartungsmodus“ in
+  [cdk/DEPLOYMENT.md](../cdk/DEPLOYMENT.md).
 - Externe Assets (`https://…` in `src`, `url()` oder `<link href>`) bricht der
   Build ab. Normale Links (`<a href>`) sind erlaubt.
 

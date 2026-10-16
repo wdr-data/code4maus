@@ -88,7 +88,7 @@ Eingeschaltet wird er über `maintenance: true` bei der Stage in `lib/config.ts`
 
 Für den Zugriff trotz Wartungsmodus braucht es einen Token. In CI kommt er aus dem Secret `MAINTENANCE_TOKEN`, lokal aus `-c maintenanceToken=…`. Ohne Token bricht der Synth ab, damit man sich nicht selbst aussperrt. Einmal `https://<domain>/?bypass=<token>` aufrufen: Das setzt ein Cookie, danach ist die Stage normal benutzbar.
 
-Die Wartungsseite liegt unter `static/wartung.html` im Repo-Root und wird mit dem Frontend in den App-Bucket deployt. Die CloudFront Function schreibt im Wartungsmodus alle Anfragen darauf um; `/static/*` bleibt erreichbar, die Seite kann also eigene Bilder oder Stylesheets nutzen. Durch das Umschreiben kommt sie mit Status `200` statt `503`, deshalb steht `noindex` darin.
+Die Wartungsseite entsteht bei `yarn build` als `build/maintenance.html` (Quelle und Bearbeitung: [maintenance/README.md](../maintenance/README.md)) und wird bei jedem Deploy ungecacht in den App-Bucket gelegt, auch ohne Wartungsmodus. Auf einer Stage lässt sie sich deshalb jederzeit unter `/maintenance.html` ansehen. Sie bettet alle Bilder und Schriften ein, die CloudFront Function schreibt im Wartungsmodus also ausnahmslos alle Anfragen auf sie um. Durch das Umschreiben kommt sie mit Status `200` statt `503`, deshalb steht `noindex` darin.
 
 Nicht abgedeckt: Wer die App geöffnet hat, behält die Oberfläche, weil der Service Worker sie aus dem Cache ausliefert. Speichern und Nachladen schlagen aber fehl, sobald die API oder `/data` gebraucht wird.
 
