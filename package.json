@@ -5,8 +5,9 @@
   "main": "./dist/scratch-gui.js",
   "scripts": {
     "postinstall": "patch-package",
-    "build": "webpack --bail",
+    "build": "webpack --bail && yarn build:maintenance",
     "build:backend:netlify": "webpack -c webpack.netlify-functions.js",
+    "build:maintenance": "node scripts/build-maintenance-page.js",
     "build:netlify": "yarn build && yarn build:backend:netlify",
     "build:patternlib": "build-storybook -o .patternlib",
     "build:printserver:win": "pkg -t node10-win --out-path dist/ scripts/print-server.js",

@@ -15,11 +15,63 @@
 // Wird 1:1 hochgeladen (nicht gebündelt/übersetzt): nur einfaches JavaScript,
 // kein import/export, max. 10 KB. Runtime 2.0, daher sind startsWith/endsWith
 // verfügbar.
+//
+// MAINTENANCE und BYPASS_TOKEN werden beim Synth vorangestellt
+// (lib/cdk-stack.ts).
+
+/* global MAINTENANCE, BYPASS_TOKEN */
+
+// Eigenständige Seite ohne externe Assets, gebaut von `yarn build` aus
+// maintenance/ (siehe maintenance/README.md).
+var MAINTENANCE_PAGE = '/maintenance.html'
+
+function hasBypassCookie(request) {
+  var cookies = request.cookies
+  return !!(
+    BYPASS_TOKEN &&
+    cookies &&
+    cookies.pmdm_bypass &&
+    cookies.pmdm_bypass.value === BYPASS_TOKEN
+  )
+}
 
 // eslint-disable-next-line no-unused-vars
 function handler(event) {
   var request = event.request
   var uri = request.uri
+
+  if (MAINTENANCE) {
+    // `?bypass=<token>` setzt das Cookie und leitet auf dieselbe URL ohne
+    // Query um. Danach trägt jeder weitere Request das Cookie, auch für
+    // Unterressourcen.
+    var query = request.querystring
+    if (
+      BYPASS_TOKEN &&
+      query &&
+      query.bypass &&
+      query.bypass.value === BYPASS_TOKEN
+    ) {
+      return {
+        statusCode: 302,
+        statusDescription: 'Found',
+        headers: {
+          location: { value: uri },
+          'cache-control': { value: 'no-store' },
+          'set-cookie': {
+            value:
+              'pmdm_bypass=' +
+              BYPASS_TOKEN +
+              '; Path=/; Max-Age=86400; Secure; HttpOnly; SameSite=Lax',
+          },
+        },
+      }
+    }
+
+    if (!hasBypassCookie(request)) {
+      request.uri = MAINTENANCE_PAGE
+      return request
+    }
+  }
 
   // Eigenständige Seiten mit eigener index.html (webpack.config.js,
   // customHtmlPlugin mit `filename`). Neue Seiten hier, in webpack.config.js
