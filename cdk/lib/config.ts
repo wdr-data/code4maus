@@ -53,7 +53,8 @@ const PLACEHOLDER_CERT_ARN =
 export const STAGES: Record<StageName, StageConfig> = {
   prod: {
     domain: STAGE_DOMAINS.prod,
-    certArn: PLACEHOLDER_CERT_ARN,
+    certArn:
+      'arn:aws:acm:us-east-1:391322831368:certificate/22374de3-ab9f-451a-8328-9c514ab9746d',
     // hostedZoneId: 'TODO_PROD_HOSTED_ZONE_ID',
     // hostedZoneName: 'wdrmaus.de.',
     maintenance: false,
