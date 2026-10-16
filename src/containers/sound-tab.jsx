@@ -48,13 +48,14 @@ class SoundTab extends React.Component {
     if (!target || !target.sounds) {
       return
     }
-  
-    if (prevProps.editingTarget !== this.props.editingTarget) {
-      this.setState({ selectedSoundIndex: 0 })
-    } else if (this.state.selectedSoundIndex > target.sounds.length - 1) {
-      this.setState({
-        selectedSoundIndex: Math.max(target.sounds.length - 1, 0),
-      })
+
+    const { selectedSoundIndex } = this.state
+    const nextIndex =
+      prevProps.editingTarget !== editingTarget
+        ? 0
+        : Math.min(selectedSoundIndex, Math.max(target.sounds.length - 1, 0))
+    if (nextIndex !== selectedSoundIndex) {
+      this.setState({ selectedSoundIndex: nextIndex })
     }
   }
 
