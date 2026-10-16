@@ -76,7 +76,7 @@ export const STAGES: Record<StageName, StageConfig> = {
       'arn:aws:acm:us-east-1:391322831368:certificate/b2d1f159-5248-4f44-9bef-b94f9b69b260',
     // hostedZoneId: 'TODO_DEV_HOSTED_ZONE_ID',
     // hostedZoneName: 'maus.metahost.org.',
-    maintenance: true,
+    maintenance: false,
     account: ACCOUNTS.dev,
     region: DEFAULT_REGION,
   },
