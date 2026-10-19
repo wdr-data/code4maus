@@ -15,6 +15,13 @@ const { getAllAssets } = require('./scripts/lib/assets')
 
 const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH
 
+// Selects the Piano Analytics site, or disables tracking entirely
+const trackingModes = ['off', 'test', 'production']
+const trackingMode = process.env.TRACKING_MODE || 'off'
+if (!trackingModes.includes(trackingMode)) {
+  throw new Error(`Invalid TRACKING_MODE: ${trackingMode}`)
+}
+
 // Dev server proxies /data and /api to a deployed stage (see .env.example).
 // API_PROXY_TARGET overrides /api to use the local backend.
 const proxyTarget = process.env.PROXY_TARGET
@@ -198,6 +205,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.DEBUG': JSON.stringify(Boolean(process.env.DEBUG)),
       'process.env.BRANCH': JSON.stringify(branch),
+      'process.env.TRACKING_MODE': JSON.stringify(trackingMode),
     }),
     customHtmlPlugin({
       entrypoint: 'app',

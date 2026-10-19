@@ -1,4 +1,3 @@
-import { pianoAnalytics } from 'piano-analytics-js'
 import { editorTabNames } from '../../reducers/editor-tab'
 import {
   EVENTS,
@@ -7,21 +6,26 @@ import {
   menuTabTitles,
 } from './constants'
 
-export const paSetConfig = () => {
-  let configurations
+const SITES = {
+  production: {
+    site: 632700,
+    collectDomain: 'https://lwqvhgk.pa-cd.com/',
+  },
+  test: {
+    site: 621455,
+    collectDomain: 'https://logs1414.xiti.com/',
+  },
+}
 
-  if (process.env.BRANCH === 'production') {
-    configurations = {
-      site: 632700,
-      collectDomain: 'https://lwqvhgk.pa-cd.com/',
-    }
-  } else {
-    configurations = {
-      site: 621455,
-      collectDomain: 'https://logs1414.xiti.com/',
-    }
-  }
-  pianoAnalytics.setConfigurations(configurations)
+// Compared against the DefinePlugin constant so webpack drops the library when tracking is off
+const pianoAnalytics =
+  process.env.TRACKING_MODE !== 'off'
+    ? require('piano-analytics-js').pianoAnalytics
+    : null
+
+export const paSetConfig = () => {
+  if (!pianoAnalytics) return
+  pianoAnalytics.setConfigurations(SITES[process.env.TRACKING_MODE])
 }
 
 const pageLevelKeys = [
@@ -31,6 +35,8 @@ const pageLevelKeys = [
 ]
 
 const sendEvent = (eventKey, data) => {
+  if (!pianoAnalytics) return
+
   let properties = { ...DEFAULT_PROPERTY_VALUES }
 
   switch (typeof data) {
