@@ -57,11 +57,13 @@ function handler(event) {
         headers: {
           location: { value: uri },
           'cache-control': { value: 'no-store' },
-          'set-cookie': {
-            value:
-              'pmdm_bypass=' +
-              BYPASS_TOKEN +
-              '; Path=/; Max-Age=86400; Secure; HttpOnly; SameSite=Lax',
+        },
+        // Cookies gehören bei CloudFront Functions in ein eigenes Feld,
+        // ein 'set-cookie' in headers wird als ungültig abgewiesen.
+        cookies: {
+          pmdm_bypass: {
+            value: BYPASS_TOKEN,
+            attributes: 'Path=/; Max-Age=86400; Secure; HttpOnly; SameSite=Lax',
           },
         },
       }
