@@ -23,6 +23,24 @@ const pianoAnalytics =
     ? require('piano-analytics-js').pianoAnalytics
     : null
 
+const OPTOUT_MODE = 'optout'
+const VISITOR_COOKIES = ['_pcid', '_pctx']
+
+export const paIsOptedOut = () =>
+  !!pianoAnalytics && pianoAnalytics.privacy.getMode() === OPTOUT_MODE
+
+// The SDK stores the mode in its pa_privacy cookie and keeps the visitor ID
+// cookies on opt-out, so remove them here.
+export const paSetOptOut = (optOut) => {
+  if (!pianoAnalytics) return
+  pianoAnalytics.privacy.setMode(optOut ? OPTOUT_MODE : 'optin')
+  if (optOut) {
+    VISITOR_COOKIES.forEach((name) => {
+      document.cookie = `${name}=; path=/; max-age=0`
+    })
+  }
+}
+
 export const paSetConfig = () => {
   if (!pianoAnalytics) return
   pianoAnalytics.setConfigurations(SITES[process.env.TRACKING_MODE])
@@ -36,6 +54,9 @@ const pageLevelKeys = [
 
 const sendEvent = (eventKey, data) => {
   if (!pianoAnalytics) return
+
+  // Skipping the SDK entirely also keeps it from writing visitor ID cookies.
+  if (paIsOptedOut()) return
 
   let properties = { ...DEFAULT_PROPERTY_VALUES }
 

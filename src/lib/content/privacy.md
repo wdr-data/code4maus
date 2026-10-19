@@ -1,5 +1,7 @@
 ---
 title: Datenschutz
+imports:
+  PianoOptOut: '../../components/piano-opt-out/piano-opt-out.jsx'
 ---
 
 ## So gehen wir mit Ihren Daten um
@@ -33,10 +35,14 @@ Der WDR wird Ihre Daten nur an Dritte weitergeben:
 
 Zu statistischen Zwecken werden sogenannte Zählpixel eingesetzt, die Daten in anonymisierter Form zu Optimierungs- und Studienzwecken sammeln und speichern. Aus diesen Daten werden nicht personenbezogene Auswertungen zur Nutzung unserer Internetangebote erstellt. Die Daten werden nicht dazu genutzt, den Besucher unserer Website persönlich zu identifizieren und sie werden nicht mit anderen Daten zusammengeführt. Diese Messung wurde unter Beachtung des Datenschutzes entwickelt. Ihre Identität bleibt immer geschützt. Sie erhalten über das System keine Werbung.
 
-### Analyse zur Optimierung durch Webtrekk
-
-Um dieses Online-Angebot ständig optimieren zu können, setzt der WDR zusätzlich eine Lösung der Firma Webtrekk GmbH www.webtrekk.com zur Analyse der Verwendung der Website ein. Auf diese Weise kann die Nutzung der Website ausgewertet und wertvolle Informationen über die Bedürfnisse unserer Nutzer gesammelt werden. Durch die Ergebnisse dieser Analysen kann die Nutzerfreundlichkeit unserer Seite und die Qualität unserer Angebote erhöht werden.
-
-Um diese Analysen durchführen zu können, sammelt Webtrekk aggregierte und anonyme statistische Daten. Bei diesen Daten handelt es sich um Verbindungsdaten ohne Personenbezug, die mit dem verwendeten Browser, der Anzahl der Seitenaufrufe und Visits, dem Navigationsverhalten und der Verweildauer des Internetusers auf einer Website, einer Seite usw. im Zusammenhang stehen.
-
 Darüber hinaus werden bei diesem Verfahren sogenannte "permanente Cookies" eingesetzt. Diese Cookies werden in Form von Textdateien im Browser des Besuchers der Website gespeichert. Sie ermöglichen die Erkennung eines Nutzers bei einem wiederholten Besuch der Website.
+
+### Analyse zur Optimierung durch Piano Analytics
+
+Bei _Programmieren mit der Maus_ werden Nutzungsinformationen über das Messverfahren von Piano Analytics in anonymisierter Form gesammelt und gespeichert. Dazu ist ein JavaScript in die Anwendung eingebaut, um die Messung von Zugriffszahlen zu ermöglichen. Auch hier können in keinem Fall die gewonnenen Daten dazu verwendet werden, den Besucher dieser Webseite persönlich zu identifizieren. Die gesammelten Daten werden lediglich zur Verbesserung des Angebotes genutzt. Deshalb werden alle IP-Adressen nur in anonymisierter Form gespeichert. Eine andere Verwendung oder Weitergabe an Dritte erfolgt nicht. Sie können aber der vollkommen anonymen Analyse Ihres Surfverhaltens hier widersprechen.
+
+Für einen Widerspruch müssen Sie die sogenannte „Opt-out“-Funktion aktivieren. Ihr Widerspruch wird in einem Cookie in diesem Browser gespeichert. Wenn Sie Ihre Cookies löschen oder einen anderen Browser nutzen, müssen Sie erneut widersprechen.
+
+```render html
+<PianoOptOut />
+```
