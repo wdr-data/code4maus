@@ -196,7 +196,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.DEBUG': 'process.env.DEBUG',
+      'process.env.DEBUG': JSON.stringify(Boolean(process.env.DEBUG)),
       'process.env.BRANCH': JSON.stringify(branch),
     }),
     customHtmlPlugin({

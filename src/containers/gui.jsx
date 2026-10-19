@@ -150,8 +150,6 @@ const mapStateToProps = (state) => ({
   layoutmode: state.scratchGui.layoutMode,
   saveProjectVisible: state.scratchGui.modals.saveProject,
   eduLayerActive: state.scratchGui.eduLayer.enabled,
-  isNewProject:
-    state.router.location.state && !!state.router.location.state.isNewProject,
 })
 
 const logPageDisplay = (eduId, isNewProject, tab) => {
@@ -181,7 +179,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     onActivateTab: (tab) => {
       // react-tabs also fires onSelect for the already active tab
       if (tab !== stateProps.activeTabIndex) {
-        logPageDisplay(eduId, stateProps.isNewProject, tab)
+        logPageDisplay(eduId, ownProps.isNewProject, tab)
       }
       dispatchProps.onActivateTab(tab)
     },

@@ -69,7 +69,7 @@ const MobileScreenComponent = () => (
     </div>
 
     <div className={styles.blockWrapper}>
-      <Link className={styles.link} to="https://github.com/wdr-data/code4maus">
+      <a className={styles.link} href="https://github.com/wdr-data/code4maus">
         <img
           role="Deko-Block"
           alt="Programmieren mit der Maus"
@@ -78,14 +78,14 @@ const MobileScreenComponent = () => (
           draggable={false}
           src={block2}
         />
-      </Link>
+      </a>
 
       <div className={classNames(styles.innerWrapper, styles.secondWrapper)}>
         <p>
           Das Ganze beruht auf der grafischen Programmiersprache{' '}
-          <Link className={styles.link} to="https://scratch.mit.edu/">
+          <a className={styles.link} href="https://scratch.mit.edu/">
             Scratch
-          </Link>
+          </a>
           , die am MIT, in den USA, entwickelt und von Kindern der ganzen Welt
           genutzt wird. Genau wie Scratch, ist auch Programmieren mit der Maus{' '}
           <span className={styles.boldOrange}>Open Source</span> – also frei
