@@ -23,6 +23,8 @@ permissions:
 env:
   AWS_REGION: eu-central-1
   NODE_OPTIONS: --max-old-space-size=4096
+  # Nur relevant, wenn der Wartungsmodus in lib/config.ts aktiv ist
+  MAINTENANCE_TOKEN: ${{ secrets.MAINTENANCE_TOKEN }}
 
 jobs:
   # ---- Plan: synth + diff, ohne etwas zu verändern -------------------------
@@ -52,6 +54,7 @@ jobs:
         run: yarn build
         env:
           NODE_ENV: production
+          STAGE: ${{ inputs.stage }}
           BRANCH: ${{ github.ref_name }}
 
       - name: CDK-Dependencies installieren
@@ -121,6 +124,6 @@ jobs:
           name: cloud-assembly-${{ inputs.stage }}
           path: cdk/cdk.out
 
-      - name: CDK deploy (exakt das reviewte Assembly)
+      - name: CDK deploy (vorher gebautes Assembly)
         working-directory: cdk
         run: npx cdk deploy --app cdk.out "MausApp-${{ inputs.stage }}" --require-approval never

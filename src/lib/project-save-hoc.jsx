@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
@@ -225,14 +226,16 @@ const ProjectSaveHOC = (WrappedComponent) => {
     dispatch: PropTypes.func,
   }
 
-  return connect((state) => ({
+  const mapStateToProps = (state, ownProps) => ({
     isEduGame: state.scratchGui.eduLayer.enabled,
     projectId: state.scratchGui.project.id,
     projectName: state.scratchGui.project.name,
-    routeProject: (state.router.params || {}).projectId || null,
+    routeProject: ownProps.match.params.projectId || null,
     userId: state.scratchGui.project.userId,
     vm: state.scratchGui.vm,
-  }))(ProjectSaveComponent)
+  })
+
+  return withRouter(connect(mapStateToProps)(ProjectSaveComponent))
 }
 
 export default ProjectSaveHOC

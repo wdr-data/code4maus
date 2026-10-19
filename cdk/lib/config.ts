@@ -1,3 +1,5 @@
+import STAGE_DOMAINS from './stage-domains.json'
+
 export type StageName = 'prod' | 'staging' | 'dev'
 
 export interface StageConfig {
@@ -16,6 +18,12 @@ export interface StageConfig {
   hostedZoneId?: string
   /** Route53 hosted zone name (must end with a trailing dot). See hostedZoneId. */
   hostedZoneName?: string
+  /**
+   * Wartungsmodus: liefert statt der App eine Wartungsseite aus und sperrt
+   * /api und /data. Per Context übersteuerbar (`-c maintenance=true`), siehe
+   * bin/cdk.ts. Braucht zusätzlich einen `maintenanceToken` für den Bypass.
+   */
+  maintenance?: boolean
   /** AWS account id (for stack env binding). */
   account: string
   /** AWS region for the stack (everything except the cert lives here). */
@@ -44,28 +52,32 @@ const PLACEHOLDER_CERT_ARN =
 // (`aws route53 list-hosted-zones`).
 export const STAGES: Record<StageName, StageConfig> = {
   prod: {
-    domain: 'programmieren.wdrmaus.de',
-    certArn: PLACEHOLDER_CERT_ARN,
+    domain: STAGE_DOMAINS.prod,
+    certArn:
+      'arn:aws:acm:us-east-1:391322831368:certificate/22374de3-ab9f-451a-8328-9c514ab9746d',
     // hostedZoneId: 'TODO_PROD_HOSTED_ZONE_ID',
     // hostedZoneName: 'wdrmaus.de.',
+    maintenance: true,
     account: ACCOUNTS.prod,
     region: DEFAULT_REGION,
   },
   staging: {
-    domain: 'staging.maus.metahost.org',
+    domain: STAGE_DOMAINS.staging,
     certArn:
       'arn:aws:acm:us-east-1:391322831368:certificate/c7376bf1-8253-42e3-9385-da8bfaa1ae18',
     // hostedZoneId: 'TODO_STAGING_HOSTED_ZONE_ID',
     // hostedZoneName: 'code4maus.wt.wdr.cloud.',
+    maintenance: false,
     account: ACCOUNTS.staging,
     region: DEFAULT_REGION,
   },
   dev: {
-    domain: 'dev.maus.metahost.org',
+    domain: STAGE_DOMAINS.dev,
     certArn:
       'arn:aws:acm:us-east-1:391322831368:certificate/b2d1f159-5248-4f44-9bef-b94f9b69b260',
     // hostedZoneId: 'TODO_DEV_HOSTED_ZONE_ID',
     // hostedZoneName: 'maus.metahost.org.',
+    maintenance: false,
     account: ACCOUNTS.dev,
     region: DEFAULT_REGION,
   },

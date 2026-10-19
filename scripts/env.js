@@ -1,101 +1,20 @@
-/* eslint-disable no-console */
-const AWS = require('aws-sdk')
-const { timeout } = require('promise-timeout')
+const stageDomains = require('../cdk/lib/stage-domains.json')
 
-const getHostedZoneForDomain = (domain) => {
-  const route53 = new AWS.Route53({
-    region: 'eu-central-1',
-  })
-  const splittedDomain = domain.split('.')
-  let foundId = null
-  return timeout(route53.listHostedZones({}).promise(), 5000)
-    .then((data) => {
-      return splittedDomain.every((_part, i) => {
-        const domain = splittedDomain.slice(i).join('.') + '.'
-        const result = data.HostedZones.find((zone) => zone.Name === domain)
-        if (result === undefined) {
-          return true
-        }
-        foundId = result.Id
-        return false // break
-      })
-    })
-    .then((notFound) => (!notFound ? foundId : null))
-}
+// Deploy workflows set STAGE; local and preview builds fall back to dev.
+const stage = () => process.env.STAGE || 'dev'
 
-const getCertArnForDomain = (domain) => {
-  const acm = new AWS.ACM({
-    region: 'us-east-1',
-  })
-  const wildCardDomain = '*.' + domain.split('.').slice(1).join('.')
-  return timeout(acm.listCertificates({}).promise(), 5000)
-    .then((data) =>
-      data.CertificateSummaryList.find(
-        (cert) =>
-          cert.DomainName === domain || cert.DomainName === wildCardDomain
-      )
+const baseDomain = () => {
+  const domain = stageDomains[stage()]
+  if (!domain) {
+    throw new Error(
+      `Unknown stage: ${stage()}. Expected one of: ${Object.keys(
+        stageDomains
+      ).join(', ')}.`
     )
-    .then((cert) => cert && cert.CertificateArn)
-}
-
-const stageFromBranch = () => {
-  const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH
-  if (branch === 'production') {
-    return 'prod'
   }
-  if (branch === 'develop') {
-    return 'staging'
-  }
-  return false
-}
-
-const stage = () => process.env.SLS_STAGE || stageFromBranch() || 'dev'
-
-const baseDomain = () =>
-  stage() === 'prod'
-    ? 'programmieren.wdrmaus.de'
-    : `${stage()}.code4maus.wt.wdr.cloud`
-
-const bucketSuffix = () => (stage() === 'prod' ? 'prod' : 'staging')
-
-const hostedZone = () => {
-  const domain = baseDomain()
-  return getHostedZoneForDomain(domain)
-    .then((zone) => {
-      if (zone === null) {
-        return Promise.reject(
-          new Error(`Zone for domain "${domain}" not found.`)
-        )
-      }
-      return zone
-    })
-    .catch((error) => {
-      console.warn('WARNING: Request for HostedZone failed!', error.message)
-      return Promise.resolve('')
-    })
-}
-
-const certArn = () => {
-  const domain = baseDomain()
-  return getCertArnForDomain(domain)
-    .then((cert) => {
-      if (!cert) {
-        return Promise.reject(
-          new Error(`Cert for domain "${domain}" not found.`)
-        )
-      }
-      return cert
-    })
-    .catch((error) => {
-      console.warn('WARNING: Request for Certificate failed!', error.message)
-      return Promise.resolve('')
-    })
+  return domain
 }
 
 module.exports = {
   baseDomain,
-  bucketSuffix,
-  certArn,
-  hostedZone,
-  stage,
 }

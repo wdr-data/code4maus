@@ -20,8 +20,8 @@ module.exports = {
     [
       'formatjs',
       {
+        // No `ast: true`: react-intl 2 renders defaultMessage only as a string.
         idInterpolationPattern: '[sha512:contenthash:base64:6]',
-        ast: true,
       },
     ],
   ],

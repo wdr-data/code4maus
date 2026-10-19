@@ -7,8 +7,10 @@ Im Zuge der App-Erneuerung wurde das Deployment im Mai 2026 vom Serverless Frame
 | Stage | Domain | Projekt-Bucket |
 |-------|--------|----------------|
 | `dev` | `dev.maus.metahost.org` | `pmdm-projectbucket-dev-<account>` |
-| `staging` | `staging.code4maus.wt.wdr.cloud` | `pmdm-projectbucket-staging-<account>` |
+| `staging` | `staging.maus.metahost.org` | `pmdm-projectbucket-staging-<account>` |
 | `prod` | `programmieren.wdrmaus.de` | `pmdm-projectbucket-prod-<account>` |
+
+Die Domains stehen in `lib/stage-domains.json`. Der Frontend-Build liest sie ebenfalls, für die Seiten-URLs in den Meta-Tags; die Deploy-Workflows geben ihm dafür die Stage per `STAGE` mit.
 
 Die aktive Stage wird über die Umgebungsvariable `STAGE` oder den CDK-Kontext-Parameter `--context stage=<stage>` gesetzt. Ohne Angabe wird `dev` verwendet.
 
@@ -57,7 +59,7 @@ Die URL im Browser bleibt dabei unverändert. Die Liste der Dateien ist eine All
 
 Bewusst **kein** `errorResponses` an der Distribution: Das hätte für alle Behaviors gegolten und auch Fehler von `/api/*` und `/data/*` in „200 + `index.html`" verwandelt. Fehlende Assets und API-Fehler kommen so als echte Fehler beim Frontend an.
 
-Kommt eine weitere eigenständige Seite dazu, muss sie an drei Stellen eingetragen werden: `customHtmlPlugin` in `webpack.config.js`, die Function in `functions/entrypoint-rewrite.js` und die `navigateFallbackDenylist` des Service Workers.
+Kommt eine weitere eigenständige Seite dazu, muss sie an drei Stellen eingetragen werden: `customHtmlPlugin` in `webpack.config.js`, die Function in `functions/entrypoint-rewrite.js` und die `denylist` der `NavigationRoute` in `src/service-worker.js`.
 
 ### TLS-Zertifikate
 
@@ -77,6 +79,18 @@ DNS wird org-intern außerhalb von AWS verwaltet und nicht über Route53 abgebil
 Die CloudFront-Domain steht nach dem Deploy in den Stack-Outputs (`DistributionDomainName`).
 
 Die Route53-Logik ist im Stack noch enthalten, aber abgeschaltet (`createDnsRecord = false` in `bin/cdk.ts`). Zum Reaktivieren müssten zusätzlich `hostedZoneId` und `hostedZoneName` je Stage in `lib/config.ts` eingetragen werden.
+
+### Wartungsmodus
+
+Ist er aktiv, liefert CloudFront bei jedem Seitenaufruf die Wartungsseite aus, ohne dass die App geladen wird. `/api/*` und `/data/*` werden mit `503` und dem Header `x-maintenance: 1` gesperrt, es kann also währenddessen nichts gespeichert und nichts nachgeladen werden.
+
+Eingeschaltet wird er über `maintenance: true` bei der Stage in `lib/config.ts`, also per PR und regulärem Deploy. Dadurch führt jeder Deploy den aktuellen Stand mit und kann ihn nicht versehentlich abschalten. Für den Fall, dass nicht über CI deployt werden kann, geht es auch per Context: `-c maintenance=true`.
+
+Für den Zugriff trotz Wartungsmodus braucht es einen Token. In CI kommt er aus dem Secret `MAINTENANCE_TOKEN`, lokal aus `-c maintenanceToken=…`. Ohne Token bricht der Synth ab, damit man sich nicht selbst aussperrt. Einmal `https://<domain>/?bypass=<token>` aufrufen: Das setzt ein Cookie, das 24 Stunden gilt und auch die Sperre auf `/api` und `/data` aufhebt. Danach ist die Stage normal benutzbar.
+
+Die Wartungsseite entsteht bei `yarn build` als `build/maintenance.html` (Quelle und Bearbeitung: [maintenance/README.md](../maintenance/README.md)) und wird bei jedem Deploy ungecacht in den App-Bucket gelegt, auch ohne Wartungsmodus. Auf einer Stage lässt sie sich deshalb jederzeit unter `/maintenance.html` ansehen. Sie bettet alle Bilder und Schriften ein, die CloudFront Function schreibt im Wartungsmodus also ausnahmslos alle Anfragen auf sie um. Durch das Umschreiben kommt sie mit Status `200` statt `503`, deshalb steht `noindex` darin.
+
+Nicht abgedeckt: Wer die App geöffnet hat, behält die Oberfläche, weil der Service Worker sie aus dem Cache ausliefert. Speichern und Nachladen schlagen aber fehl, sobald die API oder `/data` gebraucht wird.
 
 ## Setup
 
@@ -105,6 +119,17 @@ npx cdk deploy --context stage=dev --profile pmdm-dev
 `stage` ist eines von `dev`, `staging`, `prod`, alternativ per Umgebungsvariable `STAGE`. `--profile` ist der Account-Name in der lokalen AWS-CLI-Config.
 
 Beim ersten Deploy einer neuen Stage: sicherstellen, dass Zertifikat-ARN in `lib/config.ts` eingetragen ist (kein Placeholder mehr).
+
+Der Projekt-Bucket einer neu aufgesetzten Stage ist leer. Die Maus-Assets (Kostüme, Hintergründe, Sounds) müssen einmalig hochgeladen werden, sonst fehlen sie in der App, das macht sich an Fragezeichen-Icons bemerkbar. Im Repo-Root:
+
+```bash
+yarn assets:download   # fehlende Dateien von der dev-Seite nach assets/runtime/, andere Quelle mit --source <url>
+yarn assets:check
+AWS_PROFILE=pmdm-dev yarn assets:upload --bucket pmdm-projectbucket-staging-391322831368 --dry-run
+AWS_PROFILE=pmdm-dev yarn assets:upload --bucket pmdm-projectbucket-staging-391322831368
+```
+
+`assets:upload` schreibt nur fehlende Dateien nach `data/assets/` und überschreibt oder löscht nichts. Neue Assets werden genauso veröffentlicht, siehe „Publish new project media“ in [`CONTRIBUTING.md`](../CONTRIBUTING.md#publish-new-project-media).
 
 ## CI/CD (GitHub Actions)
 

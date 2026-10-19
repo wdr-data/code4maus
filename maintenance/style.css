@@ -1,0 +1,121 @@
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/titillium-web-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/titillium-web-700.woff2') format('woff2');
+}
+
+:root {
+  --orange: #e85e38;
+  --wdr-blue: #00345f;
+  --text: #1a1a1a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+html {
+  background: #aed0e5 url('img/background.png') center / cover;
+  image-rendering: pixelated;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem;
+  font-family: 'Titillium Web', sans-serif;
+  color: var(--text);
+  image-rendering: auto;
+}
+
+.wdr-logo {
+  display: block;
+  height: 1.25rem;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0 3rem;
+}
+
+h1 {
+  margin: 0 0 2rem;
+}
+
+.logo {
+  display: block;
+  width: min(26rem, 80vw);
+  height: auto;
+}
+
+.card {
+  position: relative;
+  max-width: 34rem;
+  padding: 1.5rem 9rem 1.5rem 2rem;
+  background: white;
+  box-shadow: 0 0 0.8rem 1px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  color: var(--orange);
+}
+
+p {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+p:last-of-type {
+  margin-bottom: 0;
+}
+
+a {
+  font-weight: 700;
+  color: var(--wdr-blue);
+}
+
+.maus {
+  position: absolute;
+  right: -1.5rem;
+  bottom: -2rem;
+  width: 9.5rem;
+  height: auto;
+}
+
+footer {
+  text-align: center;
+}
+
+@media (max-width: 36rem) {
+  .card {
+    padding: 1.25rem 1.25rem 7.5rem;
+  }
+
+  .maus {
+    right: 0.5rem;
+    width: 6.5rem;
+  }
+}

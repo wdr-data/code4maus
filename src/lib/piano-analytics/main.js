@@ -1,44 +1,31 @@
-import { pianoAnalytics } from 'piano-analytics-js'
+import { editorTabNames } from '../../reducers/editor-tab'
 import {
   EVENTS,
   PROPERTIES,
   DEFAULT_PROPERTY_VALUES,
   menuTabTitles,
 } from './constants'
-import { editorTabNames } from '../../reducers/editor-tab'
 
-pianoAnalytics.setConfigurations({
-  site: 621455,
-  collectDomain: 'https://logs1414.xiti.com/',
-})
-
-export const paSetConfig = () => {
-  let configurations
-
-  if (process.env.BRANCH === 'production') {
-    configurations = {
-      site: 632700,
-      collectDomain: 'https://ama.wdr.de/',
-    }
-  } else {
-    configurations = {
-      site: 621455,
-      collectDomain: 'https://logs1414.xiti.com/',
-    }
-  }
-  pianoAnalytics.setConfigurations(configurations)
+const SITES = {
+  production: {
+    site: 632700,
+    collectDomain: 'https://lwqvhgk.pa-cd.com/',
+  },
+  test: {
+    site: 621455,
+    collectDomain: 'https://logs1414.xiti.com/',
+  },
 }
 
-export const guiTypePages = (gameId) => {
-  if (!gameId) {
-    return [menuTabTitles[1], 'New Project']
-  }
+// Compared against the DefinePlugin constant so webpack drops the library when tracking is off
+const pianoAnalytics =
+  process.env.TRACKING_MODE !== 'off'
+    ? require('piano-analytics-js').pianoAnalytics
+    : null
 
-  if (gameId.match(/beispiel(0|0\d{1})?$/gm)) {
-    return [menuTabTitles[2], `Beispiel ${gameId}`]
-  } else {
-    return [menuTabTitles[0], `Lernspiel ${gameId}`]
-  }
+export const paSetConfig = () => {
+  if (!pianoAnalytics) return
+  pianoAnalytics.setConfigurations(SITES[process.env.TRACKING_MODE])
 }
 
 const pageLevelKeys = [
@@ -48,6 +35,8 @@ const pageLevelKeys = [
 ]
 
 const sendEvent = (eventKey, data) => {
+  if (!pianoAnalytics) return
+
   let properties = { ...DEFAULT_PROPERTY_VALUES }
 
   switch (typeof data) {
@@ -97,14 +86,17 @@ export const paEvent = {
   clickExit: (params) => clickEvent(EVENTS.clickExit, params),
 }
 
+// eduId set: Lernspiel or Beispiel; otherwise a new or saved own project
 export const buildGuiPage = (eduId, isNewProject, activeTab) => {
-  let pages = []
-  if (isNewProject) {
+  let pages
+  if (eduId) {
+    pages = eduId.startsWith('beispiel')
+      ? [menuTabTitles[2], `Beispiel ${eduId}`]
+      : [menuTabTitles[0], `Lernspiel ${eduId}`]
+  } else if (isNewProject) {
     pages = [menuTabTitles[1], 'New Project']
-  } else if (eduId && eduId.match(/beispiel(0|0\d{1})?$/gm)) {
-    pages = [menuTabTitles[2], `Beispiel ${eduId}`]
-  } else if (eduId) {
-    pages = [menuTabTitles[0], `Lernspiel ${eduId}`]
+  } else {
+    pages = [menuTabTitles[1], 'Projekt']
   }
   return [...pages, editorTabNames[activeTab || 0]]
 }

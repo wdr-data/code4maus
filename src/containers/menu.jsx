@@ -7,6 +7,7 @@ import { MenuComponent } from '../components/menu/menu.jsx'
 import { MenuTabs } from '../lib/routing'
 import { games, examples, videos } from '../lib/edu'
 import { paEvent } from '../lib/piano-analytics/main.js'
+import { menuTabTitles } from '../lib/piano-analytics/constants.js'
 
 const tabIdToTab = {
   0: MenuTabs.edugames,
@@ -46,12 +47,24 @@ class Menu extends React.Component {
       projects: [],
       videos: videos.map(Menu.mapVideoData),
     }
-
-    paEvent.pageDisplay({ pages: ['Menu'], pageType: 'Hauptseite' })
   }
 
   componentDidMount() {
     this.loadUserProjects()
+    this.logPageDisplay()
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.tab !== this.props.tab) {
+      this.logPageDisplay()
+    }
+  }
+
+  logPageDisplay() {
+    paEvent.pageDisplay({
+      pages: ['Menu', menuTabTitles[Menu.getTabId(this.props.tab)]],
+      pageType: 'Hauptseite',
+    })
   }
 
   async loadUserProjects() {
