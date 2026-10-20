@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { defineMessages, injectIntl, intlShape } from 'react-intl'
+import { defineMessages, injectIntl } from 'react-intl'
 
 import Waveform from '../waveform/waveform.jsx'
 import Meter from '../meter/meter.jsx'
@@ -90,7 +90,7 @@ const PlaybackStep = (props) => (
 )
 PlaybackStep.propTypes = {
   encoding: PropTypes.bool.isRequired,
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
   levels: PropTypes.arrayOf(PropTypes.number).isRequired,
   onBack: PropTypes.func.isRequired,
   onPlay: PropTypes.func.isRequired,

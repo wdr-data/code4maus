@@ -12,7 +12,7 @@ import VM from 'scratch-vm'
 import QRCode from 'qrcode.react'
 import html2canvas from 'html2canvas'
 import JsPDF from 'jspdf'
-import ffmpegWorkerPath from 'file-loader!ffmpeg.js/ffmpeg-worker-mp4' // eslint-disable-line import/no-unresolved
+import ffmpegWorkerPath from 'ffmpeg.js/ffmpeg-worker-mp4'
 
 import InlineSvg from '../inline-svg/inline-svg.jsx'
 import Modal from '../modal/modal.jsx'
@@ -30,8 +30,8 @@ import { StageSizeRequester } from '../../lib/stage-size-provider.jsx'
 import buttonBorder from './button_preview.svg'
 import PrintLayout from './print.jsx'
 import styles from './sharing-toolbox.css'
-import printIcon from '!raw-loader!../../../assets/icons/icon_print.svg'
-import gifIcon from '!raw-loader!../../../assets/icons/icon_gif.svg'
+import PrintIcon from '../../../assets/icons/icon_print.svg?component'
+import GifIcon from '../../../assets/icons/icon_gif.svg?component'
 
 const useScreenshotState = (vm, onImageReady) => {
   const [image, setImage] = useState(null)
@@ -77,9 +77,10 @@ const usePrintScreenshot = (layoutRef, dispatch) => {
       w: 73,
       h: 73,
     })
-    const pdf = doc.output('blob')
     try {
-      await printPdf(pdf)
+      doc.output('blob')
+      doc.save('code4maus.pdf')
+
       dispatch({ type: actionPrintFinished })
     } catch (e) {
       dispatch({ type: actionError, payload: e.message })
@@ -120,19 +121,6 @@ const useSaveResult = (asset, dispatch) =>
       dispatch({ type: actionError, payload: e.message })
     }
   }, [dispatch, asset])
-
-const printPdf = async (buffer) => {
-  const url = 'http://localhost:8602'
-  const formData = new FormData()
-  formData.append('button', buffer)
-  const response = await fetch(url, {
-    method: 'POST',
-    body: formData,
-  })
-  if (!response.ok) {
-    throw new Error(await response.text())
-  }
-}
 
 const initialState = {
   mode: 'default',
@@ -203,9 +191,10 @@ const SharingModal = ({
     }
   }, [asset, isImage, isVideo, dispatch])
 
-  const assetURL = useMemo(() => (asset ? URL.createObjectURL(asset) : ''), [
-    asset,
-  ])
+  const assetURL = useMemo(
+    () => (asset ? URL.createObjectURL(asset) : ''),
+    [asset]
+  )
   useEffect(() => () => assetURL && URL.revokeObjectURL(assetURL), [assetURL])
 
   const typeIndicator = asset && asset.type.split('/')[0][0]
@@ -261,7 +250,7 @@ const SharingModal = ({
               className={styles.nameInput}
               placeholder="Dein Name oder Twitter Name"
               value={userHandle}
-              maxlength={20}
+              maxLength={20}
             />
             <Button disabled={pending} onClick={print}>
               <img
@@ -366,7 +355,9 @@ const convertVideo = (inBuf) =>
           console.log('stderr:', stderr) // eslint-disable-line no-console
           break
         case 'done':
-          res(msg.data.MEMFS[0].data)
+          if (msg.data.MEMFS.length > 0) {
+            res(msg.data.MEMFS[0]?.data)
+          } else res('')
           break
         case 'error':
           rej(msg.data)
@@ -432,6 +423,11 @@ const useRecording = (vm, onVideoProcessing, requestStageSize) => {
         }
         requestStageSize()
 
+        if (!blob) {
+          setIsVideoLoading(false)
+          return
+        }
+
         const inBuf = await new Promise((res) => {
           const reader = new FileReader()
           reader.addEventListener('load', ({ target }) => {
@@ -443,6 +439,7 @@ const useRecording = (vm, onVideoProcessing, requestStageSize) => {
         const outBlob = new Blob([videoData], { type: 'video/mp4' })
         setVideoData(outBlob)
         setIsVideoLoading(false)
+        dispatch({ type: 'stop' })
       }
     }
   }, [
@@ -496,17 +493,18 @@ const SharingToolboxComponent = ({ vm, requestStageSize }) => {
       <div className={styles.toolboxWrapper}>
         <div className={styles.toolboxBackground}>
           <div className={styles.recordingButtonWrapper}>
-            <InlineSvg
-              svg={gifIcon}
+            {/* Recording feature not working properly. We comment it out for now */}
+            {/* <InlineSvg
+              Svg={GifIcon}
               className={styles.sharingButton}
               onClick={toggleRecording}
             />
             {isRecording && (
               <div className={styles.counter}>{timeLeft.toFixed(1)}s</div>
-            )}
+            )} */}
           </div>
           <InlineSvg
-            svg={printIcon}
+            Svg={PrintIcon}
             className={styles.sharingButton}
             onClick={takeScreenshot}
           />

@@ -4,7 +4,6 @@ import ReactModal from 'react-modal'
 import {
   defineMessages,
   injectIntl,
-  intlShape,
   FormattedMessage,
 } from 'react-intl'
 import classNames from 'classnames'
@@ -131,7 +130,7 @@ ImportModal.propTypes = {
   errorMessage: PropTypes.string.isRequired,
   hasValidationError: PropTypes.bool.isRequired,
   inputValue: PropTypes.string.isRequired,
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
   onCancel: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onGoBack: PropTypes.func.isRequired,

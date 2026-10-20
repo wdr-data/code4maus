@@ -1,29 +1,47 @@
 require('dotenv').config()
 
+const fs = require('fs')
 const path = require('path')
 const webpack = require('webpack')
-const envsub = require('envsubstr')
 
 // Plugins
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const Visualizer = require('webpack-visualizer-plugin')
-const { GenerateSW } = require('workbox-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const { InjectManifest } = require('workbox-webpack-plugin')
 
 // Custom Plugins
 const customHtmlPlugin = require('./scripts/custom-html-plugin')
-const GenerateS3SWPrecachePlugin = require('./scripts/generate-s3-sw-precache-plugin')
+const { getAllAssets } = require('./scripts/lib/assets')
 
 const branch = process.env.BRANCH || process.env.TRAVIS_BRANCH
-const bucketSuffix = branch === 'production' ? 'prod' : 'staging'
-const bucketUrl = `https://${
-  process.env.S3_BUCKET_PREFIX
-}-${bucketSuffix}.s3.dualstack.${
-  process.env.FUNCTIONS_AWS_REGION || process.env.AWS_REGION
-}.amazonaws.com`
+
+// Selects the Piano Analytics site, or disables tracking entirely
+const trackingModes = ['off', 'test', 'production']
+const trackingMode = process.env.TRACKING_MODE || 'off'
+if (!trackingModes.includes(trackingMode)) {
+  throw new Error(`Invalid TRACKING_MODE: ${trackingMode}`)
+}
+
+// Dev server proxies /data and /api to a deployed stage (see .env.example).
+// API_PROXY_TARGET overrides /api to use the local backend.
+const proxyTarget = process.env.PROXY_TARGET
+const apiProxyTarget = process.env.API_PROXY_TARGET || proxyTarget
 
 const enableServiceWorker =
   'ENABLE_SERVICE_WORKER' in process.env ||
   process.env.NODE_ENV === 'production'
+
+// Precache project media loaded from /data/assets/ for offline mode.
+// Default project media is bundled and excluded.
+const precacheProjectMedia = async (entries) => {
+  const bundled = new Set(
+    fs.readdirSync(path.join(__dirname, 'assets/project-assets'))
+  )
+  const media = (await getAllAssets())
+    .filter((name) => !bundled.has(name))
+    .map((name) => ({ url: `/data/assets/${name}`, revision: null, size: 0 }))
+  return { manifest: entries.concat(media), warnings: [] }
+}
 
 // fix for Netlify, where we cannot define AWS_REGION in the environment
 if ('FUNCTIONS_AWS_REGION' in process.env) {
@@ -31,31 +49,37 @@ if ('FUNCTIONS_AWS_REGION' in process.env) {
 }
 
 const isEnvProduction = process.env.NODE_ENV === 'production'
+const dockerWatch = process.env.DOCKER_WATCH === '1'
 
 module.exports = {
   mode: isEnvProduction ? 'production' : 'development',
   devtool: 'source-map',
+  watchOptions: dockerWatch ? { aggregateTimeout: 300, poll: 1000 } : {},
   devServer: {
-    contentBase: path.resolve(__dirname, 'build'),
+    static: false,
     host: '0.0.0.0',
     port: process.env.PORT || 8601,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: apiProxyTarget,
+        changeOrigin: true,
+        secure: false,
       },
       '/data': {
-        target: bucketUrl,
+        target: proxyTarget,
         changeOrigin: true,
       },
     },
     historyApiFallback: true,
-    watchOptions:
-      process.env.DOCKER_WATCH === 1
-        ? {
-            aggregateTimeout: 300,
-            poll: 1000,
-          }
-        : {},
+    client: {
+      overlay: {
+        // Warnings (e.g. production bundle size hints) stay in the terminal.
+        warnings: false,
+        // Benign browser notice (triggered e.g. by react-tooltip), not an app error.
+        runtimeErrors: (error) =>
+          !/ResizeObserver loop/.test(error?.message ?? ''),
+      },
+    },
   },
   entry: {
     app: './src/entrypoints/index.jsx',
@@ -67,6 +91,7 @@ module.exports = {
     filename: '[name].[contenthash].js',
     publicPath: '/',
   },
+  target: 'web',
   module: {
     rules: [
       {
@@ -103,56 +128,92 @@ module.exports = {
       },
       {
         test: /\.(png|wav|gif|jpg|mp4)$/,
-        loader: 'file-loader',
-        options: {
-          name: (file) => {
-            const matches = file.match(/\/src\/lib\/edu\/([a-zA-Z0-9]+)\//)
+        type: 'asset/resource',
+        exclude: [path.resolve(__dirname, 'assets/project-assets')],
+        generator: {
+          filename: (pathData) => {
+            const matches = pathData.filename.match(
+              /\/src\/lib\/edu\/([a-zA-Z0-9]+)\//
+            )
             if (matches !== null) {
-              return `edu/${matches[1]}/[hash].[ext]`
+              return `static/assets/edu/${matches[1]}/[hash][ext]`
             }
-            return '[hash].[ext]'
+            return 'static/assets/[hash][ext]'
           },
-          outputPath: 'static/assets/',
         },
       },
       {
         test: /\.svg$/,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: /component/, // *.svg?component
         use: [
           {
-            loader: 'file-loader',
+            loader: '@svgr/webpack',
             options: {
-              outputPath: 'static/assets/',
+              outDir: 'static/assets',
+              icon: true,
+              dimensions: false,
             },
           },
-          'svgo-loader',
         ],
+      },
+      {
+        test: /\.svg$/,
+        type: 'asset/source',
+        include: [path.resolve(__dirname, 'assets/project-assets')],
+        resourceQuery: /raw/, // *.svg?raw
+        generator: {
+          filename: 'static/assets/[hash][ext]',
+        },
+      },
+      {
+        test: /\.svg$/i,
+        type: 'asset/resource',
+        resourceQuery: { not: [/component/, /raw/] },
+        generator: {
+          filename: 'static/assets/[hash][ext]',
+        },
       },
       {
         test: /\.md$/,
         use: ['babel-loader', 'react-markdown-loader'],
       },
       {
-        test: require.resolve('zepto'),
-        loader: 'imports-loader?this=>window',
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      },
+      {
+        // Prebuilt emscripten worker, shipped as-is and excluded from minification.
+        test: /ffmpeg\.js[\\/]ffmpeg-worker-mp4\.js$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/ffmpeg-worker-mp4.[contenthash][ext]',
+        },
       },
     ],
   },
   optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
+    runtimeChunk: 'single',
+    minimizer: [
+      new TerserPlugin({
+        exclude: /ffmpeg-worker-mp4/,
+      }),
+    ],
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-      'process.env.DEBUG': Boolean(process.env.DEBUG),
-      'process.env.ENABLE_TRACKING': Boolean(branch === 'production'),
+      'process.env.DEBUG': JSON.stringify(Boolean(process.env.DEBUG)),
       'process.env.BRANCH': JSON.stringify(branch),
+      'process.env.TRACKING_MODE': JSON.stringify(trackingMode),
     }),
     customHtmlPlugin({
       entrypoint: 'app',
       title: 'Programmieren mit der Maus',
     }),
+    // Eigenständige Seiten neben der Haupt-App. Neue Einträge auch in der
+    // CloudFront Function (cdk/functions/entrypoint-rewrite.js) und in der
+    // denylist der NavigationRoute in src/service-worker.js ergänzen.
     customHtmlPlugin({
       entrypoint: 'sharingpage',
       filename: 'teilen/index.html',
@@ -163,59 +224,65 @@ module.exports = {
       filename: 'settings/index.html',
       title: 'Einstellungen | Programmieren mit der Maus',
     }),
-    new CopyWebpackPlugin([
-      {
-        from: 'assets/img/favicon.png',
-        to: '',
-      },
-      {
-        from: 'node_modules/scratch-blocks/media',
-        to: 'static/blocks-media',
-        ignore: ['icons/set-*', 'icons/wedo_*', 'extensions/*'],
-      },
-      {
-        from: 'assets/blocks-media',
-        to: 'static/blocks-media',
-      },
-      {
-        from: 'static',
-        to: 'static',
-      },
-    ]),
-    new CopyWebpackPlugin([
-      {
-        from: '_redirects',
-        transform: (content) => envsub(content.toString()),
-      },
-    ]),
-    new Visualizer({
-      filename: 'statistics.html',
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'assets/img/favicon.png',
+          to: '',
+        },
+        {
+          from: 'node_modules/scratch-blocks/media',
+          to: 'static/blocks-media',
+          globOptions: {
+            ignore: ['icons/set-*', 'icons/wedo_*', 'extensions/*'],
+          },
+        },
+        {
+          from: 'assets/blocks-media',
+          to: 'static/blocks-media',
+        },
+        {
+          from: 'static',
+          to: 'static',
+        },
+      ],
+    }),
+    new webpack.ProvidePlugin({
+      Buffer: ['buffer', 'Buffer'],
     }),
   ].concat(
     enableServiceWorker
       ? [
-          new GenerateSW({
-            importWorkboxFrom: 'local',
-            navigateFallback: '/index.html',
-            navigateFallbackBlacklist: [/^\/data\//],
+          new InjectManifest({
+            swSrc: './src/service-worker.js',
+            swDest: 'service-worker.js',
             exclude: [
               /\.map$/,
               /^manifest.*\.js$/,
-              /_redirects$/,
-              /data\/projects\/[^/]+\/index\.json$/,
               /\/1x1\.gif$/,
               /^static\/assets\/edu\/beispiel/,
+              // Shows shared media from /data/sharing/, useless offline
+              /^teilen\//,
             ],
-            clientsClaim: true,
-            skipWaiting: true,
-            importScripts: ['s3-manifest.[hash].js', '/static/sw-helper.js'],
-            cleanupOutdatedCaches: true,
-            excludeChunks: ['settings', 'sharingpage', 'mobile-screen'],
-          }),
-          new GenerateS3SWPrecachePlugin({
-            filename: 's3-manifest.[hash].js',
+            excludeChunks: ['sharingpage', 'mobile-screen'],
+            maximumFileSizeToCacheInBytes: 19 * 1024 * 1024,
+            manifestTransforms: [precacheProjectMedia],
           }),
         ]
       : []
   ),
+  resolve: {
+    fallback: {
+      path: false,
+      crypto: false,
+      stream: false,
+      buffer: false,
+      fs: false,
+      tls: false,
+      net: false,
+      zlib: false,
+      http: false,
+      https: false,
+    },
+  },
 }

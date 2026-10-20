@@ -7,10 +7,10 @@ import InlineSvg from '../inline-svg/inline-svg.jsx'
 import styles from './icon-text.css'
 
 const IconWithText = (props) => {
-  const { iconSrc, iconSvg, className, children, ...componentProps } = props
+  const { iconSrc, IconSvg, className, children, ...componentProps } = props
 
-  const icon = iconSvg ? (
-    <InlineSvg svg={iconSvg} className={styles.icon} />
+  const icon = IconSvg ? (
+    <InlineSvg Svg={IconSvg} className={styles.icon} />
   ) : (
     iconSrc && <img className={styles.icon} draggable={false} src={iconSrc} />
   )
@@ -25,7 +25,7 @@ const IconWithText = (props) => {
 IconWithText.propTypes = {
   className: PropTypes.string,
   iconSrc: PropTypes.string,
-  iconSvg: PropTypes.string,
+  IconSvg: PropTypes.func,
   children: PropTypes.node,
 }
 

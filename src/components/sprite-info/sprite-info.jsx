@@ -4,7 +4,6 @@ import React from 'react'
 import MediaQuery from 'react-responsive'
 import {
   injectIntl,
-  intlShape,
   defineMessages,
   FormattedMessage,
 } from 'react-intl'
@@ -215,7 +214,7 @@ class SpriteInfo extends React.Component {
 SpriteInfo.propTypes = {
   direction: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   disabled: PropTypes.bool,
-  intl: intlShape,
+  intl: PropTypes.object,
   name: PropTypes.string,
   onChangeDirection: PropTypes.func,
   onChangeName: PropTypes.func,

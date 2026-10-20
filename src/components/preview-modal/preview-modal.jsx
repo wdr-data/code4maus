@@ -4,7 +4,6 @@ import ReactModal from 'react-modal'
 import {
   defineMessages,
   injectIntl,
-  intlShape,
   FormattedMessage,
 } from 'react-intl'
 
@@ -104,7 +103,7 @@ const PreviewModal = ({ intl, ...props }) => (
   </ReactModal>
 )
 PreviewModal.propTypes = {
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
   onCancel: PropTypes.func.isRequired,
   onTryIt: PropTypes.func.isRequired,
   onViewProject: PropTypes.func.isRequired,

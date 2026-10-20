@@ -4,7 +4,7 @@ import projectJson from './project.json'
 /* eslint-disable import/no-unresolved */
 import sound1 from '!arraybuffer-loader!../../../assets/project-assets/282fb24fedf9ed8f6b7dd08366a0f83c.mp3'
 import sound2 from '!arraybuffer-loader!../../../assets/project-assets/b38904cb3103c903cd6be4b569b8db5c.mp3'
-import costume1 from '!raw-loader!../../../assets/project-assets/c6824e69f8d1c3c8859666fcbe3e547c.svg'
+import costume1 from '../../../assets/project-assets/c6824e69f8d1c3c8859666fcbe3e547c.svg?raw'
 import backdrop1 from '!arraybuffer-loader!../../../assets/project-assets/3a343d19f40be5196f5b1cad1c7d1e39.jpg'
 import backdrop2 from '!arraybuffer-loader!../../../assets/project-assets/7a0b6208f0ac9b50189eaa3a2fa68590.jpg'
 import backdrop3 from '!arraybuffer-loader!../../../assets/project-assets/a35419bc3c9a8888430c157960ef28b4.jpg'

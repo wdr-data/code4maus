@@ -1,0 +1,5 @@
+{
+  "prod": "programmieren.wdrmaus.de",
+  "staging": "staging.maus.metahost.org",
+  "dev": "dev.maus.metahost.org"
+}

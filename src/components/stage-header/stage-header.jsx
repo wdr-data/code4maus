@@ -1,18 +1,17 @@
-import { injectIntl, intlShape } from 'react-intl'
+import { injectIntl } from 'react-intl'
 import PropTypes from 'prop-types'
 import React from 'react'
 import VM from 'scratch-vm'
-import { Link } from 'redux-little-router'
+import { Link } from 'react-router-dom'
 
 import Controls from '../../containers/controls.jsx'
 import Fullscreen from '../../containers/fullscreen.jsx'
 import MenuButton from '../menu-button/menu-button.jsx'
-import { guiTypePages, paEvent } from '../../lib/piano-analytics/main.js'
 
 import styles from './stage-header.css'
-import saveIcon from '!raw-loader!../../../assets/icons/header_save.svg'
-import menuIcon from '!raw-loader!../../../assets/icons/header_menu.svg'
-import mailIcon from '!raw-loader!../../../assets/icons/menu_impressum.svg'
+import SaveIcon from '../../../assets/icons/header_save.svg?component'
+import MenuIcon from '../../../assets/icons/header_menu.svg?component'
+import MailIcon from '../../../assets/icons/menu_impressum.svg?component'
 
 const StageHeaderComponent = function (props) {
   const { isFullScreen, onSaveProject, vm, logPageInfo } = props
@@ -37,14 +36,14 @@ const StageHeaderComponent = function (props) {
         ) : (
           <div className={styles.flexWrapper}>
             <div className={styles.copyrightWrapper}>
-              <Link href="/impressum/" className={styles.copyright}>
+              <Link to="/impressum/" className={styles.copyright}>
                 <span>&copy; WDR {new Date().getFullYear()}</span>
               </Link>
             </div>
             <div className={styles.menuWrapper} role="navigation">
               <MenuButton
                 orientation="vertical"
-                iconSvg={mailIcon}
+                IconSvg={MailIcon}
                 external
                 linkTo="mailto:maus@wdr.de"
               >
@@ -53,7 +52,7 @@ const StageHeaderComponent = function (props) {
               <MenuButton
                 orientation="vertical"
                 id="save"
-                iconSvg={saveIcon}
+                IconSvg={SaveIcon}
                 onClick={onSaveProject}
               >
                 Speichern
@@ -62,7 +61,7 @@ const StageHeaderComponent = function (props) {
                 orientation="vertical"
                 linkTo="/"
                 className={styles.headerIcon}
-                iconSvg={menuIcon}
+                IconSvg={MenuIcon}
               >
                 Übersicht
               </MenuButton>
@@ -75,7 +74,7 @@ const StageHeaderComponent = function (props) {
 }
 
 StageHeaderComponent.propTypes = {
-  intl: intlShape,
+  intl: PropTypes.object,
   isFullScreen: PropTypes.bool.isRequired,
   gameId: PropTypes.string,
   onSaveProject: PropTypes.func.isRequired,

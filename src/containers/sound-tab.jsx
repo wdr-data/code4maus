@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import bindAll from 'lodash.bindall'
-import { defineMessages, intlShape, injectIntl } from 'react-intl'
+import { defineMessages, injectIntl } from 'react-intl'
 import VM from 'scratch-vm'
 
 import { connect } from 'react-redux'
@@ -40,8 +40,8 @@ class SoundTab extends React.Component {
     this.state = { selectedSoundIndex: 0 }
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { editingTarget, sprites, stage } = nextProps
+  componentDidUpdate(prevProps) {
+    const { editingTarget, sprites, stage } = this.props
 
     const target =
       editingTarget && sprites[editingTarget] ? sprites[editingTarget] : stage
@@ -49,13 +49,13 @@ class SoundTab extends React.Component {
       return
     }
 
-    // If switching editing targets, reset the sound index
-    if (this.props.editingTarget !== editingTarget) {
-      this.setState({ selectedSoundIndex: 0 })
-    } else if (this.state.selectedSoundIndex > target.sounds.length - 1) {
-      this.setState({
-        selectedSoundIndex: Math.max(target.sounds.length - 1, 0),
-      })
+    const { selectedSoundIndex } = this.state
+    const nextIndex =
+      prevProps.editingTarget !== editingTarget
+        ? 0
+        : Math.min(selectedSoundIndex, Math.max(target.sounds.length - 1, 0))
+    if (nextIndex !== selectedSoundIndex) {
+      this.setState({ selectedSoundIndex: nextIndex })
     }
   }
 
@@ -206,7 +206,7 @@ class SoundTab extends React.Component {
 
 SoundTab.propTypes = {
   editingTarget: PropTypes.string,
-  intl: intlShape,
+  intl: PropTypes.object,
   onNewSoundFromLibraryClick: PropTypes.func.isRequired,
   onNewSoundFromRecordingClick: PropTypes.func.isRequired,
   onRequestCloseSoundLibrary: PropTypes.func.isRequired,

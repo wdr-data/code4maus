@@ -9,8 +9,8 @@ import InlineSVG from '../inline-svg/inline-svg.jsx'
 import itemStyles from '../sprite-selector-item/sprite-selector-item.css'
 import styles from './sprite-selector.css'
 
-import CostumeIcon from '!raw-loader!../../../assets/icons/target_costume.svg'
-import AddIcon from '!raw-loader!../../../assets/icons/target_add.svg'
+import CostumeIcon from '../../../assets/icons/target_costume.svg?component'
+import AddIcon from '../../../assets/icons/target_add.svg?component'
 
 const SpriteSelectorComponent = React.forwardRef((props, ref) => {
   const {
@@ -32,7 +32,7 @@ const SpriteSelectorComponent = React.forwardRef((props, ref) => {
 
   return (
     <>
-      <IconWithText className={styles.label} iconSvg={CostumeIcon}>
+      <IconWithText className={styles.label} IconSvg={CostumeIcon}>
         Figur
       </IconWithText>
       <div
@@ -73,7 +73,7 @@ const SpriteSelectorComponent = React.forwardRef((props, ref) => {
           )}
           onClick={onNewSpriteClick}
         >
-          <InlineSVG svg={AddIcon} />
+          <InlineSVG Svg={AddIcon} />
         </button>
       </div>
     </>

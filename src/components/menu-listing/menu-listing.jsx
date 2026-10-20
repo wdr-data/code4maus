@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'redux-little-router'
+import { Link } from 'react-router-dom'
 
 import VideoButtonModal from '../video-button-modal/video-button-modal.jsx'
 import defaultImage from '../../../assets/img/meine_sachen.png'
@@ -25,7 +25,7 @@ const MenuListingComponent = (props) => {
     .filter((p) => !p.hidden || showHidden)
     .map((project) => (
       <Link
-        href={project.linkTo}
+        to={project.linkTo}
         key={project.key}
         className={styles.projectWrapper}
       >
@@ -46,7 +46,7 @@ export const SHAPE_PROJECT = {
   key: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   note: PropTypes.string,
-  image: PropTypes.boolean,
+  image: PropTypes.string,
   video: PropTypes.string,
   linkTo: PropTypes.string,
 }

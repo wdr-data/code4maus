@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import classNames from 'classnames'
 import bindAll from 'lodash.bindall'
-import ReactTooltip from 'react-tooltip'
+import { Tooltip } from 'react-tooltip'
 
 import styles from './action-menu.css'
 
@@ -49,20 +49,20 @@ class ActionMenu extends React.Component {
               ) => {
                 const isComingSoon = !handleClick
                 const hasFileInput = fileInput
-                const tooltipId = title
                 return (
-                  <div key={`${tooltipId}-${keyId}`}>
+                  <div key={`${title}-${keyId}`}>
                     <button
                       aria-label={title}
                       className={classNames(styles.button, styles.moreButton)}
-                      data-for={tooltipId}
-                      data-tip={title}
+                      data-tooltip-id={`button-${keyId}`}
+                      data-tooltip-content={title}
                       onClick={handleClick}
                     >
                       <img
                         className={styles.moreIcon}
                         draggable={false}
                         src={img}
+                        id={`button-${keyId}`}
                       />
                       {hasFileInput ? (
                         <input
@@ -74,12 +74,11 @@ class ActionMenu extends React.Component {
                         />
                       ) : null}
                     </button>
-                    <ReactTooltip
+                    <Tooltip
                       className={classNames(styles.tooltip, {
                         [styles.comingSoonTooltip]: isComingSoon,
                       })}
-                      effect="solid"
-                      id={tooltipId}
+                      id={`button-${keyId}`}
                       place="right"
                     />
                   </div>

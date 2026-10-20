@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link } from 'redux-little-router'
+import { Link } from 'react-router-dom'
 
 import Button from '../button/button.jsx'
 import wdrLogo from '../../../assets/img/wdr_logo.svg'
@@ -11,17 +11,21 @@ import styles from './welcome-screen.css'
 import { paEvent } from '../../lib/piano-analytics/main.js'
 
 const WelcomeScreenComponent = () => {
-
   useEffect(() => {
     paEvent.pageDisplay({
       pages: ['Willkommensseite'],
-      pageType: 'Onboarding'
+      pageType: 'Onboarding',
     })
   }, [])
 
   return (
     <div className={styles.container}>
-      <img alt="WDR" className={styles.wdrLogo} draggable={false} src={wdrLogo} />
+      <img
+        alt="WDR"
+        className={styles.wdrLogo}
+        draggable={false}
+        src={wdrLogo}
+      />
 
       <div className={styles.wrapper}>
         <div className={styles.innerWrapper}>
@@ -35,14 +39,16 @@ const WelcomeScreenComponent = () => {
             der Maus zu programmieren. Viel Spaß!
           </p>
 
-          <Link href={eduUrl('00')} className={styles.section}>
+          <Link to={eduUrl('00')} className={styles.section}>
             <div className={styles.sectionText}>
               Spielst du zum ersten Mal?
               <div className={styles.sectionSmallText}>
                 Fang am besten mit unserem ersten Lernspiel an.
               </div>
               <Button style="primary">
-                <div style={{ whiteSpace: 'nowrap' }}>Lernen, wie es geht ‣</div>
+                <div style={{ whiteSpace: 'nowrap' }}>
+                  Lernen, wie es geht ‣
+                </div>
               </Button>
             </div>
 
@@ -53,7 +59,7 @@ const WelcomeScreenComponent = () => {
             />
           </Link>
 
-          <Link href="/" className={styles.section}>
+          <Link to="/" className={styles.section}>
             <div className={styles.sectionText}>
               Kennst du dich schon aus?
               <div className={styles.sectionSmallText}>

@@ -27,14 +27,6 @@ class Storage extends ScratchStorage {
       }
       return s3userFile(this.userId, `${project.assetId}.${project.dataFormat}`)
     })
-    this.addWebStore(
-      [
-        this.AssetType.ImageVector,
-        this.AssetType.ImageBitmap,
-        this.AssetType.Sound,
-      ],
-      (asset) => s3assets(`${asset.assetId}.${asset.dataFormat}`)
-    )
   }
 
   cacheDefaultProject() {
@@ -52,7 +44,7 @@ class Storage extends ScratchStorage {
 const storage = new Storage()
 
 class EduHelper {
-  async load(assetType, assetId, dataFormat) {
+  load(assetType, assetId, dataFormat) {
     if (assetType !== storage.AssetType.Project) {
       return null
     }
@@ -67,6 +59,10 @@ class EduHelper {
       throw new Error('No project file found!')
     }
 
+    return Promise.resolve(this.get(assetType, assetId, dataFormat, spec))
+  }
+
+  async get(assetType, assetId, dataFormat, spec) {
     const project = await spec.fetchProject()
     const asset = new storage.Asset(
       assetType,
@@ -78,7 +74,39 @@ class EduHelper {
   }
 }
 
+class S3Helper {
+  load(assetType, assetId, dataFormat) {
+    if (
+      assetType !== storage.AssetType.ImageVector &&
+      assetType !== storage.AssetType.ImageBitmap &&
+      assetType !== storage.AssetType.Sound
+    ) {
+      return null
+    }
+
+    return Promise.resolve(this.get(assetType, assetId, dataFormat))
+  }
+
+  async get(assetType, assetId, dataFormat) {
+    const url = s3assets(`${assetId}.${dataFormat}`)
+
+    console.info('Fetching from s3helper: assetId', assetId) // eslint-disable-line
+
+    const response = await fetch(url)
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ${url}`)
+    }
+
+    const data = await response.arrayBuffer()
+    const assetFormatData = new Uint8Array(data)
+    return new storage.Asset(assetType, assetId, dataFormat, assetFormatData)
+  }
+}
+
 const eduHelper = new EduHelper()
+const s3Helper = new S3Helper()
+
 storage.addHelper(eduHelper)
+storage.addHelper(s3Helper)
 
 export default storage

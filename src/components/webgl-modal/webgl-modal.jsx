@@ -4,7 +4,6 @@ import ReactModal from 'react-modal'
 import {
   defineMessages,
   injectIntl,
-  intlShape,
   FormattedMessage,
 } from 'react-intl'
 
@@ -22,7 +21,7 @@ const WebGlModal = ({ intl, ...props }) => (
   <ReactModal
     isOpen
     className={styles.modalContent}
-    contentLabel={intl.formatMessage({ ...messages.label })}
+    contentLabel={intl.formatMessage(messages.label)}
     overlayClassName={styles.modalOverlay}
     onRequestClose={props.onBack}
   >
@@ -33,7 +32,6 @@ const WebGlModal = ({ intl, ...props }) => (
         <FormattedMessage {...messages.label} />
       </h2>
       <p>
-        {/* eslint-disable max-len */}
         <FormattedMessage
           defaultMessage="Unfortunately it looks like your browser or computer {webGlLink}. This technology is needed for Scratch 3.0 to run."
           description="WebGL missing message"
@@ -89,7 +87,7 @@ const WebGlModal = ({ intl, ...props }) => (
   </ReactModal>
 )
 WebGlModal.propTypes = {
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
   onBack: PropTypes.func.isRequired,
 }
 

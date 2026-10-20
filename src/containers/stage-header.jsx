@@ -39,7 +39,7 @@ StageHeader.propTypes = {
 
 const mapStateToProps = (state) => ({
   isFullScreen: state.scratchGui.mode.isFullScreen,
-  gameId: state.scratchGui.eduLayer.gameId
+  gameId: state.scratchGui.eduLayer.gameId,
 })
 
 const mapDispatchToProps = (dispatch) => ({

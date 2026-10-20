@@ -3,26 +3,24 @@ import React from 'react'
 import { omit } from 'lodash'
 import PropTypes from 'prop-types'
 import { loadGame } from '../reducers/edu-layer'
-import { Views } from './routing'
+
+const isEduView = (a) => !!a && a.includes('/lernspiel/')
 
 const EduLoaderHOC = (WrappedComponent) => {
   class EduLoaderComponent extends React.Component {
     componentDidMount() {
-      if (
-        this.props.router.view === Views.edu &&
-        this.props.router.params.eduId
-      ) {
-        this.loadGame(this.props.router.params.eduId)
+      if (isEduView(this.props.match.path) && this.props.match.params.eduId) {
+        this.loadGame(this.props.match.params.eduId)
       }
     }
 
     componentDidUpdate(prevProps) {
       if (
-        this.props.router.view === Views.edu &&
-        this.props.router.params.eduId &&
-        prevProps.router.params.eduId !== this.props.router.params.eduId
+        isEduView(this.props.match.path) &&
+        this.props.match.params.eduId &&
+        prevProps.match.params.eduId !== this.props.match.params.eduId
       ) {
-        this.loadGame(this.props.router.params.eduId)
+        this.loadGame(this.props.match.params.eduId)
       }
     }
 
@@ -47,17 +45,17 @@ const EduLoaderHOC = (WrappedComponent) => {
   }
 
   EduLoaderComponent.propTypes = {
-    router: PropTypes.object,
+    match: PropTypes.object,
     dispatch: PropTypes.func,
   }
 
   return connect((state) => ({
     projectId: state.scratchGui.project.id,
     enabled: state.scratchGui.eduLayer.enabled,
-    router: {
-      view: state.router.result ? state.router.result.view : '',
-      params: state.router.params || {},
-    },
+    // router: {
+    //   view: state.router.result ? state.router.result.view : '',
+    //   params: state.router.params || {},
+    // },
   }))(EduLoaderComponent)
 }
 

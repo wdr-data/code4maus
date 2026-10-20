@@ -1,44 +1,63 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { block, unblock } from 'redux-little-router'
 import PropTypes from 'prop-types'
+import { history } from './app-state-hoc.jsx'
+
+const LEAVE_MESSAGE =
+  'Möchtest du die Seite wirklich verlassen? Dein Projekt geht ohne Speichern verloren!'
 
 const UnsavedProjectBlockerHOC = (WrappedComponent) => {
   class UnsavedProjectBlocker extends React.Component {
+    constructor(props) {
+      super(props)
+      this.unblockRouter = null
+    }
     stopBrowserNavigation(event) {
       event.preventDefault()
       event.returnValue = ''
     }
+    block() {
+      if (this.unblockRouter) {
+        return
+      }
+      window.addEventListener('beforeunload', this.stopBrowserNavigation)
+      // history v4 shows a string prompt via window.confirm
+      this.unblockRouter = history.block(LEAVE_MESSAGE)
+    }
+    unblock() {
+      window.removeEventListener('beforeunload', this.stopBrowserNavigation)
+      if (this.unblockRouter) {
+        this.unblockRouter()
+        this.unblockRouter = null
+      }
+    }
+    syncBlocker() {
+      if (process.env.NODE_ENV !== 'production' || typeof window !== 'object') {
+        return
+      }
+      if (this.props.isProjectUnsaved) {
+        this.block()
+      } else {
+        this.unblock()
+      }
+    }
+    componentDidMount() {
+      this.syncBlocker()
+    }
     componentDidUpdate(oldProps) {
       if (this.props.isProjectUnsaved !== oldProps.isProjectUnsaved) {
-        if (
-          process.env.NODE_ENV === 'production' &&
-          typeof window === 'object'
-        ) {
-          if (this.props.isProjectUnsaved) {
-            // Warn before navigating away
-            window.addEventListener('beforeunload', this.stopBrowserNavigation)
-            this.props.routerBlock()
-          } else {
-            window.removeEventListener(
-              'beforeunload',
-              this.stopBrowserNavigation
-            )
-            this.props.routerUnBlock()
-          }
-        }
+        this.syncBlocker()
       }
     }
     componentWillUnmount() {
-      window.removeEventListener('beforeunload', this.stopBrowserNavigation)
-      this.props.routerUnBlock()
+      if (typeof window === 'object') {
+        this.unblock()
+      }
     }
     render() {
       const {
         /* eslint-disable no-unused-vars */
         isProjectUnsaved,
-        routerBlock,
-        routerUnBlock,
         /* eslint-enable */
         ...props
       } = this.props
@@ -48,25 +67,11 @@ const UnsavedProjectBlockerHOC = (WrappedComponent) => {
 
   UnsavedProjectBlocker.propTypes = {
     isProjectUnsaved: PropTypes.bool,
-    routerBlock: PropTypes.func.isRequired,
-    routerUnBlock: PropTypes.func.isRequired,
   }
 
-  return connect(
-    (state) => ({
-      isProjectUnsaved: state.scratchGui.projectChanged,
-    }),
-    (dispatch) => ({
-      routerBlock: () =>
-        dispatch(
-          block(
-            () =>
-              'Möchtest du die Seite wirklich verlassen? Dein Projekt geht ohne Speichern verloren!'
-          )
-        ),
-      routerUnBlock: () => dispatch(unblock()),
-    })
-  )(UnsavedProjectBlocker)
+  return connect((state) => ({
+    isProjectUnsaved: state.scratchGui.projectChanged,
+  }))(UnsavedProjectBlocker)
 }
 
 export default UnsavedProjectBlockerHOC

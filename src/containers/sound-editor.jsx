@@ -47,12 +47,12 @@ class SoundEditor extends React.Component {
       this.props.sampleRate
     )
   }
-  componentWillReceiveProps(newProps) {
-    if (newProps.soundId !== this.props.soundId) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.soundId !== this.props.soundId) {
       // A different sound has been selected
       this.redoStack = []
       this.undoStack = []
-      this.resetState(newProps.samples, newProps.sampleRate)
+      this.resetState(this.props.samples, this.props.sampleRate)
     }
   }
   componentWillUnmount() {

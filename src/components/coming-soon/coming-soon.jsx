@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import {
   defineMessages,
   injectIntl,
-  intlShape,
   FormattedMessage,
 } from 'react-intl'
 import PropTypes from 'prop-types'
@@ -89,7 +88,7 @@ class ComingSoonContent extends React.Component {
 
 ComingSoonContent.propTypes = {
   className: PropTypes.string,
-  intl: intlShape,
+  intl: PropTypes.object,
   place: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
   tooltipId: PropTypes.string.isRequired,
 }

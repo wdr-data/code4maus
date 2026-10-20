@@ -1,7 +1,7 @@
 import bindAll from 'lodash.bindall'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { injectIntl, intlShape, defineMessages } from 'react-intl'
+import { injectIntl, defineMessages } from 'react-intl'
 import VM from 'scratch-vm'
 
 import spriteLibraryContent from '../lib/libraries/sprites.json'
@@ -95,7 +95,7 @@ class SpriteLibrary extends React.PureComponent {
 }
 
 SpriteLibrary.propTypes = {
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
   onRequestClose: PropTypes.func,
   vm: PropTypes.instanceOf(VM).isRequired,
 }

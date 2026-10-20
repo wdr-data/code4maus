@@ -9,16 +9,18 @@ const bucket = `${process.env.S3_BUCKET_PREFIX}-${bucketSuffix}`
 
 const backendWebpack = require('./webpack.backend.js')
 
+const entries = fs
+  .readdirSync(path.join(__dirname, 'src/backend'))
+  .filter((file) => !file.match(/^\./) && file.match(/\.js$/))
+  .reduce((entries, file) => {
+    const name = file.replace(/\.js$/, '')
+    entries[name] = `/src/backend/${file}`
+    return entries
+  }, {})
+
 module.exports = {
-  entry: () =>
-    fs
-      .readdirSync(path.join(__dirname, 'src/backend'))
-      .filter((file) => !file.match(/^\./) && file.match(/\.js$/))
-      .reduce((entries, file) => {
-        const name = file.replace(/\.js$/, '')
-        entries[name] = `./${name}`
-        return entries
-      }, {}),
+  mode: 'production',
+  entry: entries,
   module: backendWebpack.module,
   plugins: [
     new webpack.DefinePlugin({

@@ -6,8 +6,8 @@ import CostumeCanvas from '../costume-canvas/costume-canvas.jsx'
 import IconWithText from '../icon-text/icon-text.jsx'
 import InlineSVG from '../inline-svg/inline-svg.jsx'
 import styles from './stage-selector.css'
-import IconBg from '!raw-loader!../../../assets/icons/target_bg.svg'
-import IconNew from '!raw-loader!../../../assets/icons/target_exchange.svg'
+import IconBg from '../../../assets/icons/target_bg.svg?component'
+import IconNew from '../../../assets/icons/target_exchange.svg?component'
 
 const StageSelector = (props) => {
   const {
@@ -40,7 +40,7 @@ const StageSelector = (props) => {
       onMouseLeave={onMouseLeave}
       {...componentProps}
     >
-      <IconWithText className={styles.label} iconSvg={IconBg}>
+      <IconWithText className={styles.label} IconSvg={IconBg}>
         Hintergrund
       </IconWithText>
       {url ? (
@@ -53,7 +53,7 @@ const StageSelector = (props) => {
       ) : null}
       <InlineSVG
         className={styles.buttonNew}
-        svg={IconNew}
+        Svg={IconNew}
         onClick={onNewBackdropClick}
       />
     </div>

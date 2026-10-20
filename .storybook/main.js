@@ -21,4 +21,11 @@ module.exports = {
     // Return the altered config
     return config
   },
+  stories: [
+    {
+      directory: '../src',
+      files: ['**/*.stories.mdx', '**/*.stories.@(js|jsx|ts|tsx)'],
+    }
+  ],
+  framework: { name: "@storybook/react-webpack5" }
 }

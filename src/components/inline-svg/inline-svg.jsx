@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import styles from './inline-svg.css'
 
 const InlineSVG = (props) => {
-  const { svg, className, color, ...componentProps } = props
+  const { Svg, svg, className, color, ...componentProps } = props
 
   if (color !== '') {
     componentProps.style = {
@@ -13,17 +13,40 @@ const InlineSVG = (props) => {
     }
   }
 
-  return (
+  const svgUrl = (
     <span
       dangerouslySetInnerHTML={{ __html: svg }}
       className={classNames(styles.wrapper, className)}
       {...componentProps}
     />
   )
+
+  return Svg ? (
+    <span className={classNames(styles.wrapper, className)} {...componentProps}>
+      <Svg />
+    </span>
+  ) : (
+    svgUrl
+  )
 }
 
 InlineSVG.propTypes = {
-  svg: PropTypes.string.isRequired,
+  svg: (props, propName, componentName) => {
+    if (!props.Svg && !props[propName]) {
+      return new Error(
+        `One of props 'Svg' or 'svg' was not specified in '${componentName}'.`
+      )
+    }
+    return null
+  },
+  Svg: (props, propName, componentName) => {
+    if (!props.svg && !props[propName]) {
+      return new Error(
+        `One of props 'Svg' or 'svg' was not specified in '${componentName}'.`
+      )
+    }
+    return null
+  },
   className: PropTypes.string,
   color: PropTypes.string,
 }

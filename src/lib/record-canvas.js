@@ -20,9 +20,9 @@ export const useRecordCanvas = (canvas) => {
     return rec
   }, [canvas, onRecordingBlob])
 
-  const startRecording = useCallback(() => recorder && recorder.start(100), [
-    recorder,
-  ])
+  const startRecording = useCallback(() => {
+    recorder && recorder.state !== 'recording' && recorder.start(100)
+  }, [recorder])
   const stopRecording = useCallback(() => {
     if (!recorder || recorder.state !== 'recording') {
       return null

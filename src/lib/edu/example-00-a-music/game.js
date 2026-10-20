@@ -10,6 +10,6 @@ export default {
     {
       asset: title,
       caption: 'Die Band spielt einen Song',
-    }
+    },
   ],
 }

@@ -5,9 +5,9 @@ import Modal from '../modal/modal.jsx'
 import VideoPlayer from '../video-player/video-player.jsx'
 
 import defaultImage from '../../../assets/img/meine_sachen.png'
-import styles from './video-button-modal.css'
 import { paEvent } from '../../lib/piano-analytics/main.js'
 import { menuTabTitles } from '../../lib/piano-analytics/constants.js'
+import styles from './video-button-modal.css'
 
 const VideoButtonModal = ({ title, image, note, video }) => {
   const [showModal, setShowModal] = useState(false)
@@ -20,8 +20,8 @@ const VideoButtonModal = ({ title, image, note, video }) => {
     if (!showModal) return
 
     paEvent.pageDisplay({
-      pages: ["Menu", menuTabTitles[3], `Video ${note}`],
-      pageType: 'Video'
+      pages: ['Menu', menuTabTitles[3], `Video ${note}`],
+      pageType: 'Video',
     })
   }, [showModal])
 

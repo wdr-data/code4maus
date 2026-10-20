@@ -2,7 +2,7 @@ import bindAll from 'lodash.bindall'
 import PropTypes from 'prop-types'
 import React from 'react'
 import VM from 'scratch-vm'
-import { defineMessages, injectIntl, intlShape } from 'react-intl'
+import { defineMessages, injectIntl } from 'react-intl'
 
 import extensionLibraryContent from '../lib/libraries/extensions/index'
 
@@ -66,7 +66,7 @@ class ExtensionLibrary extends React.PureComponent {
 }
 
 ExtensionLibrary.propTypes = {
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
   onCategorySelected: PropTypes.func,
   onRequestClose: PropTypes.func,
   visible: PropTypes.bool,

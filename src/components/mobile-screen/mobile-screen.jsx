@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'redux-little-router'
+import { Link } from 'react-router-dom'
 import classNames from 'classnames'
 import codeGif from '../../../assets/img/code.gif'
 import block1 from '../../../assets/img/block1.png'
@@ -12,13 +12,13 @@ import screenshotEditor from '../../../assets/img/screenshot_editor.png'
 import InlineSVG from '../inline-svg/inline-svg.jsx'
 
 import styles from './mobile-screen.css'
-import wdrLogo from '!raw-loader!../../../assets/img/wdr_logo.svg'
-import mausQuestion from '!raw-loader!../../../assets/img/maus_question.svg'
+import WdrLogo from '../../../assets/img/wdr_logo.svg?component'
+import MausQuestion from '../../../assets/img/maus_question.svg?component'
 
 const MobileScreenComponent = () => (
   <div className={styles.pageWrapper}>
     <div className={styles.logoWrapper}>
-      <InlineSVG className={styles.logoWdr} svg={wdrLogo} />
+      <InlineSVG className={styles.logoWdr} Svg={WdrLogo} />
     </div>
     <img
       role="heading"
@@ -69,10 +69,7 @@ const MobileScreenComponent = () => (
     </div>
 
     <div className={styles.blockWrapper}>
-      <Link
-        className={styles.link}
-        href="https://github.com/wdr-data/code4maus"
-      >
+      <a className={styles.link} href="https://github.com/wdr-data/code4maus">
         <img
           role="Deko-Block"
           alt="Programmieren mit der Maus"
@@ -81,14 +78,14 @@ const MobileScreenComponent = () => (
           draggable={false}
           src={block2}
         />
-      </Link>
+      </a>
 
       <div className={classNames(styles.innerWrapper, styles.secondWrapper)}>
         <p>
           Das Ganze beruht auf der grafischen Programmiersprache{' '}
-          <Link className={styles.link} href="https://scratch.mit.edu/">
+          <a className={styles.link} href="https://scratch.mit.edu/">
             Scratch
-          </Link>
+          </a>
           , die am MIT, in den USA, entwickelt und von Kindern der ganzen Welt
           genutzt wird. Genau wie Scratch, ist auch Programmieren mit der Maus{' '}
           <span className={styles.boldOrange}>Open Source</span> – also frei
@@ -122,7 +119,7 @@ const MobileScreenComponent = () => (
       </p>
     </div>
     <div className={styles.blockWrapper}>
-      <Link className={styles.link} href="/lehrkraefte">
+      <Link className={styles.link} to="/lehrkraefte">
         <img
           role="Lerkräfte-Blog"
           alt="Link zur Lehrkräfte-Seite"
@@ -133,8 +130,8 @@ const MobileScreenComponent = () => (
         />
       </Link>
     </div>
-    <InlineSVG className={styles.mausQuestion} svg={mausQuestion} />
-    <Link className={styles.link} href="/inhalte/impressum">
+    <InlineSVG className={styles.mausQuestion} Svg={MausQuestion} />
+    <Link className={styles.link} to="/inhalte/impressum">
       Impressum
     </Link>
   </div>

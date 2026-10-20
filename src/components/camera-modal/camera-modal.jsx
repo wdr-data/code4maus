@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { defineMessages, injectIntl, intlShape } from 'react-intl'
+import { defineMessages, injectIntl } from 'react-intl'
 import Modal from '../modal/modal.jsx'
 import cameraIcon from '../action-menu/icon--camera.svg'
 import styles from './camera-modal.css'
@@ -134,7 +134,7 @@ CameraModal.propTypes = {
   access: PropTypes.bool,
   canvasRef: PropTypes.func.isRequired,
   capture: PropTypes.string,
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
   loaded: PropTypes.bool,
   onBack: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,

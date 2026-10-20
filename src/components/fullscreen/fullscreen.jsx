@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { defineMessages, injectIntl, intlShape } from 'react-intl'
+import { defineMessages, injectIntl } from 'react-intl'
 
 import Button from '../button/button.jsx'
 
@@ -79,7 +79,7 @@ FullscreenComponent.propTypes = {
   onKeyPress: PropTypes.func.isRequired,
   onSetStageFull: PropTypes.func.isRequired,
   onSetStageUnFull: PropTypes.func.isRequired,
-  intl: intlShape,
+  intl: PropTypes.object,
 }
 
 export default injectIntl(FullscreenComponent)

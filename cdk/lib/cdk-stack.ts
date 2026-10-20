@@ -1,0 +1,333 @@
+import * as fs from 'fs'
+import * as path from 'path'
+import * as cdk from 'aws-cdk-lib/core'
+import { Construct } from 'constructs'
+import * as lambda from 'aws-cdk-lib/aws-lambda'
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs'
+import * as s3 from 'aws-cdk-lib/aws-s3'
+import * as s3deploy from 'aws-cdk-lib/aws-s3-deployment'
+import * as apigw from 'aws-cdk-lib/aws-apigateway'
+import * as route53 from 'aws-cdk-lib/aws-route53'
+import * as targets from 'aws-cdk-lib/aws-route53-targets'
+import * as acm from 'aws-cdk-lib/aws-certificatemanager'
+import * as cloudfront from 'aws-cdk-lib/aws-cloudfront'
+import * as origins from 'aws-cdk-lib/aws-cloudfront-origins'
+import { Duration, RemovalPolicy, Stack, StackProps } from 'aws-cdk-lib'
+import { StageConfig, StageName } from './config'
+
+export interface MausAppStackProps extends StackProps {
+  stage: StageName
+  config: StageConfig
+  createDnsRecord: boolean
+  /** Wartungsseite statt App ausliefern, /api und /data sperren. */
+  maintenance: boolean
+  /** Token für den Bypass (`?bypass=<token>`), nur bei maintenance relevant. */
+  maintenanceToken: string
+}
+
+export class MausAppStack extends cdk.Stack {
+  constructor(scope: Construct, id: string, props: MausAppStackProps) {
+    super(scope, id, props)
+
+    const { stage, config, createDnsRecord, maintenance, maintenanceToken } =
+      props
+
+    // S3
+    const appBucket = new s3.Bucket(this, 'AppBucket', {
+      bucketName: `pmdm-appbucket-${stage}-${config.account}`,
+      encryption: s3.BucketEncryption.KMS,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      accessControl: s3.BucketAccessControl.PRIVATE,
+      removalPolicy: RemovalPolicy.RETAIN,
+      websiteIndexDocument: 'index.html',
+      websiteErrorDocument: 'index.html',
+    })
+
+    const projectBucketCorsRule: s3.CorsRule = {
+      allowedMethods: [s3.HttpMethods.PUT],
+      allowedOrigins: [
+        `https://${config.domain}`,
+        // local dev server uploads assets directly to the dev bucket
+        ...(stage === 'dev' ? ['http://localhost:8601'] : []),
+      ],
+      allowedHeaders: ['content-type'],
+      id: 'projectBucketCORSRule1',
+      maxAge: 1800,
+    }
+
+    const projectBucket = new s3.Bucket(this, 'ProjectBucket', {
+      bucketName: `pmdm-projectbucket-${stage}-${config.account}`,
+      encryption: s3.BucketEncryption.KMS,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      accessControl: s3.BucketAccessControl.PRIVATE,
+      removalPolicy: RemovalPolicy.RETAIN,
+      cors: [projectBucketCorsRule],
+    })
+
+    // Lambda
+    const REPO_ROOT = path.resolve(__dirname, '..', '..')
+    const FRONTEND_BUILD_DIR = path.join(REPO_ROOT, 'build')
+    const HANDLERS_DIR = path.join(REPO_ROOT, 'src', 'backend')
+    // generisches Konstrukt, aus dem alle Lambdas erweitert werden
+    const lambdaCommon = {
+      runtime: lambda.Runtime.NODEJS_24_X,
+      memorySize: 256,
+      timeout: Duration.seconds(15),
+      projectRoot: REPO_ROOT,
+      environment: {
+        S3_BUCKET_PROJECTS: projectBucket.bucketName,
+        ASSET_BASEURL: `https://${config.domain}`,
+        API_HOST: `https://${config.domain}`,
+        NODE_OPTIONS: '--enable-source-maps',
+      },
+      bundling: {
+        target: 'node24',
+        sourceMap: true,
+      },
+    }
+
+    const prepareAssetUploadFn = new NodejsFunction(
+      this,
+      'PrepareAssetUploadFn',
+      {
+        ...lambdaCommon,
+        entry: path.join(HANDLERS_DIR, 'prepareAssetUpload.js'),
+        handler: 'handler',
+      }
+    )
+
+    const saveProjectFn = new NodejsFunction(this, 'SaveProjectFn', {
+      ...lambdaCommon,
+      entry: path.join(HANDLERS_DIR, 'saveProject.js'),
+      handler: 'handler',
+    })
+
+    const prepareShareResultFn = new NodejsFunction(
+      this,
+      'PrepareShareResultFn',
+      {
+        ...lambdaCommon,
+        entry: path.join(HANDLERS_DIR, 'prepareShareResult.js'),
+        handler: 'handler',
+      }
+    )
+
+    projectBucket.grants.readWrite(prepareAssetUploadFn)
+    projectBucket.grants.readWrite(saveProjectFn)
+    projectBucket.grants.readWrite(prepareShareResultFn)
+
+    // API Gateway
+    const api = new apigw.RestApi(this, 'Api', {
+      restApiName: `mausapp-${stage}`,
+      deployOptions: { stageName: stage },
+      defaultCorsPreflightOptions: {
+        allowOrigins: [`https://${config.domain}`],
+        allowMethods: ['POST', 'OPTIONS'],
+      },
+    })
+
+    const apiRoot = api.root.addResource('api')
+    apiRoot
+      .addResource('prepareAssetUpload')
+      .addMethod('POST', new apigw.LambdaIntegration(prepareAssetUploadFn))
+    apiRoot
+      .addResource('saveProject')
+      .addMethod('POST', new apigw.LambdaIntegration(saveProjectFn))
+    apiRoot
+      .addResource('prepareShareResult')
+      .addMethod('POST', new apigw.LambdaIntegration(prepareShareResultFn))
+
+    // Cloudfront
+    const certificate = acm.Certificate.fromCertificateArn(
+      this,
+      'Cert',
+      config.certArn
+    )
+
+    const apiOrigin = new origins.RestApiOrigin(api)
+
+    // CloudFront Functions werden 1:1 hochgeladen, es gibt also keinen Build.
+    // Die Konfiguration kommt deshalb hier als Prelude davor; die Dateien
+    // deklarieren die Namen per `/* global */` und bleiben so lintbar.
+    const functionsDir = path.join(__dirname, '..', 'functions')
+    const readFunctionFile = (name: string) =>
+      fs.readFileSync(path.join(functionsDir, name), 'utf8')
+    const functionPrelude = [
+      `var MAINTENANCE = ${maintenance};`,
+      `var BYPASS_TOKEN = ${JSON.stringify(maintenanceToken)};`,
+    ].join('\n')
+
+    // Routet Seiten-Requests auf die passende index.html, bevor sie den
+    // App-Bucket erreichen: die Haupt-App sowie die eigenständigen Seiten
+    // /teilen und /settings. Dateien bleiben unangetastet. Im Wartungsmodus
+    // beantwortet sie stattdessen alles selbst. Details in
+    // functions/entrypoint-rewrite.js.
+    const entrypointRewrite = new cloudfront.Function(
+      this,
+      'EntrypointRewrite',
+      {
+        runtime: cloudfront.FunctionRuntime.JS_2_0,
+        comment: 'Routes page requests to the matching index.html',
+        code: cloudfront.FunctionCode.fromInline(
+          [functionPrelude, readFunctionFile('entrypoint-rewrite.js')].join(
+            '\n'
+          )
+        ),
+      }
+    )
+
+    // Sperrt /api und /data während der Wartung. Wird nur dann überhaupt
+    // angelegt und verknüpft, sonst würde sie im Normalbetrieb mitlaufen.
+    const maintenanceBlock = maintenance
+      ? new cloudfront.Function(this, 'MaintenanceBlock', {
+          runtime: cloudfront.FunctionRuntime.JS_2_0,
+          comment: 'Blocks /api and /data while maintenance mode is on',
+          code: cloudfront.FunctionCode.fromInline(
+            [functionPrelude, readFunctionFile('maintenance-block.js')].join(
+              '\n'
+            )
+          ),
+        })
+      : undefined
+
+    const maintenanceAssociations = maintenanceBlock
+      ? [
+          {
+            function: maintenanceBlock,
+            eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
+          },
+        ]
+      : undefined
+
+    const apiBehavior: cloudfront.BehaviorOptions = {
+      origin: apiOrigin,
+      functionAssociations: maintenanceAssociations,
+      viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+      allowedMethods: cloudfront.AllowedMethods.ALLOW_ALL,
+      cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
+      cachePolicy: cloudfront.CachePolicy.CACHING_DISABLED,
+      originRequestPolicy:
+        cloudfront.OriginRequestPolicy.ALL_VIEWER_EXCEPT_HOST_HEADER,
+      compress: true,
+    }
+
+    // Origin für ProjectBucket: Uploads und Assets
+    const projectsOrigin =
+      origins.S3BucketOrigin.withOriginAccessControl(projectBucket)
+    const dataBehavior: cloudfront.BehaviorOptions = {
+      origin: projectsOrigin,
+      functionAssociations: maintenanceAssociations,
+      viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+      allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD,
+      cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
+      cachePolicy: cloudfront.CachePolicy.CACHING_DISABLED, // vorsichtige Einstellung zu Beginn -> langfristig evtl cachen
+      compress: true,
+    }
+
+    // Origin für AppBucket: App-Code
+    const appOrigin = origins.S3BucketOrigin.withOriginAccessControl(appBucket)
+    const distribution = new cloudfront.Distribution(this, 'Distribution', {
+      comment: `Code4Maus ${stage}`,
+      domainNames: [config.domain],
+      certificate,
+      priceClass: cloudfront.PriceClass.PRICE_CLASS_100,
+      minimumProtocolVersion: cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
+      defaultRootObject: 'index.html',
+      defaultBehavior: {
+        origin: appOrigin,
+        viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+        allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD,
+        cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
+        cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
+        compress: true,
+        functionAssociations: [
+          {
+            function: entrypointRewrite,
+            eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
+          },
+        ],
+      },
+      additionalBehaviors: {
+        'data/*': dataBehavior,
+        'api/*': apiBehavior,
+      },
+    })
+
+    // Frontend in S3
+    // Deployment für alle statischen Assets mit Caching
+    const frontendStatic = new s3deploy.BucketDeployment(this, 'FrontendStatic', {
+      sources: [s3deploy.Source.asset(FRONTEND_BUILD_DIR)],
+      destinationBucket: appBucket,
+      prune: false,
+      exclude: [
+        'index.html',
+        '**/index.html',
+        'service-worker.js',
+        'maintenance.html',
+      ],
+      // Ohne mehr Speicher failt die Deployment-Lambda beim Entpacken des
+      // Frontends (rund 80 MB, über 400 Dateien), CloudFormation bekommt keine
+      // Antwort und läuft in einen Timeout. Nicht ohne Test wieder entfernen.
+      // Beide Deployments nutzen denselben Wert, damit sie sich eine Lambda
+      // (und damit eine Rolle) teilen.
+      memoryLimit: 512,
+    })
+
+    // Deployment für Assets, die nicht gecachet werden sollen
+    const frontendHtml = new s3deploy.BucketDeployment(this, 'FrontendHtml', {
+      sources: [s3deploy.Source.asset(FRONTEND_BUILD_DIR)],
+      destinationBucket: appBucket,
+      distribution,
+      distributionPaths: ['/*'],
+      prune: false,
+      include: [
+        'index.html',
+        '**/index.html',
+        'service-worker.js',
+        'maintenance.html',
+      ],
+      exclude: ['*'],
+      cacheControl: [
+        s3deploy.CacheControl.fromString(
+          'max-age=0,no-cache,no-store,must-revalidate'
+        ),
+      ],
+      // Gleicher Wert wie bei FrontendStatic, siehe Kommentar dort.
+      memoryLimit: 512,
+    })
+
+    frontendHtml.node.addDependency(frontendStatic)
+
+    // Wird für den manuell gepflegten DNS-Record gebraucht: Die Stage-Domain
+    // zeigt per CNAME hierauf. Siehe DEPLOYMENT.md, Abschnitt DNS.
+    new cdk.CfnOutput(this, 'DistributionDomainName', {
+      value: distribution.distributionDomainName,
+      description: 'CloudFront-Domain, auf die der DNS-CNAME zeigen muss',
+    })
+
+    new cdk.CfnOutput(this, 'DistributionId', {
+      value: distribution.distributionId,
+      description: 'Distribution-ID, z.B. für manuelle Invalidierungen',
+    })
+
+    // DNS (Route53) – derzeit abgeschaltet, DNS wird extern verwaltet
+    // (siehe createDnsRecord in bin/cdk.ts)
+    if (createDnsRecord) {
+      const { hostedZoneId, hostedZoneName } = config
+      if (!hostedZoneId || !hostedZoneName) {
+        throw new Error(
+          `createDnsRecord ist aktiv, aber hostedZoneId/hostedZoneName fehlen in der Config für Stage ${stage}`
+        )
+      }
+      const zone = route53.HostedZone.fromHostedZoneAttributes(this, 'Zone', {
+        hostedZoneId,
+        zoneName: hostedZoneName,
+      })
+      new route53.ARecord(this, 'DnsRecord', {
+        zone,
+        recordName: config.domain,
+        target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
+      })
+    }
+  }
+}

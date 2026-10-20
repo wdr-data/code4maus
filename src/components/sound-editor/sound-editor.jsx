@@ -5,7 +5,6 @@ import {
   defineMessages,
   FormattedMessage,
   injectIntl,
-  intlShape,
 } from 'react-intl'
 
 import Waveform from '../waveform/waveform.jsx'
@@ -233,7 +232,7 @@ SoundEditor.propTypes = {
   canRedo: PropTypes.bool.isRequired,
   canUndo: PropTypes.bool.isRequired,
   chunkLevels: PropTypes.arrayOf(PropTypes.number).isRequired,
-  intl: intlShape,
+  intl: PropTypes.object,
   name: PropTypes.string.isRequired,
   onActivateTrim: PropTypes.func,
   onChangeName: PropTypes.func.isRequired,

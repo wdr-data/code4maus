@@ -4,7 +4,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import tabStyles from 'react-tabs/style/react-tabs.css'
 import { FormattedMessage } from 'react-intl'
 import PropTypes from 'prop-types'
-import { Link } from 'redux-little-router'
+import { Link } from 'react-router-dom'
 
 import InlineSVG from '../inline-svg/inline-svg.jsx'
 import MenuButton from '../menu-button/menu-button.jsx'
@@ -14,19 +14,19 @@ import wdrLogo from '../../../assets/img/wdr_logo.svg'
 import headLogo from '../../../assets/img/head_logo.png'
 
 import { useFeatureFlag, FEATURE_OFFLINE } from '../../lib/feature-flags.js'
-import styles from './menu.css'
-import buttonNew from '!raw-loader!../../../assets/icons/menu_plus.svg'
-import tabIconEdugames from '!raw-loader!../../../assets/icons/menu_edugames.svg'
-import tabIconProjects from '!raw-loader!../../../assets/icons/menu_projects.svg'
-import tabIconExamples from '!raw-loader!../../../assets/icons/menu_examples.svg'
-import tabIconVideos from '!raw-loader!../../../assets/icons/icon_film.svg'
-import buttonIconLehrerinnen from '!raw-loader!../../../assets/icons/menu_lehrer.svg'
-import buttonIconInfo from '!raw-loader!../../../assets/icons/menu_eltern-info.svg'
-import buttonIconMausseite from '!raw-loader!../../../assets/icons/menu_mausseite.svg'
-import buttonIconDatenschutz from '!raw-loader!../../../assets/icons/icon_hilfe.svg'
-import buttonIconImpressum from '!raw-loader!../../../assets/icons/menu_impressum.svg'
 import { paEvent } from '../../lib/piano-analytics/main.js'
 import { menuTabTitles } from '../../lib/piano-analytics/constants.js'
+import styles from './menu.css'
+import ButtonNew from '../../../assets/icons/menu_plus.svg?component'
+import TabIconEdugames from '../../../assets/icons/menu_edugames.svg?component'
+import TabIconProjects from '../../../assets/icons/menu_projects.svg?component'
+import TabIconExamples from '../../../assets/icons/menu_examples.svg?component'
+import TabIconVideos from '../../../assets/icons/icon_film.svg?component'
+import ButtonIconLehrerinnen from '../../../assets/icons/menu_lehrer.svg?component'
+import ButtonIconInfo from '../../../assets/icons/menu_eltern-info.svg?component'
+import ButtonIconMausseite from '../../../assets/icons/menu_mausseite.svg?component'
+import ButtonIconDatenschutz from '../../../assets/icons/icon_hilfe.svg?component'
+import ButtonIconImpressum from '../../../assets/icons/menu_impressum.svg?component'
 
 // TODO: Use when updating react-intl (must use static values for now)
 // const tabListData = {
@@ -56,7 +56,7 @@ export const MenuComponent = (props) => {
   //   return (
   //     <Tab className={tabClassNames.tab}>
   //       <div className={styles.tabContent}>
-  //         <InlineSVG svg={svg} className={styles.tabIcon} />
+  //         <InlineSVG Svg={svg} className={styles.tabIcon} />
   //         <FormattedMessage
   //           defaultMessage="{title}"
   //           values={{
@@ -89,7 +89,7 @@ export const MenuComponent = (props) => {
           />
         </div>
         <div className={styles.thirdColumn}>
-          <Link href="/impressum/" className={styles.copyright}>
+          <Link to="/impressum/" className={styles.copyright}>
             <span>&#9400; WDR {new Date().getFullYear()}</span>
           </Link>
           {useFeatureFlag(FEATURE_OFFLINE) && <OfflineSupport />}
@@ -102,15 +102,14 @@ export const MenuComponent = (props) => {
           selectedTabClassName={tabClassNames.tabSelected}
           selectedTabPanelClassName={tabClassNames.tabPanelSelected}
           selectedIndex={props.selectedTab}
-          onSelect={(index) => {
-            paEvent.pageDisplay({ pages: ["Menu", menuTabTitles[index]], pageType: "Hauptseite" })
-            return props.handleTabSelected(index)
-          }}
+          onSelect={(index) =>
+            index !== props.selectedTab && props.handleTabSelected(index)
+          }
         >
           <TabList className={tabClassNames.tabList}>
             <Tab className={tabClassNames.tab}>
               <div className={styles.tabContent}>
-                <InlineSVG svg={tabIconEdugames} className={styles.tabIcon} />
+                <InlineSVG Svg={TabIconEdugames} className={styles.tabIcon} />
                 <FormattedMessage
                   defaultMessage="Lernen"
                   id="gui.gui.eduGames"
@@ -119,7 +118,7 @@ export const MenuComponent = (props) => {
             </Tab>
             <Tab className={tabClassNames.tab}>
               <div className={styles.tabContent}>
-                <InlineSVG svg={tabIconProjects} className={styles.tabIcon} />
+                <InlineSVG Svg={TabIconProjects} className={styles.tabIcon} />
                 <FormattedMessage
                   defaultMessage="Meine Sachen"
                   id="gui.gui.games"
@@ -128,7 +127,7 @@ export const MenuComponent = (props) => {
             </Tab>
             <Tab className={tabClassNames.tab}>
               <div className={styles.tabContent}>
-                <InlineSVG svg={tabIconExamples} className={styles.tabIcon} />
+                <InlineSVG Svg={TabIconExamples} className={styles.tabIcon} />
                 <FormattedMessage
                   defaultMessage="Beispiele"
                   id="gui.gui.examples"
@@ -137,7 +136,7 @@ export const MenuComponent = (props) => {
             </Tab>
             <Tab className={tabClassNames.tab}>
               <div className={styles.tabContent}>
-                <InlineSVG svg={tabIconVideos} className={styles.tabIcon} />
+                <InlineSVG Svg={TabIconVideos} className={styles.tabIcon} />
                 <FormattedMessage defaultMessage="Videos" id="gui.gui.videos" />
               </div>
             </Tab>
@@ -149,8 +148,8 @@ export const MenuComponent = (props) => {
           </TabPanel>
           <TabPanel className={tabClassNames.tabPanel}>
             <div className={styles.sectionBody}>
-              <Link href="/projekt/neu" className={styles.newButton}>
-                <InlineSVG svg={buttonNew} className={styles.newButtonIcon} />
+              <Link to="/projekt/neu" className={styles.newButton}>
+                <InlineSVG Svg={ButtonNew} className={styles.newButtonIcon} />
                 Neu
               </Link>
               <MenuListing projects={props.projects} />
@@ -175,14 +174,14 @@ export const MenuComponent = (props) => {
         </Tabs>
       </div>
       <div className={styles.buttonRow}>
-        <MenuButton iconSvg={buttonIconLehrerinnen} linkTo="/lehrkraefte">
+        <MenuButton IconSvg={ButtonIconLehrerinnen} linkTo="/lehrkraefte">
           Lehrkräfte
         </MenuButton>
-        <MenuButton iconSvg={buttonIconInfo} linkTo="/eltern">
+        <MenuButton IconSvg={ButtonIconInfo} linkTo="/eltern">
           Eltern-Info
         </MenuButton>
         <MenuButton
-          iconSvg={buttonIconMausseite}
+          IconSvg={ButtonIconMausseite}
           external
           linkTo="https://www.wdrmaus.de/"
           onClick={() => {
@@ -191,16 +190,16 @@ export const MenuComponent = (props) => {
               pageType: 'Hauptseite',
               chapter1: 'Exit',
               chapter2: 'Zur Maus-Seite',
-              target: "https://www.wdrmaus.de/"
+              target: 'https://www.wdrmaus.de/',
             })
           }}
         >
           Zur Maus-Seite
         </MenuButton>
-        <MenuButton iconSvg={buttonIconDatenschutz} linkTo="/datenschutz">
+        <MenuButton IconSvg={ButtonIconDatenschutz} linkTo="/datenschutz">
           Datenschutz
         </MenuButton>
-        <MenuButton iconSvg={buttonIconImpressum} linkTo="/impressum">
+        <MenuButton IconSvg={ButtonIconImpressum} linkTo="/impressum">
           Impressum
         </MenuButton>
       </div>

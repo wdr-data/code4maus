@@ -4,7 +4,6 @@ import ReactModal from 'react-modal'
 import {
   defineMessages,
   injectIntl,
-  intlShape,
   FormattedMessage,
 } from 'react-intl'
 
@@ -22,7 +21,7 @@ const BrowserModal = ({ intl, ...props }) => (
   <ReactModal
     isOpen
     className={styles.modalContent}
-    contentLabel={intl.formatMessage({ ...messages.label })}
+    contentLabel={intl.formatMessage(messages.label)}
     overlayClassName={styles.modalOverlay}
     onRequestClose={props.onBack}
   >
@@ -76,7 +75,7 @@ const BrowserModal = ({ intl, ...props }) => (
   </ReactModal>
 )
 BrowserModal.propTypes = {
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
   onBack: PropTypes.func.isRequired,
 }
 

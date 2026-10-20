@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import bindAll from 'lodash.bindall'
-import { defineMessages, injectIntl, intlShape } from 'react-intl'
+import { defineMessages, injectIntl } from 'react-intl'
 import RecordingStepComponent from '../components/record-modal/recording-step.jsx'
 import AudioRecorder from '../lib/audio/audio-recorder.js'
 
@@ -87,7 +87,7 @@ class RecordingStep extends React.Component {
 }
 
 RecordingStep.propTypes = {
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
   onRecord: PropTypes.func.isRequired,
   onStopRecording: PropTypes.func.isRequired,
   recording: PropTypes.bool,

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { push } from 'redux-little-router'
+import { withRouter } from 'react-router-dom'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
@@ -8,6 +8,7 @@ import {
 } from 'scratch-vm/src/serialization/serialize-assets'
 import { setProjectName, setProjectId } from '../reducers/project'
 import { setProjectUnchanged } from '../reducers/project-changed'
+import { history } from './app-state-hoc.jsx'
 import { projectUrl } from './routing'
 
 const contentTypes = {
@@ -76,6 +77,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
         await this.saveMeta()
       } catch (e) {
         if (!this.requestCancelSave) {
+          console.warn("error in saving:", e)
           errPromise = this.setError('Das hat leider nicht geklappt')
         } else {
           errPromise = Promise.reject()
@@ -107,8 +109,10 @@ const ProjectSaveHOC = (WrappedComponent) => {
                 filename: asset.fileName,
               }),
             })
+            
             if (!res.ok && res.status !== 409) {
-              throw new Error(`uploading an asset failed: ${asset.filename}`)
+              console.warn("save assets error response", res)
+              throw new Error(`uploading an asset failed: ${asset.fileName}`)
             }
 
             const body = await res.json()
@@ -169,7 +173,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
       this.props.dispatch(setProjectName(this.state.nameInput))
       if (this.props.routeProject !== resObj.id) {
         this.props.dispatch(setProjectId(resObj.id))
-        this.props.dispatch(push(projectUrl(resObj.id)))
+        history.push(projectUrl(resObj.id))
       }
     }
     cancelSave() {
@@ -182,7 +186,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
     }
     setError(text) {
       this.setState({ error: text })
-      return Promise.reject(new Error(text))
+      return Promise.reject(new Error(text)).catch(() => {})
     }
     render() {
       /* eslint-disable no-unused-vars */
@@ -214,7 +218,7 @@ const ProjectSaveHOC = (WrappedComponent) => {
 
   ProjectSaveComponent.propTypes = {
     isEduGame: PropTypes.bool,
-    projectId: PropTypes.number,
+    projectId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     projectName: PropTypes.string,
     userId: PropTypes.string,
     routeProject: PropTypes.string,
@@ -222,14 +226,16 @@ const ProjectSaveHOC = (WrappedComponent) => {
     dispatch: PropTypes.func,
   }
 
-  return connect((state) => ({
+  const mapStateToProps = (state, ownProps) => ({
     isEduGame: state.scratchGui.eduLayer.enabled,
     projectId: state.scratchGui.project.id,
     projectName: state.scratchGui.project.name,
-    routeProject: (state.router.params || {}).projectId || null,
+    routeProject: ownProps.match.params.projectId || null,
     userId: state.scratchGui.project.userId,
     vm: state.scratchGui.vm,
-  }))(ProjectSaveComponent)
+  })
+
+  return withRouter(connect(mapStateToProps)(ProjectSaveComponent))
 }
 
 export default ProjectSaveHOC

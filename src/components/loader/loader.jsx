@@ -4,10 +4,10 @@ import InlineSVG from '../inline-svg/inline-svg.jsx'
 import LogoOverlay from '../logo-overlay/logo-overlay.jsx'
 
 import styles from './loader.css'
-import loader from '!raw-loader!../../../assets/img/loader.svg'
+import Loader from '../../../assets/img/loader.svg?component'
 
 export const Spinner = () => (
-  <InlineSVG className={styles.loader} svg={loader} />
+  <InlineSVG className={styles.loader} Svg={Loader} />
 )
 
 const LoaderComponent = () => (

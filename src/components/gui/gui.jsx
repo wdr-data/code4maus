@@ -1,10 +1,10 @@
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import { FormattedMessage, injectIntl } from 'react-intl'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import tabStyles from 'react-tabs/style/react-tabs.css'
-import { Fragment as RouterFragment, Link } from 'redux-little-router'
+import { Link } from 'react-router-dom'
 import VM from 'scratch-vm'
 import Renderer from 'scratch-render'
 
@@ -106,11 +106,15 @@ const GUIComponent = (props) => {
 
   const logClickEvent = (eventFn, eventName) => {
     paEvent.clickAction({
-      pages: buildGuiPage(props.eduId, props.isNewProject, props.activeTabIndex),
+      pages: buildGuiPage(
+        props.eduId,
+        props.isNewProject,
+        props.activeTabIndex
+      ),
       pageType: 'Spiele',
       chapter1: 'Speichern',
       chapter2: eventName,
-      target: eventName
+      target: eventName,
     })
     eventFn()
   }
@@ -138,7 +142,12 @@ const GUIComponent = (props) => {
               <p>{saveProjectError}</p>
               <Button
                 style="primary"
-                onClick={() => logClickEvent(() => onSaveProject().then(() => closeSaveModal()), 'Speichern')}
+                onClick={() =>
+                  logClickEvent(
+                    () => onSaveProject().then(() => closeSaveModal()),
+                    'Speichern'
+                  )
+                }
                 disabled={isSaving}
               >
                 Speichern
@@ -164,7 +173,9 @@ const GUIComponent = (props) => {
                 <Button
                   style="secondary"
                   className={styles.saveModalDownload}
-                  onClick={() => logClickEvent(downloadProject, 'Projekt herunterladen')}
+                  onClick={() =>
+                    logClickEvent(downloadProject, 'Projekt herunterladen')
+                  }
                 >
                   Projekt herunterladen
                 </Button>
@@ -172,14 +183,19 @@ const GUIComponent = (props) => {
             </ProjectSaver>
             <SBFileUploader onSuccess={closeSaveModal}>
               {(_, renderFileInput, handleClick) => (
-                <Button
-                  style="secondary"
-                  className={styles.saveModalDownload}
-                  onClick={() => logClickEvent(handleClick, 'Projekt hochladen')}
-                >
-                  Projekt hochladen
+                <>
+                  {/* outside the button, so the input's click doesn't bubble into onClick */}
                   {renderFileInput()}
-                </Button>
+                  <Button
+                    style="secondary"
+                    className={styles.saveModalDownload}
+                    onClick={() =>
+                      logClickEvent(handleClick, 'Projekt hochladen')
+                    }
+                  >
+                    Projekt hochladen
+                  </Button>
+                </>
               )}
             </SBFileUploader>
           </div>
@@ -200,13 +216,7 @@ const GUIComponent = (props) => {
             aria-label="Brotkrümel Navigation"
             role="navigation"
           >
-            <Link href="/">Übersicht</Link>
-            <RouterFragment forRoute="/lernspiel/">
-              <span>Lernspiel {eduId}</span>
-            </RouterFragment>
-            <RouterFragment forRoute="/projekt/">
-              <span>Projekt {projectName}</span>
-            </RouterFragment>
+            <Link to="/">Übersicht</Link>
           </span>
           <Tabs
             forceRenderTabPanel={true} // eslint-disable-line react/jsx-boolean-value
@@ -274,7 +284,14 @@ const GUIComponent = (props) => {
           />
         </div>
         <div className={classNames(styles.column, styles.columnButtons)}>
-          <StageHeader vm={vm} logPageInfo={buildGuiPage(props.eduId, props.isNewProject, props.activeTabIndex)} />
+          <StageHeader
+            vm={vm}
+            logPageInfo={buildGuiPage(
+              props.eduId,
+              props.isNewProject,
+              props.activeTabIndex
+            )}
+          />
         </div>
       </div>
 
@@ -334,7 +351,7 @@ const GUIComponent = (props) => {
                         stageSize={stageSize}
                         vm={vm}
                       />
-                      <EduStage />
+                      <EduStage {...props} />
                     </div>
                   )}
                 </StageSizeConsumer>
@@ -363,7 +380,7 @@ GUIComponent.propTypes = {
   enableCommunity: PropTypes.bool,
   importInfoVisible: PropTypes.bool,
   saveProjectVisible: PropTypes.bool,
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
   loading: PropTypes.bool,
   onActivateCostumesTab: PropTypes.func,
   onActivateSoundsTab: PropTypes.func,
@@ -386,6 +403,7 @@ GUIComponent.propTypes = {
   onProjectNameChange: PropTypes.func.isRequired,
   saveProjectError: PropTypes.string,
   eduId: PropTypes.string,
+  isNewProject: PropTypes.bool,
 }
 GUIComponent.defaultProps = {
   basePath: '/',
