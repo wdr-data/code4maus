@@ -16,4 +16,5 @@ jobs:
     with:
       stage: prod
       environment: prod
+      tracking_mode: production
     secrets: inherit
