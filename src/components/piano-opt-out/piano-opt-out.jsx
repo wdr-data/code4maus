@@ -1,11 +1,23 @@
 import React, { useState } from 'react'
 
-import { paIsOptedOut, paSetOptOut } from '../../lib/piano-analytics/main.js'
+import {
+  paIsOptedOut,
+  paSetOptOut,
+  paTrackingEnabled,
+} from '../../lib/piano-analytics/main.js'
 
 import styles from './piano-opt-out.css'
 
 const PianoOptOut = () => {
   const [optedOut, setOptedOut] = useState(paIsOptedOut)
+
+  if (!paTrackingEnabled) {
+    return (
+      <p className={styles.optOut}>
+        Die Datenerhebung durch Piano Analytics ist derzeit deaktiviert.
+      </p>
+    )
+  }
 
   const onChange = (e) => {
     paSetOptOut(e.target.checked)

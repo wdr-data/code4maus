@@ -23,6 +23,8 @@ const pianoAnalytics =
     ? require('piano-analytics-js').pianoAnalytics
     : null
 
+export const paTrackingEnabled = !!pianoAnalytics
+
 const OPTOUT_MODE = 'optout'
 const VISITOR_COOKIES = ['_pcid', '_pctx']
 
