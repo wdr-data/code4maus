@@ -16,6 +16,10 @@ on:
         description: Github-Environment (Approval-Gate + Secrets)
         required: true
         type: string
+      tracking_mode:
+        description: Piano-Analytics-Site (off | test | production)
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -56,6 +60,7 @@ jobs:
           NODE_ENV: production
           STAGE: ${{ inputs.stage }}
           BRANCH: ${{ github.ref_name }}
+          TRACKING_MODE: ${{ inputs.tracking_mode }}
 
       - name: CDK-Dependencies installieren
         run: npm ci

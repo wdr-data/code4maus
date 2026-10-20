@@ -55,7 +55,8 @@
 .wrapper p + p,
 .wrapper p + h3,
 .wrapper p + ul,
-.wrapper h3 + p {
+.wrapper h3 + p,
+.wrapper p + :global(.example) p {
   padding-top: 0;
 }
 

@@ -13,6 +13,10 @@ on:
         description: GitHub-Environment
         required: true
         type: string
+      tracking_mode:
+        description: Piano-Analytics-Site (off | test | production)
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -57,6 +61,7 @@ jobs:
         env:
           NODE_ENV: production
           STAGE: ${{ inputs.stage }}
+          TRACKING_MODE: ${{ inputs.tracking_mode }}
 
       # CDK-Projekt (npm). esbuild für das Lambda-Bundling wird aus dem
       # Repo-Root (yarn) aufgelöst und muss dort nicht erneut installiert werden

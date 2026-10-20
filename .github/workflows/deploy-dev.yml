@@ -16,4 +16,5 @@ jobs:
     with:
       stage: dev
       environment: dev
+      tracking_mode: test
     secrets: inherit
