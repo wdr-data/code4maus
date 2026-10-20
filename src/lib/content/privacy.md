@@ -39,10 +39,19 @@ Darüber hinaus werden bei diesem Verfahren sogenannte "permanente Cookies" eing
 
 ### Analyse zur Optimierung durch Piano Analytics
 
-Bei _Programmieren mit der Maus_ werden Nutzungsinformationen über das Messverfahren von Piano Analytics in anonymisierter Form gesammelt und gespeichert. Dazu ist ein JavaScript in die Anwendung eingebaut, um die Messung von Zugriffszahlen zu ermöglichen. Auch hier können in keinem Fall die gewonnenen Daten dazu verwendet werden, den Besucher dieser Webseite persönlich zu identifizieren. Die gesammelten Daten werden lediglich zur Verbesserung des Angebotes genutzt. Deshalb werden alle IP-Adressen nur in anonymisierter Form gespeichert. Eine andere Verwendung oder Weitergabe an Dritte erfolgt nicht. Sie können aber der vollkommen anonymen Analyse Ihres Surfverhaltens hier widersprechen.
+Bei den „Programmieren mit der Maus“ werden Nutzungsinformationen über die Messverfahren von Piano Analytics in anonymisierter Form gesammelt und gespeichert. Piano Analytics löst die Messung durch Webtrekk ab. Auch hier wird eine kleine Bilddatei bzw. ein JavaScript in abrufbare Internetseiten eingebaut, um die Messung von Zugriffszahlen zu ermöglichen. Zudem werden Audio- und Videonutzung innerhalb des Players auf den Webseiten erfasst. Auch hier können in keinem Fall die gewonnenen Daten dazu verwendet werden, den Besucher dieser Webseite persönlich zu identifizieren. Die gesammelten Daten werden lediglich zur Verbesserung des Angebotes genutzt. Deshalb werden alle IP-Adressen nur in anonymisierter Form gespeichert. Eine andere Verwendung oder Weitergabe an Dritte erfolgt nicht. Sie können aber der vollkommen anonymen Analyse Ihres Surfverhaltens hier widersprechen.
 
-Für einen Widerspruch müssen Sie die sogenannte „Opt-out“-Funktion aktivieren. Ihr Widerspruch wird in einem Cookie in diesem Browser gespeichert. Wenn Sie Ihre Cookies löschen oder einen anderen Browser nutzen, müssen Sie erneut widersprechen.
-
+Für einen Widerspruch müssen Sie die sogenannte „Opt-out“-Funktion aktivieren.
 ```render html
 <PianoOptOut />
 ```
+
+### Content Delivery Network
+
+Bei der Verbreitung unserer Onlineangebote – insbesondere großer Mediendateien – bedienen wir uns eines sogenannten Content Delivery Network (CDN). Unser CDN ist ein Netz regional verteilter und über das Internet verbundener Server unserer technischen Dienstleister (Auftragsverarbeiter). Bei Abruf des Onlineangebots übermittelt der Internet-Browser bzw. das Programm, mit dem das Angebot abgerufen wird, diesen Dienstleistern automatisiert Informationen, die in entsprechenden Protokolldateien, den sog. Server-Logfiles, erhoben und auf Servern innerhalb der Europäischen Union verarbeitet werden. Die Server-Logfiles werden auf diesen Servern anonymisiert und dann ohne Personenbezug in die USA übermittelt. Dort werden die Server-Logfiles 90 Tage gespeichert und dann automatisiert gelöscht.
+
+Bei den Server-Logfiles handelt es sich insbesondere um Details zum verwendeten Browser und Betriebssystem, ein Hinweis auf die Herkunft der zuvor besuchten Seiten (sog. Referral URL), die IP-Adresse des verwendeten Geräts, den Namen des Internet-Providers, sowie Datum, Uhrzeit aller Seiten-Aufrufe unter dem Angebot einschließlich der dabei übermittelten Datenmenge. Zusätzlich werden zur Optimierung der Videoqualität und Sicherstellung der Erreichbarkeit der Videos technische, nicht-personenbezogene Daten in Form von Video-Startzeit, technisch verursachte Unterbrechungen und Ladezeiten, empfangene Qualität und Netzwerkinformationen an Auswertungsservern erhoben.
+
+Bei der Nutzung von wdr.de werden in der Regel zusätzlich Messdaten über das Angebot erhoben, um Metriken wie Ladezeiten, Übertragungsgeschwindigkeit, Dateigrößen etc. zu ermitteln (Monitoring). Dadurch kann die Funktionalität des Angebots auf dem jeweiligen Endgerät geprüft und verbessert werden. Diese Daten werden durch den technischen Dienstleister auf Servern innerhalb der Europäischen Union verarbeitet und dann anonymisiert und ohne Personenbezug zur Auswertung in die USA übermittelt.
+
+Nach Ablauf der gesetzlichen Speicherfristen werden die anonymisierten Messdaten automatisiert gelöscht.
