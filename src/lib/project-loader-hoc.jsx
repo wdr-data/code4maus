@@ -21,6 +21,7 @@ const ProjectLoaderHOC = function (WrappedComponent) {
       this.state = {
         projectData: null,
         fetchingProject: true,
+        loadingError: null,
       }
       this.projectId = this.getProjectId(props)
     }
@@ -60,7 +61,7 @@ const ProjectLoaderHOC = function (WrappedComponent) {
             storage.DataFormat.JSON
           )
           if (!projectAsset) {
-            return
+            throw new Error(`Project ${id} not found`)
           }
 
           const decodedData =
@@ -77,11 +78,17 @@ const ProjectLoaderHOC = function (WrappedComponent) {
           if (data.custom) {
             this.props.setProjectName(data.custom.name)
           }
-        })().catch(log.error)
+        })().catch((e) => {
+          log.error(e)
+          this.setState({ loadingError: e })
+        })
       )
     }
 
     render() {
+      if (this.state.loadingError) {
+        throw new Error(`Failed to load project: ${this.state.loadingError}`)
+      }
       const {
         setProjectId, // eslint-disable-line no-unused-vars
         setProjectName, // eslint-disable-line no-unused-vars
