@@ -71,9 +71,11 @@ class Menu extends React.Component {
     let userProjects = []
 
     try {
-      userProjects = await (
-        await fetch(`/data/projects/${this.props.userId}/index.json`)
-      ).json()
+      const res = await fetch(`/data/projects/${this.props.userId}/index.json`)
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`)
+      }
+      userProjects = await res.json()
     } catch (e) {
       console.error('Error loading user projects', e)
     }

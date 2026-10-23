@@ -220,8 +220,17 @@ export class MausAppStack extends cdk.Stack {
       viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD,
       cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
-      cachePolicy: cloudfront.CachePolicy.CACHING_DISABLED, // vorsichtige Einstellung zu Beginn -> langfristig evtl cachen
+      // Projekte und index.json ändern sich beim Speichern, deshalb ungecacht.
+      cachePolicy: cloudfront.CachePolicy.CACHING_DISABLED,
       compress: true,
+    }
+
+    // Assets heißen nach ihrem md5, ändern sich also nie; geteilte Ergebnisse
+    // werden einmal geschrieben. Beides darf gecacht werden. Die Wartungssperre
+    // (functionAssociations) wird per Spread übernommen.
+    const immutableDataBehavior: cloudfront.BehaviorOptions = {
+      ...dataBehavior,
+      cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
     }
 
     // Origin für AppBucket: App-Code
@@ -247,7 +256,11 @@ export class MausAppStack extends cdk.Stack {
           },
         ],
       },
+      // Reihenfolge zählt: CloudFront nimmt das erste passende Muster,
+      // spezifische Pfade müssen deshalb vor data/* stehen.
       additionalBehaviors: {
+        'data/assets/*': immutableDataBehavior,
+        'data/sharing/*': immutableDataBehavior,
         'data/*': dataBehavior,
         'api/*': apiBehavior,
       },
