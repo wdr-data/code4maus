@@ -24,6 +24,8 @@ const ProjectLoaderHOC = function (WrappedComponent) {
         loadingError: null,
       }
       this.projectId = this.getProjectId(props)
+      // Incremented per load so results of superseded requests are ignored
+      this.loadGeneration = 0
     }
 
     getProjectId(props) {
@@ -50,7 +52,13 @@ const ProjectLoaderHOC = function (WrappedComponent) {
       }
     }
 
+    componentWillUnmount() {
+      this.loadGeneration++
+    }
+
     loadProject(id) {
+      const generation = ++this.loadGeneration
+      const isCurrent = () => generation === this.loadGeneration
       this.props.setProjectId(id)
 
       this.setState({ fetchingProject: true }, () =>
@@ -60,6 +68,7 @@ const ProjectLoaderHOC = function (WrappedComponent) {
             id,
             storage.DataFormat.JSON
           )
+          if (!isCurrent()) return
           if (!projectAsset) {
             throw new Error(`Project ${id} not found`)
           }
@@ -79,6 +88,7 @@ const ProjectLoaderHOC = function (WrappedComponent) {
             this.props.setProjectName(data.custom.name)
           }
         })().catch((e) => {
+          if (!isCurrent()) return
           log.error(e)
           this.setState({ loadingError: e })
         })
