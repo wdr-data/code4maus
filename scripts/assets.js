@@ -62,6 +62,7 @@ async function uploadAssets(s3, bucket, assets, options = {}) {
   assertComplete(assets, options)
   const missing = []
   const conflicts = []
+  const retyped = []
   // Inspect every referenced object before writing. Never prune this shared prefix:
   // saved user projects can reference assets that are absent from the source tree.
   await parallel(assets, async (name) => {
@@ -71,6 +72,8 @@ async function uploadAssets(s3, bucket, assets, options = {}) {
         .promise()
       if (!Buffer.from(object.Body).equals(readAsset(name, options))) {
         conflicts.push(name)
+      } else if (object.ContentType !== contentTypeOf(name)) {
+        retyped.push({ name, etag: object.ETag })
       }
     } catch (error) {
       if (error.code !== 'NoSuchKey') throw error
@@ -91,14 +94,35 @@ async function uploadAssets(s3, bucket, assets, options = {}) {
           Bucket: bucket,
           Key: `data/assets/${name}`,
           Body: readAsset(name, options),
-          ContentType: contentTypes[path.extname(name).slice(1)],
+          ContentType: contentTypeOf(name),
           // A concurrent upload must not be overwritten after the check above.
           IfNoneMatch: '*',
         })
         .promise()
     })
+    // Identical content with wrong metadata: fix it in place without re-uploading.
+    await parallel(retyped, async ({ name, etag }) => {
+      const key = `data/assets/${name}`
+      await s3
+        .copyObject({
+          Bucket: bucket,
+          Key: key,
+          CopySource: `${bucket}/${key}`,
+          CopySourceIfMatch: etag,
+          MetadataDirective: 'REPLACE',
+          ContentType: contentTypeOf(name),
+        })
+        .promise()
+    })
   }
-  return missing.sort()
+  return {
+    missing: missing.sort(),
+    retyped: retyped.map(({ name }) => name).sort(),
+  }
+}
+
+function contentTypeOf(name) {
+  return contentTypes[path.extname(name).slice(1)]
 }
 
 function checkAssets(assets, { prune = false, ...options } = {}) {
@@ -157,16 +181,20 @@ async function main() {
     process.env.AWS_SDK_LOAD_CONFIG = '1'
     const AWS = require('aws-sdk')
     const s3 = new AWS.S3({ region: process.env.AWS_REGION || 'eu-central-1' })
-    const missing = await uploadAssets(s3, values.bucket, assets, {
+    const { missing, retyped } = await uploadAssets(s3, values.bucket, assets, {
       dryRun: values['dry-run'],
     })
     console.log(
       `${values.bucket}: ${missing.length} assets ${
         values['dry-run'] ? 'to upload' : 'uploaded'
+      }, ${retyped.length} content types ${
+        values['dry-run'] ? 'to fix' : 'fixed'
       }, ${assets.length - missing.length} already present.`
     )
-    if (values['dry-run'])
-      missing.forEach((name) => console.log(`data/assets/${name}`))
+    if (values['dry-run']) {
+      missing.forEach((name) => console.log(`upload: data/assets/${name}`))
+      retyped.forEach((name) => console.log(`retype: data/assets/${name}`))
+    }
   }
   for (const { name, actual } of inspectAssets(assets).mismatched) {
     console.warn(

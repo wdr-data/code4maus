@@ -39,7 +39,15 @@ function storage(objects = {}) {
         promise: async () => {
           if (!(Key in objects))
             throw Object.assign(new Error('Missing'), { code: 'NoSuchKey' })
-          return { Body: objects[Key] }
+          const object = objects[Key]
+          return Buffer.isBuffer(object) ? { Body: object } : object
+        },
+      }
+    },
+    copyObject(params) {
+      return {
+        promise: async () => {
+          writes.push(params)
         },
       }
     },
@@ -160,14 +168,19 @@ test('publishing targets only referenced media, previews writes, and preserves e
     bundled.body
   )
   fs.writeFileSync(path.join(options.directory, 'unused.svg'), 'not published')
-  const s3 = storage({ [`data/assets/${existing.name}`]: existing.body })
+  const s3 = storage({
+    [`data/assets/${existing.name}`]: {
+      Body: existing.body,
+      ContentType: 'image/svg+xml',
+    },
+  })
   const names = [asset.name, existing.name, bundled.name]
   assert.deepEqual(
     await uploadAssets(s3, 'chosen-bucket', names, {
       ...options,
       dryRun: true,
     }),
-    [asset.name, bundled.name].sort()
+    { missing: [asset.name, bundled.name].sort(), retyped: [] }
   )
   assert.equal(s3.writes.length, 0)
   await uploadAssets(s3, 'chosen-bucket', names, options)
@@ -181,6 +194,43 @@ test('publishing targets only referenced media, previews writes, and preserves e
     assert.equal(write.ContentType, 'image/svg+xml')
     assert.equal(write.IfNoneMatch, '*')
   }
+})
+
+test('identical objects with a wrong content type are fixed in place', async (t) => {
+  const options = fixture(t)
+  const asset = media()
+  fs.writeFileSync(path.join(options.directory, asset.name), asset.body)
+  const key = `data/assets/${asset.name}`
+  const s3 = storage({
+    [key]: {
+      Body: asset.body,
+      ContentType: 'binary/octet-stream',
+      ETag: '"etag"',
+    },
+  })
+  const expected = { missing: [], retyped: [asset.name] }
+  assert.deepEqual(
+    await uploadAssets(s3, 'chosen-bucket', [asset.name], {
+      ...options,
+      dryRun: true,
+    }),
+    expected
+  )
+  assert.equal(s3.writes.length, 0)
+  assert.deepEqual(
+    await uploadAssets(s3, 'chosen-bucket', [asset.name], options),
+    expected
+  )
+  assert.deepEqual(s3.writes, [
+    {
+      Bucket: 'chosen-bucket',
+      Key: key,
+      CopySource: `chosen-bucket/${key}`,
+      CopySourceIfMatch: '"etag"',
+      MetadataDirective: 'REPLACE',
+      ContentType: 'image/svg+xml',
+    },
+  ])
 })
 
 test('remote conflicts and access errors stop publishing before any writes', async (t) => {

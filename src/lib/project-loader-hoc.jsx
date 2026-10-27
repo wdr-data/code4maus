@@ -21,8 +21,11 @@ const ProjectLoaderHOC = function (WrappedComponent) {
       this.state = {
         projectData: null,
         fetchingProject: true,
+        loadingError: null,
       }
       this.projectId = this.getProjectId(props)
+      // Incremented per load so results of superseded requests are ignored
+      this.loadGeneration = 0
     }
 
     getProjectId(props) {
@@ -49,7 +52,13 @@ const ProjectLoaderHOC = function (WrappedComponent) {
       }
     }
 
+    componentWillUnmount() {
+      this.loadGeneration++
+    }
+
     loadProject(id) {
+      const generation = ++this.loadGeneration
+      const isCurrent = () => generation === this.loadGeneration
       this.props.setProjectId(id)
 
       this.setState({ fetchingProject: true }, () =>
@@ -59,8 +68,9 @@ const ProjectLoaderHOC = function (WrappedComponent) {
             id,
             storage.DataFormat.JSON
           )
+          if (!isCurrent()) return
           if (!projectAsset) {
-            return
+            throw new Error(`Project ${id} not found`)
           }
 
           const decodedData =
@@ -77,11 +87,18 @@ const ProjectLoaderHOC = function (WrappedComponent) {
           if (data.custom) {
             this.props.setProjectName(data.custom.name)
           }
-        })().catch(log.error)
+        })().catch((e) => {
+          if (!isCurrent()) return
+          log.error(e)
+          this.setState({ loadingError: e })
+        })
       )
     }
 
     render() {
+      if (this.state.loadingError) {
+        throw new Error(`Failed to load project: ${this.state.loadingError}`)
+      }
       const {
         setProjectId, // eslint-disable-line no-unused-vars
         setProjectName, // eslint-disable-line no-unused-vars

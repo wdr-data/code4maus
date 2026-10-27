@@ -43,7 +43,8 @@ Einstiegspunkt für alle Anfragen, konfiguriert mit drei Origins:
 | Pfad | Origin | Caching |
 |------|--------|---------|
 | `/*` (Default) | AppBucket | optimiert (`index.html` kein Cache) |
-| `/data/*` | ProjectBucket | deaktiviert |
+| `/data/assets/*`, `/data/sharing/*` | ProjectBucket | optimiert (Inhalte ändern sich nicht) |
+| `/data/*` (Projekte) | ProjectBucket | deaktiviert |
 | `/api/*` | API Gateway | deaktiviert |
 
 Preisklasse 100 (Europa + USA). TLS-Mindestversion TLS 1.2.
