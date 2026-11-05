@@ -1,3 +1,7 @@
+p.opt-out {
+    padding-bottom: 0;
+}
+
 .opt-out label {
   display: inline-flex;
   align-items: center;
