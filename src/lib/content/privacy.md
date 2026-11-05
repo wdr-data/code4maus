@@ -4,54 +4,85 @@ imports:
   PianoOptOut: '../../components/piano-opt-out/piano-opt-out.jsx'
 ---
 
-## So gehen wir mit Ihren Daten um
+## So gehen wir mit deinen Daten um
 
-Der WDR nimmt den Schutz Ihrer Daten sehr ernst. Hier erfahren Sie, welche Daten wir erheben und wie wir sie verwenden. Rechtsgrundlage sind die EU Datenschutzgrundverordnung (DSGVO) und begleitende Landes- und Bundesgesetze zum Datenschutz.
+Der WDR nimmt den Schutz deiner Daten sehr ernst. Hier erfährst du, welche Daten wir sammeln und was wir damit machen. Du hast ein Recht darauf, das zu wissen, und du darfst auch nachfragen. Wenn du etwas nicht verstehst, kannst du eine erwachsene Person um Hilfe bitten, zum Beispiel deine Eltern oder deine Lehrerin oder deinen Lehrer.
 
-## Datenerhebung und Datenprotokollierung
+Für den Datenschutz gibt es Gesetze. Das wichtigste heißt Datenschutzgrundverordnung, kurz DSGVO. Sie gilt in ganz Europa. Dazu kommen weitere Gesetze aus Deutschland und aus den Bundesländern. An diese Regeln halten wir uns.
 
-_Programmieren mit der Maus_ ist technisch so organisiert, dass so wenige personenbezogene Daten wie möglich erhoben und gespeichert werden. Die Eingabe von personenbezogenen Daten ist für keinen Aspekt der Nutzung der Anwendung notwendig. Das Angebot ist frei von Werbung und kommerziellen Interessen.
+## Welche Daten sammeln wir?
 
-_Programmieren mit der Maus_ benötigt kein personenbezogenes Profil seiner Nutzer*innen. Nutzerdaten werden nicht bereits beim Aufruf von programmieren.wdrmaus.de verarbeitet, sondern erst, wenn die Nutzer*innen aktiv "Speichern" drücken. Dabei wird vom Gerät eine zufällige ID generiert, die im Browserspeicher abgelegt wird.
+_Programmieren mit der Maus_ ist so gebaut, dass wir so wenig persönliche Daten wie möglich sammeln und speichern. Persönliche Daten sind zum Beispiel dein Name, deine Adresse oder deine E-Mail-Adresse. Du musst nirgendwo etwas Persönliches eingeben, um _Programmieren mit der Maus_ zu benutzen. Außerdem gibt es hier keine Werbung, und wir wollen mit dieser Seite kein Geld verdienen.
 
-_**Tipp: Jede\*r Nutzer\*in kann seine ID im Browser unter 'Entwicklertools, Anwendungen, Local-Storage' selbst einsehen.**_
+_Programmieren mit der Maus_ braucht kein Profil über dich. Um deine programmierten Projekte für Dich speichern zu können, nutzen wir eine zufällige ID (eine lange Reihe von zahlen und Buchstaben), die im Browserspeicher abgelegt wird. Das ist ein kleiner Speicherplatz in deinem Browser, also in dem Programm, mit dem du im Internet unterwegs bist.
 
-Diese ID im Browserspeicher verknüpft das Gerät mit den auf dem Server gespeicherten Projekten beim Speichern und Laden. So können die Nutzer\*innen ihre Projekte abspeichern und später mit ihrem Gerät erneut abrufen.
+_**Tipp für Entdecker*innen: Du kannst deine ID selbst anschauen! Du findest sie in deinem Browser unter „Entwicklertools“, dann „Anwendungen“ und dann „Local-Storage“. Wenn du nicht weiter weißt, frag eine erwachsene Person, ob sie dir hilft.**_
 
-Anders als eine IP-Adresse ermöglicht diese ID keine Rückschlüsse auf persönliche Daten. Programmieren mit der Maus speichert keine IP-Adressen und keine anderen Nutzerparameter, die zur Identifizierung genutzt werden können.
+Die ID ist wie ein geheimer Schlüssel. Sie verbindet dein Gerät mit deinen Projekten, die auf unserem Server gespeichert sind. Ein Server ist ein Computer, der Daten speichert und sie anderen Geräten über das Internet zur Verfügung stellt. Wenn du speicherst oder lädst, passt der Schlüssel zu deinen Projekten. So kannst du deine Projekte speichern und später mit deinem Gerät wieder öffnen.
 
-Den Nutzer\*innen wird eine Option geboten, ihre gespeicherten Projekte herunterzuladen und so zu erfahren, welche Daten darin gespeichert sind. Außerdem wird angeboten, die gespeicherten Daten zu löschen. Wird die ID im Browserspeicher gelöscht, wird die Verbindung zu den Projekten gelöscht.
+Eine IP-Adresse ist so etwas wie die Hausnummer deines Geräts im Internet. Aus ihr kann man Dinge über eine Person herausfinden. Deine ID ist anders: Sie verrät nichts Persönliches über dich. Wenn du deine Projekte speicherst, speichern wir dafür keine IP-Adresse und keine anderen Angaben, mit denen man herausfinden könnte, wer du bist. Zu deinen Projekten gehört nur die zufällige ID. Beim Zählen der Besuche und beim Abruf der Videos (dazu mehr weiter unten) ist es anders: Dort spielt die IP-Adresse eine Rolle. Wie genau, erfährst du in den Abschnitten dazu.
 
-Der Inhalt der erstellten Projekte wird auf den Servern unseres Dienstleisters Amazon Web Services (AWS) gespeichert, der als sog. Data Processor auftritt. Das zugehörige Data Processing Addendum (DPA) ist hier zu finden: https://d1.awsstatic.com/legal/aws-gdpr/AWS_GDPR_DPA.pdf
+## Projekte herunterladen und Inhalte ansehen
 
-Es werden keine Daten an Dritte weitergegeben oder für andere Zwecke als die primären Funktionen der Anwendung verwendet. Eine Auswertung für interne Zwecke findet anonymisiert statt.
+Du kannst deine gespeicherten Projekte herunterladen. Klicke dafür auf „Speichern“ und dann auf „Projekt herunterladen“. Damit lädst du eine Datei mit der Endung .sb3 auf deinen Computer. Eine .sb3-Datei ist eigentlich ein gepacktes Paket (ein ZIP-Archiv mit den Kostümen, Hintergründen und Tönen und einer project.json Datei, die beschreibt, wie die Töne und Figuren verbunden sind und was sie machen sollen). Eine erwachsene Person kann dir helfen, es auszupacken und hineinzuschauen. So kannst du genau sehen, welche Daten darin gespeichert sind. Du kannst die gespeicherten Daten auch löschen lassen. Und wenn du die ID in deinem Browserspeicher löschst, ist die Verbindung zu deinen Projekten weg.
 
-Der WDR wird Ihre Daten nur an Dritte weitergeben:
+## Wo werden deine Projekte gespeichert?
 
-- wenn eine vollstreckbare behördliche oder gerichtliche Anordnung vorliegt
-- soweit dieses nötig ist, um eine missbräuchliche Verwendung unserer Angebote oder Services in gesetzlich zulässiger Weise zu unterbinden.
+Wenn Du auf "Speichern" klickst, werden deine Projekte auf den Servern der Firma Amazon Web Services (AWS) gespeichert. AWS ist ein Dienstleister, der für uns Speicherplatz zur Verfügung stellt. Er darf die Daten nur so verwenden, wie wir es ihm vorgeben. Fachleute nennen das „Data Processor“. Die genauen Regeln dafür stehen in einem Vertrag, dem „Data Processing Addendum“ (DPA). Du findest ihn hier: https://d1.awsstatic.com/legal/aws-gdpr/AWS_GDPR_DPA.pdf (Der Text ist auf Englisch und ziemlich schwer. Bitte eine erwachsene Person ihn mit Dir durchzugehen.)
 
-## Verwendung von Zählpixeln
+## Geben wir Daten weiter?
 
-Zu statistischen Zwecken werden sogenannte Zählpixel eingesetzt, die Daten in anonymisierter Form zu Optimierungs- und Studienzwecken sammeln und speichern. Aus diesen Daten werden nicht personenbezogene Auswertungen zur Nutzung unserer Internetangebote erstellt. Die Daten werden nicht dazu genutzt, den Besucher unserer Website persönlich zu identifizieren und sie werden nicht mit anderen Daten zusammengeführt. Diese Messung wurde unter Beachtung des Datenschutzes entwickelt. Ihre Identität bleibt immer geschützt. Sie erhalten über das System keine Werbung.
+Wir geben keine Daten an andere weiter. Wir benutzen sie auch für nichts anderes als dafür, dass _Programmieren mit der Maus_ funktioniert. Wir schauen uns die Daten manchmal an, um die Seite besser zu machen. Dabei sind die Daten anonym. Das heißt: Man kann nicht erkennen, von wem sie sind.
 
-Darüber hinaus werden bei diesem Verfahren sogenannte "permanente Cookies" eingesetzt. Diese Cookies werden in Form von Textdateien im Browser des Besuchers der Website gespeichert. Sie ermöglichen die Erkennung eines Nutzers bei einem wiederholten Besuch der Website.
+Der WDR gibt deine Daten nur in zwei Fällen an andere weiter:
 
-### Analyse zur Optimierung durch Piano Analytics
+- wenn eine Behörde oder ein Gericht uns das verbindlich anordnet und wir es tun müssen
+- wenn es nötig ist, um zu verhindern, dass jemand unser Angebot oder unsere Services missbraucht, also für etwas Falsches benutzt. Das machen wir nur auf eine Weise, die das Gesetz erlaubt.
 
-Bei den „Programmieren mit der Maus“ werden Nutzungsinformationen über die Messverfahren von Piano Analytics in anonymisierter Form gesammelt und gespeichert. Piano Analytics löst die Messung durch Webtrekk ab. Auch hier wird eine kleine Bilddatei bzw. ein JavaScript in abrufbare Internetseiten eingebaut, um die Messung von Zugriffszahlen zu ermöglichen. Zudem werden Audio- und Videonutzung innerhalb des Players auf den Webseiten erfasst. Auch hier können in keinem Fall die gewonnenen Daten dazu verwendet werden, den Besucher dieser Webseite persönlich zu identifizieren. Die gesammelten Daten werden lediglich zur Verbesserung des Angebotes genutzt. Deshalb werden alle IP-Adressen nur in anonymisierter Form gespeichert. Eine andere Verwendung oder Weitergabe an Dritte erfolgt nicht. Sie können aber der vollkommen anonymen Analyse Ihres Surfverhaltens hier widersprechen.
+## Zählpixel: Wie zählen wir die Besucher*innen?
 
-Für einen Widerspruch müssen Sie die sogenannte „Opt-out“-Funktion aktivieren.
+Wir möchten wissen, wie viele Menschen _Programmieren mit der Maus_ nutzen und wie die Seite genutzt wird. Dafür benutzen wir sogenannte Zählpixel. Das sind winzige, unsichtbare Bildpunkte, die mitzählen. Sie sammeln und speichern Daten in anonymisierter Form. Anonymisiert heißt: Es ist nicht zu erkennen, wer du bist. Wir nutzen die Daten, um die Seite zu verbessern und um Studien zu machen. Daraus entstehen Auswertungen, in denen keine Personen vorkommen.
+
+Wir benutzen die Daten nicht, um dich persönlich zu erkennen, und wir verbinden sie nicht mit anderen Daten. Diese Zählung wurde so entwickelt, dass der Datenschutz beachtet wird. Wer du bist, bleibt immer geheim. Du bekommst durch dieses System auch keine Werbung.
+
+Bei diesem Verfahren werden außerdem „permanente Cookies“ benutzt. Das sind keine Kekse zum Essen, sondern kleine Textdateien, die in deinem Browser gespeichert werden. „Permanent“ heißt: Sie bleiben dort lange gespeichert. Mit ihnen kann die Seite erkennen, dass du schon einmal da warst, wenn du wiederkommst.
+
+### Piano Analytics: Unser Zählsystem
+
+Bei _Programmieren mit der Maus_ sammeln und speichern wir mit dem Messverfahren Piano Analytics Informationen darüber, wie die Seite genutzt wird. Auch das passiert in anonymisierter Form. Dafür ist in die Anwendung ein JavaScript eingebaut. Das ist ein kleines Computerprogramm, das mitzählt, wie oft die Seite aufgerufen wird.
+
+Auch hier gilt: Mit diesen Daten kann man dich nie persönlich erkennen. Wir benutzen sie nur, um unser Angebot besser zu machen. Deshalb werden alle IP-Adressen nur in anonymisierter Form gespeichert. Wir benutzen die Daten für nichts anderes und geben sie nicht an andere weiter.
+
+### Du kannst Nein sagen: Widerspruch gegen die Zählung mit Piano Analytics
+
+Bei der Zählung hast du die Wahl, ob du mitmachen willst oder nicht. Das nennt man „widersprechen“. Dafür gibt es unten den „Opt-out“. Das englische Wort heißt so viel wie „Ich mache nicht mit“. Wenn du ihn aktivierst, wird dein Widerspruch in einem Cookie in diesem Browser gespeichert.
+
+Aber Achtung: Wenn du deine Cookies löschst oder einen anderen Browser benutzt, weiß die Seite nichts mehr von deinem Widerspruch. Dann musst du noch einmal widersprechen. Wenn du dir unsicher bist, frag eine erwachsene Person, ob sie dir hilft.
+
 ```render html
 <PianoOptOut />
 ```
 
-### Content Delivery Network
+Dieser Opt-out gilt nur für die Zählung mit Piano Analytics. Für die Daten, die beim Aufruf der Seite und der Videos bei unseren technischen Dienstleistern anfallen (siehe den nächsten Abschnitt „Videos: Wie kommen sie zu dir?“), gilt er nicht.
 
-Bei der Verbreitung unserer Onlineangebote – insbesondere großer Mediendateien – bedienen wir uns eines sogenannten Content Delivery Network (CDN). Unser CDN ist ein Netz regional verteilter und über das Internet verbundener Server unserer technischen Dienstleister (Auftragsverarbeiter). Bei Abruf des Onlineangebots übermittelt der Internet-Browser bzw. das Programm, mit dem das Angebot abgerufen wird, diesen Dienstleistern automatisiert Informationen, die in entsprechenden Protokolldateien, den sog. Server-Logfiles, erhoben und auf Servern innerhalb der Europäischen Union verarbeitet werden. Die Server-Logfiles werden auf diesen Servern anonymisiert und dann ohne Personenbezug in die USA übermittelt. Dort werden die Server-Logfiles 90 Tage gespeichert und dann automatisiert gelöscht.
+## Videos: Wie kommen sie zu dir?
 
-Bei den Server-Logfiles handelt es sich insbesondere um Details zum verwendeten Browser und Betriebssystem, ein Hinweis auf die Herkunft der zuvor besuchten Seiten (sog. Referral URL), die IP-Adresse des verwendeten Geräts, den Namen des Internet-Providers, sowie Datum, Uhrzeit aller Seiten-Aufrufe unter dem Angebot einschließlich der dabei übermittelten Datenmenge. Zusätzlich werden zur Optimierung der Videoqualität und Sicherstellung der Erreichbarkeit der Videos technische, nicht-personenbezogene Daten in Form von Video-Startzeit, technisch verursachte Unterbrechungen und Ladezeiten, empfangene Qualität und Netzwerkinformationen an Auswertungsservern erhoben.
+Wenn du dir unsere Erklärvideos und Tutorials anschaust, kommen die Videodateien nicht von nur einem einzigen Computer. Große Dateien wie Videos verteilen wir über ein sogenanntes Content Delivery Network, kurz CDN. Das ist ein Netz aus vielen Servern an verschiedenen Orten, die über das Internet miteinander verbunden sind. Diese Server gehören technischen Dienstleistern, die für uns arbeiten. Sie dürfen die Daten nur so verwenden, wie wir es vorgeben (Fachleute sagen „Auftragsverarbeiter“).
 
-Bei der Nutzung von wdr.de werden in der Regel zusätzlich Messdaten über das Angebot erhoben, um Metriken wie Ladezeiten, Übertragungsgeschwindigkeit, Dateigrößen etc. zu ermitteln (Monitoring). Dadurch kann die Funktionalität des Angebots auf dem jeweiligen Endgerät geprüft und verbessert werden. Diese Daten werden durch den technischen Dienstleister auf Servern innerhalb der Europäischen Union verarbeitet und dann anonymisiert und ohne Personenbezug zur Auswertung in die USA übermittelt.
+Wenn du unser Angebot aufrufst, schickt dein Browser (oder das Programm, mit dem du die Seite öffnest) automatisch Informationen an diese Dienstleister. Sie werden in Protokolldateien aufgeschrieben, den sogenannten Server-Logfiles. Du kannst dir das wie ein Besucherbuch des Servers vorstellen. Diese Protokolle werden auf Servern in der Europäischen Union verarbeitet.
 
-Nach Ablauf der gesetzlichen Speicherfristen werden die anonymisierten Messdaten automatisiert gelöscht.
+Im Besucherbuch stehen vor allem:
+
+- welchen Browser und welches Betriebssystem du benutzt
+- von welcher Seite du gekommen bist (die sogenannte Referral URL)
+- die IP-Adresse deines Geräts
+- der Name deines Internet-Anbieters (Provider)
+- Datum und Uhrzeit aller Seitenaufrufe und wie viele Daten dabei übertragen wurden
+
+Danach werden die Server-Logfiles auf diesen Servern anonymisiert. Das heißt: Sie werden so verändert, dass man nicht mehr erkennen kann, zu welcher Person sie gehören. Erst dann werden sie in die USA geschickt. Dort werden sie 90 Tage gespeichert und anschließend automatisch gelöscht.
+
+Damit die Videos gut laufen und immer erreichbar sind, werden außerdem technische Daten gesammelt, die nicht zu dir als Person gehören: wann ein Video gestartet wurde, ob es technisch bedingt Unterbrechungen gab, wie lange das Laden gedauert hat, in welcher Qualität das Video bei dir angekommen ist und Informationen über das Netzwerk. Diese Daten gehen an sogenannte Auswertungsserver.
+
+Außerdem werden in der Regel Messdaten über das Angebot erhoben, zum Beispiel wie lange etwas zum Laden braucht, wie schnell Daten übertragen werden und wie groß Dateien sind. Das nennt man „Monitoring“. So können wir prüfen und verbessern, ob alles auf deinem Gerät richtig funktioniert. Diese Daten verarbeitet unser technischer Dienstleister zuerst auf Servern in der Europäischen Union. Danach werden sie anonymisiert und ohne Personenbezug zur Auswertung in die USA übermittelt.
+
+Wenn die gesetzlichen Speicherfristen abgelaufen sind, werden die anonymisierten Messdaten automatisch gelöscht.
